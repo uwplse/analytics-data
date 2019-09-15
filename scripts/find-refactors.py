@@ -89,7 +89,7 @@ for i in range(len(group_ends) - 1):
             curr_index = curr_index + 1
 
     # Dump new version to file
-    with open(outdir + fname + "-" + str(j) + fext, 'w') as f:
+    with open(fdir + "/" fname + "-" + str(j) + fext, 'w') as f:
         for curr_index in range(len(new_cumulative)):
             if new_cumulative[curr_index] != "":
                 new = new_cumulative[curr_index]
@@ -98,5 +98,4 @@ for i in range(len(group_ends) - 1):
     # Now switch to use the new cumulative file
     old_cumulative = new_cumulative
 
-# TODO: automatically feed into git diff, now, or wrap in script that does that
 
