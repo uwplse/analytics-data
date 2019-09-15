@@ -266,5 +266,5 @@ clear H.
 exfalso.
 (rewrite evalIfFalse in H0).
 +
-contradiction  H0.
+contradiction  evalBoolInj.
 Unset Silent.
