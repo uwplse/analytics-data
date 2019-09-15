@@ -49,7 +49,6 @@ for i in range(group_starts[0]):
 
 # Dump initial version to file
 (fname, fext) = os.path.splitext(os.path.basename(fpath))
-fdir = os.path.dirname(outdir)
 with open(outdir + "/" + fname + "-" + str(0) + fext, 'w') as f:
      for curr_index in range(len(old_cumulative)):
         if old_cumulative[curr_index] != "":
@@ -89,7 +88,8 @@ for i in range(len(group_ends) - 1):
             curr_index = curr_index + 1
 
     # Dump new version to file
-    with open(fdir + "/" + fname + "-" + str(j) + fext, 'w') as f:
+    print(outdir)
+    with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:
         for curr_index in range(len(new_cumulative)):
             if new_cumulative[curr_index] != "":
                 new = new_cumulative[curr_index]
