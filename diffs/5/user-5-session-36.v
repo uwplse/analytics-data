@@ -275,5 +275,6 @@ clear H.
 (assert (x0 = 3%Z)).
 {
 (apply Z).
-(apply evalIntEq).
+(eapply evalIntEq).
+(rewrite evalTimes).
 Unset Silent.
