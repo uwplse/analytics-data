@@ -88,7 +88,6 @@ for i in range(len(group_ends) - 1):
             curr_index = curr_index + 1
 
     # Dump new version to file
-    print(outdir)
     with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:
         for curr_index in range(len(new_cumulative)):
             if new_cumulative[curr_index] != "":
