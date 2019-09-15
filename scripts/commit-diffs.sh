@@ -33,4 +33,3 @@ do
     git commit -m "user ${userid}, session ${sessionid}, part ${i}"
 done
 
-# Return to the original directory
