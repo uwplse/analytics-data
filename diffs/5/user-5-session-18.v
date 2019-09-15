@@ -38,6 +38,8 @@ Record EpsilonLogic :=
            forall env x P Q,
            eval env P = vTrue <-> eval env Q = vTrue ->
            eval env (Choose x P) = eval env (Choose x Q)}.
+Definition isTheorem (L : EpsilonLogic) (t : Term) :=
+  forall env, L.(eval) env t = L.(vTrue).
 Fixpoint simplify (t : Term) : Term :=
   match t with
   | Var x => Var x
