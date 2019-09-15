@@ -266,5 +266,5 @@ clear H.
 (destruct H).
 (erewrite evalBoolConst in H0).
 (rewrite <- evalEqTrue in H0).
-(rewrite evalVar in H).
+(rewrite <- evalVar in H).
 Unset Silent.
