@@ -11,7 +11,7 @@ from os.path import isfile, join
 from common import *
 from typing import List, TypeVar, Callable
 
-logdir = "../raw/logs"
+logdir = "logs"
 
 import sys
 def eprint(*args, **kwargs):
@@ -69,7 +69,7 @@ def main():
         except:
             selected_user = -2
 
-    with open("../raw/users.txt", 'r') as usersfile:
+    with open("users.txt", 'r') as usersfile:
         profiles = loads(usersfile.read())
 
     #### Session selection
@@ -171,8 +171,7 @@ def main():
         if get_cmd_type(cmd) == Symbol("StmAdd"):
             print("(*{}:*) {}".format(get_id(cmd), get_body(cmd)[1][2]))
         elif get_cmd_type(cmd) == Symbol("StmCancel"):
-            print("BackTo {}.".format(get_body(cmd)[1][1][0]))
-            # print("(*CANCEL {}*)".format(get_body(cmd)[1][1][0]))
+            print("(*CANCEL {}*)".format(get_body(cmd)[1][1][0]))
         elif get_cmd_type(cmd) == Symbol("Failed"):
             print("(*FAILED {}*)".format(get_body(cmd)[1][1]))
         else:
