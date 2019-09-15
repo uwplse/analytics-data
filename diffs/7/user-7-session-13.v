@@ -41,4 +41,6 @@ Proof.
 -
 (apply SR_UnionR2; apply sub_r__reflexive).
 -
-(apply mk_nf_sub_r__sub_r).
+Unset Silent.
+Show.
+(apply mk_nf__distr11).
