@@ -11,7 +11,7 @@ from os.path import isfile, join
 from common import *
 from typing import List, TypeVar, Callable
 
-logdir = "logs"
+logdir = "../raw/logs"
 
 import sys
 def eprint(*args, **kwargs):
@@ -69,7 +69,7 @@ def main():
         except:
             selected_user = -2
 
-    with open("users.txt", 'r') as usersfile:
+    with open("../raw/users.txt", 'r') as usersfile:
         profiles = loads(usersfile.read())
 
     #### Session selection
