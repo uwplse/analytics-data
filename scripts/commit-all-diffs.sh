@@ -1,28 +1,28 @@
 #!/bin/bash
 
-# User 0
-for i in {0..5}
-do
-    ./commit-diffs.sh 0 ${i}
-done
+# User 0 (done)
+#for i in {0..5}
+#do
+#    ./commit-diffs.sh 0 ${i}
+#done
 
-# User 1
-for i in {0..41}
-do
-    ./commit-diffs.sh 1 ${i}
-done
+# User 1 (done)
+#for i in {0..41}
+#do
+#    ./commit-diffs.sh 1 ${i}
+#done
 
-# User 2
-for i in {0..6}
-do
-    ./commit-diffs.sh 2 ${i}
-done
+# User 2 (done)
+#for i in {0..6}
+#do
+#    ./commit-diffs.sh 2 ${i}
+#done
 
-# User 3
-for i in {0..11494}
-do
-    ./commit-diffs.sh 3 ${i}
-done
+# User 3 (TODO! need script fix to process this in less than 36 days)
+#for i in {0..11494}
+#do
+#    ./commit-diffs.sh 3 ${i}
+#done
 
 # User 4
 for i in {0..0}
