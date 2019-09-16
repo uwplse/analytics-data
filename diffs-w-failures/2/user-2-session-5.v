@@ -56,4 +56,6 @@ Redirect "/tmp/coqixcG4d" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Open Scope coucou_scope.
-Check [Nil].
+Unset Silent.
+Set Printing Width 98.
+Check [Nil Nil].
