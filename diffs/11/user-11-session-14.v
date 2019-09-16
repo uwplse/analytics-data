@@ -1829,12 +1829,43 @@ Definition embed_exp {T} {E} `{serverAppE id -< E} (ex : serverAppE exp T) : itr
   | ServerApp_Send rx => trigger (ServerApp_Send (unwrap_data rx))
   | ServerApp_Fresh => i <- trigger ServerApp_Fresh;; Ret (exp_int (i : id N))
   end.
-Definition nmi_of_smi {T} (m : itree smE T) : itree (serverAppE id) T :=
-  interp
-    (fun T e =>
-     match e with
-     | (se|) => embed_exp se
-     | (|ee) => match ee in (evalE T) return (_ T) with
-                | Eval bx => ret (unwrap bx)
-                end
-     end) m.
+Unset Silent.
+BackTo 367.
+Unset Silent.
+Set Printing Width 115.
+Set Silent.
+Open Scope sum_scope.
+Open Scope N_scope.
+Module App.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Arguments serverAppE : clear implicits.
+Definition smE := serverAppE exp +' evalE.
+Definition kvs_state exp_ := list (N * exp_ N).
+Definition kvs : itree smE void :=
+  rec
+    (fun st : kvs_state exp =>
+     req <- trigger ServerApp_Recv;;
+     match req with
+     | Kvs_GET k =>
+         match kvs_get k st with
+         | Some v => embed ServerApp_Send (Kvs_OK v);; call st
+         | None => v <- trigger (@ServerApp_Fresh exp);; embed ServerApp_Send (Kvs_OK v);; call (kvs_put k v st)
+         end
+     | Kvs_PUT k v => embed ServerApp_Send Kvs_NoContent;; call (kvs_put k (exp_int v) st)
+     | Kvs_CAS k x v' =>
+         match kvs_get k st with
+         | Some v =>
+             b <- trigger (Eval (exp_eq x v));;
+             (if b : bool
+              then embed ServerApp_Send Kvs_NoContent;; call (kvs_put k (exp_int v') st)
+              else embed ServerApp_Send Kvs_PreconditionFailed;; call st)
+         | None =>
+             v <- trigger (@ServerApp_Fresh exp);;
+             b <- trigger (Eval (exp_eq x v));;
+             (if b : bool
+              then embed ServerApp_Send Kvs_NoContent;; call (kvs_put k (exp_int v') st)
+              else embed ServerApp_Send Kvs_PreconditionFailed;; call (kvs_put k v st))
+         end
+     | _ => embed ServerApp_Send Kvs_BadRequest;; call st
+     end) [].
