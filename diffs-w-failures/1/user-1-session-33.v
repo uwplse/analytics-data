@@ -7,4 +7,7 @@ Set Printing Width 63.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 63.
-Inductive Sorted :=.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 63.
+Import Coq.Sorting.Sorted.
