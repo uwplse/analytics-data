@@ -380,6 +380,8 @@ Search -list.
 Print nth.
 Print nth.
 Print SRec.
+Unset Silent.
+Set Diffs "off".
 Inductive Alpha : SetST -> GT -> Prop :=
   | alpha_int : Alpha (Singleton _ SInt) GInt
   | alpha_bool : Alpha (Singleton _ SBool) GBool
@@ -403,6 +405,18 @@ Inductive Alpha : SetST -> GT -> Prop :=
             | _ => None
             end)) G_2 -> Alpha S (GFun G_1 G_2)
   | alpha_rec_mt : Alpha (Singleton _ (SRec [])) (GRec [])
+  | alpha_rec_cons_none :
+      forall S hd tl,
+      Inhabited _ S ->
+      (forall X,
+       Ensembles.In _ S X -> exists tl, X = SRec (None :: tl)) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => Some (SRec tl)
+            | _ => None
+            end)) (GRec tl) -> Alpha S (GRec (None :: tl))
   | alpha_rec_cons_req :
       forall S hd tl,
       Inhabited _ S ->
