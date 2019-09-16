@@ -420,4 +420,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
-all: (try rewrite singleton_eq in H1).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
+all: (try apply singleton_eq in H1).
