@@ -51,20 +51,9 @@ Fixpoint identity (t : Term) : Term :=
   | Minus a b => Minus (identity a) (identity b)
   | Choose x P => Choose x (identity P)
   end.
-Theorem identity_correct :
-  forall (L : EpsilonLogic) (t : Term), isTheorem L (Eq t (identity t)).
+Theorem eval_eq_true_or_false :
+  forall (L : EpsilonLogic) env (t1 t2 : Term),
+  L.(eval) env (Eq t1 t2) = L.(vTrue) \/ L.(eval) env (Eq t1 t2) = L.(vFalse).
 Proof.
-(unfold isTheorem).
-(induction t; intros; simpl in *).
--
-(apply evalEqTrue).
-reflexivity.
--
-(apply evalEqTrue).
-reflexivity.
--
-(apply evalEqTrue).
-specialize IHt1 with env.
-specialize IHt2 with env.
-(apply evalEqTrue in IHt1).
-(apply evalEqTrue in IHt2).
+(intros).
+(destruct (L.(value_eq_dec) (eval env t1) (eval env t2)) eqn:Q).
