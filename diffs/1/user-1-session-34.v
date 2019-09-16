@@ -8,6 +8,3 @@ Set Silent.
 Require Export Arith.
 Unset Silent.
 Require Export Lia.
-BackTo 8.
-Unset Silent.
-Set Diffs "off".
