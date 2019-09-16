@@ -553,4 +553,16 @@ Set Silent.
   | H:exists _, _ |- _ => destruct H
   | H:_ \/ _ |- _ => inversion H; clear H
   end).
-specialize (H _ H7).
+Unset Silent.
+Show.
+specialize (H _ H8).
+specialize (H2 _ H8).
+2: specialize (H _ H4).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+all: congruence.
+-
