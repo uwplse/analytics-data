@@ -495,4 +495,5 @@ Set Printing Width 94.
 Show.
 Set Silent.
 -
-(destruct H3).
+Unset Silent.
+Show.
