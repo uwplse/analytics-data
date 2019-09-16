@@ -441,4 +441,9 @@ Set Diffs "off".
 Set Printing Width 94.
 Show.
 all: (try specialize (H1 _ (In_singleton _ _))).
-all: (try congruence).
+Unset Silent.
+Set Diffs "off".
+Show.
+Set Printing Width 94.
+Show.
+destruct_pairs.
