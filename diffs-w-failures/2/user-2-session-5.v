@@ -33,4 +33,7 @@ Set Printing Width 98.
 Unset Silent.
 Timeout 1 Check @value.
 Timeout 1 Check @value.
-Timeout 1 Check @step.
+Timeout 1 Check @value.
+Timeout 1 Check @value.
+Print List.find.
+Print List.contains.
