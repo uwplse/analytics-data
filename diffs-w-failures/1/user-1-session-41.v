@@ -425,8 +425,46 @@ specialize (H _ (In_singleton _ _)).
   | H:_ \/ _ |- _ => inversion H; clear H
   end).
 Unset Silent.
-congruence.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
 Set Silent.
 -
 Unset Silent.
-Show.
+eauto.
+-
+specialize (H _ (In_singleton _ _)).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+congruence.
+-
+(destruct H3).
+(apply H in H3).
+Set Silent.
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+Unset Silent.
+congruence.
+-
+(inversion H1).
+specialize (H _ H5).
+specialize (H2 _ H5).
+Set Silent.
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+Unset Silent.
+congruence.
+Set Silent.
+-
+(inversion H1).
+specialize (H _ H5).
