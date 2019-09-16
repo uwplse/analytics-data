@@ -71,4 +71,6 @@ Import TermNotations.
 Open Scope coucou_scope.
 Unset Silent.
 Set Printing Width 98.
-Check [Nil (Ident "a") {(Ident "myfun") (Ident "somArg")}].
+Unset Silent.
+Set Printing Width 98.
+Check [Nil (Cons (Ident "1") (Ident "2")) (Ident "a") {(Ident "myfun") (Ident "somArg")}].
