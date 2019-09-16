@@ -33,6 +33,8 @@ Redirect "/tmp/coqgkuM3j" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Unset Silent.
 Set Printing Width 98.
+Unset Silent.
+Set Printing Width 98.
 Fixpoint value (t : term) : bool :=
   match t with
   | Nil => true
@@ -40,10 +42,10 @@ Fixpoint value (t : term) : bool :=
   | Cons a b => value a && value b
   | App f a => false
   end.
-Redirect "/tmp/coqACDvw1" Print Ltac Signatures.
+Redirect "/tmp/coqfu1i2R" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Module TermNotations.
 Set Silent.
+Module TermNotations.
 Declare Scope coucou_scope.
 Notation "{ f a }" := (App f a) (f  at level 0, a  at level 0) : coucou_scope.
 Notation "< a b >" := (Cons a b) (format "< a  b >", a  at level 0, b  at level 0) : coucou_scope.
@@ -55,35 +57,26 @@ Coercion Ident : string >-> term.
 End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
-Unset Silent.
 Check
   [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
-Redirect "/tmp/coqLRo0nb" Print Ltac Signatures.
+Fixpoint subst (x : string) (u : term) (t : term) : term := t.
+Unset Silent.
+Fixpoint step (t : term) : term :=
+  match t with
+  | Nil => Nil
+  | Ident _ => Nil
+  | <a b> => if value a then <a (step b)> else <(step a) b>
+  | {f a} =>
+      if value f
+      then
+       match f with
+       | [(Ident lam) (Ident x) body] => if value a then subst x a body else {f (step a)}
+       | Ident prim => t
+       | _ => Nil
+       end
+      else {(step f) a}
+  end.
+Redirect "/tmp/coq3LAWee" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Timeout 1 Check @Ident.
-Timeout 1 Check @Ident.
-Timeout 1 Check @Ident.
-Timeout 1 Check @primitive.
-Timeout 1 Check @primitive.
-Timeout 1 Check @primitive.
-Timeout 1 Check @term.
-Timeout 1 Check @term.
-Timeout 1 Check @primitive.
-Timeout 1 Check @primitive.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Timeout 1 Check @value.
-Timeout 1 Check @value.
-Timeout 1 Check @term.
-Timeout 1 Check @term.
-Timeout 1 Check @term.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Fixpoint subst (x : string) (u : term) (t : term) : term := t.
-Redirect "/tmp/coqaK2I4e" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Unset Silent.
