@@ -675,4 +675,10 @@ all:
 subst.
 (inversion H3).
 subst.
-f_equal.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
+(f_equal; eauto).
+-
+(intros; eauto).
