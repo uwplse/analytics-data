@@ -36,29 +36,29 @@
 #    ./commit-diffs.sh 5 ${i}
 #done
 
-# User 6 (done)
-for i in {0..0}
-do
-    ./commit-diffs.sh 6 ${i}
-done
+# User 6 (w/ failures version is done forever)
+#for i in {0..0}
+#do
+#    ./commit-diffs.sh 6 ${i}
+#done
 
-# User 7
+# User 7 (TODO do again)
 #for i in {0..228}
 #do
 #    ./commit-diffs.sh 7 ${i}
 #done
 
-# User 8
+# User 8 (TODO do again)
 #for i in {0..161}
 #do
 #    ./commit-diffs.sh 8 ${i}
 #done
 
 # User 9
-#for i in {0..4}
-#do
-#    ./commit-diffs.sh 9 ${i}
-#done
+for i in {0..4}
+do
+    ./commit-diffs.sh 9 ${i}
+done
 
 # User 10
 #for i in {0..22}
