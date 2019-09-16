@@ -175,4 +175,10 @@ Timeout 1 Check @term.
 Unset Silent.
 Timeout 1 Check @term.
 Timeout 1 Check @term.
-Timeout 1 Check @trace.
+Timeout 1 Check @step.
+Set Printing Width 98.
+Fixpoint trace (n : nat) : term -> list term :=
+  match n with
+  | O => nil
+  | S m => fun t => t :: trace m (step t)
+  end.
