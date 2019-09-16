@@ -304,4 +304,9 @@ Set Diffs "off".
 Search -unique.
 Search -uniqueness.
 Set Printing Width 70.
-Definition label := integer.
+Definition label := nat.
+Inductive ST : Type :=
+  | SInt : ST
+  | SBool : ST
+  | SFun : ST -> ST -> ST
+  | SRec : forall l : list (label * ST)%type, NoDup (map fst l) -> ST.
