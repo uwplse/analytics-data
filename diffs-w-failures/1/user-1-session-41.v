@@ -395,4 +395,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
 (inversion H0).
