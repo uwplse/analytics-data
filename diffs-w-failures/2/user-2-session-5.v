@@ -30,65 +30,7 @@ Unset Silent.
 Set Printing Width 98.
 Unset Silent.
 Set Printing Width 98.
-Fixpoint value (t : term) : bool :=
-  match t with
-  | Nil => true
-  | Ident _ => true
-  | Cons a b => value a && value b
-  | App f a => false
-  end.
-Redirect "/tmp/coqhYSoRC" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Timeout 1 Print LoadPath.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Timeout 1 Check @term.
-Set Printing Width 98.
-Set Silent.
-Module TermNotations.
-Declare Scope coucou_scope.
-Notation "{ f a }" := (App f a) (f  at level 0, a  at level 0) : coucou_scope.
-Notation "< a b >" := (Cons a b) (format "< a  b >", a  at level 0, b  at level 0) : coucou_scope.
-Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
-Notation "[ x ]" := (Cons x Nil) : coucou_scope.
-Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
-  (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
-Unset Silent.
-Coercion Ident : string >-> term.
-End TermNotations.
-Import TermNotations.
-Redirect "/tmp/coqhUNJDd" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Open Scope coucou_scope.
-Unset Silent.
-Set Printing Width 98.
-Open Scope string_scope.
-Unset Silent.
-Set Printing Width 98.
-Check
-  [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
-  {(Ident "myfun") (Ident "somArg")}].
-Timeout 1 Check @term.
-Timeout 1 Check @Ident.
+Timeout 1 Check @value.
+Timeout 1 Check @value.
+Timeout 1 Check @step.
