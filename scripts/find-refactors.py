@@ -47,6 +47,8 @@ with open(fpath, 'r') as f:
                 group_lines.append(lines)
         else:
             state_num = int(re.search("([0-9]+)\*\)", group).group(1))
+            if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
+                group_cancels.pop()
             group_cancels.append(state_num)
 
 # Now go through the cancellations and find diffs
