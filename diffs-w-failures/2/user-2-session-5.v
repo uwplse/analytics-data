@@ -82,6 +82,7 @@ Fixpoint step (t : term) : term :=
   match t with
   | Nil => Nil
   | Ident _ => Nil
+  | Symb _ => t
   | <a b> => if value a then <a (step b)> else <(step a) b>
   | {f a} =>
       if value f
@@ -154,3 +155,24 @@ Fixpoint step (t : term) : term :=
        end
       else {(step f) a}
   end.
+Redirect "/tmp/coqsKmbBv" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fixpoint multistep (n : nat) : term -> term :=
+  match n with
+  | O => id
+  | S m => fun t => multistep m (step t)
+  end.
+Redirect "/tmp/coqZBHmvA" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fixpoint trace (n : nat) : term -> list term :=
+  match n with
+  | O => fun _ => nil
+  | S m => fun t => cons t (trace m (step t))
+  end.
+Redirect "/tmp/coqMDtlae" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Example t1 := {"if" [{"cons?" <<[] []> <[] []>>} {"fst" <<[] []> []>} []]}.
+Redirect "/tmp/coq5O2xER" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Eval vm_compute in trace 10 t1.
+Eval vm_compute in multistep 10 t1.
