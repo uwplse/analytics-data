@@ -24,5 +24,5 @@ Inductive term :=
   | App : term -> term -> term.
 Unset Silent.
 Definition primitive (name : string) : bool :=
-  List.find (String.eq name)
+  List.find (String.eqb name)
     ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil).
