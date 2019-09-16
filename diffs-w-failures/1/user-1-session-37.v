@@ -328,4 +328,12 @@ Definition R (e : evidence) : SetST2 :=
 Definition Gamma2 (e : evidence) : SetST2 :=
   fun pair =>
   let (T1, T2) := pair in
-  Ensembles.In _ (Gamma (fst e)) T1 /\ In _ (Gamma (snd e)) T2.
+  Ensembles.In _ (Gamma (fst e)) T1 /\
+  Ensembles.In _ (Gamma (snd e)) T2.
+Record Alpha2 (eta : SetST2) (e : evidence) : Prop :=
+ alpha2_c {proj1 : Alpha (set_map_fst eta) (fst e);
+           proj2 : Alpha (set_map_snd eta) (snd e)}.
+Definition transitive_closure (left right : SetST2) : SetST2 :=
+  fun pair : ST * ST =>
+  let (T1, T3) := pair in
+  exists T2, In _ left (T1, T2) /\ In _ right (T2, T3).
