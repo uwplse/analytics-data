@@ -446,7 +446,14 @@ Set Diffs "off".
 Show.
 Set Printing Width 94.
 Show.
-all: (repeat match goal with
-             | H:exists _, _ |- _ => destruct H
-             end).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
 all: (try congruence).
