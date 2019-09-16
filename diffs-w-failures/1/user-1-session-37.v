@@ -439,7 +439,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
   | alpha_fun :
       forall S G_1 G_2,
       (forall X,
-       Ensembles.In _ S X -> exists S_1 S_2, S = SFun S_1 S_2) ->
+       Ensembles.In _ S X -> exists S_1 S_2, X = SFun S_1 S_2) ->
       Alpha
         (SetPMap S
            (fun S =>
