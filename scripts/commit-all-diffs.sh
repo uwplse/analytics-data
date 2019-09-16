@@ -24,17 +24,17 @@
 #    ./commit-diffs.sh 3 ${i}
 #done
 
-# User 4 (done)
-for i in {0..0}
-do
-    ./commit-diffs.sh 4 ${i}
-done
+# User 4 (w/ failures version is done forever)
+#for i in {0..0}
+#do
+#    ./commit-diffs.sh 4 ${i}
+#done
 
 # User 5 (done)
-#for i in {0..40}
-#do
-#    ./commit-diffs.sh 5 ${i}
-#done
+for i in {0..40}
+do
+    ./commit-diffs.sh 5 ${i}
+done
 
 # User 6 (done)
 #for i in {0..0}
