@@ -67,9 +67,7 @@ End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
 Unset Silent.
+Set Printing Width 98.
 Check
-  [<Nil <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  [<# hello <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
-Redirect "/tmp/coqCUd7Pb" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
