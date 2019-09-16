@@ -369,39 +369,40 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
 Unset Silent.
+Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
 Function
- eq (G : GT * GT) {measure
+ eq_fn (G : GT * GT) {measure
  fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
    match G with
    | (GInt, GInt) => True
    | (GBool, GBool) => True
    | (GFun G_11 G_12, GFun G_21 G22) =>
-       eq (G_11, G_21) /\ eq (G_12, G22)
+       eq_fn (G_11, G_21) /\ eq_fn (G_12, G22)
    | (GRec [], GRec []) => True
    | (GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2)) =>
-       eq (snd hd1, snd hd2) /\
-       fst hd1 = fst hd2 /\ eq (GRec tl1, GRec tl2)
+       eq_fn (snd hd1, snd hd2) /\
+       fst hd1 = fst hd2 /\ eq_fn (GRec tl1, GRec tl2)
    | (GRec (None :: tl1), GRec (None :: tl2)) =>
-       eq (GRec tl1, GRec tl2)
-   | (GRec (None :: tl1), GRec []) => eq (GRec tl1, GRec [])
-   | (GRec [], GRec (None :: tl1)) => eq (GRec [], GRec tl1)
+       eq_fn (GRec tl1, GRec tl2)
+   | (GRec (None :: tl1), GRec []) => eq_fn (GRec tl1, GRec [])
+   | (GRec [], GRec (None :: tl1)) => eq_fn (GRec [], GRec tl1)
    | (GRow [], GRow []) => True
    | (GRow (Some (Some hd1) :: tl1), GRow
      (Some (Some hd2) :: tl2)) =>
-       eq (snd hd1, snd hd2) /\
-       fst hd1 = fst hd2 /\ eq (GRow tl1, GRow tl2)
+       eq_fn (snd hd1, snd hd2) /\
+       fst hd1 = fst hd2 /\ eq_fn (GRow tl1, GRow tl2)
    | (GRow (None :: tl1), GRow (None :: tl2)) =>
-       eq (GRow tl1, GRow tl2)
+       eq_fn (GRow tl1, GRow tl2)
    | (GRow (Some None :: tl1), GRow (Some None :: tl2)) =>
-       eq (GRow tl1, GRow tl2)
-   | (GRow (None :: tl1), GRow []) => eq (GRow tl1, GRow [])
-   | (GRow [], GRow (None :: tl1)) => eq (GRow [], GRow tl1)
+       eq_fn (GRow tl1, GRow tl2)
+   | (GRow (None :: tl1), GRow []) => eq_fn (GRow tl1, GRow [])
+   | (GRow [], GRow (None :: tl1)) => eq_fn (GRow [], GRow tl1)
    | _ => False
    end.
 all: (intros; subst; simpl; eauto with math).
-Set Silent.
 all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
-Unset Silent.
 Defined.
+Definition eq (G_1 G_2 : GT) := eq_fn (G_1, G_2).
+Theorem eq_refl : forall A, reflexive _ (eq (A:=A)).
