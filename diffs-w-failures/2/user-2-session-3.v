@@ -17,8 +17,5 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Unset Silent.
 Set Printing Width 98.
-Require Import Analytical.Analytics.
-Redirect "/tmp/coq6eiIGi" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Test Debug Analytics.
+Unset Silent.
+Set Printing Width 98.
