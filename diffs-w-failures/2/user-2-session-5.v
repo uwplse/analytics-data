@@ -13,31 +13,16 @@ Require Import Coq.Strings.String.
 Redirect "/tmp/coq4iI7Dj" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
+Unset Silent.
+Set Printing Width 98.
+Set Silent.
+Open Scope string_scope.
 Inductive term :=
   | Nil : term
   | Ident : string -> term
   | Cons : term -> term -> term
   | App : term -> term -> term.
-Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Check @term.
-Timeout 1 Check @term.
-Timeout 1 Check @value.
-Timeout 1 Check @value.
-Timeout 1 Check @value.
-Timeout 1 Check @value.
 Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Timeout 1 Check @value.
-Timeout 1 Check @value.
-Timeout 1 Check @value.
-Timeout 1 Check @value.
-Print List.find.
-Print List.find.
-Set Printing Width 98.
 Definition primitive (name : string) : bool :=
   List.find (String.eq name)
     ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil).
