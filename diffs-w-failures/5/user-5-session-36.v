@@ -278,5 +278,12 @@ clear H.
 (eapply evalIntEq).
 -
 (erewrite evalTimes in H0).
++
 exact H0.
++
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+assumption.
+-
+reflexivity.
 Unset Silent.
