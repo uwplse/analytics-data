@@ -105,4 +105,7 @@ Qed.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 63.
-Search -Sorted.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 63.
+Show Sorted.
