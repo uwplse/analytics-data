@@ -295,15 +295,11 @@ Set Printing Width 70.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 70.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 70.
+Require Import Coq.Lists.List.
 Module AGT_Bounded_Rows_Details.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 70.
-Unset Silent.
-Set Diffs "off".
-Search -unique.
-Search -uniqueness.
-Set Printing Width 70.
 Definition label := nat.
 Inductive ST : Type :=
   | SInt : ST
