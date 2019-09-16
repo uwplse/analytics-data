@@ -76,5 +76,8 @@ Import TermNotations.
 Open Scope coucou_scope.
 Unset Silent.
 Set Printing Width 98.
+Unset Silent.
+Set Printing Width 98.
 Check
-  [<Nil <Nil Nil>> (Cons (Ident "1") (Ident "2")) (Ident "a") {(Ident "myfun") (Ident "somArg")}].
+  [<Nil <Nil (Ident "hi")>> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  {(Ident "myfun") (Ident "somArg")}].
