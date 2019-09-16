@@ -26,10 +26,4 @@ Proof.
 (induction (c p)).
 -
 matrix_denote.
-(match goal with
- | |- ?A => let A' := restore_dims_rec tac A in
-            replace
-            A
-            with
-            A'
- end).
+Unset Silent.
