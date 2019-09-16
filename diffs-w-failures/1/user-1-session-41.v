@@ -395,10 +395,8 @@ Set Printing Width 94.
 Show.
 (induction H).
 -
-(intros; inversion H0; subst; eapply singleton_eq; eauto).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
-Unset Silent.
-Set Diffs "off".
+(intros; inversion H0; subst; eapply singleton_eq; try rewrite H1; eauto).
