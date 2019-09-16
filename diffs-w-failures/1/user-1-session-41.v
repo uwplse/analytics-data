@@ -381,4 +381,14 @@ Set Diffs "off".
 Unset Silent.
 Set Diffs "off".
 Create HintDb agt discriminated.
-Hint Resolve Singleton_eq: agt.
+Hint Resolve singleton_eq: agt.
+Theorem alpha_is_partial_function :
+  forall S G G', Alpha S G -> Alpha S G' -> G = G'.
+Set Printing Width 94.
+Show.
+Proof.
+(intros).
+generalize dependent G'.
+(induction H).
+-
+(intros; inversion H0; subst; eauto with agt).
