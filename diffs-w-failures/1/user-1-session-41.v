@@ -431,4 +431,4 @@ Show.
 all: (try (apply singleton_eq in H1; congruence)).
 Search -(Ensembles.In _ (Singleton _ _) _).
 all: (try specialize (H1 _ (In_singleton _ _ _))).
-specialize (H1 _ (In_singleton _ _ _)).
+specialize (H1 _ (In_singleton _ _)).
