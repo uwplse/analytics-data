@@ -685,4 +685,20 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
 (intros; inversion H0; subst; eauto).
+Set Silent.
+all: (try (apply singleton_eq in H1; congruence)).
+all: (try specialize (H1 _ (In_singleton _ _))).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+Unset Silent.
+all: (try congruence).
+Show.
