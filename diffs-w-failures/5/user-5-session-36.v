@@ -264,5 +264,5 @@ clear H.
 (rewrite evalIfTrue in H0; auto).
 (apply evalInInts in H; auto).
 (destruct H).
-(erewrite evalBoolConst in H0).
+(erewrite evalBoolConst in H0; auto).
 Unset Silent.
