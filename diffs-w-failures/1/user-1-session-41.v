@@ -467,4 +467,5 @@ congruence.
 Set Silent.
 -
 (inversion H1).
-specialize (H _ H5).
+Unset Silent.
+Show.
