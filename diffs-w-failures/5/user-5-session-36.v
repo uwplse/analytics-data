@@ -258,4 +258,6 @@ reflexivity.
 clear H.
 (rewrite evalAnd in H0).
 (rewrite evalIfTrue in H0).
+-
+(rewrite evalEqTrue in H0).
 Unset Silent.
