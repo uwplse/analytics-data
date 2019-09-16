@@ -81,7 +81,5 @@ Timeout 1 Check @term.
 Timeout 1 Check @term.
 Timeout 1 Check @term.
 Set Printing Width 98.
-Fixpoint subst (x : string) (u : term) (t : term) : term := t.
-Redirect "/tmp/coqVl2ZnQ" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Check @subst.
+Unset Silent.
+Timeout 1 Check @step.
