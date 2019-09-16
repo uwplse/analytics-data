@@ -416,4 +416,4 @@ Unset Silent.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
-Notation "G_1 === G_2" := (eq G_1 G_2).
+Notation "G_1 === G_2" := (eq G_1 G_2) (at level 100).
