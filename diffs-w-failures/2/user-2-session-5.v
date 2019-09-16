@@ -172,10 +172,7 @@ Fixpoint multistep (n : nat) : term -> term :=
 Redirect "/tmp/coq1McSmJ" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Check @term.
-Example t1 := {"if" [{"pair?" <<[] []> <[] []>>} {"fst" <<[] []> []>} []]}.
-Redirect "/tmp/coqzteEU4" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Check @multistep.
-Timeout 1 Check @multistep.
-Timeout 1 Check @multistep.
-Eval vm_compute in multistep 10 t1.
+Unset Silent.
+Timeout 1 Check @term.
+Timeout 1 Check @term.
+Timeout 1 Check @trace.
