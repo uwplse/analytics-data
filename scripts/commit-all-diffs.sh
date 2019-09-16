@@ -43,33 +43,33 @@
 #done
 
 # User 7
-for i in {0..228}
-do
-    ./commit-diffs.sh 7 ${i}
-done
+#for i in {0..228}
+#do
+#    ./commit-diffs.sh 7 ${i}
+#done
 
 # User 8
-for i in {0..161}
-do
-    ./commit-diffs.sh 8 ${i}
-done
+#for i in {0..161}
+#do
+#    ./commit-diffs.sh 8 ${i}
+#done
 
 # User 9
-for i in {0..4}
-do
-    ./commit-diffs.sh 9 ${i}
-done
+#for i in {0..4}
+#do
+#    ./commit-diffs.sh 9 ${i}
+#done
 
 # User 10
-for i in {0..22}
-do
-    ./commit-diffs.sh 10 ${i}
-done
+#for i in {0..22}
+#do
+#    ./commit-diffs.sh 10 ${i}
+#done
 
 # User 11
-for i in {0..16}
-do
-    ./commit-diffs.sh 11 ${i}
-done
+#for i in {0..16}
+#do
+#    ./commit-diffs.sh 11 ${i}
+#done
 
 
