@@ -310,4 +310,8 @@ Inductive GT : Type :=
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
 Unset Silent.
-Module asdf.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
+Module GTeq.
+Fixpoint eq (G_1 G_2 : GT) : Prop := True.
