@@ -428,4 +428,5 @@ Unset Silent.
 congruence.
 Set Silent.
 -
-specialize (H _ (In_singleton _ _)).
+Unset Silent.
+Show.
