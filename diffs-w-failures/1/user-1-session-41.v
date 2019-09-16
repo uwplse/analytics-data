@@ -436,5 +436,9 @@ Set Diffs "off".
 Show Intros.
 Set Printing Width 94.
 Show.
-all: (try specialize (H1 _ (In_singleton _))).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
 Show.
+all: (try specialize (H1 _ (In_singleton _ _))).
+all: (try congruence).
