@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# User 0 (done)
-for i in {0..5}
-do
-    ./commit-diffs.sh 0 ${i}
-done
-
-# User 1 (second try, b.c. of BackTos)
-#for i in {0..41}
+# User 0 (w/ failures version is done forever)
+#for i in {0..5}
 #do
-#    ./commit-diffs.sh 1 ${i}
+#    ./commit-diffs.sh 0 ${i}
 #done
+
+# User 1
+for i in {0..41}
+do
+    ./commit-diffs.sh 1 ${i}
+done
 
 # User 2 (done)
 #for i in {0..6}
