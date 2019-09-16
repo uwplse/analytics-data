@@ -400,4 +400,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
-eauto.
+Unset Silent.
+Set Diffs "off".
