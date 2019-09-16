@@ -421,7 +421,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
             match S with
             | SRec (hd :: tl) => hd
             | _ => None
-            end)) hd -> Alpha S (GRec ((R, hd) :: tl))
+            end)) hd -> Alpha S (GRec (Some (R, hd) :: tl))
   | alpha_row_mt :
       forall S,
       Inhabited _ S ->
