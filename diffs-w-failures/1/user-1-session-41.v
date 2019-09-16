@@ -391,4 +391,8 @@ Proof.
 generalize dependent G'.
 (induction H).
 -
-(intros; inversion H0; subst; eauto with agt).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
+(intros; inversion H0; subst; eapply singleton_eq).
