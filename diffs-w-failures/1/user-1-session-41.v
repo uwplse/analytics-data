@@ -388,6 +388,8 @@ Unset Silent.
 Set Diffs "off".
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
 Inductive Alpha : SetST -> GT -> Prop :=
   | alpha_int : Alpha (Singleton _ SInt) GInt
   | alpha_bool : Alpha (Singleton _ SBool) GBool
@@ -477,4 +479,56 @@ Inductive Alpha : SetST -> GT -> Prop :=
                match S with
                | SRec l => nth n l None
                | _ => None
-               end)) GDyn) -> Alpha S (GRow []).
+               end)) GDyn) -> Alpha S (GRow [])
+  | alpha_row_cons_none :
+      forall S tl,
+      Inhabited _ S ->
+      (forall X,
+       Ensembles.In _ S X -> exists tl, X = SRec (None :: tl)) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => Some (SRec tl)
+            | _ => None
+            end)) (GRow tl) -> Alpha S (GRow (None :: tl))
+  | alpha_row_cons_req :
+      forall S hd tl,
+      Inhabited _ S ->
+      (forall X,
+       Ensembles.In _ S X -> exists hd tl, X = SRec (Some hd :: tl)) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => Some (SRec tl)
+            | _ => None
+            end)) (GRow tl) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => hd
+            | _ => None
+            end)) hd -> Alpha S (GRow (Some (R, hd) :: tl))
+  | alpha_row_cons_opt :
+      forall S hd tl,
+      Inhabited _ S ->
+      (forall X, Ensembles.In _ S X -> exists l, X = SRec l) ->
+      (exists hd tl, Ensembles.In _ S (SRec (Some hd :: tl))) ->
+      Ensembles.In _ S (SRec []) \/
+      (exists tl, Ensembles.In _ S (SRec (None :: tl))) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => Some (SRec tl)
+            | _ => None
+            end)) (GRec tl) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => hd
+            | _ => None
+            end)) hd -> Alpha S (GRow (Some (O, hd) :: tl)).
