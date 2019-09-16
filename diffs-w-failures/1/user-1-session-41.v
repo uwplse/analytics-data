@@ -393,63 +393,17 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
 (induction H).
+Set Silent.
 -
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
 (intros; inversion H0; subst; eauto).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
 all: (try (apply singleton_eq in H1; congruence)).
-Search -(Ensembles.In _ (Singleton _ _) _).
 all: (try specialize (H1 _ (In_singleton _ _ _))).
-Unset Silent.
-Set Diffs "off".
-Show Intros.
-Set Printing Width 94.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
 all: (try specialize (H1 _ (In_singleton _ _))).
-Unset Silent.
-Set Diffs "off".
-Show.
-Set Printing Width 94.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 94.
-Show.
 all:
  (repeat
    match goal with
@@ -457,3 +411,19 @@ all:
    | H:_ \/ _ |- _ => inversion H; clear H
    end).
 all: (try congruence).
+-
+(intros; inversion H0; subst; eauto).
+all: (try (apply singleton_eq in H1; congruence)).
+all: (try specialize (H1 _ (In_singleton _ _ _))).
+all: (try specialize (H1 _ (In_singleton _ _))).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+Unset Silent.
+all: (try congruence).
+Set Silent.
+-
+(intros; inversion H0; subst; eauto).
