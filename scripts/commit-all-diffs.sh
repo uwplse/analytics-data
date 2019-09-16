@@ -6,13 +6,13 @@
 #    ./commit-diffs.sh 0 ${i}
 #done
 
-# User 1
-for i in {0..41}
-do
-    ./commit-diffs.sh 1 ${i}
-done
+# User 1 (w/ failures version is done; extra unset silents kind of unpleasant though)
+#for i in {0..41}
+#do
+#    ./commit-diffs.sh 1 ${i}
+#done
 
-# User 2 (done)
+# User 2 (w/ failures version is done; extra unset silents kind of unpleasant though)
 #for i in {0..6}
 #do
 #    ./commit-diffs.sh 2 ${i}
@@ -25,10 +25,10 @@ done
 #done
 
 # User 4 (done)
-#for i in {0..0}
-#do
-#    ./commit-diffs.sh 4 ${i}
-#done
+for i in {0..0}
+do
+    ./commit-diffs.sh 4 ${i}
+done
 
 # User 5 (done)
 #for i in {0..40}
