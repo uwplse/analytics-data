@@ -361,4 +361,8 @@ Function
    | _, _ => False
    end.
 all: (intros; subst; simpl; eauto with math).
-(destruct hd1; simpl; eauto with math).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
+Show.
+all: (destruct hd1; simpl; eauto with math).
