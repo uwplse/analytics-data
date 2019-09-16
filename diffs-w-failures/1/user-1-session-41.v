@@ -417,4 +417,8 @@ Check eq.
 Theorem eq_refl : reflexive GT eq.
 Proof.
 (unfold reflexive).
-(induction x).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
+Show.
+(induction x; eauto).
