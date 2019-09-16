@@ -692,6 +692,5 @@ Show.
 (intros; inversion H0; subst; eauto).
 Set Silent.
 all: (try (apply singleton_eq in H1; congruence)).
-all: (try specialize (H1 _ (In_singleton _ _))).
 Unset Silent.
 Set Diffs "off".
