@@ -11,4 +11,9 @@ From ExtLib Require Import Applicative StateMonad Monad.
 From ITree Require Import Exception Nondeterminism ITree.
 From SimpleIO Require Import IO_Random SimpleIO.
 From DeepWeb Require Import CryptoLib KvsLib.
-Import ApplicativeNotation FunctorNotation ListNotations MonadNotation SumNotations.
+Unset Silent.
+BackTo 9.
+Unset Silent.
+Redirect "/tmp/coq16819Y1f" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
