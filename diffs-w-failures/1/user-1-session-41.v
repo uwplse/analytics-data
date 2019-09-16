@@ -489,4 +489,10 @@ all:
    | H:_ \/ _ |- _ => inversion H; clear H
    end).
 all: congruence.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
+Set Silent.
 -
+(destruct H3).
