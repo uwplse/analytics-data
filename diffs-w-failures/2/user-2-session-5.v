@@ -180,6 +180,13 @@ Set Printing Width 98.
 Timeout 1 Check @term.
 Fixpoint trace (n : nat) : term -> list term :=
   match n with
-  | O => @nil term
+  | O => fun _ => nil
   | S m => fun t => cons t (trace m (step t))
   end.
+Redirect "/tmp/coqRDe2r5" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Example t1 := {"if" [{"pair?" <<[] []> <[] []>>} {"fst" <<[] []> []>} []]}.
+Redirect "/tmp/coqmy3crT" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Check @trace.
+Eval vm_compute in trace 10 t1.
