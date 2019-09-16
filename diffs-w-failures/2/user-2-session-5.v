@@ -36,4 +36,8 @@ Timeout 1 Check @value.
 Timeout 1 Check @value.
 Timeout 1 Check @value.
 Print List.find.
-Print List.contains.
+Print List.find.
+Set Printing Width 98.
+Definition primitive (name : string) : bool :=
+  List.find (String.eq name)
+    ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil).
