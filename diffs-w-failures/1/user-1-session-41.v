@@ -428,4 +428,8 @@ Set Silent.
 -
 Unset Silent.
 Show.
-specialize (IHAlpha1 _ H1).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
+(intros).
