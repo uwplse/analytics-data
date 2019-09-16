@@ -70,7 +70,5 @@ End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
 Unset Silent.
-Check [Nil (Ident "a") Nil].
-Redirect "/tmp/coqEk3t2K" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
+Set Printing Width 98.
+Check [Nil (Ident "a") {"myfun" "somArg"}].
