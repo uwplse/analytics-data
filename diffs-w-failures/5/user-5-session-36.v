@@ -279,6 +279,4 @@ clear H.
 -
 (erewrite evalTimes in H0).
 exact H0.
--
-(rewrite evalVar).
 Unset Silent.
