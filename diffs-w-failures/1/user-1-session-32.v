@@ -118,4 +118,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 63.
 Unset Printing Universes.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 63.
 Check Sorted.
+Print length.
+Print Sorted Universes.
