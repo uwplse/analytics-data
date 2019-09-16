@@ -147,4 +147,6 @@ intro x.
    eval L env (Choose x (Eq (Int 6) (Times (Var x) (Int 2)))) = res ->
    res = eval L env (Int 3))).
 {
-Admitted.
+admit.
+}
+(rewrite <- H).
