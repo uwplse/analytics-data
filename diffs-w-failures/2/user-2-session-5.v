@@ -24,5 +24,19 @@ Inductive term :=
   | App : term -> term -> term.
 Unset Silent.
 Definition primitive (name : string) : bool :=
-  List.find (String.eqb name)
-    ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil).
+  if
+   List.find (String.eqb name)
+     ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil)
+  then true
+  else false.
+Redirect "/tmp/coqgkuM3j" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fixpoint value (t : term) : bool :=
+  match t with
+  | Nil => true
+  | Ident name => primitive name
+  | Cons a b => value a && value b
+  | App f a => false
+  end.
+Redirect "/tmp/coqSxNVO1" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
