@@ -358,6 +358,9 @@ Module GTeq.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
 Function
  eq (G : GT * GT) {measure
  fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
@@ -372,7 +375,6 @@ Function
    | (GRec (None :: tl1), GRec (None :: tl2)) =>
        eq (GRec tl1, GRec tl2)
    | (GRec (None :: tl1), GRec []) => eq (GRec tl1, GRec [])
+   | (GRec [], GRec (None :: tl1)) => eq (GRec [], GRec tl1)
    | _ => False
    end.
-all: (intros; subst; simpl; eauto with math).
-all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
