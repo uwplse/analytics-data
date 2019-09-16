@@ -16,6 +16,9 @@ diffpath="${path}/../diffs/${userid}"
 # Spit the replay data to a file
 printf "${userid}\n${sessionid}\n" | python3 replay.py > ${outfile}
 
+# Convert to use CANCEL instead of BackTo
+sed -i -re 's/\(\*[0-9]+:\*\).*BackTo ([0-9]+)\./\(\*CANCEL \1\*\)/' ${outfile}
+
 # Now call find-refactors
 python3 find-refactors.py ${outfile} ${diffpath}
 
