@@ -99,3 +99,5 @@ Theorem insertion_sort_permutation :
 Proof with (simpl; eauto with sf).
 (induction l) ...
 Qed.
+Unset Silent.
+Set Diffs "off".
