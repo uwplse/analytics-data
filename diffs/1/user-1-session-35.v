@@ -63,6 +63,3 @@ Unset Silent.
 Ltac destruct_pairs := repeat (try match goal with
                                    | H:(_ && _)%bool = true |- _ => apply andb_prop in H
                                    end; Tactics.destruct_pairs).
-BackTo 8.
-Unset Silent.
-Set Diffs "off".
