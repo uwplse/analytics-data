@@ -368,6 +368,9 @@ Set Printing Width 66.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
 Function
  eq (G : GT * GT) {measure
  fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
@@ -398,6 +401,7 @@ Function
    | _ => False
    end.
 all: (intros; subst; simpl; eauto with math).
+Set Silent.
 all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
+Unset Silent.
 Defined.
-Theorem eq_refl : forall A, reflexive _ (eq (A:=A)).
