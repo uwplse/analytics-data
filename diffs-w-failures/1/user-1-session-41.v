@@ -332,6 +332,9 @@ Set Printing Width 66.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
 Fixpoint size_gt (G : GT) : nat :=
   match G with
   | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
@@ -340,21 +343,18 @@ Fixpoint size_gt (G : GT) : nat :=
         (fun x acc =>
          match x with
          | Some (_, G) => 1 + size_gt G
-         | _ => 0
+         | _ => 1
          end + acc) 1 l
   | GRow l =>
       fold_right
         (fun x acc =>
          match x with
          | Some (Some (_, G)) => 1 + size_gt G
-         | _ => 0
+         | _ => 1
          end + acc) 1 l
   | _ => 0
   end.
 Module GTeq.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 66.
 Function
  eq (G : GT * GT) {measure
  fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
