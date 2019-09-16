@@ -347,6 +347,9 @@ Set Diffs "off".
 Search -Ensemble.
 Check Ensembles.In.
 Set Printing Width 70.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 70.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
@@ -368,7 +371,12 @@ Fixpoint Gamma (G : GT) : SetST :=
                      | None => False
                      | Some T => Ensembles.In _ (Gamma G) T
                      end
-                 | (O, G) => Empty_set _
+                 | (O, G) =>
+                     fun OS =>
+                     match OS with
+                     | None => True
+                     | Some T => Ensembles.In _ (Gamma G) T
+                     end
                  end)) l)
   | _ => Empty_set _
   end.
