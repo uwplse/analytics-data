@@ -408,4 +408,4 @@ Definition eq (G_1 G_2 : GT) := eq_fn (G_1, G_2).
 Check reflexive.
 Check reflexive _.
 Check reflexive GT.
-Theorem eq_refl : forall A, reflexive GT (eq (A:=A)).
+Theorem eq_refl : forall A, reflexive GT (eq A A).
