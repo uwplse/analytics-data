@@ -185,8 +185,9 @@ Fixpoint trace (n : nat) : term -> list term :=
   end.
 Redirect "/tmp/coqRDe2r5" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Example t1 := {"if" [{"pair?" <<[] []> <[] []>>} {"fst" <<[] []> []>} []]}.
-Redirect "/tmp/coqmy3crT" Print Ltac Signatures.
+Unset Silent.
+Set Printing Width 98.
+Example t1 := {"if" [{"cons?" <<[] []> <[] []>>} {"fst" <<[] []> []>} []]}.
+Redirect "/tmp/coqf2YyLr" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Check @trace.
 Eval vm_compute in trace 10 t1.
