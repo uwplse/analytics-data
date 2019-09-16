@@ -286,6 +286,11 @@ Require Import Coq.Lists.List.
 Unset Silent.
 Set Diffs "off".
 Import Coq.Lists.List.ListNotations.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
+Require Export Setoid.
+Require Export Relation_Definitions.
 Set Silent.
 Module AGT_Bounded_Rows_Details.
 Definition label := nat.
@@ -305,6 +310,4 @@ Inductive GT : Type :=
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
 Unset Silent.
-Set Diffs "off".
-Unset Silent.
-Set Diffs "off".
+Module asdf.
