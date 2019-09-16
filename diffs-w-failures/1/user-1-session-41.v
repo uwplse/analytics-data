@@ -517,6 +517,5 @@ Set Silent.
 -
 (inversion H1).
 specialize (H _ H4).
-specialize (H2 _ H4).
 Unset Silent.
 Set Diffs "off".
