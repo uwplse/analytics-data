@@ -449,4 +449,4 @@ Show.
 all: (repeat match goal with
              | H:exists _, _ |- _ => destruct H
              end).
-all: congruence.
+all: (try congruence).
