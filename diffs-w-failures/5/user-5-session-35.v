@@ -245,5 +245,10 @@ eexists.
 -
 apply -> evalEqTrue.
 (rewrite evalTimes with (i := 3%Z) (j := 2%Z)).
++
 reflexivity.
-Unset Silent.
++
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+(apply evalIntConst).
+-
