@@ -373,6 +373,7 @@ Fixpoint Gamma (G : GT) : SetST :=
                     end))) l)
   end.
 Unset Silent.
+Set Diffs "off".
 Inductive Alpha : SetST -> GT -> Prop :=
   | alpha_int : Alpha (Singleton _ SInt) GInt
   | alpha_bool : Alpha (Singleton _ SBool) GBool
@@ -395,4 +396,4 @@ Inductive Alpha : SetST -> GT -> Prop :=
             | SFun S_1 S_2 => Some S_2
             | _ => None
             end)) G_2 -> Alpha S (GFun G_1 G_2)
-  | alpha_rec_mt : Alpha (Singleton _ (SRec nil)) (GRec []).
+  | alpha_rec_mt : Alpha (Singleton _ (SRec [])) (GRec []).
