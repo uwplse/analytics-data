@@ -406,4 +406,6 @@ all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
 Defined.
 Definition eq (G_1 G_2 : GT) := eq_fn (G_1, G_2).
 Check reflexive.
-Theorem eq_refl : forall A, reflexive _ (eq (A:=A)).
+Check reflexive _.
+Check reflexive GT.
+Theorem eq_refl : forall A, reflexive GT (eq (A:=A)).
