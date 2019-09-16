@@ -1,0 +1,2 @@
+Definition n : nat.
+Qed.
