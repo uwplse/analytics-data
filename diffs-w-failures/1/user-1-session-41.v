@@ -406,8 +406,26 @@ Show.
 (inversion H0; subst).
 -
 specialize (H _ (In_singleton _ _)).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
 (repeat
   match goal with
   | H:exists _, _ |- _ => destruct H
   | H:_ \/ _ |- _ => inversion H; clear H
   end).
+congruence.
+Set Silent.
+-
+specialize (H _ (In_singleton _ _)).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+Unset Silent.
+congruence.
+Set Silent.
+-
+specialize (H _ (In_singleton _ _)).
