@@ -76,4 +76,8 @@ Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
 (intros WT pf_merge1 pf_merge2).
