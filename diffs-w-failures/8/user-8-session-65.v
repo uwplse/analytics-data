@@ -1096,4 +1096,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite id_kron' by lia).
+(rewrite id_kron').
+auto with arith.
