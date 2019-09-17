@@ -210,5 +210,9 @@ Show.
 (intros \207\129 b).
 (simpl_rewrite inSeq_correct; trivial).
 (simpl_rewrite inSeq_correct; trivial).
+Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
 (unfold compose_super).
 (rewrite E1 by easy).
