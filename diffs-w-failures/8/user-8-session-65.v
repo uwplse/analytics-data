@@ -997,6 +997,12 @@ gen \207\129.
             A'
  end).
 2: {
-(do 4 (apply f_equal_gen; trivial)).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(do 3 (apply f_equal_gen; trivial)).
+(apply f_equal_gen; trivial).
+(rewrite size_ntensor).
+(unify_pows_two; simpl; try lia).
+(unify_pows_two; simpl; try lia).
