@@ -1460,4 +1460,8 @@ Timeout 1 Print Ltac restore_dims.
             A'
  end).
 2: {
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (apply f_equal_gen; trivial).
