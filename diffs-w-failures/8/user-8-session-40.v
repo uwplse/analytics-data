@@ -162,4 +162,8 @@ Show.
 Set Printing Width 85.
 Show.
 Msimpl.
-setoid_rewrite swap_adj.
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq2UWGRL"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
