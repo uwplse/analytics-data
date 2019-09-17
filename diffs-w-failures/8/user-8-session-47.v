@@ -1255,4 +1255,10 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(apply mixed_state_kron).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(apply mixed_state_kron; trivial).
+constructor.
+(apply pure0).
