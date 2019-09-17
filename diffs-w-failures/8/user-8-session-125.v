@@ -80,6 +80,9 @@ Show.
 Set Printing Width 85.
 Show.
 restore_dims.
-show_dimensions.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
 (simpl_rewrite (unitary_gate_unitary U)).
