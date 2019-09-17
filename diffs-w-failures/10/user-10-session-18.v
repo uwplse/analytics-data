@@ -23,4 +23,5 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Timeout 1 Check @fib1.
-Eval compute in fib1 0 1.
+Unset Silent.
+Set Printing Width 114.
