@@ -78,4 +78,4 @@ Set Printing Width 85.
 Show.
 (repeat rewrite Mmult_assoc; try rewrite denote_unitary_unitary).
 Timeout 1 About denote_unitary_unitary.
-Timeout 1 Print denote_unitary_unitary.
+Timeout 1 Print Ltac denote_unitary_unitary.
