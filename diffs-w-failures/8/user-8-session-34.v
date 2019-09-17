@@ -152,4 +152,5 @@ Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
-(erewrite DC with (\206\1471 := []) (\206\14701 := \226\136\133)).
+(erewrite DC with (\206\1471 := []) (\206\14701 := [])).
+(simpl).
