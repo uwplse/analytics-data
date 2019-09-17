@@ -1437,4 +1437,8 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl).
-autounfold with U_db.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+autounfold with den_db.
