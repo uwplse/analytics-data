@@ -28,4 +28,6 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 Check @fib.
 Unset Silent.
 Set Printing Width 114.
-Eval compute in Str_nth 3 (map print_id (fib 0 1)).
+Unset Silent.
+Set Printing Width 114.
+Eval compute in Str_nth 10 (map print_id (fib 0 1)).
