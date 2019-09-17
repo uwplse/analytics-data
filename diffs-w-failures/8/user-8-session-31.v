@@ -2796,4 +2796,9 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (unfold process_gate_state).
+(simpl).
