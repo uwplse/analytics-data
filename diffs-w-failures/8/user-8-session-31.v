@@ -2825,4 +2825,43 @@ Show.
 (intros x IN).
 (apply Nat.lt_lt_add_l).
 (rewrite <- pf_merge in *).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply pat_to_list_bounded).
+split.
+assumption.
+(apply pf_merge).
+(apply t).
+(apply IN).
++
+(simpl).
+(destruct pf1).
+(rewrite pf_merge in *).
+(rewrite Nat.add_sub).
+(apply compose_super_correct).
+*
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+(rewrite pf_merge).
+(apply pf_valid).
+(apply pf_merge).
+easy.
+*
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(rewrite pf_merge).
+(rewrite size_octx_merge by easy).
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(simpl).
+(rewrite singleton_size).
+(simpl).
+(rewrite Nat.add_succ_r).
+specialize (apply_U_correct Qubit) as AUC.
+(simpl in AUC).
+(unfold process_gate_state).
