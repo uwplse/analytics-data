@@ -1237,4 +1237,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-subst.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite Nat.mul_1_r).
