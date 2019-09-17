@@ -958,4 +958,8 @@ Set Printing Width 84.
 Show.
 (intros b m i Lt \207\129 safe).
 (simpl).
+Unset Silent.
+Show.
+Set Printing Width 84.
+Show.
 (simpl_rewrite id_circ_spec).
