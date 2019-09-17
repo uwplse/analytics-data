@@ -71,4 +71,5 @@ Show.
 Set Printing Width 85.
 Show.
 (repeat rewrite Mmult_assoc).
+restore_dims.
 (rewrite unitary_gate_unitary).
