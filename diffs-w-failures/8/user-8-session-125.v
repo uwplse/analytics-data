@@ -172,4 +172,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite denote_ctrls_transpose; trivial).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite denote_ctrls_transpose by (subst; try rewrite size_wtype_length; easy)).
