@@ -986,4 +986,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
