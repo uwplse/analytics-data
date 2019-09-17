@@ -90,4 +90,5 @@ Set Printing Width 85.
 Show.
 -
 (unfold denote_u_db_box).
-(simpl).
+Unset Silent.
+Show.
