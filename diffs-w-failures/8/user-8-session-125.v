@@ -54,4 +54,8 @@ Unset Silent.
 Show.
 Timeout 1 About unitary_gate_unitary.
 Timeout 1 Print unitary_gate_unitary.
-Timeout 1 Print Ltac unitary_gate_unitary.
+(simpl in *).
+Set Printing Width 85.
+Show.
+matrix_denote.
+setoid_rewrite denote_unitary_transpose.
