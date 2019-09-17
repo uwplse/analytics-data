@@ -194,4 +194,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(erewrite ctx_wtype_size).
+Unset Silent.
+Show.
