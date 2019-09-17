@@ -1236,14 +1236,12 @@ Lemma init0_end_superoperator :
   (i = 2 ^ n)%nat -> Mixed_State \207\129 -> Mixed_State (I i \226\138\151 \226\136\1630\226\159\169 \195\151 \207\129 \195\151 (I i \226\138\151 \226\159\1680\226\136\163)).
 Proof.
 (intros; subst).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite <- (kron_1_r \207\129)).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
+Timeout 1 Check @kron_1_r'.
+Timeout 1 Check @kron_1_r'.
+Timeout 1 Check @kron_1_r'.
+(repeat rewrite kron_mixed_product).
