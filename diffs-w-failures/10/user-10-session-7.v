@@ -234,6 +234,22 @@ Inductive message :=
   | Message_Plain : forall plainMessage : plain_message, _
   | Message_Cipher : forall cipherMessage : cipher_text plain_message, _.
 Derive Show for message.
+Unset Silent.
+Timeout 1 Check @message.
+Timeout 1 Check @message.
+Timeout 1 Check @message.
+Timeout 1 Check @message.
+Timeout 1 Check @message.
+Set Printing Width 114.
+Instance eqMessage  (x y : message): (Dec (x = y)).
+Proof.
+Set Silent.
+dec_eq.
+Unset Silent.
+Defined.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqoE3OKo" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
 Definition Message_Finished (k : shared_key) (verifyData : N) : message :=
   Message_Cipher (cipher k (PlainMessage_Finished verifyData)).
 Definition Message_Hello (messageRandom : random) (messagePublic : public_key) : message :=
@@ -246,7 +262,6 @@ Derive Show for error.
 Notation hsE := (networkE +' exceptE error +' hsgenE).
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
-Unset Silent.
 Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} (k : shared_key) 
   T (ae : appE id T) : itree nE T :=
   match ae with
@@ -266,30 +281,9 @@ Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} (k : sha
       end
   | App_Send data => embed Network_Send (Message_Cipher (cipher k (PlainMessage_AppData data)))
   end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqpfIkPc" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Print taE.
-Timeout 1 Check @match_app_event.
-Timeout 1 Check @match_app_event.
-Timeout 1 Check @match_app_event.
-Timeout 1 Check @match_app_event.
-Timeout 1 Check @match_app_event.
-Locate tE.
-Set Silent.
 Notation sE := (networkE +' exceptE error +' hsgenE +' randomE).
-Unset Silent.
 Notation tE := (nondetE +' sE).
-Print networkE.
-Timeout 1 Check @networkE.
-Timeout 1 Check @networkE.
-Timeout 1 Check @networkE.
-Timeout 1 Check @networkE.
-Timeout 1 Check @showErr.
-Timeout 1 Check @err.
-Timeout 1 Check @error.
-Print error.
-Timeout 1 Check @showErr.
+Unset Silent.
 CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itree tE unit :=
   match t.(observe) with
   | RetF r => Ret r
@@ -306,3 +300,6 @@ CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itre
       | (e|) | (||e|) | (|||e|) | (||||e) => vis e (match_event e0 x0 \226\136\152 k)
       end
   end.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq2FStrM" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
