@@ -233,4 +233,4 @@ clear Heqc f p.
 -
 (unfold denote_iso_db_box, denote_u_db_box).
 (simpl).
-(rewrite pad_nothing).
+Unset Silent.
