@@ -979,4 +979,5 @@ Set Printing Width 85.
 Show.
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
 gen \207\129.
-(rewrite size_ntensor).
+Unset Silent.
+Show.
