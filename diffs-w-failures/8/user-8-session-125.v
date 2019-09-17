@@ -109,4 +109,5 @@ Set Printing Width 85.
 Show.
 (simpl).
 (unfold denote_pat; simpl).
-(unfold swap_list; simpl).
+Unset Silent.
+Show.
