@@ -1445,4 +1445,6 @@ Show.
 (simpl).
 Unset Silent.
 Show.
-Timeout 1 Check @denote_box_compat.
+Set Printing Width 85.
+Show.
+(unfold denote_db_circuit).
