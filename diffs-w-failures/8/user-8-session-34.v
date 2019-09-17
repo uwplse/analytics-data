@@ -203,4 +203,12 @@ Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
-(intros \207\129 b M\207\129).
+Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
+(intros \207\129 b).
+(simpl_rewrite inSeq_correct; trivial).
+(simpl_rewrite inSeq_correct; trivial).
+(unfold compose_super).
+(rewrite E1 by easy).
