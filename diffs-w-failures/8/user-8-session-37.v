@@ -103,5 +103,8 @@ specialize (H (add_fresh_pat W []) (add_fresh_state W []) []).
 (simpl in H).
 (unfold add_fresh_state, add_fresh_pat in *).
 (destruct (add_fresh W []) as [p \206\147] eqn:E).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl in *).
-(rewrite H).
