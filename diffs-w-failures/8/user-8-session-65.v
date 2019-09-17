@@ -960,77 +960,28 @@ Unset Silent.
 Set Printing Width 85.
 Unset Silent.
 Set Printing Width 85.
+Unset Silent.
+Set Printing Width 85.
 Lemma assert_init_at_id :
-  forall b m i, i < S m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
+  forall b m i, i <= m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
+Set Silent.
 Proof.
 (intros b m i Lt \207\129 safe).
 (simpl).
 (simpl_rewrite id_circ_spec).
 (simpl_rewrite inSeq_correct; [  | apply assert_at_WT | apply init_at_WT ]).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 (unfold compose_super).
 (rewrite (init_at_spec_strong b m i); [  | omega ]).
 (destruct safe).
 -
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 gen \207\129.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
 (intros \207\129).
 Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 remember_differences.
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+(repeat rewrite Mmult_assoc).
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
