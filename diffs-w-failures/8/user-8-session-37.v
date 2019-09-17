@@ -268,4 +268,5 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl).
+(unfold compose_super).
 (erewrite VA).
