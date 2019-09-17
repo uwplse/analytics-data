@@ -115,4 +115,6 @@ Set Printing Width 85.
 Show.
 Unset Silent.
 Show.
-Timeout 1 Check @apply_U_trans.
+Set Printing Width 85.
+Show.
+(unfold apply_U).
