@@ -195,4 +195,8 @@ Proof.
 (simpl).
 Unset Silent.
 (rewrite Nat.mul_1_r).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (apply mixed_unitary; trivial).
