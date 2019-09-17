@@ -216,4 +216,4 @@ Set Printing Width 131.
 Show.
 (unfold compose_super).
 (unfold HOAS_Equiv in *).
-(rewrite E1 by easy).
+(rewrite E2).
