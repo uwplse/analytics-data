@@ -982,10 +982,8 @@ gen \207\129.
 (intros \207\129).
 Unset Silent.
 remember_differences.
-restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Unset Silent.
-Show.
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
