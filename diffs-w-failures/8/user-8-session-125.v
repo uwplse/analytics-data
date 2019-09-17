@@ -58,4 +58,14 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Set Silent.
+(simpl in *).
+matrix_denote.
+setoid_rewrite denote_unitary_transpose.
+(simpl in *; Msimpl).
+Unset Silent.
+(repeat rewrite Mmult_assoc; try rewrite unitary_gate_unitary).
