@@ -1105,5 +1105,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-2: auto with arith.
-2: omega.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Search -(_ ^ _ <> 0).
