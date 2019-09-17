@@ -1480,4 +1480,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(apply f_equal_gen; trivial).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(apply f_equal_gen).
