@@ -2828,6 +2828,5 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 dependent destruction p1.
 dependent destruction t.
 (apply singleton_equiv in s; subst).
-(simpl).
 Unset Silent.
 Show.
