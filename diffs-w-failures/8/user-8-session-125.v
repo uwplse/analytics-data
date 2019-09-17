@@ -94,6 +94,9 @@ Msimpl.
 (rewrite Mmult_assoc).
 (unfold super).
 (simpl).
-(remember (W1 \226\138\151 W2) as W).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
+(intros).
