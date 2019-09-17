@@ -23,8 +23,13 @@ Redirect "/tmp/coq16819xdB" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Set Printing Width 115.
+Unset Silent.
+Redirect "/tmp/coq16819-nH" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Set Printing Width 115.
 Set Silent.
-Import ApplicativeNotation FunctorNotation MonadNotation SumNotations.
+Import ApplicativeNotation FunctorNotation ListNotations SumNotations.
 Open Scope program_scope.
 Open Scope sum_scope.
 Open Scope monad_scope.
