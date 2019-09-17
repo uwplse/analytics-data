@@ -193,34 +193,21 @@ Unset Silent.
 Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq2J2kKe" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Unset Silent.
+Set Printing Width 131.
 Set Silent.
 Lemma HOAS_Equiv_inSeq :
   forall w1 w2 w3 (c1 c1' : Box w1 w2) (c2 c2' : Box w2 w3),
   Typed_Box c1 -> Typed_Box c1' -> Typed_Box c2 -> Typed_Box c2' -> c1 \226\137\161 c1' -> c2 \226\137\161 c2' -> c2 \194\183 c1 \226\137\161 c2' \194\183 c1'.
 Proof.
 (intros w1 w2 w3 c1 c1' c2 c2' T1 T1' T2 T2' E1 E2).
-Unset Silent.
-Show.
-Set Printing Width 131.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 131.
-Show.
 (intros \207\129 b).
 (simpl_rewrite inSeq_correct; trivial).
 (simpl_rewrite inSeq_correct; trivial).
-Unset Silent.
-Show.
-Set Printing Width 131.
-Show.
 (unfold compose_super).
 (unfold HOAS_Equiv in *).
-Unset Silent.
-Show.
-Set Printing Width 131.
-Show.
 (rewrite E2).
+Unset Silent.
 Admitted.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqCrSaBz" Print Ltac Signatures.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq6o2iWY" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
