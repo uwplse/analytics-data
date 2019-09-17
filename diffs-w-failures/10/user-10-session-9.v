@@ -175,6 +175,8 @@ Timeout 1 Print LoadPath.
 Check interp.
 Unset Silent.
 Set Printing Width 114.
+Unset Silent.
+Set Printing Width 114.
 Definition nmi_of_smi {T} (m : itree smE T) : itree (appE id +' exceptE err +' randomE) T :=
   interp
     (fun T e =>
@@ -189,5 +191,5 @@ Definition nmi_of_smi {T} (m : itree smE T) : itree (appE id +' exceptE err +' r
                              end
          end
      end) m.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqQMvZgC" Print Ltac Signatures.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqp02cOL" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
