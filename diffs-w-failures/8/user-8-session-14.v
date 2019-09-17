@@ -1269,9 +1269,21 @@ Set Silent.
 Lemma apply_new1_correct : forall n, WF_Superoperator (@apply_new1 n).
 Proof.
 (intros n \207\129 M\207\129).
-(unfold apply_new0, super).
+Unset Silent.
+Show.
+Timeout 1 Check @apply_new1.
+Set Printing Width 85.
+Show.
+(unfold apply_new1, super).
+Set Silent.
 gen \207\129.
+Unset Silent.
 (rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
 (repeat rewrite Nat.pow_add_r).
 (intros).
+(rewrite Nat.mul_1_r).
+Msimpl.
+Set Silent.
+(eapply init1_end_superoperator; trivial).
 Unset Silent.
+(restore_dims; easy).
