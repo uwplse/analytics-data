@@ -1421,4 +1421,8 @@ Show.
 Set Printing Width 85.
 Show.
 (apply source_symmetric_WT in H).
+Timeout 1 Check @valid_ancillae_box'_equiv.
+Timeout 1 Check @valid_ancillae_box'_equiv.
+Timeout 1 Check @valid_ancillae_box'_equiv.
+(unfold valid_ancillae_box in IHsource_symmetric).
 (rewrite IHsource_symmetric; trivial).
