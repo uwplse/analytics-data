@@ -1404,18 +1404,5 @@ Show.
 (apply ancilla_free_box_valid).
 constructor.
 constructor.
--
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 Unset Silent.
 Show.
