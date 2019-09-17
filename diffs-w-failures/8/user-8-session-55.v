@@ -990,4 +990,12 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite (kron_assoc q0 q1)).
+(simpl).
+Msimpl.
+(rewrite <- kron_assoc).
+restore_dims.
