@@ -3283,43 +3283,11 @@ Set Printing Width 85.
 Notation "a \226\137\161 b" := (HOAS_Equiv a b) (at level 70) : circ_scope.
 Hint Unfold HOAS_Equiv: den_db.
 Open Scope circ_scope.
-Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c = c.
+Unset Silent.
+Set Printing Width 85.
+Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c \226\137\161 c.
 Proof.
 (destruct c).
 (unfold inSeq).
 (simpl).
 (apply f_equal).
-(apply functional_extensionality; intros p).
-(remember (c p) as c0).
-clear c p Heqc0.
-(induction c0; auto).
-*
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(simpl).
-(apply f_equal).
-(apply functional_extensionality; intros p').
-(apply H).
-*
-(simpl).
-Set Silent.
-(apply f_equal).
-Unset Silent.
-(apply functional_extensionality; intros p').
-Set Silent.
-(apply H).
-Unset Silent.
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOKgxtr"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
