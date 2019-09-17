@@ -184,4 +184,4 @@ Msimpl.
 (rewrite Mmult_assoc).
 Unset Silent.
 easy.
-(subst; rewrite size_wtype_length; easy).
+2: (subst; rewrite size_wtype_length; easy).
