@@ -3288,4 +3288,6 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
+Unset Silent.
+Set Printing Width 85.
 Locate "\226\137\161".
