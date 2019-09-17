@@ -95,4 +95,9 @@ Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
-(simpl).
+Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
+Set Silent.
+(set (p2 := process_gate_pat g p1 \206\1473)).
