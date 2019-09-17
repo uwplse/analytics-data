@@ -3294,6 +3294,8 @@ Proof.
 clear c p Heqc0.
 (induction c0; auto).
 *
-(simpl).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(simpl).
