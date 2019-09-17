@@ -1424,4 +1424,12 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite add_fresh_split; simpl).
+(remember (add_fresh_pat W1 []) as p).
+(induction (c p)).
+-
+(simpl).
