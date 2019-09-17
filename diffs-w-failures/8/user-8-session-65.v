@@ -1126,5 +1126,9 @@ gen \207\129.
 (rewrite Nat.pow_add_r, <- (Nat.mul_1_r (2 ^ i))).
 (intros \207\129).
 Unset Silent.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (repeat rewrite Mmult_assoc).
 Msimpl.
