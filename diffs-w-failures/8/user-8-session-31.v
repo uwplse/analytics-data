@@ -2863,18 +2863,8 @@ dependent destruction t.
 (simpl).
 (rewrite Nat.add_succ_r).
 specialize (apply_U_correct Qubit) as AUC.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl in AUC).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
