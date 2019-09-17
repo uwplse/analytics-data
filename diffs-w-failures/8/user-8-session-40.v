@@ -62,4 +62,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite super_I; auto).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite super_I; reflexivity).
