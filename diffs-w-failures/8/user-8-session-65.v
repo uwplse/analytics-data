@@ -997,7 +997,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-fill_differences.
-Timeout 1 About gridify.
-Timeout 1 Print gridify.
-Timeout 1 Print Ltac gridify.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+remember_differences.
