@@ -3339,4 +3339,5 @@ Show.
 Set Printing Width 85.
 Show.
 (intros \207\129 b).
-(rewrite H; auto).
+(unfold denote_box).
+(unfold hoas_to_db_box).
