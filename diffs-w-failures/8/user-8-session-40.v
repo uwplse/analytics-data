@@ -157,5 +157,9 @@ Lemma SWAP_spec : forall \207\129 safe, denote_box safe SWAP \207\129 == swap \1
 Proof.
 (intros).
 matrix_denote.
-Msimpl.
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Msimpl.
+setoid_rewrite swap_sa.
