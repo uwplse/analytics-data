@@ -60,16 +60,16 @@
 #    ./commit-diffs.sh 9 ${i}
 #done
 
-# User 10 (something not working, see session 15)
-for i in {0..22}
-do
-    ./commit-diffs.sh 10 ${i}
-done
+# User 10 (w/ failures version is done; extra unset silents kind of unpleasant though)
+#for i in {0..22}
+#do
+#    ./commit-diffs.sh 10 ${i}
+#done
 
 # User 11
-#for i in {0..16}
-#do
-#    ./commit-diffs.sh 11 ${i}
-#done
+for i in {0..16}
+do
+    ./commit-diffs.sh 11 ${i}
+done
 
 
