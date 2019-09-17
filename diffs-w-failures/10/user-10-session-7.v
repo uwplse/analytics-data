@@ -271,4 +271,9 @@ CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itre
       end
   end.
 Unset Silent.
-Timeout 1 Check @match_app_event.
+Timeout 1 Check @match_event.
+Timeout 1 Check @match_event.
+Timeout 1 Check @match_event.
+Set Printing Width 114.
+Definition match_event_list {X} : networkE X -> X -> list (itree tE unit) -> list (itree tE unit) :=
+  combine fmap \226\136\152 match_event.
