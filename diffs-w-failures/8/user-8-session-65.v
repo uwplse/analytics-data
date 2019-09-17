@@ -1407,22 +1407,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(unfold valid_ancillae_box).
 Unset Silent.
 Show.
-Set Printing Width 85.
-Show.
-(intros \207\129 TB).
-(repeat simpl_rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
-  try apply source_symmetric_WT; trivial).
-(unfold compose_super).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(apply source_symmetric_WT in H).
-Timeout 1 Check @valid_ancillae_box'_equiv.
-Timeout 1 Check @valid_ancillae_box'_equiv.
-Timeout 1 Check @valid_ancillae_box'_equiv.
-(unfold valid_ancillae_box in IHsource_symmetric).
-(rewrite IHsource_symmetric; trivial).
