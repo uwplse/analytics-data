@@ -8,4 +8,4 @@ Set Printing Width 115.
 Set Silent.
 From Coq Require Import String.
 From QuickChick Require Import Decidability Show.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Unset Silent.
