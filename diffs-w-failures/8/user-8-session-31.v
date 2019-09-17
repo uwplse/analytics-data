@@ -2797,6 +2797,5 @@ Show.
 (rewrite <- pf_merge in *).
 (simpl).
 (eapply (IH p1); trivial).
-(eapply t0).
 Unset Silent.
 Show.
