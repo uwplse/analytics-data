@@ -36,4 +36,6 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Timeout 1 Check @fib.
 Timeout 1 Check @fib.
-Eval compute in fib 10 0 1.
+Unset Silent.
+Set Printing Width 114.
+Eval compute in List.map print_id (fib 10 0 1).
