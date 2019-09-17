@@ -1410,54 +1410,9 @@ Lemma denote_box_compat :
   \207\129 == \207\129' -> denote_box safe c \207\129 == denote_box safe c \207\129'.
 Proof.
 (intros).
-(induction c).
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
--
+(destruct c).
 (unfold denote_box; simpl).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(rewrite add_fresh_split).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(simpl).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(unfold denote_db_circuit).
-(simpl).
