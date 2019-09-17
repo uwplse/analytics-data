@@ -1398,6 +1398,14 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(intros n t c H).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(intros n t c H).
+(induction H).
+-
+(apply ancilla_free_box_valid).
+constructor.
+constructor.
+-
