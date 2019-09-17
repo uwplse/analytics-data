@@ -1255,4 +1255,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(apply (init0_end_superoperator n)).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(apply init0_end_superoperator).
