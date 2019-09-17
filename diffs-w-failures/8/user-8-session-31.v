@@ -3271,18 +3271,6 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOW491C"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Set Silent.
-Unset Silent.
-Unset Silent.
-Set Printing Width 85.
-Unset Silent.
-Set Printing Width 85.
-Unset Silent.
-Set Printing Width 85.
-Unset Silent.
-Set Printing Width 85.
-Unset Silent.
-Set Printing Width 85.
 Unset Silent.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
