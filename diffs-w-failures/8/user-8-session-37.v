@@ -500,4 +500,5 @@ Show.
 Set Printing Width 85.
 Show.
 (erewrite VA).
-(erewrite VA).
+Unset Silent.
+Show.
