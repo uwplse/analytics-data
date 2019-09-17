@@ -181,3 +181,9 @@ Unset Silent.
 (rewrite E2).
 (rewrite E1 by easy).
 reflexivity.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite E1).
+reflexivity.
