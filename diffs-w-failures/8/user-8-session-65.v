@@ -1415,4 +1415,9 @@ Show.
 Set Printing Width 85.
 Show.
 (destruct c).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (unfold denote_box; simpl).
+(rewrite add_fresh_split).
