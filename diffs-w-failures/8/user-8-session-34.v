@@ -114,20 +114,20 @@ Timeout 1 Print Grammar tactic.
 Theorem inSeq_correct :
   forall W1 W2 W3 (g : Box W2 W3) (f : Box W1 W2) (safe : bool) \207\129,
   Typed_Box g -> Typed_Box f -> denote_box safe (inSeq f g) \207\129 == compose_super (denote_box safe g) (denote_box safe f) \207\129.
-Set Silent.
-Proof.
 Unset Silent.
-(intros W1 W2 W3 g f safe types_g types_f \207\129).
-(autounfold with den_db; simpl).
+Show.
+Set Printing Width 131.
+Show.
+(intros W1 W2 W3 g f safe \207\129 types_g types_f).
 Set Silent.
+(autounfold with den_db; simpl).
 (destruct f as [f]).
 (destruct g as [g]).
-Unset Silent.
 (autounfold with den_db; simpl).
-Set Silent.
 (destruct (add_fresh W1 []) as [p1 \206\1471] eqn:E1).
 (simpl).
 (destruct (add_fresh W2 []) as [p2 \206\1472] eqn:E2).
+Unset Silent.
 (simpl).
 (rewrite add_fresh_split in E1, E2).
 (inversion E1).
@@ -144,20 +144,4 @@ replace (size_wtype W1) with \226\159\166 \206\1471 \226\159\167.
 replace (size_wtype W2) with \226\159\166 \206\1472 \226\159\167.
 specialize denote_compose as DC.
 (unfold denote_circuit in DC).
-Unset Silent.
-Show.
-Set Printing Width 131.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 131.
-Show.
 (erewrite DC with (\206\1471 := [])).
-(simpl).
-(unfold compose_super).
-Unset Silent.
-Show.
-Set Printing Width 131.
-Show.
-(rewrite H2, H3).
-reflexivity.
