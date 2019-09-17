@@ -2836,6 +2836,5 @@ dependent destruction t.
 (rewrite singleton_size).
 (simpl).
 (rewrite Nat.add_succ_r).
-specialize (apply_U_correct Qubit) as AUC.
 Unset Silent.
 Show.
