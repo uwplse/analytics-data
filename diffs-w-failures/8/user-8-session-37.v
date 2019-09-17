@@ -495,6 +495,9 @@ Show.
 Set Printing Width 85.
 Show.
 (unfold compose_super, Splus).
-(erewrite VA).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(erewrite VA).
+(erewrite VA).
