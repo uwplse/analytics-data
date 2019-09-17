@@ -206,4 +206,12 @@ Show.
 (simpl).
 (unfold super).
 restore_dims.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+gen \207\129.
+(rewrite <- (Nat.mul_1_r (2 ^ \226\159\166 W \226\159\167))).
+(intros).
+(rewrite Nat.mul_1_r).
 Msimpl.
