@@ -730,4 +730,8 @@ Timeout 1 Print Grammar tactic.
 Set Printing All.
 Show.
 Timeout 1 Print LoadPath.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
