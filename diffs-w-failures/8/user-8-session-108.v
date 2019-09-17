@@ -84,6 +84,10 @@ Proof.
 (destruct (add_fresh W []) as [p \206\147]).
 specialize (pf p).
 gen \207\129.
-(induction (c p)).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+-
+(unfold denote_u_db_box).
+(simpl).
