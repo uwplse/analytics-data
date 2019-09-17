@@ -1060,6 +1060,13 @@ Set Printing Width 85.
 Show.
 (repeat rewrite Nat.mul_1_r).
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-(destruct b; simpl; Msimpl).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(repeat rewrite Mmult_assoc).
+Msimpl.
+(repeat rewrite <- Mmult_assoc).
+Msimpl.
+(destruct b; simpl; Msimpl).
+-
