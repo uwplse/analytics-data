@@ -45,7 +45,7 @@ Definition smi : itree smE void :=
   rec
     (fun cst : kvs_state exp =>
      let (cs, st) := cst in
-     match conns with
+     match cs with
      | [] => conn <- trigger App_Accept;; call ([conn], st)
      | c0 :: cs' =>
          or (c <- trigger App_Accept;; call (c :: cs, st))
@@ -75,3 +75,6 @@ Definition smi : itree smE void :=
             | _ => embed App_Send c Kvs_BadRequest;; call cst
             end)
      end) ([], []).
+Redirect "/tmp/coq16819yeI" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+End App.
