@@ -381,6 +381,14 @@ validate.
 (rewrite merge_comm, merge_singleton_append).
 Unset Silent.
 easy.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Set Silent.
 -
-dependent destruction p.
-dependent destruction t.
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+(eapply t0; [  | constructor; apply singleton_singleton ]).
