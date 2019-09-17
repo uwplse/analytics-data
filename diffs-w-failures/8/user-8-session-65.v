@@ -956,5 +956,7 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Set Printing Width 85.
+Unset Silent.
+Set Printing Width 85.
 Lemma assert_init_at_id :
   forall b m i, i < S m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
