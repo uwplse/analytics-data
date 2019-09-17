@@ -2798,6 +2798,5 @@ Show.
 (simpl).
 (eapply (IH p1); trivial).
 (eapply t0).
-split.
 Unset Silent.
 Show.
