@@ -1240,29 +1240,11 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite <- (kron_1_r \207\129)).
-Timeout 1 Check @kron_1_r'.
-Timeout 1 Check @kron_1_r'.
-Timeout 1 Check @kron_1_r'.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
+(repeat rewrite kron_mixed_product).
+Msimpl.
+(apply (mixed_state_kron _ _ \207\129 \226\136\1630\226\159\169\226\159\1680\226\136\163)).
