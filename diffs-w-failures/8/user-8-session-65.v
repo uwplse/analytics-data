@@ -1004,4 +1004,6 @@ Set Printing Width 85.
 Show.
 (repeat rewrite Mmult_assoc).
 Msimpl.
-setoid_rewrite kron_mixed_product.
+(match goal with
+ | |- ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) => idtac A; idtac B; idtac C; idtac D
+ end).
