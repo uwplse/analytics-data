@@ -984,4 +984,19 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-restore_dims.
+gen \207\129.
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(intros \207\129).
+(match goal with
+ | |- ?A => let A' := restore_dims_rec tac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+(do 4 (apply f_equal_gen; trivial)).
+(rewrite size_ntensor).
+(unify_pows_two; lia).
