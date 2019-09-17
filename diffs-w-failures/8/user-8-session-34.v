@@ -35,10 +35,8 @@ Fact denote_compose :
 Set Silent.
 Proof.
 (intros safe w c \206\147 TP).
-dependent induction TP.
 Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
-Unset Silent.
-Show.
+dependent induction TP.
