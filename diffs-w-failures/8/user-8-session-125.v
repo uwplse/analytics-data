@@ -233,7 +233,16 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqvIAyK0"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Set Silent.
-Lemma even_bias : biased_coin (1 / 2) = fair_coin.
-Proof.
 Unset Silent.
+Set Printing Width 85.
+Lemma even_bias : biased_coin (1 / 2) == fair_coin.
+Proof.
+lma.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqSb2JHl"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
+Lemma fair_toss : (\226\159\166 coin_flip \226\159\167) (I 1) == fair_coin.
+Proof.
+lma.
