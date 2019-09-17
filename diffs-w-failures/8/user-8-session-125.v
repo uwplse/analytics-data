@@ -172,7 +172,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-2: {
-subst.
-(rewrite size_wtype_length).
-easy.
+Unset Silent.
+Show.
