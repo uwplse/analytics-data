@@ -79,4 +79,8 @@ Lemma X_spec :
 Proof.
 (intros).
 vector_denote.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (destruct b; unfold bool_to_ket; simpl; Msimpl).
