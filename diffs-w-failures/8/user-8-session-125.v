@@ -152,4 +152,5 @@ Show.
 Msimpl.
 (rewrite (Mmult_assoc \207\129 _ A)).
 (rewrite inv).
-Msimpl.
+Unset Silent.
+Show.
