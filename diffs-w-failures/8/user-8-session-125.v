@@ -118,4 +118,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite <- (Mmult_assoc _ A \207\129)).
+Unset Silent.
+Show.
