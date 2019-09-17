@@ -1012,4 +1012,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite Nat.pow_add_r).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite Nat.pow_add_r, (Nat.mul_1_r i)).
