@@ -1417,4 +1417,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(inversion g0).
+Unset Silent.
+Show.
