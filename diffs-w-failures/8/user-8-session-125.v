@@ -103,4 +103,5 @@ Msimpl.
 (rewrite Mmult_assoc).
 Unset Silent.
 specialize (unitary_gate_unitary U) as inv.
-(simpl in *).
+Unset Silent.
+Show.
