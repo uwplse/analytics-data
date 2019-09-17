@@ -56,13 +56,16 @@ Fixpoint choose {A E} `{nondetE -< E} (a : A) (l : list A) : itree E A :=
   end.
 Redirect "/tmp/coq16819mAt" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Unset Silent.
+Set Printing Width 115.
 Definition smi : itree smE void :=
   rec
     (fun cst : kvs_state exp =>
      let (conns, st) := cst in
      match conns with
      | [] => conn <- trigger App_Accept;; call ([conn], st)
-     | c0 :: cs => call cst
+     | c0 :: cs => or (c <- trigger App_Accept;; call (c :: conns, st)) (call cst)
      end) ([], []).
-Redirect "/tmp/coq16819zKz" Print Ltac Signatures.
+Redirect "/tmp/coq16819lUC" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+End App.
