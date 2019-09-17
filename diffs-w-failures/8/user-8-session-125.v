@@ -176,4 +176,49 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite denote_ctrls_transpose by (subst; try rewrite size_wtype_length; easy)).
+(remember (denote_ctrls (\226\159\166 W3 \226\138\151 W4 \226\159\167) U li) as A).
+(remember (swap_list (\226\159\166 W3 \226\138\151 W4 \226\159\167) li) as S).
+(rewrite <- (Mmult_assoc _ (A \195\151 \207\129) _)).
+(rewrite <- (Mmult_assoc _ A \207\129)).
+(simpl in inv).
+(rewrite inv by (subst; rewrite size_wtype_length; easy)).
+Msimpl.
+Set Silent.
+Set Silent.
+Set Silent.
+(rewrite (Mmult_assoc \207\129 _ A)).
+(rewrite inv by (subst; rewrite size_wtype_length; easy)).
+Unset Silent.
+Msimpl.
+Set Silent.
+(rewrite Mmult_assoc).
+Unset Silent.
+easy.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqSfBpFq"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
+Definition fair_coin : Matrix 2 2 :=
+  fun x y => match x, y with
+             | 0, 0 => 1 / 2
+             | 1, 1 => 1 / 2
+             | _, _ => 0
+             end.
+Definition biased_coin (c : C) : Matrix 2 2 :=
+  fun x y => match x, y with
+             | 0, 0 => 1 - c
+             | 1, 1 => c
+             | _, _ => 0
+             end.
+Definition uniform (n : nat) : Matrix n n :=
+  fun x y => if (x =? y) && (x <? n) then 1 / INR n else 0.
+Lemma bias1 : biased_coin 1 = \226\136\1631\226\159\169\226\159\1681\226\136\163.
+Proof.
+(unfold biased_coin).
+(prep_matrix_equality; simpl).
