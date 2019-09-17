@@ -38,12 +38,8 @@ Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
 (intros safe w c \206\147 TP w' f \206\1470 \206\1471 \206\1471' \206\14701 \207\129).
-dependent induction TP.
--
-(simpl).
-(unfold compose_super).
-(unfold denote_circuit).
-(simpl).
-(unfold pad).
-(rewrite (ctx_wtype_size w p \206\147) by easy).
