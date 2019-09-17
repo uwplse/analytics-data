@@ -85,10 +85,5 @@ Proof.
 specialize (pf p).
 gen \207\129.
 (induction (c p)).
--
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 Unset Silent.
 Show.
