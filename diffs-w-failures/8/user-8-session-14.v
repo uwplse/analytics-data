@@ -1212,80 +1212,149 @@ Msimpl.
 (unify_pows_two; easy).
 (restore_dims; easy).
 Qed.
+Unset Silent.
+Set Printing Width 85.
+Set Silent.
 Lemma apply_new0_correct : forall n, WF_Superoperator (@apply_new0 n).
 Proof.
 (intros n \207\129 M\207\129).
 (unfold apply_new0, super).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 gen \207\129.
 (rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
-(repeat rewrite Nat.pow_add_r).
 (intros).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 (rewrite Nat.mul_1_r).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 Msimpl.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 (eapply init0_end_superoperator; trivial).
 (restore_dims; easy).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqoi4Fe2"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Set Silent.
 Lemma apply_new1_correct : forall n, WF_Superoperator (@apply_new1 n).
 Proof.
 (intros n \207\129 M\207\129).
-Unset Silent.
-Show.
-Timeout 1 Check @apply_new1.
-Set Printing Width 85.
-Show.
 (unfold apply_new1, super).
-Set Silent.
 gen \207\129.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
+(rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
 (intros).
 (rewrite Nat.mul_1_r).
 Msimpl.
-Set Silent.
-Set Silent.
 (eapply init1_end_superoperator; trivial).
-Unset Silent.
 (restore_dims; easy).
+Unset Silent.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqbRnyAj"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
+Lemma apply_gate_correct :
+  forall W1 W2 n (g : Gate W1 W2) l,
+  length l = \226\159\166 W1 \226\159\167 ->
+  (length l <= n)%nat ->
+  (forall x, In x l -> x < n)%nat -> WF_Superoperator (@apply_gate n W1 W2 true g l).
+Proof.
+(intros W1 W2 n g l L1 L2 Lt).
+(destruct g).
+-
+(simpl in *).
+(rewrite <- L1).
+(bdestruct\206\169 (length l <=? n)).
+replace (n + length l - length l)%nat with n by omega.
+(apply apply_U_correct; easy).
+-
+(simpl in *).
+(destruct n; [ omega |  ]).
+replace (S n + 1 - 1)%nat with S n by omega.
+(apply apply_U_correct; easy).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(apply apply_new0_correct).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(apply apply_new1_correct).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(apply apply_new0_correct).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(apply apply_new1_correct).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Lt; simpl; auto).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Lt; simpl; auto).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_0_r).
+(apply apply_discard_correct).
+(apply Lt; simpl; auto).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_0_r).
+(apply apply_discard_correct).
+(simpl in Lt).
+(apply Lt; simpl; auto).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_0_r).
+(apply apply_discard_correct).
+(apply Lt; simpl; auto).
+Unset Silent.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqT4DPV"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
+Lemma map_same_id :
+  forall a l,
+  map (fun z : nat * nat => if a =? snd z then (fst z, a) else z) (combine l l) =
+  combine l l.
+Proof.
+(intros a l).
+(induction l).
+reflexivity.
+(simpl).
+(rewrite IHl).
+(destruct (a =? a0) eqn:eq; try reflexivity).
+(apply beq_nat_true in eq).
+(subst; reflexivity).
+Unset Silent.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqmp7aLJ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
+Lemma swap_list_aux_id : forall m n l, swap_list_aux m n (combine l l) = I (2 ^ n).
+Proof.
+(intros m n l).
+generalize dependent m.
+(induction l; intros m).
++
+(simpl).
+(destruct m; reflexivity).
++
+(simpl).
+(destruct m; [ reflexivity |  ]).
+(simpl).
+(rewrite map_same_id).
+(rewrite IHl).
+(unfold swap_two).
+(rewrite <- beq_nat_refl).
+Msimpl.
+reflexivity.
