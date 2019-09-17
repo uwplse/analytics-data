@@ -175,8 +175,5 @@ Show.
 Set Silent.
 Msimpl.
 (rewrite (Mmult_assoc \207\129 _ A)).
-(rewrite inv).
-Msimpl.
-(rewrite Mmult_assoc).
 Unset Silent.
-easy.
+Show.
