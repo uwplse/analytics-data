@@ -1030,15 +1030,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(destruct b; simpl; Msimpl).
-(repeat rewrite Mmult_assoc).
-Msimpl.
+(repeat rewrite Nat.mul_1_r).
