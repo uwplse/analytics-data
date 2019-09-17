@@ -18,7 +18,7 @@ printf "${userid}\n${sessionid}\n" | python3 replay.py > ${outfile}
 
 # Convert BackTo and Backtrack to comments as well
 sed -i -re 's/\(\*[0-9]+:\*\).*BackTo ([0-9]+)\./\(\*BACKTO \1\*\)/' ${outfile}
-sed -i -re 's/\(\*[0-9]+:\*\).*Backtrack ([0-9]+) 0 0\./\(\*BACKTO \1\*\)/' ${outfile}
+sed -i -re 's/\(\*[0-9]+:\*\).*Backtrack ([0-9]+) [0-9]+ [0-9]+\./\(\*BACKTO \1\*\)/' ${outfile}
 
 # Now call find-refactors
 python3 find-refactors.py ${outfile} ${diffpath}
