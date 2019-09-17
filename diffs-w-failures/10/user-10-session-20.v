@@ -28,4 +28,4 @@ Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqTOxbsM" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Unset Silent.
-Eval compute in Str_nth 10 (fib2 0 1).
+Unset Silent.
