@@ -1402,6 +1402,7 @@ Timeout 1 Print LoadPath.
 Unset Silent.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
+Set Printing Width 85.
 Lemma denote_box_compat :
   forall (safe : bool) (W1 W2 : WType) (c : Box W1 W2) \207\129,
-  \207\129 == \207\129' -> denote_box b c x == denote_box b c y.
+  \207\129 == \207\129' -> denote_box b c \207\129 == denote_box b c \207\129'.
