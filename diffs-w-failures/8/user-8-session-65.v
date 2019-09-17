@@ -979,16 +979,8 @@ gen \207\129.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-(intros \207\129).
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 remember_differences.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
