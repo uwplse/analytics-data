@@ -269,4 +269,10 @@ Set Printing Width 85.
 Show.
 (simpl).
 (unfold compose_super).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (erewrite VA).
+reflexivity.
+(eapply t0; [ apply pf1 | apply t ]).
