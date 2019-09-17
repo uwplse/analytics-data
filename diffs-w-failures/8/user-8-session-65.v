@@ -1403,6 +1403,9 @@ constructor.
 -
 (inversion g0).
 +
-(unfold valid_ancillae_box).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(unfold valid_ancillae_box).
+(intros TB).
