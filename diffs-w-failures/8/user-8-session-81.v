@@ -723,4 +723,5 @@ Proof.
 (intros).
 (rewrite kron_1_l).
 (rewrite kron_1_l).
-restore_dims.
+Unset Silent.
+(rewrite (kron_1_r A)).
