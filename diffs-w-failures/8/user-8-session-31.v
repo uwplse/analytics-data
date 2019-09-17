@@ -3290,4 +3290,6 @@ Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
 Unset Silent.
 Set Printing Width 85.
-Locate "\226\137\161".
+Unset Silent.
+Set Printing Width 85.
+Notation "a \226\137\161 b" := (HOAS_Equiv a b) (at level 70) : circ_scope.
