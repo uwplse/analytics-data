@@ -998,4 +998,10 @@ Show.
 Set Printing Width 85.
 Show.
 (destruct b; simpl; Msimpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (repeat rewrite Mmult_assoc).
+Msimpl.
+(rewrite kron_mixed_product).
