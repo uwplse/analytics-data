@@ -1485,12 +1485,10 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(repeat simpl_rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
-  try apply source_symmetric_WT; trivial).
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Timeout 1 About inSeq_correct.
-Timeout 1 Print inSeq_correct.
-Timeout 1 Print Ltac inSeq_correct.
+(repeat simpl_rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
+  try apply source_symmetric_WT; trivial).
+(unfold compose_super).
