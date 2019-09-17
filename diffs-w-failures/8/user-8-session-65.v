@@ -998,18 +998,5 @@ gen \207\129.
  end).
 2: {
 (do 4 (apply f_equal_gen; trivial)).
-(rewrite size_ntensor).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 Unset Silent.
 Show.
