@@ -15,14 +15,13 @@ Redirect "/tmp/coq16819-Zf" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Set Printing Width 115.
-Set Silent.
-From Coq Require Import Basics NArith String.
 Unset Silent.
-Redirect "/tmp/coq16819Lkl" Print Ltac Signatures.
+Redirect "/tmp/coq16819Yur" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Set Printing Width 115.
 Set Silent.
+From Coq Require Import Basics List NArith String.
 From ExtLib Require Import Functor.
 From QuickChick Require Import Decidability Show.
 From DeepWeb Require Import Exp.
@@ -57,4 +56,9 @@ Instance showDataX : (Show (kvs_data exp)) :=
          | Kvs_BadRequest => "400"
          | Kvs_PreconditionFailed => "412"
          end |}.
+Definition kvs_get {V} (k : N) : list (N * V) -> option V := fmap snd \226\136\152 find (N.eqb k \226\136\152 fst).
 Unset Silent.
+Definition kvs_put {K} {V} : K -> V -> list (K * V) -> list (K * V) := compose cons \226\136\152 pair.
+Redirect "/tmp/coq16819l4x" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
