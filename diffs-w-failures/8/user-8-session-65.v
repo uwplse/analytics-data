@@ -1511,4 +1511,8 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite H0).
-(simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite IHsource_symmetric; trivial).
