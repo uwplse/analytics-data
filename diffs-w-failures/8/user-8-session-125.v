@@ -296,9 +296,8 @@ Show.
 Set Printing Width 85.
 Show.
 (repeat rewrite Mmult_1_l).
-restore_dims.
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite (kron_1_l \226\136\1630\226\159\169)).
+restore_dims.
