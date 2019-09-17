@@ -17,6 +17,11 @@ From Coq Require Import NArith Streams.
 Open Scope N_scope.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
-Please report at http://coq.inria.fr/bugs/.
 Unset Silent.
+Set Printing Width 114.
+Set Silent.
+Eval compute in Str_nth 10 (fib1 0 1).
+Unset Silent.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqHPO2dX" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
