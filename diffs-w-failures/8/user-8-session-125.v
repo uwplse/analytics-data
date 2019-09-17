@@ -118,4 +118,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(simpl).
+Unset Silent.
+Show.
