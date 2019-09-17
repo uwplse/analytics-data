@@ -364,6 +364,7 @@ Definition match_event_list {X} : networkE X -> X -> list (itree tE unit) -> lis
 Definition server : itree sE void :=
   sk <- translate subevent serverHandshake;; interp (network_of_app sk) (nmi_of_smi kvs).
 Unset Silent.
-Definition network_of_app_ta sk : taE ~> itree tE := network_of_app sk.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqvZsKBh" Print Ltac Signatures.
+Set Printing Width 114.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqV9VsME" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
