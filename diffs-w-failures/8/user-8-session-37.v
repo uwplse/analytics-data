@@ -499,6 +499,35 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(erewrite VA).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(erewrite VA).
+(erewrite VA).
+reflexivity.
+*
+dependent destruction WT.
+dependent destruction p.
+dependent destruction t.
+(apply singleton_equiv in s).
+subst.
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(erewrite remove_bit_merge').
+(apply trim_types_circ).
+(apply t0).
+easy.
+*
+dependent destruction WT.
+dependent destruction p.
+dependent destruction t.
+(apply singleton_equiv in s).
+subst.
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(erewrite remove_bit_merge').
+(apply trim_types_circ).
+(apply t0).
+easy.
+*
+dependent destruction WT.
+dependent destruction p.
