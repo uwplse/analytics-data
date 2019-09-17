@@ -36,4 +36,6 @@ Unset Silent.
 Set Printing Width 114.
 Unset Silent.
 Set Printing Width 114.
-Eval cbn in Str_nth 10 (Fib 0 1).
+Unset Silent.
+Set Printing Width 114.
+Eval compute in Str_nth 10 (Fib 0 1).
