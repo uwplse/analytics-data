@@ -1008,4 +1008,5 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite Lt).
-(rewrite Nat.add_pow).
+Search -(_ ^ (_ + _)).
+(rewrite Nat.pow_add_r).
