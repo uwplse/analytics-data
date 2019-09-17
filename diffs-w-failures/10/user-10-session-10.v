@@ -275,7 +275,7 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Set Printing Width 114.
-Definition network_of_app {E} {nE} `{networkE -< nE} `{exceptE error -< nE} `{E -< NE} 
+Definition network_of_app {E} {nE} `{networkE -< nE} `{exceptE error -< nE} `{E -< nE} 
   (k : shared_key) T (e : (appE id +' E) T) : itree nE T :=
   match e with
   | (ae|) =>
@@ -298,3 +298,5 @@ Definition network_of_app {E} {nE} `{networkE -< nE} `{exceptE error -< nE} `{E 
       end
   | (|e) => trigger e
   end.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqv20nyB" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
