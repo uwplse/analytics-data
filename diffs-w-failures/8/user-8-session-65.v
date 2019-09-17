@@ -1112,10 +1112,18 @@ Msimpl.
 Unset Silent.
 reflexivity.
 -
-(rewrite (assert_at_spec_unsafe b m i); [  | omega ]).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+remember_differences.
 Set Silent.
 gen \207\129.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
+(rewrite Lt).
+(rewrite Nat.pow_add_r, <- (Nat.mul_1_r (2 ^ i))).
+(intros \207\129).
 Unset Silent.
+(intros \207\129 M).
