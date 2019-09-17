@@ -2787,22 +2787,18 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (unfold denote_circuit in IH).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
+(rewrite Nat.add_sub).
+(rewrite <- size_octx_merge by easy).
+(rewrite <- pf_merge in *).
+(simpl).
+(eapply (IH p1); trivial).
+(eapply t0).
+split.
+easy.
+(apply pf_merge).
+easy.
