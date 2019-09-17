@@ -30,5 +30,9 @@ autorewrite with proof_db.
 (unfold pad).
 (simpl).
 (rewrite Nat.sub_diag).
-(rewrite kron_1_r).
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite Nat.sub_diag).
+(rewrite kron_1_r).
