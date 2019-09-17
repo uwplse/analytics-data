@@ -988,8 +988,9 @@ Show.
 Set Printing Width 85.
 Show.
 remember_differences.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-(repeat rewrite Mmult_assoc).
-restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-Msimpl.
-(rewrite kron_mixed_product).
+(destruct b; Msimpl).
