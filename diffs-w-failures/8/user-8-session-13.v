@@ -580,3 +580,10 @@ Add Parametric Morphism  m n : @adjoint m n with signature
  mat_equiv ==> mat_equiv as adjoint_mor.
 Proof.
 (intros).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(intros).
+Set Printing All.
+Show.
