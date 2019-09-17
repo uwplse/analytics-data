@@ -30,11 +30,13 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqinpWed" Print Ltac
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Timeout 1 Check @fib.
-Fixpoint fib' (fuel : nat) (x y : N) : list N := match fuel with
-                                                 | O => []
-                                                 | S fuel => fib' fuel y (x + y)
-                                                 end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq7AlQ5i" Print Ltac Signatures.
+Unset Silent.
+Set Printing Width 114.
+Fixpoint fib' (fuel : nat) (x y : N) : list N :=
+  match fuel with
+  | O => []
+  | S fuel => y :: fib' fuel y (x + y)
+  end.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqHCmF2C" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Check @fib.
 Eval compute in fib' 10 0 1.
