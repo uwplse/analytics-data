@@ -3339,10 +3339,5 @@ Show.
 Set Printing Width 85.
 Show.
 (intros \207\129 b).
-(unfold denote_box).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 Unset Silent.
 Show.
