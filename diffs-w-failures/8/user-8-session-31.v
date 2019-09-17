@@ -2834,6 +2834,9 @@ dependent destruction t.
 (rewrite Nat.add_succ_r).
 specialize (apply_U_correct Qubit) as AUC.
 (simpl in AUC).
-(unfold process_gate_state).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(unfold process_gate_state).
+(simpl).
