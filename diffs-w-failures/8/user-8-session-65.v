@@ -1421,4 +1421,8 @@ Set Printing Width 85.
 Show.
 -
 (unfold denote_box; simpl).
-(simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Search -add_fresh -[].
