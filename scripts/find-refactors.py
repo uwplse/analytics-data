@@ -110,4 +110,21 @@ for i in range(len(group_ends) - 1):
     # Now switch to use the new cumulative file
     old_cumulative = new_cumulative
 
+# If we end with a cancellation, take that into account
+if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
+    cancel_index = group_cancels[-1]
+
+    # Up to the cancellation, no changes
+    new_cumulative = []
+    curr_index = 0
+    while (curr_index <= cancel_index):
+        new_cumulative.append(old_cumulative[curr_index])
+        curr_index = curr_index + 1
+
+    # Dump new version to file
+    with open(outdir + "/" + fname + "-" + str(j + 1) + fext, 'w') as f:
+        for curr_index in range(len(new_cumulative)):
+            if new_cumulative[curr_index] != "":
+                new = new_cumulative[curr_index]
+                f.write(new + "\n")
 

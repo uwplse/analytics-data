@@ -54,13 +54,13 @@
 #    ./commit-diffs.sh 8 ${i}
 #done
 
-# User 9
+# User 9 (w/ failures version is done forever)
 #for i in {0..4}
 #do
 #    ./commit-diffs.sh 9 ${i}
 #done
 
-# User 10
+# User 10 (something not working, see session 15)
 for i in {0..22}
 do
     ./commit-diffs.sh 10 ${i}
