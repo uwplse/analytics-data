@@ -2795,6 +2795,5 @@ Show.
 (rewrite Nat.add_sub).
 (rewrite <- size_octx_merge by easy).
 (rewrite <- pf_merge in *).
-(simpl).
 Unset Silent.
 Show.
