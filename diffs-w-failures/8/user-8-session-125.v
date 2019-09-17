@@ -92,41 +92,17 @@ easy.
 (unfold denote_pat; simpl).
 Msimpl.
 (rewrite Mmult_assoc).
-(unfold super).
-(simpl).
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
+(remember (W1 \226\138\151 W2) as W).
+(remember (pat_to_list (add_fresh_pat W [])) as li).
 (assert (inv : WF_Unitary (denote_ctrls (\226\159\166 W \226\159\167) U li))).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 {
 (apply denote_ctrls_unitary).
-Set Silent.
 (intros).
+Set Silent.
 (rewrite Heqli in H).
 (simpl).
 (rewrite (ctx_wtype_size _ (add_fresh_pat W []) (add_fresh_state W []))).
@@ -150,54 +126,9 @@ easy.
 easy.
 subst.
 (rewrite size_wtype_length).
-Unset Silent.
 easy.
+Unset Silent.
 }
 replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by (subst; easy).
 (unfold apply_U, apply_unitary, super).
 (destruct W; try (solve [ inversion HeqW ])).
-(rewrite denote_ctrls_transpose).
-(remember (denote_ctrls (\226\159\166 W3 \226\138\151 W4 \226\159\167) U li) as A).
-(remember (swap_list (\226\159\166 W3 \226\138\151 W4 \226\159\167) li) as S).
-(rewrite <- (Mmult_assoc _ (A \195\151 \207\129) _)).
-(rewrite <- (Mmult_assoc _ A \207\129)).
-(simpl in inv).
-(rewrite inv).
-Msimpl.
-Set Silent.
-Set Silent.
-(rewrite (Mmult_assoc \207\129 _ A)).
-Unset Silent.
-(rewrite inv).
-Msimpl.
-Set Silent.
-(rewrite Mmult_assoc).
-Unset Silent.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-easy.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Set Silent.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
