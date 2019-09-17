@@ -2796,6 +2796,5 @@ Show.
 (rewrite <- size_octx_merge by easy).
 (rewrite <- pf_merge in *).
 (simpl).
-(eapply (IH p1); trivial).
 Unset Silent.
 Show.
