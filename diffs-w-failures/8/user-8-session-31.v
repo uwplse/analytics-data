@@ -3285,18 +3285,43 @@ Hint Unfold HOAS_Equiv: den_db.
 Open Scope circ_scope.
 Unset Silent.
 Set Printing Width 85.
-Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c \226\137\161 c.
+Unset Silent.
+Set Printing Width 85.
+Set Silent.
+Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c = c.
 Proof.
 (destruct c).
 (unfold inSeq).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 (simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p).
+(remember (c p) as c0).
+clear c p Heqc0.
+(induction c0; auto).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+Qed.
+Lemma inSeq_id_r : forall w1 w2 (c : Box w1 w2), c \194\183 id_circ = c.
+Proof.
+(destruct c).
+(unfold inSeq).
+(simpl).
+reflexivity.
 Unset Silent.
-Show.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqIYANg7"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma HOAS_Equiv_refl : forall w1 w2 (c : Box w1 w2), c \226\137\161 c.
+Proof.
+(intros w1 w2 c \207\129 b).
+auto.
+Qed.
