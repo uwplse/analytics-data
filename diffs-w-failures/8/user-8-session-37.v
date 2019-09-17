@@ -55,4 +55,9 @@ split.
 -
 (intros H \206\147 \206\1470 \207\129 H0 H1).
 (rewrite <- H; trivial).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (apply mixed_state_trace_1).
+(apply denote_circuit_correct).
