@@ -77,4 +77,16 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Locate ":Fun".
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Focus 3.
+(intros \206\1473 \206\1470' p0 H0 H1).
+(destruct H0).
+(rewrite merge_nil_r in pf_merge).
+subst.
+(apply (t0 \206\1473); trivial).
+Abort.
+Fact valid_ancillae_box_equal :
+  forall W1 W2 (c : Box W1 W2), valid_ancillae_box c <-> valid_ancillae_box' c.
