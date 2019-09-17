@@ -74,6 +74,5 @@ dependent destruction H'.
 (destruct \206\1471 as [| \206\1471]; try invalid_contradiction).
 (erewrite denote_compose with (\206\1471 := []); trivial).
 Locate ":Fun".
-Focus 3.
 Unset Silent.
 Show.
