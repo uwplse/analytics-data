@@ -70,4 +70,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(repeat rewrite Mmult_assoc; rewrite unitary_gate_unitary).
+(repeat rewrite Mmult_assoc).
+(rewrite unitary_gate_unitary).
