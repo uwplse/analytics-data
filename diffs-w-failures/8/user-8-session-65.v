@@ -1035,4 +1035,10 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(destruct b; simpl; Msimpl).
+(repeat rewrite Mmult_assoc).
 Msimpl.
