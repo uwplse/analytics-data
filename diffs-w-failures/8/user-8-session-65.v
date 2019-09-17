@@ -1008,4 +1008,9 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-show_dimensions.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Set Printing All.
+Show.
