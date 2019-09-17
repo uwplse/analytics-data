@@ -1017,4 +1017,8 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite size_ntensor; unify_pows_two; simpl; try lia).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (unify_matrix_dims idtac).
