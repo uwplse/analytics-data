@@ -89,4 +89,5 @@ Show.
 Set Printing Width 85.
 Show.
 matrix_denote.
-(rewrite add_fresh_split).
+Unset Silent.
+Show.
