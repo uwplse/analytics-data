@@ -58,4 +58,8 @@ Timeout 1 Print unitary_gate_unitary.
 Set Printing Width 85.
 Show.
 matrix_denote.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 setoid_rewrite denote_unitary_transpose.
