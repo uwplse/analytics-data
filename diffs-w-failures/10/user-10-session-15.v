@@ -48,4 +48,9 @@ Unset Silent.
 Set Printing Width 114.
 Eval compute in fib 10 0 1.
 Timeout 1 Check @fib.
-Check stream.
+Timeout 1 Check @fib.
+CoFixpoint fib' (a b : N) : Stream N := Cons a (print_id (fib' b (a + b))).
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqOya5lg" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Check @fib.
+Eval compute in Str_nth 10 (fib' 0 1).
