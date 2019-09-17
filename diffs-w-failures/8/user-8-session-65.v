@@ -1024,4 +1024,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(unify_pows_two; simpl; try lia).
+Unset Silent.
+Show.
