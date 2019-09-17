@@ -26,4 +26,6 @@ CoFixpoint fib (x y : N) : Stream N := Cons y (fib y (x + y)).
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqbF6gTS" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Check @fib.
-Eval compute in Str_nth 3 (map print (fib 0 1)).
+Unset Silent.
+Set Printing Width 114.
+Eval compute in Str_nth 3 (map print_id (fib 0 1)).
