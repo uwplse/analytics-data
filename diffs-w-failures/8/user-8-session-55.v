@@ -963,14 +963,11 @@ Example move_to_0_test_24 :
   forall q0 q1 q2 q3 : Vector 2,
   move_to_0 4 2 \195\151 (q0 \226\138\151 q1 \226\138\151 q2 \226\138\151 q3) == q2 \226\138\151 q0 \226\138\151 q1 \226\138\151 q3.
 Proof.
-(intros q0 q1 q2 q3 WF0 WF1 WF2 WF3).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(intros q0 q1 q2 q3).
 (unfold move_to_0, move_to_0_aux).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 (repeat rewrite Mmult_assoc).
+(rewrite (kron_assoc q0 q1)).
