@@ -3334,5 +3334,9 @@ Set Printing Width 85.
 Lemma HOAS_Equiv_sym : forall w1 w2 (c1 c2 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c1.
 Proof.
 (intros).
-(intros \207\129 b H').
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(intros \207\129 b).
 (rewrite H; auto).
