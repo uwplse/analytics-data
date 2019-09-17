@@ -152,18 +152,6 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Unset Silent.
 Set Printing Width 85.
-Set Silent.
-Lemma SWAP_spec : forall \207\129 safe, denote_box safe SWAP \207\129 == swap \195\151 \207\129 \195\151 swap.
-Proof.
-(intros).
-matrix_denote.
 Unset Silent.
-Show.
 Set Printing Width 85.
-Show.
-Msimpl.
-reflexivity.
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq2UWGRL"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+Search -SWAP.
