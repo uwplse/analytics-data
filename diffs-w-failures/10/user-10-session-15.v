@@ -32,7 +32,4 @@ Set Silent.
 Open Scope N_scope.
 Unset Silent.
 Set Printing Width 114.
-Set Silent.
-CoFixpoint Fib (a b : N) : Stream N := Cons a (print_id (Fib b (a + b))).
 Unset Silent.
-Eval compute in Str_nth 10 (Fib 0 1).
