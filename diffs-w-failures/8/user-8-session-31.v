@@ -3298,4 +3298,5 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl).
-(intros \207\129 b).
+Unset Silent.
+Show.
