@@ -1012,4 +1012,8 @@ Timeout 1 Print Ltac restore_dims.
             A'
  end).
 2: {
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (unify_matrix_dims idtac).
