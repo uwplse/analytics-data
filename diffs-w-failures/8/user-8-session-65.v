@@ -1432,4 +1432,9 @@ Show.
 (remember (add_fresh_pat W1 []) as p).
 (induction (c p)).
 -
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
+autounfold with U_db.
