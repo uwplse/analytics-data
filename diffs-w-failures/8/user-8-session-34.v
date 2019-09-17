@@ -42,5 +42,9 @@ dependent induction TP.
 (unfold compose_super).
 (unfold denote_circuit).
 (simpl).
-(unfold pad).
 Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
+(unfold pad).
+(rewrite (ctx_wtype_size w p \206\147) by easy).
