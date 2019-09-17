@@ -234,8 +234,5 @@ Show.
 Unset Silent.
 Show.
 Set Printing Width 85.
-Show.
-Set Printing Implicit.
-Show.
 Unset Silent.
 Show.
