@@ -186,4 +186,12 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite E1).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqvORNMZ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
