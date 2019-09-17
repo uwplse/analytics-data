@@ -1036,4 +1036,9 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(do 3 (apply f_equal_gen; trivial)).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(do 4 (apply f_equal_gen; trivial)).
+(rewrite size_ntensor).
