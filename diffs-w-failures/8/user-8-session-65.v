@@ -983,4 +983,16 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 remember_differences.
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+(repeat rewrite Mmult_assoc).
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+Msimpl.
+(match goal with
+ | |- @Mmult ?a ?b ?c ?A (@Mmult ?d ?e ?f ?B ?C) .+ _ = _ => setoid_rewrite  <-
+   (Mmult_assoc A B C)
+ end).
