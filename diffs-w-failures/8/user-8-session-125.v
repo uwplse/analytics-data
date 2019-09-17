@@ -177,8 +177,5 @@ Msimpl.
 Unset Silent.
 Show.
 Set Printing Width 85.
-Show.
-(rewrite inv by (subst; rewrite size_wtype_length; easy)).
-Set Silent.
 Unset Silent.
 Show.
