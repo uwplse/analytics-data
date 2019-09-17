@@ -98,10 +98,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Unset Silent.
-Show.
+specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
