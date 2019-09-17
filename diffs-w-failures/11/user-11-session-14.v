@@ -13,8 +13,13 @@ From SimpleIO Require Import IO_Random SimpleIO.
 From DeepWeb Require Import CryptoLib KvsLib.
 Unset Silent.
 Set Printing Width 115.
+Unset Silent.
+Redirect "/tmp/coq16819_Ty" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Set Printing Width 115.
 Set Silent.
-Import FunctorNotation ListNotations MonadNotation SumNotations.
+Import ApplicativeNotation ListNotations MonadNotation SumNotations.
 Open Scope program_scope.
 Open Scope sum_scope.
 Open Scope monad_scope.
