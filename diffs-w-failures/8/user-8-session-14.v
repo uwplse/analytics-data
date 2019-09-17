@@ -1241,4 +1241,10 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite Nat.mul_1_r).
 Msimpl.
+(apply init0_end_superoperator).
