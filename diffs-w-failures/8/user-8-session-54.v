@@ -39,4 +39,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite subst_pat_fresh_empty).
+Unset Silent.
+Show.
