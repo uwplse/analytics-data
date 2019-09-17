@@ -725,7 +725,18 @@ Goal _ forall m n (A B : Matrix m n), A == B -> I 1 \226\138\151 A \226\138\151 
 Proof.
 (intros).
 (rewrite kron_1_l).
-(rewrite kron_1_l).
 Unset Silent.
-(rewrite Nat.mul_1_l).
+Show.
+Set Printing Width 85.
+Show.
+(repeat rewrite Nat.mul_1_l).
+Set Silent.
 (rewrite (kron_1_r A)).
+(rewrite (kron_1_r B)).
+(repeat rewrite Nat.mul_1_r).
+(apply H).
+Unset Silent.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqTu97u2"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
