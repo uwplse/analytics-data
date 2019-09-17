@@ -84,4 +84,28 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite denote_unitary_transpose).
+(simpl_rewrite @denote_unitary_transpose).
+Set Silent.
+(simpl in *).
+Msimpl.
+(repeat rewrite Mmult_assoc).
+(rewrite inv).
+(repeat rewrite <- Mmult_assoc).
+Unset Silent.
+(rewrite inv).
+Set Silent.
+Msimpl.
+Unset Silent.
+easy.
+Set Silent.
+-
+(simpl).
+(unfold denote_pat; simpl).
+Msimpl.
+(rewrite Mmult_assoc).
+(unfold super).
+(simpl).
+(remember (W1 \226\138\151 W2) as W).
+Unset Silent.
+(remember (pat_to_list (add_fresh_pat W [])) as li).
+specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
