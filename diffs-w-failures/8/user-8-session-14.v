@@ -1278,11 +1278,13 @@ Show.
 Set Silent.
 gen \207\129.
 Unset Silent.
-(rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
-(repeat rewrite Nat.pow_add_r).
+Show.
+Set Printing Width 85.
+Show.
 (intros).
 (rewrite Nat.mul_1_r).
 Msimpl.
+Set Silent.
 Set Silent.
 (eapply init1_end_superoperator; trivial).
 Unset Silent.
