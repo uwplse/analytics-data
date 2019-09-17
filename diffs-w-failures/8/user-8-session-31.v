@@ -3302,4 +3302,24 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+*
+(simpl).
+Set Silent.
+(apply f_equal).
+Unset Silent.
+(apply functional_extensionality; intros p').
+Set Silent.
+(apply H).
+Unset Silent.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOKgxtr"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
