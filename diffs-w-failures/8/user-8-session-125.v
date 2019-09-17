@@ -147,4 +147,8 @@ Show.
 Set Printing Width 85.
 Show.
 (destruct W; inversion HeqW).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 subst.
