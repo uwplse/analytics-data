@@ -962,4 +962,11 @@ Unset Silent.
 Show.
 Set Printing Width 84.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 84.
+Show.
 (simpl_rewrite id_circ_spec).
+Timeout 1 About id_circ_spec.
+Timeout 1 Print id_circ_spec.
+Timeout 1 Print Ltac id_circ_spec.
