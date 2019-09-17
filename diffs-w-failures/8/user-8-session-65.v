@@ -1495,4 +1495,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(unfold compose_super).
+Unset Silent.
+Show.
