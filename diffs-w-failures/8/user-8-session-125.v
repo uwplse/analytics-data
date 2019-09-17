@@ -168,4 +168,11 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite inv).
-2: subst.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+2: {
+subst.
+(rewrite size_wtype_length).
+easy.
