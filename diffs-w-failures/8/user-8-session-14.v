@@ -1906,9 +1906,9 @@ Proposition process_gate_state_merge :
   Valid (process_gate_state g p \206\147) = process_gate_state g p \206\147 \226\139\147 \206\1472.
 Proof.
 Abort.
-Locate "\226\137\136".
-Timeout 1 Check @denote_circuit.
-Timeout 1 Check @denote_circuit.
+Unset Silent.
+Set Printing Width 85.
+Set Silent.
 Open Scope circ_scope.
 Lemma index_merge_l :
   forall \206\147 \206\1471 \206\1472 n w, \206\147 \226\137\136 \206\1471 \226\136\153 \206\1472 -> index \206\1471 n = Some w -> index \206\147 n = Some w.
@@ -1920,3 +1920,37 @@ generalize dependent n.
 +
 (intros n H).
 (destruct n; simpl in H; inversion H).
++
+auto.
++
+(intros n Hi).
+(inversion m; subst).
+-
+(destruct n).
+(simpl in Hi).
+(inversion Hi).
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+-
+(destruct n).
+(simpl in *).
+assumption.
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+-
+(destruct n).
+(simpl in Hi).
+(inversion Hi).
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+Unset Silent.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq1Bmaqv"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
