@@ -1402,6 +1402,5 @@ Show.
 (induction H).
 -
 (apply ancilla_free_box_valid).
-constructor.
 Unset Silent.
 Show.
