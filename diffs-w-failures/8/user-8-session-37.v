@@ -597,5 +597,9 @@ Lemma valid_denote_false :
 Proof.
 (intros W W' c \207\129 \207\129' safe T H D).
 (destruct safe; trivial).
-(unfold valid_ancillae_box in H).
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(unfold valid_ancillae_box in H).
+(rewrite H; assumption).
