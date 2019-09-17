@@ -282,4 +282,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(repeat (restore_dims; autorewrite with M_db_light)).
+restore_dims.
+(rewrite Mmult_1_l).
