@@ -1228,4 +1228,8 @@ Set Printing All.
 Show.
 gen \207\129.
 subst.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (repeat rewrite Nat.pow_add_r).
