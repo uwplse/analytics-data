@@ -782,4 +782,9 @@ Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @repeat_length.
-(unfold log_contents_ok; eauto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+eauto.
