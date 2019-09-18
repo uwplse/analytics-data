@@ -478,12 +478,15 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct (a == length bs)).
--
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @or_assoc.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @nodup.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @sum.
+Set Printing Width 78.
+Show.
+(destruct (a == length bs); subst).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+Set Silent.
+-
+Unset Silent.
+autorewrite with upd.
