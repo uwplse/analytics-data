@@ -99,9 +99,6 @@ Unset Silent.
 +
 Set Printing Width 148.
 Set Silent.
-(split; intros HX').
-*
-Unset Silent.
-Show.
+Set Printing Width 148.
 assumption.
-*
+Show.
