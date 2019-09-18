@@ -247,17 +247,20 @@ Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
 Proof.
 (intros).
 (induction n as [n IHn] using lt_wf_ind).
-(destruct n; simpl).
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @sig.
-(rewrite nat_to_le_equation; simpl).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct n; rewrite nat_to_le_equation; simpl).
+Timeout 1 Check @Tauto.A.
+Set Silent.
+-
+Unset Silent.
+auto.
+-
+Timeout 1 Check @ge.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @dependent_choice.
+Timeout 1 Check @dependent_choice.
+Timeout 1 Check @dependent_choice.
+generalize dependent S (S base).
