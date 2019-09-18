@@ -302,4 +302,11 @@ Show.
 Timeout 1 Check @FinMapToList.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @split.
-(rewrite IHn).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_same.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+Set Printing Width 78.
+Show.
+(rewrite IHn by (apply PeanoNat.Nat.mod_small; lia)).
