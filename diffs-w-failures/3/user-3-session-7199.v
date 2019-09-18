@@ -717,8 +717,10 @@ Set Printing Width 78.
 Show.
 (destruct a' as [[] bs]; simpl in *).
 intuition eauto.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 step_proc.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 (descend; intuition eauto).
-Timeout 1 Check @spec_abstraction_compose.
+step_proc.
