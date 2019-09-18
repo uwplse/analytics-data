@@ -815,4 +815,4 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
-(destruct a' as [_ bs]).
+(destruct a' as [[] bs]).
