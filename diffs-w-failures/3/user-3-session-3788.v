@@ -64,21 +64,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
-Check proc_spec_rx.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @eq_rec.
-Timeout 1 Check @recovered.
-Timeout 1 Check @recovered.
-(cbn[pre post recovered]).
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @NotConstant.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(let state := fresh "state" in
- intros ? state Hpre).
