@@ -109,5 +109,5 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 (eapply IHk).
-eauto.
-Show.
+Set Printing Width 148.
+(apply Hm).
