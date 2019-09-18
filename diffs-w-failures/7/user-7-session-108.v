@@ -249,41 +249,36 @@ assumption.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Lemma ty__empty_or_matching_ty_exists :
+  forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
 Set Silent.
-Lemma ty__matching_ty_exists : forall (w : nat) (t : ty) (k : nat), exists v : ty, |-[ k, w] v <$ t.
 Proof.
+Unset Silent.
 (induction w; induction t; intros k).
+Set Silent.
 -
 Unset Silent.
-exists (TCName c).
+(left; exists (TCName c)).
 (apply match_ty_value_type__reflexive; constructor).
-Set Silent.
 -
-Unset Silent.
 Show.
-Set Silent.
-(destruct (IHt1 k) as [v1 Hm1]).
-Unset Silent.
-(destruct (IHt2 k) as [v2 Hm2]).
-exists (TPair v1 v2).
-(apply match_ty_pair; assumption).
+Show.
+admit.
 Set Silent.
 -
 Unset Silent.
-(destruct (IHt1 k) as [v Hm]).
-exists v.
-(apply match_ty_union_1).
-assumption.
+admit.
 -
-exists (TRef t).
+Show.
+(left; exists (TRef t)).
 Set Silent.
 (destruct k).
-Unset Silent.
 reflexivity.
-Set Printing Width 148.
-Set Printing Width 148.
+Unset Silent.
 (split; intros w1; exists w1; auto).
 -
-(destruct (IHt k) as [v Hm]).
-exists v.
-Show.
+right.
+(intros Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_exist__0_inv; assumption).
