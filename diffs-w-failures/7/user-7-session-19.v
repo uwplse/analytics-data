@@ -208,4 +208,4 @@ Proof.
 Unset Silent.
 constructor.
 (inversion Hnft; subst).
-(solve_by_inverts 3).
+(solve_by_invert 3).
