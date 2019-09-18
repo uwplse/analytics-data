@@ -122,7 +122,78 @@ exists tx.
 assumption.
 Qed.
 Set Printing Width 148.
-Set Printing Width 148.
+Set Silent.
+Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Proof.
+(induction w; induction t; intros k v Hm w' Hle).
+-
+(apply match_ty_cname__inv in Hm).
+subst.
+(apply match_ty_cname).
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto).
+-
+(destruct k).
++
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(destruct w'; constructor).
++
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(destruct w'; assumption).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(apply match_ty_var__inv in Hm; subst).
+(apply match_ty_var).
+-
+(apply match_ty_ev__inv in Hm; subst).
+(apply match_ty_ev).
+-
+(apply match_ty_cname__inv in Hm).
+subst.
+(apply match_ty_cname).
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto).
+-
+(destruct k).
++
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(destruct w'; constructor).
++
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(destruct w'; assumption).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(destruct w').
+(inversion Hle).
+(apply match_ty_exist).
+exists tx.
+(apply IHw).
+assumption.
+(apply le_S_n; assumption).
+-
+(apply match_ty_var__inv in Hm; subst).
+(apply match_ty_var).
+-
+(apply match_ty_ev__inv in Hm; subst).
+(apply match_ty_ev).
+Unset Silent.
+Qed.
 Set Silent.
 Definition ty_not_empty_k (t : ty) (k : nat) : Prop := exists (w : nat) (v : ty), |-[ k, w] v <$ t.
 Hint Unfold ty_not_empty_k: DBBetaJulia.
@@ -143,7 +214,6 @@ Proof.
 (intros t1 t2 k Hle).
 (split; [ eapply Nat.max_lub_l | eapply Nat.max_lub_r ]; eassumption).
 Qed.
-Unset Silent.
 Lemma match_ty_value_type__inv_depth :
   forall (k : nat) (v' : ty), value_type v' -> | v' | <= k -> forall (v : ty) (w : nat), |-[ k, w] v <$ v' -> | v | = | v' |.
 Proof.
@@ -153,7 +223,6 @@ Proof.
 reflexivity.
 -
 (apply match_ty_pair__inv in Hm).
-Set Printing Width 148.
 (destruct Hm as [v1' [v2' [Heq [Hm1' Hm2']]]]; subst).
 (destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
 (assert (Heq1 : | v1' | = | v1 |) by eauto).
@@ -165,31 +234,24 @@ Set Printing Width 148.
 (apply match_ty_ev__inv in Hm; subst).
 reflexivity.
 -
-Set Silent.
 (apply match_ty_cname__inv in Hm; subst).
-Unset Silent.
 reflexivity.
 -
-Set Silent.
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1' [v2' [Heq [Hm1' Hm2']]]]; subst).
 (destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
 (assert (Heq1 : | v1' | = | v1 |) by eauto).
 (assert (Heq2 : | v2' | = | v2 |) by eauto).
-Unset Silent.
 (simpl; rewrite Heq1, Heq2; reflexivity).
 -
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
-Set Silent.
 Abort.
-Unset Silent.
 Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
-Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hdep Hsem; try reflexivity).
-Set Silent.
 -
-Unset Silent.
 (destruct Hsem as [Hsem _]).
 specialize (Hsem 0).
+Unset Silent.
+(assert (Hm : |-[ 0, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
