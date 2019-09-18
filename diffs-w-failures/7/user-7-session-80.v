@@ -339,28 +339,42 @@ tauto.
 (eapply sem_eq_k__trans; eauto).
 (apply sem_eq_k__comm; auto).
 Qed.
+Set Printing Width 148.
+Set Silent.
+Lemma not_le__gt : forall n m : nat, ~ n <= m -> m < n.
+Proof.
+(induction n; induction m; intros Hcontra).
+-
+(assert (0 <= 0) by constructor).
+contradiction.
+-
+(assert (0 <= S m) by apply Nat.le_0_l).
+contradiction.
+-
+(apply Nat.lt_0_succ).
+-
+(assert (~ n <= m)).
+{
+(intros H).
+(apply le_n_S in H).
+contradiction.
+}
+(apply lt_n_S).
+auto.
+Qed.
 Lemma match_ty_value_type__symmetric : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> |-[ k] v' <$ v.
 Proof.
 (intros v v' Hv').
 generalize dependent v.
-Unset Silent.
 (induction Hv'; intros v k Hm).
-Set Silent.
 -
 (apply match_ty_cname__inv in Hm; subst).
-Unset Silent.
 (destruct k; reflexivity).
-Set Silent.
 -
-Unset Silent.
 (apply match_ty_pair__inv in Hm).
-Set Silent.
 (destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]; subst).
-Unset Silent.
 (apply match_ty_pair; eauto).
-Set Silent.
 -
-Unset Silent.
 (destruct k).
 (destruct v; contradiction).
 (pose proof Hm as Hm').
@@ -372,3 +386,4 @@ split.
 tauto.
 (apply sem_eq_k__comm; assumption).
 Qed.
+Lemma value_type_matching_ty__exists : forall t : ty, exists v : ty, value_type v /\ (forall k : nat, inv_depth t <= k -> |-[ k] v <$ t).
