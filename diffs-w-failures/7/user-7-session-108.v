@@ -328,4 +328,5 @@ Show.
 Set Printing Width 148.
 (assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
 {
-(intros Hm).
+Set Printing Width 148.
+(intros [v [tx Hm]]).
