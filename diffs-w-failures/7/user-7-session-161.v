@@ -111,17 +111,17 @@ Set Silent.
 *
 subst.
 (rewrite subst_exist_eq).
-assumption.
-*
-Unset Silent.
-(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+Show.
+Set Printing Width 148.
 Set Silent.
 (apply match_ty_exist__inv in Hm).
-Set Printing Width 148.
+(destruct Hm as [ti Hm]).
 specialize (IHw' _ Hm).
-Set Silent.
-(rewrite subst_neq__permute in IHw').
-exists ti.
 Unset Silent.
+(rewrite subst_neq__permute in IHw').
+Show.
+Show.
+exists ti.
 assumption.
 assumption.
+Show.
