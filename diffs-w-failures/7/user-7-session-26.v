@@ -222,4 +222,6 @@ Show.
 (intros v).
 Set Printing Width 148.
 Set Printing Width 148.
-auto with Hsem.
+Show.
+auto using Hsem.
+Show.
