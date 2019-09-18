@@ -245,4 +245,15 @@ Set Diffs "off".
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
-congruence.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold statdb_abstraction in *).
