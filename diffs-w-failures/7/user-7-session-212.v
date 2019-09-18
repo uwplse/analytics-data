@@ -69,6 +69,8 @@ Unset Silent.
 (apply IdSetFacts.union_1).
 Show.
 Qed.
+Set Printing Width 148.
+Ltac solve_free_union fvname := intros X t1 t2; unfold fvname; simpl; apply free_union__inv.
 Set Silent.
 Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
 Proof.
@@ -105,10 +107,9 @@ Qed.
 Lemma f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TPair t1 t2) -> f_free_in_ty X t1 \/ f_free_in_ty X t2.
 Unset Silent.
 Proof.
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-(intros X t1 t2).
-(unfold f_free_in_ty).
-(simpl).
-(apply free_union__inv).
+(solve_free_union f_free_in_ty).
+Qed.
+Set Silent.
+Lemma f_free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TUnion t1 t2) -> f_free_in_ty X t1 \/ f_free_in_ty X t2.
+Unset Silent.
+Proof.
