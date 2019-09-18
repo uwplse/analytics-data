@@ -215,4 +215,9 @@ Unset Silent.
 (induction t; intros k Hdep Hcontra).
 -
 specialize (Hcontra 0).
-(destruct Hcontra as [w Hconttra]).
+Set Printing Width 148.
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+clear Hm.
+(apply match_ty_ref__inv in hcontra).
