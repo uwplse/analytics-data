@@ -29,4 +29,5 @@ Proof.
 (induction w; induction t; intros v Hm).
 Unset Silent.
 -
-(rewrite subst_cname).
+exists v.
+(simpl).
