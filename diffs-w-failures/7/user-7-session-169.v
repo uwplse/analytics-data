@@ -89,4 +89,7 @@ Set Silent.
 (simpl).
 Unset Silent.
 (rewrite Hid).
-(unfold fresh_in_ty, freh in HY).
+(unfold fresh_in_ty, fresh in HY).
+Search -IdSet.mem.
+Check IdSetFacts.not_mem_iff.
+(destruct (IdSetFacts.not_mem_iff Y (FV s)) as [_ Hmem]).
