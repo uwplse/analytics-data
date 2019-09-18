@@ -10,14 +10,14 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
-Set Printing Width 148.
+Require Import BetaJulia.Sub0250a.AltMatchDefs.
 Require Import BetaJulia.Sub0250a.DeclSubProps.
-Set Silent.
 Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -196,12 +196,12 @@ Proof.
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
+Ltac
+ solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2 :=
+  pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
+   [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Set Printing Width 148.
-Set Printing Width 148.
+Proof.
 (induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -229,39 +229,24 @@ Set Printing Width 148.
             destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
-Show.
 -
-Show.
 (inversion Hdept; subst).
-Show.
 -
-Set Silent.
 (simpl).
-Unset Silent.
 (apply le_n_S).
-Set Printing Width 148.
 (inversion Hnft; subst).
-Show.
 (inversion H; subst).
-Set Printing Width 148.
 (simpl in Hdept).
 (apply le_S_n in Hdept).
-Show.
-Set Printing Width 148.
 (apply IHk; try assumption).
-Set Silent.
 (assert (Hv : value_type (TRef t)) by constructor).
 (assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
 specialize (Hsem _ Hm).
-Unset Silent.
 (simpl in Hsem).
-Set Printing Width 148.
 (intros v').
 specialize (Hsem v').
 tauto.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
 Proof.
 Unset Silent.
