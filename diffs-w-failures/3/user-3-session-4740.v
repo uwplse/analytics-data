@@ -17,4 +17,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 69.
-Notation "a \226\137\161 b" := (a = b).
+Timeout 1 Check @le.
+Timeout 1 Check @Byte.x30.
+Notation "a \226\137\161 b" := (a = b) (at level 30).
+Timeout 1 Check @Choice.
