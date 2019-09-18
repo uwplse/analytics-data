@@ -80,4 +80,6 @@ Unset Silent.
 (induction t').
 +
 (intros k w1).
+Set Printing Width 148.
 specialize (Hsem k w1).
+(destruct Hsem as [w2 Hsem]).
