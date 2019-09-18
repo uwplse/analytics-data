@@ -658,5 +658,9 @@ Timeout 1 Check @byte_to_ascii.
 Timeout 1 Check @byte_to_ascii.
 Timeout 1 Check @byte_to_ascii.
 Timeout 1 Check @byte_to_ascii.
-(unfold ascii_to_byte, byte_to_ascii).
-Timeout 1 Check @bounded_to_ascii.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(unfold ascii_to_byte, byte_to_ascii; simpl).
