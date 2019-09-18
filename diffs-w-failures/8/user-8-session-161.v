@@ -11,4 +11,4 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 79.
 Set Silent.
-Require Export QWIRE.Quantum.
+Unset Silent.
