@@ -419,51 +419,19 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
-Proof.
-(induction k; induction t; intros v Hm k' Hle;
-  try
-   match goal with
-   | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
-   | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; auto
-   | |- |-[ ?k'] ?v <$ TUnion _ _ =>
-         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
-   end).
--
-(inversion Hle; subst).
-assumption.
--
-clear IHt.
-(apply match_ty_i_ref__inv in Hm).
-Unset Silent.
-(destruct Hm as [t' [Heq Href]]; subst).
-Set Silent.
-(destruct k').
-Unset Silent.
-constructor.
-(apply le_S_n in Hle).
-(simpl).
-Set Silent.
 Set Printing Width 148.
 Set Silent.
 Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
-Unset Silent.
 Proof.
-Show.
 (apply
   (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
      (fun (t1 : ty) (_ : in_nf t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))).
-Set Silent.
-Set Printing Width 148.
+-
 (intros c k Hdep t2).
 (assert (Hva : value_type (TCName c)) by constructor).
-Show.
 (assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
-Set Printing Width 148.
-Set Printing Width 148.
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
-Show.
-Set Silent.
 +
 Unset Silent.
+Show.
+(apply value_sem_sub_k_i_union__inv in Hsem).
