@@ -641,4 +641,5 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
-(apply spec_abstraction_compose).
+Unset Silent.
+Set Diffs "off".
