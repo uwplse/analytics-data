@@ -176,4 +176,4 @@ step.
 {
 (descend; intuition eauto).
 {
-step.
+Unset Silent.
