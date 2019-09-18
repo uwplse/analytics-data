@@ -104,5 +104,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
--
-setoid_rewrite  <- op_spec_complete1.
+Unset Silent.
+Set Diffs "off".
