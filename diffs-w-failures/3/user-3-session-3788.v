@@ -110,6 +110,10 @@ Proof.
  end).
 (unfold swapXY).
 monad_simpl.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (match goal with
  | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
  end).
