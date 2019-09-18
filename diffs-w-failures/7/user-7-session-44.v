@@ -209,4 +209,5 @@ Proof.
 (intros k t1 t2 Hsem).
 Set Printing Width 148.
 (intros k t1 t2 Hsem1 Hsem2).
-auto using DBBetaJulia.
+auto with DBBetaJulia.
+Show.
