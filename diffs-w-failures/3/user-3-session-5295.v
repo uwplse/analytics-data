@@ -656,5 +656,13 @@ intuition eauto.
 Unset Silent.
 step.
 (destruct r; try step).
-{
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
++
 (destruct (a == a0); simplify; finish).
++
+(destruct (a == a0); simplify; finish).
++
