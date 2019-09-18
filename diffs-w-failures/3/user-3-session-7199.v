@@ -219,11 +219,14 @@ Qed.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
-     pre := log_addr a < length state;
+     pre := a < length state;
      post := fun r state' => state' = state /\ nth a state block0 = r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
@@ -236,13 +239,6 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (unfold log_abstraction in H0; intuition).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (pose proof (H1 a); intuition).
+eq_values.
