@@ -291,4 +291,26 @@ Set Diffs "off".
 Set Printing Width 51.
 Show.
 (hnf in H; propositional).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
 (destruct H0; propositional).
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @rel_apply.
+Timeout 1 Check @N.discr.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step_simp.
+Timeout 1 Check @crash_step_simp.
+Timeout 1 Check @crash_step_simp.
+Timeout 1 Check @non_erroring.
+(apply crash_step_simp in H).
