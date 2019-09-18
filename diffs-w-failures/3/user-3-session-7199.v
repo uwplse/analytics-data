@@ -723,4 +723,9 @@ Set Printing Width 78.
 Show.
 step_proc.
 (descend; intuition eauto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+destruct matches.
+-
+Timeout 1 Check @spec_abstraction_compose.
 step_proc.
