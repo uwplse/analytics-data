@@ -1390,4 +1390,11 @@ Timeout 1 Check @MailboxStatus.
 Timeout 1 Check @MailboxStatus.
 Timeout 1 Check @MailboxStatusInterp.
 Timeout 1 Check @MailboxStatusInterp.
-(cbn[MailboxStatusInterp]).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @slice.offset.
+Timeout 1 Check @fst.
+Set Printing Width 104.
+Show.
+(cbn[MailboxStatusInterp fst]).
+(<ssreflect_plugin::ssrtclseq@0> iDestruct "Hmbox" as "[Hmbox|Hmbox]" ; last  first).
