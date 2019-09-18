@@ -183,4 +183,7 @@ split.
 Show.
 Set Printing Width 148.
 reflexivity.
+Set Printing Width 148.
 (induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
+Set Silent.
++
