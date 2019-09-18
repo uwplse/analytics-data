@@ -74,4 +74,6 @@ Set Printing Width 148.
 2: {
 idtac.
 Search -not_b_free_in_ty.
-(rewrite b_subst_not_b_free_in_ty in IHHsub).
+Set Printing Width 148.
+(rewrite b_subst_not_b_free_in_ty in IHHsub; try assumption).
+(intros w1).
