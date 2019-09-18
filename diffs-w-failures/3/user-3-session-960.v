@@ -165,4 +165,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -nat -div -"ind".
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Search -nat -"ind".
