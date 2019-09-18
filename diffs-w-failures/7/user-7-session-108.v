@@ -251,6 +251,8 @@ Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t 
 Proof.
 Show.
 Set Printing Width 148.
+Show.
+Set Printing Width 148.
 (try
   match goal with
   | Hsem:||-[ ?k][?t]<= [?t']
