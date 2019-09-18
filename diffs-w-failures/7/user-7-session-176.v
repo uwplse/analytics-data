@@ -153,8 +153,15 @@ Lemma match_ty__subst_neq_permute :
 Proof.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction w; intros t v HXY; generalize dependent v; induction t; intros v;
   try (solve
    [ split; intros Hm; assumption
    | split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst;
-      destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]; apply match_ty_pair; tauto ])).
+      destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]; apply match_ty_pair; tauto
+   | split; repeat rewrite subst_union; intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
+      [ destruct (IHt1 v) as [Hm1 Hm2] | destruct (IHt2 v) as [Hm1 Hm1] ]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto ])).
+Show.
+(split; repeat rewrite subst_union; intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
+  [ destruct (IHt1 v) as [Hm1 Hm2] | destruct (IHt2 v) as [Hm1 Hm1] ]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; 
+  tauto Abort).
