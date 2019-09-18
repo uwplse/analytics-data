@@ -88,4 +88,5 @@ Show.
 Set Printing Width 148.
 (intros v Hv).
 Set Printing Width 148.
-(split; intros Hm; auto).
+Set Printing Width 148.
+(split; intros Hm; tauto).
