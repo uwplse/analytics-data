@@ -224,4 +224,11 @@ Timeout 1 Check @get_upto.
 Timeout 1 Check @get_upto.
 Timeout 1 Check @get_upto.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold get_upto; intros).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Nat.induction.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(induction a).
