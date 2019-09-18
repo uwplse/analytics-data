@@ -169,4 +169,10 @@ Set Silent.
 +
 Unset Silent.
 (apply match_ty_i_union__inv in Hm2).
-(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
++
+clear IHt3.
+Set Silent.
+(destruct k).
+Unset Silent.
+(destruct v1; try contradiction).
