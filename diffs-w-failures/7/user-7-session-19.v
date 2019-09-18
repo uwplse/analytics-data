@@ -70,12 +70,24 @@ Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> f
 Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
   try
    match goal with
    | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
    | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; auto
    | |- |-[ ?k'] ?v <$ TUnion _ _ =>
-         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto
+         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
 Show.
+-
+(destruct v; contradiction).
+Show.
+-
+Show.
+(apply match_ty_i_ref__inv in Hm).
+Show.
+(destruct Hm as [t' [Heq Href]]; subst).
+Show.
+(simpl).
+(intros v Hv).
