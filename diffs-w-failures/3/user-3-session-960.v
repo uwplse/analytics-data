@@ -231,19 +231,21 @@ Set Diffs "off".
 Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
 Set Printing Width 78.
 Fixpoint le_to_nat base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
 nat :=
   match digits with
   | nil => 0
-  | digit :: digits' => proj1_sig digit * S (S base_m2) + le_to_nat digits'
+  | digit :: digits' => S (S base_m2) * proj1_sig digit + le_to_nat digits'
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqGyddPj"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlbeccJ"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJVULoX"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6G0v7G"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
@@ -259,88 +261,10 @@ auto.
 -
 (assert (1 < S (S base_m2)) by lia).
 (assert (base_m2 = S (S base_m2) - 2) by lia).
-Unset Silent.
 (generalize dependent S (S base_m2); intros base **; subst).
-Timeout 1 Check @ge.
-Timeout 1 Check @last.
-Timeout 1 Check @byte.
-Timeout 1 Check @split.
 (assert (0 < S n) by lia).
-Timeout 1 Check @ge.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @pointwise_relation.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (generalize dependent S n; clear n; intros n **).
-Timeout 1 Check @pointwise_relation.
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @byte.
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @byte.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @mod_S_lt.
-Timeout 1 Check @mod_S_lt.
-Timeout 1 Check @mod_S_lt.
-Set Printing Width 78.
-Show.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @split.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_same.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Set Printing Width 78.
-Show.
-Check PeanoNat.Nat.mod_small.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @infinite.search_infinite.
-Timeout 1 Check @PeanoNat.Nat.mod_le.
-Check PeanoNat.Nat.mod_le.
 (rewrite IHn).
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @N.div.
-Timeout 1 Check @N.div.
 Search -"mod" -div.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @PeanoNat.Nat.div.
-Timeout 1 Check @PeanoNat.Nat.div.
-Timeout 1 Check @PeanoNat.Nat.div.
-Timeout 1 Check @PeanoNat.Nat.div_lt.
-Timeout 1 Check @PeanoNat.Nat.div_mod.
-Timeout 1 Check @QArith_base.Q.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
-Timeout 1 Check @split.
-lia.
