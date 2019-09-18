@@ -273,4 +273,8 @@ Unset Silent.
 {
 Set Printing Width 148.
 Set Printing Width 148.
-(intros [[v1 Hcontra'1] [v2 Hcontra'2]]).
+(intros [[v'1 Hcontra'1] [v'2 Hcontra'2]]).
+(apply Hnotm).
+exists (TPair v'1 v'2).
+(apply match_ty_pair; assumption).
+}
