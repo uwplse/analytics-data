@@ -256,4 +256,8 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (unfold f_free_in_ty, free).
+Unset Silent.
+(simpl).
