@@ -40,5 +40,7 @@ Set Printing Width 148.
 (simpl in Hfresh).
 (apply fresh_union__inv in Hfresh).
 (destruct Hfresh as [Hfresh1 Hfresh2]).
-auto.
 Show.
+Set Printing Width 148.
+(rewrite IHt1).
+(rewrite IHt2).
