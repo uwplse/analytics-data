@@ -103,7 +103,7 @@ Set Diffs "off".
 Timeout 1 Check @map_filter.
 Set Printing Width 78.
 #[program]
-Fixpoint nat_to_le base (x : nat) {measure lt x} :
+Fixpoint nat_to_le base (x : nat) {measure x :
 list {x : nat | x < S (S base)} :=
   match x with
   | 0 => nil
