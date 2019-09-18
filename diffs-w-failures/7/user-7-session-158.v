@@ -61,4 +61,5 @@ Set Silent.
 Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [X := s] TVar Y = TVar Y.
 Unset Silent.
 Proof.
-(intros X s Y).
+Set Printing Width 148.
+(intros X s Y Hbeq).
