@@ -106,4 +106,18 @@ Function
    | TEV y => t
    end.
 Set Printing Width 148.
-(repeat (intros; simpl; Omega.omega)).
+Set Printing Width 148.
+Set Silent.
+-
+(intros).
+(simpl).
+Omega.omega.
+Unset Silent.
+-
+Set Silent.
+(intros).
+(simpl).
+Unset Silent.
+Omega.omega.
+-
+Omega.omega.
