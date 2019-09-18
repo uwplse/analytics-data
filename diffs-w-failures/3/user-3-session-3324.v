@@ -171,48 +171,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(constructor; intuition idtac; auto; intros; autorewrite with upd in *;
-  intuition idtac).
-Timeout 1 Check @unit.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @remapped_abstraction.
-Timeout 1 Check @stateDisk.
-Timeout 1 Check @stateDisk.
-Timeout 1 Check @stateDisk.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(rewrite diskShrink_preserves; auto).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(rewrite diskShrink_size; omega).
-(rewrite diskUpd_eq; auto).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(rewrite diskShrink_size; omega).
-(rewrite diskShrink_preserves; auto).
+(constructor; autorewrite with upd in *).
