@@ -250,4 +250,5 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(split; intros tx Hsub').
+Set Printing Width 148.
+(split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub).
