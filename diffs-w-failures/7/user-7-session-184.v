@@ -89,4 +89,5 @@ Show.
 +
 (apply match_ty_pair_pair__inv in Hm').
 Show.
+(destruct Hm' as [Hm'1 Hm'2]).
 (apply match_ty_pair; tauto).
