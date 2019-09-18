@@ -231,8 +231,17 @@ Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @recovered.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
-          end _) |- _ => destruct a as [x y]
+          end _) |- _ => destruct a as [x y]; cbn[pre post recovered] in *
  end).
