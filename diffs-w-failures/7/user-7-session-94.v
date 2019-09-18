@@ -101,4 +101,5 @@ Qed.
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
 Show.
-(intros k v).
+Set Printing Width 148.
+(intros k v Hv).
