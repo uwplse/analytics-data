@@ -101,10 +101,13 @@ assumption.
 (rewrite subst_equation).
 (pose proof (false_beq_id _ _ Hbeq) as Hneq).
 (rewrite Hneq).
-(rewrite Hmem).
+Set Printing Width 148.
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as Z).
-exists ([X' := tx] ti).
-Unset Silent.
+Show.
 specialize (IHw' _ Hm).
 Show.
-Show.
+exists ([X' := tx] ti).
+admit.
+Set Silent.
+}
+-
