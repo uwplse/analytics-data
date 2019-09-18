@@ -107,4 +107,25 @@ Unset Silent.
 subst.
 (apply match_ty_exist).
 exists tx.
-(apply IHw with i).
+Set Printing Width 148.
+(apply IHw with i; try assumption).
+Set Silent.
+Abort.
+Lemma sem_sub_fresh_var__sem_sub_any :
+  forall (X : id) (t t' : ty) (X' : id),
+  IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
+Proof.
+(intros X t).
+(intros t' X' HX HX' Hsem tx).
+(intros k w1).
+specialize (Hsem k w1).
+(destruct Hsem as [w2 Hsem]).
+exists w2.
+Unset Silent.
+(intros v Hm).
+Set Silent.
+Abort.
+Lemma sem_sub_fresh_var__sem_sub_exist :
+  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Unset Silent.
+Proof.
