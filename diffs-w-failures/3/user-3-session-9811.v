@@ -56,5 +56,128 @@ Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Wf.F_unfold.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @init.
-(unfold init).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @init_abstraction.
+Set Printing Width 78.
+Show.
+Set Silent.
 (eapply then_init_compose; eauto).
+(unfold init').
+(step_proc_basic; intros).
+exists tt.
+(simpl; intuition idtac).
+(step_proc_basic; intros).
+exists tt.
+(simpl; intuition idtac).
+(step_proc_basic; intros).
+{
+eauto.
+}
+(simpl in *; intuition subst).
+exists nil.
+(unfold statdb_abstraction, inited).
+intuition auto.
+Qed.
+Theorem add_ok : forall v, proc_spec (add_spec v) (add v) recover abstr.
+Proof.
+(unfold add).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc_basic; intros).
+(destruct a'; simpl in *; intuition idtac).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+{
+eauto.
+}
+(simpl in *; intuition subst).
+Unset Silent.
+{
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+(exists (v :: s); intuition auto).
+(unfold statdb_abstraction in *; simpl in *).
+intuition lia.
+}
+Set Silent.
+(autounfold in *; intuition).
+Qed.
+Theorem mean_ok : proc_spec mean_spec mean recover abstr.
+Proof.
+(unfold mean).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc_basic; intros).
+(destruct a'; simpl in *; intuition idtac).
+(exists tt; simpl; intuition idtac).
+(destruct (r == 0)).
+-
+(step_proc_basic; intros).
+{
+eauto.
+}
+(simpl in *; intuition subst).
+2: (autounfold in *; intuition).
+(unfold statdb_abstraction in *).
+(destruct s; intuition; simpl in *; try congruence).
+(exists nil; intuition auto).
+-
+(step_proc_basic; intros).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+{
+eauto.
+}
+(simpl in *; intuition subst).
+2: (autounfold in *; intuition).
+(unfold statdb_abstraction in *).
+Unset Silent.
+(destruct s; intuition).
+Timeout 1 Check @eq_existT_curried.
+(exists (n0 :: s); intuition auto).
+(right; intuition congruence).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTIYfMC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Set Silent.
+Theorem recover_wipe : rec_wipe recover abstr no_crash.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc_basic; intros).
+{
+eauto.
+}
+(destruct a; simpl in *).
+intuition eauto.
+Qed.
+End StatDB.
+Require Import VariablesImpl.
+Module StatDBImpl:=  StatDB Vars.
+Print Assumptions StatDBImpl.abstr_2_nok.
+Print Assumptions StatDBImpl.abstr_3_ok.
+Print Assumptions StatDBImpl.add_ok.
+Unset Silent.
+Print Assumptions StatDBImpl.mean_ok.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpf8Xpc"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqS3fZMH"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
