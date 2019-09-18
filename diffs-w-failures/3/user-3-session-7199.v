@@ -311,5 +311,8 @@ split.
 -
 eauto using log_length_ok_nil.
 -
-(simpl; intuition).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(simpl; intuition).
