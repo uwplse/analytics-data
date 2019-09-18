@@ -327,4 +327,7 @@ Show.
 (rewrite disk_oob_eq; simpl; auto).
 autorewrite with upd.
 Timeout 1 Check @split.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intro.
+Timeout 1 Check @split.
 lia.
