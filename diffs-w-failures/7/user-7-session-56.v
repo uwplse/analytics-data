@@ -137,39 +137,52 @@ Proof.
 Qed.
 Set Printing Width 148.
 Set Silent.
+Lemma match_ty_value_type_r__inv_depth_r_le_index : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> inv_depth v' <= k.
+Proof.
+(intros v v' Hv').
+generalize dependent v.
+(induction Hv').
+-
+(intros).
+(simpl).
+(apply Nat.le_0_l).
+-
+(intros v k Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1' [v2' [Heqp [Hm1 Hm2]]]]; subst).
+(simpl; apply Nat.max_lub; [ eapply IHHv'1 | eapply IHHv'2 ]; eassumption).
+-
+(intros v k Hm).
+(destruct k).
+(destruct v; contradiction).
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq [[Hdep _] _]]]; subst).
+(simpl; apply le_n_S; assumption).
+Unset Silent.
+Qed.
+Set Silent.
 Lemma match_ty_value_type_k : forall v : ty, value_type v -> forall k : nat, ~ (exists v' : ty, |-[ k] v' <$ v) \/ | v | <= k.
 Proof.
 (intros v Hv).
-Unset Silent.
 (induction Hv; intros k).
-Set Silent.
 -
-Unset Silent.
 (right; simpl; apply Nat.le_0_l).
-Set Silent.
 -
-Unset Silent.
-Show.
-Set Silent.
-Unset Silent.
 (specialize (IHHv1 k); specialize (IHHv2 k)).
 (destruct IHHv1 as [IHv1| IHv1]; destruct IHHv2 as [IHv2| IHv2];
   try (solve
    [ left; intros Hcontra; destruct Hcontra as [v Hm]; apply match_ty_pair__inv in Hm; destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]; subst;
       apply IHv1 || apply IHv2; eexists; eassumption ])).
 (right; apply Nat.max_lub; assumption).
-Set Silent.
 -
-Unset Silent.
-Show.
 (destruct (dec_le (| TRef t |) k) as [Hle| Hle]).
-Set Silent.
 +
-Unset Silent.
 (right; assumption).
 +
 (left; intros Hcontra).
 (destruct Hcontra as [v' Hm]).
 (destruct k).
+Unset Silent.
 (destruct v'; contradiction).
-(pose proof (match_ty_value_type__inv_depth_le_index _ _ Hv _ Hm) as Hdep).
+(assert (Hdep : | TRef t | <= S k)).
+(apply match_ty_value_type_r__inv_depth_r_le_index).
