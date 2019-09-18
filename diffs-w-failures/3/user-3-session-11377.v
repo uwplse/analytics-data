@@ -199,29 +199,12 @@ Timeout 1 Check @n_Sn.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Theorem mult_n_Sm : forall m n, n * S m = m + n * m.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Theorem mult_n_Sm : forall m n, n * S m = n + n * m.
 Proof.
-Timeout 1 Check @negb_involutive.
-Timeout 1 Check @sig.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @plus_O_n'.
-Set Printing Width 78.
-Show.
 (induction n as [| n' IHn']).
-Timeout 1 Check @sig.
-Set Silent.
 -
-Unset Silent.
 (simpl).
-Timeout 1 Check @plus_n_O.
-Timeout 1 Check @plus_n_O.
-Timeout 1 Check @plus_n_O.
-Timeout 1 Check @plus_n_O.
-Timeout 1 Check @plus_n_O.
-Timeout 1 Check @plus_n_O.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (rewrite <- plus_n_O).
