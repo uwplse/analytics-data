@@ -516,8 +516,12 @@ tauto.
 tauto.
 Unset Silent.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma cname_sem_sub_k_i__sub_d :
-  forall k : nat, forall c : cname, | TCName c | <= k -> forall t2 : ty, ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
-Unset Silent.
+Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname), | TCName c | <= k -> forall t2 : ty, ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
 Proof.
+Unset Silent.
+(intros k c Hdep t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+(assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
