@@ -651,4 +651,4 @@ Unset Silent.
 (rewrite <- Hdepeq; assumption).
 (apply sem_sub_k_i__trans with t2).
 Search -mk_nf.
-(destruct (sem_eq_k_i__sem_sub_k_i _ _ (match_ty_i_nf k t2))).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ (match_ty_i_nf t2 k))).
