@@ -242,5 +242,47 @@ Proof.
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
 +
 Abort.
-Unset Silent.
+Set Printing Width 148.
+Set Silent.
 Lemma value_type_sem_sub_i__inv_depth_le : forall v : ty, value_type v -> forall t : ty, ||- [v]<= [t] -> | v | <= | t |.
+Unset Silent.
+Proof.
+Show.
+Set Silent.
+Abort.
+Unset Silent.
+Lemma match_ty_i__inv_depth_stable :
+  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Set Silent.
+Proof.
+Unset Silent.
+(induction k; induction k').
+Set Silent.
+-
+Unset Silent.
+tauto.
+Set Silent.
+-
+admit.
+-
+Unset Silent.
+admit.
+Set Silent.
+-
+Unset Silent.
+(induction t).
+Set Silent.
+admit.
+admit.
+Unset Silent.
+admit.
+Set Silent.
++
+Unset Silent.
+clear IHk' IHt.
+(intros Htk Htk' v).
+(simpl in Htk, Htk').
+(apply le_S_n in Htk).
+(apply le_S_n in Htk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; specialize (Href v); simpl in Hvk, Hvk';
+  apply le_S_n in Hvk; apply le_S_n in Hvk').
