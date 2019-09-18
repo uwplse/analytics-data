@@ -191,4 +191,4 @@ Set Silent.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
 +
 clear IHt2.
-(simpl in Hdep).
+Unset Silent.
