@@ -429,7 +429,12 @@ Show.
 assumption.
 }
 Show.
+Set Printing Width 148.
+Set Silent.
 7: {
 idtac.
-Show.
+Unset Silent.
 clear IHv.
+Show.
+(intros Hm).
+(apply match_ty_i_ref__inv in Hm).
