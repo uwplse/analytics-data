@@ -481,4 +481,26 @@ Timeout 1 Check @Nat.induction.
 Timeout 1 Check @Nat.induction.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @sig.
-(induction bs; simpl).
+(induction bs'; simpl).
+-
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+intuition eauto.
++
+Timeout 1 Check @sig.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nil_l.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nil_l.
+Timeout 1 Check @app_nil_l.
+Timeout 1 Check @app_nil_l.
+(rewrite app_nil_r).
