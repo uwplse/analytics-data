@@ -285,4 +285,4 @@ Unset Silent.
 assumption.
 *
 (apply SD_Trans with (MkNF( t2))).
-(apply mk_nf__sub_d_r; assumption).
+(apply mk_nf__sub_d_2; assumption).
