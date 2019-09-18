@@ -1,0 +1,1 @@
+Require Export LF.Induction.
