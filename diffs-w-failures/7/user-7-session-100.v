@@ -121,4 +121,5 @@ Lemma match_ty_var__inv : forall (v : ty) (X : id) (w k : nat), |-[ w, k] v <$ T
 Set Silent.
 Proof.
 Unset Silent.
-(intros v; induction v; intros X w k Hm; destruct w; destruct k).
+Set Printing Width 148.
+(intros v; induction v; try (solve [ intros c w k Hm; destruct w; destruct k; contradiction ])).
