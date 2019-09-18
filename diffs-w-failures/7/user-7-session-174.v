@@ -148,5 +148,7 @@ Set Printing Width 148.
 Show.
 Search -Acc.
 Check Acc.
-(intros).
-Show.
+Set Printing Width 148.
+constructor.
+(intros y Hlt).
+constructor.
