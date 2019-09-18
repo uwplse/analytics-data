@@ -273,4 +273,12 @@ Set Printing Width 78.
 Show.
 (destruct state0; simpl; auto).
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @denesting.
+Timeout 1 Check @step.
+Timeout 1 Check @crash_step_refinement.
+Timeout 1 Check @crash_step_refinement.
+Set Printing Width 78.
+Show.
+step_ret.
