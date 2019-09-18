@@ -293,4 +293,9 @@ Show.
 Set Printing Width 148.
 (apply Hnotm).
 Show.
-(exists (TRef t); apply match_ty__reflexive; constructor).
+exists (TRef t).
+Show.
+(apply match_ty_value_type__reflexive; constructor).
+Show.
+-
+Show.
