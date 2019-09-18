@@ -225,4 +225,13 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-step.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @mult_n_O.
+Timeout 1 Check @mult_n_O.
+Timeout 1 Check @lt_dec.
+(destruct (lt_dec r 1)).
+-
+step_proc.
+-
+step_proc.
