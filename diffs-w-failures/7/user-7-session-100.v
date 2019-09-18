@@ -130,4 +130,4 @@ Show.
 Set Silent.
 (destruct k).
 Unset Silent.
-constructor.
+Show.
