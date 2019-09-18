@@ -186,4 +186,7 @@ Set Silent.
 Unset Silent.
 (apply match_ty_exist).
 exists tx.
+Show.
+Set Printing Width 148.
 (apply match_ty_union_1).
+assumption.
