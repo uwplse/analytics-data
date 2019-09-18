@@ -53,5 +53,5 @@ exists w1.
 Unset Silent.
 (apply sem_sub_ref; assumption).
 (apply sem_sub_ref).
-(simpl).
-Show.
+Set Printing Width 148.
+(unfold sem_eq).
