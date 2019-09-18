@@ -563,6 +563,19 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqGsi6kl"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ret.
+Timeout 1 Check @app.
+Timeout 1 Check @append.
+Timeout 1 Check @append_at.
+Timeout 1 Check @append_at.
+Timeout 1 Check @append_at.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @append_at_ok.
+Timeout 1 Check @append_at_ok.
+Set Printing Width 78.
+Hint Resolve append_at_ok: core.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
@@ -575,3 +588,18 @@ step_proc.
 (descend; intuition eauto).
 destruct matches.
 -
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(descend; intuition eauto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @split.
+(unfold log_size_ok; lia).
