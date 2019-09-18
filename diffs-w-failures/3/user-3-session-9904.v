@@ -214,9 +214,5 @@ Set Printing Width 78.
 Show.
 (step_proc; intros).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-intuition.
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Show.
-(unfold statdb_abstraction in *).
