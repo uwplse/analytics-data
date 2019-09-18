@@ -225,8 +225,14 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
-          end _) |- _ => idtac H y a
+          end _) |- _ => destruct a as [x y]
  end).
