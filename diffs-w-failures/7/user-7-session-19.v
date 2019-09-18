@@ -102,4 +102,4 @@ Set Printing Width 148.
 (assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
 specialize (H _ Hm).
 (apply match_ty_i_ref__inv in H).
-(destruct H as [t' [Heq Href]]; subst).
+(destruct H as [tx [Heq Href]]; subst).
