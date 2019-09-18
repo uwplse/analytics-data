@@ -603,4 +603,11 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @split.
 Timeout 1 Check @log_size_ok.
-(unfold log_size_ok; simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Set Printing Width 78.
+Show.
+(unfold log_size_ok; autorewrite with app).
