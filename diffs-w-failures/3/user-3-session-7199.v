@@ -453,4 +453,8 @@ Timeout 1 Check @app_nth1.
 Timeout 1 Check @app_nil_l.
 Timeout 1 Check @app_nil_l.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(rewrite app_nil in *).
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+(rewrite app_length in *).
