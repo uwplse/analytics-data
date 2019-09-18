@@ -156,4 +156,7 @@ Unset Silent.
 Show.
 (destruct (beq_idP X i)).
 +
+Set Printing Width 148.
+Show.
 subst.
+(rewrite b_subst_exist_eq in Hm).
