@@ -90,6 +90,7 @@ assumption.
 Qed.
 Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Unset Silent.
+Set Printing Width 148.
 #[program]
 Fixpoint subst (x : id) (s t : ty) {measure size t :=
   match t with
@@ -99,40 +100,8 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TExist y t' =>
       if IdSet.mem y (FV s)
       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
-      else TExist y (if beq_id x y then t' else subst x s t')
+      else TExist y (if beq_id x y then t' else [x := s] t')
   | TVar y => if beq_id x y then s else t
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-Next Obligation.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-Set Silent.
-(simpl).
-Unset Silent.
-Omega.omega.
-Qed.
-Next Obligation.
-Set Silent.
-(simpl).
-Omega.omega.
-Unset Silent.
-Qed.
-Next Obligation.
-Set Silent.
-(simpl).
-Omega.omega.
-Unset Silent.
-Qed.
-Set Silent.
-Next Obligation.
-(simpl).
-Omega.omega.
-Unset Silent.
-Qed.
-Next Obligation.
-(simpl).
-(rewrite rename__size).
-Omega.omega.
-Qed.
