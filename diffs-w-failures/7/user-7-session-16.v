@@ -457,7 +457,6 @@ Unset Silent.
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 Set Silent.
 Set Printing Width 148.
-Set Silent.
-(right; solve_not_x_sub_r_y_full; intros Hnf'').
-Unset Silent.
-(apply sub_r_dec__mk_nf_sub_r_dec; tauto).
+Set Printing Width 148.
+(right; solve_not_x_sub_r_y_full; intros Hnf''; apply sub_r_dec__mk_nf_sub_r_dec; tauto).
+Show.
