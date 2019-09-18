@@ -66,4 +66,5 @@ Set Silent.
 Unset Silent.
 Show.
 (simpl).
-(destruct (beq_idP X i); destruct (beq_idP Y i); try reflexivity).
+Set Printing Width 148.
+(destruct (beq_idP X i); destruct (beq_idP Y i); subst; try reflexivity).
