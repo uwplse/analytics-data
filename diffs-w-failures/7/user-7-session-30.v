@@ -58,4 +58,5 @@ Set Silent.
 Lemma match_ty__value_type : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
 Unset Silent.
 Proof.
-(induction v; induction t).
+Set Printing Width 148.
+(induction v; induction t; try (solve [ auto with DBBetaJulia ])).
