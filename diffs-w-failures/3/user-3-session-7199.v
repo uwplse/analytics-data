@@ -297,33 +297,12 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Theorem log_contents_ok_unchanged d bs a b :
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Theorem log_contents_ok_unchanged d bs a0 b :
   log_contents_ok d bs ->
-  log_addr a >= length bs -> log_contents_ok (diskUpd d a b) bs.
+  log_addr a0 >= length bs -> log_contents_ok (diskUpd d a0 b) bs.
 Proof.
-Timeout 1 Check @Nat.add_shuffle0.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 (unfold log_contents_ok; intros).
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
 specialize (H a).
