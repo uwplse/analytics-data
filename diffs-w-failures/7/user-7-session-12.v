@@ -325,4 +325,18 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(repeat rewrite mk_nf_pair, mk_nf_union).
+Set Printing Width 148.
+(repeat rewrite mk_nf_union, mk_nf_pair).
+(rewrite mk_nf_pair).
+(rewrite unite_pairs_union_t).
+(apply sub_r__reflexive).
+Qed.
+Set Silent.
+Lemma mk_nf__distr21 : forall t1 t21 t22 : ty, |- MkNF( TPair t1 (TUnion t21 t22)) << MkNF( TUnion (TPair t1 t21) (TPair t1 t22)).
+Proof.
+Unset Silent.
+(intros t1 t21 t22).
+Set Silent.
+(repeat rewrite mk_nf_union, mk_nf_pair).
+Unset Silent.
+(rewrite mk_nf_pair).
