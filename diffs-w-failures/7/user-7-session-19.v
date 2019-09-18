@@ -421,5 +421,6 @@ Set Printing Width 148.
 (assert (Hm : |-[ | TUnion ta tb |] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem _ _ Hm).
 (apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]).
+Set Printing Width 148.
+(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
 Show.
