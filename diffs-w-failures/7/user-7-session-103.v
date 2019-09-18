@@ -45,14 +45,18 @@ Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (k w : nat), (exists tx
 Proof.
 (intros v X t k w Hex).
 (destruct k, v; assumption).
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k w : nat), |-[ k, w] v <$ TCName c -> v = TCName c.
-Set Printing Width 148.
-Set Printing Width 148.
+Proof.
 (intros v c k w Hm).
-Set Printing Width 148.
-Set Printing Width 148.
 (destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
-Show.
 Qed.
+Lemma match_ty_pair__inv :
+  forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ k, w] v1 <$ t1 /\ |-[ k, w] v2 <$ t2.
+Unset Silent.
+Proof.
+Set Silent.
+(intros v c k w Hm).
+Unset Silent.
+(destruct k, w, v; simpl in Hm; try contradiction).
