@@ -418,23 +418,12 @@ Set Printing Width 148.
 Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
 Proof.
 Show.
-(induction k; induction v).
-Show.
+Set Printing Width 148.
+(induction k; induction t).
+Set Silent.
 4: {
 idtac.
-Show.
+Unset Silent.
 (intros Hm k' Hle).
 (inversion Hle; subst).
-Show.
 assumption.
-}
-Show.
-Set Printing Width 148.
-Set Silent.
-7: {
-idtac.
-Unset Silent.
-clear IHv.
-Show.
-(intros Hm).
-(apply match_ty_i_ref__inv in Hm).
