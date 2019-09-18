@@ -91,72 +91,16 @@ Timeout 1 Check @GoModel.
 Timeout 1 Check @GoModel.
 Timeout 1 Check @GoModel.
 Set Printing Width 78.
-Instance aModel : GoModel.
-Proof.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @byte.
-Timeout 1 Check @byte.
-Print uint64.
-Timeout 1 Check @Assoc.
-Timeout 1 Check @Ascii.eqb.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @byte.
-Timeout 1 Check @byte.
-Timeout 1 Check @Assoc.
-Timeout 1 Check @Ascii.eqb.
-Timeout 1 Check @Ascii.eqb.
-Timeout 1 Check @Ascii.Ascii.
-Print Ascii.Ascii.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @ZMicromega.Zeval_formula'.
-Timeout 1 Check @strings.string_countable.
-Timeout 1 Check @mk_srt.
-Timeout 1 Check @strings.string_countable.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.shift.
+Timeout 1 Check @Ascii.Space.
+Timeout 1 Check @Ascii.shift.
+Timeout 1 Check @strings.string_countable.
 Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_string.
-Timeout 1 Check @uint64_to_string.
-Timeout 1 Check @uint64_to_string.
-Timeout 1 Check @uint64_to_string.
-Timeout 1 Check @uint64_to_string.
-Timeout 1 Check @nat_ind.
-Timeout 1 Check @beq_nat_true.
-Timeout 1 Check @String.
-Timeout 1 Check @String.
-Timeout 1 Check @String.
-Timeout 1 Check @String.eqb.
-Timeout 1 Check @String.
+Print string.
