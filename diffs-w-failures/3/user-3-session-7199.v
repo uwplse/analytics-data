@@ -510,6 +510,11 @@ Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_length_ok.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
 Theorem log_contents_ok_len_change d bs a0 b :
   log_size_ok d bs ->
-  log_contents_ok d bs -> log_contents_ok (diskUpd d log_len b) bs.
+  log_contents_ok d bs -> log_contents_ok (diskUpd d len_addr b) bs.
