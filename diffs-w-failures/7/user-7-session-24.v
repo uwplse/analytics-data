@@ -151,4 +151,5 @@ Proof.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros; eapply SD_Trans; eauto).
+Set Printing Width 148.
+(intros t t1 t2 H).
