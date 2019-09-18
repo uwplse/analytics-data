@@ -91,4 +91,10 @@ Set Printing Width 148.
 (induction t; intros tx ty; try reflexivity).
 -
 (repeat rewrite subst_pair).
-(rewrite IHt1).
+Set Printing Width 148.
+(rewrite IHt1, IHt2).
+reflexivity.
+-
+Set Silent.
+(repeat rewrite subst_pair).
+(rewrite IHt1, IHt2).
