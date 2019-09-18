@@ -229,4 +229,14 @@ Set Silent.
 }
 {
 (apply match_ty_union_2).
-(rewrite f_subst_not_b_free_in_ty; assumption).
+Unset Silent.
+(rewrite f_subst_not_b_free_in_ty; auto).
+Set Silent.
+}
+Unset Silent.
+}
+*
+(destruct (beq_idP X' i0)).
+{
+subst.
+(split; intros HX).
