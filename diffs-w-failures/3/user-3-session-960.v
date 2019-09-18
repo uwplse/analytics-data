@@ -279,12 +279,16 @@ typeclasses eauto.
 -
 (simpl).
 (unfold EqualDec).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (intros; simpl).
 (decide equality; subst).
 (decide equality; subst).
-(decide equality; subst).
-(destruct x, y; simpl).
-(destruct (nat_eq_dec n n0); subst).
-left.
-Search -(existT _ _ = existT _ _) -projT2.
-Unset Silent.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @Acc.
+Timeout 1 Check @empty.
+Timeout 1 Check @max_type.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+typeclasses eauto.
