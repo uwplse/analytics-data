@@ -364,11 +364,19 @@ Set Printing Width 104.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 104.
 Anomaly "No printing rule found for "If _ _ else _"." Please report at http://coq.inria.fr/bugs/.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMRB9k8" Print Ltac Signatures.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqECVTvN" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7WgXrS" SearchPattern _.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq5DwIpG" SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Timeout 1 Check @CompEq.
+Timeout 1 Check @Ret.
+Timeout 1 Check @Exc.
+Timeout 1 Check @Rec.ArrayF.
+Timeout 1 Check @Ret.
