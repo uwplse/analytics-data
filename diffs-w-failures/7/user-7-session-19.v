@@ -135,5 +135,13 @@ Set Printing Width 148.
 idtac.
 Show.
 Set Printing Width 148.
-(unfold sem_sub_k_i in *).
 Show.
+Set Printing Width 148.
+(unfold sem_sub_k_i in Hsem).
+Show.
+(assert (Hv : value_type (TRef t)) by constructor).
+Show.
+Search -match_ty_i.
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
+Show.
+(pose proof (Hse _ Hv Hm) as Hmu).
