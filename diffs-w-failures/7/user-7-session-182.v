@@ -65,5 +65,8 @@ Set Printing Width 148.
 Set Printing Width 148.
 (pose proof (IdSetFacts.mem_1 Hin) as Hmem).
 Set Printing Width 148.
-(rewrite (subst_exist_neq _ _ _ _ HY); try assumption).
+Set Printing Width 148.
+(rewrite (subst_exist_neq _ _ _ _ HY)).
+Show.
+(rewrite subst_exist_eq).
 Show.
