@@ -718,26 +718,22 @@ Set Printing Width 78.
 Hint Resolve get_upto_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
-(unfold get; intros).
-step_proc.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec_rx.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @repeat_length.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_spec.
+Timeout 1 Check @get_spec.
+Set Printing Width 78.
+Show.
+(unfold get, get_spec; intros).
+step_proc.
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @find.
+Timeout 1 Check @firstn_O.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+(rewrite firstn_length).
