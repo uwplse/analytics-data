@@ -515,4 +515,12 @@ step_proc.
 }
 Unset Silent.
 {
-eauto using log_abstraction_preserved.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(exists bs; intuition).
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+(apply log_abstraction_preserved).
