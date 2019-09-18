@@ -436,4 +436,4 @@ Set Silent.
 +
 Unset Silent.
 Show.
-(solve_atom_sub_r_union__decidable IHt2_1 IHt2_2; assumption).
+(solve_atom_sub_r_union__decidable IHt'1 IHt'2; assumption).
