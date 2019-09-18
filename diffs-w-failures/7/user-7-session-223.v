@@ -387,4 +387,5 @@ contradiction.
 subst.
 contradiction.
 +
-(rewrite b_subst_bvar_neq).
+Set Printing Width 148.
+(rewrite b_subst_bvar_neq; try assumption).
