@@ -40,4 +40,8 @@ Show.
 Show.
 (destruct Hfresh as [Hfresh1 Hfresh2]).
 Show.
+(simpl).
+Show.
 (rewrite IHt1; try assumption).
+(rewrite IHt2; try assumption).
+reflexivity.
