@@ -16,16 +16,14 @@ Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma fresh_union__inv : forall (X : id) (fvs1 fvs2 : id_set), fresh X (IdSet.union fvs1 fvs2) -> fresh X fvs1 /\ fresh X fvs2.
 Proof.
 (intros X fvs1 fvs2 H).
 (unfold fresh in *).
-Set Printing Width 148.
-Set Printing Width 148.
 (split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
 Qed.
-Set Printing Width 148.
-Set Silent.
 Lemma subs_fresh_in_ty : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
 Proof.
 (intros X t).
@@ -64,8 +62,7 @@ exfalso.
 (apply Hfresh).
 (apply IdSetFacts.singleton_2).
 reflexivity.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma subs_neq__permute :
   forall X Y : id, X <> Y -> forall t s1 s2 : ty, fresh_in_ty X s2 -> fresh_in_ty Y s1 -> [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
 Proof.
@@ -96,7 +93,6 @@ reflexivity.
 contradiction.
 +
 (simpl).
-Unset Silent.
 (rewrite <- beq_id_refl).
 symmetry.
 (apply subs_fresh_in_ty).
@@ -108,10 +104,8 @@ assumption.
 assumption.
 +
 (simpl).
-Search -beq_id.
-Show.
-Set Printing Width 148.
 (rewrite (false_beq_id _ _ n)).
 (rewrite (false_beq_id _ _ n0)).
 reflexivity.
+Unset Silent.
 Qed.
