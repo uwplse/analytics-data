@@ -370,3 +370,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
 Locate "waddr".
+Unset Silent.
+Set Diffs "off".
