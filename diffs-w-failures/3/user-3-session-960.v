@@ -792,56 +792,5 @@ Set Diffs "off".
 Timeout 1 Check @sig.
 Set Printing Width 78.
 Show.
-(destruct x, y; simpl).
-Timeout 1 Check @bounded_to_ascii.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @subset_eq_compat.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(destruct (nat_eq_dec n n0); subst).
-Timeout 1 Check @nat_to_le_equation.
-left.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @sig.
-Timeout 1 Check @sigT.
-Timeout 1 Check @sigT_eta.
-Timeout 1 Check @sigT_eta.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @ex.
-Timeout 1 Check @exist.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @prod_eq_dec.
-Timeout 1 Check @proj1.
-Timeout 1 Check @proj2.
-Set Printing Width 78.
-Show.
-Timeout 1 Check @projT1.
-Timeout 1 Check @projT2.
 Unset Silent.
 Set Diffs "off".
