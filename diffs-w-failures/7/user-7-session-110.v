@@ -181,65 +181,13 @@ exists tx.
 assumption.
 (apply le_S_n; assumption).
 Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma match_ty__transitive_on_value_type :
-  forall v1 v2 t3 : ty, value_type v2 -> forall k w : nat, |-[ k, w] v1 <$ v2 -> |-[ k, w] v2 <$ t3 -> |-[ k, w] v1 <$ t3.
-Unset Silent.
+  forall (w : nat) (v1 v2 t3 : ty), value_type v2 -> forall k : nat, |-[ k, w] v1 <$ v2 -> |-[ k, w] v2 <$ t3 -> |-[ k, w] v1 <$ t3.
 Proof.
-Set Silent.
-(intros v1 v2 t3 Hv2).
-generalize dependent t3.
-generalize dependent v1.
 Unset Silent.
-(induction Hv2).
+(induction w; intros v1 v2 t3 Hv2; generalize dependent t3; generalize dependent v1; induction Hv2).
 Set Silent.
 -
-Unset Silent.
-Set Printing Width 148.
 (intros v1 t3 k w Hm1 Hm2).
-(apply match_ty_cname__inv in Hm1; subst).
-assumption.
-Set Silent.
--
-Unset Silent.
-Set Printing Width 148.
-(intros v0 t3 k w).
-generalize dependent k.
-generalize dependent t3.
-generalize dependent v0.
-Set Printing Width 148.
-(induction w; intros v0 t3 k Hm1 Hm2; apply match_ty_pair__inv in Hm1; destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst; induction t3;
-  try (solve [ destruct k; contradiction ])).
-Set Silent.
-Show.
-Set Printing Width 148.
-Set Silent.
-(apply match_ty_pair__inv in Hm2).
-(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
-(inversion Heq; subst).
-Unset Silent.
-auto using match_ty_pair.
-Set Silent.
-+
-(apply match_ty_union__inv in Hm2).
-Unset Silent.
-(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-Show.
-Set Printing Width 148.
-Set Silent.
-+
-(apply match_ty_pair__inv in Hm2).
-(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
-(inversion Heq; subst).
-auto using match_ty_pair.
-+
-(apply match_ty_union__inv in Hm2).
-Show.
-Set Printing Width 148.
-Set Silent.
-Show.
-Set Printing Width 148.
-(apply match_ty_exist__inv in Hm2).
-Show.
-(destruct Hm2 as [tx Hm2]).
-Show.
