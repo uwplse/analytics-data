@@ -10,8 +10,5 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Set Silent.
-Require Import Helpers.Helpers.
-Require Import Proc.
 Unset Silent.
 Set Diffs "off".
