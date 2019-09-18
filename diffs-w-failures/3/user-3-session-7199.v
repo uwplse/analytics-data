@@ -283,4 +283,10 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold log_abstraction in H0).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold log_abstraction in H0; intuition).
+Timeout 1 Check @spec_abstraction_compose.
