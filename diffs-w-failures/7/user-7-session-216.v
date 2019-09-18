@@ -396,6 +396,4 @@ Proof.
 (intros X s t Hwfs).
 generalize dependent t.
 (induction t; intros Hwft; try (solve [ simpl; assumption ])).
--
-Unset Silent.
-Show.
+Set Printing Width 148.
