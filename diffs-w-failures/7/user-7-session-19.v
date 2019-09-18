@@ -388,4 +388,4 @@ Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
 Proof.
 (intros t k).
 Unset Silent.
-(apply match_ty_i_nf').
+(pose proof (match_ty_i_nf' k t) as H).
