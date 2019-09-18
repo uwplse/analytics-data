@@ -242,4 +242,22 @@ Unset Silent.
 Set Silent.
 (destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
 Unset Silent.
-(destruct (IHt1 k Hdep1) as [v1 [Hv1 Hm1]]).
+(destruct (IHt1 k Hdep1) as [v1 Hm1]).
+(destruct (IHt2 k Hdep2) as [v2 Hm2]).
+exists (TPair v1 v2).
+(apply match_ty_pair; assumption).
+Set Silent.
+-
+Unset Silent.
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(destruct (IHt1 k Hdep1) as [v Hm]).
+Set Silent.
+exists v.
+Unset Silent.
+(apply match_ty_union_1; assumption).
+Set Silent.
+-
+Unset Silent.
+exists (TRef t).
+(apply match_ty_value_type__reflexive; constructor || assumption).
+Qed.
