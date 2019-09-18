@@ -147,4 +147,4 @@ Search -wf.
 Timeout 1 Check @prod_eq_dec.
 Timeout 1 Check @projT1.
 Timeout 1 Check @projT2.
-(apply (wf_projected projT2)).
+(apply (wf_projected lt projT2)).
