@@ -145,7 +145,7 @@ Function
    match x with
    | 0 => nil
    | _ =>
-       let base := base_m2 in
+       let base := S (S base_m2) in
        let digit := x `mod` base in
        exist (fun x => x < S (S base_m2)) digit _
        :: nat_to_le base_m2 (x / base)
