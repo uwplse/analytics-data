@@ -234,9 +234,13 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
-(unfold log_abstraction in H0; intuition).
 Unset Silent.
-(apply H1 in H).
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(pose proof (H1 a); intuition).
 eq_values.
