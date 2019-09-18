@@ -252,4 +252,8 @@ Ltac
   end.
 Unset Silent.
 Lemma crash_step_simp s s' r :
-  Var.dynamics.(crash_step) s s' r -> s' = (0, 0).
+  Var.dynamics.(crash_step) s (Val s' r) ->
+  s' = (0, 0).
+Proof.
+(compute; auto).
+Qed.
