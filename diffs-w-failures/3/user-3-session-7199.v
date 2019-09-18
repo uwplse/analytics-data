@@ -256,4 +256,20 @@ Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @spec_abstraction_compose.
-step_proc.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Set Printing Width 78.
+Show.
+(unfold proc_spec).
