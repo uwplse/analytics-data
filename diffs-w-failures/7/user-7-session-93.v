@@ -30,12 +30,12 @@ Definition tint := TCName NInt.
 Definition tflt := TCName NFlt.
 Definition tstr := TCName NStr.
 Definition tIntInt := TPair tint tint.
-Definition vx := 1.
-Definition vy := 2.
-Unset Silent.
-Definition vz := 3.
 Set Printing Width 148.
 Set Silent.
-Definition tX := TVar vx.
+Definition vX := 1.
+Definition vY := 2.
+Definition vZ := 3.
+Definition tX := TVar vX.
+Definition tY := TVar vY.
 Unset Silent.
-Definition tY := TVar vy.
+Definition teXX := TExist vX vX.
