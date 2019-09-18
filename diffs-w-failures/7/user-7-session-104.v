@@ -217,4 +217,5 @@ Proof.
 (induction t; intros k).
 -
 exists 0,(TCName c).
-(destruct k; reflexivity).
+Set Printing Width 148.
+(apply match_ty_value_type__reflexive; constructor Abort).
