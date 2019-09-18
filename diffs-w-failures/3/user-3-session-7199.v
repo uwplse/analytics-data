@@ -441,21 +441,9 @@ intuition eauto.
 -
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (apply log_contents_ok_unchanged; eauto).
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec_rx.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @repeat_length.
-(eapply proc_spec_weaken; eauto).
+Timeout 1 Check @log_size_ok.
