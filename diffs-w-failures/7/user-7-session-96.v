@@ -96,7 +96,11 @@ Proof.
 Set Printing Width 148.
 Show.
 Set Printing Width 148.
-(intros k; induction k; intros v Hm).
-2: {
 Set Printing Width 148.
+(intros k; destruct k; intros v Hm).
+Set Silent.
+2: {
+idtac.
+Unset Silent.
 (apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]).
