@@ -25,7 +25,6 @@ Set Silent.
 exists (TCName c).
 (apply match_ty_cname).
 -
-(simpl in Hm).
-(simpl).
-Unset Silent.
+Set Printing Width 148.
+(rewrite subst_pair).
 Show.
