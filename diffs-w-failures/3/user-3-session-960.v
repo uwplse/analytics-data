@@ -143,22 +143,25 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -wf.
-Timeout 1 Check @prod_eq_dec.
-Timeout 1 Check @projT1.
-Timeout 1 Check @projT2.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
 (apply (wf_projected lt projT2); auto).
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @lt_wf.
-Timeout 1 Check @map_filter.
 (apply lt_wf).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqSYm8P"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbnk38u"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjwtoRz"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLVJAo3"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
