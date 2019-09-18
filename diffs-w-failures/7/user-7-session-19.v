@@ -361,11 +361,5 @@ Set Printing Width 148.
    end; try (solve [ destruct v; contradiction ])).
 Show.
 Set Printing Width 148.
-(rewrite mk_nf_ref).
-Show.
 Set Printing Width 148.
-Set Silent.
-(apply match_ty_i_ref__weak_inv in Hm).
-Unset Silent.
-(destruct Hm as [t' Heq]; subst).
-constructor.
+(rewrite mk_nf_ref in *).
