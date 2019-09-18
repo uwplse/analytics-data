@@ -553,6 +553,14 @@ Set Silent.
 -
 (apply match_ty_i_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_i_union__inv in Hm2).
+Set Printing Width 148.
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_i_pair).
+Set Silent.
+-
+(destruct k).
 Unset Silent.
-(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_pair).
+(destruct v; contradiction || constructor).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [tx [Heq Href]]; subst).
+(simpl).
+(intros v; split; specialize (Href v); tauto).
