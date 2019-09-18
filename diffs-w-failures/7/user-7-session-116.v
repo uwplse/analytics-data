@@ -32,9 +32,19 @@ Show.
 Set Silent.
 -
 (apply fresh_union__inv in Hfresh).
-(destruct Hfresh as [Hfresh1 Hfresh2]).
-(simpl).
+Set Printing Width 148.
+Set Silent.
 (rewrite IHt1; try assumption).
 (rewrite IHt2; try assumption).
 Unset Silent.
 reflexivity.
+Set Silent.
+-
+(apply fresh_union__inv in Hfresh).
+(destruct Hfresh as [Hfresh1 Hfresh2]).
+(rewrite IHt1; try assumption).
+(rewrite IHt2; try assumption).
+Unset Silent.
+reflexivity.
+-
+(rewrite Iht; try assumption).
