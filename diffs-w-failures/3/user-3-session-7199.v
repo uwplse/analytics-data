@@ -528,4 +528,8 @@ Timeout 1 Check @abstr_get_len.
 Timeout 1 Check @abstr_get_len.
 Set Printing Width 78.
 Show.
-(eapply abstr_get_len).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(eapply abstr_get_len; eauto).
