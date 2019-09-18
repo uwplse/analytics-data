@@ -791,6 +791,13 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct x, y; simpl).
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @equal.
+Set Printing Width 78.
+Show.
+decide equality.
