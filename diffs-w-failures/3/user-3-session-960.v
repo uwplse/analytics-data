@@ -126,6 +126,17 @@ Timeout 1 Check @N.lbase.
 Timeout 1 Check @N.lbase.
 Timeout 1 Check @N.lbase.
 Timeout 1 Check @N.lbase.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @mod_S_lt.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
