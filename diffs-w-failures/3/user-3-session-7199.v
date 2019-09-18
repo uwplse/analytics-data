@@ -731,4 +731,9 @@ Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_eq.
 Timeout 1 Check @diskUpd_eq.
-(rewrite diskUpd_eq).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(rewrite diskUpd_eq; auto).
