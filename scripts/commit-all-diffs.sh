@@ -18,11 +18,11 @@
 #    ./commit-diffs.sh 2 ${i}
 #done
 
-# User 3 (TODO! need script fix to process this in less than 36 days)
-#for i in {0..11494}
-#do
-#    ./commit-diffs.sh 3 ${i}
-#done
+# User 3 (WIP)
+for i in {0..11494}
+do
+    ./commit-diffs.sh 3 ${i}
+done
 
 # User 4 (w/ failures version is done forever)
 #for i in {0..0}
@@ -42,11 +42,11 @@
 #    ./commit-diffs.sh 6 ${i}
 #done
 
-# User 7 (TODO do again)
-for i in {0..228}
-do
-    ./commit-diffs.sh 7 ${i}
-done
+# User 7 (w/ failures version is done; extra unset silents kind of unpleasant though)
+#for i in {0..228}
+#do
+#    ./commit-diffs.sh 7 ${i}
+#done
 
 # User 8 (w/ failures version is done; extra unset silents kind of unpleasant though)
 #for i in {0..161}

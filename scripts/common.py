@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 from sexpdata import Symbol, loads
-from typing import Any
+from typing import Any, Tuple
+import re
 import functools
 
 def assoc(key, sexp):
@@ -25,10 +26,14 @@ def isObserve(entry):
     return get_cmd_type(entry) == Symbol("StmObserve")
 def isCancel(entry):
     return get_cmd_type(entry) == Symbol("StmCancel")
+def isAdd(entry):
+    return get_cmd_type(entry) == Symbol("StmAdd")
+def getAddBody(entry):
+    return get_body(entry)[1][2]
 
 def mkEntry(time : float, user : int, module : str, session : float, body : Any):
-    return [[Symbol('time'), time], [Symbol('user'), user], [Symbol('session-module'), module],
-            [Symbol('session'), session], body]
+    return [['time', time], ['user', user], ['session-module', module],
+            ['session', session], body]
 
 def get_cmd_type(entry):
     body = get_body(entry)
@@ -46,3 +51,54 @@ def try_loads(sexp):
         return entry
     except:
         return None
+
+import sys
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+
+def get_stem(tactic : str) -> str:
+    return split_tactic(tactic)[0]
+
+def split_tactic(tactic : str) -> Tuple[str, str]:
+    tactic = kill_comments(tactic).strip()
+    if re.match("[-+*\{\}]", tactic):
+        stripped = tactic.strip()
+        return stripped[:-1], stripped[-1]
+    if re.match(".*;.*", tactic):
+        return tactic, ""
+    for prefix in ["try", "now", "repeat", "decide"]:
+        prefix_match = re.match("{}\s+(.*)".format(prefix), tactic)
+        if prefix_match:
+            rest_stem, rest_rest = split_tactic(prefix_match.group(1))
+            return prefix + " " + rest_stem, rest_rest
+    for special_stem in ["rewrite <-", "rewrite !", "intros until", "simpl in"]:
+        special_match = re.match("{}\s*(.*)".format(special_stem), tactic)
+        if special_match:
+            return special_stem, special_match.group(1)
+    match = re.match("^\(?(\w+)(?:\s+(.*))?", tactic)
+    assert match, "tactic \"{}\" doesn't match!".format(tactic)
+    stem, rest = match.group(1, 2)
+    if not rest:
+        rest = ""
+    return stem, rest
+
+def kill_comments(string: str) -> str:
+    result = ""
+    depth = 0
+    in_quote = False
+    for i in range(len(string)):
+        if in_quote:
+            if depth == 0:
+                result += string[i]
+            if string[i] == '"' and string[i-1] != '\\':
+                in_quote = False
+        else:
+            if string[i:i+2] == '(*':
+                depth += 1
+            if depth == 0:
+                result += string[i]
+            if string[i-1:i+1] == '*)' and depth > 0:
+                depth -= 1
+            if string[i] == '"' and string[i-1] != '\\':
+               in_quote = True
+    return result
