@@ -668,4 +668,8 @@ Timeout 1 Check @Ascii.ascii.
 Timeout 1 Check @Ascii.ascii_nat_embedding.
 Timeout 1 Check @Ascii.ascii_nat_embedding.
 Timeout 1 Check @Ascii.ascii_nat_embedding.
-(rewrite Ascii.ascii_nat_embedding).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite Ascii.ascii_nat_embedding; auto).
