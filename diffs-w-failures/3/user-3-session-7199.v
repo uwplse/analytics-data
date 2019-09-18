@@ -267,26 +267,13 @@ Timeout 1 Check @disk.
 Timeout 1 Check @diskGet.
 Timeout 1 Check @diskGet.
 Timeout 1 Check @diskGet.
-Search -diskGet -"<".
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @disk.
-Timeout 1 Check @disk_oob_eq.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
-Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(apply disk_inbounds_exists in H; intuition eauto).
+Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(apply disk_inbounds_exists in H).
+(rewrite H in *).
