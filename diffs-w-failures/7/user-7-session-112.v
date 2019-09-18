@@ -184,20 +184,6 @@ Set Silent.
 Unset Silent.
 (apply match_ty_cname__inv in Hm1; subst).
 Show.
-admit.
-Set Silent.
--
-Unset Silent.
-Show.
-(intros v0 t3 k w1 w2 Hm1 Hm2).
-(apply match_ty_pair__inv in Hm1).
-(destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst).
 Set Printing Width 148.
-(induction t3; try (solve [ destruct k, w2; contradiction ])).
-Set Silent.
-+
-Unset Silent.
-(apply match_ty_pair__inv in Hm2).
-(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
-(inversion Heq; subst).
-auto using match_ty_pair.
+auto.
+Show.
