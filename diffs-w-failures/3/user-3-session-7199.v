@@ -611,4 +611,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(descend; intuition eauto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+intuition eauto.
