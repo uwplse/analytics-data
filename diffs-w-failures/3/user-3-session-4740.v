@@ -39,4 +39,5 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @and.
 Timeout 1 Check @Byte.x10.
-Timeout 1 Check @aReallyBigIdentifier.
+Timeout 1 Check @and.
+Timeout 1 Check @anotherLongName.
