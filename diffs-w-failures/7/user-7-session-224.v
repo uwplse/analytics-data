@@ -32,7 +32,30 @@ Lemma build_v_full :
 Unset Silent.
 Proof.
 Set Silent.
-(intros X X' tx).
-Unset Silent.
+Set Printing Width 148.
 (induction w; induction t; intros v Hwftx HX Hm;
   try (solve [ unfold b_free_in_ty, free in HX; simpl in HX; rewrite IdSetFacts.empty_iff in HX; contradiction ])).
+Show.
+Set Silent.
+-
+admit.
+-
+admit.
+-
+Unset Silent.
+Show.
+(destruct (beq_idP X i)).
+Set Silent.
++
+subst.
+(rewrite b_subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+subst.
+(rewrite b_subst_exist_neq in Hm; try assumption).
+(apply match_ty_exist__0_inv in Hm).
+Unset Silent.
+contradiction.
+-
+Show.
