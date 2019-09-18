@@ -143,6 +143,9 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @N.lbase.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
