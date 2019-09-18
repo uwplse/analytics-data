@@ -313,4 +313,4 @@ Check PeanoNat.Nat.mod_small.
 Timeout 1 Check @pointwise_relation.
 Timeout 1 Check @infinite.search_infinite.
 Timeout 1 Check @PeanoNat.Nat.mod_le.
-(rewrite IHn by (apply PeanoNat.Nat.mod_lt; lia)).
+(rewrite IHn by (apply PeanoNat.Nat.mod_le; lia)).
