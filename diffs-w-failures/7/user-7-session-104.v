@@ -208,14 +208,13 @@ Abort.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
-Unset Silent.
 (induction t; intros k Hdep Hcontra).
 -
 specialize (Hcontra 0).
-Set Printing Width 148.
 (destruct Hcontra as [w Hcontra]).
 (assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hcontra _ Hm).
@@ -224,3 +223,6 @@ clear Hm.
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
 -
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
