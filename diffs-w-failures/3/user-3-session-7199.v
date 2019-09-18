@@ -245,4 +245,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(pose proof (H1 a); intuition).
+Unset Silent.
+Set Diffs "off".
