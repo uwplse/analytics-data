@@ -94,4 +94,10 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(destruct (beq_idP X i)).
+Set Printing Width 148.
+(destruct (beq_idP X i) as [HXi| HXi]).
++
+subst.
+Show.
+(rewrite subst_exist_eq).
+Show.
