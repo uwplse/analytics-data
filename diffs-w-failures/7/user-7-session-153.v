@@ -33,7 +33,5 @@ Unset Silent.
 Set Silent.
 -
 Show.
-Set Printing Width 148.
 Show.
-Set Printing Width 148.
-(simpl).
+Check subs.
