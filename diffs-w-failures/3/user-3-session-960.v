@@ -459,28 +459,15 @@ Timeout 1 Check @Ascii.byte_of_ascii.
 Timeout 1 Check @Ascii.byte_of_ascii.
 Timeout 1 Check @Ascii.byte_of_ascii.
 Timeout 1 Check @Ascii.byte_of_ascii.
-Check Ascii.byte_of_ascii.
-Timeout 1 Check @Choice.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Check Ascii.nat_of_ascii.
-Timeout 1 Check @Byte.x25.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @ex.
-Timeout 1 Check @exist.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-refine (exist _ (Ascii.nat_of_ascii a) _).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.ascii_dec.
+Timeout 1 Check @Ascii.ascii_of_N.
+Timeout 1 Check @Ascii.ascii_of_N.
+Timeout 1 Check @Ascii.ascii_of_N.
+Timeout 1 Check @Ascii.ascii_of_nat.
+Timeout 1 Check @Ascii.ascii_of_nat.
+Set Printing Width 78.
+Check Ascii.ascii_of_nat.
+Print Ascii.ascii_of_nat.
