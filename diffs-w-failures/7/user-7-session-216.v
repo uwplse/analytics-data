@@ -358,13 +358,9 @@ subst.
 reflexivity.
 Qed.
 Set Printing Width 148.
-Set Silent.
-Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
+Set Printing Width 148.
+Lemma union_empty__inv : forall s1 s2, IdSet.Empty (IdSet.union s1 s2) -> IdSet.Empty s1 /\ IdSet.Empty s2.
 Proof.
-(intros t1 t2 Hwf).
-Unset Silent.
-(unfold wf_ty in *; simpl in *).
-Search -IdSet.Empty.
-Search -IdSet.empty.
-Check IdSet.Empty.
-Search -IdSet.Empty.
+(intros s1 s2 H).
+Check IdSetProps.empty_union_1.
+(pose proof (IdSetProps.empty_union_1 _ s1 H) as H1).
