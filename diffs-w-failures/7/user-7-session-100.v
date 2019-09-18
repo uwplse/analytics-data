@@ -95,12 +95,7 @@ Unset Silent.
 Set Silent.
 (intros X w k Hm).
 (destruct w; destruct k; simpl in Hm; subst; reflexivity).
-Unset Silent.
-Qed.
-Set Silent.
-Theorem match_ty__value_type_l : forall (w k : nat) (v t : ty), |-[ w, k] v <$ t -> value_type v.
-Proof.
-Unset Silent.
+Set Printing Width 148.
 (induction w; induction k; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
@@ -108,14 +103,14 @@ Unset Silent.
    | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | apply match_ty_var__inv in Hm; subst; constructor
-   | apply match_ty_ev__inv in Hm; subst; constructor ])).
+   | apply match_ty_ev__inv in Hm; subst; constructor
+   | apply match_ty_exist__0_inv in Hm; auto ])).
+Show.
 Set Silent.
 -
-(apply match_ty_exist__0_inv in Hm).
 Unset Silent.
-auto.
+Show.
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(eapply IHw; eassumption).
 -
-Set Silent.
-(apply match_ty_exist__0_inv in Hm).
-Unset Silent.
-auto.
