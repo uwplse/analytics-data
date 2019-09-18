@@ -487,4 +487,42 @@ intuition.
 step.
 intuition.
 {
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
 (exists (bs ++ v); intuition eauto).
+}
+{
+(exists (bs ++ v); intuition eauto).
+}
+-
+step.
+intuition eauto.
+Qed.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+(unfold reset; intros).
+(apply spec_abstraction_compose).
+step.
+(destruct a' as [[] bs]; simpl in *).
+intuition.
+{
+(exists bs; intuition eauto).
+}
+step.
+intuition eauto.
+{
+(exists []; intuition eauto).
+(apply log_abstraction_nil with (b := r); auto).
+(rewrite diskUpd_eq; eauto).
+}
+{
+(exists []; intuition eauto).
+(apply log_abstraction_nil with (b := r); auto).
+(rewrite diskUpd_eq; eauto).
+}
+Qed.
+Unset Silent.
+End Log.
