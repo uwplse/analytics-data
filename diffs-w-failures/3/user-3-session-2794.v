@@ -359,4 +359,4 @@ Arguments Data.newPtr {model} {Op'} {i} T {GoZero}.
 Unset Silent.
 Arguments Data.newSlice {model} {Op'} {i} T {GoZero} len.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @aModel.
+Timeout 1 Check @aModel_wf.
