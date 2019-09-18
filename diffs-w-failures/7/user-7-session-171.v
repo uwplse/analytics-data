@@ -10,6 +10,9 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
+Set Printing Width 148.
+Require Import Coq.Program.Wf.
+Set Silent.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -62,7 +65,6 @@ Fixpoint rename (x y : id) (t : ty) :=
   | TEV z => t
   end
 where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
-Set Printing Width 148.
 Fixpoint size (t : ty) :=
   match t with
   | TCName _ => 1
@@ -74,31 +76,20 @@ Fixpoint size (t : ty) :=
   end.
 Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
 Proof.
-Set Silent.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
+(intros x y).
 (induction t; simpl; try (solve [ reflexivity | rewrite IHt1; rewrite IHt2; reflexivity ])).
 -
-Show.
 (apply f_equal).
-Show.
 (destruct (beq_idP x i)).
 +
 subst.
-Show.
 reflexivity.
 +
-Show.
 assumption.
 -
-Show.
 (destruct (beq_idP x i); reflexivity).
 Qed.
-Set Silent.
 Reserved Notation "'[' x ':=' s ']' t" (at level 30).
-Unset Silent.
 #[program]
 Fixpoint subst (x : id) (s t : ty) {measure size t :=
   match t with
