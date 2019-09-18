@@ -152,5 +152,9 @@ Show.
 Set Printing Width 148.
 exists tx.
 Show.
-(simpl).
+Set Printing Width 148.
+(simpl in *).
+Show.
+assumption.
+Qed.
 Show.
