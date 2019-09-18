@@ -54,6 +54,17 @@ Axiom (gen_fresh : id_set -> id).
 Axiom (gen_fresh__fresh : forall fvs : id_set, fresh (gen_fresh fvs) fvs).
 Definition get_fresh_in_ty (t : ty) := gen_fresh (FV t).
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Reserved Notation "'[' x '->' y ']' t" (at level 30).
+Reserved Notation "'[' x '@' y ']' t" (at level 30).
 Unset Silent.
+Fixpoint rename (x y : id) (t : ty) :=
+  match t with
+  | TCName _ => t
+  | TPair t1 t2 => TPair ([x @ s] t1) ([x @ s] t2)
+  | TUnion t1 t2 => TUnion ([x @ s] t1) ([x @ s] t2)
+  | TExist z t' => TExist z (if beq_id x z then t' else [x @ y] t')
+  | TVar z => if beq_id x z then s else t
+  | TEV z => t
+  end
+where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
