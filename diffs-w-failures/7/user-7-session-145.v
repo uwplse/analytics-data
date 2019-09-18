@@ -143,43 +143,4 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
-Unset Silent.
-Lemma xxx :
-  forall (X : id) (w1 : nat) (t : ty) (k w2 : nat) (t' : ty) (X' : id),
-  IdSet.In X (FV t) ->
-  fresh_in_ty X' t' ->
-  (forall v, |-[ k, w1] v <$ [X := TVar X'] t -> |-[ k, w2] v <$ t') -> forall tx : ty, forall v, |-[ k, w1] v <$ [X := tx] t -> |-[ k, w2] v <$ t'.
-Set Silent.
-Proof.
-(intros X w1).
-(induction w1).
-Unset Silent.
 Set Printing Width 148.
-(intros k w2 t' X' HX HX' Hsem).
-(intros tx v Hm).
-Show.
-Set Silent.
-Abort.
-Lemma sem_sub_fresh_var__sem_sub_exist :
-  forall (X : id) (t t' : ty) (X' : id), IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
-Proof.
-(intros X t t').
-generalize dependent t.
-Unset Silent.
-(induction t').
-Set Silent.
-admit.
-admit.
-admit.
-Unset Silent.
-admit.
--
-(intros t X' HX HX' Hsem).
-Show.
-Show.
-Set Printing Width 148.
-(intros k w1).
-(induction w1).
-exists 0.
-(intros v Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
