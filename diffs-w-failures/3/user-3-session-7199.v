@@ -623,25 +623,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(induction d; simpl in *).
--
-Timeout 1 Check @split.
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Show.
-(exfalso; lia).
--
 Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @sig.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Set Printing Width 78.
-Show.
-(simpl).
+generalize dependent a.
+(induction d; simpl in *).
