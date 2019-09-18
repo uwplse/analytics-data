@@ -470,5 +470,17 @@ Timeout 1 Check @Ascii.nat_of_ascii.
 Timeout 1 Check @Ascii.nat_of_ascii.
 Check Ascii.nat_of_ascii.
 Timeout 1 Check @Byte.x25.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256} :=
-  Instance aModel : GoModel.
+Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @ex.
+Timeout 1 Check @exist.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+refine (exist _ (Ascii.nat_of_ascii a) _).
