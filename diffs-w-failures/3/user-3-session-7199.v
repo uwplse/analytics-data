@@ -628,4 +628,5 @@ Timeout 1 Check @repeat_length.
 Timeout 1 Check @Byte.x10.
 Set Printing Width 78.
 Show.
-eauto  10.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition.
