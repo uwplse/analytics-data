@@ -524,4 +524,5 @@ Search -(0 < _).
 Timeout 1 Check @FinMapToList.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
-constructor.
+Unset Silent.
+Set Diffs "off".
