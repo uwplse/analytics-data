@@ -452,5 +452,9 @@ Unset Silent.
 Proof.
 Show.
 (apply
-  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
-     (fun (t1 : ty) (_ : in_nf t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
+  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
+     (fun (t1 : ty) (_ : in_nf t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))).
+Set Silent.
+-
+Unset Silent.
+(intros c k Hdept1 t2).
