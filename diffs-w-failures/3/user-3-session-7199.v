@@ -490,106 +490,21 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct (a == length bs); subst).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+Set Printing Width 78.
+Show.
+(destruct (a == length bs); subst; autorewrite with upd).
 -
-autorewrite with upd.
-Timeout 1 Check @log_size_ok.
 (simpl).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @nth.
-Timeout 1 Check @nth_O.
-Timeout 1 Check @nth_ok.
-Timeout 1 Check @nth_O.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @bytes.
-Timeout 1 Check @last.
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
 (rewrite app_nth2 by lia).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @bytes.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @Byte.x0b.
-Timeout 1 Check @bytes.
-Timeout 1 Check @split.
 replace (length bs - length bs) with 0 by lia.
-Timeout 1 Check @log_size_ok.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Set Printing Width 78.
-Show.
 reflexivity.
 -
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
 (assert (a < length bs)).
 {
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @Zcomplements.Zlength_aux.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @split.
 (rewrite app_length in *; simpl in *; lia).
 }
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_neq.
-Timeout 1 Check @diskUpd_neq.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(rewrite diskUpd_neq by auto).
+auto.
