@@ -153,6 +153,14 @@ Show.
 Show.
 subst.
 Show.
-split.
+Set Printing Width 148.
+(split; intros HX').
 {
 Show.
+(unfold not_f_free_in_ty, not_free in HX').
+Show.
+(simpl in HX').
+Set Silent.
+exfalso.
+(apply HX').
+(apply IdSetFacts.singleton_2).
