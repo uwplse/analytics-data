@@ -770,4 +770,22 @@ Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 (rewrite H0 in *).
 Timeout 1 Check @spec_abstraction_compose.
-congruence.
+Timeout 1 Check @repeat_length.
+eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAY6qJf"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @Ret.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok_nil.
+Hint Resolve log_length_ok_unchanged.
