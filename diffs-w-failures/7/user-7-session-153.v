@@ -34,4 +34,4 @@ Set Silent.
 -
 Show.
 Show.
-Check subs.
+Check subst.
