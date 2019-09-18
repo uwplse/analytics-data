@@ -149,4 +149,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(simpl in *; intuition subst).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+2: (autounfold in *; intuition).
