@@ -119,4 +119,9 @@ Proof.
 Set Printing Width 148.
 (remember (TCName c2) as t2 eqn:Heq2 ).
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (induction Hsub; try inversion Heq1; inversion Heq2; subst).
+Unset Silent.
+reflexivity.
+(apply IHHsub).
