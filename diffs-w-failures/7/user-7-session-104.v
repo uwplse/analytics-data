@@ -223,5 +223,4 @@ clear Hm.
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
 -
-specialize (Hcontra 0).
 Show.
