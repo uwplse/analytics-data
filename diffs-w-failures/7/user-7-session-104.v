@@ -102,4 +102,12 @@ Show.
 -
 (intros k Hdep w Hcontra).
 (apply match_ty_cname__inv in Hcontra).
+Set Printing Width 148.
 (inversion Hcontra).
+-
+Set Silent.
+(intros k Hdep w Hcontra).
+(apply match_ty_pair__inv in Hcontra).
+Unset Silent.
+(inversion Hcontra).
+-
