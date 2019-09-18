@@ -604,19 +604,32 @@ Set Diffs "off".
 Timeout 1 Check @Choice.
 Set Printing Width 78.
 Show.
-Check pretty.pretty_nat_inj.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @pretty.pretty.
-Timeout 1 Check @pretty.pretty.
-Timeout 1 Check @pretty.pretty.
-Timeout 1 Check @pretty.pretty.
-Timeout 1 Check @pretty.pretty.
-Timeout 1 Check @pretty.pretty.
-Timeout 1 Check @pretty.pretty.
-Timeout 1 Check @pretty.pretty_N.
-Timeout 1 Check @pretty.pretty_nat.
-Timeout 1 Check @pretty.pretty_nat.
-Timeout 1 Check @pretty.pretty_nat_inj.
-Timeout 1 Check @pretty.pretty_nat_inj.
-Timeout 1 Check @pretty.pretty_nat_inj.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (apply pretty.pretty_nat_inj).
+-
+Timeout 1 Check @sig.
+(simpl).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+(unfold bounded_to_ascii, ascii_to_bounded).
+Timeout 1 Check @pointwise_relation.
+(intros).
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @sig.
+(destruct c; simplo).
