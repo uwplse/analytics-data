@@ -780,4 +780,11 @@ Timeout 1 Check @app.
 Timeout 1 Check @append.
 Timeout 1 Check @append.
 Timeout 1 Check @append.
-(unfold append).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold append; intros).
+Timeout 1 Check @firstn_length.
+step_proc.
