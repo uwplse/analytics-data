@@ -107,3 +107,10 @@ Proof.
 (destruct k).
 -
 (intros w1; exists w1; intros v Hm; simpl).
+Set Printing Width 148.
+(intros w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [tx Heq]; subst).
+(destruct w1; tauto).
