@@ -42,5 +42,5 @@ Set Printing Width 148.
 (destruct Hfresh as [Hfresh1 Hfresh2]).
 Show.
 Set Printing Width 148.
-(rewrite IHt1).
-(rewrite IHt2).
+Set Printing Width 148.
+tauto.
