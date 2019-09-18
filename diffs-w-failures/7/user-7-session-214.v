@@ -295,4 +295,8 @@ assumption.
 Unset Silent.
 (rewrite b_subst_exist_neq; try assumption).
 (apply f_free_in_ty_exist).
-auto.
+Set Printing Width 148.
+tauto.
+-
+(simpl in HX).
+Show.
