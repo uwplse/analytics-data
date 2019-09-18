@@ -154,11 +154,19 @@ Proof.
 (intros X w1).
 (induction w1).
 Unset Silent.
-admit.
+Set Printing Width 148.
+(intros k w2 t' X' HX HX' Hsem).
+(intros tx v Hm).
+Show.
 Set Silent.
-(intros t).
+Abort.
+Lemma sem_sub_fresh_var__sem_sub_exist :
+  forall (X : id) (t t' : ty) (X' : id), IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Proof.
+(intros X t t').
+generalize dependent t.
 Unset Silent.
-(induction t).
+(induction t').
 Set Silent.
 admit.
 admit.
@@ -166,6 +174,8 @@ admit.
 Unset Silent.
 admit.
 -
-Set Printing Width 148.
-(intros k w2 t' X' HX HX' Hsem).
-(intros tx v Hm).
+(intros t X' HX HX' Hsem).
+Show.
+(intros w1).
+(induction w1).
+(intros k Hm).
