@@ -435,4 +435,5 @@ specialize (IHt'1 Hnft).
 specialize (IHt'2 Hnft).
 (destruct Hdep as [Hdept| Hdept']).
 +
+Set Printing Width 148.
 (destruct IHt'1).
