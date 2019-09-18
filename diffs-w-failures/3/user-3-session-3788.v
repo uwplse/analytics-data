@@ -128,6 +128,11 @@ Set Diffs "off".
 Timeout 1 Check @Byte.x10.
 Set Printing Width 78.
 Notation "p" := (ProcMarker p) (at level 100, only printing).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @In.
+Set Printing Width 78.
+Set Silent.
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -149,16 +154,7 @@ monad_simpl.
 (cbn[pre post recovered]).
 (let state := fresh "state" in
  intros ? state Hpre).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @tt.
-exists tt.
-Timeout 1 Check @spec_abstraction_compose.
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @hypo_proof.
-Timeout 1 Check @hypo_proof.
+exists tt.
+Timeout 1 Check @FunctionalExtensionality.functional_extensionality_dep_good.
+Timeout 1 Check @no_wipe.
