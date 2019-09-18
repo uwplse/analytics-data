@@ -403,4 +403,5 @@ Set Printing Width 78.
 Show.
 (apply disk_oob_eq).
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @sig.
+(simpl).
