@@ -183,4 +183,4 @@ specialize (Hsem' (TRef tx)).
 specialize (Hsem'2 Hm).
 Show.
 Set Printing Width 148.
-(simpl in Hsem'2).
+Show.
