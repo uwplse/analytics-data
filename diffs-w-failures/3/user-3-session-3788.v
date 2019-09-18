@@ -72,4 +72,5 @@ Timeout 1 Check @eq_rec.
 Timeout 1 Check @recovered.
 Timeout 1 Check @recovered.
 (cbn[pre post recovered]).
-step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(intros).
