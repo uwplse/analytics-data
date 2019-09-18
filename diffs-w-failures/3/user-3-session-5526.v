@@ -220,4 +220,32 @@ Show.
 replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
 (exists s; repeat split; auto).
 (destruct (stateBadBlock state == diskSize s)).
-*
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
++
+(rewrite disk_oob_eq by lia; simpl; auto).
++
+(rewrite <- Hremap by eauto; auto).
+}
+{
+(eexists; eauto).
+Unset Silent.
+}
+-
+invert_abstraction.
+(step_proc; intuition idtac).
+{
+(subst; eexists; eauto).
+}
+(step_proc; intuition idtac).
+{
+(exists s; split; eauto).
+(destruct (a == diskSize s); subst).
++
+(rewrite disk_oob_eq by lia; simpl; auto).
++
+(rewrite <- Hgoodsec; auto).
++
