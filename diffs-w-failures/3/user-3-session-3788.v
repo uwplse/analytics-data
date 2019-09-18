@@ -110,4 +110,16 @@ Timeout 1 Check @ProcMarker.
 Timeout 1 Check @Znumtheory.prime.
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
-Notation "'proc:' p" := (ProcMarker p) (only printing).
+Notation "'proc:' p" := (ProcMarker p) (at level 0, only printing).
+Theorem swapXY_ok :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := True;
+     post := fun r state' =>
+             state' = mkState (StateY state) (StateX state) (StateZ state);
+     recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
+Proof.
+(match goal with
+ | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
+ end).
