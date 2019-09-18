@@ -19,27 +19,21 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
-Lemma sem_sub_k_exist_fresh_l : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]<= [t].
-Proof.
-(intros k X t).
-Unset Silent.
-(induction t; intros Hfresh).
+Set Printing Width 148.
+(induction t; intros Hfresh; intros w1; exists w1; intros v Hm; destruct w1; try (solve [ apply match_ty_exist__0_inv in Hm; contradiction ])).
+Show.
 Set Silent.
 -
-Unset Silent.
-(intros w1).
-exists w1.
-(intros v Hm).
-Set Printing Width 148.
-Set Silent.
-(destruct w1).
-Unset Silent.
-(apply match_ty_exist__0_inv in Hm; contradiction).
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
 (eapply match_ty__ge_w).
 eassumption.
-Set Printing Width 148.
+Unset Silent.
 (repeat constructor).
+Set Silent.
 -
+Unset Silent.
+Show.
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
