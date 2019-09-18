@@ -80,5 +80,7 @@ Show.
 Set Printing Width 148.
 (destruct (in_nf_union__inv _ _ Hnf2) as [Hnfb1 Hnfb2]; destruct (sub_r_union_l__inv _ _ _ Hsub2) as [Hsubb1 Hsubb2]).
 Show.
+Show.
+Set Printing Width 148.
 (rewrite unite_pairs_atom_union).
 Show.
