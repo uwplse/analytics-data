@@ -82,5 +82,8 @@ Set Printing Width 148.
 Show.
 Show.
 Set Printing Width 148.
-(rewrite unite_pairs_atom_union).
+Set Printing Width 148.
+(rewrite unite_pairs_atom_union; try (solve [ constructor ])).
+Show.
+(constructor; [ apply IHtb1 | apply IHtb2 ]; assumption).
 Show.
