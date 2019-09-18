@@ -106,4 +106,9 @@ Set Silent.
 -
 (assert (Hmp : |-[ k, w1'] TPair v v2 <$ TPair t1 t2)).
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
+Unset Silent.
+}
+Show.
