@@ -6,7 +6,9 @@ Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
-Require Import BetaJulia.Sub0281a.BaseDefs.
+Set Printing Width 148.
+Set Silent.
+Require Import BetaJulia.Sub0282a.BaseDefs.
 Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
@@ -15,5 +17,30 @@ Open Scope btjt.
 Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
-Qed.
 Unset Silent.
+Qed.
+Set Silent.
+Lemma f_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (f_free_in_ty X t).
+Proof.
+(intros X t).
+(unfold f_free_in_ty).
+(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma b_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (b_free_in_ty X t).
+Proof.
+(intros X t).
+(unfold f_free_in_ty).
+(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma f_free_in_ty__dec : forall (X : id) (t : ty), {f_free_in_ty X t} + {not_f_free_in_ty X t}.
+Unset Silent.
+Proof.
+Set Silent.
+(intros X t).
+(unfold f_free_in_ty).
+Unset Silent.
+(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
