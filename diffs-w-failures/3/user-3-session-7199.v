@@ -241,4 +241,8 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 (unfold log_abstraction in H0; intuition).
-(pose proof (H1 (log_addr a)); intuition).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(pose proof (H1 a); intuition).
