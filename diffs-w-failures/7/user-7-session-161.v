@@ -116,4 +116,7 @@ Set Silent.
 (apply match_ty_exist__inv in Hm).
 Unset Silent.
 (destruct Hm as [ti Hm]).
+Show.
+Set Printing Width 148.
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+exists ([X' := tx] ti).
