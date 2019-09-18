@@ -585,9 +585,10 @@ Set Diffs "off".
 Timeout 1 Check @find.
 Timeout 1 Check @firstn.
 Timeout 1 Check @firstn.
+Unset Silent.
+Set Diffs "off".
 Set Printing Width 78.
 Opaque firstn.
-Set Silent.
 Theorem get_upto_ok a :
   proc_spec
     (fun (_ : unit) state =>
@@ -607,8 +608,18 @@ intuition eauto.
 {
 lia.
 }
-Unset Silent.
 step_proc.
 Timeout 1 Show.
-Unset Silent.
-Set Diffs "off".
+Timeout 1 Show Intros.
+Timeout 1
+(repeat
+  match goal with
+  | company_coq_hyp__:_
+    |- _ => clear dependent company_coq_hyp__; (let dummy := H in
+                                                idtac)
+  end;
+  repeat
+   match goal with
+   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
+   end).
+Timeout 1 Show Intros.
