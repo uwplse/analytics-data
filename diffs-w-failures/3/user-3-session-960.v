@@ -632,45 +632,8 @@ Timeout 1 Check @pointwise_relation.
 (intros).
 Timeout 1 Check @bounded_to_ascii.
 Timeout 1 Check @sig.
-(destruct c; simpl).
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii_dec.
-Timeout 1 Check @Ascii.ascii_of_N.
-Timeout 1 Check @Ascii.ascii_of_N.
-Timeout 1 Check @Ascii.ascii_of_nat.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii_of_N.
-Timeout 1 Check @Ascii.ascii_of_N.
-Timeout 1 Check @Ascii.ascii_of_nat.
-Search -Ascii.ascii_of_nat.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii_nat_embedding.
-Timeout 1 Check @Ascii.ascii_nat_embedding.
-Timeout 1 Check @Ascii.ascii_nat_embedding.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
+(rewrite Ascii.ascii_nat_embedding; auto).
