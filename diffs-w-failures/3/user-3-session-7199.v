@@ -475,4 +475,8 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(unfold spec_impl; intros).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold spec_impl; simpl; intros).
