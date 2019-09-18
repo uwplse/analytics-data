@@ -114,331 +114,38 @@ Timeout 1 Check @repeat_length.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Definition init : proc InitResult :=
-  len0 <- addr_to_block 0; _ <- d.write len_addr len0; Ret Initialized.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbVHk3U"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqGWjpqP"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_spec.
-Timeout 1 Check @get_spec.
-Timeout 1 Check @get_spec.
-Timeout 1 Check @proc.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_spec.
-Timeout 1 Check @get_spec.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @Ret.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block_to_addr.
-Timeout 1 Check @block_to_addr.
-Timeout 1 Check @block_to_addr.
-Timeout 1 Check @block_to_addr.
-Timeout 1 Check @block_to_addr.
-Timeout 1 Check @block_to_addr.
-Timeout 1 Check @block_to_addr.
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Definition get_len : proc addr := b <- d.read len_addr; Ret (block_to_addr b).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoiO4w3"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqCbe4Od"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Definition get_at (a : addr) : proc block := d.read (log_addr a).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqaylAHt"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSCzANV"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @Fix.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @Fix.
-Timeout 1 Check @no_wipe.
-Timeout 1 Check @split.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @bnull.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @bnull.
-Timeout 1 Check @bnull.
-Timeout 1 Check @Ret.
-Timeout 1 Check @bnull.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_at.
-Timeout 1 Check @bnull.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_at.
-Timeout 1 Check @Ret.
-Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @repeat_length.
-Fixpoint get_upto (a : addr) : proc (list block) :=
-  match a with
-  | 0 => Ret []
-  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [b])
-  end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQAqVu1"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmIHFZM"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_len.
-Timeout 1 Check @get_len.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Definition get : proc (list block) := len <- get_len; get_upto len.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8aT6YT"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2gZaVH"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @max_l.
-Timeout 1 Check @max_l.
-Timeout 1 Check @max_l.
 Timeout 1 Check @sig.
 Timeout 1 Check @d.size.
 Timeout 1 Check @d.size.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_len.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @d.size.
+Timeout 1 Check @d.size.
 Timeout 1 Check @sig.
 Timeout 1 Check @d.size.
 Timeout 1 Check @repeat_length.
+Timeout 1 Check @Ret.
+Timeout 1 Check @In.
+Timeout 1 Check @Init.Nat.t.
+Timeout 1 Check @InitFailed.
+Timeout 1 Check @InitFailed.
+Timeout 1 Check @InitFailed.
+Timeout 1 Check @InitFailed.
+Timeout 1 Check @InitFailed.
 Timeout 1 Check @lel.
-Timeout 1 Check @Ret.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @app.
-Timeout 1 Check @bappend.
-Timeout 1 Check @bappend.
-Timeout 1 Check @append_spec.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @split.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @proc.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @no_wipe.
-Timeout 1 Check @nil.
-Timeout 1 Check @nil.
-Timeout 1 Check @nil.
-Timeout 1 Check @Ret.
-Timeout 1 Check @tt.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @app.
-Timeout 1 Check @bappend.
-Timeout 1 Check @bappend.
-Timeout 1 Check @bappend.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @Fix.
-Timeout 1 Check @Fix.
-Fixpoint append_at (a : addr) (bs : list block) : 
-proc unit :=
-  match bs with
-  | [] => Ret tt
-  | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
-  end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOIPjdR"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmw0vc8"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @append_at.
-Timeout 1 Check @append_at.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @true.
-Definition append (bs : list block) : proc bool :=
+Set Printing Width 78.
+Definition init : proc InitResult :=
   size <- d.size;
-  len <- get_len;
-  (if le_dec (1 + len + length bs) size
-   then _ <- append_at len bs; Ret true
-   else Ret false).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6RYEMO"
+  (if lt_dec size 1
+   then Ret InitFailed
+   else len0 <- addr_to_block 0; _ <- d.write len_addr len0; Ret Initialized).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsUb5xv"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqaoLP3Y"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqK4sBjD"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @d.write.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Definition reset : proc unit :=
-  len0 <- addr_to_block 0; d.write len_addr len0.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHtMpcu"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq9AFuGa"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @Ret.
-Timeout 1 Check @tt.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Definition recover : proc unit := Ret tt.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqt9IPPT"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWzqFcf"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Print Abstraction.
-Print LayerAbstraction.
-Print Abstraction.
-Timeout 1 Check @NotConstant.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @split.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @True.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
