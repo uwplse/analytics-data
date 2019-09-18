@@ -140,6 +140,6 @@ Omega.omega.
 Check well_founded_lt_compat.
 (apply (well_founded_lt_compat ty size)).
 Set Silent.
-(intros).
-Unset Silent.
-trivial.
+Set Printing Width 148.
+tauto.
+Defined.
