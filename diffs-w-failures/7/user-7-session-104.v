@@ -83,6 +83,11 @@ specialize (Hcontra 2 1).
 (destruct Hcontra as [w Hcontra]).
 (assert (Hm : |-[ 2, 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
 Set Silent.
-Unset Silent.
+Show.
+Set Printing Width 148.
+(destruct w).
+Show.
+-
 (simpl in Hcontra).
+Show.
 Show.
