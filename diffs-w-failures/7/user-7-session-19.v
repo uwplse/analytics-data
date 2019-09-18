@@ -420,4 +420,16 @@ Proof.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction k; induction t; intros v).
+Set Printing Width 148.
+(induction k; induction t; intros v Hm).
+Set Silent.
+4: {
+idtac.
+Unset Silent.
+(intros k' Hle).
+(inversion Hle; subst).
+assumption.
+}
+7: {
+idtac.
+clear IHv.
