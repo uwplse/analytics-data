@@ -90,4 +90,6 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 specialize (Href v Hv).
-(split; intros Hm; tauto).
+Set Printing Width 148.
+(split; tauto).
+Qed.
