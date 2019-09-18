@@ -695,8 +695,24 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ret.
+Timeout 1 Check @Result.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @abstr_get_len.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
-Set Silent.
+Hint Resolve abstr_length_sz_bound: core.
 Theorem reset_ok : proc_spec reset_spec reset recover abstr.
 Proof.
 (unfold reset; intros).
@@ -711,33 +727,7 @@ intuition.
 (unfold spec_impl; simpl; intuition).
 (descend; intuition eauto).
 {
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
+(descend; intuition eauto).
 (eapply log_abstraction_nil; eauto).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_eq.
-Timeout 1 Check @diskUpd_eq.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (rewrite diskUpd_eq; eauto).
+}
