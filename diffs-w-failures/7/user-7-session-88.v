@@ -423,4 +423,5 @@ Proof.
 Set Silent.
 (intros).
 Unset Silent.
-(apply sem_sub_k_i_nf__inv_depth_le; tauto).
+Show.
+(apply sem_sub_k_i_nf__inv_depth_le).
