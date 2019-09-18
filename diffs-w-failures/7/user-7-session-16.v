@@ -408,4 +408,5 @@ Unset Silent.
 (induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ])).
 Set Printing Width 148.
 subst.
-(apply IHHcontra).
+Set Printing Width 148.
+(apply IHHcontra; try tauto).
