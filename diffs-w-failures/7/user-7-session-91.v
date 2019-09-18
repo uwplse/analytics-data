@@ -391,7 +391,7 @@ Proof.
 (apply sub_r__transitive with t; try assumption).
 (apply mk_nf__sub_r_l).
 Unset Silent.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
@@ -403,3 +403,11 @@ Proof.
 (split; apply mk_nf_sub_r__sub_r; tauto).
 Unset Silent.
 Qed.
+Set Silent.
+Lemma sub_r_dec__mk_nf_sub_r_dec : forall t1 t2 : ty, Decidable.decidable (|- t1 << t2) -> Decidable.decidable (|- MkNF( t1) << t2).
+Proof.
+(intros t1 t2 Hdec).
+(destruct Hdec as [Hdec| Hdec]).
+-
+(left; apply sub_r__transitive with t1).
+(apply mk_nf__sub_r1).
