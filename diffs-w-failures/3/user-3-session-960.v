@@ -136,4 +136,10 @@ Timeout 1 Check @N.lbase.
 Timeout 1 Check @N.lbase.
 Print projT1.
 Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @le_to_nat.
+Timeout 1 Check @N.div.
+Timeout 1 Check @gen.
+Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
+  match digits with
+  | nil => 0
+  | digit :: digits' => proj1 digit * base + le_to_nat base digits'
+  end.
