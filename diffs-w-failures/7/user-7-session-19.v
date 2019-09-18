@@ -210,4 +210,7 @@ Proof.
 -
 Unset Silent.
 (assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption)).
-(assert (Hmp : |-[ 0] TPair v1 v2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption)).
+(assert (Hmp : |-[ 0] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption)).
+Show.
+specialize (Hsem _ Hmp).
+contradiction.
