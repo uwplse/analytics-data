@@ -459,12 +459,15 @@ Set Diffs "off".
 Timeout 1 Check @spec_abstraction_compose.
 Check log_size_ok.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Theorem append_at_ok a bs' :
   proc_spec
     (fun (bs : list block) state =>
      {|
      pre := a = length bs /\
-            log_size_ok state (bs ++ bs') /\ log_contents_ok bs state;
+            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
      post := fun r state' =>
              diskGet state' len_addr = diskGet state len_addr /\
              diskSize state' = diskSize state /\
@@ -473,7 +476,7 @@ Theorem append_at_ok a bs' :
      recovered := fun _ state' =>
                   diskGet state' len_addr = diskGet state len_addr /\
                   diskSize state' = diskSize state /\
-                  log_contents_ok bs state' |}) (append_at a bs') recover
+                  log_contents_ok state' bs |}) (append_at a bs') recover
     d.abstr.
 Proof.
 (induction bs'; simpl).
