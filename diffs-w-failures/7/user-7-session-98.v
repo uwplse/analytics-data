@@ -91,6 +91,38 @@ Proof.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | destruct v; contradiction ])).
 -
-(apply match_ty_exist__0_inv in Hm).
+Show.
+Set Printing Width 148.
+tauto.
+Set Silent.
+-
 Unset Silent.
-auto.
+Set Silent.
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(eapply IHk; eassumption).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros k).
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_pair; auto).
+-
+(destruct k).
+constructor.
+(simpl).
+tauto.
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
+Proof.
+Unset Silent.
+(intros k; destruct k; intros v Hm).
+-
+Show.
+(simpl).
