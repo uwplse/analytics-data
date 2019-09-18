@@ -11,6 +11,9 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Require Import Coq.Program.Wf.
+Set Printing Width 148.
+Require Import Recdef.
+Set Silent.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -88,7 +91,6 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Unset Silent.
-Set Printing Width 148.
 Function
  subst (x : id) (s t : ty) {measure size t : ty :=
    match t with
