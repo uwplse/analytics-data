@@ -240,5 +240,9 @@ Set Printing Width 78.
 Show.
 (destruct s; intuition).
 +
-(exists []; intuition).
-Timeout 1 Check @firstn_length.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Show.
+congruence.
