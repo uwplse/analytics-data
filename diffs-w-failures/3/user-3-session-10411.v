@@ -351,4 +351,10 @@ Show.
 clear H.
 Timeout 1 Check @sig.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(simpl in *).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition eauto.
