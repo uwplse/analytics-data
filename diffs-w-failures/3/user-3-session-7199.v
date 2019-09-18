@@ -645,4 +645,10 @@ Timeout 1 Check @firstn.
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
-Search -firstn -cons.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(destruct a0; simpl in *).
