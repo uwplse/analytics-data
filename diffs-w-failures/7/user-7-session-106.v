@@ -188,4 +188,5 @@ Unset Silent.
 Show.
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 v2 [Heq [Hmq Hm2]]]; subst).
+Show.
 (destruct Hm as [v1 [v2 [Heq [Hmq Hm2]]]]; subst).
