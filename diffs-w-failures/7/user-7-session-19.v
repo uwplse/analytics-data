@@ -75,6 +75,7 @@ Unset Silent.
 Proof.
 Set Printing Width 148.
 (induction k; induction t; intros Htk v Hm).
+Set Printing Width 148.
 (try match goal with
-     | Hm:|-[ ?k'] ?v <$ TCName _ |- _ => apply match_ty_i_cname__inv in Hm; subst
+     | Hm:|-[ ?k'] ?v <$ TCName _ |- _ => apply match_ty_i_cname__inv in Hm; subst; constructor
      end).
