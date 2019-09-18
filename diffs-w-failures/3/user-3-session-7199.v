@@ -358,4 +358,15 @@ Set Printing Width 78.
 Show.
 (rewrite diskUpd_oob_noop; eauto).
 Timeout 1 Check @split.
-lia.
+(unfold log_addr in *).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold diskSize in *).
