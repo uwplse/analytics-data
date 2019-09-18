@@ -202,5 +202,7 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction k).
+Set Printing Width 148.
+(induction k; induction t; induction t').
 Show.
+Show 32.
