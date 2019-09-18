@@ -84,4 +84,5 @@ Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> v
 Unset Silent.
 Proof.
 Set Printing Width 148.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm).
+Set Printing Width 148.
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm; try (solve [ apply match_ty_cname__inv in Hm; subst; constructor ])).
