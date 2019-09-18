@@ -85,8 +85,15 @@ specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Set Silent.
-Lemma aaa : forall (k : nat) (t t' v : ty), |-[ k] v <$ t -> |-[ k] v <$ t' -> | t | <= | t' |.
-Unset Silent.
 Proof.
-(induction k).
+Unset Silent.
+(induction k; induction t; induction t'; intros H).
+32: {
+idtac.
+(simpl).
+(apply le_n_S).
+(apply IHk).
+(assert (Hv : value_type (TRef t)) by (apply match_ty_i__reflexive; constructor)).
