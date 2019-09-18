@@ -563,4 +563,5 @@ Unset Silent.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [tx [Heq Href]]; subst).
 (simpl).
-(intros v; split; specialize (Href v)).
+Set Printing Width 148.
+(intros v; split; specialize (Href v); try tauto).
