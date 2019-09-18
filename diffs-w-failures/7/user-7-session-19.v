@@ -96,5 +96,6 @@ Set Printing Width 148.
    end).
 Show.
 -
-(destruct v; try contradiction).
+Set Printing Width 148.
+(destruct v; contradiction || constructor).
 Show.
