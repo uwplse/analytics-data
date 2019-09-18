@@ -207,49 +207,23 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
-Theorem get_upto_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a <= length state;
-     post := fun r state' => state' = state /\ r = firstn a state;
-     recovered := fun _ state' => state' = state |}) 
-    (get_upto a) recover abstr.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Nat.induction.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Set Printing Width 78.
-Show.
-(induction a; simpl).
--
-Timeout 1 Check @spec_abstraction_compose.
-step_proc.
-Timeout 1 Check @repeat_length.
-Unset Silent.
-Set Diffs "off".
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
 Timeout 1 Check @app.
 Timeout 1 Check @app.
 Timeout 1 Check @incl_appl.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.recover.
 Timeout 1 Check @d.recover_wipe.
-Set Printing Width 78.
-Show.
-(apply d.recover_wipe).
+Timeout 1 Check @rec_wipe.
+Timeout 1 Check @rec_wipe.
+Timeout 1 Check @rec_wipe.
+Timeout 1 Check @rec_wipe_compose.
+(apply rec_wipe_compose).
