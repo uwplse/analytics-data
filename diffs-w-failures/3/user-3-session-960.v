@@ -104,4 +104,6 @@ Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @pointwise_relation.
+(intros).
 (apply PeanoNat.Nat.mod_upper_bound).
