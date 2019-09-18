@@ -13,6 +13,29 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjmi_scope.
+Set Printing Width 148.
+Set Silent.
+Lemma match_ty_i_pair : forall v1 v2 t1 t2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
+Unset Silent.
+Proof.
+Set Silent.
+(intros v1 v2 t1 t2 k Hm1 Hm2).
+(destruct k; split; assumption).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma match_ty_i_union_1 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t1 -> |-[ k] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 k Hm).
+(destruct k; destruct v; left; assumption).
+Qed.
+Lemma match_ty_i_union_2 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t2 -> |-[ k] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 k Hm).
+(destruct k; destruct v; right; assumption).
+Unset Silent.
+Qed.
+Set Silent.
 Lemma match_ty_i_cname__inv : forall (v : ty) (c : cname), forall k : nat, |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; simpl in Hm; contradiction ])).
@@ -50,25 +73,15 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
 Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k] v <$ t.
-Unset Silent.
 Proof.
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
   try match goal with
       | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; reflexivity
       end).
-Set Silent.
-Set Printing Width 148.
+-
 (apply match_ty_i_pair__inv in Hm).
-Show.
+Unset Silent.
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-Show.
-Search -match_ty_i__pair.
+(apply match_ty_i_pair).
+auto.
