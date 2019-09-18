@@ -119,4 +119,5 @@ Timeout 1 Check @false.
 Timeout 1 Check @false.
 Timeout 1 Check @false.
 Timeout 1 Check @ZMicromega.Zeval_formula'.
-refine {| byte := Ascii.ascii; byte0 := "a" |}.
+Timeout 1 Check @strings.string_countable.
+refine {| byte := Ascii.ascii; byte0 := "a"%string |}.
