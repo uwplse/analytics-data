@@ -154,12 +154,74 @@ intuition eauto.
 Unset Silent.
 Qed.
 Hint Resolve get_len_ok: core.
-Theorem get_ok : proc_spec get_spec get recover abstr.
-Proof.
-(unfold get; intros).
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Show.
-step_proc.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @proc.
+Timeout 1 Check @proc.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @Zdiv.Zmod_eq_full.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @unit.
+Timeout 1 Check @unit.
 Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @True.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Zdiv.Zmod_eq_full.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @find.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @recover.
+Timeout 1 Check @recovered.
+Timeout 1 Check @Zdiv.Zmod_eq_full.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @recover.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold get_upto; intros).
