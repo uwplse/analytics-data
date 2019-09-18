@@ -651,4 +651,12 @@ Timeout 1 Check @sig.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(destruct a0; simpl in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(destruct a0; simpl in *; auto).
+Timeout 1 Check @Ascii.N_of_ascii.
+f_equal.
+(rewrite IHd).
