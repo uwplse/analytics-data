@@ -89,5 +89,6 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(fold match_ty in Hm).
+Set Printing Width 148.
+(repeat fold match_ty in Hm).
 Show.
