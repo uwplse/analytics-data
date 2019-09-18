@@ -208,4 +208,7 @@ Show.
 (apply H).
 Search -IdSet.In.
 Show.
-Search -m.
+Search -IdSet.Empty.
+(apply IdSetProps.empty_is_empty_1 in Hs1).
+Search -IdSet.Equal.
+Search -IdSet.empty.
