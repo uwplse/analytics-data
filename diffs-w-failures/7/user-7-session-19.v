@@ -333,6 +333,9 @@ Proof.
 Unset Silent.
 (intros k t t' Hdept' Hsem).
 (rewrite <- inv_depth_mk_nf).
-(apply sem_sub_k_i_nf__inv_depth_le_1 with k).
+Set Printing Width 148.
+(apply sem_sub_k_i_nf__inv_depth_le_2 with k).
+Set Silent.
 (apply mk_nf__in_nf).
+Unset Silent.
 (rewrite inv_depth_mk_nf; assumption).
