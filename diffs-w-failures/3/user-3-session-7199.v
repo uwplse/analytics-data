@@ -226,4 +226,14 @@ Timeout 1 Check @rec_wipe.
 Timeout 1 Check @rec_wipe.
 Timeout 1 Check @rec_wipe.
 Timeout 1 Check @rec_wipe_compose.
-(apply rec_wipe_compose).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+(unfold recover).
+Timeout 1 Check @app.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+(apply d.recover_wipe).
