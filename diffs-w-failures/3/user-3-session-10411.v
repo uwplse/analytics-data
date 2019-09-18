@@ -66,7 +66,43 @@ Proof.
 (destruct r; simpl in *; repeat deex; intuition eauto).
 Qed.
 Hint Resolve tt: core.
-Inductive Marker : string -> Type :=
-    mark : forall s, Marker s.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Set Printing Width 78.
+Inductive Marker (s : string) {T} (p : proc T) : Type :=
+    mark : _.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqEIgS8G"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqImLfN4"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Hint Resolve mark: core.
+Timeout 1 Check @Tauto.rxcnf.
+Theorem proc_spec_rx :
+  forall `(spec : Specification A T R State) `(p : proc T) 
+    `(rec : proc R) `(rx : T -> proc T')
+    `(spec' : Specification A' T' R State) `(abs : Abstraction State),
+  proc_spec spec p rec abs ->
+  (forall a' state,
+   pre (spec' a' state) ->
+   exists a,
+     pre (spec a state) /\
+     (forall r state',
+      recovered (spec a state) r state' ->
+      forall L : Marker "recovered condition" (rx r),
+      recovered (spec' a' state) r state') /\
+     (forall r,
+      proc_spec
+        (fun (_ : unit) state' =>
+         {|
+         pre := forall L : Marker "post condition" p,
+                post (spec a state) r state';
+         post := fun r state'' => post (spec' a' state) r state'';
+         recovered := fun r state'' => recovered (spec' a' state) r state'' |})
+        (rx r) rec abs)) -> proc_spec spec' (Bind p rx) rec abs.
