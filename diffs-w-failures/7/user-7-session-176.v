@@ -164,4 +164,5 @@ Unset Silent.
 (destruct (IHt2 _ Hm2) as [v2' Hm2']).
 exists (TPair v1' v2').
 (rewrite subst_pair).
-(apply match_ty_pair).
+Set Printing Width 148.
+(apply match_ty_pair; assumption).
