@@ -236,14 +236,9 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (unfold log_abstraction in H0; intuition).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
+(pose proof (H1 (log_addr a)); intuition).
