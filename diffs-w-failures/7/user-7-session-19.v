@@ -120,21 +120,9 @@ Set Printing Width 148.
 constructor.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
-Proof.
+Lemma bbb : forall (k : nat) (t t' v : ty), |-[ k] v <$ t -> |-[ k] v <$ t' -> | t | <= | t' |.
 Unset Silent.
-(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | |- | ?t1 | <= | ?t2 | =>
-           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-             (H _ Hm); contradiction) ||
-             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-               (H _ Hm); contradiction)
-     end ])).
-Show.
-(match goal with
- | |- | ?t1 | <= | ?t2 | =>
-       assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize (H _ Hm)
- end).
+Proof.
+(induction k; induction t; induction t').
