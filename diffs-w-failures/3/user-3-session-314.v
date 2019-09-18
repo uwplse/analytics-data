@@ -207,5 +207,48 @@ Proof.
 -
 typeclasses eauto.
 -
-firstorder.
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+firstorder.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqX5BKut"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4wWX8x"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqea9rLY"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Lemma util_and3 (P Q R : Prop) :
+  P -> Q -> R -> P /\ Q /\ R.
+Proof.
+firstorder.
+Qed.
+Ltac
+ extract_pre H :=
+  let P := type of H in
+  match eval hnf in P with
+  | True => clear H
+  | ?v = _ =>
+      is_var v; hnf in H; subst
+  | ?v = _ /\ _ =>
+      is_var v; hnf in H;
+       (let Heq := fresh "Heq" in
+        destruct H as (Heq, H); subst)
+  | _ => idtac
+  end.
+Lemma crash_step_simp s s' r :
+  Var.dynamics.(crash_step) s s' r -> s' = (0, 0).
