@@ -265,31 +265,8 @@ Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @d.recover_wipe.
 Timeout 1 Check @d.recover_wipe.
 Timeout 1 Check @d.recover_wipe.
-(unfold recover).
-Timeout 1 Check @Choice.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read_ok.
-Timeout 1 Check @d.read_ok.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec_rx.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
 Set Printing Width 78.
 Show.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read_ok.
-Timeout 1 Check @d.read_ok.
+(proc_spec_weaken d.read_ok).
