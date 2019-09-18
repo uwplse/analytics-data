@@ -110,8 +110,25 @@ Unset Silent.
 Lemma subs_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
 Set Printing Width 148.
-(intros X t; induction t; try reflexivity).
 Set Printing Width 148.
-Set Printing Width 148.
+(intros X t; induction t; simpl; try reflexivity).
+Set Silent.
 -
-(simpl).
+Unset Silent.
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+Set Silent.
+(rewrite IHt1).
+(rewrite IHt2).
+Unset Silent.
+reflexivity.
+-
+Set Silent.
+(rewrite IHt).
+Unset Silent.
+reflexivity.
+-
+(destruct (beq_idP X i)).
+-
