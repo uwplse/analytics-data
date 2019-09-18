@@ -209,4 +209,6 @@ Unset Silent.
 constructor.
 Show.
 Set Printing Width 148.
-(destruct Hnft).
+Set Printing Width 148.
+(inversion Hnft; subst).
+(inversion H; subst).
