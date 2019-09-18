@@ -458,4 +458,15 @@ Show.
 Set Silent.
 -
 Unset Silent.
-(inversion Hdept; subst).
+Show.
+(destruct Hdep as [Hdep| Hdep]; inversion Hdep; subst).
+Set Silent.
+-
+Unset Silent.
+Show.
+(simpl).
+(apply le_n_S).
+(inversion Hnft; subst).
+(inversion H; subst).
+(simpl in Hdep).
+(apply le_S_n in Hdep).
