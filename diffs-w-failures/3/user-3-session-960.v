@@ -548,4 +548,43 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite ?repeat_length).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite repeat_length).
+Check repeat_length.
+(destruct (le_dec (Datatypes.length (nat_to_le 254 x)) 8)).
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+Timeout 1 Check @choose_go.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @strings.string_countable.
+Timeout 1 Check @split.
+Timeout 1 Check @repeat_length.
+(match goal with
+ | |- context [ nat_eq_dec ?n ?m ] => destruct (nat_eq_dec n m); try lia
+ end).
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le_zeros.
+Timeout 1 Check @nat_from_le_zeros.
+Timeout 1 Check @nat_from_le_zeros.
+(rewrite nat_from_le_zeros).
