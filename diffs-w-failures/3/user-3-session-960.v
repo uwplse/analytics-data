@@ -423,6 +423,7 @@ Timeout 1 Check @gen.
 Set Silent.
 Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii.
 Unset Silent.
+Print Byte.of_nat.
 (match Byte.of_nat (proj1_sig x) with
  | Some b => Ascii.ascii_of_byte b
  | None => ascii0
