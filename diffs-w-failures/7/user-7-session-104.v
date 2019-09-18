@@ -56,8 +56,28 @@ Set Silent.
 Set Printing Width 148.
 (intros k; intros w1; exists w1; intros v Hm).
 Show.
-(destruct w1).
--
 Show.
+Set Printing Width 148.
+(destruct w1).
+Show.
+Set Silent.
+-
+Unset Silent.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
+Show.
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(apply match_ty_exist).
+exists tx.
+assumption.
+Qed.
+Set Silent.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Unset Silent.
+Proof.
+Show.
+(intros Hcontra).
+specialize (Hcontra 2).
+(simpl in Hcontra).
+Show.
