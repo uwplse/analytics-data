@@ -139,4 +139,4 @@ admit.
 }
 Show.
 {
-exists ti.
+(apply match_ty_eist).
