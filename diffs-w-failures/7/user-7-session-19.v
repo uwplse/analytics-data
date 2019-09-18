@@ -205,4 +205,6 @@ Set Printing Width 148.
 Set Printing Width 148.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
 Show.
+Set Printing Width 148.
 (assert (Hmv : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+Show.
