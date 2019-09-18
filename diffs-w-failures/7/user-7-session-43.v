@@ -59,6 +59,11 @@ auto using match_ty_pair.
 split.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (assert (Heq : | t' | = | t |) by (apply sub_d_eq__inv_depth_eq; assumption)).
+Unset Silent.
 (rewrite Heq).
 tauto.
++
+Show.
