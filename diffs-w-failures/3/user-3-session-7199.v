@@ -603,10 +603,14 @@ intuition eauto.
 Timeout 1 Check @split.
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
 Set Silent.
-+
-Unset Silent.
+{
 lia.
-+
+}
+Unset Silent.
+step_proc.
