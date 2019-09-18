@@ -27,6 +27,11 @@ Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
 Show.
 (intros k).
-(destruct k; intros w1; exists 1).
+Set Printing Width 148.
+(destruct k; intros w1; exists 1; intros v Hm).
 -
-(intros v Hm).
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(simpl).
+exists tint.
+constructor.
