@@ -263,4 +263,15 @@ Timeout 1 Check @nat_eq_dec.
 Timeout 1 Check @dependent_choice.
 Timeout 1 Check @dependent_choice.
 Timeout 1 Check @dependent_choice.
-generalize dependent S (S base).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @last.
+Timeout 1 Check @byte.
+Set Printing Width 78.
+Show.
+(assert (1 < S (S base)) by lia).
+Timeout 1 Check @ge.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @QArith_base.Q.
+(generalize dependent S (S base); intros base).
