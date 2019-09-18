@@ -473,5 +473,9 @@ step.
 (destruct r; step).
 (destruct r; try step).
 (destruct (v == v0); subst; try step).
-Unshelve.
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Unshelve.
+all: auto.
