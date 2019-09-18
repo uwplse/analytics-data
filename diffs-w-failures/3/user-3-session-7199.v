@@ -543,19 +543,54 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct (0 == log_addr a)).
--
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @split.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
 Set Printing Width 78.
 Show.
+(destruct (0 == log_addr a); autorewrite with upd).
+-
 (exfalso; unfold log_addr in *; lia).
+-
+Timeout 1 Check @Tauto.A.
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqIydDso"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Set Silent.
+Lemma log_abstraction_commit :
+  forall bs bs' : list block,
+  forall d' : State,
+  log_size_ok d' (bs ++ bs') ->
+  log_contents_ok d' (bs ++ bs') ->
+  forall len_b : block,
+  block_to_addr len_b = length bs + length bs' ->
+  log_abstraction (diskUpd d' len_addr len_b) (bs ++ bs').
+Proof.
+(intros).
+(assert (len_addr < diskSize d') by eauto).
+(unfold log_abstraction; intuition).
+-
+(unfold log_length_ok in *; intros; autorewrite with upd list in *).
+(simpl in *; intuition).
+-
+(unfold log_size_ok in *; autorewrite with upd list in *).
+Unset Silent.
+lia.
+-
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok_append.
+Timeout 1 Check @log_contents_ok_append.
+Timeout 1 Check @log_contents_ok_append.
+(apply log_contents_ok_len_change).
