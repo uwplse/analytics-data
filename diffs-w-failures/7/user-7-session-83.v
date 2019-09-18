@@ -171,15 +171,18 @@ Proof.
 auto with DBBetaJulia.
 Set Printing Width 148.
 Set Silent.
+Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Proof.
+(intros k t t' H).
+(split; intros v Hm; specialize (H v); tauto).
+Qed.
 Lemma sem_sub_k_i_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
 (intros k t1 t2 t' Hsem).
 (unfold sem_sub_k_i in Hsem).
 (split; intros v Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_i_union_1; assumption) || (apply match_ty_i_union_2; assumption);
   apply Hsem; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
@@ -228,7 +231,6 @@ Proof.
 Qed.
 Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
-Unset Silent.
 (induction k;
   match goal with
   | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
@@ -246,46 +248,33 @@ Unset Silent.
          intros t1 t2 Hnf1 IH1 Hnf2 IH2 Hdep; destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]; intros t' Hsem;
           apply sem_sub_k_i_union_l__inv in Hsem; destruct Hsem as [Hsem1 Hsem2]; constructor; auto
    end).
-Set Silent.
 -
 (intros t Hnft _ Hdep).
-Unset Silent.
 (inversion Hdep).
-Set Silent.
 -
 (intros t Hnft _ Hdep t2).
 (assert (Hva : value_type (TRef t)) by constructor).
-Unset Silent.
 (assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
-Set Silent.
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
 +
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
-Unset Silent.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
-Set Silent.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
++
+clear IHt2.
 (simpl in Hdep).
-Unset Silent.
 (pose proof (le_S_n _ _ Hdep) as Hdep').
 (unfold sem_sub_k in Hsem).
-Set Silent.
 specialize (Hsem _ Hma).
-Unset Silent.
 (apply match_ty_i_ref__inv in Hsem).
 (destruct Hsem as [t' [Heqt' Href]]).
-Set Silent.
 (inversion Heqt'; subst).
-Unset Silent.
 clear Heqt'.
 constructor.
-Set Silent.
 *
-Unset Silent.
 (apply IHk; try assumption).
+Unset Silent.
 (apply sem_eq_k_i__sem_sub_k_i in Href).
+tauto.
+*
+(apply SD_Trans with (MkNF( t2))).
+(apply mk_nf__sub_d_r; assumption).
