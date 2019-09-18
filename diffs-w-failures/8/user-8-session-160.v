@@ -40,5 +40,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-solve_matrix.
-Qed.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+lma.
