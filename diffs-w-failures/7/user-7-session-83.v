@@ -340,6 +340,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -355,7 +356,7 @@ Set Printing Width 148.
        |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
        |- _ <= | ?t' | =>
-           assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+           assert (Hvp : value_type (TPair t1 t2)) by (apply pair_in_nf__value_type; assumption);
             assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
      | Hsem:||-[ ?k][TPair _ _]<= [TPair _ _]
        |- _ =>
@@ -366,3 +367,13 @@ Set Printing Width 148.
            destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]; destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2];
             destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]; rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
+Check match_ty_i__reflexive.
+Check in_nf_pair__inv.
+Check max_inv_depth_le__inv.
+Check sem_sub_k_i_pair__inv.
+Check max_inv_depth_le__inv.
+Check sem_sub_k_union_l__inv.
+Check in_nf_union__inv.
+Check inv_depth_union.
+(destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]).
+(destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]).
