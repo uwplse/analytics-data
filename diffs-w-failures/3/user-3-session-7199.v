@@ -736,4 +736,29 @@ Set Printing Width 78.
 Show.
 (unfold log_length_ok in *; intros; autorewrite with upd list in *).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-intuition.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(simpl in *; intuition).
+-
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+Timeout 1 Check @split.
+Timeout 1 Check @Nat.of_uint.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_size_ok; autorewrite with upd list in *).
+lia.
