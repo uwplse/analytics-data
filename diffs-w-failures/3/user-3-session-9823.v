@@ -177,17 +177,9 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 Unset Silent.
-(step_proc; intros).
-(destruct a'; simpl in *; intuition).
-Timeout 1 Check @repeat_length.
-Set Silent.
-{
-Unset Silent.
-eauto.
-}
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct a'; simpl in *; intuition eauto).
 (destruct (a == r)).
 -
-invert_abstraction.
-(step_proc; intuition).
-{
-eauto.
