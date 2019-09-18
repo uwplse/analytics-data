@@ -161,4 +161,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(unfold inited_any).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @id.
+Set Printing Width 78.
+Show.
+(unfold inited_any; intuition idtac).
+(intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
