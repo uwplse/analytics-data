@@ -225,4 +225,9 @@ Set Printing Width 148.
 Show.
 Set Silent.
 Set Printing Width 148.
+Show.
+Set Printing Width 148.
+(assert (Hva : value_type (TCName c)) by constructor).
 (induction t2; intros Hsem).
++
+Show.
