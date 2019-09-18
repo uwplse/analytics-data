@@ -206,17 +206,5 @@ Set Printing Width 78.
 Show.
 (step_proc; intuition).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(step_proc; intuition).
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(exists s; intuition).
-(right; intuition congruence).
+Unset Silent.
+Set Diffs "off".
