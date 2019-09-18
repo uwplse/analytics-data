@@ -342,4 +342,11 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @disk.
 Timeout 1 Check @diskSize.
 Timeout 1 Check @diskSize.
-(unfold diskSize).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @sig.
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(destruct d; simpl; auto).
