@@ -240,4 +240,7 @@ Set Silent.
 Unset Silent.
 (apply le_n_S).
 Set Printing Width 148.
-(inversion Hnf; subst).
+(inversion Hnft; subst).
+Show.
+(inversion H; subst).
+(apply IHk).
