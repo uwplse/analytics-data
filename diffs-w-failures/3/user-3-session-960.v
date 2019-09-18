@@ -140,4 +140,8 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 subst digit.
-(destruct base).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(apply PeanoNat.Nat.div_lt).
