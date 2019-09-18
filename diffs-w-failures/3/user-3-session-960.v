@@ -318,4 +318,11 @@ Timeout 1 Check @N.induction.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @sigT_eq_dec.
-(induction digits; simpl).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(induction digits; simpl; auto).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @N.induction.
+(induction n).
