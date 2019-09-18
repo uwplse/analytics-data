@@ -412,15 +412,18 @@ Set Silent.
 -
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
+Unset Silent.
+(destruct (in_nf_pair__inv _ _ Hnf) as [Hnf1 Hnf2]).
+Set Silent.
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
    | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
-Show.
-Set Silent.
 +
 Unset Silent.
 (destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
