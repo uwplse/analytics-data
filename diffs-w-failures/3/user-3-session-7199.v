@@ -516,5 +516,18 @@ Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @repeat_length.
 Set Printing Width 78.
 Show.
-(rewrite H0 in *).
-auto.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+replace (diskGet d' len addr) in *.
