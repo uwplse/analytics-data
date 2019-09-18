@@ -385,13 +385,9 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold log_size_ok; simpl; intros).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold log_size_ok; simpl).
+(rewrite app_length).
