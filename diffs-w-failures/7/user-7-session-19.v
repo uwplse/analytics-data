@@ -214,10 +214,10 @@ Set Printing Width 148.
 Set Printing Width 148.
 (destruct Hmu as [Hmu1| Hmu2]; [ left | right ]; intros v Hv Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst).
 Show.
-(assert (Hmt't : |-[ S k] TRef t' <$ TRef t)).
-Show.
-(simpl).
-Show.
 Set Printing Width 148.
-(intros v'; auto).
-Show.
+Set Silent.
+(assert (Hmt't : |-[ S k] TRef t' <$ TRef t)).
+(simpl).
+Unset Silent.
+(intros v').
+split.
