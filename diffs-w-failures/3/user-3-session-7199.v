@@ -492,5 +492,36 @@ Timeout 1 Check @forallb.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Theorem log_size_bound d bs :
-  log_size_ok d bs -> forall a, a < length bs -> log_addr a < diskSize d.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Theorem log_size_bound d bs a :
+  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @split.
+(unfold log_size_ok, log_addr; intros; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWKTqVB"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem log_size_bound d bs a :
+  log_size_ok d bs -> log_addr a < diskSize d -> a < length bs.
