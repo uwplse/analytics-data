@@ -36,4 +36,8 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(apply match_ty_exist__0_inv in Hm).
+Set Printing Width 148.
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(unfold fresh_in_ty, fresh in HX).
+Search -IdSet.In.
