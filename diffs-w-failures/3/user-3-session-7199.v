@@ -610,14 +610,5 @@ lia.
 Unset Silent.
 step_proc.
 Timeout 1 Show.
-Timeout 1 Show Intros.
-Timeout 1
-(repeat
-  match goal with
-  | company_coq_hyp__:_ |- _ => clear dependent company_coq_hyp__; idtac
-  end;
-  repeat
-   match goal with
-   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
-   end).
-Timeout 1 Show Intros.
+Unset Silent.
+Set Diffs "off".
