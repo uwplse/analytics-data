@@ -177,4 +177,4 @@ Set Diffs "off".
 Set Printing Width 51.
 Show.
 (simpl).
-(eapply ret_hspec; firstorder).
+(eapply ret_hspec).
