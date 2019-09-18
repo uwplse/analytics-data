@@ -107,4 +107,7 @@ exists w1.
 -
 (apply match_ty_ref__inv in Hm).
 Set Printing Width 148.
-(apply match_ty_ref; assumption).
+(apply match_ty_ref).
+Show.
+(apply sem_eq_k__trans with t').
+Show.
