@@ -124,5 +124,9 @@ Proof.
 (exists tt; simpl; intuition idtac).
 (destruct (r == 0)).
 -
-(step_proc_basic; intros).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(step_proc_basic; intros).
+eauto.
