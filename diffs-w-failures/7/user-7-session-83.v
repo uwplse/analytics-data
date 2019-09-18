@@ -366,4 +366,7 @@ Set Printing Width 148.
             destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]; rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
 Check match_ty_i__reflexive.
-Check in_nf_pair__value_type.
+Set Silent.
+-
+(inversion Hdept; subst).
+-
