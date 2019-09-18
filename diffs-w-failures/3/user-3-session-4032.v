@@ -358,17 +358,7 @@ Set Printing Width 104.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
-Search -addr -word.
-Timeout 1 Check @Choice.
-Timeout 1 Check @read.
-Timeout 1 Check @addr2w.
-Timeout 1 Check @addr2w.
-Timeout 1 Check @wand.
-Timeout 1 Check @Nwadd.
-Timeout 1 Check @waddrring.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
-Locate "waddr".
-Unset Silent.
-Set Diffs "off".
+Anomaly "No printing rule found for "If _ _ else _"." Please report at http://coq.inria.fr/bugs/.
