@@ -649,4 +649,21 @@ Lemma log_abstraction_commit :
   log_abstraction d' (bs ++ bs').
 Proof.
 (intros).
-(unfold log_abstraction in *; intuition).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Set Printing Width 78.
+Show.
+(unfold log_abstraction; intuition).
+(unfold log_length_ok; intros).
