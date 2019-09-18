@@ -197,6 +197,9 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Set Silent.
 Theorem recover_wipe : rec_wipe recover abstr no_crash.
 Proof.
@@ -204,34 +207,18 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 step_proc.
-Unset Silent.
-Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(destruct a; simpl in *; intuition).
-intuition eauto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqVWvEbE"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+Timeout 1 Check @FunctionalExtensionality.functional_extensionality_dep_good.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @id.
+Timeout 1 Check @firstn_length.
+(match goal with
+ | H:pre (match ?a with
+          | (x, y) => _
+          end _) |- _ => idtac a
+ end).
