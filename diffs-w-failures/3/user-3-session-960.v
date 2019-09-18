@@ -252,72 +252,34 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @pointwise_relation.
 Set Printing Width 78.
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Definition nat64_from_le (digits : list {x | x < 256}) : 
-  option nat :=
-  if nat_eq_dec (length digits) 8 then Some (nat_from_le digits) else None.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0tOdBI"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtgpwMU"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
-  Ascii.ascii_of_nat (proj1_sig x).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqN87KBx"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3cjQfp"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-Set Silent.
-Set Silent.
-refine (exist _ (Ascii.nat_of_ascii a) _).
-Unset Silent.
-(apply Ascii.nat_ascii_bounded).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnI3cRx"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Defined.
-Set Silent.
-Set Silent.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @BoolTheory.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Set Printing Width 78.
-Show.
-refine
- {|
- byte := {x | x < 256};
- byte0 := exist _ 0 _;
- uint64_to_string := pretty.pretty_nat;
- ascii_to_byte := ascii_to_bounded;
- byte_to_ascii := bounded_to_ascii;
- uint64_to_le := nat64_to_le;
- uint64_from_le := nat64_from_le;
- File := Z;
- nilFile := (- 1)%Z;
- Ptr := fun _ => nat;
- nullptr := fun _ => 0 |}.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.N_of_digits.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @Eq_ext.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.N_of_digits.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.N_of_digits.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @bounded_to_ascii.
