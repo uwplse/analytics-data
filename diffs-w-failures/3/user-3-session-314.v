@@ -122,4 +122,55 @@ Lemma write_op_ok :
 Proof.
 (intros).
 (eapply op_spec_sound).
+Unset Silent.
+Timeout 1 Check @identity.
+Timeout 1 Check @readNone.
+typeclasses eauto.
+typeclasses eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMhif4K"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Qed.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoUqqqk"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhWx0Km"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Hint Resolve read_op_ok write_op_ok: core.
+Ltac
+ simplify :=
+  repeat
+   match goal with
+   | |- forall _, _ => intros
+   | _ => deex
+   | _ => destruct_tuple
+   | _ =>
+       destruct_tuple
+   | H:reads _ _ _ _ |- _ => unfold reads in H
+   | H:puts _ _ _ _ |- _ => unfold puts in H
+   | u:unit |- _ => destruct u
+   | |- _ /\ _ => split; [ solve [ auto ] |  ]
+   | |- _ /\ _ => split; [  | solve [ auto ] ]
+   | _ => progress simpl in *
+   | _ => progress safe_intuition
+   | _ => progress subst
+   | _ => progress autorewrite with array in *
+   end.
+Ltac step := unshelve step_proc; simplify; finish.
+Lemma recover_cok :
+  proc_hspec Var.dynamics impl.(recover)
+    recover_spec.
+Proof.
+(simpl).
+(eapply ret_hspec; firstorder).
