@@ -96,5 +96,14 @@ Set Silent.
 Set Printing Width 148.
 (intros t w k Hm).
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (destruct w; simpl in Hm; exists v; auto).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ 0, k] v <$ TExist X t -> |-[ 0, k] v <$ t.
+Unset Silent.
+Proof.
 Show.
+(intros v; induction v; intros X t k Hm; assumption).
