@@ -157,5 +157,3 @@ Set Printing Width 148.
 (split; intros HX').
 {
 Show.
-(unfold not_f_free_in_ty, not_free in HX').
-Show.
