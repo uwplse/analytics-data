@@ -454,6 +454,11 @@ Timeout 1 Check @disk.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Check log_size_ok.
+Set Printing Width 78.
 Theorem append_at_ok a bs' :
   proc_spec
     (fun (bs : list block) state =>
@@ -463,7 +468,7 @@ Theorem append_at_ok a bs' :
      post := fun r state' =>
              diskGet state' len_addr = diskGet state len_addr /\
              diskSize state' = diskSize state /\
-             log_size_ok (bs ++ bs') state' /\
+             log_size_ok state' (bs ++ bs') /\
              log_contents_ok state (bs ++ bs');
      recovered := fun _ state' =>
                   diskGet state' len_addr = diskGet state len_addr /\
@@ -471,41 +476,9 @@ Theorem append_at_ok a bs' :
                   log_contents_ok bs state' |}) (append_at a bs') recover
     d.abstr.
 Proof.
-Print append_at.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Nat.induction.
-Timeout 1 Check @Nat.induction.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @sig.
 (induction bs'; simpl).
 -
-Timeout 1 Check @spec_abstraction_compose.
 step_proc.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
 intuition eauto.
 +
-Timeout 1 Check @sig.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nil_l.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nil_l.
-Timeout 1 Check @app_nil_l.
-Timeout 1 Check @app_nil_l.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
 (rewrite app_nil_r in *).
