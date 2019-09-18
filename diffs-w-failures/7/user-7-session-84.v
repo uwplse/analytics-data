@@ -178,17 +178,26 @@ Proof.
 Unset Silent.
 (inversion Hdep).
 Set Silent.
--
-(intros t Hnft IH).
-(intros Hdt t2).
+Set Printing Width 134.
+(intros Hdep t2).
+Set Silent.
 (assert (Hva : value_type (TRef t)) by constructor).
 (assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; assumption)).
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
-+
 Unset Silent.
-(apply value_sem_sub_k_union__inv in Hsem; try assumption).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
 Set Silent.
++
+(apply value_sem_sub_k_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
 +
+Unset Silent.
+Set Silent.
 clear IHt2.
 Unset Silent.
+(simpl in Hdep).
+(pose proof (le_S_n _ _ Hdep) as Hdep').
+(unfold sem_sub_k in Hsem).
+specialize (Hsem _ Hma).
+(apply match_ty_ref__inv in Hsem).
+(destruct Hsem as [t' [Heqt' [[Hk Hdt't2] Href]]]).
+Set Silent.
