@@ -41,5 +41,6 @@ contradiction.
 Unset Silent.
 (rewrite subst_exist_eq).
 Set Printing Width 148.
-(simpl in *).
 Show.
+Set Printing Width 148.
+(rewrite subst_exist_neq).
