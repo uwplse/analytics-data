@@ -492,4 +492,7 @@ Timeout 1 Check @list.
 Timeout 1 Check @list.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @split.
-(autorewrite with upd list in *; lia).
+autorewrite with upd list in *.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(simpl in *).
