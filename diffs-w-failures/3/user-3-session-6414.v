@@ -162,13 +162,69 @@ Timeout 1 Check @block_to_addr.
 Timeout 1 Check @block_to_addr.
 Timeout 1 Check @block_to_addr.
 Timeout 1 Check @block_to_addr.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Definition get_len : proc addr := b <- d.read len_addr; Ret (block_to_addr b).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqUkAut4"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoiO4w3"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqee1QKb"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqCbe4Od"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Definition get_at (a : addr) : proc block := d.read (log_addr a).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqaylAHt"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSCzANV"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @Fix.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @Fix.
+Timeout 1 Check @no_wipe.
+Timeout 1 Check @split.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @bnull.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @bnull.
+Timeout 1 Check @bnull.
+Timeout 1 Check @Ret.
+Timeout 1 Check @bnull.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_at.
+Timeout 1 Check @bnull.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_upto.
