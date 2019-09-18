@@ -1,0 +1,1 @@
+Cd "statdb-cli/extract/".
