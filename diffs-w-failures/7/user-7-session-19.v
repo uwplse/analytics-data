@@ -212,14 +212,6 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem;
-  try
-   match goal with
-   | Hsem:forall v', value_type v' -> |-[ ?k] v' <$ ?v -> _
-     |- _ =>
-         assert (Hvv : value_type v) by (constructor; assumption); assert (Hmv : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption);
-          specialize (Hsem _ Hvv Hmv); apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]; unfold sem_sub_k_i; 
-          intros v' Hv' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption
-   end).
-Show.
+Set Printing Width 148.
+(induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem).
 Show.
