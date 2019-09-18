@@ -153,4 +153,11 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(unfold statdb_abstraction in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Set Printing Width 78.
+Show.
+exists s.
