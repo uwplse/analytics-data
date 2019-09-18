@@ -150,5 +150,5 @@ Unset Silent.
 Proof.
 Show.
 Set Printing Width 148.
-eauto with DBBetaJulia.
-Show.
+Set Printing Width 148.
+(intros; eapply SD_Trans; eauto).
