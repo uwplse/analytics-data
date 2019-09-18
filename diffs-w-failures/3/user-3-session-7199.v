@@ -523,4 +523,9 @@ Show.
 Timeout 1 Check @app.
 Timeout 1 Check @app.
 Timeout 1 Check @incl_appl.
-(apply log_abstraction_preserved).
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @nil.
+Timeout 1 Check @nil.
+(apply (log_abstraction_preserved state nil)).
