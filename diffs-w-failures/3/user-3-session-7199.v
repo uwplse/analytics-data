@@ -762,4 +762,12 @@ Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_length_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @spec_abstraction_compose.
-(unfold log_length_ok; intros; congruence).
+(unfold log_length_ok; intros).
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(rewrite H0 in *).
+Timeout 1 Check @spec_abstraction_compose.
+congruence.
