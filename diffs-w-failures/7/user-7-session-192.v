@@ -39,9 +39,7 @@ assumption.
 (rewrite subst_union).
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct (either_free_or_fresh_in_ty X t'1) as [HXt'1| HXt'1]).
-Show.
-(apply match_ty_union_1).
-Show.
-(apply IHt'b).
+Set Printing Width 148.
+(destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
+(apply match_ty_union_1; tauto).
 Show.
