@@ -199,8 +199,7 @@ Ltac
   pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
    [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Proof.
-Unset Silent.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -208,6 +207,10 @@ Unset Silent.
        |- | ?t | <= | ?t' | =>
            assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
             (Hsem _ Hm); contradiction
+     | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
+       |- _ =>
+           assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+            solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
        |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
@@ -219,3 +222,9 @@ Unset Silent.
            destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl;
             apply Nat.max_le_compat; auto
      end ])).
+Show.
+Set Silent.
+-
+Unset Silent.
+(destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]).
+(inversion Hnft; subst).
