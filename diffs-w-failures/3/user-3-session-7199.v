@@ -692,13 +692,23 @@ lia.
 }
 step_proc.
 Timeout 1 Check @app.
-Timeout 1 Check @firstn.
-Timeout 1 Check @firstn_O.
-Timeout 1 Check @Tauto.A.
-(apply firstn_one_more; auto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @plus_n_O.
+Set Printing Width 78.
+Show.
+auto using firstn_one_more.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFLf0mY"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFJUO3u"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+(unfold get; intros).
+step_proc.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
