@@ -672,5 +672,5 @@ Search -mk_nf.
 Set Printing Width 148.
 (intros k v).
 specialize (H k).
-auto.
-Show.
+Set Printing Width 148.
+tauto.
