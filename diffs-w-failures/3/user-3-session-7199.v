@@ -444,4 +444,29 @@ Timeout 1 Check @dependent_choice.
 Set Printing Width 78.
 Show.
 generalize dependent a.
-(induction bs'; simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(induction bs'; simpl; intros).
+-
+step_proc.
+intuition eauto.
+(rewrite app_nil_r; auto).
+-
+step_proc.
+(intuition eauto; autorewrite with upd; auto).
+{
+(apply log_contents_ok_unchanged; eauto).
+}
+(eapply proc_spec_weaken; eauto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @spec_impl.
+(unfold spec_impl).
