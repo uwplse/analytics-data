@@ -325,4 +325,143 @@ Show.
 (induction digits; simpl; auto).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @N.induction.
-(induction n).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sigT_eq_dec.
+Set Printing Width 78.
+Show.
+(induction n; simpl; auto).
+Timeout 1 Check @split.
+lia.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq9nV4Di"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqi0BG8o"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsIGmtC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Set Silent.
+Set Silent.
+Set Silent.
+Definition nat64_from_le (digits : list {x | x < 256}) : 
+  option nat :=
+  if nat_eq_dec (length digits) 8 then Some (nat_from_le digits) else None.
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
+  Ascii.ascii_of_nat (proj1_sig x).
+Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
+refine (exist _ (Ascii.nat_of_ascii a) _).
+(apply Ascii.nat_ascii_bounded).
+Defined.
+Instance aModel : GoModel.
+Proof.
+refine
+ {|
+ byte := {x | x < 256};
+ byte0 := exist _ 0 _;
+ uint64_to_string := pretty.pretty_nat;
+ ascii_to_byte := ascii_to_bounded;
+ byte_to_ascii := bounded_to_ascii;
+ uint64_to_le := nat64_to_le;
+ uint64_from_le := nat64_from_le;
+ File := Z;
+ nilFile := (- 1)%Z;
+ Ptr := fun _ => nat;
+ nullptr := fun _ => 0 |}.
+(apply Nat.lt_0_succ).
+Defined.
+Unset Silent.
+Class GoModelWf (model : GoModel) :={uint64_to_string_inj :
+                                      forall x y,
+                                      uint64_to_string x = uint64_to_string y ->
+                                      x = y;
+                                     ascii_byte_bijection1 :
+                                      forall c,
+                                      byte_to_ascii (ascii_to_byte c) = c;
+                                     ascii_byte_bijection2 :
+                                      forall b,
+                                      ascii_to_byte (byte_to_ascii b) = b;
+                                     uint64_le_enc :
+                                      FixedLengthEncoder 8 uint64_to_le
+                                        uint64_from_le;
+                                     file_eqdec :> EqualDec File;
+                                     file_countable :> Countable File;
+                                     sigPtr_eq_dec :> EqualDec (sigT Ptr)}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqR1BSph"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMnUoo9"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Instance aModel_wf : (GoModelWf aModel).
+Proof.
+econstructor.
+-
+(simpl).
+(apply pretty.pretty_nat_inj).
+-
+(simpl).
+(unfold bounded_to_ascii, ascii_to_bounded).
+(intros).
+(destruct c; simpl).
+(rewrite Ascii.ascii_nat_embedding; auto).
+-
+(simpl).
+(destruct b; simpl).
+(unfold ascii_to_bounded, bounded_to_ascii; simpl).
+(apply subset_eq_compat).
+(rewrite Ascii.nat_ascii_embedding; auto).
+Unset Silent.
+-
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @const.
+constructor.
++
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(intros).
+Set Silent.
+admit.
+Unset Silent.
++
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @set_unfold.
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_from_le.
+Timeout 1 Check @uint64_from_le.
+Timeout 1 Check @uint64_from_le.
+Timeout 1 Check @sigT_eq_dec.
+(simpl).
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+(unfold nat64_from_le, nat64_to_le).
