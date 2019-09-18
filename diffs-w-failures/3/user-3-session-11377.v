@@ -220,4 +220,8 @@ Timeout 1 Check @plus_n_O.
 Timeout 1 Check @plus_n_O.
 Timeout 1 Check @plus_n_O.
 Timeout 1 Check @plus_n_O.
-(rewrite plus_n_O).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite <- plus_n_O).
