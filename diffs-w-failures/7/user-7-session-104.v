@@ -217,5 +217,5 @@ Lemma match_ty__match_ge_world : forall (t : ty) (w k : nat) (v : ty), |-[ k, w]
 Proof.
 Unset Silent.
 Set Printing Width 148.
-(induction t; intros w k v).
--
+Set Printing Width 148.
+(induction t; intros w k v Hm).
