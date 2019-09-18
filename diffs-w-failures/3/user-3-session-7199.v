@@ -635,31 +635,8 @@ Show.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @sig.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (destruct d; simpl in *).
-Timeout 1 Check @split.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sum.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @bytes.
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sum.
-Set Printing Width 78.
-Show.
-(assert (a = 0) by lia; subst).
-Timeout 1 Check @sig.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Set Printing Width 78.
-Show.
-reflexivity.
