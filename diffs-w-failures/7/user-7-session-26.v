@@ -252,4 +252,9 @@ Show.
 Set Silent.
 (intros k t1 t2 Hsem).
 Unset Silent.
-(unfold sem_eq_k in *; intros v Hm).
+(unfold sem_eq_k in *).
+(split; intros v; specialize (Hsem v); tauto).
+Qed.
+Lemma sem_eq_k__sem_sub_k_1 : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t1]<= [t2].
+Proof.
+(apply (proj1 sem_eq_k__sem_sub_k)).
