@@ -269,4 +269,26 @@ Show.
 (pose proof (H3 a); intuition).
 Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @eq_existT_curried.
-eq_values.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @or_assoc.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @spec_abstraction_compose.
+(assert (log_addr a < diskSize state)).
+Timeout 1 Check @split.
+Set Silent.
+{
+Unset Silent.
+lia.
