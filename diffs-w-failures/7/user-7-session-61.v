@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -138,9 +139,15 @@ specialize (Hsem _ Hma).
 clear IHt2_1 IHt2_2.
 specialize (Hsem _ Hma).
 (apply match_ty_pair__inv in Hsem).
-Unset Silent.
 (destruct Hsem as [v1 [v2 [Heq _]]]; inversion Heq).
-Set Silent.
 -
 Unset Silent.
 (apply value_sem_sub_k_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
+Set Silent.
+-
+Unset Silent.
+Show.
+specialize (Hsem _ Hma).
+(destruct k; contradiction).
+Qed.
