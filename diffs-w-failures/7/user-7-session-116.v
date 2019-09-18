@@ -97,15 +97,4 @@ Set Printing Width 148.
 (rewrite IHt; try assumption).
 reflexivity.
 Set Silent.
--
-Unset Silent.
-(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
-Set Silent.
-+
-Unset Silent.
-contradiction.
-+
-(simpl).
-Set Printing Width 148.
-(rewrite <- beq_id_refl).
 Show.
