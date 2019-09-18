@@ -673,21 +673,5 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @len_addr.
 rename r0 into len_b.
 Timeout 1 Show.
-Timeout 1 Show Intros.
-Timeout 1
-(repeat
-  match goal with
-  | company_coq_hyp__:_
-    |- _ =>
-        clear dependent company_coq_hyp__;
-         (let dummy := H0 in
-          let dummy := H5 in
-          let dummy := H3 in
-          let dummy := H2 in
-          idtac)
-  end;
-  repeat
-   match goal with
-   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
-   end).
-Timeout 1 Show Intros.
+Unset Silent.
+Set Diffs "off".
