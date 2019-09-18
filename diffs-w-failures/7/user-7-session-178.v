@@ -80,3 +80,4 @@ Proof.
 (intros).
 (simpl).
 (rewrite <- beq_id_refl).
+Unset Silent.
