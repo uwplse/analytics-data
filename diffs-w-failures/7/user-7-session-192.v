@@ -24,4 +24,7 @@ Set Printing Width 148.
 (intros X s; induction w; induction t; intros v HX Hm; try (solve [ rewrite subst_cname in *; assumption | rewrite subst_ev in *; assumption ])).
 -
 Show.
-(destruct (fresh_in_ty _ _ _ HX) as [HX1 HX2]).
+(destruct (fresh_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]).
+Show.
+(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst).
+Show.
