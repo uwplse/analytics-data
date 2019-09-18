@@ -71,4 +71,5 @@ Set Printing Width 148.
 subst.
 Show.
 Set Printing Width 148.
+(simpl in *).
 (exists v; assumption).
