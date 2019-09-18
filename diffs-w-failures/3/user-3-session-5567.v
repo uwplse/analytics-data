@@ -580,6 +580,31 @@ step_proc.
 (destruct r; try step).
 (destruct r; try step).
 (destruct (v == v0); try step).
-*
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
++
+Unset Silent.
+(assert (a0 < a \/ a0 = a) by lia; intuition auto; simplify).
+Set Silent.
++
+Unset Silent.
+intuition eauto.
+Set Silent.
+{
+Unset Silent.
+(destruct (a == a0); simplify; finish).
+Set Silent.
+Set Silent.
+Set Silent.
+}
+step.
+Unset Silent.
+(destruct r; try step).
+*
+(destruct (a == a0); simplify; finish).
+*
+(destruct (a == a0); simplify; finish).
+}
