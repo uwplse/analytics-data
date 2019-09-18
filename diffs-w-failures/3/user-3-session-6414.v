@@ -248,4 +248,17 @@ Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_length_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 (unfold log_length_ok; intros).
-(rewrite H).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(rewrite H; simpl).
+Timeout 1 Check @repeat_length.
+(eexists; eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8SRjHv"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
