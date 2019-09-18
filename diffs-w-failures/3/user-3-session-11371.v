@@ -206,6 +206,9 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
 Set Silent.
 Theorem mult_comm' :
   forall m n : nat, m * n = n * m.
@@ -216,45 +219,11 @@ Proof.
 (simpl).
 (rewrite mult_0_r).
 reflexivity.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 51.
-Show.
 -
 (simpl).
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 51.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 51.
-Show.
 (assert (H1 : m * S n' = m + m * n')).
 {
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 51.
-Show.
-clear IHn'.
-(induction m as [| m' IHm']).
--
+Timeout 1 Check @false.
+Timeout 1 Check @sig.
 (simpl).
-reflexivity.
--
-(simpl).
-(rewrite IHm').
-(rewrite plus_swap).
-reflexivity.
-}
-(rewrite H1).
-(rewrite IHn').
-reflexivity.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqRZ2ypa"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
