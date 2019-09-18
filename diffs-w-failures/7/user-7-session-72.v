@@ -51,3 +51,8 @@ Lemma mk_nf__sem_sub_k_l : forall (k : nat) (t : ty), ||-[ k][MkNF( t)]<= [t].
 Unset Silent.
 Proof.
 (apply sem_eq_k__sem_sub_k).
+Show.
+(intros k t).
+(apply sem_eq_k__sem_sub_k).
+(apply mk_nf__sem_eq_k).
+Qed.
