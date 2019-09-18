@@ -256,6 +256,12 @@ Proof.
 -
 auto.
 -
-(assert (1 < S (S base_m2)) by lia).
 Unset Silent.
-(generalize dependent S (S base_m2); intros base).
+Set Diffs "off".
+Timeout 1 Check @last.
+Timeout 1 Check @byte.
+Timeout 1 Check @sig.
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(assert (base_m2 = S (S base_m2) - 2) by auto).
