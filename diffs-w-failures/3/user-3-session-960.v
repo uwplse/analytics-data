@@ -161,4 +161,8 @@ Timeout 1 Check @pointwise_relation.
 Timeout 1 Check @find.
 Timeout 1 Check @nat_eq_dec.
 Timeout 1 Check @N.div.
-Search -nat -div.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Search -nat -div -"ind".
