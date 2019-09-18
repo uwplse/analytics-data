@@ -175,4 +175,37 @@ Timeout 1 Check @Byte.x25.
 Definition bounded0 : {x | x < 256}.
 Timeout 1 Check @pointwise_relation.
 Timeout 1 Check @eq_existT_curried.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+Timeout 1 Check @Nat.lt_0_succ.
+Timeout 1 Check @Nat.lt_0_succ.
+Timeout 1 Check @Nat.lt_0_succ.
+Set Printing Width 78.
+Show.
+Set Silent.
 exists 0.
+Unset Silent.
+(apply Nat.lt_0_succ).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOGprCQ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBCZxql"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpJJRBT"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Definition nat64_to_le (x : nat) : list byte :=
+  let digits := nat_to_le 254 x in
+  digits ++ repeat (8 - length digits) bounded0.
