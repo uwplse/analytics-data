@@ -450,6 +450,10 @@ autorewrite with upd list in *.
 admit.
 Admitted.
 Hint Resolve append_at_ok: core.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
@@ -467,10 +471,6 @@ step_proc.
 (unfold log_size_ok; autorewrite with list; auto).
 (exists bs; intuition eauto).
 (unfold log_abstraction; intuition eauto).
+Unset Silent.
 (unfold log_length_ok).
 (rewrite H).
-Admitted.
-Theorem reset_ok : proc_spec reset_spec reset recover abstr.
-Proof.
-Admitted.
-Unset Silent.
