@@ -135,7 +135,28 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-refine
- {|
- byte := Ascii.ascii;
- byte0 := Ascii.Ascii false false false false false false false false |}.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_string.
+Timeout 1 Check @uint64_to_string.
+Timeout 1 Check @uint64_to_string.
+Timeout 1 Check @uint64_to_string.
+Timeout 1 Check @uint64_to_string.
+Timeout 1 Check @nat_ind.
+Timeout 1 Check @beq_nat_true.
+Timeout 1 Check @String.
+Timeout 1 Check @String.
+Timeout 1 Check @String.
+Timeout 1 Check @String.eqb.
+Timeout 1 Check @String.
