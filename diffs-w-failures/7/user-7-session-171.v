@@ -77,6 +77,6 @@ Proof.
 Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction t; simpl; try reflexivity).
-Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Show.
+Set Printing Width 148.
+-
