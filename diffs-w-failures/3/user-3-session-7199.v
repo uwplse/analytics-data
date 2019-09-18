@@ -741,4 +741,16 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @log_length_ok.
-(rewrite length_firstn).
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length_le.
+Timeout 1 Check @firstn_length_le.
+(rewrite firstn_length_le).
