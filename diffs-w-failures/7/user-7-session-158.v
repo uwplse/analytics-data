@@ -54,4 +54,11 @@ Set Silent.
 (intros).
 Unset Silent.
 (simpl).
-(rewrite beq_id_refl).
+(rewrite <- beq_id_refl).
+reflexivity.
+Qed.
+Set Silent.
+Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [X := s] TVar Y = TVar Y.
+Unset Silent.
+Proof.
+(intros X s Y).
