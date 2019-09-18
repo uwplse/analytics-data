@@ -91,4 +91,4 @@ clear Heq.
 (destruct Hcontra as [Hcontra _]).
 Set Printing Width 148.
 (assert (Hm : |-[ 0, 0] tint <$ tint) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ Hm).
+specialize (Hcontra _ _ Hm).
