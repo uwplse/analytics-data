@@ -73,4 +73,12 @@ Timeout 1 Check @recovered.
 Timeout 1 Check @recovered.
 (cbn[pre post recovered]).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(intros).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @NotConstant.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(let state := fresh "state" in
+ intros ? state Hpre).
