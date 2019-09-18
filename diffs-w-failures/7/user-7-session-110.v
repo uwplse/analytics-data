@@ -128,9 +128,9 @@ Proof.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Unset Silent.
+Set Printing Width 148.
 (induction w; induction t; intros k v Hm w' Hle;
   try match goal with
       | |- |-[ _, _] _ <$ TCName _ => apply match_ty_cname__inv in Hm; subst; apply match_ty_cname
       end).
+Show.
