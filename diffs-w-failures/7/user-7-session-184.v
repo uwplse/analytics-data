@@ -83,12 +83,5 @@ exists (TPair v1' v2').
 split.
 (apply match_ty_pair; assumption).
 Set Printing Width 148.
-(induction w'; induction t'; intros HX' Hm'; try contradiction).
-Set Silent.
-+
-(apply match_ty_pair_pair__inv in Hm').
-(destruct Hm' as [Hm'1 Hm'2]).
-(apply match_ty_pair; auto).
-Unset Silent.
-Show.
-Search -fresh_in_ty.
+Set Printing Width 148.
+(induction w'; induction t'; intros HX' Hm'; destruct (fresh_in_ty_pair__inv _ _ HX') as [HX'1 HX'2]; try contradiction).
