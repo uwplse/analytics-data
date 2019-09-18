@@ -348,5 +348,11 @@ clear H.
 (unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
 (eapply H0 in H2; eauto).
 (destruct matches in *; safe_intuition repeat deex; eauto).
-(descend; intuition eauto).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(descend; intuition eauto).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+intuition eauto.
