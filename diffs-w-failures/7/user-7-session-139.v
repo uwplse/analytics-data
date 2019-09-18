@@ -32,32 +32,20 @@ exists w1.
 (rewrite subs_fresh_in_ty in Hm; try assumption).
 (eapply match_ty__ge_w).
 eassumption.
-(repeat constructor).
-Qed.
-Lemma sem_sub_k_exist_fresh_r : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][t]<= [TExist X t].
-Show.
 Set Printing Width 148.
 Set Silent.
+Lemma sem_sub_k_exist_fresh_r : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][t]<= [TExist X t].
+Proof.
+(intros k X t Hfresh).
 (intros w1).
-Unset Silent.
 exists (S w1).
 (intros v Hm).
 (apply match_ty_exist).
 exists (TEV X).
-Set Printing Width 148.
 (rewrite subs_fresh_in_ty; assumption).
-Show.
 Qed.
-Set Silent.
-Lemma sem_sub_k_fresh_var__sem_sub_exist :
-  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
-Proof.
-(intros X t).
-(induction t).
--
-(intros t' X' Hfresh Hsem).
+Lemma sem_sub_exist_fresh_l : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]<= [t].
 Unset Silent.
-(simpl in *).
-Set Printing Width 148.
-(apply sem_sub__trans with (TCName c); try assumption).
+Proof.
+(intros X t Hfresh k).
 (apply sem_sub_k_exist_fresh_l).
