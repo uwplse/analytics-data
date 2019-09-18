@@ -7,19 +7,5 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 51.
-Set Silent.
-From Coq Require Import ProofIrrelevance.
-From Coq Require Export String.
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @MRet.
