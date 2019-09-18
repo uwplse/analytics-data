@@ -43,16 +43,16 @@
 #done
 
 # User 7 (TODO do again)
-#for i in {0..228}
-#do
-#    ./commit-diffs.sh 7 ${i}
-#done
-
-# User 8 (TODO do again)
-for i in {0..161}
+for i in {0..228}
 do
-    ./commit-diffs.sh 8 ${i}
+    ./commit-diffs.sh 7 ${i}
 done
+
+# User 8 (w/ failures version is done; extra unset silents kind of unpleasant though)
+#for i in {0..161}
+#do
+#    ./commit-diffs.sh 8 ${i}
+#done
 
 # User 9 (w/ failures version is done forever)
 #for i in {0..4}
