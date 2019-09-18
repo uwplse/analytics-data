@@ -120,7 +120,10 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Notation "p" := (ProcMarker p) (at level 10, only printing).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Notation "p" := (ProcMarker p) (at level 0, only printing).
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -134,10 +137,6 @@ Proof.
  | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
  end).
 (unfold swapXY).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 monad_simpl.
 (match goal with
  | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
