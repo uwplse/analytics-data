@@ -135,5 +135,13 @@ Unset Silent.
 specialize (Hsem k w1).
 (destruct Hsem as [w2 Hsem]).
 exists w2.
-(intros v Hv).
+Set Printing Width 148.
+Set Silent.
+(intros v Hm).
+Unset Silent.
 (destruct w1).
+(apply match_ty_exist__0_inv in Hm; contradiction).
+Set Silent.
+(apply match_ty_exist__inv in Hm).
+Unset Silent.
+(destruct Hm as [tx Hm]).
