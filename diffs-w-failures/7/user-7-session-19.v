@@ -247,4 +247,13 @@ Set Printing Width 148.
 (simpl in Hdept).
 (apply le_S_n in Hdept).
 Show.
-(apply IHk).
+Set Printing Width 148.
+(apply IHk; try assumption).
+Set Silent.
+(assert (Hv : value_type (TRef t)) by constructor).
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
+specialize (Hsem _ Hm).
+Unset Silent.
+(simpl in Hsem).
+(intros v' Hv').
+auto.
