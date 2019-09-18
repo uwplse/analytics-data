@@ -150,4 +150,4 @@ clear IHt3.
 (destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
 (simpl in Hm2).
 Unset Silent.
-(apply sem_eq_i__trans with t).
+(apply sem_eq_k_i__trans with t).
