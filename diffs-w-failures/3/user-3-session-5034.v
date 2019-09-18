@@ -454,4 +454,5 @@ Show.
 (step_proc; intuition; subst; eauto).
 *
 (exists (s ++ v); simpl; intuition).
-(apply log_abstraction_post_commit; auto).
+Unset Silent.
+Set Diffs "off".
