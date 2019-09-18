@@ -174,5 +174,6 @@ Proof.
 (intros Hcontra).
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
 specialize (Hcontra 1).
 (assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
