@@ -746,5 +746,19 @@ step.
 (destruct s; simplify).
 -
 step.
-(destruct s; simplify).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct s; simplify).
++
+(exists d,FullySynced; simplify; finish).
+(destruct r; step).
+(exists d,FullySynced; simplify; finish).
+lia.
+Set Silent.
++
+(exists d,(OutOfSync a0 b); simplify; finish).
+intuition eauto.
+Unset Silent.
+lia.
