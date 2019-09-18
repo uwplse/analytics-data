@@ -209,4 +209,7 @@ Set Printing Width 148.
 -
 (destruct w).
 +
-(apply match_ty_exist__0_inv in Hm).
+Set Printing Width 148.
+(apply match_ty_exist__0_inv in Hm; contradiction).
++
+(apply match_ty_exist__in in Hm).
