@@ -130,4 +130,9 @@ Show.
    |- _ => eapply RExec in Hexec; eapply H4 in Hexec; eauto
  end).
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+Set Printing Width 78.
+Show.
+(simpl; eauto).
