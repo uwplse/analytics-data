@@ -175,5 +175,21 @@ Timeout 1 Check @div_theory.
 Timeout 1 Check @nil.
 Timeout 1 Check @pointwise_relation.
 Timeout 1 Check @nil.
-Definition uint64_to_le (x : uint64) : list byte :=
-  if lt_dec x (pow 2 64) then nil else nil.
+Timeout 1 Check @nat_ind.
+Timeout 1 Check @beq_nat_true.
+Timeout 1 Check @nat_total_order.
+Timeout 1 Check @Fin.of_nat_to_nat_inv.
+Timeout 1 Check @nat_ind.
+Timeout 1 Check @beq_nat_true.
+Timeout 1 Check @nat_total_order.
+Timeout 1 Check @Fin.of_nat_to_nat_inv.
+Timeout 1 Check @nat_ind.
+Timeout 1 Check @beq_nat_true.
+Timeout 1 Check @nat_total_order.
+Timeout 1 Check @Fin.of_nat_to_nat_inv.
+Timeout 1 Check @split.
+Timeout 1 Check @byte.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Byte.x25.
+Fixpoint nat_to_le (x : nat) : list {x : nat | x < 256}.
