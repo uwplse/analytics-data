@@ -206,8 +206,8 @@ contradiction.
 (destruct Hm as [tx Hmx]).
 Abort.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma not_sem_eq__reft_t : forall (k : nat) (t : ty), | t | <= k -> ~ ||-[ S k][TRef t]= [t].
+Lemma not_sem_eq__reft_t : forall (k : nat) (t : ty), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
 Unset Silent.
 Proof.
-Show.
