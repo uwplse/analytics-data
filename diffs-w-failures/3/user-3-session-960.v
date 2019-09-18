@@ -663,4 +663,21 @@ Set Diffs "off".
 Timeout 1 Check @sig.
 Set Printing Width 78.
 Show.
-(unfold ascii_to_byte, byte_to_ascii; simpl).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(simpl).
+Timeout 1 Check @sig.
+(destruct b; simpl).
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+Search -ascii_to_bounded.
