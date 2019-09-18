@@ -132,4 +132,28 @@ Lemma proc_rspec_recovery_refines_crash_step (rec : proc C_Op unit)
 Proof.
 (intros Hprspec Hpre Hpost_crash).
 (unfold refines).
-(intros sA sC' [] Hl).
+Unset Silent.
+Timeout 1 Check @List.Add.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHDsx0V"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqn3pmKl"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Lemma proc_hspec_init_ok (init : proc C_Op InitStatus)
+  (A_initP : AState -> Prop) (C_initP : CState -> Prop) 
+  spec :
+  proc_hspec c_sem init spec ->
+  (forall sC, C_initP sC -> (spec sC).(pre)) ->
+  (forall sC sC',
+   (spec sC).(post) sC' Initialized ->
+   exists sA', absr sA' sC' tt /\ A_initP sA') ->
+  (test C_initP;; exec c_sem init)
+  --->
+   (any (T:=unit);; test A_initP;; absr;; pure Initialized) +
+   (any (T:=unit);; pure InitFailed).
