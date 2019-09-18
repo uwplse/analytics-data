@@ -82,4 +82,6 @@ Show.
 (apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 Show.
 SearchPattern (Nat.max _ _ <= Nat.max _ _).
-(simpl; apply Nat.max_le_compat).
+Set Printing Width 148.
+(apply Nat.max_le_compat).
+Show.
