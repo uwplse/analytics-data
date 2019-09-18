@@ -615,4 +615,13 @@ intuition eauto.
 (rewrite diskUpd_eq; eauto).
 }
 {
-(exists []; intuition eauto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 68.
+Show.
+(exists bs; intuition eauto).
