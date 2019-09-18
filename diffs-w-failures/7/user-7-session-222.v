@@ -322,3 +322,5 @@ Proof.
 -
 Unset Silent.
 (rewrite b_subst_pair).
+Show.
+(simpl).
