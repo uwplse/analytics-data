@@ -221,6 +221,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -229,9 +230,10 @@ Set Printing Width 148.
            assert (Hv : value_type t1) by constructor; assert (Hm : |-[ k] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
             (Hsem _ Hm); contradiction
      end ])).
-Set Printing Width 148.
+Set Silent.
 -
 (assert (Hv : value_type (TCName c)) by constructor).
 (pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu).
+Unset Silent.
 (destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
   tauto || apply Max.le_max_l || apply Max.le_max_r).
