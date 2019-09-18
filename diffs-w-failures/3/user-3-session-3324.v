@@ -183,4 +183,4 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-all: (rewrite diskUpd_neq by omega).
+(rewrite ?diskUpd_neq by omega).
