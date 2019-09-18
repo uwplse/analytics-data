@@ -80,5 +80,6 @@ Proof.
 -
 Unset Silent.
 Show.
-(destruct v).
-contradiction.
+Set Printing Width 148.
+(destruct v; try contradiction).
+(inversion Hle).
