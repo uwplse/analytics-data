@@ -500,73 +500,6 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @repeat_length.
 Set Printing Width 78.
 Show.
-(exists (a' ++ [a]); intuition eauto).
-Timeout 1 Check @log_size_ok.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Set Silent.
-Unset Silent.
-+
-(rewrite app_length; simpl; lia).
-+
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold log_size_ok in *; simpl in *).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_size_ok.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @rec_wipe_compose.
@@ -574,24 +507,4 @@ Timeout 1 Check @nodup.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @app.
-Set Printing Width 78.
-Show.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-(rewrite ?app_length in *; simpl in *).
-autorewrite with upd.
-lia.
-+
-Timeout 1 Check @addr.
-admit.
-+
-Timeout 1 Check @addr.
-admit.
-+
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @nodup.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-autorewrite with upd in *.
+(exists (a' ++ [a]); intuition eauto; autorewrite with upd in *).
