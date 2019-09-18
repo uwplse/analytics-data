@@ -78,6 +78,7 @@ Set Silent.
 Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
 Proof.
 (intros).
+Set Printing Width 148.
+(intros).
+Show.
 (simpl).
-(rewrite <- beq_id_refl).
-Unset Silent.
