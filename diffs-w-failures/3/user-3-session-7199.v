@@ -327,4 +327,18 @@ Set Diffs "off".
 Timeout 1 Check @incl.
 Set Printing Width 78.
 Show.
-(rewrite disk_oob_eq; simpl; auto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Set Printing Width 78.
+Show.
+(rewrite diskUpd_oob_eq).
