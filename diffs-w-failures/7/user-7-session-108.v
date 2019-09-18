@@ -194,3 +194,7 @@ subst.
 Unset Silent.
 Show.
 (apply match_ty_ref__weak_inv in Hm; subst).
+Set Printing Width 148.
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(simpl).
