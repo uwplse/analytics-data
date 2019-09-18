@@ -84,22 +84,9 @@ Proof.
 (apply sem_sub_k_union_2; auto).
 Qed.
 Unset Silent.
-Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][TRef t]<= [TRef t'].
+Set Printing Width 148.
+Lemma match_ty_ref : forall (k w : nat) (t t' : ty), ||-[ k][t]= [t'] -> |-[ S k, w] TRef t <$ TRef t'.
 Proof.
-(intros k t t' Hsem).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
-(intros w1).
-exists w1.
-(intros v Hm).
-(destruct k).
--
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [tx Heq]; subst).
-(destruct w1; simpl; tauto).
--
-Unset Silent.
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [tx [Heq Href]]; subst).
-(apply match_ty_ref).
+(intros k w t t' Hsem).
+(destruct w; simpl).
+tauto.
