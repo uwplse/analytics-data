@@ -7,6 +7,9 @@ Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
+Set Printing Width 148.
+Set Silent.
+Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
 Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
@@ -15,8 +18,6 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Close Scope btjm.
 Open Scope btjmi.
-Set Printing Width 148.
-Set Silent.
 Lemma sem_eq_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
 Proof.
 (intros k t1 t2 t3 Hsem1 Hsem2).
@@ -25,9 +26,7 @@ Proof.
 specialize (Hsem1 v).
 specialize (Hsem2 v).
 tauto.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma match_ty_i_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
@@ -149,11 +148,8 @@ clear IHt3.
 (apply match_ty_i_ref__inv in Hm1).
 (destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
 (simpl in Hm2).
-Unset Silent.
-Set Printing Width 148.
 (apply sem_eq_k_i__trans with t; assumption).
 Qed.
-Set Silent.
 Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
 auto with DBBetaJulia.
@@ -166,9 +162,7 @@ Proof.
 specialize (Hsem _ Hm).
 (apply match_ty_i_union__inv in Hsem).
 (destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname) (t2 : ty), ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
 Proof.
 (intros k c t2).
@@ -178,9 +172,7 @@ Proof.
 -
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma pair_sem_sub_k_i__sub_d :
   forall (k : nat) (ta1 ta2 : ty),
   atom_type (TPair ta1 ta2) ->
@@ -189,3 +181,11 @@ Lemma pair_sem_sub_k_i__sub_d :
 Proof.
 (intros k ta1 ta2 Hat IH1 IH2).
 Unset Silent.
+(pose proof (atom_type__value_type _ Hat) as Hva).
+Set Silent.
+(assert (Hma : |-[ k] TPair ta1 ta2 <$ TPair ta1 ta2) by (apply match_ty_i__reflexive; assumption)).
+Unset Silent.
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+Set Silent.
+-
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
