@@ -685,36 +685,27 @@ Set Silent.
 Proof.
 Unset Silent.
 (intros).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @bytes.
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(assert (len_addr < diskSize d') by eauto).
 (unfold log_abstraction; intuition).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 -
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (unfold log_length_ok in *; intros).
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @nodup.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_eq.
-Timeout 1 Check @diskUpd_eq.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
+autorewrite with upd in *.
