@@ -506,4 +506,9 @@ Unset Silent.
 (unfold get_len; intros).
 step_proc.
 step_proc.
-intuition eauto.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+eauto.
