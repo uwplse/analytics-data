@@ -456,49 +456,50 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7rBVPP"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-refine (exist _ (Ascii.nat_of_ascii a) _).
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Show.
-Search -Ascii.nat_of_ascii.
-Timeout 1 Check @applicative_ap.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_of_ascii.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
+Set Silent.
+Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
+refine (exist _ (Ascii.nat_of_ascii a) _).
 (apply Ascii.nat_ascii_bounded).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHbUS4W"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHZysVf"
+Unset Silent.
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq90h9tp"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnkGrre"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMBk2vQ"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Timeout 1 Check @Byte.x25.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @bounded_to_ascii.
+Set Silent.
+Instance aModel : GoModel.
+Proof.
+Unset Silent.
+refine
+ {|
+ byte := {x | x < 256};
+ byte0 := Ascii.Ascii false false false false false false false false;
+ uint64_to_string := pretty.pretty_nat;
+ ascii_to_byte := ascii_to_bounded;
+ byte_to_ascii := bounded_to_ascii |}.
