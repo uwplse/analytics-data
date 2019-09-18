@@ -338,4 +338,5 @@ Timeout 1 Check @repeat_length.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @disk.
-autorewrite with disk.
+Timeout 1 Check @nodup.
+autorewrite with upd.
