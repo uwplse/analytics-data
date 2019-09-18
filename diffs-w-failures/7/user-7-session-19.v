@@ -197,10 +197,12 @@ Proof.
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
+Unset Silent.
+(induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
      | Hsem:||-[ ?k][?t]<= [?t']
@@ -227,6 +229,4 @@ Proof.
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
 -
-(simpl).
-Unset Silent.
-(apply le_n_S).
+(destruct (max_inv_depth_le__components_le _ _ _ Hdept) as [Hdept1 Hdept2]).
