@@ -189,4 +189,10 @@ Show.
 (eapply ret_hspec).
 typeclasses eauto.
 firstorder.
-(hnf).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @non_erroring.
+Timeout 1 Check @in_inv.
+Set Printing Width 51.
+Show.
+(inversion H0).
