@@ -375,4 +375,50 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+Set Printing Width 78.
+Show.
+(unfold proc_spec in *; intuition; simpl in *; intuition eauto).
+(eapply H0 in H2; eauto).
+(destruct matches in *; safe_intuition repeat deex; eauto).
+(descend; intuition eauto).
+Set Silent.
+-
+(unfold proc_spec; simpl; intros).
+(destruct matches; subst; eauto).
+(eexists; intuition eauto).
+(inv_rexec; inv_exec).
+congruence.
+Unset Silent.
+Qed.
+Set Silent.
+Theorem spec_abstraction_compose :
+  forall `(spec : Specification A T R State2) `(p : proc T) 
+    `(rec : proc R) `(abs2 : LayerAbstraction State1 State2)
+    `(abs1 : Abstraction State1),
+  proc_spec
+    (fun '(a, state2) state =>
+     {|
+     pre := pre (spec a state2) /\ abstraction abs2 state state2;
+     post := fun v state' =>
+             exists state2',
+               post (spec a state2) v state2' /\
+               abstraction abs2 state' state2';
+     recovered := fun v state' =>
+                  exists state2',
+                    recovered (spec a state2) v state2' /\
+                    abstraction abs2 state' state2' |}) p rec abs1 ->
+  proc_spec spec p rec (abstraction_compose abs1 abs2).
+Proof.
+(intros).
+(unfold proc_spec, abstraction_compose; simpl; intros; safe_intuition
+  repeat deex).
+(eapply (H (a, state)) in H2; simpl in *; eauto).
+(destruct r; intuition repeat deex; eauto).
+Unset Silent.
+Qed.
