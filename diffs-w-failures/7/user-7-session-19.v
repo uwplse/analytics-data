@@ -132,8 +132,9 @@ Set Printing Width 148.
 Set Printing Width 148.
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
 (match goal with
  | |- | ?t1 | = | ?t2 | =>
        assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-        (H 0 _ Hv)
+        (H 0 _ Hv); destruct H as [H _]
  end).
