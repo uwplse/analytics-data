@@ -559,4 +559,10 @@ Set Diffs "off".
 Timeout 1 Check @log_size_ok.
 Set Printing Width 78.
 Show.
-(rewrite app_length in *; simpl).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite ?app_length in *; simpl).
+Timeout 1 Check @split.
+lia.
