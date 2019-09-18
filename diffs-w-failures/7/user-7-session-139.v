@@ -94,4 +94,6 @@ Set Silent.
 +
 Unset Silent.
 Show.
-clear IHt'1.
+Set Printing Width 148.
+clear IHt'1 IHt'2.
+(apply sem_sub_pair__inv in Hsem).
