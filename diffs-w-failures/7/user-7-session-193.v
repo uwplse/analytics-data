@@ -40,13 +40,30 @@ Definition tX := TBVar vX.
 Definition tY := TBVar vY.
 Unset Silent.
 Definition teXX := TExist vX tX.
+Set Printing Width 148.
+Set Silent.
 Fixpoint FFV (t : ty) : id_set :=
   match t with
   | TCName _ => IdSet.empty
   | TPair t1 t2 => IdSet.union (FFV t1) (FFV t2)
   | TUnion t1 t2 => IdSet.union (FFV t1) (FFV t2)
-  | TExist y t' => IdSet.remove y (FFV t')
+  | TExist y t' => FFV t'
   | TBVar _ => IdSet.empty
   | TFVar y => IdSet.singleton y
   | TEV _ => IdSet.empty
   end.
+Unset Silent.
+Fixpoint FBV (t : ty) : id_set :=
+  match t with
+  | TCName _ => IdSet.empty
+  | TPair t1 t2 => IdSet.union (FFV t1) (FFV t2)
+  | TUnion t1 t2 => IdSet.union (FFV t1) (FFV t2)
+  | TExist y t' => IdSet.remove y (FFV t')
+  | TBVar y => IdSet.singleton y
+  | TFVar _ => IdSet.empty
+  | TEV _ => IdSet.empty
+  end.
+Definition free (X : id) (fvs : id_set) := IdSet.In X fvs.
+Definition not_free (X : id) (fvs : id_set) := ~ IdSet.In X fvs.
+Definition ffree_in_ty (X : id) (t : ty) := free X (FFV t).
+Definition not_ffree_in_ty (X : id) (t : ty) := not_free X (FFV t).
