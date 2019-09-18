@@ -601,4 +601,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-step_proc.
+Unset Silent.
+Set Diffs "off".
