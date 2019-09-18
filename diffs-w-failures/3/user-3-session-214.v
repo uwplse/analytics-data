@@ -172,4 +172,35 @@ Timeout 1 Check @NonError.
 Timeout 1 Check @PeanoNat.Nat.le_decidable.
 Timeout 1 Check @non_erroring.
 Timeout 1 Check @none.
-Instance nonError_none : (NonError none).
+Instance nonError_none : (@NonError A A T none).
+Proof.
+Timeout 1 Check @unit.
+Timeout 1 Check @readNone.
+Timeout 1 Check @readNone.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @not.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @none.
+Timeout 1 Check @List.nth_indep.
+(unfold NonError, not, none; intros).
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwXsKKb"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqErDP1i"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOn8jq8"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
