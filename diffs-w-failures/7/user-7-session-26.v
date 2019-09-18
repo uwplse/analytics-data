@@ -207,56 +207,31 @@ Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
 Proof.
 Unset Silent.
 (intros; split; tauto).
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma sem_eq_k__comm : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
 Proof.
-Unset Silent.
-auto with DBBetaJulia.
-Show.
 (intros k t1 t2 Hsem).
-Set Printing Width 148.
-Set Printing Width 148.
 (unfold sem_eq_k in *).
-Show.
 (intros v).
-Set Printing Width 148.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
 specialize (Hsem v).
 tauto.
 Qed.
-Set Silent.
 Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
-Set Printing Width 148.
-Set Silent.
+Proof.
 (intros k t1 t2 t3 Hsem1 Hsem2).
-Unset Silent.
 (unfold sem_eq_k in *).
-Set Silent.
 (intros v).
 specialize (Hsem1 v).
-Unset Silent.
-Set Silent.
 specialize (Hsem2 v).
-Unset Silent.
 tauto.
 Qed.
-Search -and.
-Set Silent.
 Lemma sem_eq_k__sem_sub_k : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t1]<= [t2] /\ ||-[ k][t2]<= [t1].
-Unset Silent.
 Proof.
-Show.
-Set Silent.
 (intros k t1 t2 Hsem).
-Unset Silent.
 (unfold sem_eq_k in *).
 (split; intros v; specialize (Hsem v); tauto).
 Qed.
-Set Printing Width 148.
-Set Silent.
 Lemma sem_eq_k__sem_sub_k_1 : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t1]<= [t2].
 Proof.
 (apply sem_eq_k__sem_sub_k).
@@ -264,28 +239,25 @@ Qed.
 Lemma sem_eq_k__sem_sub_k_2 : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]<= [t1].
 Proof.
 (apply sem_eq_k__sem_sub_k).
-Unset Silent.
 Qed.
-Set Silent.
 Theorem sem_sub__refl : forall t : ty, ||- [t]<= [t].
 Proof.
 auto with DBBetaJulia.
-Unset Silent.
 Qed.
-Set Silent.
 Theorem sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] -> ||- [t1]<= [t3].
 Proof.
 auto with DBBetaJulia.
-Unset Silent.
 Qed.
 Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
-Set Silent.
 Proof.
 (intros; split; tauto).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma sem_eq__comm : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t2]= [t1].
 Proof.
+(intros k t1 t2 Hsem).
 Unset Silent.
-auto with DBBetaJulia.
+(unfold sem_eq in *).
+Set Silent.
+(intros v).
+Unset Silent.
+specialize (Hsem v).
