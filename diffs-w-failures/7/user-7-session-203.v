@@ -236,4 +236,5 @@ Unset Silent.
 Show.
 (destruct IHt1 as [IHt1| [w1 [v1 IHt1]]]; destruct IHt2 as [IHt2| [w2 [v2 IHt2]]]).
 +
-(left; intros w v Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]).
+Set Printing Width 148.
+(left; intros w v Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; exfalso; eauto).
