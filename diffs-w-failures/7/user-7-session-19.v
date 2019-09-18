@@ -361,12 +361,31 @@ Proof.
           [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ apply IHt1 | apply IHt2 ]; assumption
    end; try (solve [ rewrite mk_nf_ref in *; apply match_ty_i_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor ])).
 -
+Show.
+Set Printing Width 148.
+Set Silent.
 clear IHt.
 (rewrite mk_nf_ref).
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
-(intros v; specialize (IHk v t); specialize (Href v)).
+(intros v; specialize (IHk t v); specialize (Href v)).
 Unset Silent.
-Show.
-(split; auto).
+tauto.
+Set Silent.
+-
+clear IHt.
+(rewrite mk_nf_ref in Hm).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+Unset Silent.
+(intros v; specialize (IHk t v); specialize (Href v)).
+tauto.
+Qed.
+Set Silent.
+Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
+Proof.
+(intros t k).
+Unset Silent.
+(apply match_ty_i_nf').
