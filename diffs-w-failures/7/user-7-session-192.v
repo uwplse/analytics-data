@@ -27,6 +27,5 @@ Show.
 Set Printing Width 148.
 (rewrite subst_pair).
 Set Silent.
-(destruct (fresh_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]).
-Unset Silent.
-(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst).
+Set Printing Width 148.
+(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; tauto).
