@@ -88,9 +88,9 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
-Unset Silent.
+Set Printing Width 148.
 Function
- subst (x : id) (s t : ty) {wf lt_size t} : ty :=
+ subst (x : id) (s t : ty) {wf lt size} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
@@ -102,58 +102,3 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
-Show.
--
-(intros).
-Set Printing Width 148.
-(unfold lt_size).
-(simpl).
-Omega.omega.
-Set Silent.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-Unset Silent.
-(unfold lt_size).
-Set Silent.
-(simpl).
-Omega.omega.
-Unset Silent.
-Show.
--
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-(unfold lt_size).
-Check lt_wf.
-Print lt_wf.
-Set Printing Width 148.
-Set Printing Width 148.
-(unfold well_founded).
-Set Printing Width 148.
-Set Printing Width 148.
-(intros t; induction t; constructor; intros t' H).
-+
-constructor.
-(intros y Hy).
-Show.
