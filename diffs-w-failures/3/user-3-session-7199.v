@@ -353,4 +353,12 @@ Timeout 1 Check @diskUpd.
 Timeout 1 Check @diskUpd_eq.
 Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_oob_eq.
-(rewrite disk_oob_eq).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(rewrite disk_oob_eq; simpl; auto).
+Timeout 1 Check @split.
+lia.
