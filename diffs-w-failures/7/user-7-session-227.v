@@ -111,4 +111,8 @@ Show.
 Search -IdSet.singleton.
 (apply IdSetFacts.singleton_2).
 reflexivity.
+Show.
+-
+Show.
+assumption.
 Qed.
