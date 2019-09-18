@@ -110,4 +110,4 @@ Show.
 Set Printing Width 148.
 (eapply IHk).
 Set Printing Width 148.
-(apply Hm).
+(eapply Hm).
