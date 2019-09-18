@@ -473,4 +473,6 @@ specialize (H2 _ Hnf'').
 Unset Silent.
 (destruct H1 as [H1| H1]; destruct H2 as [H2| H2]).
 (left; constructor; assumption).
-(right; intros Hcontra).
+Set Printing Width 148.
+(right; intros Hcontra; apply sub_r_ref__inv in Hcontra).
+contradiction.
