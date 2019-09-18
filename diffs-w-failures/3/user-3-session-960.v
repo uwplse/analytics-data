@@ -843,4 +843,5 @@ Set Printing Width 78.
 Show.
 Timeout 1 Check @projT1.
 Timeout 1 Check @projT2.
-Search -(existT _ _ = existT _ _) -projT2.
+Unset Silent.
+Set Diffs "off".
