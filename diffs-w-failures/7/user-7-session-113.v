@@ -49,7 +49,7 @@ Show.
 (destruct (beq_idP X i)).
 +
 subst.
-(destruct (beq_idP Y i)).
-*
-reflexivity.
-*
+Set Printing Width 148.
+(destruct (beq_idP Y i); reflexivity).
++
+(destruct (beq_idP Y i); reflexivity).
