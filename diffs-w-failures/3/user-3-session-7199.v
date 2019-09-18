@@ -629,4 +629,13 @@ Timeout 1 Check @Ascii.nat_ascii_bounded.
 Set Printing Width 78.
 Show.
 generalize dependent a.
-(induction d; simpl in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(induction d; simpl; intros).
+-
+(exfalso; lia).
+-
+(simpl).
