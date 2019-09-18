@@ -242,4 +242,6 @@ Unset Silent.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
 Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @sig.
+(simpl).
 step_proc.
