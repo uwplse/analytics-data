@@ -140,4 +140,8 @@ Timeout 1 Check @N.div.
 Timeout 1 Check @gen.
 Print sig.
 Timeout 1 Check @sig.
-Search -(sig _ _ -> _).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Search -(sig _ -> _).
+Timeout 1 Check @proj1_sig.
