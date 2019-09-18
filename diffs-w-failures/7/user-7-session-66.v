@@ -232,3 +232,6 @@ Proof.
 (intros t; induction t; intros k Hdep).
 -
 (exists (TCName c); split).
+exists (TCName c).
+Unset Silent.
+reflexivity.
