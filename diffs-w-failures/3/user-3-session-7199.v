@@ -679,5 +679,15 @@ Proof.
 (unfold log_abstraction; intuition).
 Unset Silent.
 (unfold log_length_ok in *; intros).
-(assert (len_addr < diskSize d')).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @bytes.
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(assert (len_addr < diskSize d') by eauto).
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @eq_existT_curried.
+eq_values.
+Timeout 1 Check @repeat_length.
 eauto.
