@@ -233,5 +233,27 @@ Timeout 1 Check @repeat_length.
 Fixpoint get_upto (a : addr) : proc (list block) :=
   match a with
   | 0 => Ret []
-  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [a])
+  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [b])
   end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQAqVu1"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmIHFZM"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_len.
+Timeout 1 Check @get_len.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Set Silent.
+Definition get : proc (list block).
+Unset Silent.
