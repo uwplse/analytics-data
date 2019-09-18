@@ -503,4 +503,13 @@ Show.
 (simpl in *; lia).
 +
 admit.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 +
+(unfold log_size_ok in *; simpl in *).
+autorewrite with upd list in *.
+(simpl in *; lia).
++
+autorewrite with upd in *.
