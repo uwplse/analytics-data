@@ -420,4 +420,5 @@ Unset Silent.
 tauto.
 -
 (rewrite f_subst_exist).
-(unfold wf_ty).
+Set Printing Width 148.
+(unfold wf_ty; simpl).
