@@ -108,4 +108,9 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(destruct (beq_idP Y i) as [HY HY]).
+(destruct (beq_idP Y i) as [HY| HY]).
++
+subst.
+(destruct (beq_idP X i) as [HX| HX]).
+*
+subst.
