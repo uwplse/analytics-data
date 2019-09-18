@@ -90,6 +90,10 @@ Proof.
       reflexivity ])).
 -
 (destruct (beq_idP X i); try reflexivity).
-(rewrite IHt).
-Unset Silent.
+Show.
+Show.
+Set Printing Width 148.
+(destruct (IdSet.mem i (FV s))).
+Show.
++
 Show.
