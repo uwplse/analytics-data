@@ -146,4 +146,34 @@ Timeout 1 Check @ByteVector.ByteVector.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Search -"digits".
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Search -"digit".
+Timeout 1 Check @strings.string_countable.
+Timeout 1 Check @strings.string_countable.
+Timeout 1 Check @strings.string_countable.
+Timeout 1 Check @strings.ascii_eq_dec.
+Timeout 1 Check @strings.ascii_eq_dec.
+Timeout 1 Check @strings.ascii_eq_dec.
+Timeout 1 Check @strings.ascii_eq_dec.
+Timeout 1 Check @strings.ascii_eq_dec.
+Timeout 1 Check @strings.ascii_eq_dec.
+Timeout 1 Check @strings.ascii_of_digits.
+Timeout 1 Check @strings.ascii_of_digits.
+Timeout 1 Check @strings.ascii_of_digits.
+Timeout 1 Check @strings.ascii_of_digits.
+Timeout 1 Check @strings.ascii_of_digits.
+Timeout 1 Check @strings.ascii_of_digits.
+Timeout 1 Check @strings.ascii_of_digits.
+Timeout 1 Check @strings.ascii_of_digits.
+Print strings.ascii_of_digits.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.shift.
+Timeout 1 Check @Ascii.shift.
+Timeout 1 Check @Ascii.shift.
+Timeout 1 Check @Ascii.shift.
+Print Ascii.shift.
