@@ -70,7 +70,10 @@ Set Diffs "off".
 Set Printing Width 78.
 Set Silent.
 Opaque Nat.modulo Nat.div.
-#[local]Obligation Tactic := (intros; simpl; subst).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
 #[program]
 Fixpoint nat_to_le base (x : nat) {measure x lt} :
 list {x : nat | x < S (S base)} :=
@@ -100,63 +103,30 @@ Proof.
 (apply lt_wf).
 Unset Silent.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtKFEKU"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhwf9lL"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4gF8CO"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNJr2rI"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @N.le_trans.
-Timeout 1 Check @N_le_total.
-Timeout 1 Check @split.
-Timeout 1 Check @list.
-Timeout 1 Check @list.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @N.lbase.
-Timeout 1 Check @N.div.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @N.div.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @zip_with.
-Timeout 1 Check @nil.
-Timeout 1 Check @N.div.
-Timeout 1 Check @N.div.
-Timeout 1 Check @N.div.
-Timeout 1 Check @Ascii.N_of_digits.
-Timeout 1 Check @N.div.
-Timeout 1 Check @Ascii.N_of_digits.
-Timeout 1 Check @N.lbase.
-Timeout 1 Check @N.lbase.
-Print projT1.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @N.div.
-Timeout 1 Check @gen.
-Print sig.
-Timeout 1 Check @sig.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
 Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
   match digits with
   | nil => 0
   | digit :: digits' => proj1_sig digit * base + le_to_nat digits'
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqA2kjC4"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0fxDJv"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqofvrZu"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqP3FOAC"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Set Silent.
+Instance aModel : GoModel.
+Unset Silent.
+Proof.
