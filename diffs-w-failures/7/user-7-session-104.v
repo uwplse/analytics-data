@@ -108,5 +108,6 @@ clear Heq.
 (destruct Hcontra as [t' [Heq Href]]).
 (inversion Heq; subst).
 clear Heq.
-(simpl in Href).
+Set Printing Width 148.
+(unfold sem_sub_k in Href).
 Show.
