@@ -434,6 +434,8 @@ Unset Silent.
 specialize (IHt'1 Hnft).
 specialize (IHt'2 Hnft).
 (destruct Hdep as [Hdept| Hdept']).
-+
+Show.
 Set Printing Width 148.
-(destruct IHt'1).
++
+(destruct IHt'1 as [IHt'1| IHt'1]).
+specialize (IHt'1 (left Hdept)).
