@@ -105,6 +105,17 @@ Unset Silent.
 (induction t').
 Set Silent.
 +
-(intros k).
+Set Printing Width 148.
+(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]).
+(specialize (Hsem k w); destruct Hsem as [w2 Hsem]; specialize (Hsem _ Hm); apply match_ty_pair__inv in Hm;
+  destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Set Silent.
+(apply match_ty_cname__inv in Hsem).
+(inversion Hsem).
++
 Unset Silent.
-(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k)).
+Set Silent.
+clear IHt'1 IHt'2.
+(apply sem_sub_pair__inv in Hsem).
+(destruct Hsem as [Hsem1 Hsem2]).
+(destruct (fresh_in_ty_pair__inv _ _ _ Hfresh) as [Hfresh1 Hfresh2]).
