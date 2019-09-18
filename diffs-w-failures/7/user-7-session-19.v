@@ -217,4 +217,14 @@ Qed.
 Open Scope btj_scope.
 Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
 Proof.
-(intros t1 Hnf1).
+Set Printing Width 148.
+(apply
+  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
+     (fun (t1 : ty) (_ : in_nf t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
+-
+Show.
+Set Silent.
+(intros c t2).
+Unset Silent.
+(induction t2; intros Hsem).
++
