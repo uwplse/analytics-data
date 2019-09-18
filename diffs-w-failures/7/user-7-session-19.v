@@ -202,5 +202,7 @@ Lemma value_sem_sub_k_union__value_sem_sub_k_component :
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros v Hv; induction Hv; intros k ta tb Hsem; unfold sem_sub_k_i in Hsem).
+Set Printing Width 148.
+(intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
 Show.
+(assert (Hmv : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
