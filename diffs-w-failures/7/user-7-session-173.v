@@ -135,4 +135,4 @@ Set Silent.
 (unfold subst_func).
 Unset Silent.
 (simpl).
-reflexivity.
+Show.
