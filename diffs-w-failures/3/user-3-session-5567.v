@@ -584,5 +584,19 @@ step_proc.
 (assert (a0 < a \/ a0 = a) by lia; intuition auto; simplify).
 *
 intuition eauto.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
 {
 Unset Silent.
+(destruct (a == a0); simplify; finish).
+Set Silent.
+}
+Unset Silent.
+step.
+Set Silent.
+(destruct r; try step).
+Unset Silent.
++
