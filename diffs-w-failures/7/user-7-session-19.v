@@ -455,6 +455,10 @@ Show.
   (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
      (fun (t1 : ty) (_ : in_nf t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))).
 Set Silent.
--
-Unset Silent.
-(intros c k Hdept1 t2).
+Set Printing Width 148.
+(intros c k Hdep t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+Show.
+(assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
+Show.
