@@ -469,88 +469,9 @@ Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (unfold nat64_from_le, nat64_to_le; intros).
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @ge.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @Byte.x25.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @repeat.
-Timeout 1 Check @repeat.
-Timeout 1 Check @repeat.
-Timeout 1 Check @repeat.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @applicative_ap.
-Timeout 1 Check @app_nil.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-(rewrite app_length).
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @map_filter.
-Timeout 1 Check @lt_dec.
-Timeout 1 Check @lt_dec.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @Byte.x25.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
+Print FixedLengthEncoder.
