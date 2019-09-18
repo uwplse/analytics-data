@@ -82,4 +82,7 @@ Unset Silent.
 Show.
 Set Printing Width 148.
 (destruct v; try contradiction).
-(inversion Hle).
+Set Printing Width 148.
+(inversion Hle; subst).
+(simpl).
+constructor.
