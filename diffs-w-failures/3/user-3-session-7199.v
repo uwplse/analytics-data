@@ -753,4 +753,24 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length_le.
 Timeout 1 Check @firstn_length_le.
-(rewrite firstn_length_le).
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Search -firstn -length.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_all.
+Timeout 1 Check @firstn_all.
+Timeout 1 Check @firstn_all.
+Timeout 1 Check @Tauto.A.
+(rewrite firstn_all; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOEG1HC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
