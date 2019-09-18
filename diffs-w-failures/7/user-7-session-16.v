@@ -60,4 +60,4 @@ Unset Silent.
 Proof.
 Show.
 (intros t t' Hsub).
-(pose proof (sub_r__sub_r_mk_nf _ _ Hsub)).
+Search -sub_r.
