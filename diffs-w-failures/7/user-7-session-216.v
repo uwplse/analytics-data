@@ -431,4 +431,6 @@ Unset Silent.
 (rewrite f_subst_fvar_eq).
 assumption.
 +
-(rewrite f_subst_fvar_neq).
+Set Printing Width 148.
+(rewrite f_subst_fvar_neq; try assumption).
+Show.
