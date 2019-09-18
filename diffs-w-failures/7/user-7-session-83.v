@@ -139,14 +139,12 @@ Unset Silent.
 Set Silent.
 +
 Unset Silent.
-clear IHt3.
-Set Silent.
-(destruct k).
-Unset Silent.
+Set Printing Width 148.
 (destruct v1; contradiction || constructor).
-Set Silent.
+Show.
 (apply match_ty_i_ref__inv in Hm1).
 (destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
-(apply match_ty_i_ref__inv in Hm2).
-Unset Silent.
-(destruct Hm2 as [ty [Heqy Hrefy]]; inversion Heqy; subst).
+Show.
+(simpl in Hm2).
+Show.
+(apply sem_eq_i__trans with t).
