@@ -491,24 +491,30 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Unset Silent.
+Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @abstr.
 Set Printing Width 78.
 Theorem get_len_ok :
   proc_spec
     (fun bs state =>
      {|
-     pre := log_length_ok state bs;
+     pre := log_length_ok state bs /\ log_size_ok state bs;
      post := fun r state' => state' = state /\ r = length state;
      recovered := fun _ state' => state' = state |}) get_len recover d.abstr.
-Set Silent.
 Proof.
-Unset Silent.
 (unfold get_len; intros).
 step_proc.
 step_proc.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
 eauto.
+intuition eauto.
+(eexists; intuition eauto).
