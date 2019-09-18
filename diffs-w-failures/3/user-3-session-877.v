@@ -1377,4 +1377,4 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
 Show.
-iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hstatus)".
+(<ssreflect_plugin::ssrtclseq@0> iDestruct "Hmbox" as "[>Hmbox|Hmbox]" ; last  first).
