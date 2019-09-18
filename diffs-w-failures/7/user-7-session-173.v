@@ -139,4 +139,5 @@ Omega.omega.
 Omega.omega.
 Show.
 Set Silent.
-Defined.
+Unset Silent.
+Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
