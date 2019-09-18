@@ -143,12 +143,9 @@ Show.
 Show.
 Set Printing Width 148.
 (unfold well_founded).
-(intros a).
-(unfold lt_size).
 Show.
-Search -Acc.
-Check Acc.
 Set Printing Width 148.
-constructor.
-(intros y Hlt).
+(induction a).
++
+(unfold lt_size).
 constructor.
