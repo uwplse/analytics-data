@@ -31,4 +31,10 @@ Proof.
 -
 Unset Silent.
 (apply SD_Trans with (MkNF( t))).
-(apply mk_nf__sub_d2).
+(apply mk_nf__sub_d_r).
+Set Silent.
+assumption.
+Unset Silent.
+Qed.
+Set Silent.
+Theorem sub_r__complete : forall t1 t2 : ty, (|- t1 << t2)%btj -> |- t1 << t2.
