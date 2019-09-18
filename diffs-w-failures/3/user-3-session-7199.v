@@ -390,4 +390,24 @@ Timeout 1 Check @disk.
 Timeout 1 Check @diskGet.
 Timeout 1 Check @diskGet.
 Timeout 1 Check @diskGet.
-(apply diskGet_oob).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Search -diskGet -diskSize.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @disk_oob_eq.
+Timeout 1 Check @disk_oob_eq.
+Timeout 1 Check @disk_oob_eq.
+Timeout 1 Check @disk_oob_eq.
+Timeout 1 Check @disk_oob_eq.
+Timeout 1 Check @disk_oob_eq.
+Timeout 1 Check @disk_oob_eq.
+(apply disk_oob_eq).
