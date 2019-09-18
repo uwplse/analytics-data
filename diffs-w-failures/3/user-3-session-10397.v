@@ -156,3 +156,17 @@ step.
 (destruct (lt_dec r 1)).
 -
 step.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+step.
+-
+step.
+step.
+Timeout 1 Check @forallb.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
