@@ -828,4 +828,25 @@ Unset Silent.
 {
 (exists bs; intuition eauto).
 (unfold log_abstraction; intuition eauto).
+}
 {
+(exists (bs ++ v); intuition).
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction_nil.
+Timeout 1 Check @log_abstraction_commit.
+Timeout 1 Check @log_abstraction_commit.
+Timeout 1 Check @log_abstraction_commit.
+Timeout 1 Check @log_abstraction_commit.
+(apply log_abstraction_commit).
