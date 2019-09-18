@@ -173,5 +173,8 @@ Show.
 Show.
 (destruct Hcontra as [Hv [tx Heqx]]).
 Show.
-(simpl in Heqx).
+Set Printing Width 148.
+(inversion Heqx).
 Show.
+Qed.
+Lemma sem_sub__eunion__union_e : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
