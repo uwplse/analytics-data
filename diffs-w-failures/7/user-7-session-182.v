@@ -62,4 +62,4 @@ Set Printing Width 148.
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 Set Silent.
 Set Printing Width 148.
-(pose proof (IdSetFacts.mem_1 _ _ Hin)).
+(pose proof (IdSetFacts.mem_1 Hin)).
