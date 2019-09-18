@@ -180,4 +180,19 @@ exists tx.
 (apply IHw).
 assumption.
 (apply le_S_n; assumption).
+Qed.
+Set Silent.
+Lemma match_ty__transitive_on_value_type :
+  forall v1 v2 t3 : ty, value_type v2 -> forall k w : nat, |-[ k, w] v1 <$ v2 -> |-[ k, w] v2 <$ t3 -> |-[ k, w] v1 <$ t3.
+Unset Silent.
+Proof.
+Set Silent.
+(intros v1 v2 t3 Hv2).
+generalize dependent t3.
+generalize dependent v1.
+Unset Silent.
+(induction Hv2).
+Set Silent.
 -
+Unset Silent.
+(intros v1 t3 k Hm1 Hm2).
