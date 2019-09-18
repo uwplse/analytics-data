@@ -134,4 +134,5 @@ Set Silent.
 Set Printing Width 148.
 (destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
 Show.
-(apply Nat.max_lub_l).
+(eapply Nat.max_lub_l).
+Show.
