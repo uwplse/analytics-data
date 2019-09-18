@@ -128,11 +128,8 @@ admit.
 -
 (induction t).
 admit.
-admit.
-admit.
-+
-clear IHk'.
-Unset Silent.
+Set Printing Width 148.
+clear IHk' IHt.
 (intros Htk Htk' v).
 Set Silent.
 (simpl in Htk, Htk').
