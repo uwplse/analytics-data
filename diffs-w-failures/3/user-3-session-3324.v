@@ -175,4 +175,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(constructor; autorewrite with upd in *).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(constructor; intuition idtac; auto; intros; autorewrite with upd in *;
+  intuition idtac).
