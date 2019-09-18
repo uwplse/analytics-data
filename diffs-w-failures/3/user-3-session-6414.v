@@ -399,4 +399,5 @@ Show.
 (eapply log_abstraction_nil; eauto).
 Timeout 1 Check @no_wipe.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-autorewrite with disk.
+Timeout 1 Check @spec_abstraction_compose.
+autorewrite with core.
