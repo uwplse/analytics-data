@@ -534,8 +534,7 @@ Unset Silent.
 Qed.
 Set Silent.
 Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
-Proof.
-Unset Silent.
+Set Printing Width 148.
 (induction k;
   match goal with
   | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
@@ -545,3 +544,7 @@ Unset Silent.
   end; try match goal with
            | |- context [ |- TCName _ << _ ] => apply cname_sem_sub_k_i__sub_d
            end).
+Set Silent.
+-
+Unset Silent.
+Show.
