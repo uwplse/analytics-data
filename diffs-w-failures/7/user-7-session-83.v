@@ -9,8 +9,8 @@ Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -170,11 +170,6 @@ Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] 
 Proof.
 auto with DBBetaJulia.
 Qed.
-Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
-Proof.
-(intros k t t' H).
-(split; intros v Hm; specialize (H v); tauto).
-Qed.
 Lemma sem_sub_k_i_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
 (intros k t1 t2 t' Hsem).
@@ -201,6 +196,8 @@ Proof.
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
+Unset Silent.
+Set Silent.
 Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname) (t2 : ty), ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
 Proof.
 (intros k c t2).
@@ -227,7 +224,9 @@ Proof.
 -
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+Unset Silent.
 Qed.
+Set Silent.
 Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
 (induction k;
@@ -259,10 +258,10 @@ Proof.
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
 +
-clear IHt2.
+Unset Silent.
 (simpl in Hdep).
 (pose proof (le_S_n _ _ Hdep) as Hdep').
-(unfold sem_sub_k in Hsem).
+(unfold sem_sub_k_i in Hsem).
 specialize (Hsem _ Hma).
 (apply match_ty_i_ref__inv in Hsem).
 (destruct Hsem as [t' [Heqt' Href]]).
@@ -271,9 +270,4 @@ clear Heqt'.
 constructor.
 *
 (apply IHk; try assumption).
-(apply sem_eq_k_i__sem_sub_k_i in Href).
-tauto.
-*
-Set Printing Width 148.
-(apply mk_nf__in_nf).
-Show.
+(apply sem_eq_k_i__sem_sub_k_i).
