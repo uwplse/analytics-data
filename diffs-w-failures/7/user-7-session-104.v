@@ -210,15 +210,8 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
-Unset Silent.
-Proof.
-(induction t; intros k).
--
-exists 0,(TCName c).
 Set Printing Width 148.
-(apply match_ty_value_type__reflexive; constructor).
--
-(destruct (IHt1 k) as [w1 [v1 Hm1]]).
-(destruct (IHt2 k) as [w2 [v2 Hm2]]).
+Lemma match_ty__match_ge_world : forall (w k : nat) (t v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Proof.
+(induction w; intros k t; generalize k; induction t).
+Show.
