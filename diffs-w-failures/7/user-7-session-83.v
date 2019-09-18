@@ -260,5 +260,14 @@ Unset Silent.
 Set Silent.
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 +
-Show.
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+Unset Silent.
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+Set Silent.
++
+(simpl in Hdep).
+Unset Silent.
+(pose proof (le_S_n _ _ Hdep) as Hdep').
