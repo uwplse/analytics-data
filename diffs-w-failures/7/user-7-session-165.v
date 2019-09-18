@@ -99,6 +99,27 @@ reflexivity.
 Show.
 Search -IdSet.mem.
 Set Printing Width 148.
-(destruct (IdSet.mem i (IdSet.singleton X))).
+Set Printing Width 148.
+(destruct (IdSet.mem i (IdSet.singleton X)) eqn:Heq).
 Show.
 +
+Search -IdSet.mem.
+(apply IdSetFacts.mem_2 in Heq).
+Show.
+Check IdSet.singleton.
+Search -IdSet.singleton.
+(apply IdSetFacts.singleton_1 in Heq).
+Show.
+contradiction.
++
+Show.
+(rewrite IHt).
+Show.
+reflexivity.
+Set Silent.
+-
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Unset Silent.
+Qed.
