@@ -715,4 +715,10 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(unfold log_length_ok in *; intros; autorewrite with upd in *; simpl in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sum.
+Set Printing Width 78.
+Show.
+(unfold log_length_ok in *; intros; autorewrite with upd in *; simpl in *;
+  subst).
