@@ -507,4 +507,11 @@ Timeout 1 Check @nodup.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(exists (a' ++ [a]); intuition eauto; autorewrite with upd in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(exists (a' ++ [a]); intuition eauto; autorewrite with upd in *; eauto).
++
+(rewrite app_length; simpl; lia).
