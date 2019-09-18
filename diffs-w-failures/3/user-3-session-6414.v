@@ -57,4 +57,5 @@ Timeout 1 Locate Ltac OneDiskAPI.
 Timeout 1 Locate OneDiskAPI.
 Timeout 1 Locate OneDiskAPI.
 Timeout 1 Locate Ltac OneDiskAPI.
-Timeout 1 Check {| OneDiskAPI := _ |}.
+Timeout 1 Locate OneDiskAPI.
+Timeout 1 Locate OneDiskAPI.
