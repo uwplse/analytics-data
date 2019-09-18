@@ -58,10 +58,5 @@ Set Printing Width 148.
 (pose proof IdSetFacts.In_m as Hfact).
 (destruct (IdSetFacts.empty_iff X) as [H _]).
 (apply H).
-auto.
-Show.
-Search -Morphisms.respectful.
-Print iff.
-Print Morphisms.respectful.
-Search -IdSet.Equal.
-Print Morphisms.Proper.
+Set Printing Width 148.
+(apply hfact).
