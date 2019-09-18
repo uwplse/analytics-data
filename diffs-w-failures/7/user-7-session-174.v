@@ -143,4 +143,4 @@ Set Silent.
 Unset Silent.
 (pose proof (subst_equation X s (TPair t1 t2))).
 (simpl in H).
-reflexivity.
+assumption.
