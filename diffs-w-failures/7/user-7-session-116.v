@@ -63,6 +63,8 @@ reflexivity.
 subst.
 contradiction.
 -
-(unfold fresh in Hfresh).
-Unset Silent.
+Set Printing Width 148.
 (destruct (beq_idP X i); try reflexivity).
+Show.
+subst.
+Show.
