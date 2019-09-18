@@ -38,8 +38,5 @@ Unset Silent.
 (unfold sem_sub_k in Hsem).
 (destruct (value_type_matching_ty__exists t1) as [pv1 [Hpval1 Hpv1]]).
 Check value_type_matching_ty__exists.
-(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
-Set Silent.
-(destruct (value_type_matching_ty__exists t1 k) as [pv1 [Hpval1 Hpv1]]).
-Unset Silent.
-(destruct (value_type_matching_ty__exists t2 k) as [pv2 [Hpval2 Hpv2]]).
+Set Printing Width 148.
+(destruct (value_type_matching_ty__exists t1 k Hdep) as [pv1 [Hpval1 Hpv1]]).
