@@ -153,4 +153,6 @@ Set Printing Width 148.
 Show.
 -
 (intros Hm).
-(apply match_ty_piar__inv in Hm).
+(apply match_ty_pair__inv in Hm).
+Show.
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
