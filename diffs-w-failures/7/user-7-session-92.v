@@ -19,4 +19,16 @@ Close Scope btjd_scope.
 Unset Silent.
 Open Scope btjr_scope.
 Set Silent.
-Theorem sub_r__sound : forall t1 t2 : ty, |- t1 << t2 -> (|- t1 << t2)%btj.
+Unset Silent.
+Theorem sub_r__sound : forall t1 t2 : ty, |- t1 << t2 -> (|- t1 << t2)%btjd.
+Set Silent.
+Proof.
+(intros t1 t2 Hsub; induction Hsub; try (solve [ constructor; assumption ])).
+-
+(apply union_right_1; assumption).
+-
+(apply union_right_2; assumption).
+-
+Unset Silent.
+(apply SD_Trans with (MkNF( t))).
+(apply mk_nf__sub_d2).
