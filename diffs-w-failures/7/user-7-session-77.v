@@ -63,4 +63,8 @@ Show.
 (apply mk_nf__sem_eq_k).
 Qed.
 Set Silent.
-Lemma mk_nf__sem_sub_k_l : forall t : ty, ||- [MkNF( t)]<= [t].
+Lemma mk_nf__sem_sub_l : forall t : ty, ||- [MkNF( t)]<= [t].
+Unset Silent.
+Proof.
+Set Silent.
+(apply sem_eq__sem_sub).
