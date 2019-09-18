@@ -288,6 +288,9 @@ Proof.
 (step_proc; intuition; subst; eauto).
 (exists 0; simpl).
 reflexivity.
--
 Unset Silent.
-(step_proc; intuition).
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(step_proc; intuition; eauto).
