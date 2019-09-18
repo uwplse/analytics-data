@@ -162,4 +162,16 @@ Set Silent.
 Proof  using ((c_sem) + (C_Op)).
 clear a_sem A_Op.
 (intros Hproc Hinit_pre Hinit_post).
-(intros sC sC' i ([], (?, ((HCinit, <-), Hexec)))).
+Unset Silent.
+Timeout 1 Check @List.Add.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqvbMwIz"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDOUHrT"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+End Abstraction.
