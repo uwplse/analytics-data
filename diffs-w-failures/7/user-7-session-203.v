@@ -219,4 +219,5 @@ exists w,v.
 Unset Silent.
 Show.
 (destruct IHt as [w [v Hm]]).
-(apply match_ty__match_ty_f_subst_int in Hm).
+exists (S w).
+(apply match_ty__match_ty_f_subst_int with i in Hm).
