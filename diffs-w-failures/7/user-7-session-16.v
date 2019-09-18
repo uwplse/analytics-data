@@ -456,6 +456,8 @@ Unset Silent.
    | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 Set Silent.
-+
+Set Printing Width 148.
+Set Silent.
+(right; solve_not_x_sub_r_y_full; intros Hnf'').
 Unset Silent.
-(right; solve_not_x_sub_r_y_full).
+(apply sub_r_dec__mk_nf_sub_r_dec; tauto).
