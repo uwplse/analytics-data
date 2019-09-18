@@ -22,4 +22,4 @@ Set Printing Width 78.
 Unset Silent.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @QArith_base.Q.
+Timeout 1 Check @MRet.
