@@ -484,56 +484,8 @@ intuition eauto.
 (eexists; intuition eauto).
 Qed.
 Unset Silent.
-Hint Resolve get_len_ok: core.
-Set Silent.
-Theorem get_at_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a < length state;
-     post := fun r state' => state' = state /\ nth a state block0 = r;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Proof.
-(unfold get_at; intros).
-(apply spec_abstraction_compose).
-(simpl).
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intros).
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
 Unset Silent.
-(descend; intuition eauto).
-(descend; intuition eauto).
-(unfold log_abstraction in H0; intuition).
-(pose proof (H3 a); intuition).
-(assert (v = nth a bs block0)).
-(eapply diskGet_eq_values; eauto).
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @sig.
-Timeout 1 Check @d.size.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
+Set Diffs "off".
+Set Printing Width 78.
+Theorem log_size_bound d bs :
+  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
