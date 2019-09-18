@@ -74,4 +74,4 @@ reflexivity.
 Unset Silent.
 Qed.
 Set Silent.
-Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id) (t : id), X <> Y -> [X := s] TExist Y t = TExist Y ([X := s] t).
+Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id) (t : ty), X <> Y -> [X := s] TExist Y t = TExist Y ([X := s] t).
