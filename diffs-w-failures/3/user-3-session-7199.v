@@ -321,77 +321,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (unfold log_size_ok, log_contents_ok; intros).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @incl.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Set Printing Width 78.
-Show.
-Check diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_noop.
-Timeout 1 Check @diskUpd_oob_noop.
-Timeout 1 Check @diskUpd_oob_noop.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sum.
-Timeout 1 Check @Nsub.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @nodup.
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (destruct (log_addr a == a0); subst; autorewrite with upd; auto).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-Timeout 1 Check @log_size_ok.
-(rewrite diskUpd_oob_eq; simpl; auto).
-Timeout 1 Check @split.
-lia.
