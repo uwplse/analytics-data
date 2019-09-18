@@ -326,5 +326,10 @@ Theorem sizeInit_ok :
 Proof.
 (unfold sizeInit).
 step.
-(destruct r).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct r).
+-
+step.
