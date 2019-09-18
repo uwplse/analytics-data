@@ -47,5 +47,11 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Module Log (d: OneDiskAPI)<: LogAPI.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Definition init : proc InitResult.
 Timeout 1 Check @Qfield.Qsft.
+Print OneDiskAPI.
+Timeout 1 Locate Ltac OneDiskAPI.
+Timeout 1 Check {| OneDiskAPI := _ |}.
