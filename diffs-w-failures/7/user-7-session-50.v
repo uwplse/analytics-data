@@ -92,7 +92,9 @@ Proof.
 (apply SD_UnionL).
 (apply union_right_1; apply IHta'1; assumption || constructor).
 (apply union_right_2; apply IHta'2; assumption || constructor).
+Unset Silent.
 Qed.
+Set Silent.
 Theorem mk_nf__sub_d_eq : forall t : ty, |- MkNF( t) << t /\ |- t << MkNF( t).
 Proof.
 (induction t).
@@ -101,3 +103,30 @@ Proof.
 -
 (destruct IHt1; destruct IHt2).
 Unset Silent.
+(split; simpl).
+(apply unite_pairs__preserves_sub_d_l; assumption).
+(apply unite_pairs__preserves_sub_d_r; assumption).
+Set Silent.
+-
+(destruct IHt1; destruct IHt2).
+Unset Silent.
+(split; simpl; constructor; (apply union_right_1; assumption) || (apply union_right_2; assumption)).
+Set Silent.
+-
+(simpl).
+(destruct IHt).
+(split; constructor; assumption).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma mk_nf__sub_d_l : forall t : ty, |- MkNF( t) << t.
+Unset Silent.
+Proof.
+(apply mk_nf__sub_d_eq).
+Set Silent.
+Qed.
+Lemma mk_nf__sub_d_r : forall t : ty, |- t << MkNF( t).
+Proof.
+(apply mk_nf__sub_d_eq).
+Unset Silent.
+Qed.
