@@ -190,4 +190,31 @@ Unset Silent.
 (induction w; intros v1 v2 t3 Hv2; generalize dependent t3; generalize dependent v1; induction Hv2).
 Set Silent.
 -
-(intros v1 t3 k w Hm1 Hm2).
+Unset Silent.
+(intros v1 t3 k Hm1 Hm2).
+Set Silent.
+(apply match_ty_cname__inv in Hm1; subst).
+Unset Silent.
+assumption.
+Set Silent.
+-
+Unset Silent.
+Show.
+(intros v0 t3 k Hm1 Hm2).
+(apply match_ty_pair__inv in Hm1).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst).
+(induction t3; try (solve [ destruct k; contradiction ])).
+Set Silent.
++
+(apply match_ty_pair__inv in Hm2).
+(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
+(inversion Heq; subst).
+Unset Silent.
+auto using match_ty_pair.
+Set Silent.
++
+(apply match_ty_union__inv in Hm2).
+Unset Silent.
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+Set Silent.
++
