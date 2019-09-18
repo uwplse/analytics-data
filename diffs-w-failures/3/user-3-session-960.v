@@ -169,4 +169,15 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -nat -"ind".
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @N.induction.
+Timeout 1 Check @last.
+Timeout 1 Check @plus_n_O.
+Timeout 1 Check @map_filter.
+Timeout 1 Check @lt_wf.
+Timeout 1 Check @lt_wf.
+Timeout 1 Check @lt_wf_ind.
+Timeout 1 Check @lt_wf_ind.
+Timeout 1 Check @lt_wf_ind.
