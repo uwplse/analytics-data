@@ -124,4 +124,4 @@ Next Obligation.
 Omega.omega.
 Unset Silent.
 Qed.
-Show.
+Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
