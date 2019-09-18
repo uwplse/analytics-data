@@ -66,6 +66,9 @@ Set Printing Width 148.
       | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; reflexivity
       end).
 Set Silent.
--
-Unset Silent.
-(apply match_ty_i_pair__inv in Hm; subst).
+Set Printing Width 148.
+(apply match_ty_i_pair__inv in Hm).
+Show.
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Show.
+Search -match_ty_i__pair.
