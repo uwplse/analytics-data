@@ -231,10 +231,14 @@ Show.
 (step_proc; intuition).
 (destruct s; intuition).
 +
-(unfold statdb_abstraction in *; simpl in *).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+exfalso.
+(unfold statdb_abstraction in *; simpl in *).
 intuition.
 +
+(exists (n0 :: s); intuition).
+Timeout 1 Check @eq_existT_curried.
+right.
