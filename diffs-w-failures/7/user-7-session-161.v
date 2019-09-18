@@ -87,37 +87,29 @@ Set Printing Width 148.
 Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma subst_nested : forall (X Y : id) (tX tY : ty), X <> Y -> forall t : ty, [X := tX] ([Y := tY] t) = [Y := [X := tX] tY] ([X := tX] t).
+Lemma subst_nested :
+  forall (X Y : id) (tX tY : ty), X <> Y -> fresh_in_ty Y tX -> forall t : ty, [X := tX] ([Y := tY] t) = [Y := [X := tX] tY] ([X := tX] t).
 Proof.
-(intros X Y tX tY Hneq t).
+Unset Silent.
+(intros X Y tX tY Hneq HY t).
+Set Silent.
 (induction t; try reflexivity).
 -
+Unset Silent.
 (repeat rewrite subst_pair).
+Set Silent.
 (rewrite IHt1, IHt2).
+Unset Silent.
 reflexivity.
+Set Silent.
 -
 (repeat rewrite subst_union).
 (rewrite IHt1, IHt2).
-reflexivity.
--
-(destruct (beq_idP Y i) as [HY| HY]).
-+
-subst.
-(destruct (beq_idP X i) as [HX| HX]).
-*
-subst.
-contradiction.
-*
-(rewrite subst_exist_eq).
-(rewrite (subst_exist_neq _ _ _ _ HX)).
-(rewrite subst_exist_eq).
-reflexivity.
-+
-(destruct (beq_idP X i) as [HX| HX]).
-*
-subst.
-(rewrite (subst_exist_neq _ _ _ _ HY)).
-(repeat rewrite subst_exist_eq).
 Unset Silent.
-(rewrite (subst_exist_neq _ _ _ _ HY)).
+reflexivity.
+Set Silent.
+-
+Unset Silent.
+(destruct (beq_idP Y i) as [HY| HY]).
