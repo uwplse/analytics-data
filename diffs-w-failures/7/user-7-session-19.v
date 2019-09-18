@@ -227,4 +227,6 @@ Proof.
 Unset Silent.
 (destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
 SearchPattern (Nat.max _ _ <= _).
-(simpl).
+Show.
+Set Printing Width 148.
+(apply Nat.max_lub).
