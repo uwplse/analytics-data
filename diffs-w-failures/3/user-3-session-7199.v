@@ -754,4 +754,4 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
 Set Silent.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Unset Silent.
