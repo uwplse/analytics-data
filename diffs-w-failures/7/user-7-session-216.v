@@ -427,4 +427,11 @@ Set Printing Width 148.
 Search -IdSet.Empty.
 Search -IdSet.Empty.
 Search -IdSet.remove.
+Show.
+Search -IdSet.In.
+Set Printing Width 148.
+(destruct (IdSetProps.In_dec i (FBV t))).
 admit.
+admit.
+-
+(simpl).
