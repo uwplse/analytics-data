@@ -690,4 +690,24 @@ Unset Silent.
 (descend; intuition eauto).
 }
 Timeout 1 Check @spec_abstraction_compose.
-step_proc.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec_rx.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+(apply proc_spec_weaken).
