@@ -164,4 +164,24 @@ exists ti.
 Show.
 Set Printing Width 148.
 Set Silent.
-contradiction.
+Unset Silent.
+admit.
+}
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+Set Silent.
+admit.
+-
+admit.
+-
+Unset Silent.
+admit.
