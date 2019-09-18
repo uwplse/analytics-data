@@ -289,4 +289,9 @@ Set Printing Width 78.
 Show.
 (eapply proc_spec_weaken; eauto).
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Show.
+(compute).
