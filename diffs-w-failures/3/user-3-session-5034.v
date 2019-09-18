@@ -292,4 +292,8 @@ Show.
 (step_proc; intuition; subst; eauto).
 {
 (step_proc; intuition; subst; eauto).
+{
 (step_proc; intuition; subst; eauto).
++
+(autorewrite with upd; auto).
++
