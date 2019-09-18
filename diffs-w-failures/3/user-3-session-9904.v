@@ -176,4 +176,8 @@ left.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 intuition.
 (unfold statdb_abstraction in *).
-(destruct s; intuition; simpl in *; try congruence).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct s; intuition; try congruence).
