@@ -782,4 +782,9 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction_nil.
-(eapply log_abstraction_commit).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(eapply log_abstraction_commit; eauto).
