@@ -81,8 +81,8 @@ Unset Silent.
 +
 Set Printing Width 148.
 Set Silent.
-(intros k).
-Unset Silent.
-specialize (Hsem k).
-Check match_ty__exists_w_v.
+Set Printing Width 148.
+Set Silent.
 (destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]).
+Unset Silent.
+specialize (Hsem _ _ _ Hm).
