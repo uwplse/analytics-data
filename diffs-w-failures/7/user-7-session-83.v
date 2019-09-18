@@ -369,4 +369,4 @@ Check match_ty_i__reflexive.
 Set Silent.
 -
 (inversion Hdept; subst).
--
+Unset Silent.
