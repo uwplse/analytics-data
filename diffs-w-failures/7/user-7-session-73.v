@@ -147,6 +147,8 @@ clear IHt2_1 IHt2_2.
 (apply value_sem_sub_k_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma nf_sem_sub_k__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
 (induction k;
@@ -203,12 +205,11 @@ tauto.
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf).
 assumption.
-Unset Silent.
-(apply mk_nf__sem_sub_k_l).
-Show.
-Check sem_eq_k__trans.
 (apply sem_sub_k__trans with t2).
 (apply mk_nf__sem_sub_k_l).
-Set Printing Width 148.
 (apply sem_eq_k__sem_sub_k; assumption).
 Qed.
+Theorem nf_sem_sub__sub_d : forall t t' : ty, InNF( t) -> ||- [t]<= [t'] -> |- t << t'.
+Proof.
+(intros t t' Hsem).
+(apply nf_sem_sub_k__sub_d with (| t |)).
