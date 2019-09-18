@@ -166,4 +166,11 @@ Set Printing Width 148.
       try (solve [ apply match_ty_union_1; auto | apply match_ty_union_2; auto ]) ])).
 Show.
 -
-(split; intros Hm; apply match_ty_exist__0_inv in Hm; contradiction).
+(split; intros Hm).
+Show.
+(rewrite subst_equation in Hm).
+Show.
+Show.
+Show.
+Show.
+Show.
