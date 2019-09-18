@@ -361,4 +361,9 @@ Timeout 1 Check @Ascii.ascii_of_byte.
 Timeout 1 Check @Ascii.ascii_of_byte.
 Timeout 1 Check @Ascii.ascii_of_byte.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Print Ascii.ascii_of_byte.
+Timeout 1 Check @ByteV2N.
+Print Byte.byte.
