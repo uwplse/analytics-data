@@ -552,4 +552,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite repeat_length).
+Unset Silent.
+Set Diffs "off".
