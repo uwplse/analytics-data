@@ -123,5 +123,8 @@ Lemma read_op_ok :
   proc_hspec Var.dynamics (read i) (op_spec Var.dynamics (Var.Read i)).
 Proof.
 (intros).
-(eapply op_spec_sound).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(eapply op_spec_sound).
