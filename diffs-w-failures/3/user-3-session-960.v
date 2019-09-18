@@ -74,38 +74,14 @@ Class GoModel : Type :={byte : Type;
                         Ptr : Ptr.ty -> Type;
                         nullptr : forall ty, Ptr ty}.
 Search -"endian".
-Definition byte_nat := {x : nat | x < 256}.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @N.lbase.
-Timeout 1 Check @N.lbase.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @N.lbase.
-Timeout 1 Check @N.lbase.
-Timeout 1 Check @N.lbase.
+Timeout 1 Check @sumor.
+Timeout 1 Check @Zmod'.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @Nat.modulo.
+Timeout 1 Check @Nat.modulo.
+Timeout 1 Check @Nat.modulo.
+Timeout 1 Check @Nat.modulo.
 Set Printing Width 78.
-#[program]
-Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
-  match x with
-  | 0 => nil
-  | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
-  end.
-Next Obligation.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @pointwise_relation.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Proof.
-(intros).
-Timeout 1 Check @sig.
-(simpl).
+Opaque Nat.modulo.
