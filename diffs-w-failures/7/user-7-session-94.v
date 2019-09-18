@@ -104,4 +104,6 @@ Unset Silent.
 Show.
 Show.
 Set Printing Width 148.
-(apply match_ty_exist_inv in Hm).
+(apply match_ty_exist__inv in Hm).
+auto.
+Show.
