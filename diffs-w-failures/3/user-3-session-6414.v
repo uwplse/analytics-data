@@ -331,4 +331,11 @@ Timeout 1 Check @app.
 Timeout 1 Check @bappend.
 Timeout 1 Check @bappend.
 Timeout 1 Check @bappend.
-Timeout 1 Check @append_at.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @repeat_length.
+Definition append_at (a : addr) (bs : list block) : 
+  proc unit :=
+  match bs with
+  | [] => Ret tt
+  | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
+  end.
