@@ -49,4 +49,7 @@ Qed.
 Set Silent.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k w : nat), |-[ k, w] v <$ TCName c -> v = TCName c.
 Set Printing Width 148.
-(intros v; induction v; try (solve [ intros c k w Hm; destruct k, w; contradiction ])).
+Set Printing Width 148.
+(intros v c k w Hm).
+(destruct k, w, v; try contradiction).
+Show.
