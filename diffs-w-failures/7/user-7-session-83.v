@@ -93,20 +93,60 @@ Proof.
 constructor.
 (simpl).
 Set Printing Width 148.
-Set Silent.
-Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
-Proof.
-auto with DBBetaJulia.
 Set Printing Width 148.
 Set Silent.
-Lemma value_sem_sub_k_i_union__inv :
-  forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
-Unset Silent.
+Lemma match_ty_i__transitive_on_value_type :
+  forall v1 v2 t3 : ty, value_type v2 -> forall k : nat, |-[ k] v1 <$ v2 -> |-[ k] v2 <$ t3 -> |-[ k] v1 <$ t3.
 Proof.
-Set Silent.
-(intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
+(intros v1 v2 t3 Hv2).
+generalize dependent t3.
+generalize dependent v1.
+(induction Hv2).
+-
+(intros v1 t3 k Hm1 Hm2).
+(apply match_ty_i_cname__inv in Hm1; subst).
+assumption.
+-
+(intros v0 t3 k Hm1 Hm2).
+(apply match_ty_i_pair__inv in Hm1).
 Unset Silent.
-(assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem _ Hm).
-(apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hm11 Hmpv12]]]]; subst).
+(induction t3; try (solve [ destruct k; contradiction ])).
+Set Silent.
++
+Unset Silent.
+(apply match_ty_i_pair__inv in Hm2).
+Set Silent.
+(destruct Hm2 as [pv21 [pv22 [Heq [Hm21 Hm22]]]]).
+Unset Silent.
+(inversion Heq; subst).
+auto using match_ty_i_pair.
+Set Silent.
++
+Unset Silent.
+Set Silent.
+(apply match_ty_i_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
+-
+Unset Silent.
+(intros v1 t3 k Hm1 Hm2).
+(induction t3; try (solve [ destruct k; contradiction ])).
+Set Silent.
++
+(apply match_ty_i_union__inv in Hm2).
+Unset Silent.
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
+Set Silent.
++
+Unset Silent.
+clear IHt3.
+Set Silent.
+(destruct k).
+Unset Silent.
+(destruct v1; contradiction || constructor).
+Set Silent.
+(apply match_ty_i_ref__inv in Hm1).
+(destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
+(apply match_ty_i_ref__inv in Hm2).
+Unset Silent.
+(destruct Hm2 as [ty [Heqy Hrefy]]; inversion Heqy; subst).
