@@ -98,4 +98,5 @@ eauto.
 (simpl in *; intuition subst).
 {
 (eexists; intuition auto).
+Unset Silent.
 }
