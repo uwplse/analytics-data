@@ -435,4 +435,12 @@ Set Printing Width 148.
 +
 (right; solve_not_x_sub_r_y_full).
 Set Printing Width 148.
-(apply IHHcontra; try auto).
+Set Printing Width 148.
+(apply IHHcontra; try tauto).
+(apply mk_nf_nf__equal).
+(do 2 constructor; assumption).
+(apply sub_r_dec__mk_nf_sub_r_dec; assumption).
+Set Silent.
+-
+Unset Silent.
+Show.
