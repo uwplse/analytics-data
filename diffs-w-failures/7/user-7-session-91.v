@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -15,9 +16,7 @@ Require Import Coq.Bool.Bool.
 Close Scope btjd_scope.
 Open Scope btjd_scope.
 Open Scope btjnf_scope.
-Unset Silent.
 Open Scope btjr_scope.
-Set Silent.
 Lemma atom_sub_r_union__inv : forall t t1' t2' : ty, |- t << TUnion t1' t2' -> atom_type t -> |- t << t1' \/ |- t << t2'.
 Proof.
 (intros t t1' t2' Hsub).
@@ -29,9 +28,7 @@ Proof.
 (right; assumption).
 -
 (assert (Hnf : InNF( t)) by (constructor; assumption)).
-Unset Silent.
 (rewrite (mk_nf_nf t Hnf) in IHHsub).
-Set Silent.
 tauto.
 Qed.
 Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
@@ -42,9 +39,7 @@ Proof.
 (induction Hsub; try inversion Heq1; inversion Heq2; subst).
 reflexivity.
 (apply IHHsub; tauto).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma sub_r_nf_ref__inv : forall t t' : ty, InNF( t) -> InNF( t') -> |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
 (intros t t' Hnf Hnf' Hsub).
@@ -55,9 +50,7 @@ tauto.
 (apply IHHsub; try tauto).
 (apply mk_nf_nf).
 (do 2 constructor; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma unite_pairs_of_nf__preserves_sub_r :
   forall t1 t1' t2 t2' : ty,
   InNF( t1) -> InNF( t1') -> InNF( t2) -> InNF( t2') -> |- t1 << t1' -> |- t2 << t2' -> |- unite_pairs t1 t2 << unite_pairs t1' t2'.
@@ -94,8 +87,7 @@ Proof.
 (rewrite (unite_pairs_union_t t1 t0 t2)).
 (destruct (sub_r_union_l__inv _ _ _ Hsub1) as [Hsub11 Hsub12]).
 (constructor; tauto).
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma unite_pairs_of_nf__preserves_sub_r_l :
   forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Proof.
@@ -117,7 +109,6 @@ Qed.
 Lemma sub_r_unite_pairs_nf_l__inv :
   forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
-Unset Silent.
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
   try (solve
    [ match goal with
@@ -137,7 +128,6 @@ Unset Silent.
             destruct Hsub as [Hsub1 Hsub2]; specialize (IHt1_1 _ _ _ Hsub1 Hnf11 Hnf2); specialize (IHt1_2 _ _ _ Hsub2 Hnf12 Hnf2); split;
             tauto || constructor; tauto
      end ])).
-Set Silent.
 Qed.
 Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
@@ -151,9 +141,7 @@ Proof.
 (simpl in Hsub).
 (apply sub_r_unite_pairs_nf_l__inv in Hsub; try apply mk_nf__in_nf).
 (destruct Hsub; split; apply SR_NormalForm; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma mk_nf__sub_r_eq : forall t : ty, |- MkNF( t) << t /\ |- t << MkNF( t).
 Proof.
 (induction t).
@@ -175,9 +163,7 @@ Proof.
 (simpl).
 (destruct IHt).
 (split; constructor; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma mk_nf__sub_r_l : forall t : ty, |- MkNF( t) << t.
 Proof.
 (intros t).
@@ -207,9 +193,7 @@ Proof.
 -
 (rewrite <- mk_nf__idempotent).
 assumption.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma sub_r__reflexive : forall t : ty, |- t << t.
 Proof.
 (apply sub_r__rflxv).
@@ -254,9 +238,7 @@ tauto.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-Unset Silent.
 (destruct Hsub'; auto).
-Set Silent.
 -
 (pose proof (in_nf_ref__inv _ Hnfm1) as Hnf1).
 (pose proof (in_nf_ref__inv _ Hnfm2) as Hnf2).
@@ -266,16 +248,12 @@ Set Silent.
   try (solve [ constructor; auto ])).
 +
 (apply IHHsub').
-Unset Silent.
 (apply mk_nf_nf; assumption).
-Set Silent.
 (apply mk_nf__in_nf).
 -
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
 (apply sub_r__mk_nf_sub_r; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma sub_r__trans2 :
   forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
 Proof.
@@ -325,17 +303,13 @@ tauto.
 -
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
 (apply sub_r__mk_nf_sub_r; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
 Proof.
 (intros t1 t2 t3 Hsub1 Hsub2).
 (destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
 auto.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma unite_pairs__distr21 :
   forall t1 t21 t22 : ty, InNF( t1) -> |- unite_pairs t1 (TUnion t21 t22) << TUnion (unite_pairs t1 t21) (unite_pairs t1 t22).
 Proof.
@@ -353,9 +327,7 @@ generalize dependent t21.
 (apply SR_UnionR2; apply SR_UnionR1; apply sub_r__reflexive).
 (apply SR_UnionR1; apply SR_UnionR2; apply sub_r__reflexive).
 (apply SR_UnionR2; apply SR_UnionR2; apply sub_r__reflexive).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t2) << MkNF( TUnion (TPair t11 t2) (TPair t12 t2)).
 Proof.
 (intros t11 t12 t2).
@@ -371,10 +343,7 @@ Proof.
 (rewrite mk_nf_pair).
 (apply unite_pairs__distr21).
 (apply mk_nf__in_nf).
-Unset Silent.
 Qed.
-Set Printing Width 148.
-Set Silent.
 Lemma mk_nf_sub_r__sub_r : forall t t' : ty, |- MkNF( t) << MkNF( t') -> |- t << t'.
 Proof.
 (intros t t' Hsub).
@@ -383,16 +352,12 @@ Proof.
 assumption.
 (apply mk_nf__sub_r_l).
 Qed.
-Unset Silent.
 Lemma sub_r__mk_nf_sub_r_l : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
-Set Silent.
 Proof.
 (intros t t' Hsub).
 (apply sub_r__transitive with t; try assumption).
 (apply mk_nf__sub_r_l).
-Unset Silent.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
 (intros t t' Hsub).
@@ -401,10 +366,7 @@ Proof.
 (pose proof (mk_nf__in_nf t') as Hnf').
 (pose proof (sub_r_nf_ref__inv _ _ Hnf Hnf' Hsubnf) as H).
 (split; apply mk_nf_sub_r__sub_r; tauto).
-Unset Silent.
 Qed.
-Set Printing Width 148.
-Set Silent.
 Lemma sub_r_dec__mk_nf_sub_r_dec : forall t1 t2 : ty, Decidable.decidable (|- t1 << t2) -> Decidable.decidable (|- MkNF( t1) << t2).
 Proof.
 (intros t1 t2 Hdec).
@@ -417,7 +379,6 @@ assumption.
 (right; intros Hcontra).
 (apply SR_NormalForm in Hcontra; contradiction).
 Qed.
-Unset Silent.
 Ltac
  solve_not_x_sub_r_y_full :=
   match goal with
@@ -429,19 +390,16 @@ Ltac
    | IHHcontra:context [ _ -> False ]
      |- False => apply IHHcontra; try tauto || (apply mk_nf_nf; assumption || (do 2 constructor; assumption)) || apply mk_nf__in_nf
    end.
-Set Silent.
 Ltac
  solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
   destruct IHt2_1 as [IH1| IH1]; try assumption; destruct IHt2_2 as [IH2| IH2]; try assumption;
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor; assumption.
-Unset Silent.
 Ltac
  solve_union_sub_r__decidable IHt'1 IHt'2 :=
   destruct IHt'1 as [IH1| IH1]; try assumption; destruct IHt'2 as [IH2| IH2]; try assumption;
    try (solve [ right; intros Hcontra; destruct (sub_r_union_l__inv _ _ _ Hcontra) as [Hsub1 Hsub2]; contradiction ]); left; constructor;
    assumption.
-Set Silent.
 Lemma nf_sub_r__decidable2 :
   forall t : ty,
   InNF( t) -> (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)).
@@ -470,7 +428,6 @@ Proof.
 (assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
 (destruct (in_nf_pair__inv _ _ Hnf) as [Hnf1 Hnf2]).
 (destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
-Unset Silent.
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
@@ -483,13 +440,10 @@ Unset Silent.
       try (solve
        [ left; constructor; assumption
        | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ]) ])).
-Set Silent.
 +
 (right; solve_not_x_sub_r_y_full).
 (intros Hnf'').
-Unset Silent.
 (apply sub_r_dec__mk_nf_sub_r_dec; tauto).
-Set Silent.
 -
 (intros t Hnf).
 (split; intros t'; induction t'; intros Hnf';
@@ -513,3 +467,4 @@ tauto.
   try (solve [ solve_union_sub_r__decidable IH11 IH21 | solve_atom_sub_r_union__decidable IH12 IH22 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 Unset Silent.
 Qed.
+Show.
