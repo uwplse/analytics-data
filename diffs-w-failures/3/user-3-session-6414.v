@@ -328,7 +328,48 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(simpl; intuition).
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @split.
+(exfalso; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqcCtHL8"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @Ret.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @spec_abstraction_compose.
+Hint Resolve log_abstraction_nil: core.
+Theorem init_ok : init_abstraction init recover abstr inited_any.
+Proof.
+(eapply then_init_compose; eauto).
+step_proc.
+(destruct (lt_dec r 1)).
+-
+step_proc.
+-
+step_proc.
+step_proc.
+step_proc.
+(exists nil; simpl).
+Timeout 1 Check @repeat_length.
+eauto.
