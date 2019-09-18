@@ -92,5 +92,15 @@ reflexivity.
 Show.
 Show.
 Set Printing Width 148.
-auto.
+Set Printing Width 148.
+(destruct w; auto).
 Show.
+Qed.
+Set Silent.
+Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ k, 0] v <$ TExist X t -> False.
+Unset Silent.
+Proof.
+Set Silent.
+(intros v t k w Hm).
+Unset Silent.
+(destruct k, w, v; simpl in Hm; contradiction).
