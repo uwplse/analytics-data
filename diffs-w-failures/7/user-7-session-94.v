@@ -83,4 +83,5 @@ Set Silent.
 Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
 Unset Silent.
 Proof.
-(induction k).
+Set Printing Width 148.
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm).
