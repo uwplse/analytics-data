@@ -410,16 +410,15 @@ Proof.
   end).
 -
 (intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
-(assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
-(destruct (in_nf_pair__inv _ _ Hnf) as [Hnf1 Hnf2]).
-(destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
-Unset Silent.
+Set Printing Width 148.
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
    | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   | Hnf':InNF( TRef _) |- _ => destruct (in_nf_ref__inv _ _ Hnf') as [Hnf'']
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
+Show.
 Set Silent.
 +
 Unset Silent.
