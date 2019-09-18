@@ -246,7 +246,32 @@ Ltac
     | _ => progress subst
     | _ => progress autounfold in *
     end.
-Ltac step_proc := step_proc_basic; simplify.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Ltac
+ step_proc :=
+  intros;
+   match goal with
+   | |- proc_spec _ (Ret _) _ _ => eapply ret_spec
+   | |- proc_spec _ _ _ _ =>
+         monad_simpl; eapply proc_spec_rx; [ solve [ eauto ] |  ]
+   | H:proc_spec _ ?p _ _
+     |- proc_spec _ ?p _ _ =>
+         eapply proc_spec_weaken; [ eapply H | unfold spec_impl ]
+   end; intros; simplify.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNcsAVq"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq9KG1dw"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
 Inductive InitResult :=
   | Initialized : _
   | InitFailed : _.
@@ -308,19 +333,48 @@ Theorem then_init_compose :
     (abstraction_compose abs1 abs2) init2_sem.
 Proof.
 (intros).
-Unset Silent.
 (eapply init_abstraction_any_rec with rec).
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqCEnYrQ"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPFrWWv"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 (unfold init_abstraction; intros).
 (step_proc; intuition; simpl in *).
+(descend; intuition eauto).
+(destruct r).
+-
+clear H.
+(unfold proc_spec in *; intuition eauto; simpl in *; subst;
+  repeat deex).
+(eapply H0 in H2; eauto).
+(destruct matches in *; safe_intuition repeat deex; eauto).
+(descend; intuition eauto).
+-
+(unfold proc_spec; simpl; intros).
+(destruct matches; subst; eauto).
+(eexists; intuition eauto).
+(inv_rexec; inv_exec).
+congruence.
+Qed.
+Theorem spec_abstraction_compose :
+  forall `(spec : Specification A T R State2) 
+    `(p : proc T) `(rec : proc R)
+    `(abs2 : LayerAbstraction State1 State2)
+    `(abs1 : Abstraction State1),
+  proc_spec
+    (fun '(a, state2) state =>
+     {|
+     pre := pre (spec a state2) /\ abstraction abs2 state state2;
+     post := fun v state' =>
+             exists state2',
+               post (spec a state2) v state2' /\
+               abstraction abs2 state' state2';
+     recovered := fun v state' =>
+                  exists state2',
+                    recovered (spec a state2) v state2' /\
+                    abstraction abs2 state' state2' |}) p rec abs1 ->
+  proc_spec spec p rec (abstraction_compose abs1 abs2).
+Proof.
+(intros).
+(unfold proc_spec, abstraction_compose; simpl; intros;
+  safe_intuition repeat deex).
+(eapply (H (a, state)) in H2; simpl in *; eauto).
+(destruct r; intuition repeat deex; eauto).
+Unset Silent.
+Qed.
