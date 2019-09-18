@@ -326,4 +326,4 @@ Unset Silent.
 Show.
 (rewrite b_subst_pair).
 Set Silent.
-(apply b_free_in_ty_pair).
+Unset Silent.
