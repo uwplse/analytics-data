@@ -244,4 +244,9 @@ step_proc.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @nil.
 Timeout 1 Check @nil.
-exists nil.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(exists nil; eauto).
