@@ -493,11 +493,11 @@ Timeout 1 Check @spec_abstraction_compose.
 step_proc.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @repeat_length.
-intuition eauto.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @nodup.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @BinPos.Pos.switch_Eq.
+Timeout 1 Check @nodup.
 Set Printing Width 78.
 Show.
-autorewrite with upd.
+(intuition eauto; autorewrite with upd).
