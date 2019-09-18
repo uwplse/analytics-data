@@ -92,6 +92,6 @@ admit.
 admit.
 -
 (destruct (beq_idP X i)).
+Set Printing Width 148.
++
 subst.
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
