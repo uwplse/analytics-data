@@ -132,4 +132,11 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Next Obligation.
 Proof.
-(apply PeanoNat.Nat.div_lt).
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @sum.
+subst digit.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @QArith_base.Q.
+(destruct base).
+Timeout 1 Check @sig.
+(simpl).
