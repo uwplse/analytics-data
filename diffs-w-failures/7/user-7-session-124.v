@@ -91,6 +91,6 @@ Proof.
 Set Printing Width 148.
 (intros k t1 t2 t1' t2' Hsem).
 Set Printing Width 148.
-(split; intros w1; specialize (Hsem w1); destruct Hsem as [w2 Hsem]).
 Set Printing Width 148.
+(split; intros w1; specialize (Hsem w1); destruct Hsem as [w2 Hsem]; exists w2; intros v Hm).
 -
