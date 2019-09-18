@@ -173,4 +173,5 @@ exists w2.
 }
 {
 Unset Silent.
-exists S w.
+Show.
+exists S w'.
