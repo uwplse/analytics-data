@@ -121,7 +121,4 @@ clear Heq.
 (inversion Heq; subst).
 clear Heq.
 (unfold sem_eq_k in Href).
-(destruct Href as [Href _]).
-specialize (Href 1).
-Unset Silent.
-(destruct Href as [w2 Hsem]).
+Show.
