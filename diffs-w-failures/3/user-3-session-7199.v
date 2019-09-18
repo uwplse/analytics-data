@@ -503,4 +503,9 @@ Timeout 1 Check @app_nth1.
 Timeout 1 Check @app_nil_l.
 Timeout 1 Check @app_nil_l.
 Timeout 1 Check @app_nil_l.
-(rewrite app_nil_r).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(rewrite app_nil_r in *).
