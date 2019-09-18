@@ -38,3 +38,5 @@ assumption.
 Unset Silent.
 *
 (destruct (free_in_ty_union__inv _ _ _ HX') as [HX'| HX']).
+(destruct (free_in_ty_union__inv _ _ _ HX') as [HX''| HX'']).
+(apply match_ty_union_1; auto).
