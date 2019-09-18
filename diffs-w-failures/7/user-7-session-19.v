@@ -220,9 +220,10 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (match goal with
  | Hsem:||-[ ?k][?t1]<= [?t2]
    |- | ?t1 | <= | ?t2 | =>
        assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-        (Hsem _ Hm)
+        (Hsem _ Hm); contradiction
  end).
