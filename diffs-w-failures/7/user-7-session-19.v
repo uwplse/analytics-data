@@ -141,4 +141,5 @@ Set Printing Width 148.
 (apply le_S_n in Htk).
 (apply le_S_n in Htk').
 Set Printing Width 148.
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst).
+Set Printing Width 148.
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl).
