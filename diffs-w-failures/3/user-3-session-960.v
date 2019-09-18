@@ -101,3 +101,31 @@ list {x : nat | x < S (S base)} :=
       let digit := x mod S (S base) in
       exist _ digit _ :: nat_to_le base (x / S (S base))
   end.
+Set Silent.
+Next Obligation of nat_to_le_func.
+Proof.
+(apply PeanoNat.Nat.mod_upper_bound; auto).
+Unset Silent.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqrgUG1T"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZulPN0"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Next Obligation of nat_to_le_func.
+Proof.
+subst digit.
+(apply PeanoNat.Nat.div_lt; auto; try lia).
+Qed.
+Next Obligation of nat_to_le_func.
+Proof.
+lia.
+Qed.
+Next Obligation of nat_to_le_func.
+Unset Silent.
+Proof.
