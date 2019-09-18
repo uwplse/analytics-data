@@ -55,7 +55,8 @@ Set Silent.
 Unset Silent.
 -
 (rewrite subst_equation).
-(destruct (beq_idP X i) as [HXi| HXi]).
-+
-subst.
-assumption.
+Set Printing Width 148.
+(destruct (beq_idP X i) as [HXi| HXi]; try assumption).
+(destruct (IdSet.mem i (FV s)) as [Hmem| Hmem]).
+Show.
+(destruct (IdSet.mem i (FV s))).
