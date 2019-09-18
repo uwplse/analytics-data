@@ -108,5 +108,11 @@ Lemma f_free_in_ty_pair : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_f
 Proof.
 (unfold f_free_in_ty, free).
 Show.
+Set Printing Width 148.
+(simpl).
 (intros X t1 t2 H).
+Show.
+Search -IdSet.In.
+(destruct H as [H| H]).
+(apply IdSetFacts.union_2).
 Show.
