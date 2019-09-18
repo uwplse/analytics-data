@@ -144,4 +144,6 @@ Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair
 Unset Silent.
 Proof.
 (intros X s t1 t2).
-(simpl).
+Set Printing Width 148.
+(unfold subst).
+(unfold subst_terminate).
