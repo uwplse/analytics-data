@@ -638,4 +638,11 @@ Show.
 -
 (exfalso; lia).
 -
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @find.
+Timeout 1 Check @firstn.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Show.
+Search -firstn -cons.
