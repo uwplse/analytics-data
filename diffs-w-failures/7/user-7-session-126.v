@@ -111,4 +111,6 @@ Lemma subs_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
 Set Printing Width 148.
 (intros X t; induction t; try reflexivity).
+Set Printing Width 148.
+(simpl).
 auto.
