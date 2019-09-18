@@ -336,43 +336,62 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem append_at_ok a bs' :
-  proc_spec
-    (fun (bs : list block) state =>
-     {|
-     pre := a = length bs /\
-            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
-     post := fun r state' =>
-             diskGet state' len_addr = diskGet state len_addr /\
-             diskSize state' = diskSize state /\
-             log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state' (bs ++ bs');
-     recovered := fun _ state' =>
-                  diskGet state' len_addr = diskGet state len_addr /\
-                  diskSize state' = diskSize state /\
-                  log_contents_ok state' bs |}) (append_at a bs') recover
-    d.abstr.
-Proof.
-(induction bs'; simpl).
--
-step_proc.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @repeat_length.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Zabs.Zabs_dec.
 Set Printing Width 78.
-Show.
-(apply log_contents_ok_unchanged; eauto).
+Theorem log_size_ok_shrink d bs bs' :
+  log_size_ok d (bs ++ bs') -> log_size_ok d bs.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_size_ok; simpl; intros).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
