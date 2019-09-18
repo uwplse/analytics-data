@@ -28,4 +28,5 @@ Proof.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct k, w, v; left; assumption).
+Set Printing Width 148.
+(destruct k, w; destruct v; left; assumption).
