@@ -189,56 +189,21 @@ Timeout 1 Check @nat64_to_le.
 Timeout 1 Check @nat64_to_le.
 Timeout 1 Check @nat64_to_le.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold nat64_to_le; intros).
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @choose_go.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @subset_eq_compat.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_le_pi.
-Timeout 1 Check @nat_le_pi.
-Timeout 1 Check @nat_le_pi.
-Timeout 1 Check @nat_le_dec.
-Timeout 1 Check @nat_le_dec.
-Timeout 1 Check @repeat_length.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @strings.string_countable.
-Timeout 1 Check @subset_eq_compat.
 Set Printing Width 78.
 Show.
+Set Silent.
++
+(unfold nat64_to_le; intros).
 (match goal with
  | H:context [ nat_le_dec ?n ?m ]
    |- _ => destruct (nat_le_dec n m); try congruence
  end).
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @subset_eq_compat.
 (inversion H; subst).
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @Zlength_aux.
-Timeout 1 Check @split_length_r.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nil.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
 (rewrite app_length, repeat_length).
-Timeout 1 Check @split.
+Unset Silent.
 lia.
++
+Timeout 1 Check @sigT_eq_dec.
+(simpl).
