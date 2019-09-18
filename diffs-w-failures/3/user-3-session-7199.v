@@ -554,4 +554,8 @@ Timeout 1 Check @log_addr.
 Timeout 1 Check @log_addr.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @split.
-(unfold log_addr in *; lia).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(exfalso; unfold log_addr in *; lia).
