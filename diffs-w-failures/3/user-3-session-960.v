@@ -520,9 +520,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -(0 < _).
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+lia.
