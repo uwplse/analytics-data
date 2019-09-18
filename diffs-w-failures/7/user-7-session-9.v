@@ -23,4 +23,4 @@ Set Printing Width 148.
 (induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ]); inversion Heq).
 Set Silent.
 -
-(left; assumption).
+Unset Silent.
