@@ -429,4 +429,5 @@ Set Silent.
 +
 Unset Silent.
 Show.
-(pose proof (in_nf_ref__inv _ _ Hnf') as Hnf'').
+(pose proof (in_nf_ref__inv _ Hnf') as Hnf'').
+(right; solve_not_x_sub_r_y_full).
