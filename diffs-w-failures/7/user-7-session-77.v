@@ -67,4 +67,7 @@ Lemma mk_nf__sem_sub_l : forall t : ty, ||- [MkNF( t)]<= [t].
 Unset Silent.
 Proof.
 Set Silent.
+Unset Silent.
+Show.
+Check sem_eq__sem_sub.
 (apply sem_eq__sem_sub).
