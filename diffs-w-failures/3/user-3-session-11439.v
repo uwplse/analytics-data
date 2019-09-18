@@ -171,4 +171,14 @@ Set Printing Width 78.
 Show.
 Proof.
 Timeout 1 Check @negb_involutive.
-(split; intros).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+split.
+Timeout 1 Check @negb_involutive.
+Timeout 1 Check @N.induction.
+Timeout 1 Check @N.induction.
+Timeout 1 Check @N.induction.
+Timeout 1 Check @N.induction.
+(induction 1).
