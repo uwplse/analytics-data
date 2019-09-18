@@ -182,7 +182,9 @@ Set Silent.
 (unfold mk_subst_exist in Hm).
 Unset Silent.
 (rewrite (subst_equation Y sy) in Hm).
-(destruct (IdSet.mem (gen_fresh (IdSet.union (FV sx) (FV t))) (FV sy))).
-Show.
+Set Printing Width 148.
+(destruct (IdSet.mem (gen_fresh (IdSet.union (FV sx) (FV t))) (FV sy)); unfold mk_subst_exist in Hm; apply match_ty_exist__0_inv in Hm;
+  contradiction).
+*
 (unfold mk_subst_exist in Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
+(rewrite (subst_equation Y sy) in Hm).
