@@ -60,5 +60,16 @@ Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec_rx.
 Timeout 1 Check @proc_spec_rx.
-(eapply proc_spec_rx).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
 Check proc_spec_rx.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @eq_rec.
+Timeout 1 Check @recovered.
+Timeout 1 Check @recovered.
+(cbn[pre post recovered]).
+step_proc.
