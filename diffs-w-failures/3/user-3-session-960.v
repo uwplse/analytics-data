@@ -680,4 +680,20 @@ Timeout 1 Check @ascii_to_bounded.
 Timeout 1 Check @ascii_to_bounded.
 Timeout 1 Check @ascii_to_bounded.
 Timeout 1 Check @ascii_to_bounded.
-Search -ascii_to_bounded.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @ascii_to_bounded.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Set Printing Width 78.
+Show.
+(unfold ascii_to_bounded, bounded_to_ascii).
