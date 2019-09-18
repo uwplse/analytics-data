@@ -246,25 +246,23 @@ specialize (Hsem _ Hm).
 (simpl in Hsem).
 (intros v').
 specialize (Hsem v').
-tauto.
-Qed.
-Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Set Printing Width 148.
+Set Silent.
+Lemma match_ty_i_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
 Proof.
 (induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ])).
 Admitted.
 Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
-Unset Silent.
 auto with DBBetaJulia.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma sem_sub_k_i__inv_depth_le : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
 (intros k t t' Hdept Hsem).
 (rewrite <- inv_depth_mk_nf).
-Unset Silent.
-Show.
 (apply sem_sub_k_i_nf__inv_depth_le with k).
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf; assumption).
 (apply sem_sub_k__i__trans with t).
+Unset Silent.
+(pose proof (match_ty_i_nf k t)).
