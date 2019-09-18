@@ -37,5 +37,5 @@ Unset Silent.
 (specialize (IHt1 s1 s2); specialize (IHt2 s1 s2)).
 Set Printing Width 148.
 (simpl in *).
-auto.
-Show.
+Set Printing Width 148.
+tauto.
