@@ -404,8 +404,9 @@ eauto.
 -
 Set Printing Width 148.
 Set Printing Width 148.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t (S k) -> ~ ||-[ S k][t]<= [TRef t].
+Set Printing Width 148.
 Set Silent.
+Lemma not_sem_sub__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t (S k) -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
 (induction t; intros k Ht Hcontra).
 -
@@ -419,14 +420,37 @@ clear Hm.
 (inversion Hcontra).
 -
 (destruct Ht as [w1 [v Hm]]).
-Unset Silent.
 specialize (Hcontra w1).
-Set Silent.
 (destruct Hcontra as [w2 Hcontra]).
-Unset Silent.
 specialize (Hcontra v Hm).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq _]]]; subst).
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Heq _]]; inversion Heq).
 -
+Abort.
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]= [TRef t].
+Proof.
+Unset Silent.
+(induction t; intros k Hdep Hcontra).
+Set Silent.
+-
+Unset Silent.
+Show.
+(destruct Hcontra as [Hcontra _]).
+Set Silent.
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+clear Hm.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Hcontra _]]).
+Unset Silent.
+(inversion Hcontra).
+Set Silent.
+-
+Unset Silent.
+(destruct Hcontra as [Hcontra _]).
+Set Silent.
+(destruct Ht as [w1 [v Hm]]).
