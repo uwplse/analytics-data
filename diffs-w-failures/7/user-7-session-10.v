@@ -235,4 +235,19 @@ Unset Silent.
 (pose proof (in_nf_ref__inv _ Hnfm2) as Hnf2).
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
 (destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
-(split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst).
+Set Printing Width 148.
+(split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst;
+  try (solve [ constructor; auto ])).
+Set Silent.
++
+Unset Silent.
+(apply IHHsub').
+Set Silent.
+(apply mk_nf_nf__equal; assumption).
+Unset Silent.
+(apply mk_nf__in_nf).
+Set Silent.
+-
+Unset Silent.
+Show.
+(split; intros tx Hsub').
