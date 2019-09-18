@@ -137,4 +137,6 @@ specialize (H _ Hm).
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros v Hmv; apply Href).
+Set Printing Width 148.
+(intros v Hmv; apply Href; assumption).
+}
