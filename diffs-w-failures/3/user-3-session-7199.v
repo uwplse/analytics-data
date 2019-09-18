@@ -545,16 +545,5 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
-(apply spec_abstraction_compose).
-Timeout 1 Check @app.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-(apply spec_weaken).
+Unset Silent.
+Set Diffs "off".
