@@ -141,6 +141,7 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (assert (Hv : value_type (TCName c)) by constructor; assert (Hm : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption);
-  specialize (H 0 _ Hv); destruct H as [H1 H2]; specialize (H1 Hm)).
+  specialize (H 0 _ Hv); destruct H as [H _]; specialize (H Hm)).
 Show.
