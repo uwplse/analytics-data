@@ -260,4 +260,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 51.
 Show.
-Print nat.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+Locate nat.
