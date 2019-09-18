@@ -67,8 +67,9 @@ exists (TPair v1' v2').
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
 -
 (destruct (beq_idP X i)).
-+
-Unset Silent.
+Set Printing Width 148.
 subst.
-(simpl in Hm).
+Show.
+(simpl in *).
 (rewrite <- beq_id_refl in Hm).
+Show.
