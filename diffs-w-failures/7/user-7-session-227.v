@@ -91,5 +91,11 @@ Proof.
 (simpl in HX).
 contradiction.
 Qed.
-Unset Silent.
-Lemma not_f_free_in_ty_fvar_eq__inv : forall X Y : id, not_f_free_in_ty X (TFVar Y) -> X <> Y.
+Set Printing Width 148.
+Lemma not_f_free_in_ty_fvar__inv : forall X Y : id, not_f_free_in_ty X (TFVar Y) -> X <> Y.
+Proof.
+(unfold not_f_free_in_ty, not_free).
+(simpl).
+Show.
+Search -IdSet.singleton.
+(intros X Y).
