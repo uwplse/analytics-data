@@ -61,4 +61,5 @@ Proof.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction v; induction t; intros k Hm; try (solve [ auto with DBBetaJulia ])).
+Set Printing Width 148.
+(induction v; induction t; intros k Hm).
