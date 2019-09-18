@@ -16,23 +16,4 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Set Printing Width 148.
-Set Silent.
-Lemma sem_sub_fresh_var__sem_sub_exist :
-  forall (X X' : id) (t t' : ty), IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
-Unset Silent.
-Proof.
-Set Silent.
-(intros X X' t t').
-Unset Silent.
-generalize dependent t.
-(induction t').
-Set Silent.
--
-Unset Silent.
-Show.
-admit.
--
-admit.
--
-admit.
--
+Lemma build_v : forall (X X' : id) (w : nat) (tx v t : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v <$ [X := X'] t.
