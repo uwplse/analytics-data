@@ -368,6 +368,6 @@ Set Printing Width 78.
 Show.
 step.
 (intuition eauto; autorewrite with upd; auto).
-step.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @repeat_length.
