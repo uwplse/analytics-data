@@ -77,7 +77,10 @@ Unset Silent.
 Proof.
 (induction t; induction t'; intros k v Hsemeq).
 reflexivity.
-admit.
-admit.
-admit.
-admit.
+Show.
+Set Printing Width 148.
+15: {
+idtac.
+clear IHt'.
+(simpl).
+constructor.
