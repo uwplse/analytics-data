@@ -30,8 +30,15 @@ Show.
 Set Printing Width 148.
 (destruct k; intros w1; exists 1; intros v Hm).
 -
+Set Printing Width 148.
+Set Silent.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
 (simpl).
 exists tint.
 constructor.
+-
+Unset Silent.
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+exists t'.
