@@ -96,4 +96,6 @@ idtac.
 (simpl).
 (apply le_n_S).
 (apply IHk).
-(assert (Hv : value_type (TRef t))).
+Set Printing Width 148.
+(assert (Hv : value_type (TRef t)) by constructor).
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
