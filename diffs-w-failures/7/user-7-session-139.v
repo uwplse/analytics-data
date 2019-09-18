@@ -44,4 +44,18 @@ exists (S w1).
 (intros v Hm).
 (apply match_ty_exist).
 exists (TEV X).
-(rewrite subs_fresh_in_ty).
+Set Printing Width 148.
+(rewrite subs_fresh_in_ty; assumption).
+Show.
+Qed.
+Set Silent.
+Lemma sem_sub_k_fresh_var__sem_sub_exist :
+  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Proof.
+(intros X t).
+(induction t).
+-
+(intros t' X' Hfresh Hsem).
+Unset Silent.
+(simpl in *).
+(apply sem_sub_trans).
