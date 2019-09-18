@@ -627,9 +627,20 @@ Set Diffs "off".
 Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_oob_eq.
 Set Printing Width 78.
-Lemma log_abstraction_extend :
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Set Printing Width 78.
+Lemma log_abstraction_commit :
   forall (d : disk) (bs bs' : list block),
-  log_abstraction d bs ->
+  log_length_ok d bs ->
   forall d' : State,
   log_size_ok d' (bs ++ bs') ->
   log_contents_ok d' (bs ++ bs') ->
@@ -638,29 +649,4 @@ Lemma log_abstraction_extend :
   log_abstraction d' (bs ++ bs').
 Proof.
 (intros).
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
 (unfold log_abstraction in *; intuition).
-(unfold log_length_ok; intros).
