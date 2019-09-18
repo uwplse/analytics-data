@@ -195,4 +195,9 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 step_proc.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(intros).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+intuition.
