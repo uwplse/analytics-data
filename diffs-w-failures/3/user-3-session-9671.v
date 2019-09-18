@@ -259,4 +259,18 @@ Unset Silent.
 (simpl).
 step.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
-(simplify; intuition eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Show.
+(exists bs; intuition eauto).
+(unfold log_abstraction in H0; intuition).
+(pose proof (H3 a); intuition).
+(eapply diskGet_eq_values; eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqaaYv6C"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
