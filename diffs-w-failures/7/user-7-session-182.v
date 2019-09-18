@@ -56,6 +56,9 @@ subst.
 (repeat rewrite subst_exist_eq).
 Search -IdSet.mem.
 Search -IdSet.In.
-(destruct (IdSetProps.In_dec i (FV tY))).
+Set Printing Width 148.
+(destruct (IdSetProps.In_dec i (FV tY)) eqn:Hin).
+Set Silent.
 {
-Search -IdSet.mem.
+Unset Silent.
+(apply IdSetFacts.mem_1 in Hin).
