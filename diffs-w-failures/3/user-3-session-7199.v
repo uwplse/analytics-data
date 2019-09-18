@@ -691,6 +691,12 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 -
-(unfold log_length_ok in *; intros).
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold log_length_ok in *; intros).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+autorewrite with upd in *.
