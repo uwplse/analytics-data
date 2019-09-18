@@ -257,4 +257,14 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(exists s; intuition).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(exists s; intuition eauto).
+(destruct (stateBadBlock state == diskSize s)).
+(rewrite disk_oob_eq by omega; auto).
+(rewrite <- Hremap by omega; auto).
+Timeout 1 Check @rew_const.
+constructor.
