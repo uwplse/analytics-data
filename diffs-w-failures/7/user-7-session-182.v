@@ -61,4 +61,4 @@ Set Printing Width 148.
 Set Silent.
 {
 Unset Silent.
-(apply IdSetFacts.mem_1 in Hin).
+Show.
