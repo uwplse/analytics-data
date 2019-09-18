@@ -705,10 +705,36 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ret.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @get_upto.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Hint Resolve get_upto_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 (unfold get; intros).
 step_proc.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
-step_proc.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec_rx.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @repeat_length.
+(apply proc_spec_weaken; eauto).
