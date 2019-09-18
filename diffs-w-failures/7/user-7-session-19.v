@@ -213,5 +213,9 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 Unset Silent.
 Proof.
 Set Printing Width 148.
-(induction k; induction t; induction t'; intros Hnft Hsem).
+Set Printing Width 148.
+(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ])).
 Show.
+(match goal with
+ | Hsem:||-[ ?k][?t1]<= [?t2] |- | ?t1 | <= | ?t2 | => idtac
+ end).
