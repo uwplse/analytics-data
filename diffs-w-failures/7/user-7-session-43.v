@@ -58,7 +58,7 @@ auto using match_ty_pair.
 (simpl).
 split.
 Set Printing Width 148.
-Set Silent.
-(assert (Heq : | t' | = | t |)).
-Unset Silent.
-(apply sub_d_eq__inv_depth_eq).
+Set Printing Width 148.
+(assert (Heq : | t' | = | t |) by (apply sub_d_eq__inv_depth_eq; assumption)).
+(rewrite Heq).
+tauto.
