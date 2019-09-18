@@ -529,6 +529,11 @@ Qed.
 Unset Silent.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @unit.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ret.
+Set Printing Width 78.
+Hint Resolve get_len_ok: core.
 Theorem get_len_abstr_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -537,36 +542,14 @@ Theorem get_len_abstr_ok :
      post := fun r state' => state' = state /\ r = length state;
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
 Proof.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec_rx.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Show.
 (apply spec_abstraction_compose).
-Unset Silent.
-Set Diffs "off".
+Timeout 1 Check @repeat_length.
+(eapply proc_spec_weaken; eauto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @log_size_ok.
+(unfold spec_impl; simpl).
