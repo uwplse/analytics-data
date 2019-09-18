@@ -16,11 +16,13 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Set Printing Width 148.
 Set Printing Width 148.
-Lemma sem_sub_exist_fresh : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]= [t].
+Set Printing Width 148.
+Set Silent.
+Lemma sem_eq_k_exist_fresh : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]= [t].
 Proof.
-(intros X t).
+(intros k X t).
 (induction t; intros Hfresh).
-Show.
 -
-(intros k).
+Unset Silent.
 Show.
+(intros w1).
