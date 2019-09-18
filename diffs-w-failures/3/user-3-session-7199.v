@@ -204,6 +204,12 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
-(unfold log_abstraction in H0; intuition).
 Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @hypo_proof.
+Set Printing Width 78.
+Show.
+(pose proof H).
 (apply H1 in H).
