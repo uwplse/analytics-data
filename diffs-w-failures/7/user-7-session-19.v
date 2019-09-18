@@ -218,7 +218,10 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (match goal with
  | Hsem:||-[ ?k][?t1]<= [?t2]
    |- | ?t1 | <= | ?t2 | => assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption)
  end).
+Search -sem_sub_k_i.
+Print sem_sub_k_i.
