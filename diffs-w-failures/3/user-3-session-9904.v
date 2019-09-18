@@ -105,12 +105,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-step_proc.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-intuition.
-Unset Silent.
-Set Diffs "off".
+step_proc.
