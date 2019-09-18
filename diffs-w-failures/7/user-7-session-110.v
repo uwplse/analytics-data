@@ -125,7 +125,7 @@ Proof.
 Qed.
 Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-Unset Silent.
+Show.
+Set Printing Width 148.
 (induction w; induction t; intros k v Hm w' Hle).
--
 Show.
