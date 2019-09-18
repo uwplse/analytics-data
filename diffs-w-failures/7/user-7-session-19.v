@@ -139,15 +139,11 @@ Show.
 Set Printing Width 148.
 (unfold sem_sub_k_i in Hsem).
 Show.
-(assert (Hv : value_type (TRef t)) by constructor).
-Show.
-Search -match_ty_i.
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
-Show.
-(pose proof (Hsem _ Hv Hm) as Hmu).
-Show.
-(apply match_ty_i_union__inv in Hmu).
-Show.
 Set Printing Width 148.
-(destruct Hmu as [Hmu1| Hmu2]; [ left | right ]).
-Show.
+Set Silent.
+(assert (Hvref : value_type (TRef t)) by constructor).
+(assert (Hmref : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
+(pose proof (Hsem _ Hvref Hmref) as Hm).
+(apply match_ty_i_union__inv in Hm).
+Unset Silent.
+(destruct Hm as [Hm1| Hm2]; [ left | right ]).
