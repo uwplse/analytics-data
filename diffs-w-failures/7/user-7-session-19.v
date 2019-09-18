@@ -207,4 +207,4 @@ Proof.
 (assert (Hvp : value_type (TPair t1 t2))).
 Unset Silent.
 constructor.
-solve_by_inverts.
+solve_by_invert.
