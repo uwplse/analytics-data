@@ -213,4 +213,5 @@ Show.
 Set Printing Width 148.
 (destruct (f_free_in_ty__dec X' ([Bi0 := ti] t'))).
 {
-(destruct IHw' as [_ IHw']).
+Set Printing Width 148.
+(destruct IHw' as [IHw' _]).
