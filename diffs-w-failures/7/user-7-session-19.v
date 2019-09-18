@@ -168,4 +168,5 @@ Show.
 Set Silent.
 +
 Unset Silent.
-(apply match_ty_union__inv in Hm2).
+(apply match_ty_i_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
