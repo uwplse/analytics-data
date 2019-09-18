@@ -72,3 +72,4 @@ admit.
 Unset Silent.
 Show.
 (rewrite subst_exist in Hm).
+(pose proof (subst_exist X tx i t) as Heq).
