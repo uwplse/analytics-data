@@ -492,4 +492,21 @@ Timeout 1 Check @app.
 Timeout 1 Check @app.
 Timeout 1 Check @incl_appl.
 Timeout 1 Check @split.
-(apply H; lia).
+(apply H).
+(rewrite app_length; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwUuH1g"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @Ret.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok_unchanged.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
