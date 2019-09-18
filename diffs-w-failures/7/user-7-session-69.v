@@ -246,9 +246,13 @@ exists v.
 exists (TRef t).
 (apply match_ty_value_type__reflexive; constructor || assumption).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty__pair_unite_pairs :
-  forall t1 t2 : ty, forall v1 v2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ unite_pairs t1 t2.
+  forall (t1 t2 v1 v2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ unite_pairs t1 t2.
+Unset Silent.
 Proof.
+Set Silent.
 (intros ta; induction ta; intros tb; induction tb; intros v1 v2 k Hm1 Hm2; try (solve [ simpl; apply match_ty_pair; assumption ]);
   try
    match goal with
@@ -262,8 +266,10 @@ Proof.
          change_no_check (|-[ k] TPair v1 v2 <$ TUnion (unite_pairs tb1 tx) (unite_pairs tb2 tx)); apply match_ty_union__inv in Hm1;
           destruct Hm1 as [Hm1| Hm1]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto
    end).
+Unset Silent.
 Qed.
-Lemma match_ty__unite_pairs_pair : forall t1 t2 : ty, forall v : ty, forall k : nat, |-[ k] v <$ unite_pairs t1 t2 -> |-[ k] v <$ TPair t1 t2.
+Set Silent.
+Lemma match_ty__unite_pairs_pair : forall (t1 t2 v : ty) (k : nat), |-[ k] v <$ unite_pairs t1 t2 -> |-[ k] v <$ TPair t1 t2.
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros v k Hm; try (solve [ simpl; assumption ]);
   try
@@ -292,10 +298,45 @@ Proof.
                  try (solve [ apply match_ty_union_1; assumption | apply match_ty_union_2; assumption ])
           end
    end).
+Unset Silent.
 Qed.
-Set Printing Width 148.
-Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
 Set Silent.
-Set Printing Width 148.
-(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ])).
+Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Proof.
+Unset Silent.
+(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ]);
+  try
+   match goal with
+   | Hm:|-[ _] ?v <$ TPair ?t1 ?t2
+     |- |-[ _] ?v <$ MkNF( TPair ?t1 ?t2) =>
+         apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; rewrite mk_nf_pair; apply match_ty__pair_unite_pairs;
+          [ apply IHt1 | apply IHt2 ]; assumption
+   | Hm:|-[ _] ?v <$ MkNF( TPair ?t1 ?t2)
+     |- |-[ _] ?v <$ TPair ?t1 ?t2 =>
+         rewrite mk_nf_pair in Hm; apply match_ty__unite_pairs_pair in Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]];
+          subst; apply match_ty_pair; [ apply IHt1 | apply IHt2 ]; assumption
+   end;
+  try
+   match goal with
+   | Hm:|-[ _] ?v <$ TUnion ?t1 ?t2
+     |- |-[ _] ?v <$ MkNF( TUnion ?t1 ?t2) =>
+         rewrite mk_nf_union; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ];
+          [ apply IHt1 | apply IHt2 ]; assumption
+   | Hm:|-[ _] ?v <$ MkNF( TUnion ?t1 ?t2)
+     |- |-[ _] ?v <$ TUnion ?t1 ?t2 =>
+         rewrite mk_nf_union in Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ];
+          [ apply IHt1 | apply IHt2 ]; assumption
+   end; try (solve [ destruct v; contradiction ])).
+Set Silent.
+-
+Unset Silent.
 Show.
+clear IHt.
+(rewrite mk_nf_ref).
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq [[Hdept Hdept'] Href]]]; subst).
+(simpl).
+(rewrite inv_depth_mk_nf).
+split.
+tauto.
+(eapply sem_eq_k__trans; eauto).
