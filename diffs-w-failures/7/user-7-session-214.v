@@ -287,4 +287,8 @@ tauto.
 specialize (IHt HX).
 (destruct (beq_idP Y i)).
 +
-(subst; simpl).
+Set Printing Width 148.
+Set Silent.
+subst.
+Unset Silent.
+(rewrite b_subst_exist_eq).
