@@ -177,4 +177,5 @@ econstructor.
 Unset Silent.
 constructor.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(intros).
+Unset Silent.
+Set Diffs "off".
