@@ -119,33 +119,34 @@ Set Printing Width 148.
 (destruct Hm as [t' Heq]; subst).
 constructor.
 Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 Set Silent.
-Lemma value_sem_sub_k_union__value_sem_sub_k_component :
-  forall k : nat, forall v : ty, value_type v -> forall ta tb : ty, ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
-Set Printing Width 148.
-(induction k; intros v Hv; induction Hv; intros ta tb Hsem).
-Show.
-Set Printing Width 148.
-6: {
-idtac.
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-(unfold sem_sub_k_i in Hsem).
-Show.
-Set Printing Width 148.
+Lemma match_ty_i__transitive_on_value_type :
+  forall v1 v2 v3 : ty, value_type v2 -> forall k : nat, |-[ k] v1 <$ v2 -> |-[ k] v2 <$ v3 -> |-[ k] v1 <$ v3.
+Proof.
+(intros v1 v2 v3 Hv2).
+generalize dependent v3.
+generalize dependent v1.
+Unset Silent.
+(induction Hv2).
 Set Silent.
-(assert (Hvref : value_type (TRef t)) by constructor).
-Set Printing Width 148.
-(pose proof (Hsem _ Hvref Hmref) as Hmu).
-(apply match_ty_i_union__inv in Hmu).
-Set Printing Width 148.
-Set Printing Width 148.
-(destruct Hmu as [Hmu1| Hmu2]; [ left | right ]; intros v Hv Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst).
-Show.
+-
+(intros v1 v3 k Hm1 Hm2).
+Unset Silent.
+(apply match_ty_i_cname__inv in Hm1; subst).
+assumption.
+Set Silent.
+-
+(intros v0 v3 k Hm1 Hm2).
+(apply match_ty_i_pair__inv in Hm1).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hm11 Hmpv12]]]]; subst).
+Unset Silent.
+(induction v3; try (solve [ destruct k; simpl in Hm2; contradiction ])).
+Set Silent.
++
+Unset Silent.
+(apply match_ty_i_pair__inv in Hm2).
+Set Silent.
+(destruct Hm2 as [pv21 [pv22 [Heq [Hm21 Hm22]]]]).
+(inversion Heq; subst).
+Unset Silent.
+auto using match_ty_pair.
