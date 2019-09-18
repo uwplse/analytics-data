@@ -148,4 +148,7 @@ Unset Silent.
 (right; simpl; apply Nat.le_0_l).
 Set Silent.
 -
-(inversion Hv; subst).
+Unset Silent.
+Show.
+Set Silent.
+(specialize (IHHv1 k H1); specialize (IHHv2 k H2)).
