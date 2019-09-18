@@ -79,5 +79,26 @@ Show.
 Set Printing Width 148.
 (intros k w X t HX Hm v Hv).
 Show.
+Set Printing Width 148.
 (induction t).
+-
+Show.
+Show.
+(apply match_ty_cname__inv in Hm).
+Show.
+(inversion Hm).
+-
+Show.
+(apply match_ty_pair__inv in Hm).
+Show.
+(destruct Hm as [v1 [v2 [Heq _]]]).
+(inversion Heq).
+Show.
+-
+Show.
+(apply match_ty_union__inv in Hm).
+Show.
+(destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]).
+Show.
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]).
 Show.
