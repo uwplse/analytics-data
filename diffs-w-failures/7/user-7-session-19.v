@@ -264,4 +264,6 @@ Proof.
 (apply mk_nf__in_nf).
 Set Printing Width 148.
 (apply sem_sub_k__i__trans with t; try assumption).
-(pose proof (match_ty_i_nf k t)).
+Set Printing Width 148.
+(pose proof (match_ty_i_nf k t) as Heq).
+Show.
