@@ -737,20 +737,7 @@ Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @repeat_length.
-(eapply proc_spec_weaken; eauto).
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @sig.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
