@@ -593,4 +593,5 @@ Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @applicative_ap.
 (exfalso; apply n1).
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @nil.
+nia.
