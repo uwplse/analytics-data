@@ -313,4 +313,9 @@ Timeout 1 Check @crash_step_simp.
 Timeout 1 Check @crash_step_simp.
 Timeout 1 Check @crash_step_simp.
 Timeout 1 Check @non_erroring.
-(apply crash_step_simp in H).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+(apply crash_step_simp in H; auto).
+(apply crash_step_simp in H; auto).
