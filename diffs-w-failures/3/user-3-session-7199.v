@@ -307,8 +307,10 @@ Timeout 1 Check @sig.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(unfold spec_impl; simpl; intros).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Show.
+(unfold spec_impl; intros).
 (destruct a0 as [_ bs]).
