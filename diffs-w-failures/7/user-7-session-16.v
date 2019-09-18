@@ -38,16 +38,17 @@ Proof.
 (remember (TCName c2) as t2 eqn:Heq2 ).
 (induction Hsub; try inversion Heq1; inversion Heq2; subst).
 reflexivity.
-(apply IHHsub; tauto).
-Qed.
-Unset Silent.
-Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
-Proof.
+Set Printing Width 148.
 Set Silent.
-(intros t t' Hsub).
-(remember (TRef t) as t1 eqn:Heq1 ).
+Lemma sub_r_nf_ref__inv : forall t t' : ty, InNF( t') -> InNF( t') -> |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
+Proof.
 Unset Silent.
+(intros t t' Hnf Hnf' Hsub).
+Set Silent.
+(remember (TRef t) as t1 eqn:Heq1 ).
 (remember (TRef t') as t2 eqn:Heq2 ).
+Unset Silent.
 (induction Hsub; try inversion Heq1; inversion Heq2; subst).
 tauto.
-(simpl in *).
+(apply IHHsub; try tauto).
+(apply mk_nf_nf__equal).
