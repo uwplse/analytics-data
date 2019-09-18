@@ -447,6 +447,6 @@ Set Printing Width 148.
 (destruct k).
 (destruct k'; inversion Hle).
 assumption.
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(destruct (Nat.le_decidable (| t |) k')).
+Show.
+Set Printing Width 148.
+(destruct k').
