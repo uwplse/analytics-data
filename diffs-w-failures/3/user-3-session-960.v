@@ -92,4 +92,9 @@ Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
   end.
 Next Obligation.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @pointwise_relation.
+Set Printing Width 78.
+Show.
+(intros).
