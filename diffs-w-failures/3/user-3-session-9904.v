@@ -58,27 +58,32 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-Theorem init_ok : init_abstraction init recover abstr inited.
-Proof.
-(eapply then_init_compose; eauto).
-Unset Silent.
-(unfold init').
-(step_proc; intros).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Show.
+Set Silent.
+Theorem init_ok : init_abstraction init recover abstr inited.
+Proof.
+(eapply then_init_compose; eauto).
+(unfold init').
 step_proc.
-Timeout 1 Check @spec_abstraction_compose.
 step_proc.
 step_proc.
 exists nil.
 (unfold statdb_abstraction, inited).
-intuition auto.
+Unset Silent.
+intuition.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqig39L2"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqeWdxbn"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Set Silent.
+Theorem add_ok : forall v, proc_spec (add_spec v) (add v) recover abstr.
+Unset Silent.
+Proof.
+(unfold add).
+(intros).
+(apply spec_abstraction_compose; simpl).
