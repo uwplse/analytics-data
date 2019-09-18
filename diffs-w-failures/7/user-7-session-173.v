@@ -135,7 +135,7 @@ Unset Silent.
 Show.
 Set Printing Width 148.
 (unfold subst_func).
-(rewrite fix_sub_eq).
 Show.
-(simpl).
-reflexivity.
+Check fix_sub_eq.
+Set Printing Width 148.
+(rewrite fix_sub_eq).
