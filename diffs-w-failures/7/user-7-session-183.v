@@ -101,13 +101,16 @@ Set Silent.
 Proof.
 Unset Silent.
 (intros X s Y t).
-(destruct (beq_idP X Y)).
+Set Printing Width 148.
+(destruct (beq_idP X Y) as [HXY| HXY]).
+Set Silent.
 -
 subst.
 exists Y,t.
-Set Printing Width 148.
 (apply subst_exist_eq).
 -
 (destruct (IdSetProps.In_dec Y (FV s)) as [Hin| Hin]).
 +
+Unset Silent.
 (rewrite subst_equation).
+(rewrite (false_beq_id _ _ HXY)).
