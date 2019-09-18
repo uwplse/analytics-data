@@ -276,4 +276,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(generalize dependent S (S base_m2); intros base *; subst).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(generalize dependent S (S base_m2); intros base **; subst).
