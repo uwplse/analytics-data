@@ -74,4 +74,23 @@ Show.
 (rewrite subst_exist in Hm).
 Set Printing Width 148.
 (pose proof (subst_exist X tx i t) as Heq).
-(destruct Heq as [X [tz Heq]]).
+(destruct Heq as [Z [tz Heq]]).
+(rewrite Heq in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
+Set Silent.
+-
+Unset Silent.
+Show.
+Set Silent.
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+Unset Silent.
+Show.
