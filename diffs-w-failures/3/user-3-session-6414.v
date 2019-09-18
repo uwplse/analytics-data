@@ -136,4 +136,9 @@ Set Printing Width 78.
 Show.
 (rewrite H in H1; simpl in H1).
 Timeout 1 Check @Tauto.A.
-auto.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Show.
+congruence.
