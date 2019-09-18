@@ -218,5 +218,6 @@ Set Printing Width 148.
 Set Silent.
 (assert (Hmt't : |-[ S k] TRef t' <$ TRef t)).
 Set Printing Width 148.
-(intros v'; split; intros Hm').
+Set Printing Width 148.
+(intros v'; split; intros Hm'; auto).
 Show.
