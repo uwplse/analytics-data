@@ -775,4 +775,20 @@ Show.
 (unfold EqualDec).
 (intros; simpl).
 Timeout 1 Check @sigT_eq_dec.
-Search -sigT_eq_dec.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Choice.
+Set Printing Width 78.
+Show.
+Check sigT_eq_dec.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @sigT_eq_dec.
+(apply sigT_eq_dec).
