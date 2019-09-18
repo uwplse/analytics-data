@@ -637,4 +637,5 @@ Timeout 1 Check @sig.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 (destruct d; simpl in *).
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(inversion H).
