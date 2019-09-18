@@ -469,4 +469,10 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_impl.
 Timeout 1 Check @spec_impl.
 Timeout 1 Check @spec_impl.
-(unfold spec_impl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold spec_impl; intros).
