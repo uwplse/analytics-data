@@ -104,4 +104,11 @@ contradiction.
 (simpl).
 (rewrite <- beq_id_refl).
 symmetry.
+Unset Silent.
+(apply subst_fresh_in_ty).
+Set Silent.
+assumption.
++
+(simpl).
+(rewrite <- beq_id_refl).
 (apply subs_fresh_in_ty).
