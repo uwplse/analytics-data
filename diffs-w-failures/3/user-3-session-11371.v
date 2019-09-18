@@ -216,8 +216,11 @@ Proof.
 (simpl).
 (rewrite mult_0_r).
 reflexivity.
--
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+-
 (simpl).
 (assert (H1 : m * S n' = m + m * n')).
 {
@@ -230,3 +233,4 @@ reflexivity.
 (rewrite IHm').
 (rewrite plus_swap).
 reflexivity.
+}
