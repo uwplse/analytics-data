@@ -313,12 +313,20 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Set Silent.
 Instance aModel : GoModel.
-Proof.
 Unset Silent.
-refine
- {|
- byte := Ascii.ascii;
- byte0 := Ascii.Ascii false false false false false false false false;
- uint64_to_string := pretty.pretty_nat;
- ascii_to_byte := id;
- byte_to_ascii := id |}.
+Set Diffs "off".
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @Byte.x25.
