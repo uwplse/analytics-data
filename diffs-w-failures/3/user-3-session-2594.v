@@ -11,4 +11,4 @@ Set Silent.
 From Coq Require Import FunInd Recdef.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @countable.Countable.
+Timeout 1 Check @SReqe_Reqe.
