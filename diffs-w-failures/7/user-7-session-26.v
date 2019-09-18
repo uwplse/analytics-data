@@ -98,6 +98,8 @@ Qed.
 Hint Resolve mk_nf_pair mk_nf_union mk_nf_ref: DBBetaJulia.
 Set Silent.
 Theorem mk_nf__in_nf : forall t : ty, InNF( MkNF( t)).
-Proof.
+Set Printing Width 148.
+Set Silent.
+(intros t; induction t; try (solve [ simpl; auto using unite_pairs__preserves_nf with DBBetaJulia ])).
 Unset Silent.
-(intros t; induction t; try (solve [ auto using unite_pairs__preserves_nf with DBBetaJulia ])).
+Qed.
