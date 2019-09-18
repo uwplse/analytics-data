@@ -225,23 +225,13 @@ Set Printing Width 78.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @get.
 Timeout 1 Check @get_at.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_at.
-Theorem get_at_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a < length state;
-     post := fun r state' => state' = state /\ r = nth a state block0;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Timeout 1 Check @get_at.
-Set Silent.
-Proof.
 Unset Silent.
-(unfold get_at; intros).
-(apply spec_abstraction_compose).
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @sig.
-(simpl).
-step_proc.
+Set Diffs "off".
+Timeout 1 Check @Choice.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read_ok.
+Timeout 1 Check @d.read_ok.
+Set Printing Width 78.
+Check d.read_ok.
