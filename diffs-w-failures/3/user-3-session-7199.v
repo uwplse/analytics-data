@@ -312,4 +312,4 @@ split.
 eauto using log_length_ok_nil.
 -
 (simpl; intuition).
-(exfalso; lia).
+Unset Silent.
