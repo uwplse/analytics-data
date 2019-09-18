@@ -445,4 +445,9 @@ Print "\/".
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_l ]).
+Unset Silent.
+*
+(apply Nat.le_trans with (| t'2 |); [ tauto | apply Max.le_max_r ]).
