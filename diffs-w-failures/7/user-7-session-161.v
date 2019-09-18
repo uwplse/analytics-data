@@ -111,11 +111,12 @@ subst.
 assumption.
 *
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+Show.
+Set Printing Width 148.
+(pose proof (fresh_in_ty_exist_neq__inv _ _ _ Hbeq HX') as HX't').
+Show.
+(pose proof Hm as Hme).
+Set Silent.
 (apply match_ty_exist__inv in Hm).
 Unset Silent.
 (destruct Hm as [ti Hm]).
-Check fresh_in_ty_exist_neq__inv.
-(pose proof (fresh_in_ty_exist_neq__inv _ _ _ Hbeq HX') as HX't').
-specialize (IHw' _ HX't' Hm).
-Show.
-exists ti.
