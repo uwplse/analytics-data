@@ -567,5 +567,8 @@ intuition eauto.
 -
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
-{
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+{
