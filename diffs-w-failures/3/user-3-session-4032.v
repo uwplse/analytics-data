@@ -343,4 +343,7 @@ Timeout 1 Check @namei.
 Timeout 1 Check @fs_xparams.
 Timeout 1 Check @if_ok.
 Set Printing Width 104.
-Anomaly "No printing rule found for "If _ _ else _"." Please report at http://coq.inria.fr/bugs/.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 104.
+Locate "addr".
