@@ -103,6 +103,4 @@ tauto.
 +
 Set Printing Width 148.
 Check match_ty__exists_w_v.
-(intros k).
 Show.
-(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k)).
