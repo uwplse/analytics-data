@@ -274,6 +274,10 @@ Definition append_helper_spec start blocks :
   post := fun r state' => r = tt /\ state' = diskUpds state start blocks;
   recovered := fun _ state' =>
                exists n, state' = diskUpds state start (firstn n blocks) |}.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
 Theorem append_helper_ok :
   forall blocks start,
   proc_spec (append_helper_spec start blocks) (append_helper start blocks)
@@ -286,47 +290,4 @@ Proof.
 reflexivity.
 -
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(step_proc; intuition; subst; eauto).
-{
-(step_proc; intuition; subst; eauto).
-{
-(step_proc; intuition; subst; eauto).
-+
-(autorewrite with upd; auto).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-+
-(exists (S (length blocks)); simpl).
-(rewrite firstn_all).
-(autorewrite with upd; auto).
-}
-(destruct H).
-(exists (S n); simpl).
-(autorewrite with upd; auto).
-}
-Set Silent.
-{
-Unset Silent.
-(exists 0; simpl; auto).
-}
-{
-(exists 1; simpl; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTKl2We"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-}
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquJ5xfY"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+(step_proc; intuition).
