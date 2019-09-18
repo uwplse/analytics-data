@@ -730,5 +730,10 @@ Set Diffs "off".
 Timeout 1 Check @split.
 Set Printing Width 78.
 Show.
-(unfold log_length_ok in *; intros; autorewrite with upd list in *;
-  simpl in *; subst; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold log_length_ok in *; intros; autorewrite with upd list in *).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition.
