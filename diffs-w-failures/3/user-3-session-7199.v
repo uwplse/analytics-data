@@ -362,4 +362,9 @@ Show.
 (rewrite disk_oob_eq; simpl; auto).
 Timeout 1 Check @split.
 Timeout 1 Check @log_size_ok.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Set Printing Width 78.
+Show.
+autorewrite with upd.
