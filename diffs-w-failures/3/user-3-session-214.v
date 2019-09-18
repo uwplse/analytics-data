@@ -91,4 +91,40 @@ Set Silent.
 Instance nonError_puts  `(f : A -> A): (NonError (puts f)).
 Unset Silent.
 Proof.
-(hnf).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @unit.
+Timeout 1 Check @readNone.
+Timeout 1 Check @readNone.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @not.
+Timeout 1 Check @pure.
+Timeout 1 Check @puts.
+Timeout 1 Check @List.nth_indep.
+Timeout 1 Check @pointwise_relation.
+Set Printing Width 78.
+Show.
+(unfold NonError, not, puts; intros).
+congruence.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqntCw84"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPFyTBc"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKp0FVe"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @ge.
+Timeout 1 Check @nonError_gets.
