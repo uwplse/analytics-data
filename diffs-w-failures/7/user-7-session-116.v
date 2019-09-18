@@ -60,4 +60,8 @@ Set Printing Width 148.
 Search -IdSet.remove.
 Check IdSetFacts.remove_2.
 Set Printing Width 148.
-symmetry in n.
+Set Silent.
+(apply Hfresh).
+Unset Silent.
+(apply IdSetFacts.remove_2; try assumption).
+(intros Heq; contradiction).
