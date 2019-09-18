@@ -81,4 +81,5 @@ specialize (Hcontra 1 0).
 (assert (Hm : |-[ 1, 0] TRef tint <$ TRef tint) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hcontra _ Hm).
 Set Printing Width 148.
-(destruct w2).
+Set Printing Width 148.
+(apply match_ty_ref__inv in Hcontra).
