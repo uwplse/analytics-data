@@ -97,6 +97,14 @@ Set Silent.
 (pose proof (IdSetFacts.empty_iff X) as H).
 tauto.
 -
-(intros t' X' Hfresh Hsem).
+Set Printing Width 148.
+Set Silent.
+(intros t' X' Hfresh Hfresh' Hsem).
 (simpl in *).
-Show.
+Unset Silent.
+(induction t').
+Set Silent.
++
+(intros k).
+Unset Silent.
+(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k)).
