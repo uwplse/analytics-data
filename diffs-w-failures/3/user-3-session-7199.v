@@ -266,27 +266,14 @@ Set Silent.
 (descend; intuition eauto).
 Unset Silent.
 (descend; intuition eauto).
-(apply disk_inbounds_exists in H; intuition eauto).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
 (unfold log_abstraction in H0; intuition).
-Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(apply H1 in H).
