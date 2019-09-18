@@ -254,7 +254,4 @@ Show.
 Admitted.
 Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Set Silent.
-Proof.
-auto with DBBetaJulia.
-Unset Silent.
-Qed.
+Show.
