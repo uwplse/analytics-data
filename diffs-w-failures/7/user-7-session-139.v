@@ -35,13 +35,13 @@ eassumption.
 (repeat constructor).
 Qed.
 Lemma sem_sub_k_exist_fresh_r : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][t]<= [TExist X t].
-Proof.
-(intros k X t Hfresh).
-(intros w1).
-exists w1.
-(intros v Hm).
-Unset Silent.
-(destruct w1).
+Show.
+Set Printing Width 148.
 Set Silent.
--
+(intros w1).
 Unset Silent.
+exists (S w1).
+(intros v Hm).
+(apply match_ty_exist).
+exists (TEV X).
+(rewrite subs_fresh_in_ty in Hm; try assumption).
