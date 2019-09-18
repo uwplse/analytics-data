@@ -260,5 +260,9 @@ Set Printing Width 148.
 specialize (Hsem v').
 tauto.
 Set Printing Width 148.
-Lemma match_ty_nf : forall k : nat, forall t : ty, ||-[ k][t]= [MkNF( t)].
+Set Printing Width 148.
+Set Silent.
+Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
 Proof.
+Unset Silent.
+(induction k; induction t; intros v; split; intros Hm).
