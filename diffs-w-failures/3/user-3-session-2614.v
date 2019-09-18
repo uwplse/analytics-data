@@ -162,4 +162,9 @@ Show.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
-Search -"subset_eq_compat".
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(apply ProofIrrelevance.ProofIrrelevanceTheory.subset_eq_compat).
+(rewrite Ascii.nat_ascii_embedding; auto).
