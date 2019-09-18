@@ -19,17 +19,8 @@ Lemma atom_sub_r_union__inv : forall t t1' t2' : ty, |- t << TUnion t1' t2' -> a
 Proof.
 (intros t t1' t2' Hsub).
 (remember (TUnion t1' t2') as t' eqn:Heq ).
-(induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ])).
--
-(inversion Heq; subst).
-(left; assumption).
--
-(inversion Heq; subst).
-(right; assumption).
--
-Unset Silent.
-Show.
-(inversion Heq; subst).
-Show.
 Set Printing Width 148.
-(inversion Heq; subst).
+(induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ]); inversion Heq).
+Set Silent.
+-
+(left; assumption).
