@@ -161,4 +161,4 @@ Timeout 1 Print LoadPath.
 Set Printing Width 78.
 Show.
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
-(rewrite diskShrink_preserves; auto).
+(rewrite diskShrink_size; omega).
