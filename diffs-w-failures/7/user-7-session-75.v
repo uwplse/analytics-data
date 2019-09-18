@@ -60,4 +60,6 @@ Show.
 Set Printing Width 148.
 (apply sem_eq_k__sem_sub_k).
 Show.
+(apply sem_eq_k__comm).
 (apply mk_nf__sem_eq_k).
+Qed.
