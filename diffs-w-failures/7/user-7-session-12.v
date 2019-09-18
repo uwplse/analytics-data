@@ -320,5 +320,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(repeat rewrite mk_nf_union).
-(rewrite mk_nf_pair).
+Set Printing Width 148.
+(rewrite mk_nf_union).
