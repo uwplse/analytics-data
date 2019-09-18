@@ -67,4 +67,6 @@ exists w1.
 Unset Silent.
 Search -b_free_in_ty.
 Show.
-(destruct (b_free_in_ty__dec X t)).
+Set Printing Width 148.
+(destruct (b_free_in_ty__dec X t) as [HX| HX]).
++
