@@ -145,7 +145,5 @@ Set Printing Width 148.
 (unfold well_founded).
 Show.
 Set Printing Width 148.
-(induction a).
-+
-(unfold lt_size).
+Search -well_founded.
 Show.
