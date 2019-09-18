@@ -40,4 +40,4 @@ contradiction.
 *
 Unset Silent.
 (rewrite subst_exist_eq).
-(unfold tX in *).
+(simpl in *).
