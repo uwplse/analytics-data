@@ -127,4 +127,5 @@ Set Silent.
 -
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct w, k; constructor).
+Set Printing Width 148.
+(destruct w, k; constructor; simpl; tauto).
