@@ -750,4 +750,16 @@ Set Silent.
 admit.
 Unset Silent.
 -
-(hnf).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(simpl).
+Timeout 1 Check @empty.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+typeclasses eauto.
+-
+Timeout 1 Check @empty.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+typeclasses eauto.
