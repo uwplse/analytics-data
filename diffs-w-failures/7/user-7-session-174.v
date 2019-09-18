@@ -88,9 +88,8 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Definition mk_subst_exist (x : id) (y : id) (t ts : ty) := TExist y (if beq_id x y then t else ts).
-Unset Silent.
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
@@ -104,7 +103,6 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
-Set Silent.
 -
 (intros).
 (simpl).
@@ -123,7 +121,6 @@ Omega.omega.
 Omega.omega.
 -
 (intros).
-Unset Silent.
 (simpl).
 (rewrite rename__size).
 Omega.omega.
@@ -131,25 +128,18 @@ Omega.omega.
 (intros).
 (simpl).
 Omega.omega.
-Set Silent.
 -
 (apply (well_founded_lt_compat ty size)).
 (intros).
 tauto.
-Unset Silent.
 Defined.
-Set Silent.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
-Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
 Unset Silent.
+Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
+Set Silent.
+Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
 Proof.
+Unset Silent.
 (intros X s t1 t2).
-Set Printing Width 148.
-(unfold subst).
+Search -subst.
 Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Show.
-Search -subst_terminate.
-Set Printing Width 148.
-Show.
+(apply subst_equation).
