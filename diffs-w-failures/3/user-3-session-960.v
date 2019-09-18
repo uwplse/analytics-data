@@ -272,4 +272,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite (PeanoNat.Nat.div_mod n base)  at 4 by lia).
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
+Timeout 1 Check @rew_ex.
+Timeout 1 Check @N.mul.
+Timeout 1 Check @cmul_ext.
+Timeout 1 Check @Rmul_comm.
+Timeout 1 Check @Rmul_comm.
+Timeout 1 Check @Rmul_comm.
