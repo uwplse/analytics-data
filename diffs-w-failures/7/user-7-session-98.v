@@ -122,16 +122,14 @@ Proof.
 (destruct k).
 constructor.
 (simpl).
-tauto.
-Unset Silent.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
-Unset Silent.
 (intros k; destruct k; intros v Hm).
-Set Silent.
 -
-Unset Silent.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
+(simpl).
+Unset Silent.
+split.
