@@ -483,14 +483,17 @@ Proof.
 -
 step_proc.
 intuition eauto.
-+
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
 (rewrite app_nil_r; auto).
+-
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+intuition eauto.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+autorewrite with upd.
