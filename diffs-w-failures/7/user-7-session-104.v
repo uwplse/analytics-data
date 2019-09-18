@@ -95,8 +95,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Lemma sem_sub_k__inv_depth_le : forall (k : nat) (t t' : ty), | t | <= k \/ | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Set Printing Width 148.
+Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
-Unset Silent.
-(induction k; induction t; induction t'; intros Hnft Hdep Hsem; try (solve [ simpl; constructor ])).
+(intros w).
