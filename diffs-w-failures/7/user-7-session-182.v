@@ -58,4 +58,9 @@ Search -IdSet.mem.
 Search -IdSet.In.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct (IdSetProps.In_dec i (FV tY))).
+Set Printing Width 148.
+(destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
+Set Silent.
+{
+Unset Silent.
+(apply IdSetFacts.mem_1 in Hin).
