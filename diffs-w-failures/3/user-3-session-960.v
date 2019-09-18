@@ -169,10 +169,33 @@ Timeout 1 Check @pretty.pretty_nat.
 Timeout 1 Check @pretty.pretty_nat.
 Set Silent.
 Instance aModel : GoModel.
-Proof.
 Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @last.
+Timeout 1 Check @ascii_cmp.
+Timeout 1 Check @ascii_cmp.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @byte.
+Timeout 1 Check @byte.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Set Printing Width 78.
+Show.
 refine
  {|
  byte := Ascii.ascii;
  byte0 := Ascii.Ascii false false false false false false false false;
- uint64_to_string := pretty.pretty_nat |}.
+ uint64_to_string := pretty.pretty_nat;
+ ascii_to_byte := id;
+ byte_to_ascii := id |}.
