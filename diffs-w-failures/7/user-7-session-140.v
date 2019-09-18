@@ -149,3 +149,6 @@ Unset Silent.
 Proof.
 (intros t1 t2 t1' t2' Hsem).
 (split; intros k; specialize (Hsem k); pose proof (sem_sub_k_pair__inv _ _ _ _ _ Hsem)).
+Set Printing Width 148.
+(split; intros k; specialize (Hsem k); pose proof (sem_sub_k_pair__inv _ _ _ _ _ Hsem); tauto).
+Qed.
