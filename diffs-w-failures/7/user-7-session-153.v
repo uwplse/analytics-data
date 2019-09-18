@@ -32,6 +32,9 @@ Unset Silent.
 (apply match_ty_cname).
 Set Silent.
 -
-(simpl in *).
-Unset Silent.
 Show.
+Set Printing Width 148.
+(simpl in Hm).
+(simpl).
+Set Silent.
+(apply match_ty_pair__inv in Hm).
