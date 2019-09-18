@@ -134,4 +134,6 @@ admit.
 +
 clear IHk'.
 (intros Htk Htk' v Hvk Hvk').
-(simpl in Htk).
+Set Printing Width 148.
+(simpl in Htk, Htk').
+(apply le_S_n in Htk).
