@@ -502,4 +502,17 @@ Set Printing Width 78.
 Show.
 (exists (a' ++ [a]); intuition eauto).
 Timeout 1 Check @log_size_ok.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Set Printing Width 78.
+Show.
+(rewrite app_length).
