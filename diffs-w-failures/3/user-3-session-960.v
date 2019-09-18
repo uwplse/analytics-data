@@ -268,4 +268,8 @@ Unset Silent.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
 (rewrite IHn).
-Search -"mod" -div.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite (PeanoNat.Nat.div_mod n base)  at 4 by lia).
