@@ -37,4 +37,5 @@ Set Printing Width 148.
 (simpl in Hm).
 (simpl).
 Set Silent.
-(apply match_ty_pair__inv in Hm).
+Unset Silent.
+Show.
