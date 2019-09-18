@@ -250,5 +250,6 @@ Ltac
         destruct H as (Heq, H); subst)
   | _ => idtac
   end.
+Unset Silent.
 Lemma crash_step_simp s s' r :
   Var.dynamics.(crash_step) s s' r -> s' = (0, 0).
