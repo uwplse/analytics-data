@@ -11,13 +11,14 @@ fi
 script=`realpath $0`
 path=`dirname $script`
 outfile="${path}/user-${userid}-session-${sessionid}.v"
-diffpath="${path}/../diffs/${userid}"
+diffpath="${path}/../diffs-w-failures/${userid}"
 
 # Spit the replay data to a file
 printf "${userid}\n${sessionid}\n" | python3 replay.py > ${outfile}
 
-# Convert to use CANCEL instead of BackTo
-sed -i -re 's/\(\*[0-9]+:\*\).*BackTo ([0-9]+)\./\(\*CANCEL \1\*\)/' ${outfile}
+# Convert BackTo and Backtrack to comments as well
+sed -i -re 's/\(\*[0-9]+:\*\).*BackTo ([0-9]+)\./\(\*BACKTO \1\*\)/' ${outfile}
+sed -i -re 's/\(\*[0-9]+:\*\).*Backtrack ([0-9]+) [0-9]+ [0-9]+\./\(\*BACKTO \1\*\)/' ${outfile}
 
 # Now call find-refactors
 python3 find-refactors.py ${outfile} ${diffpath}
