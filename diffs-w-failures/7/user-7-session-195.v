@@ -179,4 +179,35 @@ Set Silent.
 (apply match_ty_exist).
 exists tx.
 Unset Silent.
+Show.
+split.
+assumption.
+Set Silent.
 (apply IHw).
+assumption.
+Unset Silent.
+(apply le_S_n; assumption).
+Qed.
+Set Silent.
+Lemma match_ty__exists_w_v : forall t : ty, exists (w : nat) (v : ty), |-[ w] v <$ t.
+Proof.
+(induction t).
+-
+exists 0,(TCName c).
+(apply match_ty_cname).
+-
+(destruct (IHt1) as [w1 [v1 Hm1]]).
+(destruct (IHt2) as [w2 [v2 Hm2]]).
+exists (Nat.max w1 w2),(TPair v1 v2).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
+(destruct (IHt1) as [w [v Hm]]).
+exists w,v.
+Unset Silent.
+(apply match_ty_union_1; assumption).
+Set Silent.
+-
+Unset Silent.
+Show.
