@@ -180,4 +180,4 @@ Unset Silent.
 specialize (Hsem'2 Hm).
 Show.
 Set Printing Width 148.
-(apply match_ty_exist_inv in Hsem'2).
+(apply match_ty_exist__inv in Hsem'2).
