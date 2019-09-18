@@ -415,4 +415,7 @@ Unset Silent.
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
 +
-(destruct IHt'1 as [IH1| IH1]; try assumption).
+Set Printing Width 148.
+(destruct IHt'1 as [IH1| IH1]; try assumption; destruct IHt'2 as [IH2| IH2]; try assumption;
+  try (solve [ right; intros Hcontra; destruct (sub_r_union_l__inv _ _ _ Hcontra) as [Hsub1 Hsub2]; contradiction ])).
+(left; constructor; assumption).
