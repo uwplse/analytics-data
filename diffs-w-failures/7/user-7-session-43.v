@@ -57,6 +57,8 @@ auto using match_ty_pair.
 (destruct Hm as [tx [Heq [[Hdept Hdeptx] Href]]]; subst).
 (simpl).
 split.
-+
+Set Printing Width 148.
+Set Silent.
+(assert (Heq : | t' | = | t |)).
 Unset Silent.
-(pose proof (sub_d_eq__inv_depth_eq _ _ Hsub1 Hsub2) as Heq).
+(apply sub_d_eq__inv_depth_eq).
