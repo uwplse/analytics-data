@@ -485,4 +485,5 @@ Timeout 1 Check @or_assoc.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @nodup.
-autorewrite with upd.
+Unset Silent.
+Set Diffs "off".
