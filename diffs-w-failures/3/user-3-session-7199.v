@@ -75,4 +75,4 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @d.write.
 Timeout 1 Check @log_addr.
 Timeout 1 Check @log_addr.
-Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_length_ok.
