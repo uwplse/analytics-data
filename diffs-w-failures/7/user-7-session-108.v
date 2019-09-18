@@ -326,4 +326,6 @@ admit.
 -
 Show.
 Set Printing Width 148.
-(assert (Hnotm' : ~ (exists v, tx, |-[ k, w] v <$ [i := tx] t))).
+(assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
+{
+(intros Hcontra).
