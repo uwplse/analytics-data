@@ -132,4 +132,6 @@ Show.
 (inversion Heq; subst).
 Show.
 Set Printing Width 148.
-tauto.
+auto.
+}
+Show.
