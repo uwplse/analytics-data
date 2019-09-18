@@ -418,60 +418,39 @@ Set Diffs "off".
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Theorem log_contents_ok_append d bs b :
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Theorem log_contents_ok_append d bs b bs' :
+  log_size_ok d (bs ++ b :: bs') ->
   log_contents_ok d bs ->
   log_contents_ok (diskUpd d (log_addr (length bs)) b) (bs ++ [b]).
-Set Silent.
 Proof.
-Unset Silent.
-Abort.
-Set Silent.
-Theorem append_at_ok a bs' :
-  proc_spec
-    (fun (bs : list block) state =>
-     {|
-     pre := a = length bs /\
-            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
-     post := fun r state' =>
-             diskGet state' len_addr = diskGet state len_addr /\
-             diskSize state' = diskSize state /\
-             log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state' (bs ++ bs');
-     recovered := fun _ state' =>
-                  diskGet state' len_addr = diskGet state len_addr /\
-                  diskSize state' = diskSize state /\
-                  log_contents_ok state' bs |}) (append_at a bs') recover
-    d.abstr.
-Proof.
-generalize dependent a.
-(induction bs'; simpl; intros).
--
-step_proc.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
-{
-(apply log_contents_ok_unchanged; eauto).
-}
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intuition).
-(exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
-+
-(simpl; lia).
-+
-(unfold log_size_ok in *; simpl in *).
-autorewrite with upd list in *.
-(simpl in *; lia).
-Unset Silent.
-+
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_contents_ok; intros).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nil_l.
+Timeout 1 Check @app_nil_l.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(rewrite app_nil in *).
