@@ -47,34 +47,29 @@ Timeout 1 Check @Ret.
 Timeout 1 Check @In.
 Timeout 1 Check @Init.Nat.t.
 Timeout 1 Check @Init.Nat.t.
-Timeout 1 Check @Initialized.
-Timeout 1 Check @Add.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Set Silent.
 Definition init : proc InitResult.
-Unset Silent.
 Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsDhzFq"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmkseDM"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @Add.
-Set Silent.
 Definition get : proc (list block).
+Admitted.
+Definition append : list block -> proc bool.
+Admitted.
+Definition reset : proc unit.
+Admitted.
+Definition recover : proc unit.
 Unset Silent.
 Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAhArPI"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqX06zjQ"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxmYXnB"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1ktiSB"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Check @Add.
-Timeout 1 Check @Add.
+Timeout 1 Check @True.
+Definition abstr : Abstraction State := True.
