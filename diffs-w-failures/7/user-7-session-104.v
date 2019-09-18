@@ -74,51 +74,17 @@ assumption.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Lemma sem_eq_k__exists_not : forall (k : nat) (t : ty), exists t' : ty, ~ ||-[ k][t']= [t].
-Proof.
-Show.
 Set Printing Width 148.
-exists (TRef t).
-Show.
-(intros Hcontra).
-Show.
-(destruct Hcontra as [Hsem1 Hsem2]).
-Show.
-specialize (Hsem1 1).
-Show.
-(destruct Hsem1 as [w2 Hsem1]).
-Show.
-Set Printing Width 148.
-(assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
-Show.
-specialize (Hsem1 _ Hm).
-Show.
-(destruct k, w2, t; try (solve [ simpl in Hsem1; contradiction ])).
-Show.
 Set Silent.
-Admitted.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
-Proof.
-(intros Hcontra).
-specialize (Hcontra 2 1).
-(destruct Hcontra as [w Hcontra]).
-(assert (Hm : |-[ 2, 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-(unfold sem_sub_k_w in Hcontra).
-specialize (Hcontra _ Hm).
-clear Hm.
-(destruct w).
--
-(apply Hcontra).
--
-(apply match_ty_exist__inv in Hcontra).
-(destruct Hcontra as [t Hcontra]).
-(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
-(rewrite Heq in Hcontra).
-clear Heq.
-(apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Heq Href]]).
-(inversion Heq; subst).
-clear Heq.
-(unfold sem_eq_k in Href).
-Show.
+Reserved Notation "'|' t '|'" (at level 20).
+Unset Silent.
+Fixpoint inv_depth (t : ty) :=
+  match t with
+  | TCName _ => 0
+  | TPair t1 t2 => Nat.max (| t1 |) (| t2 |)
+  | TUnion t1 t2 => Nat.max (| t1 |) (| t2 |)
+  | TRef t' => 1 + | t' |
+  | TExist _ t' => | t' |
+  | TVar _ => 0
+  end
+where "'|' t '|'" := (inv_depth t) : btjt_scope.
