@@ -452,4 +452,5 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(intros).
+Set Printing Width 148.
+(intros t Hnft Hdep t2).
