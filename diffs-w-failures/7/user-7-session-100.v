@@ -89,4 +89,14 @@ Set Silent.
 Lemma match_ty_ref__inv : forall (v t : ty) (w k : nat), |-[ w, S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ ||-[ w, k][t']= [t].
 Unset Silent.
 Proof.
-(intros v; induction v; try (solve [ intros t w k Hm; destruct k; contradiction ])).
+Set Printing Width 148.
+(intros v; induction v; try (solve [ intros t w k Hm; destruct w; destruct k; contradiction ])).
+Set Silent.
+Set Silent.
+clear IHv.
+(intros t w k Hm).
+(simpl in Hm).
+exists v.
+auto.
+Unset Silent.
+Qed.
