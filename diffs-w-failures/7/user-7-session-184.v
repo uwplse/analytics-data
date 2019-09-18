@@ -137,4 +137,5 @@ Show.
 (destruct (beq_idP X i) as [HXi| HXi]).
 +
 subst.
-(rewrite subst_var_eq).
+Set Printing Width 148.
+(rewrite subst_var_eq in *).
