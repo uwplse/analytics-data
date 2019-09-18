@@ -219,6 +219,19 @@ exists w,v.
 Unset Silent.
 Show.
 (destruct IHt as [w [v Hm]]).
-exists (S w).
-Check match_ty__match_ty_f_subst_int.
+Set Printing Width 148.
+Set Silent.
 (apply (match_ty__match_ty_f_subst_int i) in Hm).
+Unset Silent.
+Show.
+(destruct Hm as [v' Hm]).
+exists (S w),v'.
+(apply match_ty_exist).
+exists tint.
+split.
+admit.
+assumption.
+Set Silent.
+-
+Unset Silent.
+Show.
