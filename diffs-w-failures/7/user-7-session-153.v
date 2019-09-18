@@ -33,4 +33,5 @@ Unset Silent.
 Set Silent.
 -
 (simpl in *).
-(apply match_ty_pair__inv in Hm).
+Unset Silent.
+Show.
