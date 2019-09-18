@@ -38,4 +38,4 @@ Definition vZ := 3.
 Definition tX := TVar vX.
 Definition tY := TVar vY.
 Unset Silent.
-Definition teXX := TExist vX vX.
+Definition teXX := TExist vX tX.
