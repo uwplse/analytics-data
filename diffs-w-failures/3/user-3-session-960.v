@@ -92,42 +92,15 @@ Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Set Silent.
-Theorem mod_S_lt : forall n m, n `mod` S m < S m.
-Unset Silent.
-Proof.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @applicative_ap.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @pointwise_relation.
-(intros).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Show.
+Theorem mod_S_lt n m : n `mod` S m < S m.
+Set Silent.
+Proof.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7X4jRQ"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZkBrPc"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKa1nVA"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Unset Silent.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
