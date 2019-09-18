@@ -108,4 +108,4 @@ Unset Silent.
 {
 Set Printing Width 148.
 Set Printing Width 148.
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
