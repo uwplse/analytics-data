@@ -108,7 +108,27 @@ Function
    end.
 Proof.
 all: (try (intros; simpl; Omega.omega)).
+Set Printing Width 148.
+Set Silent.
 -
 (intros).
 (simpl).
 Unset Silent.
+(rewrite rename__size).
+Set Silent.
+Omega.omega.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+tauto.
+Unset Silent.
+Defined.
+Set Silent.
+Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
+Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
+Unset Silent.
+Proof.
+(intros X s t1 t2).
+(unfold subst).
+(unfold subst_terminate).
+reflexivity.
