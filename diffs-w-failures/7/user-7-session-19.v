@@ -189,5 +189,7 @@ Show.
 (simpl).
 Show.
 Set Printing Width 148.
-(intros v; split; intros Hm; auto).
+Show.
+Set Printing Width 148.
+(intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v)).
 Show.
