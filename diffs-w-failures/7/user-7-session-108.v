@@ -259,4 +259,7 @@ exists (TCName c).
 (apply match_ty_value_type__reflexive; constructor).
 Set Silent.
 -
-(destruct (IHt1 k) as [w1 [v1 Hm1]]).
+Unset Silent.
+Show.
+Set Silent.
+(destruct IHt1 as [v1 Hm1]).
