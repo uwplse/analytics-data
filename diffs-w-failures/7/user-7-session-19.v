@@ -227,14 +227,5 @@ Unset Silent.
 (assert (Hva : value_type (TCName c)) by constructor).
 Set Printing Width 148.
 Set Printing Width 148.
-(induction t2; intros Hsem; specialize (Hsem _ _ Hma)).
-Set Silent.
-+
-Unset Silent.
-(simpl in Hsem).
-subst.
-constructor.
-+
-(simpl in Hsem).
-contradiction.
-+
+Set Printing Width 148.
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; constructor || contradiction ])).
