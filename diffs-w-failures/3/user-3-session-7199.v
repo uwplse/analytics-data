@@ -487,5 +487,7 @@ Unset Silent.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Timeout 1 Check @forallb.
+Timeout 1 Check @forallb.
 Theorem log_size_bound d bs :
-  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
+  forall a, log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
