@@ -428,4 +428,5 @@ Show.
 Set Silent.
 {
 Unset Silent.
+subst.
 (apply sem_sub_k_i__inv_depth_le_2).
