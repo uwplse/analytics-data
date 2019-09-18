@@ -244,4 +244,19 @@ Set Diffs "off".
 Timeout 1 Check @Tauto.A.
 Set Printing Width 78.
 Show.
-(autorewrite with upd; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(autorewrite with upd; simpl; auto).
++
+(rewrite <- Hgoodsec; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxn96RW"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Set Silent.
+(subst; eexists; eauto).
