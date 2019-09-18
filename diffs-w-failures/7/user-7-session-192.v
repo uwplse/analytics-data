@@ -161,16 +161,7 @@ subst.
 (rewrite subst_exist_eq).
 (apply match_ty_exist).
 exists ti.
-assumption.
-}
-Set Silent.
+Show.
 Set Printing Width 148.
-(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
-Show.
-(rewrite Hbeq).
-Show.
-(destruct (IdSet.mem i (FV tx)) eqn:Hmem).
-{
-Show.
-(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
-Show.
+Set Silent.
+contradiction.
