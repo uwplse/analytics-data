@@ -283,12 +283,13 @@ Set Silent.
 Unset Silent.
 tauto.
 -
-(apply f_free_in_ty_exist__inv in HX).
-specialize (IHt HX).
-(destruct (beq_idP Y i)).
-+
 Set Printing Width 148.
 Set Silent.
+(destruct (beq_idP Y i)).
++
 subst.
 Unset Silent.
 (rewrite b_subst_exist_eq).
+assumption.
++
+(rewrite b_subst_exist_neq).
