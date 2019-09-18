@@ -327,4 +327,4 @@ Proof.
 (unfold sizeInit).
 step.
 (destruct r).
-step.
+Unset Silent.
