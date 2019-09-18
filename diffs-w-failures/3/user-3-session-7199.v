@@ -505,4 +505,10 @@ Set Diffs "off".
 Timeout 1 Check @Tauto.A.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+-
+(rewrite H0 in *).
 auto.
