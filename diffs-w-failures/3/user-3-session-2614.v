@@ -13,4 +13,4 @@ From Coq Require Import PeanoNat.
 From Coq Require Import Arith.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Comm.
+Timeout 1 Check @MRet.
