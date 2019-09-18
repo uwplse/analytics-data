@@ -130,5 +130,8 @@ Lemma value_sem_sub_k_union__value_sem_sub_k_component :
 Set Printing Width 148.
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem).
 Show.
+Set Printing Width 148.
 6: {
-idtac Abort.
+idtac.
+Show.
+(unfold sem_sub_i_k).
