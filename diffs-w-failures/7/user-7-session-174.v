@@ -145,4 +145,6 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 (unfold lt_size).
-(apply lt_wf).
+Check lt_wf.
+Print lt_wf.
+(pose proof lt_wf).
