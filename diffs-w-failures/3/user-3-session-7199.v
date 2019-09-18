@@ -517,6 +517,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(unfold log_size_ok, log_abstraction in *; intuition eauto).
-Timeout 1 Check @log_contents_ok.
-congruence.
+Unset Silent.
+Set Diffs "off".
