@@ -610,4 +610,5 @@ Set Silent.
 Unset Silent.
 Timeout 1 Check @repeat_length.
 (descend; intuition eauto).
-}
+Unset Silent.
+Set Diffs "off".
