@@ -105,4 +105,5 @@ constructor.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
+Set Printing Width 148.
+(constructor; [ eapply IHt1 | eapply IHt2 ]; etauto).
