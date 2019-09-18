@@ -168,47 +168,19 @@ Timeout 1 Check @repeat_length.
 Timeout 1 Check @repeat_length.
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
 Set Printing Width 78.
-Set Silent.
 Lemma abstr_get_len :
   forall (bs : list block) (state : State),
-  log_abstraction state bs ->
+  log_length_ok state bs ->
   forall r : block,
   diskGet state len_addr =?= r -> block_to_addr r = length bs.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Set Printing Width 78.
-Show.
-(unfold log_abstraction, log_length_ok; intuition).
