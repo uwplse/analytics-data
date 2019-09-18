@@ -89,8 +89,9 @@ assumption.
 Qed.
 Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
 Set Printing Width 148.
+Set Printing Width 148.
 Function
- subst (x : id) (s t : ty) {measure size t} : ty :=
+ subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
@@ -102,13 +103,8 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
--
-(intros).
 Show.
-(unfold lt_size).
-(simpl).
 Set Silent.
-Omega.omega.
 -
 (intros).
 (unfold lt_size).
@@ -132,7 +128,18 @@ Omega.omega.
 -
 (intros).
 (unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
 Unset Silent.
-(simpl).
 Omega.omega.
-Defined.
+-
+Check well_founded_lt_compat.
+(apply (well_founded_lt_compat ty size)).
+Set Silent.
+(intros).
+Unset Silent.
+trivial.
