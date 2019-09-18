@@ -23,10 +23,58 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Set Silent.
-Module Log (d: OneDiskAPI)<: LogAPI.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Set Silent.
+Axiom (addr_to_block : addr -> proc block).
+Axiom (block_to_addr : block -> addr).
+Definition addr_to_block_spec State a :
+  Specification unit block unit State :=
+  fun (_ : unit) state =>
+  {|
+  pre := True;
+  post := fun r state' => state' = state /\ block_to_addr r = a;
+  recovered := fun _ state' => state' = state |}.
+Axiom
+  (addr_to_block_ok :
+     forall State a recover abstr,
+     proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Unset Silent.
-Set Diffs "off".
+Hint Resolve addr_to_block_ok: core.
+Module Log (d: OneDiskAPI)<: LogAPI.
+Timeout 1 Check @Ret.
+Timeout 1 Check @In.
+Timeout 1 Check @Init.Nat.t.
+Timeout 1 Check @Init.Nat.t.
+Timeout 1 Check @Initialized.
+Timeout 1 Check @Add.
+Set Silent.
+Definition init : proc InitResult.
+Unset Silent.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsDhzFq"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmkseDM"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @Add.
+Set Silent.
+Definition get : proc (list block).
+Unset Silent.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAhArPI"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxmYXnB"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @Add.
+Timeout 1 Check @Add.
