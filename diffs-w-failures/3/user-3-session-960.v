@@ -470,4 +470,35 @@ Timeout 1 Check @Ascii.nat_of_ascii.
 Timeout 1 Check @Ascii.nat_of_ascii.
 Timeout 1 Check @Ascii.nat_of_ascii.
 Timeout 1 Check @Ascii.nat_of_ascii.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 Search -Ascii.nat_of_ascii.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+(apply Ascii.nat_ascii_bounded).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHbUS4W"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHZysVf"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnkGrre"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
