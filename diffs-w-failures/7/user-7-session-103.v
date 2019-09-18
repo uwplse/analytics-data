@@ -81,19 +81,9 @@ Proof.
 Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct k, w, v; simpl in Hm; try contradiction).
-Show.
-Show.
 Set Printing Width 148.
+(destruct v).
+Show.
 -
+(destruct k, w; simpl in Hm; try contradiction).
 Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-exists v.
-Show.
-split.
-reflexivity.
-Show.
-auto.
