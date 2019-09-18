@@ -52,7 +52,8 @@ Proof.
 (simpl).
 (rewrite <- beq_id_refl).
 reflexivity.
-Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [X := s] TVar Y = TVar Y.
 Proof.
 (intros X s Y Hneq).
@@ -61,12 +62,16 @@ specialize (Hid Hneq).
 (simpl).
 (rewrite Hid).
 reflexivity.
-Qed.
-Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
 Unset Silent.
+Qed.
+Set Silent.
+Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
 Proof.
 (intros).
 (simpl).
 (rewrite <- beq_id_refl).
 reflexivity.
+Unset Silent.
 Qed.
+Set Silent.
+Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id) (t : id), X <> Y -> [X := s] TExist Y t = TExist Y ([X := s] t).
