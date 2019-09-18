@@ -9,6 +9,9 @@ Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.MatchProps.
+Set Printing Width 148.
+Set Silent.
+Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -51,9 +54,9 @@ auto using match_ty_pair.
 (destruct k).
 (destruct v; contradiction).
 (apply match_ty_ref__inv in Hm).
-Unset Silent.
 (destruct Hm as [tx [Heq [[Hdept Hdeptx] Href]]]; subst).
 (simpl).
 split.
 +
+Unset Silent.
 (pose proof (sub_d_eq__inv_depth_eq _ _ Hsub1 Hsub2) as Heq).
