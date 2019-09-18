@@ -82,4 +82,12 @@ specialize (Hcontra 1 0).
 specialize (Hcontra _ Hm).
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+clear Hm.
 (apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Heq Hcontra]]).
+(inversion Heq; subst).
+clear Heq.
+(destruct Hcontra as [Hcontra _]).
+(assert (Hm : |-[ 1, 0] tint <$ tint) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ _ Hm).
