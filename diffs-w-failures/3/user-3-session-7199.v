@@ -432,4 +432,54 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
 Set Printing Width 78.
-Hint Rewrite app_length : length.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @split.
+Timeout 1 Check @list.
+Set Printing Width 78.
+Hint Rewrite app_length : list.
+Theorem append_at_ok a bs' :
+  proc_spec
+    (fun (bs : list block) state =>
+     {|
+     pre := a = length bs /\
+            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
+     post := fun r state' =>
+             diskGet state' len_addr = diskGet state len_addr /\
+             diskSize state' = diskSize state /\
+             log_size_ok state' (bs ++ bs') /\
+             log_contents_ok state' (bs ++ bs');
+     recovered := fun _ state' =>
+                  diskGet state' len_addr = diskGet state len_addr /\
+                  diskSize state' = diskSize state /\
+                  log_contents_ok state' bs |}) (append_at a bs') recover
+    d.abstr.
+Proof.
+generalize dependent a.
+(induction bs'; simpl; intros).
+-
+step_proc.
+intuition eauto.
+(rewrite app_nil_r; auto).
+Set Silent.
+Set Silent.
+-
+Unset Silent.
+step_proc.
+Set Silent.
+(intuition eauto; autorewrite with upd; auto).
+Unset Silent.
+{
+Timeout 1 Check @split.
+Set Silent.
+(apply log_contents_ok_unchanged; eauto).
+}
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+Unset Silent.
+(exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
++
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @split.
+Timeout 1 Check @split.
+lia.
