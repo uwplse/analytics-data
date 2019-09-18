@@ -65,32 +65,7 @@ exists v.
 auto.
 Unset Silent.
 Qed.
-Set Silent.
-Theorem match_ty__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
-Proof.
-Show.
 Set Printing Width 148.
-(intros v t).
-generalize dependent v.
-Show.
-(induction t; intros v k Hm).
-Set Silent.
--
-(apply match_ty_cname__inv in Hm; subst).
-constructor.
--
-(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-Unset Silent.
-(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
-Set Silent.
--
-Unset Silent.
-(apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto).
-Set Silent.
--
-Unset Silent.
-Show.
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]; subst).
-constructor.
--
+Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k] v <$ TExist X t -> exists tx : ty, |-[ k] v <$ [X := tx] t.
+Proof.
+(intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
