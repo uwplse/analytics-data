@@ -90,31 +90,18 @@ Qed.
 Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
    | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
-   | TExist y t' =>
-       if IdSet.mem y (FV s)
-       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s t')
-       else TExist y (if beq_id x y then t' else subst x s t')
+   | TExist y t' => t
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
-Show.
 Set Silent.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
 -
 (intros).
 (unfold lt_size).
@@ -136,10 +123,10 @@ Omega.omega.
 (simpl).
 Unset Silent.
 Omega.omega.
--
-Check well_founded_lt_compat.
-(apply (well_founded_lt_compat ty size)).
 Set Silent.
-Set Printing Width 148.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+Unset Silent.
 tauto.
 Defined.
