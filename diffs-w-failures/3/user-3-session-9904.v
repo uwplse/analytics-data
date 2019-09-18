@@ -255,12 +255,17 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @statdb_abstraction.
 Set Printing Width 78.
 Show.
-(pose proof I as state2).
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @statdb_abstraction.
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
+(match goal with
+ | H:pre (match ?a with
+          | (x, y) => _
+          end _)
+   |- _ =>
+       let x := fresh x in
+       let y := fresh y in
+       destruct a as [x y]; cbn[pre post recovered] in *
+ end).
