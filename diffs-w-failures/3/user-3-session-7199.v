@@ -343,4 +343,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-autorewrite with upd in *.
+Unset Silent.
+Set Diffs "off".
