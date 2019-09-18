@@ -432,5 +432,6 @@ Set Printing Width 148.
 (assert (Hv : value_type (TCName c)) by constructor).
 Show.
 Set Printing Width 148.
-(destruct IHt'1; try assumption).
+Set Printing Width 148.
+(destruct IHt'1).
 Show.
