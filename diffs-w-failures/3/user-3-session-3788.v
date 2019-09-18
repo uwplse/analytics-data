@@ -134,6 +134,11 @@ Proof.
  | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
  end).
 (unfold swapXY).
-monad_simpl.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+monad_simpl.
+(match goal with
+ | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
+ end).
