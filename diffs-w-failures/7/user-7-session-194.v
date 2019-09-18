@@ -46,4 +46,18 @@ Proof.
 Unset Silent.
 Qed.
 Set Silent.
-Lemma not_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_free_in_ty X (TPair t1 t2) -> not_free_in_ty X t1 /\ not_free_in_ty X t2.
+Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
+Proof.
+(intros X t1 t2 Hfresh).
+(unfold not_f_free_in_ty in *; simpl in Hfresh; simpl).
+(apply not_free_union__inv in Hfresh).
+assumption.
+Unset Silent.
+Qed.
+Set Silent.
+Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TPair t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
+Proof.
+(intros X t1 t2 Hfresh).
+(unfold not_b_free_in_ty in *; simpl in Hfresh; simpl).
+(apply not_free_union__inv in Hfresh).
+assumption.
