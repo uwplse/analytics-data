@@ -132,7 +132,6 @@ Proof.
 Unset Silent.
 (intros X s t1 t2).
 (unfold subst).
-(unfold subst_func).
-(unfold Fix_sub).
-(simpl).
-reflexivity.
+Show.
+Set Printing Width 148.
+(rewrite fix_sub_eq).
