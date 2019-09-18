@@ -142,8 +142,7 @@ Show.
 -
 Show.
 Set Printing Width 148.
-(unfold well_founded).
 Show.
 Set Printing Width 148.
-Search -well_founded.
-Show.
+(unfold lt_size).
+(apply lt_wf).
