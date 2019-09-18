@@ -140,7 +140,19 @@ exists 0.
 assumption.
 }
 }
+Show.
+Set Printing Width 148.
+(simpl in Hm').
+Show.
+contradiction.
+}
+Show.
+*
+Show.
+(simpl in Hm').
+Show.
+subst.
+Show.
+split.
 {
-Unset Silent.
-(split; intros HX').
-{
+Show.
