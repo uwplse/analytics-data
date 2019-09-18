@@ -493,4 +493,19 @@ Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_size_ok.
 Set Printing Width 78.
 Show.
-(unfold log_abstraction, log_size in *; intuition).
+Timeout 1 Check @log_size_ok.
+(unfold log_abstraction, log_size_ok in *; intuition).
+(rewrite H1).
+Timeout 1 Check @log_contents_ok.
+congruence.
+}
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMAC3RX"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDaSUn9"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
