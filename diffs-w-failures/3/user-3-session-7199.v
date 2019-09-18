@@ -500,4 +500,8 @@ Timeout 1 Check @BinPos.Pos.switch_Eq.
 Timeout 1 Check @nodup.
 Set Printing Width 78.
 Show.
-(intuition eauto; autorewrite with upd).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(intuition eauto; autorewrite with upd; auto).
