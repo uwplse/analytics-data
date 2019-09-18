@@ -209,4 +209,4 @@ Show.
 Set Printing Width 148.
 (pose proof (mk_nf__in_nf (TRef t)) as Hnf).
 (pose proof (mk_nf__in_nf (TRef t')) as Hnf').
-(apply (sub_r_nf_ref__inv _ _ Hnf Hnf') in H).
+Check sub_r_nf_ref__inv.
