@@ -108,7 +108,37 @@ Set Diffs "off".
 Timeout 1 Check @FinMapToList.
 Timeout 1 Check @strings.string_countable.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Search -nat -string.
+Timeout 1 Check @N.Even.
+Timeout 1 Check @comm.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty_N.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Timeout 1 Check @prod_eq_dec.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @prod_eq_dec.
 Timeout 1 Check @prefix.
 Timeout 1 Check @pretty.pretty.
 Timeout 1 Check @pretty.pretty.
@@ -116,5 +146,33 @@ Timeout 1 Check @pretty.pretty.
 Timeout 1 Check @pretty.pretty.
 Timeout 1 Check @pretty.pretty.
 Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty_N.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @N.Even.
+Eval compute in pretty.pretty_nat 3.
+Timeout 1 Check @prod_eq_dec.
+Timeout 1 Check @prefix.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty_N.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat.
+Set Silent.
+Instance aModel : GoModel.
+Proof.
 Unset Silent.
-Set Diffs "off".
+refine
+ {|
+ byte := Ascii.ascii;
+ byte0 := Ascii.Ascii false false false false false false false false;
+ uint64_to_string := pretty.pretty_nat |}.
