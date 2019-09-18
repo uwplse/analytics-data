@@ -280,4 +280,5 @@ Set Silent.
 (destruct k).
 Unset Silent.
 reflexivity.
-(split; auto).
+Set Printing Width 148.
+(split; intros; auto).
