@@ -614,36 +614,23 @@ intuition eauto.
 (eapply log_abstraction_nil; eauto).
 (rewrite diskUpd_eq; eauto).
 }
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Show.
+Set Silent.
 {
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 68.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 68.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 68.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 68.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 68.
-Show.
 (exists []; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+(rewrite diskUpd_eq; eauto).
+Unset Silent.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgWxRc5"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+End Log.
