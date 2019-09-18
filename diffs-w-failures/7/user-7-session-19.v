@@ -232,4 +232,5 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 (rewrite inv_depth_union).
-(apply Nat.max_lub).
+Set Printing Width 148.
+(apply Nat.max_lub; auto).
