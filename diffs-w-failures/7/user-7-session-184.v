@@ -53,83 +53,35 @@ subst.
 (rewrite Hmem).
 (remember (gen_fresh (IdSet.union (FV tY) (IdSet.add Y (FV t)))) as z).
 Abort.
+Set Printing Width 148.
 Lemma build_v_full :
   forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
-  |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ t').
+  |-[ w] v <$ [X := tx] t ->
+  exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), fresh_in_ty X' t' -> |-[ w'] v' <$ t' -> |-[ w'] v <$ t').
+Set Silent.
 Proof.
 (intros X X').
 (induction w; induction t; intros v tx Hm).
 -
 exists v.
+Unset Silent.
 split.
 assumption.
 tauto.
+Set Silent.
 -
-Show.
-Set Printing Width 148.
+Unset Silent.
 (rewrite subst_pair in *).
-Show.
+Set Silent.
 (apply match_ty_pair__inv in Hm).
-Show.
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-Show.
 specialize (IHt1 _ _ Hm1).
 specialize (IHt2 _ _ Hm2).
-Show.
 (destruct IHt1 as [v1' [Hm1' IHt1]]).
 (destruct IHt2 as [v2' [Hm2' IHt2]]).
-Show.
 exists (TPair v1' v2').
 split.
-Show.
 (apply match_ty_pair; assumption).
-Show.
 (induction w'; induction t'; intros Hm'; try contradiction).
-Show.
 +
 (apply match_ty_pair_pair__inv in Hm').
-Show.
-(destruct Hm' as [Hm'1 Hm'2]).
-(apply match_ty_pair; auto).
-Show.
-+
-Show.
-Set Printing Width 148.
-Set Silent.
-(apply match_ty_union__inv in Hm').
-(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-Unset Silent.
-+
-Show.
-Set Silent.
-(apply match_ty_pair_pair__inv in Hm').
-(destruct Hm' as [Hm'1 Hm'2]).
-Unset Silent.
-(apply match_ty_pair; auto).
-+
-Set Silent.
-(apply match_ty_union__inv in Hm').
-Unset Silent.
-(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-Show.
-Set Printing Width 148.
-(apply match_ty_exist__inv in Hm').
-(destruct Hm' as [ti Hm']).
-exists ti.
-auto.
-Set Silent.
--
-Unset Silent.
-Show.
-Set Silent.
-admit.
--
-(pose proof (subst_exist X tx i t) as Heq).
-(destruct Heq as [Z [tz Heq]]).
-(rewrite Heq in Hm).
-Unset Silent.
-(apply match_ty_exist__0_inv in Hm; contradiction).
-Set Silent.
-Set Printing Width 148.
-Show.
