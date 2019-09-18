@@ -200,4 +200,5 @@ Show.
 step_proc.
 {
 (destruct a' as [_ bs]; simpl in *; intuition).
-}
+Timeout 1 Check @repeat_length.
+eauto.
