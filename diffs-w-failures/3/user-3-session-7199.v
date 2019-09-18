@@ -416,102 +416,20 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_contents_ok.
 Hint Resolve log_size_ok_shrink: core.
-Theorem append_at_ok a bs' :
-  proc_spec
-    (fun (bs : list block) state =>
-     {|
-     pre := a = length bs /\
-            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
-     post := fun r state' =>
-             diskGet state' len_addr = diskGet state len_addr /\
-             diskSize state' = diskSize state /\
-             log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state' (bs ++ bs');
-     recovered := fun _ state' =>
-                  diskGet state' len_addr = diskGet state len_addr /\
-                  diskSize state' = diskSize state /\
-                  log_contents_ok state' bs |}) (append_at a bs') recover
-    d.abstr.
-Proof.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @dependent_choice.
+Timeout 1 Check @Ret.
+Timeout 1 Check @RelationClasses.RewriteRelation.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
 Set Printing Width 78.
-Show.
-generalize dependent a.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(induction bs'; simpl; intros).
--
-step_proc.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
-{
-(apply log_contents_ok_unchanged; eauto).
-}
-(eapply proc_spec_weaken; eauto).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @spec_impl.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(unfold spec_impl; simpl; intuition).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @nodup.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-(exists (a' ++ [a]); intuition eauto; autorewrite with upd in *; eauto).
-+
-(rewrite app_length; simpl; lia).
+Hint Rewrite app_length : length.
