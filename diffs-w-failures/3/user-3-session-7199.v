@@ -638,4 +638,9 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 (destruct d; simpl in *).
 Timeout 1 Check @split.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(inversion H).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sum.
+Set Printing Width 78.
+Show.
+(inversion H; subst).
