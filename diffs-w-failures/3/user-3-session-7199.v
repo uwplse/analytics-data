@@ -282,4 +282,11 @@ Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec_rx.
 Timeout 1 Check @proc_spec_weaken.
-(eapply proc_spec_weaken).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(eapply proc_spec_weaken; eauto).
+Timeout 1 Check @sig.
+(simpl).
