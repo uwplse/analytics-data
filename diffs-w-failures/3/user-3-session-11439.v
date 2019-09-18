@@ -181,4 +181,8 @@ Timeout 1 Check @N.induction.
 Timeout 1 Check @N.induction.
 Timeout 1 Check @N.induction.
 Timeout 1 Check @N.induction.
-(induction 1).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(induction 1; auto).
