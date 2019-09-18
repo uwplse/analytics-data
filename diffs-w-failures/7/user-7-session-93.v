@@ -31,7 +31,12 @@ Definition tIntInt := TPair tint tint.
 Set Printing Width 148.
 Set Silent.
 Definition vX := Id 1.
-Definition vY := 2.
-Definition vZ := 3.
+Set Printing Width 148.
+Set Silent.
+Definition vY := Id 2.
+Definition vZ := Id 3.
 Definition tX := TVar vX.
+Definition tY := TVar vY.
+Definition teXX := TExist vX tX.
 Unset Silent.
+Definition tyXRefX := TExist vX (TRef tX).
