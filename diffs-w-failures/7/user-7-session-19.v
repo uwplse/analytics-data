@@ -580,4 +580,4 @@ Set Printing Width 148.
 (intros ta1 ta2 Hat1 IH1 Hat2 IH2 Hdep).
 (assert (Hat : atom_type (TPair ta1 ta2)) by (constructor; assumption)).
 Set Printing Width 148.
-(apply pair_sem_sub_k_i__sub_d; assumption).
+(apply pair_sem_sub_k_i__sub_d; try assumption).
