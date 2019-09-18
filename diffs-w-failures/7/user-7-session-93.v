@@ -16,8 +16,8 @@ Inductive cname : Type :=
   | NFlt : _
   | NStr : _.
 Set Printing Width 148.
-Inductive varid : Type :=
-    nat : _.
+Set Printing Width 148.
+Definition varid : Type := nat.
 Set Silent.
 Inductive ty : Type :=
   | TCName : cname -> ty
@@ -31,7 +31,8 @@ Definition tflt := TCName NFlt.
 Definition tstr := TCName NStr.
 Definition tIntInt := TPair tint tint.
 Definition vx := 1.
-Unset Silent.
 Definition vy := 2.
+Unset Silent.
 Definition vz := 3.
 Definition tx := TVar vx.
+Definition ty := TVar vy.
