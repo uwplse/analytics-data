@@ -394,5 +394,9 @@ Unset Silent.
 Proof.
 (intros t k).
 (pose proof (match_ty_i_nf' k t) as H).
-auto.
 Show.
+Set Printing Width 148.
+Set Silent.
+(intros v).
+Unset Silent.
+specialize (H v).
