@@ -132,4 +132,9 @@ contradiction.
 +
 Show.
 Set Printing Width 148.
+(simpl).
 (rewrite Heq).
+(rewrite IHt).
+reflexivity.
+-
+(destruct (beq_idP X i); try reflexivity).
