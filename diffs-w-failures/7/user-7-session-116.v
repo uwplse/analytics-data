@@ -106,6 +106,6 @@ Unset Silent.
 contradiction.
 +
 (simpl).
+Set Printing Width 148.
 (rewrite <- beq_id_refl).
-symmetry.
-(apply subs_fresh_in_ty).
+Show.
