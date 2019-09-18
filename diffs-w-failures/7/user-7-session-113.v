@@ -22,14 +22,8 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Lemma subs_not_in_FV : forall (X : id) (t : ty), ~ fresh_in_ty X t -> forall s : ty, [X := s] t = t.
+Set Printing Width 148.
+Lemma not_fresh_in_union__inv : forall (X : id) (fvs1 fvs2 : id_set), ~ fresh X (IdSet.union fvs1 fvs2) -> ~ fresh X fvs1 /\ ~ fresh X fvs2.
 Proof.
-(intros X t).
-Set Printing Width 148.
-Set Printing Width 148.
-(induction t; intros Hnfresh s; try (solve [ reflexivity ])).
--
-(simpl).
-Set Printing Width 148.
-(unfold fresh_in_ty in *).
-(simpl in Hnfresh).
+(intros X fvs1 fvs2 H).
+(unfold fresh in *).
