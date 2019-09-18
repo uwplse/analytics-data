@@ -183,5 +183,12 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (constructor; autorewrite with upd in *; intuition idtac).
-(rewrite diskUpd_eq; auto).
+Timeout 1 Check @remapped_abstraction.
+Timeout 1 Check @no_wipe.
+Timeout 1 Check @nodup.
+autorewrite with upd.
