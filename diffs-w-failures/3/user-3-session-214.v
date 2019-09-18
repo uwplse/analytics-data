@@ -84,4 +84,11 @@ Timeout 1 Check @NonError.
 Timeout 1 Check @NonError.
 Timeout 1 Check @NonError.
 Check puts.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
 Instance nonError_puts  `(f : A -> A): (NonError (puts f)).
+Unset Silent.
+Proof.
+(hnf).
