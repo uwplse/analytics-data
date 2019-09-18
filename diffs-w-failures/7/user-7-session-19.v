@@ -421,8 +421,11 @@ Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb :
 Set Printing Width 148.
 (intros v Hv ta tb Hsem).
 Show.
-(pose proof (| TUnion ta tb |) as kmax).
+Set Printing Width 148.
+(remember (| TUnion ta tb |) as kmax).
 (assert (Hdeple : | v | <= kmax)).
-{
-subst.
 Show.
+Set Silent.
+{
+Unset Silent.
+(apply sem_sub_k_i__inv_depth_le_2).
