@@ -195,4 +195,5 @@ Set Silent.
 Unset Silent.
 (destruct (in_nf_pair__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
 Set Printing Width 148.
-(destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
+Set Printing Width 148.
+(destruct IHHsub1 as [IHHsub11 IHHsub12]; assumption).
