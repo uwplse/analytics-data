@@ -122,4 +122,5 @@ Set Printing Width 148.
 (simpl).
 Set Printing Width 148.
 split.
-(apply Nat.max_lub; eauto).
+Set Printing Width 148.
+(apply Nat.max_lub; auto).
