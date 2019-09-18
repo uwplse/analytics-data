@@ -120,5 +120,21 @@ assumption.
 {
 subst.
 (unfold free_in_ty in HX').
-(simpl in HX').
+Show.
+Set Printing Width 148.
+Set Silent.
+admit.
+}
+{
+(rewrite subst_equation).
+Unset Silent.
+(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
+(rewrite Hbeq).
+(destruct (IdSet.mem i (FV tx)) eqn:Hmem).
+Set Silent.
+{
+(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
+(apply match_ty_exist).
+Unset Silent.
+exists ([X' := tx] ti).
 Show.
