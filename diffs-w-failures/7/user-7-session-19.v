@@ -84,5 +84,7 @@ split.
 reflexivity.
 (intros v').
 specialize (Href v').
-auto.
-Show.
+Set Printing Width 148.
+(destruct Href; split; assumption).
+Qed.
+Lemma match_ty_i__value_type : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
