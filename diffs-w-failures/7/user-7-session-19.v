@@ -431,5 +431,32 @@ specialize (IHt1 H0 k).
 specialize (IHt2 H1 k).
 (rewrite H0 in *).
 Unset Silent.
-(split; intros Hm; apply match_ty_union__inv in Hm; destruct Hm; (solve
-  [ apply match_ty_union_1; apply IHt1; assumption | apply match_ty_union_2; apply IHt2; assumption ])).
+(split; intros Hm; apply match_ty_i_union__inv in Hm; destruct Hm; (solve
+  [ apply match_ty_i_union_1; apply IHt1; assumption | apply match_ty_i_union_2; apply IHt2; assumption ])).
+Set Silent.
+-
+Unset Silent.
+Show.
+(inversion Heqdep).
+Qed.
+Set Silent.
+Lemma match_ty_i__inv_depth_stable :
+  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Proof.
+(induction k; induction k').
+-
+tauto.
+-
+(intros).
+symmetry.
+(apply match_ty__inv_depth_0_stable).
+(inversion H).
+Unset Silent.
+reflexivity.
+Set Silent.
+-
+(intros).
+(apply match_ty__inv_depth_0_stable).
+(inversion H0).
+Unset Silent.
+reflexivity.
