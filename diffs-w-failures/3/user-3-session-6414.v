@@ -175,6 +175,10 @@ Lemma abstr_get_len :
   log_abstraction state bs ->
   forall r : block,
   diskGet state len_addr =?= r -> block_to_addr r = length bs.
-Proof.
 Unset Silent.
-(intros bs state H0 r H1).
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(intros).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
