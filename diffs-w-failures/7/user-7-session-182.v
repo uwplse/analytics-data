@@ -100,4 +100,7 @@ Show.
 Set Printing Width 148.
 (destruct (IdSetProps.In_dec i (FV tx)) as [Hin| Hin]).
 {
-(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
+Show.
+Set Printing Width 148.
+(rewrite subst_exist_neq).
+Print fresh_in_ty.
