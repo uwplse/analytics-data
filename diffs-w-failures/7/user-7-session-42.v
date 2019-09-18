@@ -67,4 +67,5 @@ Lemma sub_d_eq__inv_depth_eq : forall t t' : ty, |- t << t' -> |- t' << t -> | t
 Unset Silent.
 Proof.
 (intros t t' Hsub1 Hsub2).
-(apply Nat.le_antisymm).
+Set Printing Width 148.
+(apply Nat.le_antisymm; apply sub_d__inv_depth_le).
