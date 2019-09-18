@@ -387,4 +387,4 @@ Lemma add_cok n :
 Proof.
 (repeat newstep; auto).
 (destruct state0; simpl; auto).
-Qed.
+Unset Silent.
