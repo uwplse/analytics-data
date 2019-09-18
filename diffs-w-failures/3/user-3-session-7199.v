@@ -537,13 +537,8 @@ Theorem get_len_abstr_ok :
      post := fun r state' => state' = state /\ r = length state;
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
 Proof.
-(unfold get_len; intros).
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(apply spec_weaken).
