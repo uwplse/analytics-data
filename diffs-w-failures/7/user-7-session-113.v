@@ -30,5 +30,6 @@ Set Printing Width 148.
 (induction t; intros Hnfresh s; try (solve [ reflexivity ])).
 -
 (simpl).
+Set Printing Width 148.
+(unfold fresh_in_ty in *).
 (simpl in Hnfresh).
-Show.
