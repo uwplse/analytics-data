@@ -398,7 +398,8 @@ Unset Silent.
 Set Silent.
 -
 Set Printing Width 148.
-(split; intros t'; induction t'; intros Hnf'; inversion Hnf'; subst;
+Set Printing Width 148.
+(split; intros t'; induction t'; intros Hnf'; destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2];
   try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 ]);
   try
    match goal with
@@ -406,4 +407,3 @@ Set Printing Width 148.
          destruct (cname_eq__decidable c1 c2);
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
-Show.
