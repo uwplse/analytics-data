@@ -53,7 +53,11 @@ Unset Silent.
 Qed.
 Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
 Set Silent.
-Proof.
-(intros k).
-Unset Silent.
-(destruct k; intros w1; exists w1; intros v Hm).
+Set Printing Width 148.
+(intros k; intros w1; exists w1; intros v Hm).
+Show.
+(destruct w1).
+-
+Show.
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
