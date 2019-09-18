@@ -196,18 +196,11 @@ reflexivity.
 Qed.
 Unset Silent.
 Timeout 1 Check @n_Sn.
-Theorem mult_n_Sm : forall m n, m * S n = n + m * n.
-Set Silent.
-Abort.
-Theorem mult_comm : forall m n : nat, m * n = n * m.
-Proof.
-(intros m n).
-(induction m as [| m' IHm']).
--
-(simpl).
-(rewrite <- mult_n_O).
-reflexivity.
--
-(simpl).
 Unset Silent.
-(rewrite IHm').
+Set Diffs "off".
+Set Printing Width 78.
+Theorem mult_n_Sm : forall m n, n * S m = m + n * m.
+Proof.
+Timeout 1 Check @negb_involutive.
+Timeout 1 Check @sig.
+(induction n).
