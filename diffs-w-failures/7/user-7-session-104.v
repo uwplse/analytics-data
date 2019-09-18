@@ -164,10 +164,11 @@ Proof.
 (intros k t).
 exists (TRef t).
 (intros Hcontra).
-(destruct Hcontra as [Hsem1 Hsem2]).
-specialize (Hsem1 1).
-(destruct Hsem1 as [w2 Hsem1]).
-(assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
-Unset Silent.
-specialize (Hsem1 _ Hm).
+Show.
 Set Printing Width 148.
+Set Silent.
+(pose proof (Hsem1 1) as Hm1).
+Unset Silent.
+(destruct Hm1 as [w2 Hm1]).
+(assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hm1 _ Hm).
