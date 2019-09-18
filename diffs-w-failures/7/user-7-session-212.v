@@ -62,5 +62,44 @@ Set Silent.
 Lemma free_union__inv : forall (X : id) (fvs1 fvs2 : id_set), free X (IdSet.union fvs1 fvs2) -> free X fvs1 \/ free X fvs2.
 Set Printing Width 148.
 (intros X fvs1 fvs2).
+Set Printing Width 148.
+Set Silent.
 (unfold free).
+Unset Silent.
 (apply IdSetFacts.union_1).
+Show.
+Qed.
+Set Silent.
+Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_f_free_in_ty).
+Qed.
+Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TPair t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_b_free_in_ty).
+Qed.
+Lemma not_f_free_in_ty_union__inv :
+  forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TUnion t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_f_free_in_ty).
+Qed.
+Lemma not_b_free_in_ty_union__inv :
+  forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TUnion t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_b_free_in_ty).
+Qed.
+Lemma not_f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), not_f_free_in_ty X (TExist Y t) -> not_f_free_in_ty X t.
+Proof.
+(unfold not_f_free_in_ty, not_free).
+(intros X Y t HX Hcontra).
+(simpl in HX).
+contradiction.
+Qed.
+Lemma f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), f_free_in_ty X (TExist Y t) -> f_free_in_ty X t.
+Proof.
+(unfold f_free_in_ty, free).
+(intros X Y t HX).
+(simpl in HX).
+assumption.
+Qed.
+Lemma free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TPair t1 t2) -> free_in_ty X t1 \/ free_in_ty X t2.
