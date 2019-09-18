@@ -22,60 +22,41 @@ Unset Silent.
 (induction w; induction t; intros v Hm).
 Set Silent.
 -
-exists (TCName c).
-(apply match_ty_cname).
--
-Set Printing Width 148.
-Set Printing Width 148.
-(rewrite subst_pair in *).
 Show.
+Set Printing Width 148.
+(exists v; assumption).
 Set Silent.
+-
+(rewrite subst_pair in *).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (destruct (IHt1 _ Hm1) as [v1' Hm1']).
 (destruct (IHt2 _ Hm2) as [v2' Hm2']).
 exists (TPair v1' v2').
-Unset Silent.
 (apply match_ty_pair; assumption).
-Set Silent.
 -
-Unset Silent.
 (rewrite subst_union in *).
-Set Silent.
 (apply match_ty_union__inv in Hm).
-Unset Silent.
 (destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
-Set Silent.
 -
-Unset Silent.
-Show.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
-Set Printing Width 148.
-Set Printing Width 148.
 (destruct (beq_idP X i)).
 +
 subst.
 exists (TEV X').
-Show.
-Set Printing Width 148.
-Show.
-Show.
 (simpl).
 (rewrite <- beq_id_refl).
 reflexivity.
 +
 exists v.
-Set Printing Width 148.
 (simpl in *).
-Check beq_id_false_iff.
-Print "<->".
-Print "/\".
-Set Printing Width 148.
-Set Printing Width 148.
 (destruct (beq_id_false_iff X i) as [_ Hid]).
 specialize (Hid n).
 (rewrite Hid in *).
 assumption.
+-
+Unset Silent.
+(exists v; assumption).
 -
