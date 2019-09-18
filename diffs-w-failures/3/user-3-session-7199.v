@@ -699,4 +699,18 @@ Show.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @nodup.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-autorewrite with upd in *.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_eq.
+Timeout 1 Check @diskUpd_eq.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(rewrite diskUpd_eq in H2).
