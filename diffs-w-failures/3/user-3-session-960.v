@@ -307,4 +307,4 @@ Timeout 1 Check @sigT_eq_dec.
 Print EqualDec.
 Print EqDecision.
 Timeout 1 Check @sigT_eq_dec.
-(destruct (decide (x = x1))).
+(destruct (decide (x0 = x1))).
