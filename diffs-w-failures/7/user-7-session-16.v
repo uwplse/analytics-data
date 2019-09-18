@@ -423,4 +423,4 @@ Show.
 Set Silent.
 +
 Unset Silent.
-(destruct (IHta1 t2_1) as [IH1| IH1]; destruct (IHta2 t2_2) as [IH2| IH2]).
+(destruct (IHta1 t'1) as [IH1| IH1]; destruct (IHta2 t'2) as [IH2| IH2]).
