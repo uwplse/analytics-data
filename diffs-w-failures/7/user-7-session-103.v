@@ -24,4 +24,5 @@ Set Silent.
 Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t1 -> |-[ k, w] v <$ TUnion t1 t2.
 Proof.
 Set Printing Width 148.
-(destruct v, k, w; left; assumption).
+Set Printing Width 148.
+(destruct k, w, v; left; assumption).
