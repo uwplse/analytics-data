@@ -319,4 +319,23 @@ Timeout 1 Check @sig.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(destruct a0 as [_ bs]; simpl in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(destruct a0 as [_ bs]; simpl in *; intuition eauto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+(descend; intuition eauto).
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+(descend; intuition eauto).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+autorewrite with disk.
