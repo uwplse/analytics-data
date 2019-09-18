@@ -265,5 +265,8 @@ Proof.
 Set Printing Width 148.
 (apply sem_sub_k__i__trans with t; try assumption).
 Set Printing Width 148.
-(pose proof (match_ty_i_nf k t) as Heq).
+Set Printing Width 148.
+(pose proof (match_ty_i_nf k t) as H).
+Show.
+auto with DBBetaJulia.
 Show.
