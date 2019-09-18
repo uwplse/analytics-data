@@ -219,4 +219,7 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction t; intros w k v Hm w').
+Set Printing Width 148.
+(induction t; intros w k v Hm w' Hle).
+-
+(apply match_ty_cname__inv in Hm).
