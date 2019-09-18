@@ -108,6 +108,7 @@ Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @N.lbase.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
@@ -116,5 +117,6 @@ Function
    | _ =>
        let base := base_m2 in
        let digit := x mod base in
-       exist (fun x => x < base) digit _ :: nat_to_le base (x / base)
+       exist (fun x => x < S (S base_m2)) digit _
+       :: nat_to_le base (x / base)
    end.
