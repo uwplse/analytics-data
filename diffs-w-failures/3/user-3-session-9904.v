@@ -101,4 +101,10 @@ Set Printing Width 78.
 Show.
 step_proc.
 (destruct a'; simpl in *; intuition).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition.
