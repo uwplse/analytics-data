@@ -52,4 +52,5 @@ Unset Silent.
 Show.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
-(simpl in Hm).
+Set Printing Width 148.
+(destruct (beq_idP X i)).
