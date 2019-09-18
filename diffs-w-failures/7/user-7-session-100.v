@@ -23,3 +23,25 @@ Unset Silent.
 Proof.
 (intros v1 v2 t1 t2 w k Hm1 Hm2).
 (destruct k; split; assumption).
+(destruct w; destruct k; split; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_union_1 : forall (v t1 t2 : ty) (w k : nat), |-[ w, k] v <$ t1 -> |-[ w, k] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 w k Hm).
+Unset Silent.
+(destruct w; destruct k; destruct v; left; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_union_2 : forall (v t1 t2 : ty) (w k : nat), |-[ w, k] v <$ t2 -> |-[ w, k] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 w k Hm).
+Unset Silent.
+(destruct w; destruct k; destruct v; right; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (w k : nat), (exists tx : ty, |-[ w, k] v <$ [X := tx] t) -> |-[ S w, k] v <$ TExist X t.
+Unset Silent.
+Proof.
+(intros v X t w k Hex).
+(destruct v; assumption).
