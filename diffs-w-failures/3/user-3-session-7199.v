@@ -350,4 +350,12 @@ Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_oob_noop.
 Timeout 1 Check @diskUpd_oob_noop.
 Timeout 1 Check @diskUpd_oob_noop.
-(rewrite diskUpd_oob_noop).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(rewrite diskUpd_oob_noop; eauto).
+Timeout 1 Check @split.
+lia.
