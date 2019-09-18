@@ -110,4 +110,4 @@ Set Silent.
 (apply match_ty_pair__inv in Hcontra).
 Unset Silent.
 (inversion Hcontra).
--
+Show.
