@@ -251,4 +251,5 @@ Set Silent.
 Unset Silent.
 Show.
 Set Printing Width 148.
-(split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub).
+Set Printing Width 148.
+(split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
