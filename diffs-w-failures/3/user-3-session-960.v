@@ -19,8 +19,22 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Print LoadPath.
+Set Printing Width 78.
+From Coq Require Import FunInd Recdef.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0iIh4K"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPaL2mC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 Set Silent.
-From Coq Require Import FunInd.
 From Classes Require Import EqualDec.
 From RecordUpdate Require Import RecordUpdate.
 From stdpp Require Import decidable countable.
@@ -72,22 +86,6 @@ Class GoModel : Type :={byte : Type;
 Opaque Nat.modulo Nat.div.
 #[local]Obligation Tactic := (intros; simpl; subst).
 Unset Silent.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqPxOPl"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqa30jLs"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @map_filter.
-Timeout 1 Check @lt_wf.
-Timeout 1 Check @map_filter.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @applicative_ap.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @fun_map.
 Function
  nat_to_le base (x : nat) {wf lt x} : list {x : nat | x < S (S base)} :=
    match x with
@@ -97,3 +95,13 @@ Function
        exist (fun x => x < S (S base)) digit _
        :: nat_to_le base (x / S (S base))
    end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzFl6bk"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqXJczSx"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
