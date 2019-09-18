@@ -449,4 +449,12 @@ Set Printing Width 148.
 assumption.
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
+(apply match_ty_i_ref__inv in Hm).
+Unset Silent.
+(destruct Hm as [t' [Heq Href]]; subst).
 (destruct k').
+constructor.
+(apply le_S_n in Hle).
+(simpl).
