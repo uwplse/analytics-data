@@ -47,19 +47,21 @@ Theorem mk_nf__sem_eq_k : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
 Proof.
 (apply match_ty_nf).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma mk_nf__sem_sub_k_l : forall (k : nat) (t : ty), ||-[ k][MkNF( t)]<= [t].
 Proof.
 (intros k t).
 (apply sem_eq_k__sem_sub_k).
 (apply mk_nf__sem_eq_k).
+Unset Silent.
 Qed.
+Set Silent.
 Lemma mk_nf__sem_sub_k_r : forall (k : nat) (t : ty), ||-[ k][t]<= [MkNF( t)].
 Proof.
 (intros k t).
-Show.
-Set Printing Width 148.
 (apply sem_eq_k__sem_sub_k).
-Show.
 (apply sem_eq_k__comm).
 (apply mk_nf__sem_eq_k).
+Unset Silent.
 Qed.
