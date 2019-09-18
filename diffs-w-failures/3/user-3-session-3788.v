@@ -67,37 +67,8 @@ Timeout 1 Check @AProc.
 Timeout 1 Check @AProc.
 Timeout 1 Check @AProc.
 Set Printing Width 78.
-Definition change_marker {T} (p : proc T) (m : ProcMarker p) 
-  T' (p' : proc T') : ProcMarker p' := AProc p'.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQ44Ckq"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJfOnWD"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Theorem swapXY_ok :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := True;
-     post := fun r state' =>
-             state' = mkState (StateY state) (StateX state) (StateZ state);
-     recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
-Proof.
-(match goal with
- | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
- end).
-(unfold swapXY).
-monad_simpl.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @change_marker.
-Timeout 1 Check @change_marker.
-Timeout 1 Check @change_marker.
-Timeout 1 Check @change_marker.
-(match goal with
- | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
- end).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Definition change_marker {m : ProcMarker T p} {T'} 
+  (p' : proc T') : ProcMarker p' := AProc p'.
