@@ -166,83 +166,15 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @repeat_length.
 Timeout 1 Check @repeat_length.
 Timeout 1 Check @repeat_length.
-Theorem get_len_ok :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := True;
-     post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len d.recover abstr.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
+Lemma abstr_get_len :
+  forall (bs : list block) (state : State),
+  log_abstraction state bs ->
+  forall r : block,
+  diskGet state len_addr =?= r -> block_to_addr r = length bs.
 Proof.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_len.
-Timeout 1 Check @get_len.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold get_len; intros).
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-(apply spec_abstraction_compose).
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-step_proc.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
-Timeout 1 Check @spec_abstraction_compose.
-step_proc.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
-intuition eauto.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(eexists; intuition eauto).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Show.
-Timeout 1 Show.
-Unset Silent.
-Set Diffs "off".
+(intros bs state H0 r H1).
