@@ -121,5 +121,8 @@ Set Printing Width 148.
 {
 Show.
 Set Printing Width 148.
+Show.
+Set Printing Width 148.
+(apply match_ty_exist).
 exists tint.
 (simpl).
