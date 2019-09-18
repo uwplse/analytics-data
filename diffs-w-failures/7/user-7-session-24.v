@@ -4,6 +4,7 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -45,8 +46,6 @@ Hint Constructors value_type: DBBetaJulia.
 Declare Scope btjm_scope.
 Delimit Scope btjm_scope with btjm.
 Open Scope btjm.
-Set Printing Width 148.
-Set Silent.
 Reserved Notation "'|-[' k ']' v '<$' t" (at level 40).
 Fixpoint match_ty (k : nat) :=
   fix mty (v : ty) :=
@@ -59,10 +58,6 @@ Fixpoint match_ty (k : nat) :=
       | _, _, _ => False
       end
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
 Definition sem_sub_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 -> |-[ k] v <$ t2.
 Notation "'||-[' k ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_k k t1 t2) (at level 45) : btjm_scope.
 Definition sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> |-[ k] v <$ t2.
@@ -72,7 +67,6 @@ Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : b
 Definition sem_eq (t1 t2 : ty) := forall k : nat, ||-[ k][t1]= [t2].
 Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
 Hint Unfold sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
-Unset Silent.
 Inductive atom_type : ty -> Prop :=
   | AT_CName : forall c : cname, atom_type (TCName c)
   | AT_Pair : forall ta1 ta2 : ty, atom_type ta1 -> atom_type ta2 -> atom_type (TPair ta1 ta2)
@@ -80,7 +74,6 @@ Inductive atom_type : ty -> Prop :=
 with in_nf : ty -> Prop :=
   | NF_Atom : forall ta : ty, atom_type ta -> in_nf ta
   | NF_Union : forall t1 t2 : ty, in_nf t1 -> in_nf t2 -> in_nf (TUnion t1 t2).
-Set Silent.
 Scheme atom_type_mut := Induction for atom_type Sort Prop
   with in_nf_mut := Induction for in_nf Sort Prop.
 Declare Scope btjnf_scope.
@@ -133,24 +126,11 @@ Fixpoint mk_nf (t : ty) :=
   | TUnion t1 t2 => TUnion (mk_nf t1) (mk_nf t2)
   | TRef t' => TRef (mk_nf t')
   end.
-Unset Silent.
 Notation "'MkNF(' t ')'" := (mk_nf t) (at level 30) : btjnf_scope.
-Set Silent.
 Declare Scope btjd_scope.
 Delimit Scope btjd_scope with btjd.
 Open Scope btjd.
 Reserved Notation "'|-' t1 '<<' t2" (at level 50).
-Inductive sub_d : ty -> ty -> Prop :=
-  | SD_Refl : forall t, |- t << t
-  | SD_Trans : forall t1 t2 t3, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3
-  | SD_Pair : forall t1 t2 t1' t2', |- t1 << t1' -> |- t2 << t2' -> |- TPair t1 t2 << TPair t1' t2'
-  | SD_UnionL : forall t1 t2 t, |- t1 << t -> |- t2 << t -> |- TUnion t1 t2 << t
-  | SD_UnionR1 : forall t1 t2, |- t1 << TUnion t1 t2
-  | SD_UnionR2 : forall t1 t2, |- t2 << TUnion t1 t2
-  | SD_Distr1 : forall t11 t12 t2, |- TPair (TUnion t11 t12) t2 << TUnion (TPair t11 t2) (TPair t12 t2)
-  | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
-  | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
- where "|- t1 '<<' t2" := (sub_d t1 t2) : btj_scope.
 Unset Silent.
 Inductive sub_d : ty -> ty -> Prop :=
   | SD_Refl : forall t, |- t << t
@@ -163,3 +143,11 @@ Inductive sub_d : ty -> ty -> Prop :=
   | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
   | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
  where "|- t1 '<<' t2" := (sub_d t1 t2) : btjd_scope.
+Hint Constructors sub_d: DBBetaJulia.
+Set Silent.
+Lemma union_right_1 : forall t t1 t2 : ty, |- t << t1 -> |- t << TUnion t1 t2.
+Unset Silent.
+Proof.
+Show.
+auto with DBBetaJulia.
+Show.
