@@ -70,5 +70,5 @@ Set Silent.
 Unset Silent.
 (simpl in Hm).
 exists v.
-auto.
-Show.
+Set Printing Width 148.
+(split; auto).
