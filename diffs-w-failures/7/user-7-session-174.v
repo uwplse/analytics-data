@@ -89,15 +89,16 @@ assumption.
 Qed.
 Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
 Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
+Set Silent.
+Definition foo (t : ty) := TExist vX t.
+Unset Silent.
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
    | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
-   | TExist y t' => t
+   | TExist y t' => foo (subst x s t')
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
@@ -123,10 +124,5 @@ Omega.omega.
 (simpl).
 Unset Silent.
 Omega.omega.
-Set Silent.
 -
-(apply (well_founded_lt_compat ty size)).
 (intros).
-Unset Silent.
-tauto.
-Defined.
