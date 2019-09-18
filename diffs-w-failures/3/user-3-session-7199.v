@@ -470,4 +470,11 @@ Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 (unfold log_contents_ok; intros).
 Timeout 1 Check @spec_abstraction_compose.
-specialize (H a).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Set Printing Width 78.
+Show.
+(apply H).
