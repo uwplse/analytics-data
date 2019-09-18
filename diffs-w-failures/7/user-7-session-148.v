@@ -99,8 +99,4 @@ tauto.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(induction t').
-+
-Set Printing Width 148.
-Check match_ty__exists_w_v.
 Show.
