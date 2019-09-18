@@ -636,4 +636,27 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+(destruct c; simpl).
 (rewrite Ascii.ascii_nat_embedding; auto).
+-
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @ascii_to_byte.
+Timeout 1 Check @byte.
+Timeout 1 Check @byte.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
+(unfold ascii_to_byte, byte_to_ascii).
+Timeout 1 Check @bounded_to_ascii.
