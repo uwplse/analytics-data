@@ -567,7 +567,11 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite ?app_length in *; simpl in *).
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @nodup.
-autorewrite with upd.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+autorewrite with upd in *.
