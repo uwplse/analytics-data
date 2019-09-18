@@ -293,4 +293,8 @@ Set Diffs "off".
 Timeout 1 Check @repeat_length.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (step_proc; intuition; eauto).
