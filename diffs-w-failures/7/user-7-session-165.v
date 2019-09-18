@@ -96,6 +96,9 @@ reflexivity.
 reflexivity.
 -
 (destruct (beq_idP X i); try reflexivity).
-(rewrite IHt).
-Unset Silent.
 Show.
+Search -IdSet.mem.
+Set Printing Width 148.
+(destruct (IdSet.mem i (IdSet.singleton X))).
+Show.
++
