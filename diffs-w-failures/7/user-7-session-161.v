@@ -121,7 +121,4 @@ Unset Silent.
 (rewrite subst_neq__permute in IHw').
 Show.
 Show.
-exists ti.
-assumption.
-assumption.
 Show.
