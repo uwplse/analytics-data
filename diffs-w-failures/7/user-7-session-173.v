@@ -105,8 +105,5 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
--
-(intros).
-(simpl).
-Omega.omega.
--
+Set Printing Width 148.
+(repeat (intros; simpl; Omega.omega)).
