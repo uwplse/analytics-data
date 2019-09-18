@@ -78,4 +78,4 @@ Set Silent.
 (simpl).
 Unset Silent.
 Show.
-(rewrite IHtt1).
+(rewrite IHt1).
