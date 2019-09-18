@@ -582,4 +582,12 @@ intuition.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
+{
 (descend; intuition eauto).
+Unset Silent.
+}
