@@ -222,15 +222,4 @@ Proof.
            destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl;
             apply Nat.max_le_compat; auto
      end ])).
--
-(destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]).
-Unset Silent.
-(destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
-SearchPattern (Nat.max _ _ <= _).
 Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-(rewrite inv_depth_union).
-Set Printing Width 148.
-(apply Nat.max_lub; auto).
