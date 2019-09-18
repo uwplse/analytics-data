@@ -36,6 +36,8 @@ Proof.
 (apply fresh_union__inv in Hfresh).
 assumption.
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma subst_pair : forall (X : id) (s t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
 Proof.
 (intros; reflexivity).
@@ -44,30 +46,27 @@ Lemma subst_union : forall (X : id) (s t1 t2 : ty), [X := s] TUnion t1 t2 = TUni
 Proof.
 (intros; reflexivity).
 Qed.
-Unset Silent.
 Lemma subst_var_eq : forall (X : id) (s : ty), [X := s] TVar X = s.
-Set Silent.
 Proof.
-(intros; reflexivity).
-Set Printing Width 148.
-Set Silent.
 (intros).
-Unset Silent.
 (simpl).
 (rewrite <- beq_id_refl).
 reflexivity.
 Qed.
-Set Silent.
 Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [X := s] TVar Y = TVar Y.
-Unset Silent.
 Proof.
-Set Printing Width 148.
-Set Printing Width 148.
 (intros X s Y Hneq).
-Set Printing Width 148.
 (destruct (beq_id_false_iff X Y) as [_ Hid]).
 specialize (Hid Hneq).
 (simpl).
 (rewrite Hid).
+reflexivity.
+Qed.
+Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
+Unset Silent.
+Proof.
+(intros).
+(simpl).
+(rewrite <- beq_id_refl).
 reflexivity.
 Qed.
