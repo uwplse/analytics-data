@@ -148,9 +148,9 @@ Set Printing Width 148.
 Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [X := tint] t.
 Proof.
 Set Printing Width 148.
-(intros X; induction w; induction t; intros v).
-Show.
 Set Printing Width 148.
-exists v.
+(intros X; induction w; induction t; intros v; try (solve [ intros Hm; exists v; assumption ])).
 Show.
-assumption.
+-
+(intros Hm).
+(apply match_ty_piar__inv in Hm).
