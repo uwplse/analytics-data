@@ -70,6 +70,6 @@ Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k
 Proof.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros v; induction v).
--
-(intros X t k Hm).
+Show.
+Set Printing Width 148.
+(intros v X t k).
