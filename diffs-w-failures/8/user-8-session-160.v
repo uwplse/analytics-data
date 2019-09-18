@@ -188,20 +188,25 @@ Ltac
           rewrite <- (Mplus_assoc _ _ a (c .* \226\136\163 x', y' \226\159\169) (b .* \226\136\163 x, y \226\159\169))
    end.
 Local Close Scope nat_scope.
+Unset Silent.
+Set Printing Width 85.
 Ltac
  ket_eq_solver :=
   intros; autorewrite with ket_db C_db;
    try
     match goal with
-    | |- ?a .* \226\136\163 0 \226\159\169 .+ ?b .* \226\136\163 1 \226\159\169 = ?a' .* \226\136\163 0 \226\159\169 .+ ?b' .* \226\136\163 1 \226\159\169 =>
+    | |- ?a .* \226\136\163 0 \226\159\169 .+ ?b .* \226\136\163 1 \226\159\169 == ?a' .* \226\136\163 0 \226\159\169 .+ ?b' .* \226\136\163 1 \226\159\169 =>
           replace a with a' by lca; replace b with b' by lca; reflexivity
     end.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqtSuoPp"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Lemma XYZ :
   forall \206\177 \206\178,
   - Ci .* \207\131x \195\151 \207\131y \195\151 \207\131z \195\151 (\206\177 .* \226\136\163 0 \226\159\169 .+ \206\178 .* \226\136\163 1 \226\159\169) == \206\177 .* \226\136\163 0 \226\159\169 .+ \206\178 .* \226\136\163 1 \226\159\169.
 Proof.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 ket_eq_solver.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqQhoXpv"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
