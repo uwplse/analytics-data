@@ -9,4 +9,4 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 68.
 Set Silent.
 Require Import POCS.
-Require Import LogAPI.
+Unset Silent.
