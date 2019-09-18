@@ -149,37 +149,6 @@ congruence.
 (exfalso; lia).
 Qed.
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Require Coq.Strings.String.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqot3uNH"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq80EmUs"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Import Coq.Strings.String.StringSyntax.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqN2HmKo"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDsHa6D"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
-Set Silent.
-Set Silent.
-Proof.
 Unset Silent.
-(eapply then_init_compose; eauto).
-step.
-(destruct (lt_dec r 1)).
--
-step.
+Set Diffs "off".
+Timeout 1 Check @Exc.
