@@ -54,4 +54,4 @@ Notation "d [ a |-> b ]" := (diskUpd d a b) (at level 8, left associativity).
 Notation "d [ a |=> bs ]" := (diskUpds d a bs)
   (at level 8, left associativity).
 Unset Silent.
-Opaque diskGet.
+Set Diffs "off".
