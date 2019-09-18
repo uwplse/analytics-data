@@ -307,8 +307,14 @@ Theorem log_abstraction_nil d b :
   diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
 Proof.
 (unfold log_abstraction; intros).
-split.
--
-eauto using log_length_ok_nil.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+intuition.
+-
+eauto using log_length_ok_nil.
+-
+Timeout 1 Check @sig.
+(simpl).
