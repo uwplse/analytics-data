@@ -555,5 +555,43 @@ Timeout 1 Check @spec_abstraction_compose.
 {
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @spec_abstraction_compose.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 68.
+Show.
+(exists (bs ++ v); intuition eauto).
+}
+-
+step.
+intuition eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqONgM8Z"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Set Silent.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+(unfold reset; intros).
+(apply spec_abstraction_compose).
+step.
+(destruct a' as [[] bs]; simpl in *).
+intuition.
+Unset Silent.
+{
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @spec_abstraction_compose.
 (exists bs; intuition eauto).
 }
+step.
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
