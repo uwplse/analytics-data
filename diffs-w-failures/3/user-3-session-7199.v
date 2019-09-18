@@ -132,25 +132,30 @@ Proof.
 auto.
 Qed.
 Hint Resolve abstr_get_len: core.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Theorem get_len_ok :
   proc_spec
     (fun (_ : unit) state =>
      {|
      pre := True;
      post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len d.recover abstr.
+     recovered := fun _ state' => state' = state |}) get_len recover abstr.
 Proof.
 (unfold get_len; intros).
 (apply spec_abstraction_compose).
 step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
+Set Silent.
 step_proc.
 intuition eauto.
 (eexists; intuition eauto).
+Unset Silent.
 Qed.
 Hint Resolve get_len_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 (unfold get; intros).
-Unset Silent.
-Set Diffs "off".
+(apply spec_abstraction_compose; simpl).
+step_proc.
