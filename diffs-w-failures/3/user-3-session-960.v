@@ -763,4 +763,5 @@ typeclasses eauto.
 Timeout 1 Check @empty.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
 (simpl).
-typeclasses eauto.
+Timeout 1 Check @bounded_to_ascii.
+decide equality.
