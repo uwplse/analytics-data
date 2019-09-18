@@ -256,4 +256,7 @@ specialize (Hsem _ Hm).
 Unset Silent.
 (simpl in Hsem).
 (intros v' Hv').
-auto.
+Show.
+Set Printing Width 148.
+specialize (Hsem v').
+tauto.
