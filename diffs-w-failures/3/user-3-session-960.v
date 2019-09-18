@@ -171,27 +171,8 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Check @byte.
-Fixpoint nat_to_le (x : nat) : list byte_nat.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @gt.
-Timeout 1 Check @gt_dec.
-Timeout 1 Check @gt_dec.
-Timeout 1 Check @gt_dec.
-Timeout 1 Check @Byte.x25.
-Timeout 1 Check @nat_ind.
-Timeout 1 Check @eq_nat_eq.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @nil.
-Timeout 1 Check @Byte.x25.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @Byte.x25.
-Timeout 1 Check @gen.
-Timeout 1 Check @sumor.
-refine match x with
-       | 0 => nil
-       | _ => _
-       end.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @FinMapToList.
+Set Printing Width 78.
+#[program]Fixpoint nat_to_le (x : nat) : list byte_nat.
