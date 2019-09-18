@@ -353,4 +353,6 @@ Set Printing Width 148.
 (subst; left; constructor).
 *
 right.
-(intros Hcontra; inversion Hcontra).
+Set Printing Width 148.
+(intros Hcontra; inversion Hcontra; subst).
+contradiction.
