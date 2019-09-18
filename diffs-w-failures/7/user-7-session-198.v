@@ -92,4 +92,14 @@ Proof.
 reflexivity.
 Qed.
 Set Silent.
-Lemma b_subst_bvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [BX := s] TVar Y = TVar Y.
+Lemma b_subst_bvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [BX := s] TBVar Y = TBVar Y.
+Unset Silent.
+Proof.
+(intros X s Y Hneq).
+(simpl).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
+(simpl).
+(rewrite Hid).
+reflexivity.
+Qed.
