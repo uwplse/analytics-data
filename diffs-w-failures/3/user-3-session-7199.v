@@ -186,6 +186,16 @@ eauto using log_length_ok_nil.
 {
 (apply disk_oob_eq).
 (simpl; lia).
-}
 Unset Silent.
-congruence.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+}
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
