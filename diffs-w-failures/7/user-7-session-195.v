@@ -149,10 +149,7 @@ Set Silent.
 (destruct w; reflexivity).
 Unset Silent.
 Qed.
-Set Silent.
-Lemma match_ty__ge_w : forall (w : nat) (t : ty) (v : ty), |-[ w] v <$ t -> forall w' : nat, w <= w' -> |-[ w'] v <$ t.
-Proof.
-Unset Silent.
+Set Printing Width 148.
 (induction w; induction t; intros v Hm w' Hle;
   try
    match goal with
@@ -161,11 +158,8 @@ Unset Silent.
          apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto
    | |- |-[ _] _ <$ TUnion _ _ =>
          apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto
+   | |- |-[ _] _ <$ TBVar _ => apply match_ty_bvar__inv in Hm; contradiction
    | |- |-[ _] _ <$ TFVar _ => apply match_ty_fvar__inv in Hm; subst; apply match_ty_var
    | |- |-[ _] _ <$ TEV _ => apply match_ty_ev__inv in Hm; subst; apply match_ty_ev
    end).
-Set Silent.
--
-Unset Silent.
-(apply match_ty_exist__0_inv in Hm; contradiction).
--
+Show.
