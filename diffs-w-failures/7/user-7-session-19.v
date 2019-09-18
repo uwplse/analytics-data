@@ -442,4 +442,11 @@ Set Printing Width 148.
 -
 Show.
 clear IHt.
-(pose proof (match_ty_i_ref__weak_inv _ _ _ Hm)).
+Show.
+Set Printing Width 148.
+(destruct k).
+(destruct k'; inversion Hle).
+assumption.
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(destruct (Nat.le_decidable (| t |) k')).
