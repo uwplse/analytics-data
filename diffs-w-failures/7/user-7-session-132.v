@@ -110,4 +110,8 @@ Set Printing Width 148.
 (apply match_ty_ref).
 Show.
 Set Printing Width 148.
-(apply sem_eq_k__trans with t; assumption).
+(apply sem_eq_k__trans with t).
+Show.
+assumption.
+Show.
+Show.
