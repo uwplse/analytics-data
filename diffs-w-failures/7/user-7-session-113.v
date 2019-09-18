@@ -19,4 +19,5 @@ Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
 Unset Silent.
-Lemma subs_neq__permute : forall X Y : id, X <> Y -> forall t s1 s2 : ty, t = t.
+Set Printing Width 148.
+Lemma subs_neq__permute : forall X Y : id, X <> Y -> forall t s1 s2 : ty, [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
