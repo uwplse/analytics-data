@@ -53,93 +53,57 @@ clear IHv.
 (intros t k Hm).
 (simpl in Hm).
 (exists v; auto).
-Qed.
+Set Printing Width 148.
 Set Silent.
-Lemma match_ty__value_type : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
-Unset Silent.
+Lemma match_ty__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
 Proof.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
 (intros v t).
 generalize dependent v.
-Unset Silent.
 (induction t; intros v k Hm).
-Set Silent.
 -
-Unset Silent.
 (apply match_ty_cname__inv in Hm; subst).
 constructor.
 -
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-Set Printing Width 148.
-Set Printing Width 148.
 (constructor; eauto).
-Set Silent.
 -
 (apply match_ty_union__inv in Hm).
-Unset Silent.
 (destruct Hm; eauto).
-Set Silent.
 -
-Unset Silent.
-Show.
 (destruct k).
 (destruct v; contradiction).
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq _]]; subst).
 constructor.
+Unset Silent.
 Qed.
 Set Silent.
 Lemma match_ty__inv_depth_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> | v | <= k /\ | v | <= | t |.
 Proof.
 (intros v; induction v).
 -
-Unset Silent.
-Show.
 (intros t k Hm).
 (simpl).
 (split; apply Nat.le_0_l).
 -
-Show.
-Set Printing Width 148.
 (intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction ])).
-Set Silent.
 +
-Unset Silent.
 clear IHt1 IHt2.
 (apply match_ty_pair__inv in Hm).
-Set Printing Width 148.
 (destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]).
 (inversion Heq; subst).
 (simpl).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
 (specialize (IHv1 _ _ Hm1); specialize (IHv2 _ _ Hm2)).
 split.
 (apply Nat.max_lub; tauto).
-Unset Silent.
 (apply Nat.max_le_compat; tauto).
-Set Silent.
 +
-Unset Silent.
-Set Silent.
 clear IHv1 IHv2.
-Unset Silent.
 (apply match_ty_union__inv in Hm).
-Set Printing Width 148.
 (destruct Hm as [Hm| Hm]; [ specialize (IHt1 _ Hm) | specialize (IHt2 _ Hm) ]; split; try tauto; rewrite inv_depth_union;
   [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; try tauto; apply Max.le_max_l || apply Max.le_max_r).
-Set Silent.
 -
-Unset Silent.
 (intros t k Hm).
-(apply match_ty__value_type in Hm).
+Unset Silent.
+(apply match_ty__value_type_l in Hm).
