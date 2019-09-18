@@ -148,6 +148,7 @@ Show.
 Show.
 *
 Set Silent.
-(apply match_ty_union__inv in Hm').
-Unset Silent.
+Set Printing Width 148.
 (destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+*
+Show.
