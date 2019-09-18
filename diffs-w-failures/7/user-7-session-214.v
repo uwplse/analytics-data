@@ -253,5 +253,6 @@ Unset Silent.
 (rewrite b_subst_pair).
 (destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
 Set Printing Width 148.
-(destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
 Show.
+Set Printing Width 148.
+(unfold f_free_in_ty).
