@@ -101,4 +101,8 @@ Set Silent.
 Proof.
 Unset Silent.
 (intros X s Y t).
-(destruct (beq_idPX Y)).
+(destruct (beq_idP X Y)).
+-
+subst.
+exists Y,t.
+(rewrite subst_eq_id).
