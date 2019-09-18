@@ -163,4 +163,5 @@ Show.
 Set Silent.
 exfalso.
 (apply HX').
-(apply IdSetFacts.singleton_2).
+Unset Silent.
+Show.
