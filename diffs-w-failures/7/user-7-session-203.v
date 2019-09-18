@@ -217,7 +217,23 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (destruct IHt1 as [IHt1| [w1 [v1 IHt1]]]; destruct IHt2 as [IHt2| [w2 [v2 IHt2]]];
-  try (solve [ left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; exfalso; eauto ])).
+  try (solve [ left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1' [v2' [Heq [Hm1' Hm2']]]]; subst; exfalso; eauto ])).
+Show.
+Set Silent.
+right.
+Unset Silent.
+exists (Nat.max w1 w2),(TPair v1 v2).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
+Set Silent.
+(apply Nat.le_max_l).
+Unset Silent.
+(apply Nat.le_max_r).
+Set Silent.
+-
+Unset Silent.
+Show.
+(destruct IHt1 as [IHt1| [w1 [v1 IHt1]]]; destruct IHt2 as [IHt2| [w2 [v2 IHt2]]]).
 +
-(left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+(left; intros w v Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]).
