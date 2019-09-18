@@ -116,4 +116,5 @@ Timeout 1 Check @pretty.pretty.
 Timeout 1 Check @pretty.pretty.
 Timeout 1 Check @pretty.pretty.
 Timeout 1 Check @pretty.pretty.
-Print pretty.pretty.
+Unset Silent.
+Set Diffs "off".
