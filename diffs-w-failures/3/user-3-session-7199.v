@@ -335,4 +335,11 @@ Set Printing Width 78.
 Show.
 (unfold log_size_ok).
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+(unfold diskSize).
