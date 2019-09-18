@@ -26,22 +26,4 @@ Lemma ket1_equiv : \226\136\1631\226\159\169 = ket 1.
 Proof.
 reflexivity.
 Qed.
-Lemma bra0ket0 : bra 0 \195\151 ket 0 = I 1.
-Proof.
 Unset Silent.
-Show.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq1NRMuL"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-lma.
