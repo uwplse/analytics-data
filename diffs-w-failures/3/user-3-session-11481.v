@@ -50,4 +50,8 @@ Theorem incX_test :
      recovered := fun _ state' => False |}) incX vars.recover vars.abstr.
 Proof.
 (unfold incX).
-step_proc.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+step_proc_basic.
