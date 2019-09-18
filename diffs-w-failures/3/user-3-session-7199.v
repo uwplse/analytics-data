@@ -657,4 +657,9 @@ Set Printing Width 78.
 Show.
 (assert (a = 0) by lia; subst).
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Set Printing Width 78.
+Show.
+reflexivity.
