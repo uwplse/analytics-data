@@ -251,13 +251,50 @@ Qed.
 Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
 Proof.
 (intros; split; tauto).
-Qed.
-Lemma sem_eq__comm : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t2]= [t1].
-Proof.
-(intros k t1 t2 Hsem).
-Unset Silent.
+Set Printing Width 148.
+(intros t1 t2 Hsem).
 (unfold sem_eq in *).
+Show.
+(intros k v).
+specialize (Hsem k v).
+tauto.
+Qed.
 Set Silent.
-(intros v).
+Lemma sem_eq__trans : forall t1 t2 t3 : ty, ||- [t1]= [t2] -> ||- [t2]= [t3] -> ||- [t1]= [t3].
+Proof.
+(intros t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq in *).
+(intros k v).
+specialize (Hsem1 k v).
+specialize (Hsem2 k v).
+tauto.
 Unset Silent.
-specialize (Hsem v).
+Qed.
+Set Silent.
+Lemma sem_eq__sem_sub : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t1]<= [t2] /\ ||- [t2]<= [t1].
+Proof.
+(intros t1 t2 Hsem).
+(unfold sem_eq in *).
+Unset Silent.
+(split; intros k v; specialize (Hsem k v); tauto).
+Qed.
+Set Silent.
+Lemma sem_eq__sem_sub_1 : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t1]<= [t2].
+Proof.
+(apply sem_eq__sem_sub).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sem_eq__sem_sub_2 : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t2]<= [t1].
+Proof.
+(apply sem_eq__sem_sub).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sem_sub_k_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
+Proof.
+(intros k t1 t2 t' Hsem).
+Unset Silent.
+(unfold sem_sub_k in Hsem).
+(split; intros v Hv Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_union_1 || apply match_ty_union_2; assumption); apply Hsem;
+  assumption).
