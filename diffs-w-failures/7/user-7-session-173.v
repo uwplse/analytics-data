@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -11,9 +12,7 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Require Import Coq.Program.Wf.
-Set Printing Width 148.
 Require Import Recdef.
-Set Silent.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -91,7 +90,6 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Unset Silent.
-Set Printing Width 148.
 Function
  subst (x : id) (s t : ty) {measure size t} : ty :=
    match t with
@@ -105,9 +103,6 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 Set Silent.
 -
 (intros).
@@ -121,14 +116,11 @@ Omega.omega.
 (intros).
 (simpl).
 Omega.omega.
-Unset Silent.
 -
-Set Silent.
 (intros).
 (simpl).
-Unset Silent.
 Omega.omega.
-Set Printing Width 148.
+-
 (intros).
 (simpl).
 (rewrite rename__size).
@@ -136,8 +128,6 @@ Omega.omega.
 -
 (intros).
 (simpl).
-Omega.omega.
-Show.
-Set Silent.
 Unset Silent.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
+Omega.omega.
+Qed.
