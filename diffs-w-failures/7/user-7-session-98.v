@@ -157,4 +157,4 @@ Set Printing Width 148.
 Show.
 assumption.
 Qed.
-Show.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [Exist vY (TRef (TRef tY))].
