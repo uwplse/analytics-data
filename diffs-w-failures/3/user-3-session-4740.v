@@ -35,4 +35,8 @@ Set Diffs "off".
 Timeout 1 Check @Byte.x10.
 Set Printing Width 69.
 Notation "a === b" := (a = b) (at level 100).
-Check 1 + 2 + 3 + 4 + 5 === 6 + 7 + 8 + 9.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @and.
+Timeout 1 Check @Byte.x10.
+Timeout 1 Check @aReallyBigIdentifier.
