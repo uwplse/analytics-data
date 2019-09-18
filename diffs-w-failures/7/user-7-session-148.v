@@ -82,4 +82,4 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(apply sem_sub__trans with (TCName c); try assumption).
+Unset Silent.
