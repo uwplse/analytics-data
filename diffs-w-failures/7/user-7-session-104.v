@@ -170,4 +170,4 @@ specialize (Hsem1 1).
 (assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
 Unset Silent.
 specialize (Hsem1 _ Hm).
-(destruct k, w2, t; try (solve [ simpl in Hsem1; contradiction ])).
+Set Printing Width 148.
