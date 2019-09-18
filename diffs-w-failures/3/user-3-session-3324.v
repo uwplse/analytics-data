@@ -141,29 +141,15 @@ step_proc.
 step_proc.
 step_proc.
 (destruct (lt_dec r0 (diskSize (stateDisk state)))).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 step_proc.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (case_eq (diskGet (stateDisk state) (diskSize (stateDisk state) - 1)); intros).
 {
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any).
-Timeout 1 Check @unit.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @remapped_abstraction.
-Timeout 1 Check @remapped_abstraction.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
+Timeout 1 Check @rew_const.
+constructor.
