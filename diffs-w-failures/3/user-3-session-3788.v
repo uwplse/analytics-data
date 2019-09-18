@@ -123,7 +123,11 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Notation "p" := (ProcMarker p) (at level 0, only printing).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Byte.x10.
+Set Printing Width 78.
+Notation "p" := (ProcMarker p) (at level 100, only printing).
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -141,3 +145,14 @@ monad_simpl.
 (match goal with
  | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
  end).
+(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
+(cbn[pre post recovered]).
+(let state := fresh "state" in
+ intros ? state Hpre).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @tt.
+exists tt.
+Timeout 1 Check @spec_abstraction_compose.
+split.
