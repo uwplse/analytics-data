@@ -100,8 +100,10 @@ Unset Silent.
 Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, (forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
+Lemma match_ty_i_eq__inv_depth_eq :
+  forall t t' : ty, (forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
 Proof.
 (induction t; induction t'; intros H).
 reflexivity.
@@ -109,22 +111,11 @@ reflexivity.
 idtac.
 clear IHt'.
 (simpl).
-Unset Silent.
 (apply f_equal).
 (apply IHt).
 (intros k v).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 (assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
-Set Printing Width 148.
 specialize (H (S k) (TRef t)).
-(destruct H as [H _]).
-specialize (H Hmt).
-(apply match_ty_i_ref__inv in H).
-Set Silent.
-(destruct H as [tx [Heq Href]]).
 Unset Silent.
-(inversion Heq; subst).
-auto.
+(destruct H as [H _]).
 Show.
