@@ -481,4 +481,11 @@ Set Printing Width 148.
 Show.
 (apply IHk; try assumption).
 Show.
+(destruct Hdep as [Hdep| Hdep]; [ left | right ]; apply le_S_n; assumption).
+Show.
+Set Silent.
+(intros v').
+specialize (Hsem v').
+Unset Silent.
 tauto.
+Qed.
