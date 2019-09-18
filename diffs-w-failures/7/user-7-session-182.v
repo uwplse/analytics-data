@@ -108,4 +108,8 @@ Set Printing Width 148.
 (rewrite subst_equation).
 Search -beq_id.
 (pose proof (false_beq_id _ _ Hbeq) as Hneq).
+Set Printing Width 148.
 (rewrite Hneq).
+(rewrite Hmem).
+(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as Z).
+exists ([X' := tx] ti).
