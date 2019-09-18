@@ -565,4 +565,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(unfold spec_impl; intuition).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold spec_impl).
