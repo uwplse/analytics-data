@@ -101,37 +101,14 @@ Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Lemma match_ty_i_eq__inv_depth_eq :
-  forall t t' : ty, (forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
+Set Printing Width 148.
+Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
-(induction t; induction t'; intros H).
-reflexivity.
+(intros v Hv; induction Hv; intros k).
 Show.
-Set Printing Width 148.
-clear IHt'.
-Show.
-(simpl).
-(apply f_equal).
-Show.
-(apply IHt).
-Show.
-(intros k v Hv).
-Show.
-(assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
-specialize (H (S k) (TRef t)).
-Show.
-(destruct H as [H _]).
-Show.
-constructor.
-Show.
-specialize (H Hmt).
-Show.
-(apply match_ty_i_ref__inv in H).
-(destruct H as [tx [Heq Href]]).
-(inversion Heq; subst).
-Show.
-Set Printing Width 148.
-auto.
-}
-Show.
+Set Silent.
+-
+Unset Silent.
+(destruct k; reflexivity).
+-
+(apply match_ty_i_pair; auto).
