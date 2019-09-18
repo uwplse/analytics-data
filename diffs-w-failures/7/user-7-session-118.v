@@ -146,4 +146,19 @@ Qed.
 Lemma sem_sub__refl : forall t : ty, ||- [t]<= [t].
 Proof.
 Unset Silent.
-(intros k).
+Set Printing Width 148.
+(intros t k).
+(apply sem_sub_k__refl).
+Qed.
+Set Silent.
+Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
+Proof.
+(intros t k).
+(apply sem_eq_k__refl).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] -> ||- [t1]<= [t3].
+Proof.
+Unset Silent.
+(intros t1 t2 t3).
