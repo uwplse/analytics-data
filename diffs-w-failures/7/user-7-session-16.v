@@ -438,9 +438,8 @@ Set Printing Width 148.
 Set Printing Width 148.
 (apply IHHcontra; try tauto).
 (apply mk_nf_nf__equal).
-(do 2 constructor; assumption).
-(apply sub_r_dec__mk_nf_sub_r_dec; assumption).
-Set Silent.
+Set Printing Width 148.
 -
+Set Silent.
+*
 Unset Silent.
-Show.
