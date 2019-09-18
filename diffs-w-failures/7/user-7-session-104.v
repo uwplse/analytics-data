@@ -216,4 +216,4 @@ Set Silent.
 Lemma match_ty__match_ge_world : forall (t : ty) (w k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
 Unset Silent.
-(induction t; intros w k t).
+(induction t; intros w k).
