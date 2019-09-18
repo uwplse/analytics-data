@@ -182,20 +182,49 @@ eauto using log_length_ok_nil.
 -
 (unfold log_size_ok).
 (destruct d; simpl in *; [  | lia ]).
-(assert (diskGet nil 0 = None)).
-{
-(apply disk_oob_eq).
-(simpl; lia).
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
 Set Printing Width 78.
 Show.
+(assert (diskGet nil len_addr = None)).
+{
+Set Silent.
+(apply disk_oob_eq).
+Unset Silent.
+(simpl; lia).
 }
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
+congruence.
+-
+(unfold log_contents_ok; simpl in *; intuition).
+(exfalso; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqRmv5ZP"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Set Silent.
+Set Silent.
+Theorem init_ok : init_abstraction init recover abstr inited_any.
+Unset Silent.
+Proof.
+Set Silent.
+(eapply then_init_compose; eauto).
+step_proc.
+(destruct (lt_dec r 1)).
+-
+step_proc.
+-
+step_proc.
+step_proc.
+step_proc.
+(exists nil; simpl).
+(split; auto).
+(eapply log_abstraction_nil; eauto).
+(autorewrite with upd; auto).
+Qed.
