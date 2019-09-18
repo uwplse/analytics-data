@@ -287,5 +287,8 @@ Lemma op_step_crash T (op : Var.Op T)
 Proof.
 (intros).
 (hnf in H; propositional).
-(destruct H0; propositional).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+(destruct H0; propositional).
