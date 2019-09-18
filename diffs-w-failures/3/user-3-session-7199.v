@@ -341,4 +341,13 @@ Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_oob_eq.
 Set Printing Width 78.
 Show.
-(rewrite diskUpd_oob_eq).
+Check diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_noop.
+Timeout 1 Check @diskUpd_oob_noop.
+Timeout 1 Check @diskUpd_oob_noop.
+(rewrite diskUpd_oob_noop).
