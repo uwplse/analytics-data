@@ -353,4 +353,4 @@ Timeout 1 Check @diskUpd.
 Timeout 1 Check @diskUpd_eq.
 Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_oob_eq.
-(rewrite diskUpd_oob_eq).
+(rewrite disk_oob_eq).
