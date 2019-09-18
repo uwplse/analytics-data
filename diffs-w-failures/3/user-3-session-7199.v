@@ -557,4 +557,12 @@ Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(unfold spec_impl; intuition).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold spec_impl; simpl; intuition).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @spec_abstraction_compose.
+(destruct a as [[] bs]).
