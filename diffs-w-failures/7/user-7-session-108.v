@@ -272,4 +272,6 @@ assumption.
 exists 0,(TRef t).
 (destruct k).
 reflexivity.
-split.
+Set Printing Width 148.
+(split; intros w1; exists w1; auto).
+-
