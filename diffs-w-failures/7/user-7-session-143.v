@@ -85,4 +85,7 @@ Set Printing Width 148.
 Show.
 (induction t').
 +
+admit.
++
+admit.
 +
