@@ -431,4 +431,12 @@ Unset Silent.
 subst.
 (apply sem_sub_k_i__inv_depth_le_2 with (| TUnion ta tb |)).
 constructor.
+Set Printing Width 148.
+Set Silent.
 (apply Hsem).
+Unset Silent.
+}
+Set Silent.
+(unfold sem_sub_i in Hsem).
+Unset Silent.
+(assert (Hm : |-[ kamx] v <$ v) by (apply match_ty_i__reflexive; assumption)).
