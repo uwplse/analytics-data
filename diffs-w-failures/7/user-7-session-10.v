@@ -222,5 +222,6 @@ Set Silent.
 +
 Set Printing Width 148.
 Set Printing Width 148.
-(induction Hsub'; inversion Heqy; subst; try (solve [ auto ])).
+Set Printing Width 148.
+(induction Hsub'; inversion Heqy; subst; try (solve [ auto || constructor; tauto ])).
 Show.
