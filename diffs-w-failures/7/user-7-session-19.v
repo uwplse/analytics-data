@@ -194,7 +194,7 @@ Proof.
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Proof.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -211,12 +211,9 @@ Proof.
        |- _ <= | ?t' | =>
            assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
             assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
+     | Hsem:||-[ ?k][TPair _ _]<= [TPair _ _]
+       |- _ =>
+           destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl;
+            apply Nat.max_le_compat; auto
      end ])).
-Unset Silent.
--
-(destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
-(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
-Set Printing Width 148.
-(simpl).
-Set Printing Width 148.
-(apply Nat.max_le_compat; auto).
+Show.
