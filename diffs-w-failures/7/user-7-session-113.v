@@ -35,4 +35,7 @@ Set Silent.
 -
 Unset Silent.
 (specialize (IHt1 s1 s2); specialize (IHt2 s1 s2)).
-(simpl).
+Set Printing Width 148.
+(simpl in *).
+auto.
+Show.
