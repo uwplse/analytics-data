@@ -559,6 +559,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k;
   match goal with
   | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
@@ -576,3 +577,51 @@ Set Printing Width 148.
          intros t1 t2 Hnf1 IH1 Hnf2 IH2 Hdep; destruct (max_inv_depth_le__components_le _ _ _ Hdep) as [Hdep1 Hdep2]; intros t' Hsem;
           apply sem_sub_k_union_l__inv in Hsem; destruct Hsem as [Hsem1 Hsem2]; constructor; auto
    end).
+Set Silent.
+-
+Unset Silent.
+Set Silent.
+(intros t Hnft _ Hdep).
+Unset Silent.
+(inversion Hdep).
+Set Silent.
+-
+Unset Silent.
+Show.
+(intros t Hnft _ Hdep t2).
+(assert (Hva : value_type (TRef t)) by constructor).
+(assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
+Set Silent.
++
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+Unset Silent.
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+Set Silent.
++
+Unset Silent.
+Show.
+Set Silent.
+(simpl in Hdep).
+(pose proof (le_S_n _ _ Hdep) as Hdep').
+(pose proof Hsem as Hsem').
+(unfold sem_sub_k_i in Hsem).
+specialize (Hsem _ Hma).
+(apply match_ty_i_ref__inv in Hsem).
+(destruct Hsem as [t' [Heqt' Href]]).
+(inversion Heqt'; subst).
+clear Heqt'.
+constructor.
+{
+(apply IHk; try assumption).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ Href); assumption).
+}
+(apply SD_Trans with (MkNF( t2))).
+(apply mk_nf__sub_d2; assumption).
+{
+(apply IHk).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf).
+(pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href) as Hdepeq).
+Unset Silent.
+(rewrite <- Hdepeq; assumption).
