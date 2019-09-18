@@ -90,4 +90,4 @@ Show.
 (destruct Hm as [t' [Heq Href]]; subst).
 Show.
 (simpl).
-(intros v Hv).
+Show.
