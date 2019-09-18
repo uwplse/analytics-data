@@ -241,4 +241,15 @@ Show.
 Timeout 1 Check @spec_abstraction_compose.
 step_proc.
 Timeout 1 Check @repeat_length.
-eauto.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.recover.
+Timeout 1 Check @d.recover_wipe.
+Set Printing Width 78.
+Show.
+(apply d.recover_wipe).
