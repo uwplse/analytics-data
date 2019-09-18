@@ -105,4 +105,5 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(destruct v; simpl in Hm).
+Set Printing Width 148.
+(destruct v; simpl in Hm; assumption).
