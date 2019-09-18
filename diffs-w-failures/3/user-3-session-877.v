@@ -1400,21 +1400,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
 Show.
-(<ssreflect_plugin::ssrtclseq@0> iDestruct "Hmbox" as "[Hmbox|Hmbox]" ; last  first).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
 Show.
-{
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 104.
-Show.
-iDestruct "Hmbox" as "(Hlocked'&Hauth)".
-Set Silent.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 104.
-Show.
-iExFalso.
-iDestruct "Hlockinv" as ( S' ? ) "(Hauth'&?)".
+iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hunlocked)".
