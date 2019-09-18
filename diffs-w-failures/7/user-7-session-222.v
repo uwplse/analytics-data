@@ -164,4 +164,5 @@ Unset Silent.
 (intros X Y t HXY HX).
 (simpl).
 Search -IdSet.remove.
-(apply IdSetFacts.remove_2).
+Set Printing Width 148.
+(apply IdSetFacts.remove_2; assumption).
