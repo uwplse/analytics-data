@@ -221,4 +221,31 @@ Unset Search Output Name Only.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Theorem log_length_ok_nil d : diskGet d 0 = Some 0 -> log_length_ok d [].
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Theorem log_length_ok_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d [].
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_length_ok; intros).
+(rewrite H).
