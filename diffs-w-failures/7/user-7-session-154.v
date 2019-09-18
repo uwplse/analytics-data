@@ -111,4 +111,5 @@ assumption.
 +
 (simpl).
 (rewrite <- beq_id_refl).
-(apply subs_fresh_in_ty).
+Unset Silent.
+(apply subst_fresh_in_ty).
