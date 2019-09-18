@@ -83,4 +83,4 @@ Unset Silent.
 Show.
 (simpl).
 Set Silent.
-reflexivity.
+Unset Silent.
