@@ -203,7 +203,25 @@ Show.
 {
 (eexists; eauto).
 }
-{
-(step_proc; intuition idtac).
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(step_proc; intuition idtac).
+{
+(eexists; eauto).
+}
+(step_proc; intuition idtac).
++
+replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
+(exists s; repeat split; auto).
+(destruct (stateBadBlock state == diskSize s)).
+*
+(rewrite disk_oob_eq by lia; simpl; auto).
+*
+(rewrite <- Hremap by eauto; auto).
++
+(eexists; eauto).
+-
+invert_abstraction.
+(step_proc; intuition idtac).
