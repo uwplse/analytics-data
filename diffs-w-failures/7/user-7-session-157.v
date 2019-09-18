@@ -17,7 +17,8 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Lemma build_v : forall (X X' : id) (tx : ty) (w : nat) (t v : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t.
 Set Printing Width 148.
-(induction w; induction t; intros v Hm; try (solve [ exists v; assumption ])).
+Set Printing Width 148.
 Set Silent.
+(induction w; induction t; intros v Hm; try (solve [ exists v; assumption ])).
 -
 Unset Silent.
