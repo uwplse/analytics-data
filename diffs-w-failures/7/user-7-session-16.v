@@ -205,4 +205,8 @@ Set Silent.
 (intros t t' Hsub).
 Unset Silent.
 (pose proof (sub_r__mk_nf_sub_r _ _ Hsub)).
-(apply sub_r_nf_ref__inv in H).
+Show.
+Set Printing Width 148.
+(pose proof (mk_nf__in_nf (TRef t)) as Hnf).
+(pose proof (mk_nf__in_nf (TRef t')) as Hnf').
+(apply (sub_r_nf_ref__inv _ _ Hnf Hnf') in H).
