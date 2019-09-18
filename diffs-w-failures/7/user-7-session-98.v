@@ -157,22 +157,22 @@ Qed.
 Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
 Proof.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-specialize (Hcontra 2).
-(assert (Hm : |-[ 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra 3).
+Unset Silent.
+(assert (Hm : |-[ 3] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+Set Silent.
 specialize (Hcontra _ Hm).
 (apply match_ty_exist__inv in Hcontra).
-Unset Silent.
 (destruct Hcontra as [tx Hmx]).
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 (assert (Heq : [vY := tx] TRef (TRef tY) = TRef (TRef tx)) by reflexivity).
 (rewrite Heq in Hmx).
-Set Printing Width 148.
 clear Heq.
 (apply match_ty_ref__inv in Hmx).
 (destruct Hmx as [t' [Heq' Hsem']]).
+Unset Silent.
 (inversion Heq'; subst).
 clear Heq'.
+clear Hm.
+(assert (Hm : |-[ 1] TRef tx <$ TRef tx)).
