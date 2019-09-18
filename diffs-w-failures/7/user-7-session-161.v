@@ -117,5 +117,8 @@ Set Silent.
 (apply match_ty_exist__inv in Hm).
 Show.
 Set Printing Width 148.
-specialize (IHw' _ Hm).
 Show.
+Set Printing Width 148.
+exists ([X' := tx] ti).
+Show.
+(apply IHw').
