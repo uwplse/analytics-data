@@ -112,4 +112,6 @@ Set Printing Width 148.
 (rewrite Hneq).
 (rewrite Hmem).
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as Z).
+Set Printing Width 148.
 exists ([X' := tx] ti).
+specialize (IHw' _ Hm).
