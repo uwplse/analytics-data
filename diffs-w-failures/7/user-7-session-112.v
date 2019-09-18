@@ -171,4 +171,16 @@ assumption.
 Qed.
 Set Printing Width 148.
 Lemma match_ty__transitive_on_value_type :
-  forall v1 v2 t3 : ty, value_type v2 -> forall k w1 w2 : nat, |-[ k, w1] v1 <$ v2 -> |-[ k, w2] v2 <$ t3 -> |-[ k, Mat.max w1 w2] v1 <$ t3.
+  forall v1 v2 t3 : ty, value_type v2 -> forall k w1 w2 : nat, |-[ k, w1] v1 <$ v2 -> |-[ k, w2] v2 <$ t3 -> |-[ k, Nat.max w1 w2] v1 <$ t3.
+Set Silent.
+Proof.
+(intros v1 v2 t3 Hv2).
+(generalize dependent t3; generalize dependent v1).
+Unset Silent.
+(induction Hv2).
+Set Silent.
+-
+(intros v1 t3 k w1 w2 Hm1 Hm2).
+Unset Silent.
+(apply match_ty_cname__inv in Hm1; subst).
+assumption.
