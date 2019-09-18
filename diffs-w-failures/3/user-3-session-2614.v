@@ -17,4 +17,4 @@ Timeout 1 Check @SReqe_Reqe.
 Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Comm.
+Timeout 1 Check @MRet.
