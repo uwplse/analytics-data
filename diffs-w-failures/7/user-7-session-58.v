@@ -18,6 +18,7 @@ Set Printing Width 148.
 Set Silent.
 Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
-Proof.
-Unset Silent.
-(intros v Hv k ta tb Hsem; unfold sem_sub_k in Hsem).
+Set Printing Width 148.
+(intros v Hv k ta tb Hsem).
+Show.
+(pose proof (match_ty_value_type_r v Hv k)).
