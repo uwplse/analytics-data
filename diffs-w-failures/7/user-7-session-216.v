@@ -372,9 +372,6 @@ Search -IdSet.union.
 Admitted.
 Set Silent.
 Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
-Proof.
-(intros t1 t2 Hwf).
-(unfold wf_ty in *; simpl in *).
-Unset Silent.
+Set Printing Width 148.
+(unfold wf_ty; simpl).
 (apply union_empty__inv).
-assumption.
