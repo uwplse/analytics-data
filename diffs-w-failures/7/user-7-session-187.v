@@ -52,4 +52,11 @@ Proof.
 (intros X t1 t2 HX).
 Set Printing Width 148.
 Set Printing Width 148.
-(unfold freee_in_ty in *).
+(unfold free_in_ty in *).
+(simpl in HX).
+Search -IdSet.union.
+(apply IdSetFacts.union_1).
+assumption.
+Qed.
+Set Silent.
+Lemma free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (Tpair t1 t2) -> free_in_ty X t1 \/ free_in_ty X t2.
