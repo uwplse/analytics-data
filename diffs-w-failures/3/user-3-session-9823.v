@@ -259,4 +259,5 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 }
 Set Silent.
+Unset Silent.
 (subst; eexists; eauto).
