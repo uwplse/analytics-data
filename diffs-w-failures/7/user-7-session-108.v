@@ -270,4 +270,7 @@ Set Silent.
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 Unset Silent.
 subst.
-(apply IHt1).
+(assert (Hcontra : ~ (exists v : ty, |-[ k, w] v <$ t1))).
+{
+Show.
+(intros Hcontra).
