@@ -175,6 +175,6 @@ Set Printing Width 148.
 Set Silent.
 Lemma sem_sub_k_i_pair__inv :
   forall (t1 t2 t1' t2' : ty) (k : nat), ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
-Proof.
-Unset Silent.
-(intros t1 t2 t1' t2' k).
+Set Printing Width 148.
+(intros t1 t2 t1' t2' k H).
+Show.
