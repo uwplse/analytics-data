@@ -187,3 +187,5 @@ split.
 Unset Silent.
 assumption.
 (rewrite b_subst_neq__permute).
+Set Printing Width 148.
+(rewrite b_subst_neq__permute in IHw).
