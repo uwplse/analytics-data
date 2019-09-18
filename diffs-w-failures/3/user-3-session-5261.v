@@ -101,4 +101,10 @@ Unset Silent.
 (f_equal; lia).
 *
 (repeat deex).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (exists (S nwritten); simpl).
+(f_equal; lia).
+(exists 0; simpl; auto).
