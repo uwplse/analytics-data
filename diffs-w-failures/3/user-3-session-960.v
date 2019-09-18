@@ -800,4 +800,11 @@ Timeout 1 Check @sigT_eq_dec.
 Timeout 1 Check @equal.
 Set Printing Width 78.
 Show.
-decide equality.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @subset_eq_compat.
+Set Printing Width 78.
+Show.
+(decide equality; subst).
+(decide equality; subst).
+(decide equality; subst).
