@@ -307,4 +307,4 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 (repeat rewrite unite_pairs_union_t).
-(constructor; eapply sub_r__transitive; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
+(apply SR_UnionL; eapply sub_r__transitive; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
