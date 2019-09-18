@@ -363,6 +363,10 @@ Unset Silent.
 Set Printing Width 148.
 Set Silent.
 (left; apply sub_r__transitive with t1).
-(apply mk_nf__sub_r1).
-Unset Silent.
+Set Printing Width 148.
 assumption.
+-
+Show.
+(right; intros Hcontra).
+Show.
+(apply SR_NOrmalForm in Hcontra; contradiction).
