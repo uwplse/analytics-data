@@ -154,4 +154,25 @@ Show.
 (apply match_ty_exist__0_inv in Hm).
 Show.
 Set Printing Width 148.
-(destruct v; simpl).
+Set Printing Width 148.
+(destruct v; simpl; try contradiction).
+constructor.
+Set Silent.
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(apply match_ty_exist).
+exists tx.
+(simpl in *).
+assumption.
+Unset Silent.
+Qed.
+Set Silent.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Unset Silent.
+Proof.
+(intros Hcontra).
+specialize (Hcontra 0).
+(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
+specialize (Hcontra _ Hm).
+(apply match_ty_exist__0_inv in Hcontra).
