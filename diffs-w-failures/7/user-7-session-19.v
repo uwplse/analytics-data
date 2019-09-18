@@ -224,7 +224,5 @@ Set Printing Width 148.
 -
 Show.
 Set Silent.
-(intros c t2).
-Unset Silent.
+Set Printing Width 148.
 (induction t2; intros Hsem).
-+
