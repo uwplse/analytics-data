@@ -269,4 +269,6 @@ Timeout 1 Check @split.
 Timeout 1 Check @ge.
 Timeout 1 Check @nat_eq_dec.
 Timeout 1 Check @pointwise_relation.
-(generalize dependent S n; intros n).
+(generalize dependent S n; intros m).
+Timeout 1 Check @incl.
+clear n.
