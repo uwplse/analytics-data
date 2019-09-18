@@ -66,5 +66,16 @@ contradiction.
 Set Printing Width 148.
 (destruct (beq_idP X i); try reflexivity).
 Show.
+Show.
+Show.
+Set Printing Width 148.
 subst.
 Show.
+exfalso.
+(apply Hfresh).
+Show.
+Search -IdSet.singleton.
+(apply IdSetFacts.singleton_2).
+Show.
+reflexivity.
+Qed.
