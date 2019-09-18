@@ -395,5 +395,6 @@ split.
 assumption.
 split.
 assumption.
-(intros v' Hv').
-Unset Silent.
+Set Printing Width 148.
+(intros v').
+Show.
