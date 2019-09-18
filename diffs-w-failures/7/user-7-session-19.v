@@ -83,5 +83,6 @@ Show.
 Show.
 SearchPattern (Nat.max _ _ <= Nat.max _ _).
 Set Printing Width 148.
-(apply Nat.max_le_compat).
+Set Printing Width 148.
+(apply Nat.max_le_compat; auto).
 Show.
