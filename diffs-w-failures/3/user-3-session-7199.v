@@ -185,11 +185,12 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @block.
 Timeout 1 Check @block.
 Timeout 1 Check @block.
+Timeout 1 Check @spec_abstraction_compose.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' => state' = state /\ nth state a block0 = Some r;
+     post := fun r state' => state' = state /\ nth a state block0 = Some r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
