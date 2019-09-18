@@ -227,4 +227,11 @@ Show.
 (step_proc; intuition eauto).
 {
 (exists s; split; eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (destruct (a == diskSize s); subst).
++
+(rewrite disk_oob_eq by lia; simpl; auto).
++
