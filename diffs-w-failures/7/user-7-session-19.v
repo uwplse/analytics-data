@@ -438,4 +438,4 @@ Set Silent.
 (assert (Hva : value_type (TCName c)) by constructor).
 Unset Silent.
 (assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
