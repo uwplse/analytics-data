@@ -486,8 +486,11 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(unfold log_size_ok, log_abstraction in *; intuition).
-Timeout 1 Check @rec_wipe_compose.
-(rewrite H1).
-Timeout 1 Check @split.
-lia.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Set Printing Width 78.
+Show.
+(unfold log_abstraction, log_size in *; intuition).
