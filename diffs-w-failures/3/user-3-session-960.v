@@ -149,26 +149,31 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Search -"digit".
-Timeout 1 Check @strings.string_countable.
-Timeout 1 Check @strings.string_countable.
-Timeout 1 Check @strings.string_countable.
-Timeout 1 Check @strings.ascii_eq_dec.
-Timeout 1 Check @strings.ascii_eq_dec.
-Timeout 1 Check @strings.ascii_eq_dec.
-Timeout 1 Check @strings.ascii_eq_dec.
-Timeout 1 Check @strings.ascii_eq_dec.
-Timeout 1 Check @strings.ascii_eq_dec.
-Timeout 1 Check @strings.ascii_of_digits.
-Timeout 1 Check @strings.ascii_of_digits.
-Timeout 1 Check @strings.ascii_of_digits.
-Timeout 1 Check @strings.ascii_of_digits.
-Timeout 1 Check @strings.ascii_of_digits.
-Timeout 1 Check @strings.ascii_of_digits.
-Timeout 1 Check @strings.ascii_of_digits.
-Timeout 1 Check @strings.ascii_of_digits.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
+Search -"digit".
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64.
+Timeout 1 Check @split.
+Timeout 1 Check @byte.
+Timeout 1 Check @byte.
+Timeout 1 Check @gt.
+Timeout 1 Check @map_filter.
+Timeout 1 Check @lt_wf.
+Timeout 1 Check @lt_dec.
+Timeout 1 Check @lt_dec.
+Timeout 1 Check @lt_dec.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @pow_N.
+Timeout 1 Check @uint64.
+Timeout 1 Check @nth.
+Timeout 1 Check @div_theory.
+Timeout 1 Check @nil.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @nil.
+Definition uint64_to_le (x : uint64) : list byte :=
+  if lt_dec x (pow 2 64) then nil else nil.
