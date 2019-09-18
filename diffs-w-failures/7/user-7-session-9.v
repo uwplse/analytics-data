@@ -30,3 +30,6 @@ Proof.
 Unset Silent.
 Show.
 (inversion Heq; subst).
+Show.
+Set Printing Width 148.
+(inversion Heq; subst).
