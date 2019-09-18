@@ -226,4 +226,4 @@ exfalso.
 Show.
 Set Printing Width 148.
 Show.
-(apply IHt1).
+(eapply IHt1).
