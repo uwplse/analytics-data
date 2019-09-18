@@ -255,4 +255,5 @@ Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
-proc_spec.
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
