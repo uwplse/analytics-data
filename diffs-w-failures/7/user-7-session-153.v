@@ -34,6 +34,15 @@ Set Silent.
 Unset Silent.
 Show.
 (simpl in Hm).
+Set Printing Width 148.
+(simpl).
+Set Silent.
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Unset Silent.
 (destruct (IHt1 _ Hm1) as [v1' Hm1']).
+(destruct (IHt2 _ Hm2) as [v2' Hm2']).
+exists (TPair v1' v2').
+(apply match_ty_pair; assumption).
+-
+(simpl in *).
