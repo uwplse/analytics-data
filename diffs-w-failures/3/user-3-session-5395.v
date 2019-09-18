@@ -119,4 +119,5 @@ Show.
 -
 destruct_all.
 -
-(rewrite diskUpd_oob_noop by lia).
+Unset Silent.
+Set Diffs "off".
