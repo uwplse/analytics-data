@@ -135,5 +135,22 @@ Set Printing Width 148.
 (destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
 Show.
 Set Printing Width 148.
-(eapply Nat.le_max_l).
+Set Printing Width 148.
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
 Show.
+(apply match_ty_ref__inv in Hm).
+Show.
+(destruct Hm as [t' [Heq Href]]; subst).
+Show.
+admit.
+-
+Show.
+(destruct w).
+Show.
+(apply match_ty_exist__0_inv in Hm).
+Show.
+contradiction.
+Show.
+(apply match_ty_exist in Hm).
