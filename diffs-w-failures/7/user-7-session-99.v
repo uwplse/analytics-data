@@ -103,4 +103,4 @@ Set Silent.
 Definition sem_eq (t1 t2 : ty) := exists w : nat, ||-[ w][t1]= [t2].
 Unset Silent.
 Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
-Hint Unfold sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
+Hint Unfold sem_sub_w_k sem_eq_w_k sem_sub_w sem_eq_w sem_sub sem_eq: DBBetaJulia.
