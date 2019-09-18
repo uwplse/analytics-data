@@ -158,4 +158,4 @@ Timeout 1 Check @repeat_length.
 Set Printing Width 78.
 Show.
 (constructor; eauto).
-(rewrite diskUpd_neq by omega).
+(rewrite diskShrink_preserves; auto).
