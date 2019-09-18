@@ -98,5 +98,5 @@ Show.
 Set Printing Width 148.
 (intros k; induction k; intros v Hm).
 2: {
-idtac.
-(simpl).
+Set Printing Width 148.
+(apply match_ty_ref__inv in Hm).
