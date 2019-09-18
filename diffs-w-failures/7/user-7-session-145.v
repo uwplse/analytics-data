@@ -107,4 +107,4 @@ Unset Silent.
 subst.
 (apply match_ty_exist).
 exists tx.
-(apply IHw with X).
+(apply IHw with i).
