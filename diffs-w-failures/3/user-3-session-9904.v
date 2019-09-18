@@ -238,45 +238,18 @@ Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Set Printing Width 78.
 Show.
-(destruct s; intuition).
-+
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Show.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @statdb_abstraction.
 Timeout 1 Check @statdb_abstraction.
 Timeout 1 Check @statdb_abstraction.
 Timeout 1 Check @statdb_abstraction.
 Timeout 1 Check @statdb_abstraction.
 Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(unfold statdb_abstraction in *; simpl in *).
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-intuition.
-+
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Tauto.A.
-Unset Silent.
-Set Diffs "off".
+(unfold statdb_abstraction in *).
