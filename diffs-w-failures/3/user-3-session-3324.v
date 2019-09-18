@@ -157,5 +157,8 @@ Set Diffs "off".
 Timeout 1 Check @repeat_length.
 Set Printing Width 78.
 Show.
-(constructor; eauto).
-(rewrite diskShrink_preserves; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(constructor; eauto; intros).
