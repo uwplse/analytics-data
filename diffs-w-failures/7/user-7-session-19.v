@@ -11,6 +11,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -248,10 +249,18 @@ specialize (Hsem v').
 tauto.
 Qed.
 Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
-Set Printing Width 148.
+Proof.
 (induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ])).
-Show.
 Admitted.
 Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
+Proof.
+Unset Silent.
+auto with DBBetaJulia.
+Qed.
 Set Silent.
+Lemma sem_sub_k_nf__inv_depth_le : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Unset Silent.
+Proof.
 Show.
+(intros k t t' Hdept Hsem).
+(rewrite <- inv_depth_mk_nf).
