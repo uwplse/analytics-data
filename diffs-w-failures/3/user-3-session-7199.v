@@ -758,4 +758,4 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction_nil.
 Timeout 1 Check @log_abstraction_nil.
 Timeout 1 Check @log_abstraction_nil.
-(apply log_abstraction_nil).
+(eapply log_abstraction_nil).
