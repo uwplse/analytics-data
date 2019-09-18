@@ -28,5 +28,5 @@ Proof.
 Show.
 (destruct k, w).
 Set Printing Width 148.
-(destruct v).
-(left; assumption).
+Set Printing Width 148.
+(destruct v; left; assumption).
