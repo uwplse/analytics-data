@@ -533,6 +533,7 @@ Timeout 1 Check @N.div.
 Timeout 1 Check @Ascii.N_of_digits.
 Set Printing Width 78.
 Show.
+Timeout 1 Check @uint64_from_le.
 refine
  {|
  byte := {x | x < 256};
@@ -541,4 +542,4 @@ refine
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii;
  uint64_to_le := nat_to_le 256;
- le_to_uint64 := fun digits => Some (le_to_nat digits) |}.
+ uint64_from_le := fun digits => Some (le_to_nat digits) |}.
