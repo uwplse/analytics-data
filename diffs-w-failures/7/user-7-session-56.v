@@ -139,14 +139,4 @@ Lemma match_ty_value_type_k : forall (v : ty) (k : nat), value_type v -> ~ (exis
 Unset Silent.
 Proof.
 (induction v; intros k Hv).
-Set Silent.
--
-(right; simpl; apply Nat.le_0_l).
--
-(inversion Hv; subst).
-(specialize (IHv1 k H1); specialize (IHv2 k H2)).
-Unset Silent.
-(destruct IHv1 as [IHv1| IHv1]; destruct IHv2 as [IHv2| IHv2];
-  try (solve
-   [ left; intros Hcontra; destruct Hcontra as [v Hm]; apply match_ty_pair__inv in Hm; destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]; subst;
-      apply IHv1 || apply IHv2; eexists; eassumption ])).
+Set Printing Width 148.
