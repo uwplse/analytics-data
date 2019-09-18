@@ -167,4 +167,7 @@ Unset Silent.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (assert (Heq : [vY := tx] TRef (TRef tY) = TRef (TRef tx)) by reflexivity).
+(rewrite Heq in Hmx).
+(apply match_ty_ref__inv in Hmx).
