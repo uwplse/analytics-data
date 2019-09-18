@@ -664,191 +664,26 @@ Proof.
 (unfold log_size_ok, len_addr, diskSize).
 (intros; lia).
 Qed.
-Hint Resolve abstr_length_sz_bound: core.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Set Printing Width 78.
 Lemma log_abstraction_commit :
   forall bs bs' : list block,
   forall d' : State,
   log_size_ok d' (bs ++ bs') ->
   log_contents_ok d' (bs ++ bs') ->
   forall len_b : block,
-  diskGet d' len_addr =?= len_b ->
   block_to_addr len_b = length bs + length bs' ->
-  log_abstraction d' (bs ++ bs').
+  log_abstraction (diskUpd d' len_addr len_b) (bs ++ bs').
+Set Silent.
 Proof.
+Unset Silent.
 (intros).
 (unfold log_abstraction; intuition).
-Unset Silent.
 (unfold log_length_ok in *; intros).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @bytes.
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-(assert (len_addr < diskSize d') by eauto).
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @eq_existT_curried.
-eq_values.
-Timeout 1 Check @repeat_length.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-(rewrite app_length; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3UtkMr"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Timeout 1 Check @Ret.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction_nil.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Timeout 1 Check @Zdiv.Zmod'.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Theorem log_length_ok_unchanged d bs d' :
-  log_length_ok d bs ->
-  diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
-Proof.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @spec_abstraction_compose.
-(unfold log_length_ok; intros).
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(rewrite H0 in *).
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @repeat_length.
-eauto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAY6qJf"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Timeout 1 Check @Ret.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok_nil.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Hint Resolve log_length_ok_unchanged: core.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-Set Silent.
-Set Silent.
-Set Silent.
-Set Silent.
-step_proc.
-(descend; intuition eauto).
-destruct matches.
--
-step_proc.
-(descend; intuition eauto).
-{
-(unfold log_size_ok; autorewrite with list; auto).
-}
-{
-(exists bs; intuition eauto using log_abstraction_preserved).
-}
-step_proc.
-intuition.
-{
-(exists bs; eauto using log_abstraction_preserved).
-}
-step_proc.
-intuition.
-Unset Silent.
-{
-(exists bs; intuition eauto).
-(unfold log_abstraction; intuition eauto).
-}
-{
-(exists (bs ++ v); intuition).
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction_nil.
-Timeout 1 Check @log_abstraction_commit.
-Timeout 1 Check @log_abstraction_commit.
-Timeout 1 Check @log_abstraction_commit.
-Timeout 1 Check @log_abstraction_commit.
-Timeout 1 Check @repeat_length.
-Unset Silent.
-Set Diffs "off".
