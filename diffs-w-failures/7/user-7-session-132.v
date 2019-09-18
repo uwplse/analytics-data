@@ -99,8 +99,12 @@ Unset Silent.
 (destruct k).
 -
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [tx Heq]; subst).
-Set Printing Width 148.
+Unset Silent.
 (destruct w1; simpl; tauto).
 -
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [tx [Heq Href]]; subst).
