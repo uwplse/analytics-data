@@ -112,4 +112,27 @@ Set Silent.
 (simpl).
 Unset Silent.
 Omega.omega.
+Qed.
 Next Obligation.
+Set Silent.
+(simpl).
+Omega.omega.
+Unset Silent.
+Qed.
+Next Obligation.
+Set Silent.
+(simpl).
+Omega.omega.
+Unset Silent.
+Qed.
+Set Silent.
+Next Obligation.
+(simpl).
+Omega.omega.
+Unset Silent.
+Qed.
+Next Obligation.
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+Qed.
