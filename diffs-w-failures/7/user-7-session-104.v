@@ -45,5 +45,15 @@ Show.
 Set Printing Width 148.
 (simpl).
 exists t'.
-(split; intros w; exists w; tauto).
 Show.
+Set Printing Width 148.
+Set Silent.
+(split; intros w; exists w; tauto).
+Unset Silent.
+Qed.
+Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
+Set Silent.
+Proof.
+(intros k).
+Unset Silent.
+(destruct k; intros w1; exists w1; intros v Hm).
