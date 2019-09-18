@@ -45,4 +45,7 @@ Set Silent.
 Unset Silent.
 (destruct (value_type_matching_ty__exists t2 k Hdep2) as [pv2 [Hpval2 Hpv2]]).
 Set Silent.
-(split; intros v Hv Hm).
+Unset Silent.
+(split; intros v Hm).
+-
+(assert (Hvp : value_type (TPair v pv2)) by (constructor; assumption)).
