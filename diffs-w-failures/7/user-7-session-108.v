@@ -271,4 +271,5 @@ Set Silent.
 Unset Silent.
 admit.
 -
-(destruct Hsem as [_ Hsem]).
+Show.
+Set Printing Width 148.
