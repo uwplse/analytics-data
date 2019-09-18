@@ -110,5 +110,13 @@ exists w1.
 Unset Silent.
 Set Printing Width 148.
 Show.
-auto.
+Set Printing Width 148.
+(intros v).
+tauto.
 Show.
+Qed.
+Set Silent.
+Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
+Proof.
+Unset Silent.
+(intros k t w1).
