@@ -208,10 +208,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(step_proc; intuition).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
+(step_proc; intros).
+(exists tt; simpl; intuition idtac).
