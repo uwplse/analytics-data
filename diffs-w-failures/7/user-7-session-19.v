@@ -510,9 +510,6 @@ Unset Silent.
 Admitted.
 Set Silent.
 Theorem sub_d__sem_sub_i : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
-Proof.
-(intros t1 t2 Hsub).
-Unset Silent.
-(unfold sem_sub).
-Set Silent.
-Unset Silent.
+Set Printing Width 148.
+(unfold sem_sub_i).
+(induction Hsub; intros k v Hv Hm).
