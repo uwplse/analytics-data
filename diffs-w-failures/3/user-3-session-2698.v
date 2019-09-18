@@ -206,4 +206,26 @@ Unset Silent.
 lia.
 +
 Timeout 1 Check @sigT_eq_dec.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Set Printing Width 78.
+Show.
+(unfold nat64_to_le, nat64_from_le).
