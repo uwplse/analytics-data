@@ -161,6 +161,11 @@ Unset Silent.
 Set Silent.
 (intros w1).
 exists w1.
-(intros v Hm).
-Unset Silent.
+Show.
+Set Printing Width 148.
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]).
+Show.
+-
 (destruct w1).
+Show.
