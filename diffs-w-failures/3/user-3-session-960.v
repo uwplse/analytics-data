@@ -152,44 +152,46 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Search -"digit".
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64.
-Timeout 1 Check @split.
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @byte.
 Timeout 1 Check @byte.
-Timeout 1 Check @gt.
-Timeout 1 Check @map_filter.
-Timeout 1 Check @lt_wf.
-Timeout 1 Check @lt_dec.
-Timeout 1 Check @lt_dec.
-Timeout 1 Check @lt_dec.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @pow_N.
-Timeout 1 Check @uint64.
-Timeout 1 Check @nth.
-Timeout 1 Check @div_theory.
-Timeout 1 Check @nil.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @nil.
-Timeout 1 Check @nat_ind.
-Timeout 1 Check @beq_nat_true.
-Timeout 1 Check @nat_total_order.
-Timeout 1 Check @Fin.of_nat_to_nat_inv.
-Timeout 1 Check @nat_ind.
-Timeout 1 Check @beq_nat_true.
-Timeout 1 Check @nat_total_order.
-Timeout 1 Check @Fin.of_nat_to_nat_inv.
-Timeout 1 Check @nat_ind.
-Timeout 1 Check @beq_nat_true.
-Timeout 1 Check @nat_total_order.
-Timeout 1 Check @Fin.of_nat_to_nat_inv.
-Timeout 1 Check @split.
-Timeout 1 Check @byte.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @byte_to_ascii.
+Timeout 1 Check @byte_to_ascii.
 Timeout 1 Check @Byte.x25.
-Fixpoint nat_to_le (x : nat) : list {x : nat | x < 256}.
+Set Printing Width 78.
+Definition byte_nat := {x : nat | x < 256}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlC6Bto"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhhWJJV"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @byte.
+Fixpoint nat_to_le (x : nat) : list byte_nat.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @gt.
+Timeout 1 Check @gt_dec.
+Timeout 1 Check @gt_dec.
+Timeout 1 Check @gt_dec.
+Timeout 1 Check @Byte.x25.
+Timeout 1 Check @nat_ind.
+Timeout 1 Check @eq_nat_eq.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @nil.
+Timeout 1 Check @Byte.x25.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @Byte.x25.
+Timeout 1 Check @gen.
+Timeout 1 Check @sumor.
+refine match x with
+       | 0 => nil
+       | _ => x mod 256 :: nat_to_le x / 256
+       end.
