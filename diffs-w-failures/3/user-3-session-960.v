@@ -137,6 +137,13 @@ Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
 Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
 Proof.
 (intros).
-(induction n as [n IHn] using lt_wf_ind).
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct n; simpl).
+Timeout 1 Check @nat_to_le.
+Timeout 1 Check @nat_to_le.
+Timeout 1 Check @nat_to_le.
+Timeout 1 Check @nat_to_le.
+Print nat_to_le.
