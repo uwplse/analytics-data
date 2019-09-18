@@ -85,12 +85,10 @@ Set Silent.
 admit.
 -
 admit.
--
-admit.
--
-admit.
--
-admit.
--
+Set Printing Width 148.
+Set Silent.
+exists v.
+split.
+assumption.
 Unset Silent.
-Show.
+tauto.
