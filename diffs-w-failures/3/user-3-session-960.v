@@ -548,4 +548,8 @@ Timeout 1 Check @repeat_length.
 Timeout 1 Check @repeat_length.
 Timeout 1 Check @repeat_length.
 Timeout 1 Check @repeat_length.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (rewrite repeat_length).
