@@ -81,4 +81,12 @@ Lemma subst_exist_neq : forall (X : id) (s : ty) (Y : id) (t : ty), X <> Y -> fr
 Unset Silent.
 Proof.
 (intros X s Y t Hneq).
-Show.
+Set Printing Width 148.
+(intros X s Y t Hneq HY).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
+Set Silent.
+(simpl).
+Unset Silent.
+(rewrite Hid).
+(unfold fresh_in_ty, freh in HY).
