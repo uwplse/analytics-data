@@ -121,13 +121,12 @@ constructor.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Lemma bbb : forall (k : nat) (t t' v : ty), |-[ k] v <$ t -> |-[ k] v <$ t' -> | t | <= | t' |.
-Unset Silent.
-Proof.
 Set Printing Width 148.
-(induction k; induction t; induction t'; intros v Hmt Hmt').
-Show 2.
+Set Silent.
+Lemma bbb : forall (k : nat) (t t' v : ty), (|-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
+Proof.
+Unset Silent.
+(induction k; induction t; induction t'; intros v H).
 32: {
 idtac.
 (simpl).
