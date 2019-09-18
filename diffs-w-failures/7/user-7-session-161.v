@@ -91,4 +91,17 @@ Proof.
 -
 (repeat rewrite subst_pair).
 Set Printing Width 148.
-(rewrite IHt1, IHt2; try assumption reflexivity).
+Set Printing Width 148.
+(rewrite IHt1, IHt2; try assumption).
+Show.
+reflexivity.
+Set Silent.
+-
+(repeat rewrite subst_union).
+Unset Silent.
+(rewrite IHt1, IHt2; try assumption).
+reflexivity.
+Set Silent.
+-
+Unset Silent.
+Show.
