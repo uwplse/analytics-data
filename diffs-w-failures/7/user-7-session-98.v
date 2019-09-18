@@ -178,4 +178,7 @@ clear Hm.
 Set Printing Width 148.
 Set Printing Width 148.
 (assert (Hm : |-[ 1] TRef tx <$ TRef tx) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hsem' _ Hm).
+specialize (Hsem' (TRef tx)).
+(destruct Hsem' as [Hsem'1 Hsem'2]).
+specialize (Hsem'2 Hm).
+(simpl in Hsem'2).
