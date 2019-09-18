@@ -174,4 +174,5 @@ Timeout 1 Check @byte.
 Timeout 1 Check @Byte.x25.
 Definition bounded0 : {x | x < 256}.
 Timeout 1 Check @pointwise_relation.
-refine 0.
+Timeout 1 Check @eq_existT_curried.
+exists 0.
