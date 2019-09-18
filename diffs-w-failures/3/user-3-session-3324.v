@@ -248,5 +248,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
 (exists s; intuition; intuition).
