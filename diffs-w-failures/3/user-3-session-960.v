@@ -518,23 +518,28 @@ Timeout 1 Check @const.
 Set Printing Width 78.
 Show.
 Unset Silent.
+Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -(0 < S _).
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @Nat.lt_wd.
-Timeout 1 Check @Nat.lt_0_1.
-Timeout 1 Check @Nat.lt_0_1.
-Timeout 1 Check @Nat.lt_0_succ.
-Timeout 1 Check @Nat.lt_0_succ.
-Timeout 1 Check @Nat.lt_0_succ.
 (apply Nat.lt_0_succ).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqvJ5kcp"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq4v18d"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBXLPHE"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq5PCWRh"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @aModel.
+Print aModel.
+Timeout 1 Check @N.Even.
+Eval compute in (0 - 1)%Z.
