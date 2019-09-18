@@ -488,8 +488,6 @@ Show.
 Set Printing Width 148.
 Set Silent.
 Set Printing Width 148.
-(destruct IH12 as [IH12| IH12]; destruct IH22 as [IH22| IH22]; try (solve [ left; constructor; assumption ])).
 Show.
-Check sub_r_union_l__inv.
-(right; intros Hcontra).
-Show.
+Set Printing Width 148.
+(solve_atom_sub_r_union__decidable IHt12 IHt22).
