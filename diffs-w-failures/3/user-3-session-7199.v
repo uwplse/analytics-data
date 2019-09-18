@@ -361,4 +361,5 @@ Set Printing Width 78.
 Show.
 (rewrite disk_oob_eq; simpl; auto).
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @log_size_ok.
+(simpl).
