@@ -70,5 +70,4 @@ Show.
 Set Printing Width 148.
 (destruct k).
 Show.
-(simpl in Hm).
 Show.
