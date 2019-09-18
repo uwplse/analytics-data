@@ -143,6 +143,5 @@ step_proc.
 (destruct (lt_dec r0 (diskSize (stateDisk state)))).
 step_proc.
 (case_eq (diskGet (stateDisk state) (diskSize (stateDisk state) - 1)); intros).
-{
 Unset Silent.
 Set Diffs "off".
