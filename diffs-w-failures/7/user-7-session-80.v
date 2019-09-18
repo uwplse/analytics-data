@@ -607,4 +607,4 @@ Proof.
 (intros v v' Hv' k Hm1).
 Unset Silent.
 Show.
-(pose proof (match_ty__inv_depth_le_l v v' k Hm1) as Hdep1).
+(pose proof (match_ty__inv_depth_l_le v v' k Hm1) as Hdep1).
