@@ -157,4 +157,7 @@ Show.
 assumption.
 reflexivity.
 +
-(rewrite b_subst_exist_neq in *).
+Set Printing Width 148.
+(rewrite b_subst_exist_neq in *; try assumption).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [ti Hm]).
