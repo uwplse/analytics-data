@@ -19,5 +19,8 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 69.
 Timeout 1 Check @le.
 Timeout 1 Check @Byte.x30.
-Notation "a \226\137\161 b" := (a = b) (at level 30).
-Timeout 1 Check @Choice.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 69.
+Notation "a === b" := (a = b) (at level 30).
+Check 3 === 3.
