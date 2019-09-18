@@ -85,4 +85,7 @@ intuition eauto.
 (simpl write).
 step_proc.
 intuition eauto.
+Unset Silent.
++
 specialize (IHblocks (off + 1)).
+step_proc.
