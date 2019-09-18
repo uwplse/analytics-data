@@ -10,7 +10,9 @@ Require Import BetaJulia.Sub0250a.BaseDefs.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
+Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -168,15 +170,14 @@ constructor.
 Qed.
 Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
-Set Printing Width 148.
-Set Silent.
+auto with DBBetaJulia.
+Qed.
 Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
 Proof.
 (intros k t t' H).
 (split; intros v Hm; specialize (H v); tauto).
-Set Printing Width 148.
+Qed.
 Lemma sem_eq_k_i__comm : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
-Set Silent.
 Proof.
 (intros k t1 t2 Hsem).
 (unfold sem_eq_k in *).
@@ -280,9 +281,12 @@ constructor.
 *
 (apply IHk; try assumption).
 (apply sem_eq_k_i__sem_sub_k_i).
-Unset Silent.
 (apply sem_eq_k_i__comm).
 assumption.
 *
 (apply SD_Trans with (MkNF( t2))).
-(apply mk_nf__sub_d_2; assumption).
+Unset Silent.
+(apply mk_nf__sub_d_r; assumption).
+(apply IHk).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf).
