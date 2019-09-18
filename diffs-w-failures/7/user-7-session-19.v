@@ -223,4 +223,4 @@ Set Printing Width 148.
 Show.
 (assert (Hv : value_type (TCName c)) by constructor).
 Set Printing Width 148.
-(pose proof (value_sem_sub_k_i_union__inv _ Hv 0 _ _ H)).
+Show.
