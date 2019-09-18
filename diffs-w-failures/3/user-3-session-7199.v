@@ -294,4 +294,21 @@ Set Diffs "off".
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
-(compute).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold spec_impl; simpl; intros).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @spec_abstraction_compose.
+(destruct a0 as [_ bs]).
