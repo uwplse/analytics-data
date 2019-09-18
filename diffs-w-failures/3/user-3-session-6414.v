@@ -227,4 +227,11 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @ge.
 Timeout 1 Check @get_at.
 Timeout 1 Check @get_at.
-Timeout 1 Check @get_upto.
+Timeout 1 Check @Ret.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @repeat_length.
+Fixpoint get_upto (a : addr) : proc (list block) :=
+  match a with
+  | 0 => Ret []
+  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [a])
+  end.
