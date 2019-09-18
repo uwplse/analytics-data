@@ -612,4 +612,12 @@ Set Printing Width 78.
 Show.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @split.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (unfold log_size_ok; autorewrite with list; auto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+(descend; intuition eauto).
