@@ -509,4 +509,17 @@ Set Silent.
 Unset Silent.
 intuition.
 Timeout 1 Check @rec_wipe_compose.
-(rewrite H).
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @nth.
+Timeout 1 Check @nth_O.
+Search -nth -"++".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(rewrite app_nth1 in H).
