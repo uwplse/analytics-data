@@ -188,5 +188,6 @@ Show.
 Show.
 (simpl).
 Show.
-(intros v; auto).
+Set Printing Width 148.
+(intros v; split; intros Hm; auto).
 Show.
