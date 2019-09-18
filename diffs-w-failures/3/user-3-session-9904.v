@@ -213,4 +213,8 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 (step_proc; intros).
-(exists tt; simpl; intuition idtac).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition.
+(step_proc; intros).
+{
+eauto.
