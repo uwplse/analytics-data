@@ -325,4 +325,12 @@ Timeout 1 Check @Ascii.Ascii.
 Timeout 1 Check @Ascii.Ascii.
 Timeout 1 Check @Ascii.Ascii.
 Set Printing Width 78.
-Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.Ascii.
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @Byte.xb0.
