@@ -89,5 +89,18 @@ Show.
 Show.
 (destruct Hm as [t' [Heq Href]]; subst).
 Show.
-(simpl).
 Show.
+Set Printing Width 148.
+(inversion Hle; subst).
+Show.
++
+(simpl).
+(intros v Hv).
+specialize (Href v Hv).
+(split; tauto).
+Show.
++
+Show.
+Set Silent.
+(simpl).
+(intros v Hv).
