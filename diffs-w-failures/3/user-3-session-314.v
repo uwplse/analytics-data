@@ -318,4 +318,11 @@ Set Diffs "off".
 Set Printing Width 51.
 Show.
 (apply crash_step_simp in H; auto).
-(apply crash_step_simp in H; auto).
+(apply crash_step_simp in H0; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWIRPze"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
