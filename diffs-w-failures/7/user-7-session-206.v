@@ -212,6 +212,20 @@ contradiction.
 (simpl).
 (rewrite <- beq_id_refl).
 (rewrite b_subst_not_b_free_in_ty).
+Set Printing Width 148.
+(apply wf_ty__not_b_free_in_ty; assumption).
+Set Silent.
++
+(simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+Unset Silent.
+reflexivity.
+(apply wf_ty__not_b_free_in_ty; assumption).
+Set Silent.
++
+(rewrite b_subst_bvar_neq; try assumption).
+(rewrite b_subst_bvar_neq; try assumption).
 reflexivity.
 Unset Silent.
-(apply wf_ty__not_b_free_in_ty).
+Qed.
