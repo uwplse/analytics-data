@@ -8,6 +8,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -193,9 +194,7 @@ Proof.
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
+Proof.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -213,5 +212,8 @@ Set Printing Width 148.
            assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
             assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
      end ])).
-Show.
-Search -in_nf.
+Unset Silent.
+-
+(destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+(apply Nat.max_le_compat).
