@@ -130,4 +130,6 @@ Unset Silent.
 (apply IdSetFacts.singleton_1 in Heq).
 contradiction.
 +
-(rewrite IHt).
+Show.
+Set Printing Width 148.
+(rewrite Heq).
