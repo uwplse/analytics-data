@@ -549,9 +549,9 @@ Set Silent.
 step_proc.
 Unset Silent.
 intuition.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 {
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @plus_n_O.
+exists (bs ++ v).
