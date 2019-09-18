@@ -306,4 +306,5 @@ Print EqualDec.
 Timeout 1 Check @sigT_eq_dec.
 Print EqualDec.
 Print EqDecision.
-(destruct (dec (x = x1))).
+Timeout 1 Check @sigT_eq_dec.
+(destruct (decide (x = x1))).
