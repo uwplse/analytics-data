@@ -105,4 +105,37 @@ Function
 Show.
 -
 (intros).
+Set Printing Width 148.
+(unfold lt_size).
 (simpl).
+Omega.omega.
+Set Silent.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+Unset Silent.
+(unfold lt_size).
+Set Silent.
+(simpl).
+Omega.omega.
+Unset Silent.
+Defined.
