@@ -143,4 +143,4 @@ Lemma pair_sem_sub_k__sub_d :
   (forall tb2 : ty, ||-[ k][ta2]<= [tb2] -> |- ta2 << tb2) -> forall t2 : ty, ||-[ k][TPair ta1 ta2]<= [t2] -> |- TPair ta1 ta2 << t2.
 Proof.
 Set Printing Width 148.
-(assert (Hva : value_type (TPair ta1 ta2)) by atom_type__value_type _ hat).
+(assert (Hva : value_type (TPair ta1 ta2)) by exact (atom_type__value_type _ Hat)).
