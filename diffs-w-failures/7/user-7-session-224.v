@@ -161,7 +161,9 @@ exists (S w').
 (rewrite f_subst_not_b_free_in_ty; auto).
 }
 }
-*
+Show.
+Set Printing Width 148.
+Set Silent.
 (split; intros HX').
 {
 (apply match_ty_exist__inv in Hm').
