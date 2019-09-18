@@ -207,5 +207,6 @@ Proof.
 (assert (Hvp : value_type (TPair t1 t2))).
 Unset Silent.
 constructor.
-(inversion Hnft; subst).
-(solve_by_invert 3).
+Show.
+Set Printing Width 148.
+(destruct Hnft).
