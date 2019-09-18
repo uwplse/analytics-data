@@ -147,4 +147,6 @@ Set Printing Width 148.
 (unfold lt_size).
 Check lt_wf.
 Print lt_wf.
-(pose proof lt_wf).
+Set Printing Width 148.
+(pose proof lt_wf as H).
+(unfold well_founded in H).
