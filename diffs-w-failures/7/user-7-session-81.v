@@ -105,7 +105,9 @@ Proof.
 Unset Silent.
 Show.
 Set Printing Width 148.
-(split; unfold sem_sub; intros k Hm).
+Set Printing Width 148.
+(split; unfold sem_sub; intros k v Hm).
 Set Silent.
 -
 Unset Silent.
+(destruct (value_type_matching_ty__exists t2) as [pv2 Hpv2]).
