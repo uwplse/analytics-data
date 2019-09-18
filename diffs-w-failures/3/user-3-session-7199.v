@@ -473,4 +473,9 @@ step_proc.
 (unfold log_abstraction; intuition eauto).
 Unset Silent.
 (unfold log_length_ok).
-(rewrite H).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(rewrite H; auto).
