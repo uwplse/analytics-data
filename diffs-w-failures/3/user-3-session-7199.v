@@ -481,12 +481,9 @@ Show.
 Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @sum.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @nodup.
 Set Printing Width 78.
 Show.
-(destruct (a == length bs); subst).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @nodup.
-Set Silent.
--
-Unset Silent.
-autorewrite with upd.
+(destruct (a == length bs); subst; autorewrite with upd).
