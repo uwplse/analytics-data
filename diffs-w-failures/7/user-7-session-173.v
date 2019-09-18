@@ -88,7 +88,7 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Unset Silent.
-#[program]
+Set Printing Width 148.
 Fixpoint subst (x : id) (s t : ty) {measure size t : ty :=
   match t with
   | TCName _ => t
@@ -101,38 +101,3 @@ Fixpoint subst (x : id) (s t : ty) {measure size t : ty :=
   | TVar y => if beq_id x y then s else t
   | TEV y => t
   end.
-Set Silent.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-(rewrite rename__size).
-Omega.omega.
-Unset Silent.
-Qed.
-Set Printing Width 148.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
-Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
-Proof.
-(intros X s t1 t2).
-Set Printing Width 148.
-(unfold subst).
-Set Silent.
-(unfold subst_func).
-Unset Silent.
-(simpl).
-Show.
