@@ -474,4 +474,4 @@ Unset Silent.
 lia.
 }
 Timeout 1 Check @Ascii.nat_ascii_bounded.
-(destruct (a == bs)).
+(destruct (log_addr a == log_addr (length bs))).
