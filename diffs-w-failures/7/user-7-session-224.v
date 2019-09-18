@@ -193,4 +193,14 @@ exists w2.
 (apply match_ty_union_2; auto).
 }
 {
-exists 0.
+Set Printing Width 148.
+exists (S w').
+Set Silent.
+(apply match_ty_union_2).
+(rewrite f_subst_not_b_free_in_ty; auto).
+}
+Unset Silent.
+}
+*
+(split; intros HX').
+assumption.
