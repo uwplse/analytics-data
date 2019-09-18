@@ -300,5 +300,16 @@ Unset Silent.
 (simpl).
 Check sem_eq_k_i__trans.
 Set Printing Width 148.
-(eapply sem_eq_k_i__trans).
-eassumption.
+Set Printing Width 148.
+(eapply sem_eq_k_i__trans; eauto).
+Set Silent.
+-
+clear IHt.
+(rewrite mk_nf_ref in Hm).
+Unset Silent.
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+(eapply sem_eq_k_i__trans; eauto).
+(apply sem_eq_k_i__comm).
+assumption.
