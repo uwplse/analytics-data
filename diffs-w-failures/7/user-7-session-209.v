@@ -97,9 +97,11 @@ Set Silent.
 Unset Silent.
 }
 +
-(apply match_ty_exist__inv in Hm').
 Set Printing Width 148.
-(destruct Hm' as [ti [Hwf Hm']]).
+Set Silent.
 (split; intros HX').
 *
-exists ti.
+Unset Silent.
+Show.
+assumption.
+*
