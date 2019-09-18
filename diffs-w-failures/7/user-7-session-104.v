@@ -96,33 +96,32 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
+Lemma max_inv_depth_le__inv : forall (t1 t2 : ty) (k : nat), Nat.max (| t1 |) (| t2 |) <= k -> | t1 | <= k /\ | t2 | <= k.
+Proof.
+(intros t1 t2 k Hle).
+(split; [ eapply Nat.max_lub_l | eapply Nat.max_lub_r ]; eassumption).
+Unset Silent.
+Qed.
+Set Silent.
 Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
-Set Printing Width 148.
 (intros w k).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 (induction k).
-Set Silent.
 (intros v t Hdep Hm).
-Unset Silent.
 (inversion Hdep; subst).
 (rewrite H0).
 (apply le_0_n).
 (intros v t).
 generalize dependent v.
 (induction t; intros v Hdep Hm).
-Set Silent.
 -
-Unset Silent.
 (apply match_ty_cname__inv in Hm; subst).
 constructor.
 -
-Show.
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Unset Silent.
 (simpl).
-SearchPattern (Nat.max _ _ <= Nat.max _ _).
-(apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; try assumption).
+(destruct (max_inv_depth_le__inv v1 v2 (S k)) as [Hdep1 hdep2]).
