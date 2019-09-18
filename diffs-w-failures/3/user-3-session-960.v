@@ -282,4 +282,14 @@ Timeout 1 Check @Ascii.N_of_digits.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @Ascii.N_of_digits.
 Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Set Printing Width 78.
+Theorem nat_from_le_zeros base_m2 digits n :
+  nat_from_le (digits ++ repeat bounded0 n) = nat_from_le digits.
