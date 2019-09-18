@@ -16,6 +16,7 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
@@ -25,5 +26,7 @@ Lemma build_v_full :
     (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> (fresh_in_ty X' t' -> |-[ w'] v <$ t') /\ (free_in_ty X' t' -> |-[ w'] v <$ [X' := tx] t')).
 Proof.
 (intros X X' tx).
-Unset Silent.
 (induction w; induction t; intros v Hm).
+Unset Silent.
+-
+(rewrite subst_cname).
