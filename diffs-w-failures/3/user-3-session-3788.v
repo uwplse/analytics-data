@@ -82,5 +82,5 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Definition change_marker {T'} (p' : proc T') `{!ProcMarker p} :
+Definition change_marker {T'} (p' : proc T') `{ProcMarker p} :
   ProcMarker p' := AProc p'.
