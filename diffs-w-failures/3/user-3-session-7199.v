@@ -449,61 +449,25 @@ autorewrite with upd list in *.
 +
 admit.
 Admitted.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
 Hint Resolve append_at_ok: core.
 Unset Silent.
-Set Diffs "off".
-Unset Silent.
-Set Diffs "off".
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Theorem log_abstraction_preserved d bs d' bs' :
-  log_abstraction d bs ->
-  diskGet d' len_addr = diskGet d len_addr ->
-  diskSize d' = diskSize d ->
-  log_contents_ok d' (bs ++ bs') -> log_abstraction d' bs.
+Theorem log_contents_ok_prefix d bs bs' :
+  log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
 Proof.
-(unfold log_abstraction, log_length_ok, log_size_ok; intuition).
--
-replace (diskGet d' len_addr) in *.
-auto.
--
-congruence.
--
-Timeout 1 Check @addr.
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @BoolTheory.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok_unchanged.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_contents_ok; intros).
 Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
+specialize (H a).
