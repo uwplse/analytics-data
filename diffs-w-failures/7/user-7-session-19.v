@@ -98,9 +98,9 @@ clear IHt.
 Unset Silent.
 (destruct Hm as [t' [Heq Href]]; subst).
 Set Silent.
-Abort.
-Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t' -> | t | = | t' |.
+Set Printing Width 148.
+Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, (forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
+Set Silent.
 Proof.
-(induction t; induction t'; intros k v Hsemeq).
-reflexivity.
-Show.
+Unset Silent.
+(induction t; induction t'; H).
