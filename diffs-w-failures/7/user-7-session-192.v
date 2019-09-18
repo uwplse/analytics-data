@@ -33,5 +33,9 @@ assumption.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']).
+Set Printing Width 148.
+(rewrite subst_union).
 Show.
+Set Silent.
+(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']).
+Unset Silent.
