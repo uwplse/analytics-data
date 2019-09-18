@@ -502,4 +502,58 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 68.
 Show.
-(descend; intuition eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Show.
+destruct matches.
+-
+step.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Zabs.Zabs_dec.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @div_eucl_th.
+Timeout 1 Check @repeat_length.
+(exists bs; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto using log_abstraction_preserved).
+Set Silent.
+}
+step.
+intuition.
+{
+(exists bs; eauto using log_abstraction_preserved).
+}
+step.
+intuition.
+{
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+}
+{
+(exists (bs ++ v); intuition).
+}
+step.
+Unset Silent.
+intuition.
+{
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(exists (bs ++ v); intuition eauto).
+}
+{
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @spec_abstraction_compose.
+(exists bs; intuition eauto).
+}
