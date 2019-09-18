@@ -373,6 +373,7 @@ Proof.
 (apply mk_nf__in_nf).
 Unset Silent.
 Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma mk_nf_sub_r__sub_r : forall t t' : ty, |- MkNF( t) << MkNF( t') -> |- t << t'.
 Proof.
@@ -382,12 +383,14 @@ Proof.
 assumption.
 (apply mk_nf__sub_r_l).
 Qed.
-Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
+Unset Silent.
+Lemma sub_r__mk_nf_sub_r_l : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
+Set Silent.
 Proof.
 (intros t t' Hsub).
 (apply sub_r__transitive with t; try assumption).
-Unset Silent.
 (apply mk_nf__sub_r_l).
+Unset Silent.
 Qed.
 Set Silent.
 Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
