@@ -43,4 +43,15 @@ Unset Silent.
 Set Printing Width 148.
 Show.
 Set Printing Width 148.
-(rewrite subst_exist_neq).
+Set Printing Width 148.
+(rewrite subst_exist_neq; try assumption).
+(rewrite subst_exist_eq).
+reflexivity.
++
+(destruct (beq_idP X i) as [HX| HX]).
+Set Silent.
+*
+Unset Silent.
+subst.
+(repeat rewrite subst_exist_eq).
+Search -idSet.mem.
