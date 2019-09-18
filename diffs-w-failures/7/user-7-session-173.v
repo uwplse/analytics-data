@@ -124,4 +124,4 @@ Next Obligation.
 Omega.omega.
 Unset Silent.
 Qed.
-Defined.
+Show.
