@@ -85,4 +85,4 @@ clear IHt'.
 (simpl).
 Show.
 (apply f_equal).
-(apply IHt).
+(eapply IHt).
