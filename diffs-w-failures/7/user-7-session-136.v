@@ -19,4 +19,8 @@ Proof.
 (intros t t' Hsem1 Hsem2 k).
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
 (unfold sem_eq_k).
+auto.
+Show.
+Qed.
