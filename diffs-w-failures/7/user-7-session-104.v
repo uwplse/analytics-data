@@ -225,4 +225,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 (apply match_ty_cname__inv in Hm).
 subst.
-(apply match_ty_cname).
+(destruct k; destruct w'; reflexivity).
+-
