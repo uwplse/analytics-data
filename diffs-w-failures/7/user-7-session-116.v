@@ -76,4 +76,6 @@ Unset Silent.
 Set Silent.
 -
 (simpl).
-(rewrite IHt).
+Unset Silent.
+Show.
+(rewrite IHtt1).
