@@ -110,4 +110,4 @@ Set Printing Width 148.
 specialize (IHw'b H).
 (split; intros HX').
 {
-exists ti.
+(appy match_ty_exist).
