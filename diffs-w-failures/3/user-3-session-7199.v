@@ -441,6 +441,19 @@ Timeout 1 Check @block.
 Timeout 1 Check @log_addr.
 Timeout 1 Check @log_addr.
 Timeout 1 Check @spec_abstraction_compose.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
 Theorem append_at_ok a bs' :
   proc_spec
     (fun (bs : list block) state =>
@@ -449,9 +462,23 @@ Theorem append_at_ok a bs' :
             log_size_ok state (bs ++ bs') /\ log_contents_ok bs state;
      post := fun r state' =>
              diskGet state' len_addr = diskGet state len_addr /\
+             diskSize state' = diskSize state /\
              log_size_ok (bs ++ bs') state' /\
              log_contents_ok state (bs ++ bs');
      recovered := fun _ state' =>
                   diskGet state' len_addr = diskGet state len_addr /\
+                  diskSize state' = diskSize state /\
                   log_contents_ok bs state' |}) (append_at a bs') recover
     d.abstr.
+Proof.
+Print append_at.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Nat.induction.
+Timeout 1 Check @Nat.induction.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @sig.
+(induction bs; simpl).
