@@ -163,5 +163,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 (destruct Hm as [ti [Hwfi Hm]]).
 Set Printing Width 148.
-(rewrite b_subst_neq__permute in Hm; try assumption).
-Show.
+Set Printing Width 148.
+(rewrite b_subst_neq__permute in Hm; try assumption || tauto).
