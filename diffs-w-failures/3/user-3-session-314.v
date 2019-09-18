@@ -250,5 +250,20 @@ Proof.
 Qed.
 Lemma init_cok :
   proc_hspec Var.dynamics impl.(init) init_hspec.
-Proof.
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+Proof.
+(eapply ret_hspec).
+Timeout 1 Check @identity.
+Timeout 1 Check @hypo_type.
+Timeout 1 Check @hypo_type.
+Timeout 1 Check @readNone.
+Timeout 1 Check @readNone.
+Timeout 1 Check @readNone.
+Timeout 1 Check @initOutput.
+Timeout 1 Check @identity.
+Timeout 1 Check @hypo_type.
+Timeout 1 Check @readNone.
+typeclasses eauto.
