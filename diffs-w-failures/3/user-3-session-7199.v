@@ -457,4 +457,5 @@ Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
-(apply proc_spec_weaken).
+Timeout 1 Check @repeat_length.
+(eapply proc_spec_weaken; eauto).
