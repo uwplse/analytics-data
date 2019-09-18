@@ -593,26 +593,9 @@ Timeout 1 Check @spec_abstraction_compose.
 (exists bs; intuition eauto).
 }
 step.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Show.
 (unfold spec_impl; simpl; intuition).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @div_eucl_th.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Set Printing Width 68.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 68.
-Show.
-(exists []; intuition eauto).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 68.
-Show.
-Unset Silent.
-Set Diffs "off".
+(descend; intuition eauto).
