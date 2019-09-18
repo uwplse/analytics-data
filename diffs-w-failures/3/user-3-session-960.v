@@ -583,4 +583,14 @@ Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @Byte.x25.
-generalize dependent Datatypes.length (nat_to_le 254 x).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(generalize dependent Datatypes.length (nat_to_le 254 x); intros).
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @applicative_ap.
+(exfalso; apply n1).
+Timeout 1 Check @split.
+lia.
