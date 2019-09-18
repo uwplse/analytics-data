@@ -194,6 +194,26 @@ Show.
 (intros t1 t2 Hnf).
 (inversion Hnf; subst).
 Show.
-(inversion H; subst).
 Show.
-Search -atom_type.
+Set Printing Width 148.
+(apply atom_type__value_type; assumption).
+Qed.
+Set Silent.
+Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
+(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
+  try (solve
+   [ match goal with
+     | Hsem:||-[ ?k][?t]<= [?t']
+       |- | ?t | <= | ?t' | =>
+           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
+            (Hsem _ Hm); contradiction
+     | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
+       |- | ?t | <= _ =>
+           assert (Hv : value_type t) by constructor; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
+            destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
+            tauto || apply Max.le_max_l || apply Max.le_max_r
+     end ])).
+-
+Unset Silent.
+(assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption)).
