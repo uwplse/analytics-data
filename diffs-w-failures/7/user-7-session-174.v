@@ -148,5 +148,6 @@ Set Printing Width 148.
 (unfold subst).
 Show.
 Set Printing Width 148.
-(simpl).
-Show.
+Set Printing Width 148.
+(unfold subst_terminate).
+reflexivity.
