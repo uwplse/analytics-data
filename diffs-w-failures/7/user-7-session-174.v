@@ -89,10 +89,9 @@ assumption.
 Qed.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Definition mk_subst_exist (x : id) (y : id) (t ts : ty) := TExist y (if beq_id x y then t else ts).
-Unset Silent.
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
@@ -105,5 +104,4 @@ Function
        else mk_subst_exist x y t' (subst x s t')
    | TVar y => if beq_id x y then s else t
    | TEV y => t
-   end
- where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
+   end - intros.
