@@ -152,10 +152,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
-(unfold inited_any).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
+(unfold inited_any).
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
