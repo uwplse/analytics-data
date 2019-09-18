@@ -1411,4 +1411,8 @@ Set Diffs "off".
 Set Printing Width 104.
 Show.
 iDestruct "Hmbox" as "(Hlocked'&Hauth)".
-iDestruct "Hauth" as ( S ) "(Hauth&%)".
+Set Silent.
+iDestruct "Hauth" as ( S ? ) "(Hauth&?)".
+iExFalso.
+Unset Silent.
+iDestruct "Hlockinv" as ( S' ? ) "(Hauth'&?)".
