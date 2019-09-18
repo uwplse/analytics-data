@@ -152,4 +152,9 @@ subst.
 (simpl in HX).
 Search -IdSet.remove.
 exfalso.
-(apply IdSetFacts.remove_1).
+Show.
+(apply IdSetFacts.remove_1 in HX).
+assumption.
+reflexivity.
++
+(rewrite b_subst_exist_neq in *).
