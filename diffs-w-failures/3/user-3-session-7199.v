@@ -539,4 +539,19 @@ Timeout 1 Check @log_addr.
 Timeout 1 Check @Byte.xa0.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @split.
-(destruct (0 == log_addr a); try lia).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct (0 == log_addr a)).
+-
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @split.
+(unfold log_addr in *; lia).
