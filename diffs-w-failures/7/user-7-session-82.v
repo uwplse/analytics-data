@@ -124,3 +124,5 @@ Unset Silent.
 (intros t1 t2 Hsem).
 (apply SD_Trans with (MkNF( t1))).
 (apply mk_nf__sub_d_l; assumption).
+(apply mk_nf__sub_d_r; assumption).
+(apply nf_sem_sub_i__sub_d).
