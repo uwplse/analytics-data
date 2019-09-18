@@ -67,4 +67,5 @@ clear IHv.
 (intros t k).
 Show.
 Set Printing Width 148.
-(simpl).
+Set Printing Width 148.
+(intros Hm).
