@@ -372,40 +372,32 @@ Show.
 (apply SR_NormalForm in Hcontra; contradiction).
 Set Printing Width 148.
 Set Silent.
+Set Printing Width 148.
 Ltac
  solve_not_x_sub_r_y_full :=
   match goal with
-  | |- ~ |- ?tx << ?ty =>
-        remember tx as t eqn:Heq1 ; remember ty as t' eqn:Heq2 ; intros Hcontra; induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ]);
-         subst; auto
-  end.
-Set Printing Width 148.
+  | |- ~ |- ?t1 << ?t2 =>
+        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra;
+         try (solve [ inversion Heqx | inversion Heqy ]); subst
+  end; match goal with
+       | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
+       end.
 Ltac
  solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
   destruct IHt2_1 as [IH1| IH1]; destruct IHt2_2 as [IH2| IH2];
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
-Set Printing Width 148.
 Set Silent.
 Lemma nf_sub_r__decidable2 :
   forall t : ty, InNF( t) -> (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t)).
 Proof.
-Unset Silent.
 (apply
   (in_nf_mut
      (fun (t : ty) (Hat : atom_type t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t)))
      (fun (t : ty) (Hnf : in_nf t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t))))).
-Set Silent.
 -
-Unset Silent.
 (intros c).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
+Unset Silent.
 (split; intros t'; induction t'; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 ]);
   try
    match goal with
@@ -414,16 +406,14 @@ Set Printing Width 148.
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
 +
+Set Silent.
 right.
-Set Printing Width 148.
-Set Printing Width 148.
+Unset Silent.
 (match goal with
  | |- ~ |- ?t1 << ?t2 =>
        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
         subst
  end).
-Set Printing Width 148.
-Set Printing Width 148.
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
  end).
