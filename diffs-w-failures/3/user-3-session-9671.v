@@ -599,4 +599,12 @@ Show.
 step.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @repeat_length.
-intuition eauto.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Show.
+intuition.
+Timeout 1 Check @repeat_length.
+{
+eauto.
+}
