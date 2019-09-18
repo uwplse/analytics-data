@@ -195,4 +195,12 @@ Timeout 1 Check @non_erroring.
 Timeout 1 Check @in_inv.
 Set Printing Width 51.
 Show.
-(inversion H0).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sum.
+Timeout 1 Check @Nsub.
+Set Printing Width 51.
+Show.
+(inversion H0; subst).
+Timeout 1 Check @sig.
+(simpl).
