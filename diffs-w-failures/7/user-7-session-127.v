@@ -176,8 +176,10 @@ Lemma match_ty__exists_w_v : forall (t : ty) (k : nat), exists (w : nat) (v : ty
 Proof.
 (induction t; intros k).
 -
-exists 0,(TCName c).
-(apply match_ty_value_type__reflexive; constructor).
+Set Printing Width 148.
+(apply match_ty_cname).
+Show.
+Set Silent.
 -
 (destruct (IHt1 k) as [w1 [v1 Hm1]]).
 (destruct (IHt2 k) as [w2 [v2 Hm2]]).
@@ -197,11 +199,15 @@ exists 0,(TRef t).
 exists (S w),v.
 (apply match_ty_exist).
 exists (TVar i).
-Unset Silent.
 (rewrite subs_id).
-Show.
 assumption.
 -
 exists 0,(TEV i).
+Unset Silent.
 (apply match_ty_var).
 -
+Set Silent.
+exists 0,(TEV i).
+Unset Silent.
+(apply match_ty_ev).
+Qed.
