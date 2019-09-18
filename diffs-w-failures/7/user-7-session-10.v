@@ -245,24 +245,11 @@ Set Silent.
 -
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
 (apply sub_r__mk_nf_sub_r; assumption).
-Unset Silent.
-Qed.
-Set Silent.
-Lemma sub_r__trans2 :
-  forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
-Proof.
-(intros tm1 tm2 Hsub).
-(induction Hsub).
--
-tauto.
--
-(destruct IHHsub1 as [IHHsub11 IHHsub12]).
-(destruct IHHsub2 as [IHHsub21 IHHsub22]).
-(split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
-  subst; try (solve [ constructor; auto ])).
-+
-(assert (Hsub : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
+Set Printing Width 148.
 (apply SR_NormalForm).
+Show.
+Set Silent.
+(assert (Hsub : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
 (apply sub_r__mk_nf_sub_r in Hsub).
 (pose proof (mk_nf__in_nf (TPair t1 t2)) as Hnf1).
 (pose proof (mk_nf__in_nf (TPair t1' t2')) as Hnf2).
@@ -272,41 +259,30 @@ tauto.
 -
 (destruct IHHsub1 as [IHHsub11 IHHsub12]).
 (destruct IHHsub2 as [IHHsub21 IHHsub22]).
-Unset Silent.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
-Set Silent.
 +
 (remember (TUnion t1 t2) as ty eqn:Heqy ).
-Unset Silent.
 (induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
-Set Silent.
 -
 (destruct IHHsub as [IHHsub1 IHHsub2]).
-Unset Silent.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
-Set Silent.
 +
 (apply sub_r_union_l__inv in Hsub').
-Unset Silent.
 (destruct Hsub'; auto).
-Set Silent.
 -
 (destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-Unset Silent.
 (destruct Hsub'; auto).
-Set Silent.
 -
-Unset Silent.
-Show.
-Set Silent.
 (destruct IHHsub1 as [IHHsub11 IHHsub12]).
-Unset Silent.
 (destruct IHHsub2 as [IHHsub21 IHHsub22]).
 (split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst;
   try (solve [ constructor; auto ])).
-Set Silent.
 +
 Unset Silent.
+(apply SR_NormalForm).
+(assert (Hsub : |- TRef t << TRef t') by (constructor; assumption)).
+(apply sub_r__mk_nf_sub_r in Hsub).
+(apply sub_r_nf__trans2 with (MkNF( TRef t'))).
