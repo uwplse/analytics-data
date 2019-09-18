@@ -288,35 +288,30 @@ Proof.
 (destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
 auto.
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma unite_pairs__distr21 :
   forall t1 t21 t22 : ty, InNF( t1) -> |- unite_pairs t1 (TUnion t21 t22) << TUnion (unite_pairs t1 t21) (unite_pairs t1 t22).
-Unset Silent.
 Proof.
 (intros t1 t21 t22 Hnf1).
 generalize dependent t22.
 generalize dependent t21.
 (induction Hnf1; intros t21 t22).
 -
-Show.
-(rewrite unite_pairs_atom_union).
-Set Printing Width 148.
-Set Printing Width 148.
 (rewrite unite_pairs_atom_union; try assumption).
-(apply sub_r__rflxv).
+(apply sub_r__reflexive).
 -
-Show.
-Set Printing Width 148.
 (repeat rewrite unite_pairs_union_t).
-Set Printing Width 148.
 (apply SR_UnionL; eapply sub_r__transitive; try apply IHHnf1_1 || apply IHHnf1_2; constructor).
 (apply SR_UnionR1; apply SR_UnionR1; apply sub_r__reflexive).
 (apply SR_UnionR2; apply SR_UnionR1; apply sub_r__reflexive).
 (apply SR_UnionR1; apply SR_UnionR2; apply sub_r__reflexive).
 (apply SR_UnionR2; apply SR_UnionR2; apply sub_r__reflexive).
+Unset Silent.
 Qed.
 Set Silent.
 Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t2) << MkNF( TUnion (TPair t11 t2) (TPair t12 t2)).
-Unset Silent.
 Proof.
+Unset Silent.
 (intros t11 t12 t2).
-Show.
+(rewrite mk_nf_pair).
