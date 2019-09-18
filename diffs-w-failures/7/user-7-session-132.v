@@ -89,6 +89,13 @@ Proof.
 (intros k t t' Hsem).
 Set Printing Width 148.
 (destruct Hsem as [Hsem1 Hsem2]).
+Show.
+Set Printing Width 148.
+Set Silent.
 (intros w1).
 exists w1.
+Unset Silent.
 (intros v Hm).
+(destruct k).
+-
+(apply match_ty_ref__weak_inv in Hm; subst).
