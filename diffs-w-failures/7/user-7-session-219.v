@@ -104,3 +104,5 @@ split.
 Unset Silent.
 (apply wf_ty__wf_ty_f_subst; assumption).
 (rewrite f_b_subst__spec_permute in IHw').
+Set Printing Width 148.
+(rewrite f_b_subst__spec_permute in IHw'; try assumption).
