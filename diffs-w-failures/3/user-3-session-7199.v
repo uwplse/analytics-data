@@ -736,4 +736,8 @@ Set Diffs "off".
 Timeout 1 Check @Tauto.A.
 Set Printing Width 78.
 Show.
-(rewrite diskUpd_eq; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite diskUpd_eq; eauto).
