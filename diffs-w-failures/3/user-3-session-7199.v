@@ -294,39 +294,14 @@ Qed.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Set Silent.
-Theorem append_at_ok a bs' :
-  proc_spec
-    (fun (bs : list block) state =>
-     {|
-     pre := a = length bs /\
-            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
-     post := fun r state' =>
-             diskGet state' len_addr = diskGet state len_addr /\
-             diskSize state' = diskSize state /\
-             log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state' (bs ++ bs');
-     recovered := fun _ state' =>
-                  diskGet state' len_addr = diskGet state len_addr /\
-                  diskSize state' = diskSize state /\
-                  log_contents_ok state' bs |}) (append_at a bs') recover
-    d.abstr.
-Proof.
-(induction bs'; simpl).
--
-step_proc.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Show.
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @BoolTheory.
+Theorem log_contents_ok_unchanged d bs a b :
+  log_contents_ok d bs ->
+  log_addr a >= length bs -> log_contents_ok (diskUpd d a b) bs.
+Proof.
+Timeout 1 Check @Nat.add_shuffle0.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
@@ -335,32 +310,20 @@ Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskUpd.
-Timeout 1 Check @diskUpd.
-Timeout 1 Check @diskUpd.
+(unfold log_contents_ok; intros).
 Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @firstn_length.
 Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+specialize (H a).
