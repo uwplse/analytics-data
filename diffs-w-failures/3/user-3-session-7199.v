@@ -686,4 +686,10 @@ Proof.
 Unset Silent.
 (intros).
 (unfold log_abstraction; intuition).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+-
 (unfold log_length_ok in *; intros).
+(assert (len_addr < diskSize d') by eauto).
