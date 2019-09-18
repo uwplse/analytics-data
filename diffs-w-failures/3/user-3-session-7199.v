@@ -269,4 +269,17 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(proc_spec_weaken d.read_ok).
+Check proc_spec_weaken.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec_rx.
+Timeout 1 Check @proc_spec_weaken.
+(apply proc_spec_weaken).
