@@ -103,3 +103,5 @@ Unset Silent.
 exists ([FX' := tx] ti).
 split.
 (apply wf_ty__wf_ty_f_subst).
+Set Printing Width 148.
+(apply wf_ty__wf_ty_f_subst; assumption).
