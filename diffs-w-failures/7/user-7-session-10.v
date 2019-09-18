@@ -168,4 +168,5 @@ Proof.
 -
 constructor.
 assumption.
--
+Unset Silent.
+Show.
