@@ -440,22 +440,31 @@ Set Silent.
 clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 Set Printing Width 148.
+Show.
+Set Printing Width 148.
+Set Silent.
 (inversion Hle; subst; simpl).
 +
-Set Silent.
 (intros v).
 specialize (Href v).
-Unset Silent.
 (split; tauto).
 +
-Show.
 (destruct k').
 (simpl).
 tauto.
 (simpl).
-Set Silent.
 (intros v).
-Unset Silent.
 specialize (Href v).
 split.
 *
+Unset Silent.
+Abort.
+Set Silent.
+Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
+Proof.
+(intros v Hv ta tb Hsem; unfold sem_sub_i in Hsem).
+(assert (Hm : |-[ | TUnion ta tb |] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+specialize (Hsem _ _ Hm).
+(apply match_ty_i_union__inv in Hsem).
+Unset Silent.
+(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
