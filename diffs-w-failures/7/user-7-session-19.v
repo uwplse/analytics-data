@@ -111,4 +111,5 @@ Set Silent.
 Unset Silent.
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair; auto).
+Set Printing Width 148.
+(apply match_ty_i_pair; tauto).
