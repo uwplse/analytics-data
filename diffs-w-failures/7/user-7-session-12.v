@@ -314,4 +314,5 @@ Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t
 Proof.
 Unset Silent.
 (intros t11 t12 t2).
-(rewrite mk_nf_pair).
+Set Printing Width 148.
+(rewrite mk_nf_pair, mk_nf_union).
