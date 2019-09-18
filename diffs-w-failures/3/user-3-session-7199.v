@@ -329,4 +329,10 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
 (unfold log_addr in *).
-(destruct (a0 == S a)).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+(destruct (a0 == S a); try lia).
