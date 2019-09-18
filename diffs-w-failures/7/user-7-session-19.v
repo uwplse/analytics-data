@@ -135,4 +135,4 @@ specialize (H _ Hm).
 (apply match_ty_i_ref__inv in H).
 (destruct H as [tx [Heq Href]]; inversion Heq; subst).
 Set Printing Width 148.
-(intros v; tauto).
+(intros v; auto).
