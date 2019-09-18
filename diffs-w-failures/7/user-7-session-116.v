@@ -21,4 +21,6 @@ Proof.
 (intros X fvs1 fvs2 H).
 (unfold fresh in *).
 Set Printing Width 148.
-(split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]).
+Set Printing Width 148.
+(split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
+Qedt.
