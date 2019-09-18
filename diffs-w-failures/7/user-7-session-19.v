@@ -195,6 +195,7 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (split; intros v Hm; [ destruct (match_ty_i_exists t2 k) as [v' Hm'] | destruct (match_ty_i_exists t1 k) as [v' Hm'] ];
   [ assert (Hmp : |-[ k] TPair v v' <$ TPair t1 t2) by (apply match_ty_i_pair; assumption)
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]).
