@@ -51,5 +51,8 @@ Proof.
 Unset Silent.
 Show.
 (intros).
+Set Printing Width 148.
+(unfold subst).
 (simpl).
 Show.
+(unfold subst_func).
