@@ -209,4 +209,4 @@ Set Printing Width 148.
 -
 (destruct w).
 +
-(apply mtch_ty_exist__0_inv in Hm).
+(apply mactch_ty_exist__0_inv in Hm).
