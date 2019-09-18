@@ -37,4 +37,15 @@ Proof.
 assumption.
 Qed.
 Unset Silent.
-Lemma fresh_in_ty_exist_neq__inv : forall (X X' : id) (t : ty), X <> X' -> fresh_in_ty X (TExist X' t) -> fresh_in_ty X t'.
+Set Silent.
+Lemma fresh_in_ty_exist_neq__inv : forall (X X' : id) (t : ty), X <> X' -> fresh_in_ty X (TExist X' t) -> fresh_in_ty X t.
+Unset Silent.
+Proof.
+Show.
+(intros X X' t Hneq Hfresh).
+(unfold fresh_in_ty in *; simpl in Hfresh; simpl).
+(unfold fresh in *).
+Search -IdSet.remove.
+(intros Hcontra).
+Search -IdSet.remove.
+(apply IdSetFacts.remove_2 in Hcontra).
