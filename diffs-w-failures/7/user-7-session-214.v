@@ -113,6 +113,5 @@ Set Printing Width 148.
 (intros X t1 t2 H).
 Show.
 Search -IdSet.In.
-(destruct H as [H| H]).
-(apply IdSetFacts.union_2).
-Show.
+Set Printing Width 148.
+(destruct H as [H| H]; [ apply IdSetFacts.union_2 | apply IdSetFacts.union_3 ]).
