@@ -688,6 +688,15 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ret.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Set Silent.
 Theorem reset_ok : proc_spec reset_spec reset recover abstr.
 Proof.
 (unfold reset; intros).
@@ -699,3 +708,10 @@ intuition.
 (descend; intuition eauto).
 }
 (eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
+{
+(descend; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+Unset Silent.
+}
