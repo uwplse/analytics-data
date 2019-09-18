@@ -346,4 +346,13 @@ Set Printing Width 104.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
-Locate "addr".
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @read.
+Check file_truncate.
+Check file_set_sz.
+Timeout 1 Check @wor.
+Timeout 1 Check @wor.
+Timeout 1 Check @word.
+Set Printing Width 104.
+Search -(addr -> word).
