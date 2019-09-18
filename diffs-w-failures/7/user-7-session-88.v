@@ -442,4 +442,7 @@ Set Printing Width 148.
 *
 Check left.
 Print "\/".
-specialize (IHt'1 (or_introl Hdept)).
+Show.
+Set Printing Width 148.
+(apply Nat.le_trans with (| t'1 |)).
+tauto.
