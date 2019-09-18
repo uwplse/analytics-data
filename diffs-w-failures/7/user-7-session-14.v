@@ -284,3 +284,7 @@ Proof.
 Show.
 (intros t t' Hsub).
 (apply SR_NormalForm).
+Show.
+Set Printing Width 148.
+(apply SR_NormalForm).
+(apply sub_r__transitive with (MkNF( t'))).
