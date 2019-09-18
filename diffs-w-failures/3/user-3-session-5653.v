@@ -5,12 +5,5 @@ Add Search Blacklist "Private_" "_subproof".
 Set Diffs "off".
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
-Add Search Blacklist "Private_" "_subproof".
-Set Silent.
-Require Import POCS.
-Require Import LogAPI.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
