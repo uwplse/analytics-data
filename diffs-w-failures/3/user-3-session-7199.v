@@ -638,39 +638,25 @@ Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_length_ok.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Set Printing Width 78.
 Lemma log_abstraction_commit :
-  forall (d : disk) (bs bs' : list block),
-  log_length_ok d bs ->
+  forall bs bs' : list block,
   forall d' : State,
   log_size_ok d' (bs ++ bs') ->
   log_contents_ok d' (bs ++ bs') ->
   forall len_b : block,
+  diskGet d' len_addr =?= b ->
   block_to_addr len_b = length bs + length bs' ->
   log_abstraction d' (bs ++ bs').
-Proof.
-(intros).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Set Printing Width 78.
-Show.
-(unfold log_abstraction; intuition).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(unfold log_length_ok in *; intros).
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
