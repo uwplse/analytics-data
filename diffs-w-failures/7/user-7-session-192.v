@@ -98,4 +98,9 @@ admit.
 +
 admit.
 +
-(apply match_ty_exist__iv in Hm').
+(apply match_ty_exist__inv in Hm').
+(destruct Hm' as [ti Hm']).
+specialize (IHw' _ Hm').
+(destruct IHw' as [IHw'a IHw'b]).
+split.
+*
