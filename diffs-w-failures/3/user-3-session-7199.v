@@ -382,33 +382,18 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (assert (diskGet nil 0 = None)).
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
+Set Silent.
+{
 (apply disk_oob_eq).
-Timeout 1 Check @split.
-Timeout 1 Check @sig.
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
 (simpl; lia).
-Timeout 1 Check @spec_abstraction_compose.
+}
 congruence.
+-
+(simpl; intuition).
+(exfalso; lia).
