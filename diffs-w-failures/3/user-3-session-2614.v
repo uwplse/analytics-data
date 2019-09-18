@@ -159,4 +159,4 @@ admit.
 typeclasses eauto.
 -
 (simpl).
-(unfold EqualDec).
+Unset Silent.
