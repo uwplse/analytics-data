@@ -110,4 +110,4 @@ Set Printing Width 148.
 Set Silent.
 -
 Unset Silent.
-(destruct (value_type_matching_ty__exists t2) as [pv2 Hpv2]).
+(destruct (value_type_matching_ty__exists k t2) as [pv2 Hpv2]).
