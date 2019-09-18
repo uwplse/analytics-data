@@ -515,6 +515,17 @@ Proof.
 (unfold get_len; intros).
 step_proc.
 step_proc.
-eauto.
-intuition eauto.
-(eexists; intuition eauto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @abstr_get_len.
+Timeout 1 Check @abstr_get_len.
+Timeout 1 Check @abstr_get_len.
+Timeout 1 Check @abstr_get_len.
+Timeout 1 Check @abstr_get_len.
+Timeout 1 Check @abstr_get_len.
+Set Printing Width 78.
+Show.
+(eapply abstr_get_len).
