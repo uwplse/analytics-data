@@ -157,8 +157,10 @@ Unset Silent.
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
 Set Silent.
 -
+Set Printing Width 148.
 (intros v1 v3 k Hm1 Hm2).
+Show.
 (destruct k).
-(destruct v1; inversion Hm1).
-Unset Silent.
+Show.
+(destruct v1; try contradiction).
 Show.
