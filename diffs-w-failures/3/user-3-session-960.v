@@ -504,25 +504,41 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @le_to_nat.
+Timeout 1 Check @Some.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Byte.x25.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @le_to_nat.
+Timeout 1 Check @le_to_nat.
+Timeout 1 Check @le_to_nat.
+Timeout 1 Check @N.div.
+Timeout 1 Check @Ascii.N_of_digits.
+Set Printing Width 78.
+Show.
 refine
  {|
  byte := {x | x < 256};
  byte0 := exist _ 0 _;
  uint64_to_string := pretty.pretty_nat;
  ascii_to_byte := ascii_to_bounded;
- byte_to_ascii := bounded_to_ascii |}.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-lia.
+ byte_to_ascii := bounded_to_ascii;
+ uint64_to_le := nat_to_le 256;
+ le_to_uint64 := fun digits => Some (le_to_nat digits) |}.
