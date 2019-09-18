@@ -50,6 +50,7 @@ Declare Scope btjm_scope.
 Reserved Notation "'|-[' k ']' v '<$' t" (at level 50).
 Reserved Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" (at level 45).
 Unset Silent.
+Set Printing Width 148.
 Fixpoint match_ty (k : nat) :=
   fix mty (v : ty) :=
     fix mty' (t : ty) :=
@@ -57,7 +58,7 @@ Fixpoint match_ty (k : nat) :=
       | _, TCName c, TCName c' => c = c'
       | _, TPair v1 v2, TPair t1 t2 => mty v1 t1 /\ mty v2 t2
       | _, _, TUnion t1 t2 => mty' t1 \/ mty' t2
-      | S k, TRef t', TRef t => (inv_depth t <= k /\ inv_depth t' = inv_depth t) /\ (forall v, |-[ k] v <$ t' <-> |-[ k] v <$ t)
+      | S k, TRef t', TRef t => (inv_depth t <= k /\ inv_depth t' = inv_depth t) /\ ||-[ k][t']= [t]
       | _, _, _ => False
       end
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
