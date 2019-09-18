@@ -271,6 +271,30 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite IHn).
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @eq_nat_decide.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @map_filter.
+Timeout 1 Check @lt_dec.
+Set Printing Width 78.
+Show.
+(destruct (lt_dec n base)).
+Set Silent.
++
+Unset Silent.
+admit.
++
+(rewrite IHn).
+{
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
+lia.
+}
+Timeout 1 Check @split.
+lia.
