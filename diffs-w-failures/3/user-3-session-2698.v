@@ -227,4 +227,37 @@ Timeout 1 Check @nat_le_pi.
 Timeout 1 Check @nat_le_pi.
 Timeout 1 Check @nat_le_inverse.
 Timeout 1 Check @nat_le_inverse.
-(rewrite nat_le_inverse).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(rewrite nat_le_inverse; auto).
+Set Silent.
+-
+(simpl).
+Unset Silent.
+typeclasses eauto.
+-
+(simpl).
+(unfold EqualDec).
+(intros; simpl).
+(decide equality; subst).
+(decide equality; subst).
+(destruct (x0 == x1); auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfd5Mho"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSoBuMR"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwDPN5t"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
