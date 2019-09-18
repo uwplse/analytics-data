@@ -54,4 +54,5 @@ Unset Silent.
 Show.
 (pose proof (fresh_in_ty_var__neq _ _ HX) as HXi).
 Set Printing Width 148.
-(rewrite subst_var_neq).
+Set Printing Width 148.
+(rewrite subst_var_neq; assumption).
