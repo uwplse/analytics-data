@@ -441,5 +441,33 @@ Timeout 1 Check @proj1_sig.
 Timeout 1 Check @proj1_sig.
 Timeout 1 Check @proj1_sig.
 Set Printing Width 78.
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.ascii_dec.
+Timeout 1 Check @Ascii.ascii_of_N.
+Timeout 1 Check @Ascii.ascii_of_nat.
 Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
-  Ascii.nat_of_ascii (proj1_sig x).
+  Ascii.ascii_of_nat (proj1_sig x).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjMbEGo"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7rBVPP"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
+refine (exist _ (Ascii.nat_of_ascii a) _).
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Search -Ascii.nat_of_ascii.
