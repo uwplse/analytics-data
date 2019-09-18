@@ -650,4 +650,11 @@ Timeout 1 Check @bytes.
 Timeout 1 Check @split.
 Set Printing Width 78.
 Show.
-(assert (a = 0) by lia).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sum.
+Set Printing Width 78.
+Show.
+(assert (a = 0) by lia; subst).
+Timeout 1 Check @sig.
+(simpl).
