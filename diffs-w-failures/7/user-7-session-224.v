@@ -65,4 +65,6 @@ exists w1.
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
 -
 Unset Silent.
+Search -b_free_in_ty.
 Show.
+(destruct (b_free_in_ty__dec X t)).
