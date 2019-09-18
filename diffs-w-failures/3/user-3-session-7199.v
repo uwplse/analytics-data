@@ -367,5 +367,5 @@ Timeout 1 Check @diskSize.
 Timeout 1 Check @diskSize.
 Set Printing Width 78.
 Show.
-(unfold log_addr, diskSize in *).
-lia.
+Unset Silent.
+Set Diffs "off".
