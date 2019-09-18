@@ -283,4 +283,6 @@ Lemma xxx : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t 
 Unset Silent.
 Proof.
 Show.
-(induction k; induction t; induction t'; intros Hdept Hsem).
+Set Printing Width 148.
+(induction k; induction t; induction t'; intros Hdept Hsem; try (solve [ simpl; constructor ])).
+Show 2.
