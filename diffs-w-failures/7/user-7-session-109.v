@@ -50,4 +50,4 @@ Fixpoint subst (x : id) (s t : ty) :=
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 Unset Silent.
-Check IdSet.
+Fixpoint FV (t : ty) : id_set.
