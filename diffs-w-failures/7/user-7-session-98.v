@@ -125,4 +125,6 @@ Unset Silent.
 (intros k; destruct k; intros v Hm).
 -
 Show.
-(simpl).
+Show.
+Set Printing Width 148.
+(destruct v; simpl).
