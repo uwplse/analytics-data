@@ -780,15 +780,10 @@ Set Diffs "off".
 Timeout 1 Check @Choice.
 Set Printing Width 78.
 Show.
-Check sigT_eq_dec.
-Timeout 1 Check @FinMapToList.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Choice.
 Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @sigT_eq_dec.
-Check sigT_eq_dec.
+Set Printing Width 78.
+Show.
+Check sig.
