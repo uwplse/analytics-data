@@ -102,5 +102,10 @@ Set Printing Width 148.
 {
 Show.
 Set Printing Width 148.
-(rewrite subst_exist_neq).
-Print fresh_in_ty.
+Show.
+Set Printing Width 148.
+(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
+(rewrite subst_equation).
+Search -beq_id.
+(pose proof (false_beq_id _ _ Hbeq) as Hneq).
+(rewrite Hneq).
