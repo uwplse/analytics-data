@@ -421,4 +421,6 @@ clear Hm.
 (inversion Hcontra).
 Unset Silent.
 -
-specialize (Hcontra 0).
+Set Printing Width 148.
+(destruct Ht as [w [v Hm]]).
+specialize (Hcontra w).
