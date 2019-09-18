@@ -199,7 +199,9 @@ Set Printing Width 78.
 Show.
 step_proc.
 {
-(destruct a' as [_ bs]; simpl in *; intuition).
-Timeout 1 Check @repeat_length.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct a' as [_ bs]; simpl in *; intuition eauto).
+}
