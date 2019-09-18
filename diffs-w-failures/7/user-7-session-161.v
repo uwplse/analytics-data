@@ -86,6 +86,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma subst_nested : forall (X Y : id) (tX tY : ty), X <> Y -> forall t : ty, [X := tX] ([Y := tY] t) = [Y := [X := tX] tY] ([X := tX] t).
 Proof.
