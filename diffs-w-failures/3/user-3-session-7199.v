@@ -667,4 +667,17 @@ Proof.
 (unfold log_abstraction; intuition).
 (unfold log_length_ok in *; intros).
 Timeout 1 Check @diskUpd_oob_eq.
-eq_values.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+(assert (len_addr < diskSize d')).
+Timeout 1 Check @repeat_length.
+eauto.
