@@ -65,33 +65,12 @@ Inductive ty : Type :=
   | Map : forall V : Type, _
   | Lock : _.
 End Ptr.
-Class GoModel : Type :={byte : Type;
-                        byte0 : byte;
-                        uint64_to_string : uint64 -> string;
-                        ascii_to_byte : Ascii.ascii -> byte;
-                        byte_to_ascii : byte -> Ascii.ascii;
-                        uint64_to_le : uint64 -> list byte;
-                        uint64_from_le : list byte -> option uint64;
-                        File : Type;
-                        nilFile : File;
-                        Ptr : Ptr.ty -> Type;
-                        nullptr : forall ty, Ptr ty}.
-Search -"endian".
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
 Opaque Nat.modulo Nat.div.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @map_filter.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Set Printing Width 78.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @map_filter.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
+#[local]Obligation Tactic := (intros; simpl; subst).
 #[program]
 Fixpoint nat_to_le base (x : nat) {measure x lt} :
 list {x : nat | x < S (S base)} :=
@@ -101,22 +80,10 @@ list {x : nat | x < S (S base)} :=
       let digit := x mod S (S base) in
       exist _ digit _ :: nat_to_le base (x / S (S base))
   end.
-Set Silent.
 Next Obligation of nat_to_le_func.
 Proof.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
-Unset Silent.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqrgUG1T"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZulPN0"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Set Silent.
 Next Obligation of nat_to_le_func.
 Proof.
 subst digit.
@@ -126,42 +93,47 @@ Next Obligation of nat_to_le_func.
 Proof.
 lia.
 Qed.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
+Next Obligation of nat_to_le_func.
 Proof.
-Timeout 1 Check @sig.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @MR.
-Set Printing Width 78.
-Show.
 (unfold MR).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (apply (wf_projected lt projT2); auto).
 (apply lt_wf).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbnk38u"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Unset Silent.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjwtoRz"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtKFEKU"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLVJAo3"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4gF8CO"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @N.le_trans.
+Timeout 1 Check @N_le_total.
+Timeout 1 Check @split.
+Timeout 1 Check @list.
+Timeout 1 Check @list.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.div.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @N.div.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @zip_with.
+Timeout 1 Check @nil.
+Timeout 1 Check @N.div.
+Timeout 1 Check @N.div.
+Timeout 1 Check @N.div.
+Timeout 1 Check @Ascii.N_of_digits.
+Timeout 1 Check @N.div.
+Timeout 1 Check @Ascii.N_of_digits.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.lbase.
+Print projT1.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @le_to_nat.
