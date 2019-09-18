@@ -721,4 +721,41 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_impl.
 Timeout 1 Check @spec_impl.
 Timeout 1 Check @spec_impl.
-(unfold spec_impl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold spec_impl; simpl; intuition).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+(descend; intuition eauto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+Set Silent.
+{
+Unset Silent.
+(descend; intuition eauto).
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction_nil.
+Timeout 1 Check @log_abstraction_nil.
+Timeout 1 Check @log_abstraction_nil.
+(apply log_abstraction_nil).
