@@ -140,5 +140,6 @@ admit.
 Show.
 {
 (apply match_ty_exist).
-exists ti.
+Set Printing Width 148.
+exists ([X' := tx] ti).
 Show.
