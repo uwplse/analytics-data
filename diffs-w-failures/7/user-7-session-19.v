@@ -243,4 +243,4 @@ Set Printing Width 148.
 Set Printing Width 148.
 (assert (Hvp : value_type (TPair t1 t2))).
 constructor.
-baseTactics.solve_by_inverts.
+BaseTactics.solve_by_inverts.
