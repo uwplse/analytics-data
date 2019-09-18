@@ -270,5 +270,21 @@ Set Printing Width 148.
 Set Printing Width 148.
 (apply f_free_in_ty_pair).
 Show.
-(apply f_free_in_ty_pair__inv).
+Set Printing Width 148.
+(apply f_free_in_ty_pair__inv in HX).
 Show.
+tauto.
+Show.
+-
+Set Silent.
+(rewrite b_subst_union).
+(apply f_free_in_ty_union).
+(apply f_free_in_ty_union__inv in HX).
+Unset Silent.
+tauto.
+-
+(apply f_free_in_ty_exist__inv in HX).
+specialize (IHt HX).
+(destruct (beq_idP Y i)).
++
+(subst; simpl).
