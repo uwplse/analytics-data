@@ -124,10 +124,35 @@ contradiction.
 (rewrite Hdept').
 (split; apply le_n_S; assumption || constructor).
 Unset Silent.
-Qed.
+Set Printing Width 148.
 Set Silent.
-Lemma match_ty__inv_depth_l_le_index : forall v t : ty, forall k : nat, |-[ k] v <$ t -> inv_depth v <= k.
-Unset Silent.
+Lemma match_ty__inv_depth_l_le_index : forall (v t : ty) (k : nat), |-[ k] v <$ t -> inv_depth v <= k.
 Proof.
 (apply match_ty__inv_depth_l).
 Qed.
+Lemma match_ty__inv_depth_l_le_r : forall (v t : ty) (k : nat), |-[ k] v <$ t -> inv_depth v <= inv_depth t.
+Proof.
+(apply match_ty__inv_depth_l).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma match_ty_value_type_r__inv_depth_r_le_index : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> inv_depth v' <= k.
+Proof.
+(intros v v' Hv').
+generalize dependent v.
+Unset Silent.
+(induction Hv').
+Set Silent.
+-
+Unset Silent.
+(intros).
+(simpl).
+(apply Nat.le_0_l).
+Set Silent.
+-
+Unset Silent.
+Show.
+(intros v k Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1' [v2' [Heqp [Hm1 Hm2]]]]; subst).
+(simpl; apply Nat.max_lub; eauto).
