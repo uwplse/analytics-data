@@ -149,5 +149,6 @@ Lemma union_right_1 : forall t t1 t2 : ty, |- t << t1 -> |- t << TUnion t1 t2.
 Unset Silent.
 Proof.
 Show.
-auto with DBBetaJulia.
+Set Printing Width 148.
+eauto with DBBetaJulia.
 Show.
