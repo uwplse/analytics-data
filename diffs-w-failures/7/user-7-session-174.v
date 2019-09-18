@@ -148,4 +148,4 @@ Set Printing Width 148.
 (induction a).
 +
 (unfold lt_size).
-constructor.
+Show.
