@@ -440,7 +440,9 @@ subst.
 subst.
 (simpl).
 (apply Nat.le_max_r).
-}
+Show.
+Set Printing Width 148.
+Set Silent.
 (unfold sem_sub_i in Hsem).
 (assert (Hm : |-[ kmax] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem _ _ Hm).
