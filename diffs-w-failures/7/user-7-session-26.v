@@ -218,4 +218,6 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 (unfold sem_eq_k in *).
-(intros v Hv).
+Show.
+(intros v).
+atuto.
