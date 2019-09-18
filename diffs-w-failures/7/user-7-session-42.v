@@ -19,8 +19,24 @@ Open Scope btjt_scope.
 Open Scope btjm_scope.
 Open Scope btjnf_scope.
 Open Scope btjd_scope.
+Set Printing Width 148.
+Set Silent.
 Lemma sub_d__inv_depth_le : forall t t' : ty, |- t << t' -> | t | <= | t' |.
 Proof.
 (intros t t' Hsub).
-Unset Silent.
 (induction Hsub).
+-
+Unset Silent.
+constructor.
+Set Silent.
+-
+Unset Silent.
+Show.
+(apply Nat.le_trans with (| t2 |); assumption).
+Set Silent.
+-
+Unset Silent.
+Show.
+(simpl).
+(apply Nat.max_le_compat; assumption).
+-
