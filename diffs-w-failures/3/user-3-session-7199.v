@@ -513,4 +513,10 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(unfold log_size_ok, log_abstraction in *).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold log_size_ok, log_abstraction in *; intuition eauto).
+Timeout 1 Check @log_contents_ok.
+congruence.
