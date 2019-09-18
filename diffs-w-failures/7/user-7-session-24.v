@@ -155,6 +155,19 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
-(intros t t1 t2 H).
-Unset Silent.
+Set Printing Width 148.
+Set Silent.
 (eapply SD_Trans).
+eassumption.
+constructor.
+Qed.
+Lemma union_right_2 : forall t t1 t2 : ty, |- t << t2 -> |- t << TUnion t1 t2.
+Proof.
+(intros t t1 t2 H).
+(eapply SD_Trans).
+eassumption.
+constructor.
+Qed.
+Unset Silent.
+Hint Resolve union_right_1 union_right_2: DBBetaJulia.
+Ltac solve_trans := eapply SD_Trans; eassumption.
