@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -13,17 +14,11 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjmi_scope.
-Set Printing Width 148.
-Set Silent.
 Lemma match_ty_i_pair : forall v1 v2 t1 t2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
-Unset Silent.
 Proof.
-Set Silent.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
 (destruct k; split; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma match_ty_i_union_1 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t1 -> |-[ k] v <$ TUnion t1 t2.
 Proof.
 (intros v t1 t2 k Hm).
@@ -33,9 +28,7 @@ Lemma match_ty_i_union_2 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t2 -
 Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; right; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma match_ty_i_cname__inv : forall (v : ty) (c : cname), forall k : nat, |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; simpl in Hm; contradiction ])).
@@ -74,11 +67,7 @@ specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
 Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k] v <$ t.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
+Proof.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
   try
    match goal with
@@ -87,12 +76,9 @@ Set Printing Width 148.
    | |- |-[ ?k'] ?v <$ TUnion _ _ =>
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto
    end).
-Show.
-Set Silent.
 -
 Unset Silent.
-Set Printing Width 148.
-Show.
-(destruct v).
-(simpl in Hm).
-contradiction.
+(destruct v; contradiction).
+-
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]).
