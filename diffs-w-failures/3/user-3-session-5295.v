@@ -761,4 +761,12 @@ Set Silent.
 (exists d,(OutOfSync a0 b); simplify; finish).
 intuition eauto.
 Unset Silent.
+Set Silent.
+{
 lia.
+}
+Unset Silent.
+{
+(destruct r; step).
+intuition.
+(exists d,(OutOfSync a0 b); simplify; finish).
