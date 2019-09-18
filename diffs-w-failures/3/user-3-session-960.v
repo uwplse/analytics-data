@@ -784,4 +784,5 @@ Show.
 (intros; simpl).
 decide equality.
 decide equality.
-decide equality.
+Unset Silent.
+Set Diffs "off".
