@@ -62,13 +62,14 @@ Proof.
 Unset Silent.
 exists ti.
 Set Silent.
-Abort.
+Set Printing Width 148.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   |-[ w] v <$ [X := tx] t ->
   exists v' : ty,
     |-[ w] v' <$ [X := TVar X'] t /\
     (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> (fresh_in_ty X' t' -> |-[ w'] v <$ t') /\ (free_in_ty X' t' -> |-[ w'] v <$ [X' := tx] t')).
+Set Silent.
 Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm).
@@ -87,7 +88,6 @@ assumption.
 (apply match_ty_union_1; auto).
 *
 (destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
-Unset Silent.
 (apply match_ty_union_1; auto).
 (apply match_ty_union_1).
 admit.
@@ -101,36 +101,5 @@ admit.
 (apply match_ty_exist__inv in Hm').
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
-(destruct IHw' as [IHw'a IHw'b]).
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
-*
-specialize (IHw'b H).
-(split; intros HX').
-{
-(apply match_ty_exist).
-exists ti.
-assumption.
-}
-Set Printing Width 148.
-Set Silent.
-{
-(destruct (beq_idP X' i)).
-{
-subst.
-(unfold free_in_ty in HX').
-(simpl in HX').
-admit.
-}
 Unset Silent.
-{
-(rewrite subst_equation).
-Search -beq_id.
-Set Printing Width 148.
-(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
-(rewrite Hbeq).
-(destruct (IdSet.mem i (FV tx))).
-{
-(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
+(destruct IHw' as [IHw'a IHw'b]).
