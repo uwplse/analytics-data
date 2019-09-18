@@ -259,4 +259,17 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-step_proc_basic.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+(unfold recover).
+Timeout 1 Check @Choice.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read_ok.
+Timeout 1 Check @d.read_ok.
+Check d.read_ok.
