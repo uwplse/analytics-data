@@ -568,4 +568,4 @@ Set Diffs "off".
 Timeout 1 Check @const.
 Set Printing Width 78.
 Show.
-constructor.
+econstructor.
