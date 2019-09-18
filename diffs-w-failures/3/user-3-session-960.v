@@ -233,19 +233,21 @@ Unset Silent.
 Set Diffs "off".
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
 Set Printing Width 78.
 Fixpoint le_to_nat base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
 nat :=
   match digits with
   | nil => 0
-  | digit :: digits' => S (S base_m2) * proj1_sig digit + le_to_nat digits'
+  | digit :: digits' => proj1_sig digit * S (S base_m2) + le_to_nat digits'
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlbeccJ"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfYQaxE"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6G0v7G"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkp7dgq"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
@@ -262,19 +264,8 @@ auto.
 (assert (1 < S (S base_m2)) by lia).
 (assert (base_m2 = S (S base_m2) - 2) by lia).
 (generalize dependent S (S base_m2); intros base **; subst).
+Unset Silent.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
-Unset Silent.
 (rewrite IHn).
 Search -"mod" -div.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
