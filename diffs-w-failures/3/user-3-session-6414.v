@@ -134,11 +134,17 @@ Timeout 1 Check @sig.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(rewrite H in H1; simpl in H1).
-Timeout 1 Check @Tauto.A.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @sum.
 Set Printing Width 78.
 Show.
-congruence.
+(rewrite H in H1; simpl in H1; subst).
+Timeout 1 Check @Tauto.A.
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2b4vgk"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
