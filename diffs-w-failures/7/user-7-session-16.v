@@ -404,7 +404,8 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(split; intros t'; induction t'; try (solve [ right; solve_not_x_sub_r_y_full ]);
+Set Printing Width 148.
+(split; intros t'; induction t'; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 ]);
   try
    match goal with
    | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
