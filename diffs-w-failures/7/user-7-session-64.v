@@ -39,4 +39,10 @@ Unset Silent.
 (destruct (value_type_matching_ty__exists t1) as [pv1 [Hpval1 Hpv1]]).
 Check value_type_matching_ty__exists.
 Set Printing Width 148.
-(destruct (value_type_matching_ty__exists t1 k Hdep) as [pv1 [Hpval1 Hpv1]]).
+Check value_type_matching_ty__exists.
+Set Silent.
+(destruct (value_type_matching_ty__exists t1 k Hdep1) as [pv1 [Hpval1 Hpv1]]).
+Unset Silent.
+(destruct (value_type_matching_ty__exists t2 k Hdep2) as [pv2 [Hpval2 Hpv2]]).
+Set Silent.
+(split; intros v Hv Hm).
