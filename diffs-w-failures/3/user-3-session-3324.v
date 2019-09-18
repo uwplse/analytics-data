@@ -206,4 +206,8 @@ Set Printing Width 78.
 Show.
 (rewrite diskShrink_size; omega).
 (rewrite diskUpd_eq; auto).
-(rewrite ?diskShrink_size; omega).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite diskShrink_size; omega).
