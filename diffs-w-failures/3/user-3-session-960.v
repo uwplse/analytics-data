@@ -550,6 +550,10 @@ Timeout 1 Check @nullptr.
 Timeout 1 Check @fun_map.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 refine
  {|
  byte := {x | x < 256};
@@ -559,6 +563,6 @@ refine
  byte_to_ascii := bounded_to_ascii;
  uint64_to_le := nat_to_le 254;
  uint64_from_le := fun digits => Some (le_to_nat digits);
+ File := 0;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-lia.
