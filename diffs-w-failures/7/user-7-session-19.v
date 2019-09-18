@@ -169,7 +169,16 @@ Proof.
 -
 exists (TRef t).
 (apply match_ty_i__reflexive).
-constructor.
+Set Printing Width 148.
+Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
+Proof.
+auto with DBBetaJulia.
+Qed.
+Set Silent.
+Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Proof.
+(intros k t t' H).
+(split; intros v Hm; specialize (H v); tauto).
 Qed.
 Lemma sem_sub_k_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
@@ -192,9 +201,11 @@ Lemma sem_sub_k_i_pair__inv :
 Proof.
 (intros t1 t2 t1' t2' k Hsem).
 (unfold sem_sub_k_i in Hsem).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
+(split; intros v Hm; [ destruct (match_ty_i_exists t2 k) as [v' Hm'] | destruct (match_ty_i_exists t1 k) as [v' Hm'] ];
+  [ assert (Hmp : |-[ k] TPair v v' <$ TPair t1 t2) by (apply match_ty_i_pair; assumption)
+  | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
+  apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
+Qed.
 Ltac
  solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2 :=
   pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
@@ -299,12 +310,23 @@ tauto.
 Qed.
 Lemma match_ty_i__pair_unite_pairs :
   forall t1 t2 : ty, forall v1 v2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ unite_pairs t1 t2.
-Unset Silent.
-Set Printing Width 148.
-Set Silent.
+Proof.
+(intros ta; induction ta; intros tb; induction tb; intros v1 v2 k Hm1 Hm2; try (solve [ simpl; apply match_ty_i_pair; assumption ]);
+  try
+   match goal with
+   | |- |-[ k] TPair ?v1 ?v2 <$ unite_pairs ?tx (TUnion ?tb1 ?tb2) =>
+         change_no_check (|-[ k] TPair v1 v2 <$ TUnion (unite_pairs tx tb1) (unite_pairs tx tb2)); apply match_ty_i_union__inv in Hm2;
+          destruct Hm2 as [Hm2| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
+   end;
+  try
+   match goal with
+   | |- |-[ k] TPair ?v1 ?v2 <$ unite_pairs (TUnion ?tb1 ?tb2) ?tx =>
+         change_no_check (|-[ k] TPair v1 v2 <$ TUnion (unite_pairs tb1 tx) (unite_pairs tb2 tx)); apply match_ty_i_union__inv in Hm1;
+          destruct Hm1 as [Hm1| Hm1]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
+   end).
+Qed.
 Lemma match_ty_i__unite_pairs_pair : forall t1 t2 : ty, forall (v : ty) (k : nat), |-[ k] v <$ unite_pairs t1 t2 -> |-[ k] v <$ TPair t1 t2.
 Proof.
-Unset Silent.
 (intros ta; induction ta; intros tb; induction tb; intros v k Hm; try (solve [ simpl; assumption ]);
   try
    match goal with
@@ -332,9 +354,7 @@ Unset Silent.
                  try (solve [ apply match_ty_i_union_1; assumption | apply match_ty_i_union_2; assumption ])
           end
    end).
-Set Silent.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma match_ty_i_nf' : forall k : nat, forall t v : ty, |-[ k] v <$ t <-> |-[ k] v <$ MkNF( t).
 Proof.
 (induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ]);
@@ -361,50 +381,29 @@ Proof.
           [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ apply IHt1 | apply IHt2 ]; assumption
    end; try (solve [ rewrite mk_nf_ref in *; apply match_ty_i_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor ])).
 -
-Show.
-Set Printing Width 148.
-Set Silent.
 clear IHt.
 (rewrite mk_nf_ref).
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 (intros v; specialize (IHk t v); specialize (Href v)).
-Unset Silent.
 tauto.
-Set Silent.
 -
 clear IHt.
 (rewrite mk_nf_ref in Hm).
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
-Unset Silent.
 (intros v; specialize (IHk t v); specialize (Href v)).
 tauto.
 Qed.
-Set Silent.
 Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
 Proof.
 (intros t k).
-Unset Silent.
-Set Printing Width 148.
 (pose proof (match_ty_i_nf' k t) as H).
-Set Silent.
 (intros v).
-Unset Silent.
 specialize (H v).
 tauto.
-Qed.
-Set Silent.
-Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
-Proof.
-auto with DBBetaJulia.
-Qed.
-Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
-Proof.
-(intros k t t' H).
-(split; intros v Hm; specialize (H v); tauto).
 Qed.
 Lemma sem_sub_k_i__inv_depth_le_1 : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
@@ -414,40 +413,3 @@ Proof.
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf; assumption).
 (apply sem_sub_k__i__trans with t; try assumption).
-Unset Silent.
-(pose proof (match_ty_i_nf t k) as H).
-(intros v Hm; specialize (H v); tauto).
-Qed.
-Set Silent.
-Lemma sem_sub_k_i__inv_depth_le_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Proof.
-(intros k t t' Hdept' Hsem).
-(rewrite <- inv_depth_mk_nf).
-(apply sem_sub_k_i_nf__inv_depth_le_2 with k).
-(apply mk_nf__in_nf).
-assumption.
-(apply sem_sub_k__i__trans with t; try assumption).
-Unset Silent.
-(pose proof (match_ty_i_nf t k) as H).
-Set Silent.
-(intros v Hm; specialize (H v); tauto).
-Unset Silent.
-Qed.
-Set Silent.
-Lemma sem_eq_k_i__inv_depth_eq_1 : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
-Proof.
-(intros k t t' Hdept H).
-(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
-(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept H1)).
-(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept H2)).
-(apply Nat.le_antisymm; assumption).
-Qed.
-Lemma sem_eq_k_i__inv_depth_eq_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
-Proof.
-(intros k t t' Hdept' H).
-(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
-(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept' H1)).
-(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept' H2)).
-(apply Nat.le_antisymm; assumption).
-Unset Silent.
-Qed.
