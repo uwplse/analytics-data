@@ -380,7 +380,7 @@ Set Silent.
 (apply union_empty__inv).
 Unset Silent.
 assumption.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma wf_ty_union__inv : forall t1 t2 : ty, wf_ty (TUnion t1 t2) -> wf_ty t1 /\ wf_ty t2.
 Proof.
@@ -390,3 +390,12 @@ Proof.
 assumption.
 Unset Silent.
 Qed.
+Set Silent.
+Lemma wf_ty__wf_ty_f_subst : forall (X : id) (s t : ty), wf_ty s -> wf_ty t -> wf_ty ([FX := s] t).
+Proof.
+(intros X s t Hwfs).
+generalize dependent t.
+(induction t; intros Hwft; try (solve [ simpl; assumption ])).
+-
+Unset Silent.
+Show.
