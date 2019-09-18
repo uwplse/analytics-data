@@ -265,4 +265,12 @@ Show.
 Show.
 (apply match_ty_pair__inv in Hcontra).
 Show.
+Set Printing Width 148.
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+Show.
+subst.
+Show.
+(assert (Hcontra : ~ |-[ k, w] v1 <$ t1 \/ ~ |-[ k, w] v2 <$ t2)).
+Show.
+{
+Show.
