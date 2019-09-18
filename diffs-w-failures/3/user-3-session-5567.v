@@ -197,4 +197,5 @@ eauto.
 simplify.
 }
 {
-step.
+Unset Silent.
+Set Diffs "off".
