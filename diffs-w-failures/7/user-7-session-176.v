@@ -155,8 +155,6 @@ Set Printing Width 148.
 (induction w; intros t v HXY; generalize dependent v; induction t; intros v; try (solve [ split; intros Hm; assumption ])).
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
+Set Printing Width 148.
 (split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst;
-  destruct (IHt1 v1) as [Hm1' _]; destruct (IHt2 v2) as [Hm2' _]).
-Unset Silent.
-(apply match_ty_pair; tauto).
+  destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]).
