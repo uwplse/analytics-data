@@ -96,4 +96,29 @@ Timeout 1 Check @Initialized.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Definition init : proc InitResult := _ <- d.write len_addr 0; Ret Initialized.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @addr_to_block.
+Timeout 1 Check @repeat_length.
+Definition init : proc InitResult :=
+  len0 <- addr_to_block 0; _ <- d.write len_addr len0; Ret Initialized.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfMzGCk"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnP9GMK"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
