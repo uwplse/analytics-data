@@ -152,4 +152,6 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros t t1 t2 H).
+Set Printing Width 148.
+eauto using SD_Trans, SD_Refl.
+Show.
