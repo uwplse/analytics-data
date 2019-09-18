@@ -28,4 +28,5 @@ Lemma in_nf_union__inv : forall t1 t2 : ty, InNF( TUnion t1 t2) -> InNF( t1) /\ 
 Proof.
 Unset Silent.
 (intros t1 t2 Hnf).
-(inversion Hnf; subst).
+Set Printing Width 134.
+(inversion Hnf; subst; inversion H; subst).
