@@ -218,59 +218,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlIIL2F"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
-Proof.
-(eapply then_init_compose; eauto).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Show.
-step_proc.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @mult_n_O.
-Timeout 1 Check @mult_n_O.
-Timeout 1 Check @lt_dec.
-(destruct (lt_dec r 1)).
--
-step_proc.
--
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-step_proc.
-step_proc.
-step_proc.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @nil.
-Timeout 1 Check @nil.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Set Printing Width 78.
-Show.
-(exists nil; simpl).
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @block.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @forallb.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @Some.
+Theorem log_length_ok_nil d : diskGet d 0 = Some 0 -> log_length_ok d [].
