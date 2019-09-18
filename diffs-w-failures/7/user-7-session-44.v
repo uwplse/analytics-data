@@ -211,4 +211,5 @@ Set Printing Width 148.
 (intros k t1 t2 Hsem1 Hsem2).
 Set Printing Width 148.
 (unfold sem_sub_k in *).
-split.
+Set Printing Width 148.
+(split; tauto).
