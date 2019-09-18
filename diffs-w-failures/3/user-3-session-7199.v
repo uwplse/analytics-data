@@ -483,22 +483,13 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
-(assert (a < length (bs ++ bs'))).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite app_nth1 in H by lia).
 Timeout 1 Check @app.
 Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
+Timeout 1 Check @incl_appl.
 Timeout 1 Check @split.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
+(apply H; lia).
