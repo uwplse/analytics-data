@@ -457,8 +457,34 @@ Set Diffs "off".
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Set Silent.
 Theorem log_abstraction_preserved d bs d' :
   log_abstraction d bs ->
   diskGet d' len_addr = diskGet d len_addr ->
-  diskSize d' = diskSize d ->
-  log_contents_ok d' bs -> log_abstraction d' bs Proof.
+  diskSize d' = diskSize d -> log_contents_ok d' bs -> log_abstraction d' bs.
+Unset Silent.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_abstraction, log_size_ok; intros).
