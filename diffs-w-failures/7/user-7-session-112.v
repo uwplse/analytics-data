@@ -207,4 +207,8 @@ Unset Silent.
 Set Silent.
 +
 Unset Silent.
+Show.
+(destruct w2).
+(apply match_ty_exist__0_inv in Hm2; contradiction).
 (apply match_ty_exist__inv in Hm2).
+(destruct Hm2 as [tx Hm2]).
