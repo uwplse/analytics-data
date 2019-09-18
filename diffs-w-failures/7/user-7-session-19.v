@@ -217,4 +217,6 @@ Unset Silent.
 specialize (Hsem 0 _ Hm).
 (apply match_ty_i_union__inv in Hsem).
 Set Printing Width 148.
-(destruct Hsem; [ left | right ]).
+Set Printing Width 148.
+(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
+Show.
