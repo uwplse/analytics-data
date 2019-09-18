@@ -53,3 +53,15 @@ Unset Silent.
 (intros t1 t2).
 (assert (Hnf1 : InNF( MkNF( t1))) by apply mk_nf__in_nf).
 (pose proof (nf_sub_r__decidable2 _ Hnf1)).
+Set Printing Width 148.
+(destruct (nf_sub_r__decidable2 _ Hnf1) as [Hdec _]).
+(assert (Hnf2 : InNF( MkNF( t2))) by apply mk_nf__in_nf).
+specialize (Hdec _ Hnf2).
+(destruct Hdec as [Hdec| Hdec]).
+Set Silent.
+-
+Unset Silent.
+(left; apply mk_nf_sub_r__sub_r; assumption).
+-
+(right; intros Hcontra).
+(apply mk_nf_sub_r__sub_r in Hcontra).
