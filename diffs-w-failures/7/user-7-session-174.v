@@ -110,4 +110,5 @@ Function
 Unset Silent.
 Proof.
 Show.
-(try (solve [ intros; simpl; Omega.omega ])).
+Set Printing Width 148.
+all: (try (solve [ intros; simpl; Omega.omega ])).
