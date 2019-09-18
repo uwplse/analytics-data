@@ -151,4 +151,6 @@ Proof.
 (apply match_ty_exist__0_inv in Hm).
 Set Printing Width 148.
 (destruct Hm as [Hv [tx Heqx]]; subst).
-(simpl).
+Set Printing Width 148.
+(simpl in *).
+(split; auto).
