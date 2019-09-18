@@ -496,10 +496,14 @@ Set Silent.
 Instance aModel : GoModel.
 Proof.
 Unset Silent.
+Timeout 1 Check @ex.
+Timeout 1 Check @exist.
+Timeout 1 Check @exist.
+Timeout 1 Check @map_filter.
 refine
  {|
  byte := {x | x < 256};
- byte0 := Ascii.Ascii false false false false false false false false;
+ byte0 := exist _ 0 _;
  uint64_to_string := pretty.pretty_nat;
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii |}.
