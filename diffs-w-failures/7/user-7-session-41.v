@@ -11,4 +11,4 @@ Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
 Set Printing Width 148.
 Set Silent.
-Require Import BetaJulia.Sub0250a.MatchProps.
+Unset Silent.
