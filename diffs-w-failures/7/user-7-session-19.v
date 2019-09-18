@@ -157,23 +157,21 @@ clear IHt3.
 (intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v); tauto).
 Unset Silent.
 Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
 (assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-Unset Silent.
 specialize (Hsem _ Hm).
-Set Silent.
 (apply match_ty_i_union__inv in Hsem).
 Unset Silent.
 (destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
-Qed.
 Set Silent.
+Qed.
 Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Proof.
-Unset Silent.
 (induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -183,4 +181,6 @@ Unset Silent.
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H _ Hm); contradiction)
      end ])).
-Check value_sem_sub_k_i_union__inv.
+Unset Silent.
+(assert (Hv : value_type (TCName c)) by constructor).
+(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ H)).
