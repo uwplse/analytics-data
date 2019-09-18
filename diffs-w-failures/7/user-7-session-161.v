@@ -89,42 +89,4 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-(intros X Y tX tY Hneq HYfresh t).
-(induction t; try reflexivity).
--
-(repeat rewrite subst_pair).
-(rewrite IHt1, IHt2).
-reflexivity.
--
-(repeat rewrite subst_union).
-(rewrite IHt1, IHt2).
-reflexivity.
--
-Unset Silent.
-(destruct (beq_idP Y i) as [HY| HY]).
-Set Silent.
-+
-Unset Silent.
-Set Silent.
-subst.
-(destruct (beq_idP X i) as [HX| HX]).
-*
-subst.
-Unset Silent.
-contradiction.
-Set Silent.
-*
-(rewrite subst_exist_eq).
-(rewrite (subst_exist_neq _ _ _ _ HX)).
 Show.
-Set Printing Width 148.
-(destruct (beq_idP X i) as [HX| HX]).
-Show.
-Set Silent.
-*
-subst.
-(rewrite (subst_exist_neq _ _ _ _ HY)).
-(repeat rewrite subst_exist_eq).
-Unset Silent.
-(rewrite (subst_exist_neq _ _ _ _ HY)).
