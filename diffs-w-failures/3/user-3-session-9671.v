@@ -548,4 +548,5 @@ intuition eauto.
 {
 Unset Silent.
 (exists []; intuition eauto).
-(apply log_abstraction_nil; eauto).
+Timeout 1 Check @rec_wipe_compose.
+(apply log_abstraction_nil with (b := r); eauto).
