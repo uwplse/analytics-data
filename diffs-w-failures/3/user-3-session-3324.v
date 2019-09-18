@@ -274,9 +274,8 @@ Set Printing Width 78.
 Show.
 (constructor; eauto).
 Set Silent.
-*
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (subst; eexists; intuition eauto).
-Timeout 1 Check @rew_const.
-Timeout 1 Check @repeat_length.
-(constructor; eauto).
