@@ -461,53 +461,17 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(rewrite app_length in *; simpl in *).
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
-(assert (log_addr (length bs) < diskSize d)).
-Timeout 1 Check @split.
-Set Silent.
-{
-Unset Silent.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
 Set Printing Width 78.
 Show.
+Set Silent.
+(assert (log_addr (length bs) < diskSize d)).
+{
 (unfold log_size_ok, log_addr, diskSize in *).
-Timeout 1 Check @split.
+Unset Silent.
+(rewrite app_length in *; simpl in *).
 lia.
+}
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+(destruct (a == bs)).
