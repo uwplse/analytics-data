@@ -112,4 +112,4 @@ reflexivity.
 Set Silent.
 -
 Unset Silent.
-(destruct (beq_idP Y i) as [HY| HY]).
+Show.
