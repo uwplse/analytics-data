@@ -288,4 +288,5 @@ Unset Silent.
 SearchPattern (_ <= _ -> _ <= _ -> _ = _).
 Check le_unique.
 SearchPattern (_ <= _ -> _ = _).
-(apply Nat.le_antisymm).
+Set Printing Width 148.
+(apply Nat.le_antisymm; assumption).
