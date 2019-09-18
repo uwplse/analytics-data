@@ -599,4 +599,24 @@ Timeout 1 Check @pretty.pretty_nat.
 Timeout 1 Check @pretty.pretty_nat_inj.
 Timeout 1 Check @pretty.pretty_nat_inj.
 Timeout 1 Check @pretty.pretty_nat_inj.
-Search -pretty.pretty_nat_inj.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Choice.
+Set Printing Width 78.
+Show.
+Check pretty.pretty_nat_inj.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty_N.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Timeout 1 Check @pretty.pretty_nat_inj.
+(apply pretty.pretty_nat_inj).
