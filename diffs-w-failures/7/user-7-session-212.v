@@ -60,7 +60,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
 Lemma free_union__inv : forall (X : id) (fvs1 fvs2 : id_set), free X (IdSet.union fvs1 fvs2) -> free X fvs1 \/ free X fvs2.
-Proof.
+Set Printing Width 148.
+(intros X fvs1 fvs2).
 (unfold free).
-Unset Silent.
 (apply IdSetFacts.union_1).
