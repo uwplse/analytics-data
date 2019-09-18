@@ -417,26 +417,18 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
+Lemma match_ty_i__match_le_inv_depth : forall (t : ty) (k : nat) (v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
 Proof.
-(induction k; induction t; intros v Hm k' Hle;
-  try
-   match goal with
-   | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
-   | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; auto
-   | |- |-[ ?k'] ?v <$ TUnion _ _ =>
-         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
-   end).
--
-(inversion Hle; subst).
-assumption.
--
-clear IHt.
-(apply match_ty_i_ref__inv in Hm).
 Unset Silent.
-(destruct Hm as [t' [Heq Href]]; subst).
-Show.
-Search -le.
-(destruct (Nat.le_decidable (| t |) k')).
-+
+(induction t; intros k v Hm k' Hle).
+-
+(apply match_ty_i_cname__inv in Hm; subst).
+(destruct k'; reflexivity).
+-
+Set Silent.
+(apply match_ty_i_pair__inv in Hm).
+Unset Silent.
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_i_pair; auto).
