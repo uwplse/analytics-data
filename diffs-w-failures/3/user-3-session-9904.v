@@ -237,6 +237,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-exists [].
-Timeout 1 Check @firstn_length.
-left.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(exists []; intuition).
