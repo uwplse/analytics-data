@@ -124,4 +124,4 @@ Show.
 Set Printing Width 148.
 (rewrite subst_exist_eq).
 Set Printing Width 148.
-(rewrite (subst_exist_neq HX)).
+(rewrite (subst_exist_neq _ _ HX)).
