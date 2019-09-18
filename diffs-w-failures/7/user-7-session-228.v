@@ -14,6 +14,8 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
+Set Printing Width 148.
+Set Silent.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   wf_ty tx ->
@@ -23,7 +25,7 @@ Lemma build_v_full :
     |-[ w] v' <$ [BX := TFVar X'] t /\
     (forall w' : nat,
      exists w2 : nat,
-       forall t' : ty, |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w2] v <$ [FX' := tx] t')).
+       forall t' : ty, |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w2] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w2] v <$ [FX' := tx] t')).
 Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hwftx HX Hm;
@@ -54,6 +56,49 @@ reflexivity.
 (induction w'; exists 0; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
 +
 (rewrite f_subst_union).
+Unset Silent.
+(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
+  destruct IHt' as [IHt'a IHt'b]; split; intros HX').
+Set Silent.
+*
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_1; auto).
+*
+(destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
+{
+(apply match_ty_union_1; auto).
+}
+{
+(apply match_ty_union_1; rewrite f_subst_not_b_free_in_ty; auto).
+}
+*
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_2; auto).
+*
+(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
+{
+(apply match_ty_union_2; auto).
+}
+{
+(apply match_ty_union_2; rewrite f_subst_not_b_free_in_ty; auto).
+Unset Silent.
+}
+Set Silent.
++
+(apply match_ty_fvar__inv in Hm').
+(inversion Hm'; subst).
+clear Hm'.
+(split; intros HX').
+*
+(apply not_f_free_in_ty_fvar__inv in HX').
+contradiction.
+*
+(rewrite f_subst_fvar_eq).
+assumption.
++
+admit.
++
+(rewrite f_subst_union).
 (apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
   destruct IHt' as [IHt'a IHt'b]; split; intros HX').
 *
@@ -77,26 +122,5 @@ reflexivity.
 }
 {
 (apply match_ty_union_2; rewrite f_subst_not_b_free_in_ty; auto).
+Unset Silent.
 }
-+
-(apply match_ty_fvar__inv in Hm').
-(inversion Hm'; subst).
-clear Hm'.
-Unset Silent.
-(split; intros HX').
-*
-(apply not_f_free_in_ty_fvar__inv in HX').
-contradiction.
-*
-(simpl; assumption).
-Set Printing Width 148.
-(rewrite f_subst_fvar_eq).
-assumption.
-Set Silent.
-+
-Unset Silent.
-admit.
-+
-Set Silent.
-(rewrite f_subst_union).
-Show.
