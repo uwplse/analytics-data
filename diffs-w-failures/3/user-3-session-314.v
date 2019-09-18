@@ -85,17 +85,41 @@ Lemma read_op_ok :
     (op_spec Var.dynamics (Var.Read i)).
 Proof.
 (intros).
-(eapply op_spec_sound).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+(eapply op_spec_sound).
+Timeout 1 Check @identity.
+Timeout 1 Check @hypo_type.
+Timeout 1 Check @readNone.
+typeclasses eauto.
+typeclasses eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
 Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq5kkA0H"
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkIbtLI"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtLGi9O"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
 Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWDv50N"
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgqHz0E"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
+Set Silent.
+Lemma write_op_ok :
+  forall i v,
+  proc_hspec Var.dynamics (write i v)
+    (op_spec Var.dynamics (Var.Write i v)).
+Proof.
+(intros).
+(eapply op_spec_sound).
+Qed.
