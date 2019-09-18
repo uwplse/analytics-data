@@ -180,4 +180,8 @@ Timeout 1 Check @nat_to_le_func.
 Timeout 1 Check @nat_to_le_func.
 Timeout 1 Check @nat_to_le_func.
 Timeout 1 Check @nat_to_le_func.
-Search -nat_to_le_func.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Search -nat_to_le.
