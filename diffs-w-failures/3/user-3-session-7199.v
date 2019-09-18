@@ -690,4 +690,46 @@ Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @eq_existT_curried.
 eq_values.
 Timeout 1 Check @repeat_length.
-eauto.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(rewrite app_length; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3UtkMr"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @Ret.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction_nil.
+Hint Resolve log_abstraction_commit.
