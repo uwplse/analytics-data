@@ -31,6 +31,15 @@ Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; right; assumption).
 Qed.
+Set Printing Width 148.
+Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (k : nat), (exists tx : ty, |-[ k] v <$ [X := tx] t) -> |-[ S k] v <$ TExist X t.
+Proof.
+(intros v X t k Hex).
+Show.
+(destruct v; assumption).
+Show.
+Qed.
+Set Silent.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k : nat), |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; contradiction ])).
@@ -69,14 +78,10 @@ clear IHv.
 exists v.
 auto.
 Qed.
-Set Printing Width 148.
 Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty), |-[ 0] v <$ TExist X t -> value_type v /\ (exists tx, v = [X := tx] t).
-Set Silent.
 Proof.
-Unset Silent.
 (intros v; induction v; intros X t Hm; assumption).
 Qed.
-Set Silent.
 Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k] v <$ TExist X t -> exists tx : ty, |-[ k] v <$ [X := tx] t.
 Proof.
 (intros v; induction v; intros X t k Hm; assumption).
@@ -91,19 +96,13 @@ Proof.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | destruct v; contradiction ])).
 -
-Show.
-Set Printing Width 148.
+(apply match_ty_exist__0_inv in Hm).
 tauto.
-Set Silent.
 -
-Unset Silent.
-Set Silent.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 (eapply IHk; eassumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
 (intros v Hv; induction Hv; intros k).
@@ -116,23 +115,14 @@ Proof.
 constructor.
 (simpl).
 tauto.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
-Unset Silent.
 (intros k; destruct k; intros v Hm).
 -
-Show.
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
 (simpl).
-Set Printing Width 148.
 split.
 constructor.
 (exists t'; reflexivity).
@@ -149,14 +139,11 @@ Proof.
 (intros k; destruct k; intros v Hm).
 -
 (apply match_ty_exist__0_inv in Hm).
-Set Printing Width 148.
 (destruct Hm as [Hv [tx Heqx]]; subst).
-Set Printing Width 148.
 (simpl in *).
-Set Printing Width 148.
-Set Printing Width 148.
 (split; eauto).
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
-Show.
+Unset Silent.
+(simpl).
