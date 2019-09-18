@@ -90,58 +90,46 @@ Timeout 1 Check @PeanoNat.Nat.le_decidable.
 Set Printing Width 78.
 Opaque Nat.modulo Nat.div.
 Unset Silent.
+Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Tauto.A.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @N.div.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @sum.
+Timeout 1 Check @N.div.
+Timeout 1 Check @Ascii.N_of_digits.
+Timeout 1 Check @N.div.
+Timeout 1 Check @Ascii.N_of_digits.
 Set Printing Width 78.
-#[local]Obligation Tactic := (intros; simpl; subst).
 #[program]
 Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   match x with
   | 0 => nil
-  | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
+  | _ =>
+      let digit := x mod S base in
+      exist _ digit _ :: nat_to_le base ((x - digit) / S base)
   end.
+Set Silent.
 Next Obligation.
+Unset Silent.
 Proof.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNd84Xb"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkAmYiA"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Set Silent.
-Next Obligation.
-Unset Silent.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsXaK0u"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTZy0we"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfRsBS8"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8035nf"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
+Next Obligation.
 Proof.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Search -"div" -"<".
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @applicative_ap.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.div_lt.
-Timeout 1 Check @PeanoNat.Nat.div_lt.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (apply PeanoNat.Nat.div_lt).
