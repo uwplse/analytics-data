@@ -114,8 +114,11 @@ exists Y,t.
 Unset Silent.
 (rewrite subst_equation).
 Set Printing Width 148.
-(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
+Set Printing Width 148.
 Set Silent.
 (rewrite (false_beq_id _ _ HXY)).
-Unset Silent.
 (rewrite Hmem).
+Unset Silent.
+eexists.
+eexists.
+ereflexivity.
