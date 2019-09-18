@@ -480,6 +480,6 @@ Show.
 (intros t1 t2 Hnf1 [IH11 IH12] Hnf2 [IH21 IH22]).
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (split; intros t'; induction t'; intros Hnf'; specialize (IH11 _ Hnf'); specialize (IH12 _ Hnf'); specialize (IH21 _ Hnf'); specialize
-  (IH22 _ Hnf')).
-(solve_union_sub_r__decidable IH11 IH21).
+  (IH22 _ Hnf'); try (solve [ solve_union_sub_r__decidable IH11 IH21 ])).
