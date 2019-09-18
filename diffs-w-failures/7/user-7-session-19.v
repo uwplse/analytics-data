@@ -178,5 +178,15 @@ Set Printing Width 148.
 Show.
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
 (apply match_ty_i_ref__inv in Hm1).
+Show.
+(destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
+Show.
+(apply match_ty_i_ref__inv in Hm2).
+(destruct Hm2 as [ty [Heqy Hrefy]]; inversion Heqy; subst).
+Show.
+(simpl).
+Show.
+(intros v; auto).
 Show.
