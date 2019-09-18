@@ -113,4 +113,11 @@ Show.
 subst.
 (destruct (beq_idP X i) as [HX| HX]).
 *
+Show.
+Set Printing Width 148.
+Set Silent.
 subst.
+Unset Silent.
+contradiction.
+*
+(rewrite subst_exist_neq).
