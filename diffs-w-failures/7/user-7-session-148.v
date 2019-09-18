@@ -14,6 +14,8 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty_ev__match_ty_any :
   forall (k w : nat) (X : id) (t : ty), fresh_in_ty X t -> |-[ k, w] TEV X <$ t -> forall v : ty, value_type v -> |-[ k, w] v <$ t.
 Proof.
@@ -48,7 +50,9 @@ specialize (Hsem k w1).
 (destruct Hsem as [w2 Hsem]).
 exists w2.
 (intros v Hm).
+Unset Silent.
 Abort.
+Set Silent.
 Lemma sem_sub_fresh_var__sem_sub_exist' :
   forall (X : id) (t t' : ty) (X' : id),
   IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
@@ -69,7 +73,9 @@ Lemma xxx :
 Proof.
 (intros X w1).
 (induction w1).
+Unset Silent.
 admit.
+Set Silent.
 (intros t).
 (intros k w2 t' X' HX HX' Hsem).
 (intros tx v Hm).
@@ -82,4 +88,4 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-Unset Silent.
+(apply sem_sub__trans with (TCName c); try assumption).
