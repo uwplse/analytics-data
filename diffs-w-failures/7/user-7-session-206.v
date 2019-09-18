@@ -199,16 +199,4 @@ contradiction.
 (rewrite b_subst_not_b_free_in_ty).
 Unset Silent.
 reflexivity.
-(unfold wf_ty in *).
-(unfold not_b_free_in_ty, not_free).
-(intros Hcontra).
-Search -IdSet.In.
 Show.
-(destruct (IdSetFacts.empty_iff Y) as [H _]).
-(apply H).
-Search -IdSet.In.
-Show.
-Search -IdSet.Empty.
-(apply IdSetProps.empty_is_empty_1 in Hs1).
-Search -IdSet.Equal.
-Search -IdSet.empty.
