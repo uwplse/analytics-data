@@ -99,5 +99,8 @@ Set Printing Width 148.
 +
 subst.
 Show.
-(rewrite subst_exist_eq).
+Set Printing Width 148.
+(rewrite subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
++
 Show.
