@@ -158,11 +158,10 @@ Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [T
 Proof.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-specialize (Hcontra 3).
-Unset Silent.
-(assert (Hm : |-[ 3] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-Set Silent.
+specialize (Hcontra 4).
+(assert (Hm : |-[ 4] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hcontra _ Hm).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hmx]).
@@ -171,16 +170,12 @@ specialize (Hcontra _ Hm).
 clear Heq.
 (apply match_ty_ref__inv in Hmx).
 (destruct Hmx as [t' [Heq' Hsem']]).
-Unset Silent.
 (inversion Heq'; subst).
 clear Heq'.
 clear Hm.
-Set Printing Width 148.
-Set Printing Width 148.
-(assert (Hm : |-[ 1] TRef tx <$ TRef tx) by (apply match_ty_value_type__reflexive; constructor)).
+(assert (Hm : |-[ 2] TRef tx <$ TRef tx) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hsem' (TRef tx)).
+Unset Silent.
 (destruct Hsem' as [Hsem'1 Hsem'2]).
 specialize (Hsem'2 Hm).
-Show.
-Set Printing Width 148.
-Show.
+(simpl in Hsem'2).
