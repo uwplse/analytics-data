@@ -90,6 +90,5 @@ Fixpoint inv_depth (t : ty) :=
   end
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
 Set Printing Width 148.
-Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
-Proof.
-(induction k).
+Set Printing Width 148.
+Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | < k -> forall w : nat, ~ |-[ k, w] TRef t <$ t.
