@@ -574,5 +574,7 @@ specialize (IHHsub2 k _ Hm).
 Unset Silent.
 tauto.
 Show.
-(apply IHHsub1; auto).
+Set Printing Width 148.
+(apply IHHsub1; tauto).
 Show.
+Qed.
