@@ -498,4 +498,19 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
-(unfold log_size_ok).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold log_size_ok, log_abstraction in *).
