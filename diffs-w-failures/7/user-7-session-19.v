@@ -117,4 +117,13 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 (assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
+Set Printing Width 148.
 specialize (H (S k) (TRef t)).
+(destruct H as [H _]).
+specialize (H Hmt).
+(apply match_ty_i_ref__inv in H).
+Set Silent.
+(destruct H as [tx [Heq Href]]).
+Unset Silent.
+(inversion Heq; subst).
+tauto.
