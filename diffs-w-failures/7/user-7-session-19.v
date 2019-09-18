@@ -421,19 +421,18 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction k; induction t; intros v Hm).
+Set Printing Width 148.
+(induction k; induction t; intros v Hm k' Hle;
+  try
+   match goal with
+   | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
+   | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; auto
+   | |- |-[ ?k'] ?v <$ TUnion _ _ =>
+         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
+   end).
+Show.
 Set Silent.
-4: {
-idtac.
+-
+(inversion Hle; subst).
 Unset Silent.
-(intros k' Hle).
-(inversion Hle; subst).
 assumption.
-}
-7: {
-idtac.
-clear IHt.
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(intros k' Hle).
-(inversion Hle; subst).
