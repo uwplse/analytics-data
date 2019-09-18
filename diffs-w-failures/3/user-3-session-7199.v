@@ -462,6 +462,9 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Theorem append_at_ok a bs' :
   proc_spec
     (fun (bs : list block) state =>
@@ -472,7 +475,7 @@ Theorem append_at_ok a bs' :
              diskGet state' len_addr = diskGet state len_addr /\
              diskSize state' = diskSize state /\
              log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state (bs ++ bs');
+             log_contents_ok state' (bs ++ bs');
      recovered := fun _ state' =>
                   diskGet state' len_addr = diskGet state len_addr /\
                   diskSize state' = diskSize state /\
@@ -483,25 +486,7 @@ Proof.
 -
 step_proc.
 intuition eauto.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (rewrite app_nil_r; auto).
 -
-Timeout 1 Check @spec_abstraction_compose.
 step_proc.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @BinPos.Pos.switch_Eq.
-Timeout 1 Check @nodup.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (intuition eauto; autorewrite with upd; auto).
