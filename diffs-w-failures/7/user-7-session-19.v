@@ -67,9 +67,10 @@ specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Set Printing Width 148.
 Set Printing Width 148.
-Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, 0 < k' -> k' <= k -> |-[ k'] v <$ t.
-Set Silent.
 Set Printing Width 148.
+Set Silent.
+Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
+Proof.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hlt Hle;
   try
    match goal with
@@ -78,29 +79,3 @@ Set Printing Width 148.
    | |- |-[ ?k'] ?v <$ TUnion _ _ =>
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
-Set Silent.
--
-(destruct v; contradiction).
--
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(inversion Hle; subst).
-+
-(simpl).
-(intros v Hv).
-specialize (Href v Hv).
-Unset Silent.
-(split; tauto).
-Set Silent.
-+
-Unset Silent.
-Show.
-(destruct k').
-(inversion Hlt).
-(simpl).
-(intros v Hv).
-specialize (Href v Hv).
-Set Printing Width 148.
-split.
-*
-Abort.
