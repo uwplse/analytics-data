@@ -457,4 +457,5 @@ Unset Silent.
 (destruct k').
 constructor.
 (apply le_S_n in Hle).
+Set Printing Width 148.
 (simpl).
