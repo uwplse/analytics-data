@@ -135,4 +135,5 @@ Set Diffs "off".
 Timeout 1 Check @PeanoNat.Nat.mod_small.
 Set Printing Width 78.
 Show.
-(simpl; eauto).
+Unset Silent.
+Set Diffs "off".
