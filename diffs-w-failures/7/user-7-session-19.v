@@ -216,4 +216,7 @@ Unset Silent.
 -
 (destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
 (destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+Set Printing Width 148.
+(simpl).
 (apply Nat.max_le_compat).
+auto.
