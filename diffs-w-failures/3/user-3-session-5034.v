@@ -222,4 +222,4 @@ step_proc.
 (destruct a'; simpl in *; try lia).
 exists a'.
 intuition eauto.
-lia.
+Unset Silent.
