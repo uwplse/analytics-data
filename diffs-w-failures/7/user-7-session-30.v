@@ -20,4 +20,16 @@ Proof.
 (intros c0 k Hm).
 (destruct k; simpl in Hm; subst; reflexivity).
 Set Printing Width 148.
-(destruct k; reflexivity).
+(destruct k; simpl in Hm; subst; reflexivity).
+Qed.
+Set Silent.
+Lemma match_ty_pair__inv :
+  forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ k] v1 <$ t1 /\ |-[ k] v2 <$ t2.
+Unset Silent.
+Proof.
+(intros v; induction v; try (solve [ intros t1 t2 k Hm; destruct k; contradiction ])).
+(intros t1 t2 k Hm).
+exists v1,v2.
+(split; try reflexivity).
+(simpl in Hm).
+Show.
