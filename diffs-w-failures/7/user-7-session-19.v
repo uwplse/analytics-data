@@ -387,9 +387,4 @@ Proof.
 -
 Unset Silent.
 Show.
-clear IHt.
-(simpl in Htk).
-(apply le_S_n in Htk).
 Show.
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
