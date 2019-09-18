@@ -214,4 +214,9 @@ Show.
 (rewrite <- Hremap by eauto; auto).
 -
 invert_abstraction.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(step_proc; intuition eauto).
 (step_proc; intuition).
