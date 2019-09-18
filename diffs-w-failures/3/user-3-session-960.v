@@ -167,14 +167,7 @@ Timeout 1 Check @strings.ascii_of_digits.
 Timeout 1 Check @strings.ascii_of_digits.
 Timeout 1 Check @strings.ascii_of_digits.
 Timeout 1 Check @strings.ascii_of_digits.
-Print strings.ascii_of_digits.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.shift.
-Timeout 1 Check @Ascii.shift.
-Timeout 1 Check @Ascii.shift.
-Timeout 1 Check @Ascii.shift.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Print strings.ascii_of_digits.
