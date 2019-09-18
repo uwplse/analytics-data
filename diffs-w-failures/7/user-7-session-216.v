@@ -357,11 +357,14 @@ subst.
 (rewrite f_subst_fvar_neq; try assumption).
 reflexivity.
 Qed.
-Unset Silent.
-Lemma wf_ty__wf_ty_f_subst : forall (X : id) (s t : ty), wf_ty s -> wf_ty t -> wf_ty ([FX := s] t).
-Proof.
-(intros X s t Hwfs).
-generalize dependent t.
 Set Printing Width 148.
-(induction t; intros Hwft; try (solve [ simpl; assumption ])).
--
+Set Silent.
+Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
+Proof.
+(intros t1 t2 Hwf).
+Unset Silent.
+(unfold wf_ty in *; simpl in *).
+Search -IdSet.Empty.
+Search -IdSet.empty.
+Check IdSet.Empty.
+Search -IdSet.Empty.
