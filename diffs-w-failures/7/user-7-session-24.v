@@ -33,6 +33,7 @@ Set Printing Width 148.
 Declare Scope btjm_scope.
 Set Silent.
 Reserved Notation "'|' t '|'" (at level 20).
+Set Printing Width 148.
 Fixpoint inv_depth (t : ty) :=
   match t with
   | TCName _ => 0
@@ -40,5 +41,4 @@ Fixpoint inv_depth (t : ty) :=
   | TUnion t1 t2 => Nat.max (| t1 |) (| t2 |)
   | TRef t' => 1 + | t' |
   end
-where "'|' t '|'" := (inv_depth t) : btjm_scope.
-Unset Silent.
+where "'|'t'|'" := (inv_depth t) : btjm_scope.
