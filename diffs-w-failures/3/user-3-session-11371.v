@@ -226,4 +226,9 @@ Unset Silent.
 {
 Timeout 1 Check @false.
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @false.
+Set Printing Width 51.
+Show.
+Search -(_ * S _).
