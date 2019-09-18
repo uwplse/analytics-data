@@ -53,14 +53,14 @@ Proof.
 (apply sem_eq_k__sem_sub_k).
 (apply mk_nf__sem_eq_k).
 Qed.
-Lemma mk_nf__sem_sub_k_r : forall (k : nat) (t : ty), ||-[ k][t]<= [MkNF( t)].
-Proof.
-(intros k t).
-(apply sem_eq_k__sem_sub_k).
-(apply sem_eq_k__comm).
-(apply mk_nf__sem_eq_k).
-Qed.
+Set Printing Width 148.
+Set Silent.
 Theorem mk_nf__sem_eq : forall t : ty, ||- [t]= [MkNF( t)].
 Unset Silent.
 Proof.
 Show.
+(intros t k).
+(apply mk_nf__sem_eq_k).
+Qed.
+Set Silent.
+Lemma mk_nf__sem_sub_k_l : forall t : ty, ||- [MkNF( t)]<= [t].
