@@ -407,4 +407,29 @@ specialize (IHt2 H1 k).
 Set Silent.
 +
 (rewrite H0).
-(apply match_ty_pair; [ apply IHt1 | apply IHt2 ]; assumption).
+(apply match_ty_i_pair; [ apply IHt1 | apply IHt2 ]; assumption).
++
+(rewrite H0 in *).
+Unset Silent.
+(apply match_ty_i_pair; [ apply IHt1 | apply IHt2 ]; assumption).
+Set Silent.
+-
+Unset Silent.
+(simpl in Heqdep).
+(assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
+Set Silent.
+{
+(rewrite Heqdep).
+constructor.
+}
+(destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
+Unset Silent.
+(inversion Hdep1).
+Set Silent.
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(rewrite H0 in *).
+Unset Silent.
+(split; intros Hm; apply match_ty_union__inv in Hm; destruct Hm; (solve
+  [ apply match_ty_union_1; apply IHt1; assumption | apply match_ty_union_2; apply IHt2; assumption ])).
