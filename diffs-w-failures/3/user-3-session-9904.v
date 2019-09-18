@@ -231,6 +231,14 @@ Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Set Printing Width 78.
+Show.
 (destruct s; intuition).
 +
 (exists []; intuition).
+Timeout 1 Check @firstn_length.
