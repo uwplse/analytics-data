@@ -93,4 +93,5 @@ admit.
 Set Silent.
 -
 Unset Silent.
-(apply match_ty_exist__0_inv in Hm; contradiction).
+Show.
+(destruct (beq_idP X i)).
