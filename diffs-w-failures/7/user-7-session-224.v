@@ -202,5 +202,12 @@ Set Silent.
 Unset Silent.
 }
 *
+Show.
+Set Printing Width 148.
 (split; intros HX').
-assumption.
+{
+(apply match_ty_exist__inv in Hm').
+(destruct Hm' as [ti [Hwfti Hm']]).
+specialize (IHw' _ Hm').
+(destruct IHw' as [IHw' _]).
+(apply not_f_free_in_ty_exist_inv in HX').
