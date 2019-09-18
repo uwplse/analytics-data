@@ -94,4 +94,6 @@ specialize (Hmem HY).
 reflexivity.
 Qed.
 Unset Silent.
+Set Printing Width 148.
 Lemma subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), exists (Z : id) (tz : ty), [X := s] TExist X t = TExist Z tz.
+Proof Lemma subst_id : forall (X : id) (t : ty), [X := TVar X] t = t.
