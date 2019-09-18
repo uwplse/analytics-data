@@ -74,4 +74,5 @@ Unset Silent.
 Definition not_b_free_in_ty (X : id) (t : ty) := not_free X (FBV t).
 Hint Unfold free not_free f_free_in_ty not_f_free_in_ty b_free_in_ty not_b_free_in_ty: DBBetaJulia.
 Print IdSet.
+Set Printing Width 148.
 Definition wf_ty (t : ty) := IdSet.Equal (FBV t) IdSet.empty.
