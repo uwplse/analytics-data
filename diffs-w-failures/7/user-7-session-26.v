@@ -220,4 +220,4 @@ Set Printing Width 148.
 (unfold sem_eq_k in *).
 Show.
 (intros v).
-atuto.
+tauto.
