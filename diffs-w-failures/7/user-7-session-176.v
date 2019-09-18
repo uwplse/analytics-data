@@ -199,6 +199,12 @@ split.
 (destruct (beq_idP X i)).
 *
 subst.
+Show.
+Set Printing Width 148.
+Set Silent.
 (rewrite subst_var_eq).
 (destruct (beq_idP Y i)).
+Unset Silent.
 subst.
+contradiction.
+(rewrite subst_var_neq).
