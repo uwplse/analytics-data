@@ -792,4 +792,5 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 (destruct x, y; simpl).
-(destruct (nat_eq_dec n n0); subst).
+Unset Silent.
+Set Diffs "off".
