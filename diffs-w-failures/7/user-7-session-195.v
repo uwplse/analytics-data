@@ -150,6 +150,7 @@ Set Silent.
 Unset Silent.
 Qed.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction w; induction t; intros v Hm w' Hle;
   try
    match goal with
@@ -159,7 +160,23 @@ Set Printing Width 148.
    | |- |-[ _] _ <$ TUnion _ _ =>
          apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto
    | |- |-[ _] _ <$ TBVar _ => apply match_ty_bvar__inv in Hm; contradiction
-   | |- |-[ _] _ <$ TFVar _ => apply match_ty_fvar__inv in Hm; subst; apply match_ty_var
+   | |- |-[ _] _ <$ TFVar _ => apply match_ty_fvar__inv in Hm; subst; apply match_ty_fvar
    | |- |-[ _] _ <$ TEV _ => apply match_ty_ev__inv in Hm; subst; apply match_ty_ev
    end).
 Show.
+Set Silent.
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(apply match_ty_exist__inv in Hm).
+Unset Silent.
+(destruct Hm as [tx [Hwf Hmx]]).
+Set Silent.
+(destruct w').
+Unset Silent.
+(inversion Hle).
+Set Silent.
+(apply match_ty_exist).
+exists tx.
+Unset Silent.
+(apply IHw).
