@@ -652,4 +652,8 @@ step_proc.
 (assert (a0 < a \/ a0 = a) by lia; intuition auto; simplify).
 *
 intuition eauto.
+{
+Unset Silent.
 step.
+(destruct r; try step).
+(destruct (a == a0); simplify; finish).
