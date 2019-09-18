@@ -79,7 +79,9 @@ Unset Silent.
 (simpl in *).
 (induction t').
 +
-(intros k w1).
 Set Printing Width 148.
-specialize (Hsem k w1).
-(destruct Hsem as [w2 Hsem]).
+Set Silent.
+(intros k).
+Unset Silent.
+specialize (Hsem k).
+(destruct (match_ty__exists_w_v k (TPair ([X := TVar X'] t1) ([X := TVar X'] t2))) as [w [v Hm]]).
