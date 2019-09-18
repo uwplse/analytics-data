@@ -201,6 +201,7 @@ Lemma value_sem_sub_k_union__value_sem_sub_k_component :
   forall k : nat, forall v : ty, value_type v -> forall ta tb : ty, ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem;
   try
    match goal with
@@ -211,4 +212,3 @@ Set Printing Width 148.
           apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm';
           apply match_ty_i_cname__inv in Hm'; subst; assumption
    end).
-Show.
