@@ -670,7 +670,6 @@ Unset Silent.
 Search -mk_nf.
 (pose proof (SemSubProps.mk_nf__sem_eq t1)).
 Set Printing Width 148.
-(intros k v).
-specialize (H k).
 Set Printing Width 148.
-Show.
+(intros k v Hv).
+specialize (H k v).
