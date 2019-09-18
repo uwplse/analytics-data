@@ -88,4 +88,5 @@ Show.
 Set Silent.
 -
 Unset Silent.
-(apply match_ty_i_pair__union in Hm).
+(apply match_ty_i_union__inv in Hm).
+(destruct Hm as [Hm1| Hm2]).
