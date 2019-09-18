@@ -106,5 +106,10 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 Next Obligation.
 Set Printing Width 148.
+Show.
+Set Printing Width 148.
+Set Silent.
 (simpl).
+Unset Silent.
 Omega.omega.
+Next Obligation.
