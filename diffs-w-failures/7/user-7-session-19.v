@@ -544,4 +544,9 @@ Lemma pair_sem_sub_k_i__sub_d :
 Proof.
 Unset Silent.
 (intros k ta1 ta2 Hat Hdep IH1 IH2).
-Check atom_type__vaue_type.
+(pose proof (atom_type__value_type _ Hat) as Hva).
+Show.
+(assert (Hma : |-[ k] TPair ta1 ta2 <$ TPair ta1 ta2) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+-
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hdep Hsem') as [Hsem1 Hsem2]).
