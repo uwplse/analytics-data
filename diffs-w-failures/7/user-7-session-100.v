@@ -106,4 +106,19 @@ Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ 0
 Unset Silent.
 Proof.
 Show.
-(intros v; induction v; intros X t k Hm; assumption).
+(intros v; induction v; intros X t k Hm; destruct k; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_exist__inv :
+  forall (v : ty) (X : id) (t : ty) (w k : nat), |-[ S w, k] v <$ TExist X t -> exists tx : ty, |-[ w, k] v <$ [X := tx] t.
+Unset Silent.
+Proof.
+(intros v; induction v; intros X t w k Hm; destruct k; assumption).
+Qed.
+Set Silent.
+Unset Silent.
+Lemma match_ty_var__inv : forall (v : ty) (X : id) (w k : nat), |-[ w, k] v <$ TVar X -> v = TEV X.
+Set Silent.
+Proof.
+Unset Silent.
+(intros v; induction v; intros X w k Hm; destruct w; destruct k; assumption).
