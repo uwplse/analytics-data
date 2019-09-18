@@ -103,4 +103,5 @@ Show.
 Show.
 Set Silent.
 (simpl).
-(intros v Hv).
+Unset Silent.
+Show.
