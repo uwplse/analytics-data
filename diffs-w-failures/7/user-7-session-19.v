@@ -196,29 +196,21 @@ Set Printing Width 148.
 (intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v); tauto).
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma value_sem_sub_k_union__value_sem_sub_k_component :
+Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
+Proof.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
 (assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem _ Hv Hm).
-Show.
 (apply match_ty_i_union__inv in Hsem).
-Set Printing Width 148.
 (destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
-Show.
+Unset Silent.
 Qed.
 Set Silent.
 Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Proof.
-Unset Silent.
 (induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -228,7 +220,7 @@ Unset Silent.
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H _ Hm); contradiction)
      end ])).
-Show.
+Unset Silent.
 (match goal with
  | |- | ?t1 | <= | ?t2 | =>
        assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize (H _ Hm);
