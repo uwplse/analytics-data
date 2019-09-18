@@ -382,6 +382,10 @@ step_proc.
 (descend; intuition eauto).
 (rewrite firstn_all; auto).
 Qed.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
 Theorem log_contents_ok_unchanged d bs a0 b :
   log_size_ok d bs ->
   log_contents_ok d bs ->
@@ -400,10 +404,6 @@ lia.
 Qed.
 Hint Resolve log_size_ok_shrink: core.
 Hint Rewrite app_length : list.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Set Silent.
 Theorem log_contents_ok_prefix d bs bs' :
   log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
 Proof.
@@ -413,89 +413,19 @@ specialize (H a).
 (apply H).
 (rewrite app_length; lia).
 Qed.
-Unset Silent.
-Set Diffs "off".
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
+Hint Resolve log_contents_ok_prefix: core.
 Theorem log_contents_ok_append d bs b bs' :
   log_size_ok d (bs ++ b :: bs') ->
   log_contents_ok d bs ->
   log_contents_ok (diskUpd d (log_addr (length bs)) b) (bs ++ [b]).
 Proof.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 (unfold log_contents_ok; intros).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nil_l.
-Timeout 1 Check @app_nil_l.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Timeout 1 Check @app_length.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Set Silent.
 (assert (log_addr (length bs) < diskSize d)).
 {
 (unfold log_size_ok, log_addr, diskSize in *).
-Unset Silent.
 (rewrite app_length in *; simpl in *).
 lia.
 }
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sum.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @nodup.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @nodup.
-Set Printing Width 78.
-Show.
 (destruct (a == length bs); subst; autorewrite with upd).
 -
 (simpl).
@@ -507,40 +437,10 @@ reflexivity.
 {
 (rewrite app_length in *; simpl in *; lia).
 }
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @bytes.
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
 (rewrite app_nth1 by lia).
-Timeout 1 Check @Tauto.A.
 auto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOPXDAN"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Timeout 1 Check @Ret.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok_prefix.
-Timeout 1 Check @spec_abstraction_compose.
 Hint Resolve log_contents_ok_append: core.
-Set Silent.
 Theorem append_at_ok a bs' :
   proc_spec
     (fun (bs : list block) state =>
@@ -567,15 +467,6 @@ intuition eauto.
 -
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Set Silent.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
 (exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
@@ -585,28 +476,13 @@ Set Silent.
 (unfold log_size_ok in *; simpl in *).
 autorewrite with upd list in *.
 (simpl in *; lia).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 +
 (unfold log_size_ok in *; simpl in *).
 autorewrite with upd list in *.
 (simpl in *; lia).
 +
 (rewrite <- app_assoc in *; simpl in *; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwyXlbA"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Set Silent.
 Hint Resolve append_at_ok: core.
 Theorem log_abstraction_preserved d bs d' :
   log_abstraction d bs ->
@@ -619,45 +495,7 @@ replace (diskGet d' len_addr) in *.
 auto.
 -
 congruence.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Set Printing Width 78.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Set Silent.
-Set Silent.
+Qed.
 Theorem abstr_length_sz_bound d bs :
   log_size_ok d bs -> len_addr < diskSize d.
 Proof.
@@ -665,137 +503,13 @@ Proof.
 (intros; lia).
 Qed.
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Set Printing Width 78.
-Lemma log_abstraction_commit :
-  forall bs bs' : list block,
-  forall d' : State,
-  log_size_ok d' (bs ++ bs') ->
-  log_contents_ok d' (bs ++ bs') ->
-  forall len_b : block,
-  block_to_addr len_b = length bs + length bs' ->
-  log_abstraction (diskUpd d' len_addr len_b) (bs ++ bs').
-Set Silent.
-Proof.
-Unset Silent.
-(intros).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @bytes.
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-(assert (len_addr < diskSize d') by eauto).
-(unfold log_abstraction; intuition).
--
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sum.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(unfold log_length_ok in *; intros; autorewrite with upd list in *).
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(simpl in *; intuition).
--
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
+Hint Resolve abstr_length_sz_bound: core.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @nodup.
-Timeout 1 Check @split.
-Timeout 1 Check @Nat.of_uint.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(unfold log_size_ok in *; autorewrite with upd list in *).
-lia.
--
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @repeat_length.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Set Printing Width 78.
-Show.
-Search -log_contents_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Theorem log_contents_ok_len_change d bs a0 b :
+  log_size_ok d bs ->
+  log_contents_ok d bs -> log_contents_ok (diskUpd d log_len b) bs.
