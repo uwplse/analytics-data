@@ -83,4 +83,6 @@ specialize (Hsem k w1).
 Show.
 (destruct Hsem as [w2 Hsem]).
 Show.
-(exist w2).
+exists w2.
+(intros v Hm).
+Show.
