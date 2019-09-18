@@ -510,5 +510,11 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 -
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
 (rewrite H0 in *).
 auto.
