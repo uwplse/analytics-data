@@ -195,4 +195,6 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(apply match_ty_pair; eauto).
+Set Printing Width 148.
+(apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
