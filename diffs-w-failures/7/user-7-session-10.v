@@ -198,5 +198,18 @@ Set Printing Width 148.
 Set Printing Width 148.
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
 Set Printing Width 148.
+Set Printing Width 148.
+(destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
 (split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
   subst; try (solve [ constructor; auto ])).
+Set Silent.
++
+Unset Silent.
+(apply IHHsub').
+(apply mk_nf_nf__equal; assumption).
+(apply mk_nf__in_nf).
+Set Silent.
+-
+Unset Silent.
+(destruct (in_nf_union__inv _ _ Hnfm1) as [Hnfm11 Hnfm12]).
+(destruct IHHsub1 as [IHHsub11 IHHsub12]).
