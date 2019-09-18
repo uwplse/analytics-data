@@ -60,10 +60,12 @@ Proof.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Show.
 Set Printing Width 148.
-(match goal with
- | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; reflexivity
- end).
-Show.
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
+  try match goal with
+      | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; reflexivity
+      end).
+Set Silent.
+-
+Unset Silent.
+(apply match_ty_i_pair__inv in Hm; subst).
