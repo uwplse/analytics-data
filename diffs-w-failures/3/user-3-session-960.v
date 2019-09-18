@@ -491,86 +491,13 @@ Timeout 1 Check @ascii_to_bounded.
 Timeout 1 Check @ascii_to_bounded.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @bounded_to_ascii.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Set Silent.
 Instance aModel : GoModel.
 Proof.
 Unset Silent.
-Timeout 1 Check @ex.
-Timeout 1 Check @exist.
-Timeout 1 Check @exist.
-Timeout 1 Check @map_filter.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @le_to_nat.
-Timeout 1 Check @Some.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Byte.x25.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @le_to_nat.
-Timeout 1 Check @le_to_nat.
-Timeout 1 Check @le_to_nat.
-Timeout 1 Check @N.div.
-Timeout 1 Check @Ascii.N_of_digits.
-Set Printing Width 78.
-Show.
-Timeout 1 Check @uint64_from_le.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ptr.
-Timeout 1 Check @Ptr.
-Timeout 1 Check @fun_map.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @nullptr.
-Timeout 1 Check @nullptr.
-Timeout 1 Check @nullptr.
-Timeout 1 Check @fun_map.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @nullptr.
-Timeout 1 Check @nullptr.
-Timeout 1 Check @nil.
-Timeout 1 Check @nil.
-Timeout 1 Check @nilFile.
-Timeout 1 Check @nilFile.
-Timeout 1 Check @nilFile.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 refine
  {|
  byte := {x | x < 256};
@@ -584,21 +511,6 @@ refine
  nilFile := (0 - 1)%Z;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-lia.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxLjDKh"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Defined.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzGychP"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfgqcXX"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Print aModel.
+Timeout 1 Check @const.
+constructor.
+constructor.
