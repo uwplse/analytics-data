@@ -103,31 +103,26 @@ Proof.
 Unset Silent.
 Qed.
 Set Printing Width 148.
-Set Silent.
-Lemma match_ty_fbar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
-Unset Silent.
-Proof.
-Set Silent.
 Set Printing Width 148.
+Set Silent.
+Lemma match_ty_bvar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
+Proof.
+(intros v X w Hm).
 (destruct w, v; simpl in Hm; assumption).
 Qed.
-Set Silent.
 Lemma match_ty_fvar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TFVar X -> v = TEV X.
 Proof.
 (intros v X w Hm).
 (destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma match_ty_ev__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TEV X -> v = TEV X.
 Proof.
 (intros v X w Hm).
 (destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
-Unset Silent.
 Qed.
-Set Silent.
 Theorem match_ty__value_type_l : forall (w : nat) (v t : ty), |-[ w] v <$ t -> value_type v.
-Set Printing Width 148.
+Proof.
+Unset Silent.
 (intros w; induction w; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
@@ -139,4 +134,3 @@ Set Printing Width 148.
    | apply match_ty_exist__0_inv in Hm; contradiction
    | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption
    | apply match_ty_bvar__inv in Hm; contradiction ])).
-Show.
