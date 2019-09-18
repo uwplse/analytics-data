@@ -223,5 +223,13 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 Show.
-auto using Hsem.
+Set Printing Width 148.
+specialize (Hsem v).
+tauto.
+Qed.
+Set Silent.
+Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+Unset Silent.
+auto with DBBetaJulia.
 Show.
