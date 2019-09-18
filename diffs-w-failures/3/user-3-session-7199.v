@@ -765,6 +765,21 @@ intuition.
 }
 step_proc.
 intuition.
-{
 Unset Silent.
-(exists (bs ++ v); intuition).
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(exists (bs ++ v); intuition eauto).
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction_nil.
+(eapply log_abstraction_commit).
