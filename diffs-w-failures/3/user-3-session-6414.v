@@ -388,4 +388,7 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Set Printing Width 78.
 Show.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Tauto.A.
+(split; auto).
 (eapply log_abstraction_nil).
