@@ -454,4 +454,18 @@ Unset Silent.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros t Hnft Hdep).
+Show.
+Set Printing Width 148.
+(intros t Hnft _ Hdep).
+Show.
+(inversion Hdep).
+-
+tauto.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+(intros t Hnft _ k Hdep t2).
