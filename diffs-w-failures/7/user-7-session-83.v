@@ -169,7 +169,17 @@ Set Silent.
 Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
 auto with DBBetaJulia.
+Set Printing Width 148.
+Set Silent.
+Lemma sem_sub_k_i_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
+Proof.
+(intros k t1 t2 t' Hsem).
+(unfold sem_sub_k_i in Hsem).
+(split; intros v Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_i_union_1; assumption) || (apply match_ty_i_union_2; assumption);
+  apply Hsem; assumption).
+Unset Silent.
 Qed.
+Set Silent.
 Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
@@ -178,8 +188,7 @@ Proof.
 specialize (Hsem _ Hm).
 (apply match_ty_i_union__inv in Hsem).
 (destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma sem_sub_k_i_pair__inv :
   forall (t1 t2 t1' t2' : ty) (k : nat), ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
 Proof.
@@ -189,9 +198,7 @@ Proof.
   [ assert (Hmp : |-[ k] TPair v v' <$ TPair t1 t2) by (apply match_ty_i_pair; assumption)
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname) (t2 : ty), ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
 Proof.
 (intros k c t2).
@@ -218,13 +225,10 @@ Proof.
 -
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
-Unset Silent.
 Proof.
-Set Printing Width 148.
+Unset Silent.
 (induction k;
   match goal with
   | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
@@ -242,3 +246,18 @@ Set Printing Width 148.
          intros t1 t2 Hnf1 IH1 Hnf2 IH2 Hdep; destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]; intros t' Hsem;
           apply sem_sub_k_i_union_l__inv in Hsem; destruct Hsem as [Hsem1 Hsem2]; constructor; auto
    end).
+Set Silent.
+-
+(intros t Hnft _ Hdep).
+Unset Silent.
+(inversion Hdep).
+Set Silent.
+-
+(intros t Hnft _ Hdep t2).
+(assert (Hva : value_type (TRef t)) by constructor).
+Unset Silent.
+(assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
+Set Silent.
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
++
+Unset Silent.
