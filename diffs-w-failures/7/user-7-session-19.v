@@ -178,5 +178,6 @@ Set Printing Width 148.
 Show.
 (apply match_ty_i_ref__inv in Hm2).
 Show.
-(destruct Hm2 as [t'' [Heq' Href']]).
+Set Printing Width 148.
+(destruct Hm2 as [t'' [Heq' Href']]; inversion Heq'; subst).
 Show.
