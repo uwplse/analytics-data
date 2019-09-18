@@ -224,4 +224,9 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
 (eexists; eauto).
 -
 invert_abstraction.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (step_proc; intuition idtac).
+(subst; eexists; eauto).
