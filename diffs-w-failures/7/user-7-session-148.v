@@ -101,5 +101,6 @@ tauto.
 (simpl in *).
 (induction t').
 +
-(intros k; destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]; specialize (Hsem k w);
-  destruct Hsem as [w2 Hsem]; specialize (Hsem _ Hm); apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Unset Silent.
+(intros k).
+Check match_ty__exists_w_v.
