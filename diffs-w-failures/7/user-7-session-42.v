@@ -68,4 +68,6 @@ Unset Silent.
 Proof.
 (intros t t' Hsub1 Hsub2).
 Set Printing Width 148.
-(apply Nat.le_antisymm; apply sub_d__inv_depth_le).
+Set Printing Width 148.
+(apply Nat.le_antisymm; apply sub_d__inv_depth_le; assumption).
+Qed.
