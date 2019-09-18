@@ -111,14 +111,64 @@ Timeout 1 Check @addr_to_block.
 Timeout 1 Check @addr_to_block.
 Timeout 1 Check @addr_to_block.
 Timeout 1 Check @repeat_length.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Definition init : proc InitResult :=
   len0 <- addr_to_block 0; _ <- d.write len_addr len0; Ret Initialized.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfMzGCk"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbVHk3U"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnP9GMK"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqGWjpqP"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_spec.
+Timeout 1 Check @get_spec.
+Timeout 1 Check @get_spec.
+Timeout 1 Check @proc.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_spec.
+Timeout 1 Check @get_spec.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @Ret.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Timeout 1 Check @block_to_addr.
+Definition get_len : proc addr := b <- d.read len_addr; Ret (block_to_addr b).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqUkAut4"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqee1QKb"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
