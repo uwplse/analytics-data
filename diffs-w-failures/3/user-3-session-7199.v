@@ -240,12 +240,17 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @block.
+Set Printing Width 78.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' => state' = state /\ diskGet state a = Some r;
+     post := fun r state' =>
+             state' = state /\ diskGet state (log_addr a) = Some r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
 Proof.
@@ -257,3 +262,31 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Search -diskGet -"<".
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @disk.
+Timeout 1 Check @disk_oob_eq.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @disk_inbounds_exists.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(apply disk_inbounds_exists in H).
