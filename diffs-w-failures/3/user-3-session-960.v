@@ -772,27 +772,11 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (unfold EqualDec).
 (intros; simpl).
 Timeout 1 Check @sigT_eq_dec.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Choice.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Choice.
-Timeout 1 Check @sigT_eq_dec.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig2.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Search -"{_ & _}".
+Search -sigT.
