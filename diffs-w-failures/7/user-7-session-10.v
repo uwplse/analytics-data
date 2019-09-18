@@ -228,4 +228,8 @@ Unset Silent.
 (destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
 (destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
 Set Printing Width 148.
-(split; intros tx Hsub'; try (solve [ constructor; tauto ])).
+Set Printing Width 148.
+(split; intros tx Hsub'; try (solve [ constructor; auto ])).
++
+(apply sub_r_union_l__inv in Hsub').
+(destruct Hsub'; auto).
