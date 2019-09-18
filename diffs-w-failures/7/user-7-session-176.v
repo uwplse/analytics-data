@@ -175,4 +175,7 @@ exists tint.
 (rewrite subst_var_eq).
 reflexivity.
 +
-(rewrite subst_var_neq).
+Set Printing Width 148.
+(rewrite subst_var_neq; try assumption).
+exists v.
+assumption.
