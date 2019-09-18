@@ -219,4 +219,28 @@ specialize (Hsem 0 _ Hm).
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct Hsem; [ left | right ]; Abort).
+(destruct Hsem; [ left | right ]).
+Abort.
+Set Silent.
+Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
+Proof.
+(intros t t' Hsem).
+(split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
+  assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem; 
+  intros v' Hm'; specialize (Hsem v'); tauto).
+Qed.
+Open Scope btj_scope.
+Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
+Proof.
+(apply
+  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
+     (fun (t1 : ty) (_ : in_nf t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
+-
+(intros c t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
++
+Abort.
+Unset Silent.
+Lemma value_type_sem_sub_i__inv_depth_le : forall v : ty, value_type v -> forall t : ty, ||- [v]<= [t] -> | v | <= | t |.
