@@ -557,4 +557,17 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @log_length_ok.
 Timeout 1 Check @Zcomplements.Zlength_aux.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(rewrite length_app in *).
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @split.
+(rewrite app_length in *; simpl in *; lia).
+}
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition.
