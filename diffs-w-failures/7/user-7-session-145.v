@@ -124,11 +124,4 @@ Show.
 (destruct Hm as [tx Hm]).
 Show.
 Set Printing Width 148.
-(unfold fresh_in_ty, fresh in HX).
-Show.
-(simpl in HX).
-Show.
-Check IdSet.remove.
-Search -IdSet.remove.
-(rewrite IdSet.remove_spec in HX).
 Show.
