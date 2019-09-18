@@ -220,4 +220,6 @@ Set Printing Width 68.
 Show.
 step.
 (destruct a' as [[] bs]; simpl in *; intuition eauto).
+Timeout 1 Check @spec_abstraction_compose.
+step.
 (exists bs; intuition eauto).
