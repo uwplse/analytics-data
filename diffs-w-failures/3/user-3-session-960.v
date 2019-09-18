@@ -187,7 +187,7 @@ Timeout 1 Check @nat_eq_dec.
 Timeout 1 Check @Byte.x25.
 Timeout 1 Check @gen.
 #[program]
-Fixpoint nat_to_le (x : nat) : list byte_nat :=
+Fixpoint nat_to_le (x : nat) {measure x : list byte_nat :=
   match x with
   | 0 => nil
   | _ => exist _ (x mod 256) _ :: nat_to_le (x / 256)
