@@ -97,5 +97,12 @@ inv_exec.
  | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
  end).
 (eapply H0 in H2; repeat deex).
-(eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
+(match goal with
+ | Hexec:exec (rx _) _ _
+   |- _ => eapply RExec in Hexec; eapply H2 in Hexec; eauto
+ end).
