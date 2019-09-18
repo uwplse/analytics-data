@@ -131,4 +131,7 @@ Set Silent.
 {
 Unset Silent.
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
+Set Silent.
+(apply match_ty_exist).
+Unset Silent.
 exists ti.
