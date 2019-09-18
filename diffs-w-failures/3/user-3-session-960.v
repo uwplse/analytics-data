@@ -131,26 +131,11 @@ Timeout 1 Check @Ascii.ascii.
 Timeout 1 Check @Ascii.ascii.
 Timeout 1 Check @Ascii.ascii.
 Timeout 1 Check @Ascii.ascii.
-Search -string -Ascii.ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
-Timeout 1 Check @false.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+refine
+ {|
+ byte := Ascii.ascii;
+ byte0 := Ascii.ascii false false false false false false false false |}.
