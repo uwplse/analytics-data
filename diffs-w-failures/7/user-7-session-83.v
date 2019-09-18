@@ -269,4 +269,12 @@ Unset Silent.
 Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
-(simpl in Hdt).
+Set Silent.
+(simpl in Hdep).
+Unset Silent.
+(pose proof (le_S_n _ _ Hdep) as Hdep').
+(unfold sem_sub_k in Hsem).
+Set Silent.
+specialize (Hsem _ Hma).
+Unset Silent.
+(apply match_ty_ref__inv in Hsem).
