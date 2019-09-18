@@ -74,12 +74,21 @@ Inductive ty : Type :=
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Function
- nat_to_le base (x : nat) {wf lt x} : list {x : nat | x < S (S base)} :=
-   match x with
-   | 0 => nil
-   | _ =>
-       let digit := x mod S (S base) in
-       exist (fun x => x < S (S base)) digit _
-       :: nat_to_le base (x / S (S base))
-   end.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @Zmod_le.
+Timeout 1 Check @N.mod_lt.
+Timeout 1 Check @forallb.
+Timeout 1 Check @plus_Snm_nSm.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Set Printing Width 78.
+Theorem mod_lt : forall n m, n `mod` S m < S m.
+Proof.
