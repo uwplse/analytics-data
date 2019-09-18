@@ -333,13 +333,11 @@ Unset Silent.
           end
    end).
 Set Silent.
-Qed.
-Lemma match_ty_i_nf' : forall k : nat, forall v t : ty, |-[ k] v <$ t <-> |-[ k] v <$ MkNF( t).
-Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
-Unset Silent.
-(induction k; intros v t; generalize dependent v; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ]);
+Lemma match_ty_i_nf' : forall k : nat, forall t v : ty, |-[ k] v <$ t <-> |-[ k] v <$ MkNF( t).
+Proof.
+(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ]);
   try
    match goal with
    | Hm:|-[ _] ?v <$ TPair ?t1 ?t2
@@ -362,9 +360,7 @@ Unset Silent.
          rewrite mk_nf_union in Hm; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm| Hm];
           [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ apply IHt1 | apply IHt2 ]; assumption
    end; try (solve [ rewrite mk_nf_ref in *; apply match_ty_i_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor ])).
-Set Silent.
 -
-Unset Silent.
 clear IHt.
 (rewrite mk_nf_ref).
 (apply match_ty_i_ref__inv in Hm).
@@ -372,31 +368,3 @@ clear IHt.
 (simpl).
 (intros v; specialize (IHk v t); specialize (Href v)).
 tauto.
-Set Silent.
--
-Unset Silent.
-Set Silent.
-clear IHt.
-Unset Silent.
-(rewrite mk_nf_ref in Hm).
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-Set Silent.
-(simpl).
-Unset Silent.
-Set Printing Width 148.
-(intros v; specialize (IHk v t); specialize (Href v)).
-tauto.
-Set Printing Width 148.
-Set Silent.
-Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
-Unset Silent.
-Proof.
-(intros t k).
-(pose proof (match_ty_i_nf' k t) as H).
-Show.
-Set Printing Width 148.
-Set Silent.
-(intros v).
-Unset Silent.
-specialize (H v).
