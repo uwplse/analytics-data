@@ -117,4 +117,12 @@ assumption.
 (destruct (beq_idP X' i)).
 {
 subst.
-(rewrite subst_exist_eq).
+Show.
+Set Printing Width 148.
+(unfold free_in_ty in HX').
+(simpl in HX').
+Set Silent.
+admit.
+Unset Silent.
+}
+{
