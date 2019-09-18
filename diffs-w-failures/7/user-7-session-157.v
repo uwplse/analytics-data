@@ -71,4 +71,4 @@ exists (TPair v1' v2').
 Unset Silent.
 subst.
 (simpl in Hm).
-(rewrite <- beq_id_refl).
+(rewrite <- beq_id_refl in Hm).
