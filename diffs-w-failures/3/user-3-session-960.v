@@ -540,17 +540,8 @@ Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @Byte.x25.
-(destruct (le_dec (Datatypes.length (nat_to_le 254 x)) 8)).
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @repeat_spec.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
+(rewrite repeat_length).
