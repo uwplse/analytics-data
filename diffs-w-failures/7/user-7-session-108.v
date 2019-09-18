@@ -438,8 +438,13 @@ Set Silent.
 Unset Silent.
 assumption.
 +
+Show.
+Set Printing Width 148.
+Set Silent.
 right.
 (intros Hcontra).
 (destruct Hcontra as [v Hcontra]).
+Unset Silent.
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
+(apply ty_empty__subs_ty_empty).
