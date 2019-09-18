@@ -138,4 +138,9 @@ Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
 Set Silent.
 Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
 Set Printing Width 148.
-(apply subst_equation).
+Set Silent.
+(intros X s t1 t2).
+Unset Silent.
+(pose proof (subst_equation X s (TPair t1 t2))).
+(simpl in H).
+reflexivity.
