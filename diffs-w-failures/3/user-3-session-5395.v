@@ -117,6 +117,32 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 -
-destruct_all.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+destruct_all.
+-
+Set Silent.
+(rewrite diskUpd_oob_noop by lia).
+Unset Silent.
+destruct_all.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4NAQV4"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Set Silent.
+Theorem size_ok : forall i, proc_spec (size_spec i) (size i) recover abstr.
+Proof.
+unshelve prim.
+eauto.
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+eauto.
+Qed.
+Unset Silent.
+End TwoDisk.
