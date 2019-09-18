@@ -12,27 +12,20 @@ Require Import BetaJulia.Sub0280a.BaseDefs.
 Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
-Require Import Coq.Bool.Bool.
-Open Scope btjm.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty_pair : forall (v1 v2 t1 t2 : ty) (k w : nat), |-[ k, w] v1 <$ t1 -> |-[ k, w] v2 <$ t2 -> |-[ k, w] TPair v1 v2 <$ TPair t1 t2.
 Proof.
+Unset Silent.
 (intros v1 v2 t1 t2 k w Hm1 Hm2).
 (destruct k, w; split; assumption).
-Unset Silent.
-Set Printing Width 148.
-Set Silent.
-Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t1 -> |-[ k, w] v <$ TUnion t1 t2.
-Proof.
-Unset Silent.
-(intros v t1 t2 k w Hm).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-(destruct k, w, v; left; assumption).
 Set Silent.
 Qed.
-Lemma match_ty_union_2 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t2 -> |-[ k, w] v <$ TUnion t1 t2.
+Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t1 -> |-[ k, w] v <$ TUnion t1 t2.
+Unset Silent.
 Proof.
 (intros v t1 t2 k w Hm).
-Unset Silent.
-(destruct k, w, v; right; assumption).
+Show.
+(destruct k, w).
+(simpl).
+left.
