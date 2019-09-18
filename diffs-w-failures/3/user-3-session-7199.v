@@ -787,4 +787,25 @@ Set Printing Width 78.
 Show.
 (unfold append; intros).
 Timeout 1 Check @firstn_length.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(apply spec_abstraction_compose).
 step_proc.
+Timeout 1 Check @sig.
+(simpl).
