@@ -218,16 +218,12 @@ Set Printing Width 148.
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
 (destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
 Set Silent.
-(split; intros tx Hsub').
-+
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-(induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
 Show.
+Set Printing Width 148.
+Set Silent.
 +
+(remember (TUnion t1 t2) as ty eqn:Heqy ).
+Unset Silent.
+(induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
++
+(constructor; auto).
