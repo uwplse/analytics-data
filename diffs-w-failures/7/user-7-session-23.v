@@ -11,6 +11,9 @@ Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.MatchProps.
 Require Import BetaJulia.Sub0250a.SemSubProps.
 Require Import BetaJulia.Sub0250a.DeclSubProps.
+Set Printing Width 148.
+Set Silent.
+Require Import BetaJulia.Sub0250a.AltMatchDefs.
 Require Import BetaJulia.Sub0250a.AltMatchProps.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -81,5 +84,7 @@ Proof.
 (apply sem_eq__comm).
 (apply mk_nf__sem_eq; assumption).
 Qed.
-Unset Silent.
 Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> ||- [t1]<= [t2].
+Unset Silent.
+Proof.
+(intros Hsemi).
