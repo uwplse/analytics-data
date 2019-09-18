@@ -111,4 +111,5 @@ Unset Silent.
 Proof.
 Show.
 Set Printing Width 148.
-all: (try (solve [ intros; simpl; Omega.omega ])).
+Set Printing Width 148.
+all: (try (intros; simpl; Omega.omega)).
