@@ -220,4 +220,8 @@ Unset Silent.
 Set Silent.
 (apply match_ty_union__inv in Hm2).
 Unset Silent.
-(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(destruct w).
+(apply match_ty_exist__0_inv in Hm2).
+contradiction.
