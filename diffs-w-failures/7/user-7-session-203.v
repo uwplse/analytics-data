@@ -222,8 +222,6 @@ Set Printing Width 148.
 (left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 Show.
 Set Printing Width 148.
-exfalso.
-Show.
 Set Printing Width 148.
+(exfalso; eauto).
 Show.
-(eapply IHt1).
