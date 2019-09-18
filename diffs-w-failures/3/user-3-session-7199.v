@@ -466,314 +466,34 @@ Qed.
 Set Silent.
 Hint Resolve abstr_get_len: core.
 Unset Silent.
-Set Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
 Theorem get_len_ok :
   proc_spec
-    (fun (_ : unit) state =>
+    (fun bs state =>
      {|
-     pre := True;
+     pre := log_length_ok state bs;
      post := fun r state' => state' = state /\ r = length state;
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
-Proof.
-(unfold get_len; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
-step_proc.
-intuition eauto.
-(eexists; intuition eauto).
-Qed.
-Unset Silent.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Timeout 1 Check @forallb.
-Timeout 1 Check @forallb.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Theorem log_size_bound d bs a :
-  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
-Proof.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @split.
-(unfold log_size_ok, log_addr; intros; lia).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWKTqVB"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Timeout 1 Check @Ret.
-Timeout 1 Check @block.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Hint Resolve log_size_bound: core.
-Theorem get_at_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a < length state;
-     post := fun r state' => state' = state /\ nth a state block0 = r;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Proof.
-(unfold get_at; intros).
-(apply spec_abstraction_compose).
-(simpl).
-(eapply proc_spec_weaken; eauto).
-Set Silent.
-Set Silent.
-(unfold spec_impl; intros).
-Unset Silent.
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
-Set Silent.
-(descend; intuition eauto).
-Unset Silent.
-(descend; intuition eauto).
-(unfold log_abstraction in H0; intuition).
-(pose proof (H3 a); intuition).
-(assert (v = nth a bs block0)).
-(eapply diskGet_eq_values; eauto).
-Timeout 1 Check @Tauto.A.
-auto.
-Add Search Blacklist "Raw" "Proofs".
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ret.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_at_ok.
-Timeout 1 Check @get_at_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Hint Resolve get_at_ok: core.
-Set Silent.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
-Proof.
-(unfold rec_wipe; simpl; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a as [_ bs]; simpl in *; intuition eauto).
-Qed.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @find.
-Timeout 1 Check @firstn.
-Timeout 1 Check @firstn.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Lemma firstn_one_more :
-  forall (a : nat) (d : list block),
-  S a <= length d -> firstn a d ++ [nth a d block0] = firstn (S a) d.
-Proof.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(intros).
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @find.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Nat.induction.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Nat.induction.
-Timeout 1 Check @Nat.induction.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Set Printing Width 78.
-Show.
-generalize dependent a.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(induction d; simpl; intros).
--
-(exfalso; lia).
--
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @find.
-Timeout 1 Check @firstn.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-(destruct a0; simpl in *; auto).
-Timeout 1 Check @Ascii.N_of_ascii.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(rewrite IHd by lia; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoRrV0P"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Opaque firstn.
-Theorem get_upto_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a <= length state;
-     post := fun r state' => state' = state /\ r = firstn a state;
-     recovered := fun _ state' => state' = state |}) 
-    (get_upto a) recover abstr.
-Proof.
-(induction a; simpl).
--
-step_proc.
--
-step_proc.
-step_proc.
-intuition eauto.
-{
-lia.
-}
-step_proc.
-Timeout 1 Check @app.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @plus_n_O.
-Set Printing Width 78.
-Show.
-auto using firstn_one_more.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFJUO3u"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ret.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Hint Resolve get_upto_ok: core.
-Theorem get_ok : proc_spec get_spec get recover abstr.
-Proof.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @ge.
-Timeout 1 Check @get_spec.
-Timeout 1 Check @get_spec.
-Set Printing Width 78.
-Show.
-(unfold get, get_spec; intros).
-step_proc.
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intuition).
-(descend; intuition eauto).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @find.
-Timeout 1 Check @firstn_O.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length_le.
-Timeout 1 Check @firstn_length_le.
-Timeout 1 Check @firstn_length.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(rewrite firstn_all; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjZH7jK"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @sig.
-Timeout 1 Check @d.size.
-Timeout 1 Check @d.size.
-Timeout 1 Check @size_spec.
-Timeout 1 Check @d.size_ok.
-Timeout 1 Check @d.size_ok.
-Timeout 1 Check @forallb.
