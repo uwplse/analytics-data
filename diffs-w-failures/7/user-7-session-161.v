@@ -92,4 +92,6 @@ Proof.
 (repeat rewrite subst_pair).
 (rewrite IHt1, IHt2).
 reflexivity.
--
+Unset Silent.
+Show.
+assumption.
