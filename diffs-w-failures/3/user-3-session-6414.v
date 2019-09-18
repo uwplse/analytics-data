@@ -425,9 +425,18 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem get_ok : proc_spec get_spec get recover abstr.
-Proof.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @BoolTheory.
 Timeout 1 Check @ge.
-(unfold get; intros).
-(apply spec_abstraction_compose; simpl).
-step_proc.
+Timeout 1 Check @get_len.
+Timeout 1 Check @proc.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_len.
+Timeout 1 Check @get_len.
+Timeout 1 Check @get_len.
