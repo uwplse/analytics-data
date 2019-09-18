@@ -288,5 +288,23 @@ exists (TPair v'1 v'2).
 admit.
 Unset Silent.
 }
-(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]; [ apply IHt1 | apply IHt2 ];
-  eauto).
+Show.
+(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k Hcontra X s) | specialize (IHt2 k Hcontra X s) ]; [ apply IHt1 | apply IHt2 ]; eauto).
+Set Silent.
+-
+Unset Silent.
+admit.
+Set Silent.
+-
+Unset Silent.
+(apply Hnotm).
+exists (TRef t).
+(apply match_ty_value_type__reflexive; constructor).
+-
+Show.
+(destruct Hcontra as [v Hcontra]).
+admit.
+-
+(apply Hnotm).
+exists (TEV X).
+(destruct k; reflexivity).
