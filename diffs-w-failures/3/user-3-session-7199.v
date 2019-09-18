@@ -574,6 +574,9 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction_nil.
 Set Silent.
 (unfold log_size_ok; autorewrite with list; auto).
-}
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 {
+eauto using log_abstraction_preserved.
