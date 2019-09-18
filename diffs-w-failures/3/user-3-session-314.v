@@ -168,71 +168,23 @@ Ltac
    | _ => progress autorewrite with array in *
    end.
 Ltac step := unshelve step_proc; simplify; finish.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Set Silent.
 Lemma recover_cok :
   proc_hspec Var.dynamics impl.(recover)
     recover_spec.
 Proof.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 51.
-Show.
 (simpl).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @readNone.
-Set Printing Width 51.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 51.
-Show.
 (eapply ret_hspec).
+-
 typeclasses eauto.
+-
 firstorder.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @non_erroring.
-Timeout 1 Check @in_inv.
-Set Printing Width 51.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sum.
-Timeout 1 Check @Nsub.
-Set Printing Width 51.
-Show.
 (inversion H0; subst).
-Timeout 1 Check @sig.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 51.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Set Printing Width 51.
-Show.
 (simpl; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqs8rUcZ"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhu1lE7"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3xggWz"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Set Silent.
 Lemma recover_idempotent :
   idempotent (fun t : unit => recover_spec).
 Proof.
@@ -250,20 +202,10 @@ Proof.
 Qed.
 Lemma init_cok :
   proc_hspec Var.dynamics impl.(init) init_hspec.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 51.
-Show.
 Proof.
 (eapply ret_hspec).
-Timeout 1 Check @identity.
-Timeout 1 Check @hypo_type.
-Timeout 1 Check @hypo_type.
-Timeout 1 Check @readNone.
-Timeout 1 Check @readNone.
-Timeout 1 Check @readNone.
-Timeout 1 Check @initOutput.
-Timeout 1 Check @identity.
-Timeout 1 Check @hypo_type.
-Timeout 1 Check @readNone.
+-
 typeclasses eauto.
+-
+firstorder.
+(inversion H0; subst).
