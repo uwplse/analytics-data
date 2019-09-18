@@ -125,4 +125,22 @@ Set Printing Width 148.
 (split; intros HX').
 Set Silent.
 {
-(unfold not_f_free_in_ty, not_free in Hi0).
+Unset Silent.
+(unfold not_f_free_in_ty, not_free in HX').
+(simpl in HX').
+Set Silent.
+exfalso.
+(apply HX').
+(apply IdSetFacts.singleton_2).
+reflexivity.
+}
+{
+exists 0.
+(rewrite f_subst_fvar_eq).
+assumption.
+}
+}
+{
+Unset Silent.
+(split; intros HX').
+{
