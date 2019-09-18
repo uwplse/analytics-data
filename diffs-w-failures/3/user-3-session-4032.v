@@ -355,4 +355,15 @@ Timeout 1 Check @wor.
 Timeout 1 Check @wor.
 Timeout 1 Check @word.
 Set Printing Width 104.
-Search -(addr -> word).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 104.
+Search -addr -word.
+Timeout 1 Check @Choice.
+Timeout 1 Check @read.
+Timeout 1 Check @addr2w.
+Timeout 1 Check @addr2w.
+Timeout 1 Check @wand.
+Timeout 1 Check @Nwadd.
+Timeout 1 Check @waddrring.
+Check waddr.
