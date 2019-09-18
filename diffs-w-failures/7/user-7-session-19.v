@@ -240,4 +240,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Show.
 Set Printing Width 148.
-(inversion Hnft; subst).
+Set Printing Width 148.
+(assert (Hvp : value_type (TPair t1 t2))).
+constructor.
+solve_by_inverts.
