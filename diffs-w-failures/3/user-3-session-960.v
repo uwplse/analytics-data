@@ -739,4 +739,15 @@ Timeout 1 Check @subset_eq_compat.
 Set Printing Width 78.
 Show.
 (apply subset_eq_compat).
-(rewrite Ascii.nat_ascii_embedding).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite Ascii.nat_ascii_embedding; auto).
+Print subset_eq_compat.
+-
+Set Silent.
+admit.
+Unset Silent.
+-
+(hnf).
