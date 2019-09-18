@@ -138,4 +138,4 @@ Show.
 refine
  {|
  byte := Ascii.ascii;
- byte0 := Ascii.ascii false false false false false false false false |}.
+ byte0 := Ascii.Ascii false false false false false false false false |}.
