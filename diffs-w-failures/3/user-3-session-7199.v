@@ -288,4 +288,8 @@ Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Set Printing Width 78.
 Show.
-proc_spec_weaken.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read.
+Timeout 1 Check @d.read_ok.
+Timeout 1 Check @d.read_ok.
