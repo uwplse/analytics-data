@@ -407,10 +407,7 @@ eauto.
 (left; exists (TEV i); apply match_ty_ev).
 Admitted.
 Unset Silent.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t k -> ~ ||-[ S k][t]<= [TRef t].
-Set Silent.
-Proof.
-Unset Silent.
+Set Printing Width 148.
 (induction t; intros k Ht Hcontra).
 Set Silent.
 -
@@ -421,5 +418,7 @@ specialize (Hcontra _ Hm).
 clear Hm.
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Hcontra _]]).
-Unset Silent.
 (inversion Hcontra).
+Unset Silent.
+-
+specialize (Hcontra 0).
