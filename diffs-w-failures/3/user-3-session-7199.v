@@ -528,4 +528,18 @@ Timeout 1 Check @app.
 Timeout 1 Check @app_nth1.
 Set Printing Width 78.
 Show.
-Search -(_ ++ [_]).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_assoc.
+Timeout 1 Check @app_assoc.
+Timeout 1 Check @app_assoc.
+Timeout 1 Check @app_assoc.
+Timeout 1 Check @app_assoc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(rewrite app_assoc in *).
