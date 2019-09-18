@@ -384,5 +384,12 @@ Unset Silent.
 Set Silent.
 (simpl).
 Unset Silent.
-auto.
+Set Printing Width 148.
+(intros v; specialize (IHk v t); specialize (Href v)).
+tauto.
+Qed.
+Set Silent.
+Lemma match_ty_i_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Unset Silent.
+Proof.
 Show.
