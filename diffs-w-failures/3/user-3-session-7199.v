@@ -561,26 +561,24 @@ Unset Silent.
 Timeout 1 Check @Tauto.A.
 auto.
 Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqypodZ6"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ret.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_at_ok.
+Timeout 1 Check @get_at_ok.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Hint Resolve get_at_ok: core.
 Set Silent.
 Theorem recover_wipe : rec_wipe recover abstr no_wipe.
-Unset Silent.
 Proof.
 (unfold rec_wipe; simpl; intros).
 (apply spec_abstraction_compose).
 step_proc.
 (destruct a as [_ bs]; simpl in *; intuition eauto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTrrpec"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
 Hint Resolve recover_wipe: core.
 Theorem get_upto_ok a :
@@ -596,4 +594,11 @@ Proof.
 -
 step_proc.
 -
+Unset Silent.
 step_proc.
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition eauto.
+Timeout 1 Check @split.
+lia.
