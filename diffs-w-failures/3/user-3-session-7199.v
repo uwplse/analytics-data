@@ -666,4 +666,6 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 (unfold log_size_ok).
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @split.
+(intros; lia).
