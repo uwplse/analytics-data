@@ -43,4 +43,13 @@ Show.
 (destruct (beq_idP X i)).
 +
 subst.
+Show.
+Set Printing Width 148.
 (rewrite b_subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+subst.
+(rewrite b_subst_exist_neq in Hm; try assumption).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
