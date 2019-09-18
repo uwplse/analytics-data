@@ -94,5 +94,9 @@ Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Unset Silent.
 Proof.
 Set Printing Width 148.
+Show.
+Set Printing Width 148.
 (intros k; induction k; intros v Hm).
--
+2: {
+idtac.
+(simpl).
