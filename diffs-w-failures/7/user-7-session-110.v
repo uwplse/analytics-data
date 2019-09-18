@@ -127,5 +127,10 @@ Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v
 Proof.
 Show.
 Set Printing Width 148.
-(induction w; induction t; intros k v Hm w' Hle).
-Show.
+Set Printing Width 148.
+Set Silent.
+Unset Silent.
+(induction w; induction t; intros k v Hm w' Hle;
+  try match goal with
+      | |- |-[ _, _] _ <$ TCName _ => apply match_ty_cname__inv in Hm; subst; apply match_ty_cname
+      end).
