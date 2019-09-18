@@ -84,4 +84,9 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 Lemma aaa : forall (k : nat) (t t' v : ty), |-[ k] v <$ t -> |-[ k] v <$ t' -> | t | <= | t' |.
+Unset Silent.
+Proof.
+(induction k).
