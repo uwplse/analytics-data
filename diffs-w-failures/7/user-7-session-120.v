@@ -43,4 +43,5 @@ Unset Silent.
 Proof.
 (intros t1 t2 t1' t2' Hem1 Hsem2 k).
 Set Printing Width 148.
-(apply sem_sub_k_pair; tauto).
+(apply sem_sub_k_pair; auto).
+Qed.
