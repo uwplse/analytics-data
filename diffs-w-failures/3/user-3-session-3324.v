@@ -158,4 +158,8 @@ Timeout 1 Check @unit.
 Timeout 1 Check @repeat_length.
 Timeout 1 Check @remapped_abstraction.
 Timeout 1 Check @remapped_abstraction.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 constructor.
