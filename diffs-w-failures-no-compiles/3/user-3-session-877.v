@@ -1404,4 +1404,7 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
 Show.
-iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hunlocked)".
+Timeout 1 Check @Add.
+Set Silent.
+*
+Unset Silent.
