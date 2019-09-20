@@ -85,13 +85,13 @@ Qed.
 Lemma proc_rspec_crash_refines_op T (p : proc C_Op T) 
   (rec : proc C_Op unit) spec (op : A_Op T) :
   (forall sA sC,
-   absr sA sC tt -> proc_rspec c_sem p rec (refine_spec spec sA)) ->
-  (forall sA sC, absr sA sC tt -> (spec sA).(pre)) ->
+   absr sA (Val sC tt) -> proc_rspec c_sem p rec (refine_spec spec sA)) ->
+  (forall sA sC, absr sA (Val sC tt) -> (spec sA).(pre)) ->
   (forall sA sC sA' v,
    absr sA' sC tt ->
    (spec sA).(post) sA' v -> (op_spec a_sem op sA).(post) sA' v) ->
   (forall sA sC sA' v,
-   absr sA sC tt ->
+   absr sA (Val sC tt) ->
    (spec sA).(alternate) sA' v -> (op_spec a_sem op sA).(alternate) sA' v) ->
   crash_refines absr c_sem p rec (a_sem.(step) op)
     (a_sem.(crash_step) + (a_sem.(step) op;; a_sem.(crash_step))).
