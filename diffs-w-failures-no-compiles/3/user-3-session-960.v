@@ -552,58 +552,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite repeat_length).
-Check repeat_length.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(destruct (le_dec (Datatypes.length (nat_to_le 254 x)) 8);
-  match goal with
-  | |- context [ nat_eq_dec ?n ?m ] => destruct (nat_eq_dec n m); try lia
-  end).
-(rewrite nat_from_le_zeros; auto).
-(rewrite nat_le_inverse; auto).
-Timeout 1 Check @split.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @ge.
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @Datatypes.length.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @Byte.x25.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(generalize dependent Datatypes.length (nat_to_le 254 x); intros).
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @applicative_ap.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @eq_existT_curried.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 Unset Silent.
 Set Diffs "off".
