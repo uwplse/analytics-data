@@ -76,6 +76,14 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Definition change_marker {T'} (p' : proc T') :
-  forall `{m : @ProcMarker T p}, ProcMarker p' := 
-  AProc p'.
+Definition change_marker {T'} (p' : proc T') `{m : @ProcMarker T p} :
+  ProcMarker p' := AProc p'.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7HH9Jw"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnwYRir"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
