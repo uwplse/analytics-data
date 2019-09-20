@@ -159,4 +159,7 @@ Fixpoint step (t : term) : term :=
 Redirect "/tmp/coqfAE0Rj" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Print step.
+Unset Silent.
+Timeout 1 Check @term.
+Timeout 1 Check @term.
+Timeout 1 Check @multistep.
