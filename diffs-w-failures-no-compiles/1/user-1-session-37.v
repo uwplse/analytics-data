@@ -328,11 +328,21 @@ Inductive GT : Type :=
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
 Definition SetST := Ensemble ST.
+Unset Silent.
+Set Diffs "off".
+Print Forall.
+Print Forall2.
+Set Printing Width 70.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
   | GInt => Singleton _ SInt
   | GBool => Singleton _ SBool
   | GFun G_1 G_2 => zipWith_ensembles SFun (Gamma G_1) (Gamma G_2)
+  | GRec l =>
+      fun X =>
+      exists l',
+        X = SRec l' /\
+        Forall2 (fun (S' : option ST) G' => True) l' (map Gamma l)
   | _ => Empty_set _
   end.
