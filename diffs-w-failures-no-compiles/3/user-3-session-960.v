@@ -170,6 +170,12 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @N.lbase.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @N.lbase.
+Set Printing Width 78.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
@@ -177,7 +183,7 @@ Function
    | 0 => nil
    | _ =>
        let base := S (S base_m2) in
-       let digit := x `mod` base in
-       exist (fun x => x < S (S base_m2)) digit _
+       let digit := x `mod` S S in
+       exist (fun x => x < S (S base_m2)) (x `mod` S (S base_m2)) _
        :: nat_to_le base_m2 (x / S (S base_m2))
    end.
