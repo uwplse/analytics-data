@@ -18,4 +18,20 @@ Set Printing Width 98.
 Set Silent.
 Open Scope string_scope.
 Unset Silent.
-Timeout 1 Check @term.
+Set Printing Width 98.
+Inductive term :=
+  | Nil : term
+  | Ident : string -> term
+  | Symb : string -> term
+  | Cons : term -> term -> term
+  | App : term -> term -> term.
+Redirect "/tmp/coq84xhGL" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition oneArgCbvPrimitive (name : string) : bool :=
+  if
+   List.find (String.eqb name)
+     ("fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil)
+  then true
+  else false.
+Redirect "/tmp/coqi2dfar" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
