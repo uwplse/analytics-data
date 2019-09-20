@@ -335,4 +335,8 @@ Set Diffs "off".
 Set Printing Width 66.
 Theorem size_gt_g0 : forall x, 0 < size_gt x.
 Proof.
-(induction x; intros; eauto with math).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
+Show.
+(induction x; intros; simpl; eauto with math).
