@@ -799,4 +799,8 @@ Set Diffs "off".
 Timeout 1 Check @subset_eq_compat.
 Set Printing Width 78.
 Show.
-(destruct (nat_eq_dec n n0); subst).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct (nat_eq_dec n n0); subst; auto).
