@@ -608,13 +608,6 @@ Timeout 1 Check @nat_from_le.
 Timeout 1 Check @nat_from_le.
 Timeout 1 Check @nat_from_le.
 Timeout 1 Check @nat_from_le.
-Search -nat_from_le.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_le_pi.
-Timeout 1 Check @nat_le_pi.
-Timeout 1 Check @nat_le_inverse.
-Timeout 1 Check @nat_le_inverse.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
