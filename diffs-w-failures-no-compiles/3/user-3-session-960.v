@@ -289,4 +289,14 @@ Timeout 1 Check @byte.
 Timeout 1 Check @split.
 Set Printing Width 78.
 Show.
-(rewrite IHn).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @byte.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @mod_S_lt.
+Set Printing Width 78.
+Show.
+(rewrite IHn by apply mod_S_lt).
