@@ -163,4 +163,21 @@ Proof.
 Unset Silent.
 (induction n as [n IHn] using lt_wf_ind).
 Timeout 1 Check @nat_eq_dec.
-(destruct n).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(destruct n; simpl).
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_to_le.
+Timeout 1 Check @nat_to_le.
+Timeout 1 Check @nat_to_le.
+Timeout 1 Check @nat_to_le.
+Timeout 1 Check @nat_to_le.
+Timeout 1 Check @nat_to_le_func.
+Timeout 1 Check @nat_to_le_func.
+Timeout 1 Check @nat_to_le_func.
+Timeout 1 Check @nat_to_le_func.
+(rewrite nat_to_le_func).
