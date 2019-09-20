@@ -98,6 +98,7 @@ Proof.
  end).
 (unfold swapXY).
 monad_simpl.
+About change_marker.
 (match goal with
  | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
  end).
