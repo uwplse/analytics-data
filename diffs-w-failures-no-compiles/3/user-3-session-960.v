@@ -715,4 +715,4 @@ Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_of_ascii.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @pointwise_relation.
-(rewrite Ascii.nat_ascii_embedding).
+(erewrite Ascii.nat_ascii_embedding).
