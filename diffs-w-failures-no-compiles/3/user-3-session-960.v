@@ -293,6 +293,20 @@ Timeout 1 Check @nat_from_le.
 Set Printing Width 78.
 Timeout 1 Check @N.lbase.
 Timeout 1 Check @N.lbase.
-Theorem nat_from_le_zeros base_m2 digits n :
-  @nat_from_le base_m2 (digits ++ repeat bounded0 n) =
+Timeout 1 Check @size.
+Timeout 1 Check @zerop.
+Timeout 1 Check @N.zero_one.
+Timeout 1 Check @size.
+Timeout 1 Check @prod_eq_dec.
+Timeout 1 Check @proj1.
+Timeout 1 Check @proj1_sig.
+Timeout 1 Check @proj1_sig.
+Timeout 1 Check @proj1_sig.
+Timeout 1 Check @proj1_sig.
+Timeout 1 Check @size.
+Timeout 1 Check @zerop.
+Timeout 1 Check @N.zero_one.
+Theorem nat_from_le_zeros base_m2 digits zero_v n :
+  proj1_sig zero_v 0 ->
+  @nat_from_le base_m2 (digits ++ repeat zero_v n) =
   @nat_from_le base_m2 digits.
