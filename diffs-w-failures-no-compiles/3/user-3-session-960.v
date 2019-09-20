@@ -272,4 +272,5 @@ Unset Silent.
 (rewrite IHn).
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
 Timeout 1 Check @split.
-lia.
+Unset Silent.
+Set Diffs "off".
