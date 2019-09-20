@@ -781,8 +781,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(intros; simpl).
-decide equality.
-decide equality.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(intros; simpl).
+Timeout 1 Check @bounded_to_ascii.
+(destruct x, y).
