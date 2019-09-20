@@ -92,6 +92,12 @@ Proof.
  end).
 (unfold swapXY).
 monad_simpl.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @change_marker.
+Timeout 1 Check @change_marker.
+Timeout 1 Check @change_marker.
+Timeout 1 Check @change_marker.
 (match goal with
- | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
+ | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
  end).
