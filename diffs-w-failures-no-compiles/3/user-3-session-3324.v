@@ -148,17 +148,11 @@ Show.
 step_proc.
 (case_eq (diskGet (stateDisk state) (diskSize (stateDisk state) - 1)); intros).
 {
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any).
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
-Timeout 1 Check @rew_const.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(constructor; eauto; intros).
+(rewrite diskUpd_neq by omega).
