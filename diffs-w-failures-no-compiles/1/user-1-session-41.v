@@ -665,4 +665,14 @@ all: (try congruence).
 Unset Silent.
 -
 (intros).
-(apply alpha_fun_inversion in H0; eauto).
+(eapply alpha_fun_inversion in H0; eauto).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+subst.
+(inversion H3).
+subst.
+f_equal.
