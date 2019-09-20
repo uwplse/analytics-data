@@ -149,4 +149,8 @@ Show.
 (case_eq (diskGet (stateDisk state) (diskSize (stateDisk state) - 1)); intros).
 {
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (unfold inited_any).
