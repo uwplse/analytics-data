@@ -722,4 +722,7 @@ Timeout 1 Check @sig.
 Timeout 1 Check @sig_eta.
 Timeout 1 Check @sig_eta.
 Timeout 1 Check @sig_eta.
-(apply sig_eta).
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @sig.
+Search -(@eq (sig _)).
+Timeout 1 Check @FinMapToList.
