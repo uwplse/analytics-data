@@ -416,4 +416,8 @@ Set Diffs "off".
 Set Printing Width 94.
 Show.
 (intros; inversion H0; subst; eauto).
-all: (try rewrite singleton_eq in H1; eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
+all: (try rewrite singleton_eq in H1; congruence).
