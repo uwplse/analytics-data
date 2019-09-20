@@ -317,23 +317,17 @@ Inductive Ann : Type :=
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 70.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 70.
 Inductive GT : Type :=
   | GDyn : GT
   | GInt : GT
   | GBool : GT
+  | GFun : GT -> GT -> GT
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
 Definition SetST := Ensemble ST.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 70.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 70.
-Unset Silent.
-Set Diffs "off".
-Search -Ensemble.
-Set Printing Width 70.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
