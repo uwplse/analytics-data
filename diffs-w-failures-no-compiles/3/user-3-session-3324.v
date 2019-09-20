@@ -158,4 +158,4 @@ Timeout 1 Check @unit.
 Timeout 1 Check @repeat_length.
 Timeout 1 Check @remapped_abstraction.
 Timeout 1 Check @remapped_abstraction.
-(unfold remapped_abstraction).
+constructor.
