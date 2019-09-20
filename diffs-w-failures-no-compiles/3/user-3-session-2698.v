@@ -230,4 +230,6 @@ Timeout 1 Check @app_nil.
 Timeout 1 Check @app_length.
 Timeout 1 Check @app_length.
 Timeout 1 Check @app_length.
-(rewrite app_lenegth).
+(rewrite app_length).
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @rew_ex.
