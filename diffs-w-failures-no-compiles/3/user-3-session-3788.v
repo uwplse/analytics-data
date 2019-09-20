@@ -75,6 +75,12 @@ Timeout 1 Check @ProcMarker.
 Timeout 1 Check @ProcMarker.
 Timeout 1 Check @ProcMarker.
 Timeout 1 Check @repeat_length.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
+Set Printing Width 78.
+Show.
 (match goal with
- | |- proc_spec _ ?p _ _ => pose proof (ProcMarker p)
+ | |- proc_spec _ ?p _ _ => pose proof (AProc p)
  end).
