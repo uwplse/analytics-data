@@ -563,4 +563,9 @@ Timeout 1 Check @GoModelWf.
 Timeout 1 Check @aModel.
 Instance aModel_wf : (GoModelWf aModel).
 Proof.
-(hnf).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @const.
+Set Printing Width 78.
+Show.
+constructor.
