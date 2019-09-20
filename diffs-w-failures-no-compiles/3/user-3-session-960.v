@@ -103,4 +103,17 @@ Timeout 1 Check @Ascii.Space.
 Timeout 1 Check @Ascii.shift.
 Timeout 1 Check @strings.string_countable.
 Set Printing Width 78.
-Print string.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @strings.string_countable.
+Set Printing Width 78.
+Search -nat -string.
+Timeout 1 Check @prefix.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Print pretty.pretty.
