@@ -572,13 +572,11 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-econstructor.
--
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @sig.
-(simpl).
+Timeout 1 Check @aModel.
+Set Printing Width 78.
+Show.
+(unfold aModel).
+econstructor.
