@@ -777,11 +777,11 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @sig.
 Set Printing Width 78.
 Show.
-(intros; simpl).
-Timeout 1 Check @bounded_to_ascii.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
+(intros; simpl).
+decide equality.
+decide equality.
+decide equality.
