@@ -209,6 +209,25 @@ Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
-Definition nat64_to_le (x : nat) : list byte :=
+Timeout 1 Check @Byte.x25.
+Definition nat64_to_le (x : nat) : list {x | x < 256} :=
   let digits := nat_to_le 254 x in
   digits ++ repeat bounded0 (8 - length digits).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0IJEmx"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQ7ZRNG"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @split.
+Timeout 1 Check @Byte.x25.
+Timeout 1 Check @top.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Definition nat64_from_le (digits : list {x | x < 256}) : option nat.
