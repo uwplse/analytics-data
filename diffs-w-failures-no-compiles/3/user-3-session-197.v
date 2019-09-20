@@ -12,4 +12,4 @@ From Coq Require Import List.
 Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @True.
-Timeout 1 Check @Transitive.
+Timeout 1 Check @Ret.
