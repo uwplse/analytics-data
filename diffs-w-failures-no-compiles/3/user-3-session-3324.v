@@ -183,4 +183,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite ?diskUpd_neq by omega).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+all: (rewrite ?diskUpd_neq by omega).
+all: (rewrite ?diskShrink_preserves; auto).
+all: (rewrite ?diskShrink_size; omega).
