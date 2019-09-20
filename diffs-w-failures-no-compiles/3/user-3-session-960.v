@@ -170,5 +170,6 @@ Timeout 1 Check @Plength.
 Timeout 1 Check @Plength.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @pointwise_relation.
-Definition nat64_to_le (x : nat) : list byte :=
-  let digits := nat_to_le 254 x in digits ++ repeat (8 - length digits) 0.
+Timeout 1 Check @byte.
+Timeout 1 Check @Byte.x25.
+Definition byte0 : {x | x < 256}.
