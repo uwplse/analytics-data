@@ -172,4 +172,4 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @pointwise_relation.
 Timeout 1 Check @byte.
 Timeout 1 Check @Byte.x25.
-Definition byte0 : {x | x < 256}.
+Timeout 1 Check @bounded_to_ascii.
