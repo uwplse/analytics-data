@@ -78,10 +78,12 @@ Class GoModel : Type :={byte : Type;
                         nullptr : forall ty, Ptr ty}.
 Search -"endian".
 Opaque Nat.modulo Nat.div.
-#[local]Obligation Tactic := (intros; simpl; subst).
 Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @map_filter.
+Set Printing Width 78.
 #[program]
-Fixpoint nat_to_le base (x : nat) {measure x :
+Fixpoint nat_to_le base (x : nat) {measure x lt} :
 list {x : nat | x < S (S base)} :=
   match x with
   | 0 => nil
@@ -89,39 +91,3 @@ list {x : nat | x < S (S base)} :=
       let digit := x mod S (S base) in
       exist _ digit _ :: nat_to_le base (x / S (S base))
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpvVnr7"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtn7sMw"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Set Silent.
-Next Obligation of nat_to_le_func.
-Proof.
-(apply PeanoNat.Nat.mod_upper_bound; auto).
-Qed.
-Next Obligation of nat_to_le_func.
-Proof.
-subst digit.
-(apply PeanoNat.Nat.div_lt; auto; try lia).
-Qed.
-Next Obligation of nat_to_le_func.
-Proof.
-lia.
-Qed.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Proof.
-Timeout 1 Check @Tauto.A.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @lt_wf.
-Set Printing Width 78.
-Show.
-Search -wf.
