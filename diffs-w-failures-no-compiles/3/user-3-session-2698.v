@@ -177,61 +177,40 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(simpl; constructor).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Set Silent.
+(simpl; constructor; unfold nat64_to_le, nat64_from_le; intros;
+  match goal with
+  | H:context [ nat_le_dec ?n ?m ]
+    |- _ => destruct (nat_le_dec n m); try congruence
+  end).
 +
-(unfold nat64_to_le; intros).
-(match goal with
- | H:context [ nat_le_dec ?n ?m ]
-   |- _ => destruct (nat_le_dec n m); try congruence
- end).
 (inversion H; subst).
 (rewrite app_length, repeat_length).
-Unset Silent.
 lia.
+Set Silent.
 +
-Timeout 1 Check @sigT_eq_dec.
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat_from_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(unfold nat64_to_le, nat64_from_le; intros).
-Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @subset_eq_compat.
+(inversion H; subst).
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le_zeros.
+Timeout 1 Check @nat_from_le_zeros.
+Timeout 1 Check @nat_from_le_zeros.
+Timeout 1 Check @nat_from_le_zeros.
+Timeout 1 Check @nat_from_le_zeros.
+(rewrite nat_from_le_zeros).
