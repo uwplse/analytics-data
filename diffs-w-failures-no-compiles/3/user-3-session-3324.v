@@ -173,4 +173,10 @@ Set Printing Width 78.
 Show.
 (constructor; intuition idtac; auto; intros; autorewrite with upd in *;
   intuition idtac).
-(rewrite diskUpd_neq by omega).
+Timeout 1 Check @unit.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @remapped_abstraction.
+Timeout 1 Check @stateDisk.
+Timeout 1 Check @stateDisk.
+Timeout 1 Check @stateDisk.
+(unfold stateDisk).
