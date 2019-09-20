@@ -581,4 +581,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
-congruence.
+Search -Singleton.
+Search -(Singleton _ _ = Singleton _ _).
