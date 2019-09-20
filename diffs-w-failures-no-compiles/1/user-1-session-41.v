@@ -425,4 +425,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
 Show.
-(induction x; simpl; eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
+Show.
+(induction x; unfold eq; simpl; eauto).
