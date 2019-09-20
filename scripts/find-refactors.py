@@ -61,7 +61,7 @@ else:
 	exit(0) # Comment below and uncomment this line when we don't include compiles
     #old_cumulative = [] # Comment above and uncomment this line when we include compiles
 
-if len(group_lines) = 1:
+if len(group_lines) == 1:
 	exit(0) # Comment this out/remove this condition if we include compiles
 
 # Dump initial version to file
