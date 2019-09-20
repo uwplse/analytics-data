@@ -27,5 +27,5 @@ Parameter
   (leb : t -> t -> bool).
 Notation "a <=? b" :=
   (leb a b).
-Notation "! a " := 
-  (negb a) (at level 10).
+Unset Silent.
+Set Diffs "off".
