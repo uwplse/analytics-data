@@ -791,4 +791,4 @@ Timeout 1 Check @sigT_eq_dec.
 Timeout 1 Check @sigT_eq_dec.
 Timeout 1 Check @sigT_eq_dec.
 Timeout 1 Check @sigT_eq_dec.
-(apply sigT_eq_dec).
+Check sigT_eq_dec.
