@@ -291,6 +291,13 @@ Set Diffs "off".
 Set Printing Width 66.
 Require Export Setoid.
 Require Export Relation_Definitions.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
+Set Silent.
+Require Import FunInd.
+Unset Silent.
+Require Import Recdef.
 Set Silent.
 Module AGT_Bounded_Rows_Details.
 Definition label := nat.
@@ -309,17 +316,6 @@ Inductive GT : Type :=
   | GFun : GT -> GT -> GT
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
-Unset Silent.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 66.
-Unset Silent.
-Set Diffs "off".
-Check fold_right.
-Set Printing Width 66.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 66.
 Fixpoint size_gt (G : GT) : nat :=
   match G with
   | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
@@ -340,3 +336,15 @@ Fixpoint size_gt (G : GT) : nat :=
   | _ => 0
   end.
 Module GTeq.
+Unset Silent.
+Function
+ eq (G_1 G_2 : GT) : Prop {measure size_gt G_1} :=
+   match G_1, G_2 with
+   | GInt, GInt => True
+   | GBool, GBool => True
+   | GFun G_11 G_12, GFun G_21 G22 => eq G_11 G_21 /\ eq G_12 G22
+   | GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2) =>
+       eq (snd hd1) (snd hd2) /\
+       fst hd1 = fst hd2 /\ eq (GRec tl1) (GRec tl2)
+   | _, _ => False
+   end.
