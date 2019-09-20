@@ -90,5 +90,18 @@ Timeout 1 Check @forallb.
 Timeout 1 Check @plus_Snm_nSm.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Set Printing Width 78.
-Theorem mod_lt : forall n m, n `mod` S m < S m.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
+Theorem mod_S_lt : forall n m, n `mod` S m < S m.
+Unset Silent.
 Proof.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+(apply PeanoNat.Nat.mod_upper_bound).
