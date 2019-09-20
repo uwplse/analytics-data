@@ -138,8 +138,6 @@ Print projT1.
 Timeout 1 Check @PeanoNat.Nat.le_decidable.
 Timeout 1 Check @N.div.
 Timeout 1 Check @gen.
-Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
-  match digits with
-  | nil => 0
-  | digit :: digits' => proj1 digit * base + le_to_nat base digits'
-  end.
+Print sig.
+Timeout 1 Check @sig.
+Search -(sig _ _ -> _).
