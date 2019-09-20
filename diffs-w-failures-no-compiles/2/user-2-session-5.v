@@ -69,5 +69,5 @@ Open Scope coucou_scope.
 Unset Silent.
 Set Printing Width 98.
 Check
-  [<# hello <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  [<# "hello" <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
