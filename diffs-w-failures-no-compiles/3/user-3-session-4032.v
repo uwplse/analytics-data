@@ -366,4 +366,7 @@ Timeout 1 Check @addr2w.
 Timeout 1 Check @wand.
 Timeout 1 Check @Nwadd.
 Timeout 1 Check @waddrring.
-Check waddr.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 104.
+Locate "waddr".
