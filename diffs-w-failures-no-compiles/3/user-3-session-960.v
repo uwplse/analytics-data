@@ -123,6 +123,8 @@ Timeout 1 Check @mod_S_lt.
 Timeout 1 Check @N.div.
 Timeout 1 Check @Ascii.N_of_digits.
 Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.lbase.
+Timeout 1 Check @N.lbase.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
