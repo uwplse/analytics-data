@@ -563,5 +563,9 @@ Proof.
 (intros).
 generalize dependent G'.
 (induction H).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
 -
-(intros).
+(intros; inversion H; eauto).
