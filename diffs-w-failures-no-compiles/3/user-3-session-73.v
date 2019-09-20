@@ -100,5 +100,9 @@ Set Silent.
 Proof.
 (intros Hprspec Hpre Hpost Halt).
 (unfold crash_refines, refines; split).
--
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+-
+setoid_rewrite  <- op_spec_complete1.
