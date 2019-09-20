@@ -330,10 +330,6 @@ Set Printing Width 70.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 70.
-Fixpoint Gamma (G : GT) : SetST :=
-  match G with
-  | GDyn => Full_set _
-  | GInt => Singleton _ SInt
-  | GBool => Singleton _ SBool
-  | _ => Empty_set _
-  end.
+Unset Silent.
+Set Diffs "off".
+Search -Ensembles.
