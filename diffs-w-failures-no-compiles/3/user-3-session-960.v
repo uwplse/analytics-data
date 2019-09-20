@@ -349,4 +349,16 @@ Timeout 1 Check @Ascii.byte_of_ascii.
 Timeout 1 Check @Ascii.byte_of_ascii.
 Timeout 1 Check @Ascii.byte_of_ascii.
 Timeout 1 Check @Ascii.byte_of_ascii.
-Print Ascii.byte_of_ascii.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.ascii_dec.
+Timeout 1 Check @Ascii.ascii_of_N.
+Timeout 1 Check @Ascii.ascii_of_N.
+Timeout 1 Check @Ascii.ascii_of_byte.
+Timeout 1 Check @Ascii.ascii_of_byte.
+Timeout 1 Check @Ascii.ascii_of_byte.
+Timeout 1 Check @Ascii.ascii_of_byte.
+Set Printing Width 78.
+Print Ascii.ascii_of_byte.
