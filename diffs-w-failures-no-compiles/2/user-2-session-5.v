@@ -56,5 +56,4 @@ End TermNotations.
 Import TermNotations.
 Unset Silent.
 Set Printing Width 98.
-Open Scope coucou_scope.
 Unset Silent.
