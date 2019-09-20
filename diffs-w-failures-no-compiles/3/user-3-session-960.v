@@ -297,4 +297,11 @@ admit.
 lia.
 }
 Timeout 1 Check @split.
-lia.
+Search -"div" -"lt".
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @apply.
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+Timeout 1 Check @Nat.div_lt.
+Timeout 1 Check @Nat.div_lt.
+Timeout 1 Check @split.
+(apply Nat.div_lt; lia).
