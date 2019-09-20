@@ -428,50 +428,9 @@ Unset Silent.
 -
 Timeout 1 Check @subset_eq_compat.
 Timeout 1 Check @subset_eq_compat.
-Timeout 1 Check @const.
-constructor.
-+
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(intros).
-Set Silent.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 admit.
-Unset Silent.
-+
-Timeout 1 Check @bounded_to_ascii.
-Timeout 1 Check @set_unfold.
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_from_le.
-Timeout 1 Check @uint64_from_le.
-Timeout 1 Check @uint64_from_le.
-Timeout 1 Check @sigT_eq_dec.
-(simpl).
-Timeout 1 Check @bounded_to_ascii.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @nat64_from_le.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Timeout 1 Check @nat64_to_le.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(unfold nat64_from_le, nat64_to_le; intros).
-Print FixedLengthEncoder.
+admit.
