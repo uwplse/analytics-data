@@ -114,6 +114,15 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @N.lbase.
 Set Printing Width 78.
+Timeout 1 Check @ex.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @N.div.
+Timeout 1 Check @Ascii.N_of_digits.
+Timeout 1 Check @N.lbase.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
