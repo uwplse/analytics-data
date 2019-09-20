@@ -108,4 +108,4 @@ Set Printing Width 63.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 63.
-Show Sorted.
+Print Universes.
