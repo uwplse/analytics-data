@@ -230,4 +230,36 @@ Timeout 1 Check @split.
 Timeout 1 Check @Byte.x25.
 Timeout 1 Check @top.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Definition nat64_from_le (digits : list {x | x < 256}) : option nat.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @Plength.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nth.
+Timeout 1 Check @Some.
+Timeout 1 Check @Some.
+Timeout 1 Check @Some.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @pointwise_relation.
+Set Printing Width 78.
+Definition nat64_from_le (digits : list {x | x < 256}) : 
+  option nat :=
+  if nat_eq_dec (length digits) 8 then Some (nat_from_le digits) else None.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq9T8FVD"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7t5acb"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
