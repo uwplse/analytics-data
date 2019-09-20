@@ -159,6 +159,13 @@ Timeout 1 Check @mod_S_lt.
 Timeout 1 Check @mod_S_lt.
 Timeout 1 Check @mod_S_lt.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @mod_S_lt.
+Timeout 1 Check @mod_S_lt.
+Set Printing Width 78.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
@@ -167,5 +174,6 @@ Function
    | _ =>
        let base := S (S base_m2) in
        let digit := x `mod` base in
-       exist (fun x => x < base) digit _ :: nat_to_le base_m2 (x / base)
+       exist (fun x => x < base) digit mod_S_lt
+       :: nat_to_le base_m2 (x / base)
    end.
