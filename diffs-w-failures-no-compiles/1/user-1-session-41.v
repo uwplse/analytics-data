@@ -446,4 +446,7 @@ Set Diffs "off".
 Show.
 Set Printing Width 94.
 Show.
-destruct_pairs.
+all: (repeat match goal with
+             | H:exists _, _ |- _ => destruct H
+             end).
+all: congruence.
