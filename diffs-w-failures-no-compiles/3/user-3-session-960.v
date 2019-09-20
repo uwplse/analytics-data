@@ -101,6 +101,13 @@ Proof.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Qed.
 Unset Silent.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
