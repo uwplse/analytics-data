@@ -127,4 +127,49 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Check @ge.
-Check gets.
+Timeout 1 Check @rimpl_to_requiv.
+Timeout 1 Check @reads.
+Check reads.
+Instance nonError_reads  `(f : A -> T): (NonError (reads f)).
+Proof.
+Timeout 1 Check @rimpl_to_requiv.
+Timeout 1 Check @readNone.
+Timeout 1 Check @readNone.
+Timeout 1 Check @reads.
+(unfold NonError, not, reads; intros).
+congruence.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbPqPYD"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq7Bakj"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtVIxsc"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @List.In.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @non_erroring.
+Timeout 1 Check @nonError_or.
+Timeout 1 Check @nonError_or.
+Timeout 1 Check @nonError_or.
+Timeout 1 Check @nonError_or.
+Timeout 1 Check @nonError_or.
+Timeout 1 Check @nonError_or.
+Timeout 1 Check @readNone.
+Timeout 1 Check @readNone.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @non_erroring.
+Timeout 1 Check @none.
+Instance nonError_none : (NonError none).
