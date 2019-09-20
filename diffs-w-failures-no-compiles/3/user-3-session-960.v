@@ -266,4 +266,10 @@ Set Printing Width 78.
 Show.
 Timeout 1 Check @split.
 (assert (base_m2 = S (S base_m2) - 2) by lia).
-(generalize dependent S (S base_m2); intros base).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @sum.
+Set Printing Width 78.
+Show.
+(generalize dependent S (S base_m2); intros base; intros; subst).
