@@ -382,6 +382,8 @@ Print nth.
 Print SRec.
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
 Inductive Alpha : SetST -> GT -> Prop :=
   | alpha_int : Alpha (Singleton _ SInt) GInt
   | alpha_bool : Alpha (Singleton _ SBool) GBool
