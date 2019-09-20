@@ -264,4 +264,6 @@ Timeout 1 Check @sig.
 Timeout 1 Check @Tauto.A.
 Set Printing Width 78.
 Show.
-(assert (base_m2 = S (S base_m2) - 2) by auto).
+Timeout 1 Check @split.
+(assert (base_m2 = S (S base_m2) - 2) by lia).
+(generalize dependent S (S base_m2); intros base).
