@@ -298,54 +298,7 @@ Set Silent.
 Require Import FunInd.
 Unset Silent.
 Require Import Recdef.
-Set Silent.
-Module AGT_Bounded_Rows_Details.
-Definition label := nat.
-Inductive ST : Type :=
-  | SInt : ST
-  | SBool : ST
-  | SFun : ST -> ST -> ST
-  | SRec : list (option ST) -> ST.
-Inductive Ann : Type :=
-  | R : Ann
-  | O : Ann.
-Inductive GT : Type :=
-  | GDyn : GT
-  | GInt : GT
-  | GBool : GT
-  | GFun : GT -> GT -> GT
-  | GRec : list (option (Ann * GT)) -> GT
-  | GRow : list (option (option (Ann * GT))) -> GT.
-Fixpoint size_gt (G : GT) : nat :=
-  match G with
-  | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
-  | GRec l =>
-      fold_right
-        (fun x acc =>
-         match x with
-         | Some (_, G) => size_gt G
-         | _ => 0
-         end + acc) 1 l
-  | GRow l =>
-      fold_right
-        (fun x acc =>
-         match x with
-         | Some (Some (_, G)) => size_gt G
-         | _ => 0
-         end + acc) 1 l
-  | _ => 0
-  end.
-Module GTeq.
 Unset Silent.
-Function
- eq (G_1 G_2 : GT) {measure size_gt G_1} : Prop :=
-   match G_1, G_2 with
-   | GInt, GInt => True
-   | GBool, GBool => True
-   | GFun G_11 G_12, GFun G_21 G22 => eq G_11 G_21 /\ eq G_12 G22
-   | GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2) =>
-       eq (snd hd1) (snd hd2) /\
-       fst hd1 = fst hd2 /\ eq (GRec tl1) (GRec tl2)
-   | _, _ => False
-   end.
-all: (intros; subst; eauto with math).
+Set Diffs "off".
+Set Printing Width 66.
+Create HintDb math discriminated.
