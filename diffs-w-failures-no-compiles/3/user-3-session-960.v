@@ -276,6 +276,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite (PeanoNat.Nat.div_mod n base)  at 4 by lia).
-Timeout 1 Check @split.
-lia.
+Unset Silent.
+Set Diffs "off".
