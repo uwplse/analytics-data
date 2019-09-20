@@ -794,4 +794,9 @@ Set Printing Width 78.
 Show.
 (destruct x, y; simpl).
 Timeout 1 Check @bounded_to_ascii.
-(destruct (nat_eq_dec n n0)).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @subset_eq_compat.
+Set Printing Width 78.
+Show.
+(destruct (nat_eq_dec n n0); subst).
