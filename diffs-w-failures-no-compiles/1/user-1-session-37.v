@@ -304,4 +304,4 @@ Set Diffs "off".
 Search -unique.
 Search -uniqueness.
 Set Printing Width 70.
-Definition label := int.
+Definition label := num.
