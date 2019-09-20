@@ -273,6 +273,5 @@ Set Printing Width 78.
 Show.
 (rewrite IHn).
 {
-(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
 Unset Silent.
 Set Diffs "off".
