@@ -155,4 +155,10 @@ Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @tt.
 exists tt.
 Timeout 1 Check @spec_abstraction_compose.
-split.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @hypo_proof.
+Timeout 1 Check @hypo_proof.
