@@ -345,12 +345,5 @@ Fixpoint size_gt (G : GT) : nat :=
          end + acc) 1 l
   | _ => 1
   end.
-Theorem size_gt_g0 : forall x, 0 < size_gt x.
-Proof.
-(induction x; intros; simpl; eauto with math).
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 66.
-Show.
-all: (induction l; simpl; eauto with math).
-Qed.
