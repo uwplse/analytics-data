@@ -244,15 +244,9 @@ invert_abstraction.
 (step_proc; intuition idtac).
 (step_proc; intuition idtac).
 *
-replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
-(exists s; intuition; intuition).
-(destruct (stateBadBlock state == diskSize s)).
-(rewrite disk_oob_eq by omega; auto).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite <- Hremap by omega; auto).
-Set Silent.
-Unset Silent.
-*
+replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
+(exists s; intuition; intuition).
