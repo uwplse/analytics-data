@@ -89,42 +89,39 @@ Set Diffs "off".
 Timeout 1 Check @PeanoNat.Nat.le_decidable.
 Set Printing Width 78.
 Opaque Nat.modulo Nat.div.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @sum.
+Set Printing Width 78.
+#[local]Obligation Tactic := (intros; simpl; subst).
 #[program]
 Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   match x with
   | 0 => nil
   | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
   end.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Set Silent.
 Next Obligation.
 Proof.
-Unset Silent.
-(intros; simpl).
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDws1m6"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNd84Xb"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqm7cpYI"
+Set Silent.
+Next Obligation.
+Unset Silent.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsXaK0u"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqp0LSKH"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfRsBS8"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Next Obligation.
 Proof.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sum.
-Set Printing Width 78.
-Show.
-(intros; simpl; subst).
