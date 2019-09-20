@@ -7,7 +7,5 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 104.
-Set Silent.
-From Coq Require Extraction.
 Unset Silent.
 Set Diffs "off".
