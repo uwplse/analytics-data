@@ -170,4 +170,5 @@ Timeout 1 Check @strings.ascii_of_digits.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Print strings.ascii_of_digits.
+Unset Silent.
+Set Diffs "off".
