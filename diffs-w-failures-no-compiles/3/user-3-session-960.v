@@ -828,4 +828,4 @@ Timeout 1 Check @subsetT_eq_compat.
 Timeout 1 Check @subsetT_eq_compat.
 Timeout 1 Check @subsetT_eq_compat.
 Timeout 1 Check @subsetT_eq_compat.
-(apply subsetT_eq_compat).
+Check subsetT_eq_compat.
