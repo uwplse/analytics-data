@@ -135,4 +135,9 @@ Next Obligation.
 Set Silent.
 Proof.
 Unset Silent.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 subst digit.
+(destruct base).
