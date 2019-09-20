@@ -65,33 +65,6 @@ Unset Silent.
 Timeout 1 Check @value.
 Timeout 1 Check @primitive.
 Set Printing Width 98.
-Fixpoint step (t : term) : term :=
-  match t with
-  | Nil => Nil
-  | Ident _ => Nil
-  | <a b> => if value a then <a (step b)> else <(step a) b>
-  | {f a} =>
-      if value f
-      then
-       match f with
-       | [(Ident lam) (Ident x) body] => if value a then subst x a body else {f (step a)}
-       | Ident prim =>
-           if String.eqb prim "if"
-           then
-            match a with
-            | [cond bThen bElse] =>
-                if value cond
-                then match cond with
-                     | Nil => bElse
-                     | _ => bThen
-                     end
-                else {"if" [(step cond) bThen bElse]}
-            | _ => Nil
-            end
-           else Nil
-       | _ => Nil
-       end
-      else {(step f) a}
-  end.
-Redirect "/tmp/coqio6rsl" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+Unset Silent.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
