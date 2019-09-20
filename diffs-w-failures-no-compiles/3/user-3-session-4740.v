@@ -23,4 +23,7 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 69.
 Notation "a === b" := (a = b) (at level 30).
-Check 3 === 3.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 69.
+Check 1 + 2 + 3 + 4 + 5 === 6 + 7 + 8 + 9.
