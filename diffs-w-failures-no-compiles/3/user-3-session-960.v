@@ -366,4 +366,45 @@ Set Diffs "off".
 Set Printing Width 78.
 Print Ascii.ascii_of_byte.
 Timeout 1 Check @ByteV2N.
-Print Byte.byte.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Search -Byte.byte.
+Timeout 1 Check @ByteV2N.
+Timeout 1 Check @prod_eq_dec.
+Timeout 1 Check @proj1.
+Timeout 1 Check @proj1_sig.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @Some.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.ascii_dec.
+Timeout 1 Check @Ascii.ascii_of_N.
+Timeout 1 Check @Ascii.ascii_of_N.
+Timeout 1 Check @Ascii.ascii_of_byte.
+Timeout 1 Check @Ascii.ascii_of_byte.
+Timeout 1 Check @Ascii.ascii_of_byte.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @last.
+Timeout 1 Check @ascii_cmp.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @false.
+Set Silent.
+Unset Silent.
+Definition ascii0 :=
+  Ascii.Ascii false false false false false false false fals.
