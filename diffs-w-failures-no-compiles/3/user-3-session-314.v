@@ -288,4 +288,4 @@ Proof.
 (intros).
 (hnf in H; propositional).
 (destruct H0; propositional).
-Qed.
+Unset Silent.
