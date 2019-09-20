@@ -830,4 +830,16 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -_ -(existT _ _ = existT _ _).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Search -(existT _ _ = existT _ _).
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @eq_ex.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+(rewrite eq_existT_curried).
