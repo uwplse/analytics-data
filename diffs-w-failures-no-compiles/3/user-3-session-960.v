@@ -591,7 +591,11 @@ Show.
 (generalize dependent Datatypes.length (nat_to_le 254 x); intros).
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @applicative_ap.
-(exfalso; apply n1).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @eq_existT_curried.
+Set Printing Width 78.
+Show.
+exfalso.
 Timeout 1 Check @split.
-Timeout 1 Check @nil.
-nia.
+lia.
