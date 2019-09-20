@@ -153,31 +153,14 @@ Timeout 1 Check @nat_to_le.
 Timeout 1 Check @nat_to_le.
 Timeout 1 Check @N.lbase.
 Set Printing Width 78.
-Theorem nat_le_inverse base : forall x, le_to_nat (nat_to_le base x) = x.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
+Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
 Proof.
-Timeout 1 Check @pointwise_relation.
 (intros).
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @find.
+Unset Silent.
+(induction n as [n IHn] using lt_wf_ind).
 Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @N.div.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @N.induction.
-Timeout 1 Check @last.
-Timeout 1 Check @plus_n_O.
-Timeout 1 Check @map_filter.
-Timeout 1 Check @lt_wf.
-Timeout 1 Check @lt_wf.
-Timeout 1 Check @lt_wf_ind.
-Timeout 1 Check @lt_wf_ind.
-Timeout 1 Check @lt_wf_ind.
+(destruct n).
