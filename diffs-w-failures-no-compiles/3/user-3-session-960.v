@@ -267,10 +267,12 @@ auto.
 (assert (base_m2 = S (S base_m2) - 2) by lia).
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
-(generalize dependent S n; clear n; intros n **).
-Unset Silent.
-(rewrite IHn).
-(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
-Timeout 1 Check @split.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite IHn).
+{
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
+lia.
+}
