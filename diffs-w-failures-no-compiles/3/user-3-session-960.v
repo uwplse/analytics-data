@@ -422,52 +422,24 @@ Timeout 1 Check @last.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
-  match Byte.of_nat (proj1_sig x) with
-  | Some b => Ascii.ascii_of_byte b
-  | None => ascii0
-  end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhtsIcj"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTyMpHa"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @last.
-Timeout 1 Check @ascii_to_byte.
-Timeout 1 Check @ascii_to_byte.
-Timeout 1 Check @ascii_to_byte.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @Choice.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
-Timeout 1 Check @Ascii.byte_of_ascii.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii_dec.
-Timeout 1 Check @Ascii.ascii_of_N.
-Timeout 1 Check @Ascii.ascii_of_N.
-Timeout 1 Check @Ascii.ascii_of_N.
-Timeout 1 Check @Ascii.ascii_of_nat.
-Timeout 1 Check @Ascii.ascii_of_nat.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @prod_eq_dec.
+Timeout 1 Check @proj1.
+Timeout 1 Check @proj1_sig.
+Timeout 1 Check @proj1_sig.
+Timeout 1 Check @proj1_sig.
+Timeout 1 Check @proj1_sig.
 Set Printing Width 78.
-Check Ascii.ascii_of_nat.
-Print Ascii.ascii_of_nat.
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
+  Ascii.nat_of_ascii (proj1_sig x).
