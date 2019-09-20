@@ -77,4 +77,14 @@ Timeout 1 Print LoadPath.
 Proof.
 Timeout 1 Check @identity.
 Timeout 1 Check @readNone.
+Timeout 1 Check @unit.
+Timeout 1 Check @rexec_unfold.
+Timeout 1 Check @rexec_unfold.
+Timeout 1 Check @N.discr.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @crash_step.
+Timeout 1 Check @sig.
+(simpl).
+Timeout 1 Check @identity.
+Timeout 1 Check @readNone.
 typeclasses eauto.
