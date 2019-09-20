@@ -53,10 +53,27 @@ Theorem swapXY_ok :
              state' = mkState (StateY state) (StateX state) (StateZ state);
      recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
 Proof.
-(unfold swapXY).
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @FunctionalExtensionality.functional_extensionality_dep_good.
+Timeout 1 Check @no_wipe.
+Timeout 1 Check @proc.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @hypo_proof.
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
 Timeout 1 Check @repeat_length.
-Timeout 1 Check @Nat.le_stepr.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(match goal with
+ | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
+ end).
