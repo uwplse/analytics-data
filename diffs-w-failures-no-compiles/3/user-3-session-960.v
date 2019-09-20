@@ -605,5 +605,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(assert (n <= 8)).
-lia.
+Unset Silent.
+Set Diffs "off".
