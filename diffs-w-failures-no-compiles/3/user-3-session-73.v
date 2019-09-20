@@ -115,6 +115,7 @@ Ltac
         clear a; specialize (H a'))
   end.
 Unset Silent.
+Set Silent.
 Lemma proc_rspec_recovery_refines_crash_step (rec : proc C_Op unit) 
   spec :
   (forall sA, proc_rspec c_sem rec rec (spec sA)) ->
@@ -125,6 +126,10 @@ Lemma proc_rspec_recovery_refines_crash_step (rec : proc C_Op unit)
    absr sA (Val sC tt) ->
    crash_step c_sem sC (Val sCcrash tt) ->
    (spec sA sCcrash).(post) sC' tt \/ (spec sA sCcrash).(alternate) sC' tt ->
-   exists sA', absr sA' sC' tt /\ crash_step a_sem sA (Val sA' tt)) ->
+   exists sA', absr sA' (Val sC' tt) /\ crash_step a_sem sA (Val sA' tt)) ->
   refines absr (_ <- c_sem.(crash_step); exec_recover c_sem rec)
     a_sem.(crash_step).
+Proof.
+(intros Hprspec Hpre Hpost_crash).
+(unfold refines).
+(intros sA sC' [] Hl).
