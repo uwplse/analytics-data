@@ -277,4 +277,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(generalize dependent S n; clear n; intros n).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(generalize dependent S n; clear n; intros n **).
+Timeout 1 Check @pointwise_relation.
+(rewrite IHn).
