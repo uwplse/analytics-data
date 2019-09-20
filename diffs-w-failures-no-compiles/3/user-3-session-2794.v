@@ -220,6 +220,20 @@ Timeout 1 Check @uint64_from_le.
 Timeout 1 Check @uint64_from_le.
 Timeout 1 Check @uint64_from_le.
 Timeout 1 Check @split.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @readNone.
+Timeout 1 Check @readSome.
+Timeout 1 Check @readSome.
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64_zero.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
 Definition step T (op : Op T) : relation State State T :=
   match op in (Op T) return (relation State State T) with
   | NewAlloc v len => allocPtr (Ptr.Heap _) (List.repeat v len)
@@ -310,7 +324,7 @@ Definition step T (op : Op T) : relation State State T :=
            updAllocs p.(slice.ptr) (s', alloc)
        | FinishArgs _ =>
            s' <- readSome (fun _ => lock_release Writer s);
-           let enc := uint64_to_le x in
+           enc <- readSome (fun _ => uint64_to_le x);
            updAllocs p.(slice.ptr) (s', enc ++ list.drop 8 alloc)
        end
   | BytesToString p =>
@@ -327,3 +341,22 @@ Definition step T (op : Op T) : relation State State T :=
         slice.length := String.length s |}
   | RandomUint64 => such_that (fun _ (r : uint64) => True)
   end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqieOCWA"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoQsEX1"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+Set Silent.
+#[global]Instance empty_heap : (Empty State) := {| allocs := \226\136\133 |}.
+End GoModel.
+End Data.
+Arguments Data.newPtr {model} {Op'} {i} T {GoZero}.
+Unset Silent.
+Arguments Data.newSlice {model} {Op'} {i} T {GoZero} len.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @aModel.
