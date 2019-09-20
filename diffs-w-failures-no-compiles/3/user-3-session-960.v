@@ -83,6 +83,10 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Check @map_filter.
 Timeout 1 Check @lt_wf.
+Timeout 1 Check @map_filter.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Function
  nat_to_le base (x : nat) {wf lt x} : list {x : nat | x < S (S base)} :=
    match x with
