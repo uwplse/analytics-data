@@ -203,4 +203,8 @@ Set Printing Width 51.
 Show.
 (inversion H0; subst).
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+auto.
