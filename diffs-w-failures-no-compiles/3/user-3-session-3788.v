@@ -44,6 +44,40 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoPhort"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @proc.
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
+Set Printing Width 78.
+Definition change_marker {T} (p : proc T) (m : ProcMarker p) 
+  T' (p' : proc T') : ProcMarker p' := AProc p'.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQ44Ckq"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJfOnWD"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -53,27 +87,11 @@ Theorem swapXY_ok :
              state' = mkState (StateY state) (StateX state) (StateZ state);
      recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
 Proof.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @FunctionalExtensionality.functional_extensionality_dep_good.
-Timeout 1 Check @no_wipe.
-Timeout 1 Check @proc.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @hypo_proof.
-Timeout 1 Check @AProc.
-Timeout 1 Check @AProc.
-Timeout 1 Check @AProc.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
+(match goal with
+ | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
+ end).
+(unfold swapXY).
+monad_simpl.
 (match goal with
  | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
  end).
