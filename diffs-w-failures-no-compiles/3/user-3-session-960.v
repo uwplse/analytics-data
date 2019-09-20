@@ -229,23 +229,24 @@ Timeout 1 Check @Choice.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Fixpoint le_to_nat base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
+nat :=
   match digits with
   | nil => 0
-  | digit :: digits' => proj1_sig digit * base + le_to_nat digits'
+  | digit :: digits' => proj1_sig digit * S (S base_m2) + le_to_nat digits'
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8Bga3l"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqGyddPj"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq7lPKp"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJVULoX"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
 Set Silent.
 Theorem nat_le_inverse base_m2 :
   forall n, le_to_nat (nat_to_le base_m2 n) = n.
@@ -256,28 +257,16 @@ Proof.
 -
 auto.
 -
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @last.
-Timeout 1 Check @byte.
-Timeout 1 Check @sig.
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-Timeout 1 Check @split.
+(assert (1 < S (S base_m2)) by lia).
 (assert (base_m2 = S (S base_m2) - 2) by lia).
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @sum.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (generalize dependent S (S base_m2); intros base **; subst).
+Timeout 1 Check @ge.
+Timeout 1 Check @last.
+Timeout 1 Check @byte.
+Timeout 1 Check @split.
+(assert (0 < S n) by lia).
+Timeout 1 Check @ge.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @pointwise_relation.
+(generalize dependent S n; intros n).
