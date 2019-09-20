@@ -82,8 +82,9 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Check @map_filter.
+Timeout 1 Check @lt_wf.
 Function
- nat_to_le base (x : nat) {measure x lt} : list {x : nat | x < S (S base)} :=
+ nat_to_le base (x : nat) {wf lt x} : list {x : nat | x < S (S base)} :=
    match x with
    | 0 => nil
    | _ =>
