@@ -779,4 +779,32 @@ Show.
 (unfold EqualDec).
 (intros; simpl).
 Timeout 1 Check @sigT_eq_dec.
-Search -sigT.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Search -sigT -"dec".
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @apply.
+Timeout 1 Check @Eq.
+Timeout 1 Check @Eqdep_dec.K_dec.
+Timeout 1 Check @Eqdep_dec.K_dec.
+Timeout 1 Check @Eqdep_dec.K_dec.
+Timeout 1 Check @Eqdep_dec.K_dec.
+Timeout 1 Check @Eqdep_dec.K_dec.
+Timeout 1 Check @Eqdep_dec.K_dec.
+Timeout 1 Check @Eqdep_dec.K_dec.
+Timeout 1 Check @Eqdep_dec.inj_right_pair.
+Timeout 1 Check @Eqdep_dec.inj_right_pair.
+Timeout 1 Check @Eqdep_dec.inj_right_pair.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
+(apply Eqdep_dec.inj_pair2_eq_dec).
