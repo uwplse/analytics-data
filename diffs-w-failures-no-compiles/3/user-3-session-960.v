@@ -180,4 +180,4 @@ Timeout 1 Check @nat_to_le_func.
 Timeout 1 Check @nat_to_le_func.
 Timeout 1 Check @nat_to_le_func.
 Timeout 1 Check @nat_to_le_func.
-(rewrite nat_to_le_func).
+Search -nat_to_le_func.
