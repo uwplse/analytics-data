@@ -795,4 +795,4 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -"{_ : _ & _}" -Check -sigT_eq_dec.
+Search -"{_ : _ & _}".
