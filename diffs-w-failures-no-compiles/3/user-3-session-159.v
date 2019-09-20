@@ -9,4 +9,8 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 78.
 Set Silent.
 Require Import Examples.StatDb.Impl.
-Require Import Helpers.RelationRewriting.
+Require Import Spec.Hoare.
+Require Import Spec.HoareTactics.
+Require Import Spec.AbstractionSpec.
+Definition absr : relation DB.l.(State) Var.l.(State) unit :=
+  fun l s _ => fst s = fold_right plus 0 l /\ snd s = length l.
