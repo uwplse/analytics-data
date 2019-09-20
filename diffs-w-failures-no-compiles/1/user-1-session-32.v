@@ -25,7 +25,56 @@ Module Sort.
 Parameter (t : Type).
 Parameter
   (leb : t -> t -> bool).
-Notation "a <=? b" :=
-  (leb a b).
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 29.
+Notation "a <=? b" :=
+  (leb a b).
+Notation "! a " := 
+  (negb a) (at level 10).
+Parameter
+  (leb_total :
+     forall x y : t,
+     (x <=? y) = true \/
+     (y <=? x) = true).
+Parameter
+  (leb_trans :
+     Transitive leb).
+Module SF.
+Fixpoint insert (i : t)
+(l : list t) :=
+  match l with
+  | nil => i :: nil
+  | h :: t =>
+      if i <=? h
+      then i :: l
+      else h :: insert i t
+  end.
+Fixpoint insertion_sort
+(l : list t) : list t :=
+  match l with
+  | nil => nil
+  | h :: t =>
+      insert h
+        (insertion_sort t)
+  end.
+End SF.
+Recursive Extraction
+ SF.insertion_sort.
+Module SF_Proofs.
+Import SF.
+Create HintDb
+ sf discriminated.
+Print Permutation.
+Hint Constructors
+  Permutation: sf.
+Theorem
+  insertion_sort_permutation
+  :
+  forall l,
+  Permutation l
+    (insertion_sort l).
+Proof with
+(simpl; eauto with sf).
+(induction l) ...
+Show Proof.
