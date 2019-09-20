@@ -147,4 +147,11 @@ Search -wf.
 Timeout 1 Check @prod_eq_dec.
 Timeout 1 Check @projT1.
 Timeout 1 Check @projT2.
-(apply (wf_projected lt projT2)).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(apply (wf_projected lt projT2); auto).
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @lt_wf.
+(apply wf_lt).
