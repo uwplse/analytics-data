@@ -197,5 +197,56 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+-
 (rewrite diskShrink_preserves; auto).
 (rewrite diskShrink_size; omega).
+-
+(rewrite diskUpd_eq; auto).
+(rewrite diskShrink_size; omega).
+-
+Timeout 1 Check @rew_ex.
+Timeout 1 Check @disk.
+Timeout 1 Check @disk.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskShrink.
+Timeout 1 Check @diskShrink.
+Timeout 1 Check @diskShrink.
+Timeout 1 Check @diskShrink.
+Timeout 1 Check @diskShrink.
+Timeout 1 Check @Some.
+omega.
+Set Silent.
+}
+{
+(exfalso; eapply disk_inbounds_not_none; [  | eauto ]; omega).
+Unset Silent.
+}
+Set Silent.
+step_proc.
+Qed.
+Theorem read_ok :
+  forall a, proc_spec (OneDiskAPI.read_spec a) (read a) recover abstr.
+Proof.
+(unfold read).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+(destruct a'; simpl in *; intuition idtac).
+(destruct (a == r)).
+-
+invert_abstraction.
+(step_proc; intuition idtac).
+(step_proc; intuition idtac).
+(step_proc; intuition idtac).
+*
+replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
+(exists s; intuition; intuition).
+(destruct (stateBadBlock state == diskSize s)).
+(rewrite disk_oob_eq by omega; auto).
+(rewrite <- Hremap by omega; auto).
+*
