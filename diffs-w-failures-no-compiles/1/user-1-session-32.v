@@ -94,10 +94,12 @@ Proof with (simpl; eauto with sf).
 (destruct (a <=? a0)) ...
 Qed.
 Hint Resolve insert_permutation: sf.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 63.
 Theorem insertion_sort_permutation :
   forall l, Permutation l (insertion_sort l).
 Proof with (simpl; eauto with sf).
 (induction l) ...
 Qed.
-Unset Silent.
-Set Diffs "off".
+Search -Sorted.
