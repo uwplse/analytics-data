@@ -103,20 +103,6 @@ Timeout 1 Check @PeanoNat.Nat.le_decidable.
 Timeout 1 Check @Nat.modulo.
 Timeout 1 Check @Nat.modulo.
 Timeout 1 Check @Nat.modulo.
-Search -Nat.modulo -"<".
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @applicative_ap.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @PeanoNat.Nat.modulo.
-Timeout 1 Check @PeanoNat.Nat.modulo.
-Timeout 1 Check @PeanoNat.Nat.mod_eq.
-Timeout 1 Check @PeanoNat.Nat.mod_unique.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
-Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
@@ -124,7 +110,22 @@ Show.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPcKfTK"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOAXaVK"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTnp0Ow"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFG4mXY"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @Neqe.
+Next Obligation.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @sig.
+(intros; simpl).
