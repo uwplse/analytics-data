@@ -350,16 +350,9 @@ Fixpoint size_gt (G : GT) : nat :=
   | _ => 0
   end.
 Module GTeq.
-Function
- eq (G_1 G_2 : GT) {measure size_gt G_1} : Prop :=
-   match G_1, G_2 with
-   | GInt, GInt => True
-   | GBool, GBool => True
-   | GFun G_11 G_12, GFun G_21 G22 => eq G_11 G_21 /\ eq G_12 G22
-   | GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2) =>
-       eq (snd hd1) (snd hd2) /\
-       fst hd1 = fst hd2 /\ eq (GRec tl1) (GRec tl2)
-   | _, _ => False
-   end.
 Unset Silent.
-all: (intros; subst; eauto with math).
+Set Diffs "off".
+Set Printing Width 66.
+Show.
+all: (intros; subst; simpl; eauto with math).
+(destruct hd1; simpl; eauto with math).
