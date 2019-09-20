@@ -492,8 +492,11 @@ all: congruence.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
 Show.
 Set Silent.
 -
-Unset Silent.
-Show.
+(inversion H1).
+specialize (H _ H5).
