@@ -59,18 +59,80 @@ Definition l : Layer Op :=
   sem := dynamics;
   initP := fun s => s = (0, 0) |}.
 End Var.
-Instance var_crash_step_nonerror :
- (NonError Var.dynamics.(crash_step)).
-Proof.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 51.
-Show.
-typeclasses eauto.
+Instance var_crash_step_nonerror :
+ (NonError Var.dynamics.(crash_step)) := _.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqswQCfn"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
 Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTSnaZ4"
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHvv4Ps"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Module DB.
+Inductive Op : Type -> Type :=
+  | Add : forall n : nat, Op unit
+  | Avg : Op nat.
+Definition State := list nat.
+Definition dynamics : Dynamics Op State :=
+  {|
+  step := fun T (op : Op T) =>
+          match op with
+          | Add n => puts (cons n)
+          | Avg =>
+              reads
+                (fun l =>
+                 fold_right plus 0 l / length l)
+          end;
+  crash_step := puts (fun _ => nil) |}.
+Definition l : Layer Op :=
+  {|
+  Layer.State := State;
+  sem := dynamics;
+  initP := fun s => s = nil |}.
+Unset Silent.
+End DB.
+Instance db_crash_step_nonerror :
+ (NonError DB.dynamics.(crash_step)) := _.
+Set Silent.
+Definition read i := Call (Var.Read i).
+Definition write i v := Call (Var.Write i v).
+Unset Silent.
+Definition impl : LayerImpl Var.Op DB.Op :=
+  {|
+  compile_op := fun T (op : DB.Op T) =>
+                match op with
+                | DB.Add n =>
+                    (sum <- read Var.Sum;
+                     _ <-
+                     write Var.Sum (n + sum)%nat;
+                     count <- read Var.Count;
+                     _ <-
+                     write Var.Count
+                       (1 + count)%nat; 
+                     Ret tt)%proc
+                | DB.Avg =>
+                    (sum <- read Var.Sum;
+                     count <- read Var.Count;
+                     Ret (sum / count)%nat)%proc
+                end;
+  recover := Ret tt;
+  init := Ret Initialized |}.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzs4AF1"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQkeBjJ"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
