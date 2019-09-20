@@ -310,23 +310,19 @@ Set Search Output Name Only.
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlBjurg"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Set Silent.
-Instance aModel : GoModel.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @uint64_to_le.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @Qp_bounded_split.
+Timeout 1 Check @Qp_bounded_split.
+Timeout 1 Check @Qp_bounded_split.
 Timeout 1 Check @Byte.x25.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Set Printing Width 78.
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.Ascii.
