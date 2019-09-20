@@ -337,4 +337,10 @@ Set Diffs "off".
 Timeout 1 Check @PeanoNat.Nat.mod_small.
 Set Printing Width 78.
 Show.
-(rewrite (PeanoNat.Nat.div_mod n base)  at 3).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
+Timeout 1 Check @split.
+lia.
