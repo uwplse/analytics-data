@@ -88,7 +88,7 @@ Timeout 1 Check @FinMapToList.
 Timeout 1 Check @applicative_ap.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Function
- nat_to_le base (x : nat) {wf lt x} : list {y : nat | y < S (S base)} :=
+ nat_to_le base (x : nat) {wf lt x} : list {y : nat | x < S (S base)} :=
    match x with
    | 0 => nil
    | _ =>
