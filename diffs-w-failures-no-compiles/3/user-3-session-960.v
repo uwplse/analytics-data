@@ -97,4 +97,8 @@ Set Diffs "off".
 Timeout 1 Check @pointwise_relation.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (intros).
