@@ -809,4 +809,4 @@ Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
 Timeout 1 Check @Eqdep_dec.inj_pair2_eq_dec.
 Check Eqdep_dec.inj_pair2_eq_dec.
 Timeout 1 Check @sigT_eq_dec.
-(destruct (Eqdep_dec.inj_pair2_eq_dec x y)).
+(destruct (Eqdep_dec.inj_pair2_eq_dec _ x y)).
