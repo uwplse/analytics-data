@@ -1377,4 +1377,17 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 104.
 Show.
-iDestruct "Hmbox" as ">(Hlocked'&Hauth)".
+Timeout 1 Check @sig.
+Timeout 1 Check @SemiSet.
+Timeout 1 Check @SemiSet.
+Timeout 1 Check @sig.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @MailboxStatus.
+Timeout 1 Check @MailboxStatus.
+Timeout 1 Check @MailboxStatus.
+Timeout 1 Check @MailboxStatus.
+Timeout 1 Check @MailboxStatus.
+Timeout 1 Check @MailboxStatus.
+Timeout 1 Check @MailboxStatusInterp.
+Timeout 1 Check @MailboxStatusInterp.
+(cbn[MailboxStatusInterp]).
