@@ -177,4 +177,15 @@ Set Diffs "off".
 Set Printing Width 51.
 Show.
 (simpl).
-(eapply ret_hspec).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @readNone.
+Set Printing Width 51.
+Show.
+(eapply ret_hspec; eauto).
+typeclasses eauto.
+Timeout 1 Check @find.
+Timeout 1 Check @firstn.
+Timeout 1 Check @firstn.
+Timeout 1 Check @firstn.
+firstorder.
