@@ -1396,5 +1396,9 @@ Timeout 1 Check @slice.offset.
 Timeout 1 Check @fst.
 Set Printing Width 104.
 Show.
-(cbn[MailboxStatusInterp fst]).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 104.
+Show.
 (<ssreflect_plugin::ssrtclseq@0> iDestruct "Hmbox" as "[Hmbox|Hmbox]" ; last  first).
+iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hunlocked)".
