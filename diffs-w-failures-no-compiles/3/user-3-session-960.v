@@ -160,4 +160,5 @@ Timeout 1 Check @ByteVector.ByteVector.
 Timeout 1 Check @ByteVector.ByteVector.
 Timeout 1 Check @ByteVector.ByteVector.
 Timeout 1 Check @ByteVector.ByteVector.
-Print ByteVector.ByteVector.
+Unset Silent.
+Set Diffs "off".
