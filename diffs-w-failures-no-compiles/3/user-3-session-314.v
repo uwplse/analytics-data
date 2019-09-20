@@ -386,5 +386,8 @@ Lemma add_cok n :
     (add_hspec n).
 Proof.
 (repeat newstep; auto).
-(destruct state0; simpl; auto).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+(destruct state0; simpl; auto).
