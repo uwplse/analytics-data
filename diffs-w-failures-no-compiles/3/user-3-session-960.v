@@ -841,4 +841,6 @@ Timeout 1 Check @proj1.
 Timeout 1 Check @proj2.
 Set Printing Width 78.
 Show.
-Search -(existT _ _ = existT _ _) -proj2T.
+Timeout 1 Check @projT1.
+Timeout 1 Check @projT2.
+Search -(existT _ _ = existT _ _) -projT2.
