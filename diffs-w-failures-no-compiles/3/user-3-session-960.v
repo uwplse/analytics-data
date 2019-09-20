@@ -307,6 +307,15 @@ Timeout 1 Check @size.
 Timeout 1 Check @zerop.
 Timeout 1 Check @N.zero_one.
 Theorem nat_from_le_zeros base_m2 digits zero_v n :
-  proj1_sig zero_v 0 ->
+  proj1_sig zero_v = 0 ->
   @nat_from_le base_m2 (digits ++ repeat zero_v n) =
   @nat_from_le base_m2 digits.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(intros).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @N.induction.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @sigT_eq_dec.
+(induction digits; simpl).
