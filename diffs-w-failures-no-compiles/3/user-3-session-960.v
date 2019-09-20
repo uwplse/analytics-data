@@ -73,119 +73,72 @@ Opaque Nat.modulo Nat.div.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Set Silent.
-#[program]
-Fixpoint nat_to_le base (x : nat) {measure x lt} :
-list {x : nat | x < S (S base)} :=
-  match x with
-  | 0 => nil
-  | _ =>
-      let digit := x mod S (S base) in
-      exist _ digit _ :: nat_to_le base (x / S (S base))
-  end.
 Next Obligation of nat_to_le_func.
 Proof.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
-Qed.
+Defined.
 Next Obligation of nat_to_le_func.
 Proof.
 subst digit.
 (apply PeanoNat.Nat.div_lt; auto; try lia).
-Qed.
+Unset Silent.
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqR5t07S"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1sUxE7"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
 Next Obligation of nat_to_le_func.
 Proof.
 lia.
-Qed.
+Unset Silent.
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLYnJFy"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqrXfjTc"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
 Next Obligation of nat_to_le_func.
 Proof.
 (unfold MR).
 (apply (wf_projected lt projT2); auto).
 (apply lt_wf).
 Unset Silent.
-Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhwf9lL"
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqVkQJro"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNJr2rI"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJwp8ky"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Set Silent.
 Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
   match digits with
   | nil => 0
   | digit :: digits' => proj1_sig digit * base + le_to_nat digits'
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0fxDJv"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqP3FOAC"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_le_pi.
-Timeout 1 Check @nat_le_pi.
-Timeout 1 Check @nat_le_pi.
-Print FixedLengthEncoder.
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @le_to_nat.
-Timeout 1 Check @le_to_nat.
-Timeout 1 Check @le_to_nat.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @top.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @Z.to_N.
-Timeout 1 Check @top.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @N.lbase.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Set Silent.
 Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
 Proof.
 (intros).
-Unset Silent.
 (induction n as [n IHn] using lt_wf_ind).
-Timeout 1 Check @nat_eq_dec.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Set Printing Width 78.
-Show.
 (destruct n; simpl).
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le.
-Timeout 1 Check @nat_to_le_func.
-Timeout 1 Check @nat_to_le_func.
-Timeout 1 Check @nat_to_le_func.
-Timeout 1 Check @nat_to_le_func.
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 Search -"nat_to_le".
+Instance aModel : GoModel.
