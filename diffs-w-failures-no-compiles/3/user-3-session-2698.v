@@ -230,6 +230,15 @@ Timeout 1 Check @app_nil.
 Timeout 1 Check @app_length.
 Timeout 1 Check @app_length.
 Timeout 1 Check @app_length.
-(rewrite app_length).
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @repeat_length.
-Timeout 1 Check @rew_ex.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(rewrite app_length, repeat_length).
+Timeout 1 Check @split.
+lia.
