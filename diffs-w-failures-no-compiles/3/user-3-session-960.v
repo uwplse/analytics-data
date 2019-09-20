@@ -98,47 +98,9 @@ Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @pointwise_relation.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @PeanoNat.Nat.le_decidable.
-Timeout 1 Check @Nat.mod_1_r.
-Timeout 1 Check @N.lbase.
-Timeout 1 Check @pointwise_relation.
-Set Printing Width 78.
-#[program]
-Fixpoint nat_to_le base (x : nat) {measure x :
-list {x : nat | x < S (S base)} :=
-  match x with
-  | 0 => nil
-  | _ =>
-      let digit := x mod S (S base) in
-      exist _ digit _ :: nat_to_le base (x / S (S base))
-  end.
-Next Obligation.
-Proof.
-(apply PeanoNat.Nat.mod_upper_bound; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSI1pCO"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFMLQWE"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqN13qLI"
-SearchPattern _.
-Unset Silent.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
 Set Printing Width 78.
-Set Silent.
-Next Obligation.
-Proof.
-subst digit.
-(apply PeanoNat.Nat.div_lt; auto; try lia).
-Qed.
-Unset Silent.
-Next Obligation.
-Proof.
+Next Obligation of nat_to_le.
