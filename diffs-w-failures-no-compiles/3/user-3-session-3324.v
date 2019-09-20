@@ -254,4 +254,5 @@ Set Printing Width 78.
 Show.
 (rewrite <- Hremap by omega; auto).
 Set Silent.
+Unset Silent.
 *
