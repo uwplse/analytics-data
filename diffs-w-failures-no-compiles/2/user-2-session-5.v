@@ -74,20 +74,14 @@ Timeout 1 Check @primitive.
 Timeout 1 Check @primitive.
 Unset Silent.
 Set Printing Width 98.
-Fixpoint step (t : term) : term :=
-  match t with
-  | Nil => Nil
-  | Ident _ => Nil
-  | <a b> => if value a then <a (step b)> else <(step a) b>
-  | {f a} =>
-      if value f
-      then match f with
-           | [(Ident lam) (Ident arg) body] => body
-           | Ident prim => t
-           | _ => Nil
-           end
-      else {(step f) a}
-  end.
-Redirect "/tmp/coqYXWD7k" Print Ltac Signatures.
+Unset Silent.
+Timeout 1 Check @value.
+Timeout 1 Check @value.
+Timeout 1 Check @term.
+Timeout 1 Check @term.
+Timeout 1 Check @term.
+Set Printing Width 98.
+Fixpoint subst (x : string) (u : term) (t : term) : term := t.
+Redirect "/tmp/coqVl2ZnQ" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Print step.
+Timeout 1 Check @subst.
