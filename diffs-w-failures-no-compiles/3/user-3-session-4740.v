@@ -34,37 +34,8 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @Byte.x10.
 Set Printing Width 69.
-Notation "a === b" := (a = b) (at level 100).
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @and.
-Timeout 1 Check @Byte.x10.
-Timeout 1 Check @and.
+Timeout 1 Check @forall_exists_coincide_unique_domain.
 Set Printing Width 69.
-Definition aReallyBigIdentifier := 3.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqh3ygrJ"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquvy9iG"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Definition anotherLongName := 10.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqv6fVj4"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYtLrSJ"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Check
-  1 + 2 + aReallyBigIdentifier + 4 + anotherLongName ===
-  6 + anotherLongName + 8 + 9.
+Notation "a === b" := (a = b) (at level 100, format "a / === b").
