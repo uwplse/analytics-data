@@ -291,4 +291,19 @@ Timeout 1 Check @Acc.
 Timeout 1 Check @empty.
 Timeout 1 Check @max_type.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
-typeclasses eauto.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @eqdecision.
+Timeout 1 Check @eqdecision.
+Timeout 1 Check @eqdecision.
+Timeout 1 Check @Eq.
+Timeout 1 Check @EqualDec.
+Timeout 1 Check @EqualDec.
+Timeout 1 Check @EqualDec.
+Timeout 1 Check @EqualDec.
+Timeout 1 Check @EqualDec.eqb_spec.
+Print EqualDec.
+Timeout 1 Check @sigT_eq_dec.
+Print EqualDec.
+Print EqDecision.
+(destruct (dec (x = x1))).
