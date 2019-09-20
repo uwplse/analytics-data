@@ -724,5 +724,19 @@ Timeout 1 Check @sig_eta.
 Timeout 1 Check @sig_eta.
 Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @sig.
-Search -(@eq (sig _)).
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @FinMapToList.
+Timeout 1 Check @sum.
+Timeout 1 Check @subseteq.
+Timeout 1 Check @subset_size.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subset_eq_compat.
+Set Printing Width 78.
+Show.
+(apply subset_eq_compat).
+(rewrite Ascii.nat_ascii_embedding).
