@@ -301,9 +301,26 @@ Set Printing Width 70.
 Require Import Coq.Lists.List.
 Module AGT_Bounded_Rows_Details.
 Definition label := nat.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 70.
 Inductive ST : Type :=
   | SInt : ST
   | SBool : ST
   | SFun : ST -> ST -> ST
-  | SRec : (label -> option ST) -> ST.
-Print ST_rec.
+  | SRec : list (option ST) -> ST.
+Parameter (GT : Type).
+Definition SetST := Ensemble ST.
+Parameter (Gamma : GT -> SetST).
+Parameter (Alpha : SetST -> GT -> Prop).
+Parameter
+  (alpha_is_partial_function :
+     forall S G G', Alpha S G -> Alpha S G' -> G = G').
+Definition evidence := (GT * GT)%type.
+Parameter (static_pred : ST -> ST -> Prop).
+Definition SetST2 := Ensemble (ST * ST).
+Definition R (e : evidence) : SetST2 :=
+  fun pair =>
+  let (T1, T2) := pair in
+  static_pred T1 T2 /\
+  In _ (Gamma (fst e)) T1 /\ In _ (Gamma (snd e)) T2.
