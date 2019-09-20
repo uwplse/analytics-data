@@ -307,4 +307,9 @@ Timeout 1 Check @sigT_eq_dec.
 Print EqualDec.
 Print EqDecision.
 Timeout 1 Check @sigT_eq_dec.
-(destruct (decide (x0 = x1))).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(destruct (decide (x0 = x1)); auto).
