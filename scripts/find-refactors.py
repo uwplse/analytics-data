@@ -58,7 +58,8 @@ if len(group_lines) > 0:
     for i in range(group_starts[0]):
         old_cumulative.insert(0, "")
 else:
-    old_cumulative = []
+	exit(0) # Comment below and uncomment this line when we don't include compiles
+    #old_cumulative = [] # Comment above and uncomment this line when we include compiles
 
 # Dump initial version to file
 (fname, fext) = os.path.splitext(os.path.basename(fpath))

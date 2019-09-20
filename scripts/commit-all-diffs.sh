@@ -1,6 +1,14 @@
 #!/bin/bash
 
-# All done with failures. Without failure version not done yet.
+# Done:
+# w/ failures, w/ compiles, not filtering unset silents
+
+# In progress:
+# w/ failures, w/o compiles, not filtering unset silents
+
+# Outstanding:
+# w/ failures, w and w/o compiles, filtering unset silents
+# w/o failures for all fo the above (or with failures denoted seperately)
 
 # User 0 (w/ failures version is done forever)
 for i in {0..5}
