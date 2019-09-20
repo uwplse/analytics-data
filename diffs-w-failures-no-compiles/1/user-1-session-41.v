@@ -329,6 +329,9 @@ Set Printing Width 66.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
 Fixpoint size_gt (G : GT) : nat :=
   match G with
   | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
@@ -346,7 +349,7 @@ Fixpoint size_gt (G : GT) : nat :=
          | Some (Some (_, G)) => 1 + size_gt G
          | _ => 0
          end + acc) 1 l
-  | _ => 1
+  | _ => 0
   end.
 Module GTeq.
 Function
@@ -361,8 +364,5 @@ Function
    | _, _ => False
    end.
 all: (intros; subst; simpl; eauto with math).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 66.
-Show.
 all: (destruct hd1; simpl; eauto with math).
+Defined.
