@@ -807,4 +807,8 @@ Set Printing Width 78.
 Show.
 (decide equality; subst).
 (decide equality; subst).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (decide equality; subst).
