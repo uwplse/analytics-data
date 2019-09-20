@@ -350,6 +350,9 @@ Set Printing Width 70.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 70.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 70.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
@@ -360,7 +363,9 @@ Fixpoint Gamma (G : GT) : SetST :=
       fun X =>
       exists l',
         X = SRec l' /\
-        Forall2 (fun (S' : option ST) G' => True) l'
+        Forall2
+          (fun (S' : option ST) (G' : Ensemble (option ST)) => True)
+          l'
           (map
              (option_map
                 (fun pair =>
