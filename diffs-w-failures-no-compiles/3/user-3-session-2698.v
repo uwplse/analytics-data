@@ -213,4 +213,18 @@ Timeout 1 Check @nat_from_le_zeros.
 Timeout 1 Check @nat_from_le_zeros.
 Timeout 1 Check @nat_from_le_zeros.
 Timeout 1 Check @nat_from_le_zeros.
-(rewrite nat_from_le_zeros).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(rewrite nat_from_le_zeros; auto).
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_le_pi.
+Timeout 1 Check @nat_le_pi.
+Timeout 1 Check @nat_le_pi.
+Timeout 1 Check @nat_le_inverse.
+Timeout 1 Check @nat_le_inverse.
+(rewrite nat_le_inverse).
