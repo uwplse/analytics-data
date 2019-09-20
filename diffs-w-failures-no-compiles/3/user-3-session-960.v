@@ -287,4 +287,4 @@ typeclasses eauto.
 (destruct (nat_eq_dec n n0); subst).
 left.
 Search -(existT _ _ = existT _ _) -projT2.
-unshelve (eapply eq_existT_curried).
+Unset Silent.
