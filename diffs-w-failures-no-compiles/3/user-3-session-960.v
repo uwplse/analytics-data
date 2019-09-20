@@ -283,25 +283,42 @@ Timeout 1 Check @nat_eq_dec.
 Timeout 1 Check @nat_eq_dec.
 Timeout 1 Check @map_filter.
 Timeout 1 Check @lt_dec.
+Unset Silent.
+Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct (lt_dec n base)).
 Set Silent.
-+
-Unset Silent.
-admit.
-+
 (rewrite IHn).
 {
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
 lia.
+Unset Silent.
 }
-Timeout 1 Check @split.
-Search -"div" -"lt".
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @apply.
-Timeout 1 Check @PeanoNat.Nat.mod_small.
-Timeout 1 Check @Nat.div_lt.
-Timeout 1 Check @Nat.div_lt.
-Timeout 1 Check @split.
 (apply Nat.div_lt; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQBdBtX"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqicZbpe"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlBjurg"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Instance aModel : GoModel.
+Proof.
+Unset Silent.
+refine
+ {|
+ byte := Ascii.ascii;
+ byte0 := Ascii.Ascii false false false false false false false false;
+ uint64_to_string := pretty.pretty_nat;
+ ascii_to_byte := id;
+ byte_to_ascii := id |}.
