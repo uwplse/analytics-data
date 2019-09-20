@@ -143,5 +143,11 @@ Timeout 1 Check @sig.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Search -(sig _ -> _).
-Timeout 1 Check @proj1_sig.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
+  match digits with
+  | nil => 0
+  | digit :: digits' => proj1_sig digit * base + le_to_nat base digits'
+  end.
