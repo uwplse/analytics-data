@@ -14,26 +14,4 @@ Set Silent.
 Require Import Helpers.Helpers.
 Require Import Proc.
 Unset Silent.
-Require Import ProcTheorems.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbjluLk"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMomZX9"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Ltac
- monad_simpl :=
-  repeat
-   match goal with
-   | |- proc_spec _ (Bind (Ret _) _) _ _ =>
-         eapply spec_exec_equiv; [ apply monad_left_id |  ]
-   | |- proc_spec _ (Bind (Bind _ _) _) _ _ =>
-         eapply spec_exec_equiv; [ apply monad_assoc |  ]
-   end.
