@@ -167,4 +167,10 @@ Timeout 1 Check @id.
 Set Printing Width 78.
 Show.
 (unfold inited_any; intuition idtac).
-(intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(constructor; intuition idtac; auto; intros; autorewrite with upd in *;
+  intuition idtac).
+(rewrite diskUpd_neq by omega).
