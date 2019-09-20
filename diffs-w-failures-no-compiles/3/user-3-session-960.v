@@ -762,4 +762,5 @@ typeclasses eauto.
 -
 Timeout 1 Check @empty.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
+(simpl).
 typeclasses eauto.
