@@ -847,4 +847,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-unshelve (eapply eq_existT_curried).
+Unset Silent.
+Set Diffs "off".
