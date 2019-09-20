@@ -125,4 +125,21 @@ Timeout 1 Check @GoModel.
 Timeout 1 Check @GoModel.
 Timeout 1 Check @GoModelWf.
 Timeout 1 Check @GoModelWf.
-Timeout 1 Check @gm.
+Set Printing Width 78.
+Set Silent.
+Module mRT<: goose_refinement_type.
+Definition init_base `{@GoModelWf gm} (s : GoLayer.Go.State) :=
+  s.(fs).(FS.heap) = \226\136\133
+  \226\136\167 (forall uid : uint64,
+     (uid < 100 -> s.(fs).(dirents) !! UserDir uid = Some \226\136\133)
+     \226\136\167 (uid >= 100 -> s.(fs).(dirents) !! UserDir uid = None))
+    \226\136\167 s.(fs).(FS.dirents) !! SpoolDir = Some \226\136\133
+      \226\136\167 (\226\136\128 d,
+           is_Some (s.(fs).(FS.dirents) !! d)
+           \226\134\146 d = SpoolDir \226\136\168 (\226\136\131 uid, d = UserDir uid))
+        \226\136\167 dom (gset string) s.(fs).(FS.dirents) =
+          dom (gset string) s.(fs).(FS.dirlocks)
+          \226\136\167 (\226\136\128 dir l, s.(fs).(FS.dirlocks) !! dir = Some l \226\134\146 fst l = Unlocked)
+            \226\136\167 s.(maillocks) = None.
+Unset Silent.
+Context {gm} {gmWf : GoModelWf gm}.
