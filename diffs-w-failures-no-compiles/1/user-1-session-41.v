@@ -355,4 +355,5 @@ Set Diffs "off".
 Set Printing Width 66.
 Show.
 all: (intros; subst; simpl; eauto with math).
-(destruct hd1; simpl; eauto with math).
+Unset Silent.
+Set Diffs "off".
