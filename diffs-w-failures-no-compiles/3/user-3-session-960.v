@@ -273,4 +273,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(generalize dependent S n; clear n; intros m).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(generalize dependent S n; clear n; intros n).
