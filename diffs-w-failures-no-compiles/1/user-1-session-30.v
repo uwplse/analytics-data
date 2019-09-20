@@ -60,3 +60,4 @@ Set Silent.
 (destruct (a <=? a0)) ...
 Unset Silent.
 Qed.
+Show.
