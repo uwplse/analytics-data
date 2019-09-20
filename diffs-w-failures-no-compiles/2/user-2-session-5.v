@@ -75,7 +75,6 @@ End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
 Unset Silent.
-Check [Nil (Cons (Ident "1") (Ident "2")) (Ident "a") {(Ident "myfun") (Ident "somArg")}].
-Redirect "/tmp/coqouXyBd" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
+Set Printing Width 98.
+Check
+  [<Nil <Nil Nil>> (Cons (Ident "1") (Ident "2")) (Ident "a") {(Ident "myfun") (Ident "somArg")}].
