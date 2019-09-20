@@ -834,18 +834,11 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -(existT _ _ = existT _ _).
-Timeout 1 Check @sigT_eq_dec.
-Timeout 1 Check @eq_ex.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @FinMapToList.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @prod_eq_dec.
+Timeout 1 Check @proj1.
+Timeout 1 Check @proj2.
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
+Search -(existT _ _ = existT _ _) -proj2T.
