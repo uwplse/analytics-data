@@ -25,3 +25,15 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Ltac
+ monad_simpl :=
+  repeat
+   match goal with
+   | |- proc_spec _ (Bind (Ret _) _) _ _ =>
+         eapply spec_exec_equiv; [ apply monad_left_id |  ]
+   | |- proc_spec _ (Bind (Bind _ _) _) _ _ =>
+         eapply spec_exec_equiv; [ apply monad_assoc |  ]
+   end.
