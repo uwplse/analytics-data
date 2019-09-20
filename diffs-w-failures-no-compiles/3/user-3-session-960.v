@@ -512,5 +512,12 @@ refine
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
 Timeout 1 Check @const.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @const.
+Set Printing Width 78.
+Show.
 constructor.
-constructor.
+Search -(_ <= _).
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @apply.
