@@ -193,6 +193,8 @@ Definition readUnlockSlice T (p : slice.t T) :
        (set Data.allocs (updDyn (a:=Ptr.Heap T) p.(slice.ptr) (s', alloc))));
   readSome (fun _ => Data.getSliceModel p alloc).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Definition step_closed T (op : Op T) : relation State State T :=
   match op in (Op T) return (relation State State T) with
   | Open =>
@@ -200,16 +202,20 @@ Definition step_closed T (op : Op T) : relation State State T :=
       puts (set messages (\206\187 m, (\206\187 inbox, (MUnlocked, snd inbox)) <$> m))
   | _ => error
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqE2Av0W"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhpwipi"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLcjvOX"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqXeXtX6"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
+Timeout 1 Check @Lock.
+Timeout 1 Check @mailbox_lock_acquire.
+Timeout 1 Check @mailbox_lock_acquire.
+Timeout 1 Check @mailbox_lock_acquire.
+Timeout 1 Check @mailbox_lock_acquire.
 Definition step_open T (op : Op T) : relation State State T :=
   match op in (Op T) return (relation State State T) with
   | Pickup_Start uid =>
@@ -240,6 +246,10 @@ Definition step_open T (op : Op T) : relation State State T :=
           puts (set messages <[uid:=(s, delete msg msgs)]>)
       | _ => error
       end
+  | Lock uid =>
+      let! (s, msgs) <- lookup messages uid;
+      s <- Filesys.FS.unwrap (mailbox_lock_acquire s);
+      puts (set messages <[uid:=(s, msgs)]>)
   | Unlock uid =>
       let! (s, msgs) <- lookup messages uid;
       s <- Filesys.FS.unwrap (mailbox_lock_release s);
@@ -257,3 +267,94 @@ Definition step_open T (op : Op T) : relation State State T :=
       end
   | Open => error
   end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgesDiH"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2jft5j"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition step T (op : Op T) : relation State State T :=
+  i <- reads open;
+  match i with
+  | true => step_open op
+  | false => step_closed op
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgSSg0X"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsRqrlQ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition crash_step : relation State State unit :=
+  _ <- puts (set open (\206\187 _, false)); puts (set heap (\206\187 _, \226\136\133)).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbQKZzg"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwG2Dg9"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Definition finish_step : relation State State unit :=
+  _ <- puts (set open (\206\187 _, false)); puts (set heap (\206\187 _, \226\136\133)).
+Definition sem : Dynamics Op State :=
+  {|
+  Proc.step := step;
+  Proc.crash_step := crash_step;
+  Proc.finish_step := finish_step |}.
+Definition initP (s : State) :=
+  s.(heap) = \226\136\133 /\
+  s.(open) = false /\
+  (forall uid : uint64,
+   (uid < 100 -> s.(messages) !! uid = Some (MUnlocked, \226\136\133)) /\
+   (uid >= 100 -> s.(messages) !! uid = None)).
+Lemma crash_step_val :
+  \226\136\128 s1 : State, \226\136\131 s2 : State, sem.(Proc.crash_step) s1 (Val s2 ()).
+Proof.
+(intros s1).
+(do 3 eexists; split; econstructor).
+Qed.
+Lemma finish_step_val :
+  \226\136\128 s1 : State, \226\136\131 s2 : State, sem.(Proc.finish_step) s1 (Val s2 ()).
+Proof.
+(intros s1).
+(do 3 eexists; split; econstructor).
+Qed.
+Lemma crash_step_non_err :
+  \226\136\128 (s1 : State) (ret : Return State ()),
+    sem.(Proc.crash_step) s1 ret \226\134\146 ret \226\137\160 Err.
+Proof.
+(intros s1 ret H).
+(destruct ret; inversion H; eauto).
+(repeat deex).
+(inversion H1).
+Qed.
+Lemma finish_step_non_err :
+  \226\136\128 (s1 : State) (ret : Return State ()),
+    sem.(Proc.finish_step) s1 ret \226\134\146 ret \226\137\160 Err.
+Proof.
+(intros s1 ret H).
+(destruct ret; inversion H; eauto).
+(repeat deex).
+(inversion H1).
+Qed.
+Definition l : Layer Op.
+(refine
+  {| Layer.sem := sem; trace_proj := fun _ => nil; Layer.initP := initP |};
+  intros; try reflexivity; eauto
+  using crash_step_val, finish_step_val, crash_step_non_err,
+    finish_step_non_err).
+Defined.
+End GoModel.
+Unset Silent.
+End Mail.
+Timeout 1 Check @Lock.
+Timeout 1 Check @Lock.
