@@ -20,4 +20,4 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Set Silent.
-Context (absr_ok : NonError absr).
+Unset Silent.
