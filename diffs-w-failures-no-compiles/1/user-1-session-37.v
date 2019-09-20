@@ -336,4 +336,4 @@ Record Alpha2 (eta : SetST2) (e : evidence) : Prop :=
 Definition transitive_closure (left right : SetST2) : SetST2 :=
   fun pair : ST * ST =>
   let (T1, T3) := pair in
-  exists T2, In _ left (T1, T2) /\ In _ right (T2, T3).
+  exists T2, Ensembles.In _ left (T1, T2) /\ In _ right (T2, T3).
