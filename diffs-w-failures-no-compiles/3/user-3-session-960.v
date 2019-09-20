@@ -433,4 +433,5 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 admit.
-admit.
+Unset Silent.
+Set Diffs "off".
