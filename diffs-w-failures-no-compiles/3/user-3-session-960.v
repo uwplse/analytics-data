@@ -601,10 +601,9 @@ Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(assert (n > 8)).
-Timeout 1 Check @split.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(assert (n <= 8)).
 lia.
-Timeout 1 Check @split.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @repeat_length.
-(exfalso; eauto).
