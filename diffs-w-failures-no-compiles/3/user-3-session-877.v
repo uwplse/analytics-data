@@ -1406,4 +1406,5 @@ Set Diffs "off".
 Set Printing Width 104.
 Show.
 {
-iDestruct "Hmbox" as ">(Hlocked'&Hauth)".
+iDestruct "Hmbox" as "(Hlocked'&Hauth)".
+iDestruct "Hauth" as ( S ) "(Hauth&%)".
