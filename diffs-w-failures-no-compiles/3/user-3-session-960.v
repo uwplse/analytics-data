@@ -132,4 +132,20 @@ Set Printing Width 78.
 Show.
 Proof.
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @MR.
+Set Printing Width 78.
+Show.
+(unfold MR).
+Search -wf.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @apply.
+Timeout 1 Check @lt_wf.
+Timeout 1 Check @wf_guard.
+Timeout 1 Check @wf_projected.
+Timeout 1 Check @wf_projected.
+Timeout 1 Check @wf_projected.
+(apply wf_projected).
