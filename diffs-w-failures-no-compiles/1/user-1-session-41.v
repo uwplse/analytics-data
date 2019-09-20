@@ -376,6 +376,8 @@ Fixpoint Gamma (G : GT) : SetST :=
                         end
                     end))) l)
   end.
+Unset Silent.
+Set Diffs "off".
 Inductive Alpha : SetST -> GT -> Prop :=
   | alpha_int : Alpha (Singleton _ SInt) GInt
   | alpha_bool : Alpha (Singleton _ SBool) GBool
@@ -542,4 +544,24 @@ Inductive Alpha : SetST -> GT -> Prop :=
             match S with
             | SRec (hd :: tl) => hd
             | _ => None
-            end)) GDyn -> Alpha S (GRow (FromRow :: tl)).
+            end)) GDyn -> Alpha S (GRow (FromRow :: tl))
+  | alpha_gdyn :
+      forall S,
+      Inhabited _ S ->
+      S <> Singleton _ SInt ->
+      S <> Singleton _ SBool ->
+      ~
+      (forall x,
+       Ensembles.In _ S x -> exists T1, exists T2, x = SFun T1 T2) ->
+      ~ (forall x, Ensembles.In _ S x -> exists l, x = SRec l) ->
+      Alpha S GDyn.
+Theorem alpha_is_partial_function :
+  forall S G G', Alpha S G -> Alpha S G' -> G = G'.
+Set Printing Width 94.
+Show.
+Proof.
+(intros).
+generalize dependent G'.
+(induction H).
+-
+(intros).
