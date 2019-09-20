@@ -56,7 +56,3 @@ End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
 Unset Silent.
-Check [Nil Nil Nil Nil].
-Redirect "/tmp/coqVsrLJI" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
