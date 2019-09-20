@@ -88,6 +88,7 @@ Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Set Printing Width 78.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @map_filter.
 #[program]
 Fixpoint nat_to_le base (x : nat) {measure x lt} :
 list {x : nat | x < S (S base)} :=
@@ -95,6 +96,6 @@ list {x : nat | x < S (S base)} :=
   | 0 => nil
   | _ =>
       let digit := x mod S (S base) in
-      exist _ digit (PeanoNat.Nat.mod_upper_bound _)
-      :: nat_to_le base (x / S (S base))
+      exist _ digit _ :: nat_to_le base (x / S (S base))
   end.
+Next Obligation of nat_to_le_func.
