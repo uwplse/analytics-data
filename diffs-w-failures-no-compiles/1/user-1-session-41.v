@@ -691,6 +691,5 @@ Set Printing Width 94.
 Show.
 (intros; inversion H0; subst; eauto).
 Set Silent.
-all: (try (apply singleton_eq in H1; congruence)).
 Unset Silent.
 Set Diffs "off".
