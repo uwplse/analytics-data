@@ -157,11 +157,34 @@ Proof.
 Timeout 1 Check @sum.
 Timeout 1 Check @split.
 Timeout 1 Check @sum.
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @split.
-(subst; lia).
+Set Printing Width 78.
+Show.
+lia.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2zzV4u"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7hBary"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzByAOY"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpSNkf1"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_total_order.
+Timeout 1 Check @Fin.of_nat_to_nat_inv.
+Next Obligation of nat_to_le_func.
+Proof.
+Timeout 1 Check @split.
+lia.
