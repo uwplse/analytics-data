@@ -615,4 +615,8 @@ Timeout 1 Check @nat_le_pi.
 Timeout 1 Check @nat_le_pi.
 Timeout 1 Check @nat_le_inverse.
 Timeout 1 Check @nat_le_inverse.
-(rewrite nat_le_inverse).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite nat_le_inverse; auto).
