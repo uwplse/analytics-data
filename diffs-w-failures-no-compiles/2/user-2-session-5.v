@@ -50,16 +50,19 @@ Timeout 1 Print LoadPath.
 Set Printing Width 98.
 Unset Silent.
 Set Printing Width 98.
-Module TermNotations.
 Unset Silent.
 Set Printing Width 98.
+Module TermNotations.
+Set Silent.
 Declare Scope coucou_scope.
+Notation "[ x ]" := (Cons x Nil) : coucou_scope.
 Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
   (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
-Set Silent.
 End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
 Unset Silent.
-Set Printing Width 98.
 Check [Nil Nil Nil].
+Redirect "/tmp/coqbDceSO" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
