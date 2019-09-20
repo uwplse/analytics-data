@@ -143,22 +143,7 @@ Timeout 1 Check @ByteVector.ByteVector.
 Timeout 1 Check @ByteVector.ByteVector.
 Timeout 1 Check @ByteVector.ByteVector.
 Timeout 1 Check @ByteVector.ByteVector.
-Definition uint64_to_bv (n : uint64) : option (ByteVector.ByteVector 8).
-Timeout 1 Check @ByteV2N.
-Timeout 1 Check @ByteV2N.
-Timeout 1 Check @ByteV2N.
-Timeout 1 Check @ByteVector.ByteNil.
-Timeout 1 Check @ByteVector.ByteNil.
-Timeout 1 Check @ByteVector.ByteNil.
-Timeout 1 Check @ByteVector.ByteNil.
-Timeout 1 Check @ByteVector.ByteNil.
-Timeout 1 Check @ByteVector.ByteNil.
-Timeout 1 Check @ByteVector.ByteNil.
-Timeout 1 Check @ByteVector.ByteNil.
-Timeout 1 Check @ByteVector.ByteVector.
-Timeout 1 Check @ByteVector.ByteVector.
-Timeout 1 Check @ByteVector.ByteVector.
-Timeout 1 Check @ByteVector.ByteVector.
-Timeout 1 Check @ByteVector.ByteVector.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Search -"digits".
