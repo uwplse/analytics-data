@@ -764,4 +764,13 @@ Timeout 1 Check @empty.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
 (simpl).
 Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @Eq.
+Timeout 1 Check @EqualDec.
+Timeout 1 Check @EqualDec.eqb_spec.
+(unfold EqualDec).
+Timeout 1 Check @bounded_to_ascii.
+Timeout 1 Check @subset_eq_compat.
+decide equality.
+decide equality.
 decide equality.
