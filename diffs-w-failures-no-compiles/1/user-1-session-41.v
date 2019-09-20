@@ -391,4 +391,8 @@ Lemma alpha_fun_inversion :
   forall G, Alpha S G -> exists G_1 G_2, G = GFun G_1 G_2.
 Proof.
 (intros).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
 (inversion H0).
