@@ -578,3 +578,5 @@ Set Printing Width 94.
 Show.
 (intros; inversion H0; subst; eauto).
 intuition.
+Unset Silent.
+Set Diffs "off".
