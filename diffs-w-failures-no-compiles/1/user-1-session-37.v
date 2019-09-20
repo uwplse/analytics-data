@@ -299,7 +299,9 @@ Module AGT_Bounded_Rows_Details.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 70.
-Inductive ST : Type :=
-  | SInt : ST
-  | SBool : ST
-  | SFun : ST -> ST -> ST.
+Unset Silent.
+Set Diffs "off".
+Search -unique.
+Search -uniqueness.
+Set Printing Width 70.
+Definition label := int.
