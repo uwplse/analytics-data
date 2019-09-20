@@ -826,4 +826,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -(existT _ _ = existT _ _).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Search -_ -(existT _ _ = existT _ _).
