@@ -336,4 +336,18 @@ Record Alpha2 (eta : SetST2) (e : evidence) : Prop :=
 Definition transitive_closure (left right : SetST2) : SetST2 :=
   fun pair : ST * ST =>
   let (T1, T3) := pair in
-  exists T2, Ensembles.In _ left (T1, T2) /\ In _ right (T2, T3).
+  exists T2,
+    Ensembles.In _ left (T1, T2) /\ Ensembles.In _ right (T2, T3).
+Definition evidence_composition (e1 e2 e3 : evidence) : Prop :=
+  Alpha2 (transitive_closure (R e1) (R e2)) e3.
+Parameter
+  (gamma_completeness :
+     forall e1 e2 e3,
+     evidence_composition e1 e2 e3 ->
+     transitive_closure (R e1) (R e2) = R e3).
+Parameter
+  (alpha_complete : forall S, Inhabited _ S -> exists G, Alpha S G).
+Parameter
+  (alpha_implies_inhabited : forall S G, Alpha S G -> Inhabited _ S).
+End AGT_Bounded_Rows_Details.
+Module AGT_Bounded_Rows:=  AGT_Spec AGT_Bounded_Rows_Details.
