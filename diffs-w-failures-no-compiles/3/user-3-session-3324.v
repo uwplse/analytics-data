@@ -179,4 +179,8 @@ Timeout 1 Check @remapped_abstraction.
 Timeout 1 Check @stateDisk.
 Timeout 1 Check @stateDisk.
 Timeout 1 Check @stateDisk.
-(unfold stateDisk).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+all: (rewrite diskUpd_neq by omega).
