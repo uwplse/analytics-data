@@ -771,6 +771,12 @@ Timeout 1 Check @EqualDec.eqb_spec.
 (unfold EqualDec).
 Timeout 1 Check @bounded_to_ascii.
 Timeout 1 Check @subset_eq_compat.
-decide equality.
-decide equality.
-decide equality.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(intros; simpl).
+Timeout 1 Check @bounded_to_ascii.
+(destruct x, y).
