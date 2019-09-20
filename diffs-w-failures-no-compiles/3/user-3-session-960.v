@@ -818,14 +818,9 @@ Timeout 1 Check @sigT_eta.
 Timeout 1 Check @sigT_eq_dec.
 Timeout 1 Check @ex.
 Timeout 1 Check @exist.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 Search -(existT _ _ = existT _ _).
-Timeout 1 Check @FinMapToList.
-Timeout 1 Check @applicative_ap.
-Timeout 1 Check @subset_eq_compat.
-Timeout 1 Check @subsetT_eq_compat.
-Timeout 1 Check @subsetT_eq_compat.
-Timeout 1 Check @subsetT_eq_compat.
-Timeout 1 Check @subsetT_eq_compat.
-Timeout 1 Check @subsetT_eq_compat.
-Timeout 1 Check @subsetT_eq_compat.
-Check subsetT_eq_compat.
+Timeout 1 Check @sigT_eq_dec.
