@@ -289,4 +289,4 @@ Timeout 1 Check @byte.
 Timeout 1 Check @split.
 Set Printing Width 78.
 Show.
-(rewrite IHn by lia).
+(rewrite IHn).
