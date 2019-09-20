@@ -84,4 +84,37 @@ Timeout 1 Check @Nat.modulo.
 Timeout 1 Check @Nat.modulo.
 Timeout 1 Check @Nat.modulo.
 Set Printing Width 78.
-Opaque Nat.modulo.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Set Printing Width 78.
+Opaque Nat.modulo Nat.div.
+#[program]
+Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
+  match x with
+  | 0 => nil
+  | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
+  end.
+Next Obligation.
+Proof.
+(intros).
+(simpl).
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @Nat.modulo.
+Timeout 1 Check @Nat.modulo.
+Timeout 1 Check @Nat.modulo.
+Search -Nat.modulo -"<".
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @PeanoNat.Nat.le_decidable.
+Timeout 1 Check @PeanoNat.Nat.modulo.
+Timeout 1 Check @PeanoNat.Nat.modulo.
+Timeout 1 Check @PeanoNat.Nat.mod_eq.
+Timeout 1 Check @PeanoNat.Nat.mod_unique.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+(apply PeanoNat.Nat.mod_upper_bound).
