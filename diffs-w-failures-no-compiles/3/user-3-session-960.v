@@ -803,4 +803,29 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct (nat_eq_dec n n0); subst; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct (nat_eq_dec n n0); subst).
+Timeout 1 Check @nat_to_le_equation.
+left.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @sig.
+Timeout 1 Check @sigT.
+Timeout 1 Check @sigT_eta.
+Timeout 1 Check @sigT_eta.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @ex.
+Timeout 1 Check @exist.
+Search -(existT _ _ = existT _ _).
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @subset_eq_compat.
+Timeout 1 Check @subsetT_eq_compat.
+Timeout 1 Check @subsetT_eq_compat.
+Timeout 1 Check @subsetT_eq_compat.
+Timeout 1 Check @subsetT_eq_compat.
+Timeout 1 Check @subsetT_eq_compat.
+Timeout 1 Check @subsetT_eq_compat.
+(apply subsetT_eq_compat).
