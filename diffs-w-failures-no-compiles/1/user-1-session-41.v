@@ -420,4 +420,4 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
-all: (try rewrite singleton_eq in H1; congruence).
+all: (try rewrite singleton_eq in H1).
