@@ -352,16 +352,11 @@ Fixpoint Gamma (G : GT) : SetST :=
       exists l',
         X = SRec l' /\
         Forall2 (fun (S' : option ST) G' => True) l'
-          (option_map Gamma l)
+          (option_map
+             (fun pair =>
+              match pair with
+              | (R, G) => Gamma G
+              | (O, G) => Empty_set _
+              end) l)
   | _ => Empty_set _
-  end
-with GammaPair (x : option (Ann * GT)) : SetST :=
-  match x as m return (x = m -> SetST) with
-  | None => fun _ => Empty_set _
-  | Some P =>
-      fun H =>
-      match P with
-      | (R, G) => Gamma G
-      | (O, G) => Empty_set _
-      end
-  end eq_refl.
+  end.
