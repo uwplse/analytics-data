@@ -97,10 +97,63 @@ Timeout 1 Check @N.div.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @pointwise_relation.
 Unset Silent.
-Set Diffs "off".
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @nat_eq_dec.
 Set Printing Width 78.
-Next Obligation of nat_to_le.
+#[program]
+Fixpoint nat_to_le base (x : nat) {measure x :
+list {x : nat | x < S (S base)} :=
+  match x with
+  | 0 => nil
+  | _ =>
+      let digit := x mod S (S base) in
+      exist _ digit _ :: nat_to_le base (x / S (S base))
+  end.
+Next Obligation of nat_to_le_func.
+Set Silent.
+Proof.
+Unset Silent.
+(apply PeanoNat.Nat.mod_upper_bound; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqTbYPw"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTPMqxG"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJCKGv0"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_total_order.
+Timeout 1 Check @Fin.of_nat_to_nat_inv.
+Next Obligation of nat_to_le_func.
+Set Silent.
+Proof.
+subst digit.
+(apply PeanoNat.Nat.div_lt; auto; try lia).
+Unset Silent.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmg5Qco"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqX7cZWv"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_total_order.
+Timeout 1 Check @Fin.of_nat_to_nat_inv.
+Next Obligation of nat_to_le_func.
+Proof.
+Timeout 1 Check @sum.
+Timeout 1 Check @split.
+(sust; lia).
