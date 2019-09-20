@@ -45,4 +45,17 @@ Unset Silent.
 Proof.
 Timeout 1 Check @compile_exec_ok.
 Timeout 1 Check @compile_exec_ok.
-(compute).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @unit.
+Timeout 1 Check @rexec_unfold.
+Timeout 1 Check @rexec_unfold.
+Timeout 1 Check @rexec_unfold.
+Timeout 1 Check @readNone.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Timeout 1 Check @NonError.
+Set Printing Width 78.
+Show.
+(unfold NonError).
