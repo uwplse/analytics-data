@@ -323,6 +323,7 @@ Fixpoint eq (G_1 G_2 : GT) : Prop :=
   | GBool, GBool => True
   | GFun G_11 G_12, GFun G_21 G22 => eq G_11 G_21 /\ eq G_12 G22
   | GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2) =>
-      eq hd1 hd2 /\ eq (GRec tl1) (GRec tl2)
+      eq (snd hd1) (snd hd2) /\
+      fst hd1 = fst hd2 /\ eq (GRec tl1) (GRec tl2)
   | _, _ => False
   end.
