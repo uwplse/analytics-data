@@ -403,4 +403,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 94.
 Show.
-(intros; inversion H0; subst; eapply singleton_eq; eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
+Show.
+(intros; inversion H0; subst; eapply singleton_eq; eauto; try rewrite H1; eauto).
