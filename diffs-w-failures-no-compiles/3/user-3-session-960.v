@@ -605,4 +605,6 @@ Show.
 Timeout 1 Check @split.
 lia.
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @repeat_length.
+(exfalso; eauto).
