@@ -1373,4 +1373,8 @@ Timeout 1 Print LoadPath.
 Set Printing Width 104.
 Show.
 iFrame.
-iSplitL "Hm Hmsgs Hdircontents Hstatus Hrootdir Hinit".
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 104.
+Show.
+iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hstatus)".
