@@ -396,5 +396,8 @@ Show.
 (induction H).
 -
 (intros; inversion H0; subst; eapply singleton_eq; eauto).
-subst.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 94.
 Show.
+eauto.
