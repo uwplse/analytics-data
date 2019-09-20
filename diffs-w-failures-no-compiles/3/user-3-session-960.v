@@ -843,4 +843,8 @@ Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @FinMapToList.
-(eapply eq_existT_curried).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+unshelve (eapply eq_existT_curried).
