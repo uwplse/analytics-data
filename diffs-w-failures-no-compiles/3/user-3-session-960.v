@@ -715,4 +715,11 @@ Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_of_ascii.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @pointwise_relation.
-(erewrite Ascii.nat_ascii_embedding).
+Check Ascii.nat_ascii_embedding.
+Timeout 1 Check @FinMapToList.
+Timeout 1 Check @sig.
+Timeout 1 Check @sig.
+Timeout 1 Check @sig_eta.
+Timeout 1 Check @sig_eta.
+Timeout 1 Check @sig_eta.
+(apply sig_eta).
