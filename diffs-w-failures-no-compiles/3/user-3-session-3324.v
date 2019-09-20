@@ -184,4 +184,4 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 (constructor; autorewrite with upd in *; intuition idtac).
-(rewrite diskShrink_preserves; auto).
+(rewrite diskUpd_eq; auto).
