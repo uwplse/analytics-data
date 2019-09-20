@@ -126,6 +126,10 @@ Next Obligation of nat_to_le_func.
 Proof.
 lia.
 Qed.
-Next Obligation of nat_to_le_func.
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 Proof.
+Timeout 1 Check @sig.
+(simpl).
