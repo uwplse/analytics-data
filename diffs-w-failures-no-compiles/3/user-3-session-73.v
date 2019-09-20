@@ -10,14 +10,6 @@ Set Printing Width 78.
 Set Silent.
 Require Import Spec.Proc.
 Require Import Spec.Hoare.
-From Transitions Require Import Relations Rewriting.
-Require Import Abstraction.
-Require Import Layer.
-Section Abstraction.
-Context (AState CState : Type).
-Context (absr : relation AState CState unit).
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Set Silent.
-Unset Silent.
+Timeout 1 Check @readNone.
