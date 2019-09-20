@@ -119,4 +119,9 @@ Set Printing Width 78.
 Show.
 Proof.
 Timeout 1 Check @Tauto.A.
-auto.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @lt_wf.
+Set Printing Width 78.
+Show.
+Search -wf.
