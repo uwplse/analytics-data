@@ -176,4 +176,5 @@ Timeout 1 Check @Ascii.shift.
 Timeout 1 Check @Ascii.shift.
 Timeout 1 Check @Ascii.shift.
 Timeout 1 Check @Ascii.shift.
-Print Ascii.shift.
+Unset Silent.
+Set Diffs "off".
