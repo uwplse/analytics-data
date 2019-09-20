@@ -578,5 +578,25 @@ Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @aModel.
 Set Printing Width 78.
 Show.
-(unfold aModel).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 econstructor.
+-
+(simpl).
+Timeout 1 Check @prod_eq_dec.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty.
+Timeout 1 Check @pretty.pretty_N.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Timeout 1 Check @pretty.pretty_nat_inj.
+Search -pretty.pretty_nat_inj.
