@@ -243,35 +243,19 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq7lPKp"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
+Theorem nat_le_inverse base_m2 :
+  forall n, le_to_nat (nat_to_le base_m2 n) = n.
 Proof.
 (intros).
 (induction n as [n IHn] using lt_wf_ind).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (destruct n; rewrite nat_to_le_equation; simpl).
-Timeout 1 Check @Tauto.A.
-Set Silent.
 -
-Unset Silent.
 auto.
 -
-Timeout 1 Check @ge.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @dependent_choice.
-Timeout 1 Check @dependent_choice.
+(assert (1 < S (S base_m2)) by lia).
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @last.
-Timeout 1 Check @byte.
-Set Printing Width 78.
-Show.
-(assert (1 < S (S base)) by lia).
-Timeout 1 Check @ge.
-Timeout 1 Check @nat_eq_dec.
-Timeout 1 Check @pointwise_relation.
-Timeout 1 Check @QArith_base.Q.
-(generalize dependent S (S base); intros base).
+(generalize dependent S (S base_m2); intros base).
