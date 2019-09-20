@@ -791,4 +791,8 @@ Set Diffs "off".
 Timeout 1 Check @sig2.
 Set Printing Width 78.
 Show.
-Check sig2.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Search -"{_ : _ & _}" -Check -sigT_eq_dec.
