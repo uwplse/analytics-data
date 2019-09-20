@@ -127,4 +127,4 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Check @ge.
-Instance nonError_gets  `(f : A -> T): (NonError (gets f)).
+Check gets.
