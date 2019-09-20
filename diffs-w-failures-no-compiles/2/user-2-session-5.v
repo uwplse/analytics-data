@@ -85,6 +85,10 @@ Open Scope coucou_scope.
 Unset Silent.
 Set Printing Width 98.
 Open Scope string_scope.
+Unset Silent.
+Set Printing Width 98.
 Check
-  [<Nil <Nil (Ident "hi")>> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
+Timeout 1 Check @term.
+Timeout 1 Check @Ident.
