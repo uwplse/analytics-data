@@ -129,44 +129,30 @@ Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqN13qLI"
 SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Next Obligation.
-Set Silent.
-Proof.
-Unset Silent.
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @strings.string_countable.
+Timeout 1 Check @split.
 Set Printing Width 78.
-Show.
+Set Silent.
+Next Obligation.
+Proof.
 subst digit.
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-(apply PeanoNat.Nat.div_lt; auto).
-Timeout 1 Check @split.
-lia.
-Timeout 1 Check @split.
-lia.
+(apply PeanoNat.Nat.div_lt; auto; try lia).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYM33p7"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKBG919"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3PU562"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxhBuKV"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq89KI9w"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKrqPJq"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
