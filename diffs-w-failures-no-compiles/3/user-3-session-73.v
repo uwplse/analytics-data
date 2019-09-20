@@ -83,6 +83,9 @@ setoid_rewrite  <- Ha.
 (eapply proc_rspec_refine_rec; eauto).
 Qed.
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
 Lemma proc_rspec_crash_refines_op T (p : proc C_Op T) 
   (rec : proc C_Op unit) spec (op : A_Op T) :
   (forall sA sC,
@@ -96,13 +99,30 @@ Lemma proc_rspec_crash_refines_op T (p : proc C_Op T)
    (spec sA).(alternate) sA' v -> (op_spec a_sem op sA).(alternate) sA' v) ->
   crash_refines absr c_sem p rec (a_sem.(step) op)
     (a_sem.(crash_step) + (a_sem.(step) op;; a_sem.(crash_step))).
-Set Silent.
 Proof.
 (intros Hprspec Hpre Hpost Halt).
 (unfold crash_refines, refines; split).
 Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
+Abort.
+Set Silent.
+Ltac
+ especialize H :=
+  match type of H with
+  | forall _ : ?T, _ =>
+      let a := fresh "esp" in
+      evar ( a : T );
+       (let a' := eval unfold a in a in
+        clear a; specialize (H a'))
+  end.
+Lemma proc_rspec_recovery_refines_crash_step (rec : proc C_Op unit) 
+  spec :
+  (forall sA, proc_rspec c_sem rec rec (spec sA)) ->
+  (forall sA sC sC',
+   absr sA (Val sC tt) -> crash_step c_sem sC sC' tt -> (spec sA sC').(pre)) ->
+  (forall sA sC sCcrash sC',
+   absr sA (Val sC tt) ->
+   crash_step c_sem sC sCcrash tt ->
+   (spec sA sCcrash).(post) sC' tt \/ (spec sA sCcrash).(alternate) sC' tt ->
+   exists sA', absr sA' sC' tt /\ crash_step a_sem sA sA' tt) ->
+  refines absr (_ <- c_sem.(crash_step); exec_recover c_sem rec)
+    a_sem.(crash_step).
