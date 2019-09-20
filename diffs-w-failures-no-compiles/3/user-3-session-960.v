@@ -302,4 +302,4 @@ Show.
 Timeout 1 Check @FinMapToList.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @split.
-(rewrite IHn by (apply PeanoNat.Nat.mod_upper_bound; lia)).
+(rewrite IHn).
