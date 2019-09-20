@@ -140,4 +140,8 @@ Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
 Timeout 1 Check @PeanoNat.Nat.div_lt.
 Timeout 1 Check @PeanoNat.Nat.div_lt.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (apply PeanoNat.Nat.div_lt).
