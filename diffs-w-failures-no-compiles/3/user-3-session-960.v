@@ -432,6 +432,32 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-admit.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
+admit.
+admit.
+-
+(simpl).
+typeclasses eauto.
+-
+(simpl).
+(unfold EqualDec).
+(intros; simpl).
+(decide equality; subst).
+(decide equality; subst).
+Unset Silent.
+(destruct (decide (x0 = x1)); auto).
+Timeout 1 Check @Add.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqT52VkI"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3dCcM1"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
