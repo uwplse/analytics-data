@@ -426,4 +426,6 @@ Unset Silent.
 all: (try congruence).
 Set Silent.
 -
-(intros; inversion H0; subst; eauto).
+Unset Silent.
+Show.
+specialize (IHAlpha1 _ H1).
