@@ -36,4 +36,29 @@ Theorem swapXY_ok :
 Proof.
 (unfold swapXY).
 Timeout 1 Check @Nat.mod_1_r.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 monad_simpl.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @missing.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @proc.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec_rx.
+Timeout 1 Check @proc_spec_rx.
+(eapply proc_spec_rx).
+Check proc_spec_rx.
