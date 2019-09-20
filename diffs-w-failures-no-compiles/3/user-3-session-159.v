@@ -36,6 +36,8 @@ Timeout 1 Print LoadPath.
 Set Silent.
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
 Set Printing Width 78.
 Set Silent.
 Instance absr_non_error : (NonError absr).
@@ -43,24 +45,4 @@ Unset Silent.
 Proof.
 Timeout 1 Check @compile_exec_ok.
 Timeout 1 Check @compile_exec_ok.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(compute; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxEAe8Z"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFpyRJH"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4r5Pe6"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+(compute).
