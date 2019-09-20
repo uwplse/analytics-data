@@ -565,4 +565,22 @@ Show.
 (rewrite nat_from_le_zeros; auto).
 (rewrite nat_le_inverse; auto).
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @ge.
+Timeout 1 Check @sigT_eq_dec.
+Timeout 1 Check @dependent_choice.
+Timeout 1 Check @Datatypes.length.
+Timeout 1 Check @Datatypes.length.
+Timeout 1 Check @Datatypes.length.
+Timeout 1 Check @Datatypes.length.
+Timeout 1 Check @Datatypes.length.
+Timeout 1 Check @Datatypes.length.
+Timeout 1 Check @Datatypes.length.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_from_le.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @Byte.x25.
+generalize dependent Datatypes.length (nat_to_le 254 x).
