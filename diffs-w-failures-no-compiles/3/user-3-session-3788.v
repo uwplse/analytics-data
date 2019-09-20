@@ -114,7 +114,10 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @Byte.x10.
 Set Printing Width 78.
-Notation "'proc:' p" := (ProcMarker p) (at level 10, only printing).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Notation "'is' p" := (ProcMarker p) (at level 10, only printing).
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -127,4 +130,3 @@ Proof.
 (match goal with
  | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
  end).
-(unfold swapXY).
