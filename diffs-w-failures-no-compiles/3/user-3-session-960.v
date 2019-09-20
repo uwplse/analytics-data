@@ -672,4 +672,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite Ascii.ascii_nat_embedding; auto).
+Unset Silent.
+Set Diffs "off".
