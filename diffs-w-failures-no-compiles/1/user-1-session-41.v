@@ -416,6 +416,5 @@ Unset Silent.
 Theorem eq_refl : reflexive GT eq.
 Proof.
 (unfold reflexive).
-(induction x; unfold eq; rewrite eq_fn_equation; simpl; eauto).
-all: (destruct l; eauto).
-all: (destruct o; eauto).
+Unset Silent.
+Set Diffs "off".
