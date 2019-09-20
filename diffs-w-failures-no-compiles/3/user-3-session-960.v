@@ -176,4 +176,17 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @Choice.
 Set Printing Width 78.
-Check repeat.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Build_Settable.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64.
+Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @split.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
