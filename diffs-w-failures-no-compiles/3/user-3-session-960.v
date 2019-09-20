@@ -122,6 +122,9 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Next Obligation.
 Proof.
-(intros; simpl).
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @sum.
-subst.
+Set Printing Width 78.
+Show.
+(intros; simpl; subst).
