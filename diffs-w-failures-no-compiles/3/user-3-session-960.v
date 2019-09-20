@@ -325,12 +325,28 @@ Timeout 1 Check @Ascii.Ascii.
 Timeout 1 Check @Ascii.Ascii.
 Timeout 1 Check @Ascii.Ascii.
 Set Printing Width 78.
-Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
-Timeout 1 Check @Ascii.Ascii.
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @Ascii.Ascii.
 Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @Ascii.ascii.
-Timeout 1 Check @nat_to_le_equation.
-Timeout 1 Check @Byte.xb0.
+Set Printing Width 78.
+Search -Ascii.ascii.
+Timeout 1 Check @last.
+Timeout 1 Check @ascii_cmp.
+Timeout 1 Check @last.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.Ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Timeout 1 Check @Ascii.byte_of_ascii.
+Print Ascii.byte_of_ascii.
