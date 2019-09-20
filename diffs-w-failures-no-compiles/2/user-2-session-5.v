@@ -23,18 +23,20 @@ Inductive term :=
   | Cons : term -> term -> term
   | App : term -> term -> term.
 Unset Silent.
-Definition primitive (name : string) : bool :=
+Unset Silent.
+Set Printing Width 98.
+Definition oneArgCbvPrimitive (name : string) : bool :=
   if
    List.find (String.eqb name)
-     ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil)
+     ("fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil)
   then true
   else false.
-Redirect "/tmp/coqgkuM3j" Print Ltac Signatures.
+Redirect "/tmp/coqnPJ1L1" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Unset Silent.
-Set Printing Width 98.
-Unset Silent.
-Set Printing Width 98.
+Timeout 1 Check @oneArgCbvPrimitive.
+Definition primitive (name : string) : bool := String.eqb name "if" || oneArgCbvPrimitive name.
+Redirect "/tmp/coqNtQ3Ng" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Fixpoint value (t : term) : bool :=
   match t with
   | Nil => true
@@ -42,11 +44,11 @@ Fixpoint value (t : term) : bool :=
   | Cons a b => value a && value b
   | App f a => false
   end.
-Redirect "/tmp/coqfu1i2R" Print Ltac Signatures.
+Redirect "/tmp/coq5lRvou" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Set Silent.
 Module TermNotations.
 Declare Scope coucou_scope.
+Set Silent.
 Notation "{ f a }" := (App f a) (f  at level 0, a  at level 0) : coucou_scope.
 Notation "< a b >" := (Cons a b) (format "< a  b >", a  at level 0, b  at level 0) : coucou_scope.
 Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
@@ -62,9 +64,20 @@ Check
   {(Ident "myfun") (Ident "somArg")}].
 Fixpoint subst (x : string) (u : term) (t : term) : term := t.
 Unset Silent.
+Redirect "/tmp/coqAO7f1D" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Check @oneArgCbvPrimitive.
+Timeout 1 Check @oneArgCbvPrimitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
 Timeout 1 Check @value.
 Timeout 1 Check @primitive.
-Set Printing Width 98.
-Unset Silent.
 Timeout 1 Check @primitive.
 Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @step.
