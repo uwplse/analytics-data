@@ -369,25 +369,6 @@ Fixpoint Gamma (G : GT) : SetST :=
                     end))) l)
   end.
 Unset Silent.
-Inductive Alpha : SetST -> GT -> Prop :=
-  | alpha_int : Alpha (Singleton _ SInt) GInt
-  | alpha_bool : Alpha (Singleton _ SBool) GBool
-  | alpha_fun :
-      forall S G_1 G_2,
-      Inhabited _ S ->
-      (forall X,
-       Ensembles.In _ S X -> exists S_1 S_2, X = SFun S_1 S_2) ->
-      Alpha
-        (SetPMap S
-           (fun S =>
-            match S with
-            | SFun S_1 S_2 => Some S_1
-            | _ => None
-            end)) G_1 ->
-      Alpha
-        (SetPMap S
-           (fun S =>
-            match S with
-            | SFun S_1 S_2 => Some S_2
-            | _ => None
-            end)) G_2 -> Alpha S (GFun G_1 G_2).
+Set Diffs "off".
+Search -Ensemble -(list _).
+Search -(Ensemble (list _)).
