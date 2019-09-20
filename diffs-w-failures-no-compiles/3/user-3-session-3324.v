@@ -160,5 +160,8 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
-omega.
