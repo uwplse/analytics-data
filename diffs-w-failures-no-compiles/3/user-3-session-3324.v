@@ -189,4 +189,5 @@ Set Printing Width 78.
 Show.
 all: (rewrite ?diskUpd_neq by omega).
 all: (rewrite ?diskShrink_preserves; auto).
-all: (rewrite ?diskShrink_size; omega).
+Timeout 1 Check @split.
+all: (rewrite ?diskShrink_size; try lia).
