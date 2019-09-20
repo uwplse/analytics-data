@@ -154,4 +154,11 @@ Show.
 (apply (wf_projected lt projT2); auto).
 Timeout 1 Check @FinMapToList.
 Timeout 1 Check @lt_wf.
-(apply wf_lt).
+Timeout 1 Check @map_filter.
+(apply lt_wf).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqSYm8P"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
