@@ -25,6 +25,25 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @In.
+Timeout 1 Check @proc.
+Timeout 1 Check @CompSpec2Type.
+Timeout 1 Check @DeclConstant.GT_APP1.
+Timeout 1 Check @DeclConstant.GT_APP1.
+Set Printing Width 78.
+Inductive ProcMarker {T} (p : proc T) : Type :=
+    AProc : _.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0qu6fL"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoPhort"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -35,34 +54,27 @@ Theorem swapXY_ok :
      recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
 Proof.
 (unfold swapXY).
-Timeout 1 Check @Nat.mod_1_r.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 monad_simpl.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @missing.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @FunctionalExtensionality.functional_extensionality_dep_good.
+Timeout 1 Check @no_wipe.
 Timeout 1 Check @proc.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec_rx.
-Timeout 1 Check @proc_spec_rx.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
+Timeout 1 Check @Bind.
+Timeout 1 Check @Bind.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @hypo_proof.
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
+Timeout 1 Check @AProc.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @ProcMarker.
+Timeout 1 Check @repeat_length.
+(match goal with
+ | |- proc_spec _ ?p _ _ => pose proof (ProcMarker p)
+ end).
