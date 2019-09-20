@@ -10,4 +10,5 @@ Set Printing Width 63.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 63.
-Require Import Coq.Sorting.Sorted.
+Unset Silent.
+Set Diffs "off".
