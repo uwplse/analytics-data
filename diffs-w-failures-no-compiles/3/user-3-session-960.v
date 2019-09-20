@@ -332,4 +332,9 @@ Timeout 1 Check @PeanoNat.Nat.div.
 Timeout 1 Check @PeanoNat.Nat.div_lt.
 Timeout 1 Check @PeanoNat.Nat.div_mod.
 Timeout 1 Check @QArith_base.Q.
-(rewrite (PeanoNat.Nat.div_mod n base)).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @PeanoNat.Nat.mod_small.
+Set Printing Width 78.
+Show.
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3).
