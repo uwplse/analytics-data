@@ -696,4 +696,23 @@ Timeout 1 Check @bounded_to_ascii.
 Timeout 1 Check @bounded_to_ascii.
 Set Printing Width 78.
 Show.
-(unfold ascii_to_bounded, bounded_to_ascii).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(unfold ascii_to_bounded, bounded_to_ascii; simpl).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_of_ascii.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @pointwise_relation.
+(rewrite Ascii.nat_ascii_embedding).
