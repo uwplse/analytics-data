@@ -362,6 +362,9 @@ Fixpoint size_gt (G : GT) : nat :=
   | _ => 0
   end.
 Module GTeq.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
 Function
  eq (G : GT * GT) {measure
  fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
@@ -378,9 +381,14 @@ Function
        eq (GRec tl1, GRec tl2)
    | (GRec (None :: tl1), GRec []) => eq (GRec tl1, GRec [])
    | (GRec [], GRec (None :: tl1)) => eq (GRec [], GRec tl1)
+   | (GRow [], GRow []) => True
    | (GRow (Some (Some hd1) :: tl1), GRow
      (Some (Some hd2) :: tl2)) =>
        eq (snd hd1, snd hd2) /\
        fst hd1 = fst hd2 /\ eq (GRow tl1, GRow tl2)
+   | eq (GRow (None :: tl1), GRow (None :: tl2)) =>
+       eq (GRow tl1, GRow tl2)
+   | eq (GRow (Some None :: tl1), GRow (Some None :: tl2)) =>
+       eq (GRow tl1, GRow tl2)
    | _ => False
    end.
