@@ -181,4 +181,30 @@ Proof.
 Timeout 1 Check @pointwise_relation.
 Timeout 1 Check @sum.
 (intros; subst).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
 (apply PeanoNat.Nat.div_lt; auto; try lia).
+Unset Silent.
+-
+Timeout 1 Check @applicative_ap.
+Timeout 1 Check @map_filter.
+(apply lt_wf).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqyzCofd"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlawfPH"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7j1lNr"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
