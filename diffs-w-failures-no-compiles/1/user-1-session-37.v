@@ -299,55 +299,23 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 70.
 Require Import Coq.Lists.List.
-Module AGT_Bounded_Rows_Details.
-Definition label := nat.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 70.
+Set Silent.
+Module AGT_Bounded_Rows_Details.
+Definition label := nat.
 Inductive ST : Type :=
   | SInt : ST
   | SBool : ST
   | SFun : ST -> ST -> ST
   | SRec : list (option ST) -> ST.
-Parameter (GT : Type).
-Definition SetST := Ensemble ST.
-Parameter (Gamma : GT -> SetST).
-Parameter (Alpha : SetST -> GT -> Prop).
-Parameter
-  (alpha_is_partial_function :
-     forall S G G', Alpha S G -> Alpha S G' -> G = G').
-Definition evidence := (GT * GT)%type.
-Parameter (static_pred : ST -> ST -> Prop).
-Definition SetST2 := Ensemble (ST * ST).
-Definition R (e : evidence) : SetST2 :=
-  fun pair =>
-  let (T1, T2) := pair in
-  static_pred T1 T2 /\
-  Ensembles.In _ (Gamma (fst e)) T1 /\
-  Ensembles.In _ (Gamma (snd e)) T2.
-Definition Gamma2 (e : evidence) : SetST2 :=
-  fun pair =>
-  let (T1, T2) := pair in
-  Ensembles.In _ (Gamma (fst e)) T1 /\
-  Ensembles.In _ (Gamma (snd e)) T2.
-Record Alpha2 (eta : SetST2) (e : evidence) : Prop :=
- alpha2_c {proj1 : Alpha (set_map_fst eta) (fst e);
-           proj2 : Alpha (set_map_snd eta) (snd e)}.
-Definition transitive_closure (left right : SetST2) : SetST2 :=
-  fun pair : ST * ST =>
-  let (T1, T3) := pair in
-  exists T2,
-    Ensembles.In _ left (T1, T2) /\ Ensembles.In _ right (T2, T3).
-Definition evidence_composition (e1 e2 e3 : evidence) : Prop :=
-  Alpha2 (transitive_closure (R e1) (R e2)) e3.
-Parameter
-  (gamma_completeness :
-     forall e1 e2 e3,
-     evidence_composition e1 e2 e3 ->
-     transitive_closure (R e1) (R e2) = R e3).
-Parameter
-  (alpha_complete : forall S, Inhabited _ S -> exists G, Alpha S G).
-Parameter
-  (alpha_implies_inhabited : forall S G, Alpha S G -> Inhabited _ S).
-End AGT_Bounded_Rows_Details.
-Module AGT_Bounded_Rows:=  AGT_Spec AGT_Bounded_Rows_Details.
+Unset Silent.
+Inductive Ann : Type :=
+  | R : Ann
+  | O : Ann.
+Inductive GT : Type :=
+  | GDyn : GT
+  | GInt : GT
+  | GBool : GT
+  | GRec : list (option (Ann * GT)) -> GT.
