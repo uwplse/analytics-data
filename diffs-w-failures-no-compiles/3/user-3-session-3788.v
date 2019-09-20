@@ -54,38 +54,9 @@ Theorem swapXY_ok :
      recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
 Proof.
 (unfold swapXY).
-monad_simpl.
-Timeout 1 Check @FunctionalExtensionality.functional_extensionality_dep_good.
-Timeout 1 Check @no_wipe.
-Timeout 1 Check @proc.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @Bind.
-Timeout 1 Check @Bind.
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @hypo_proof.
-Timeout 1 Check @AProc.
-Timeout 1 Check @AProc.
-Timeout 1 Check @AProc.
-Timeout 1 Check @ProcMarker.
-Timeout 1 Check @ProcMarker.
-Timeout 1 Check @ProcMarker.
-Timeout 1 Check @ProcMarker.
-Timeout 1 Check @ProcMarker.
-Timeout 1 Check @ProcMarker.
+Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @repeat_length.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @AProc.
-Timeout 1 Check @AProc.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(match goal with
- | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
- end).
+Timeout 1 Check @Nat.le_stepr.
