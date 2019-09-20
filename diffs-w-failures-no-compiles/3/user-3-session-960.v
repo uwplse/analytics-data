@@ -139,4 +139,21 @@ Timeout 1 Check @nat_eq_dec.
 Timeout 1 Check @QArith_base.Q.
 (destruct base).
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @LeftId.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @PeanoNat.Nat.mod_upper_bound.
+Timeout 1 Check @Zmod_1_l.
+Timeout 1 Check @Zmod_1_r.
+Timeout 1 Check @N.mod_1_l.
+Timeout 1 Check @N.mod_1_r.
+Timeout 1 Check @Z.mod_1_l.
+Timeout 1 Check @Z.mod_1_r.
+Timeout 1 Check @Nat.mod_1_l.
+Timeout 1 Check @Nat.mod_1_r.
+Check Nat.mod_1_r.
+Timeout 1 Check @pointwise_relation.
+Set Printing Width 78.
+Show.
+(rewrite Nat.mod_1_r).
