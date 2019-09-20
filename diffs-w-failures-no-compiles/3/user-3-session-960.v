@@ -118,31 +118,20 @@ Proof.
 -
 (intros; subst).
 (apply PeanoNat.Nat.div_lt; auto; try lia).
--
-(apply lt_wf).
-Qed.
 Unset Silent.
-Fixpoint le_to_nat base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
+Fixpoint nat_from_le base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
 nat :=
   match digits with
   | nil => 0
-  | digit :: digits' => proj1_sig digit + le_to_nat digits' * S (S base_m2)
+  | digit :: digits' => proj1_sig digit + nat_from_le digits' * S (S base_m2)
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlpFEfT"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSBClfV"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Set Silent.
 Theorem nat_le_inverse base_m2 :
-  forall n, le_to_nat (nat_to_le base_m2 n) = n.
+  forall n, nat_from_le (nat_to_le base_m2 n) = n.
 Proof.
 (intros).
-Unset Silent.
 (induction n as [n IHn] using lt_wf_ind).
 (destruct n; rewrite nat_to_le_equation; simpl).
 -
@@ -151,7 +140,6 @@ auto.
 (assert (1 < S (S base_m2)) by lia).
 (assert (base_m2 = S (S base_m2) - 2) by lia).
 (generalize dependent S (S base_m2); intros base **; subst).
-Set Silent.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
 (rewrite IHn).
@@ -160,33 +148,27 @@ Set Silent.
 lia.
 }
 (apply Nat.div_lt; lia).
-Unset Silent.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqeJSuoV"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFNw7z8"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Unset Silent.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Choice.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Build_Settable.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64.
-Timeout 1 Check @uint64_to_le.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @repeat.
+Timeout 1 Check @repeat.
+Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @split.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @nat_to_le_equation.
 Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat_to_le_equation.
+Timeout 1 Check @Plength.
+Timeout 1 Check @Plength.
+Timeout 1 Check @Plength.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @pointwise_relation.
+Definition nat64_to_le (x : nat) : list byte :=
+  let digits := nat_to_le x in digits ++ repeat (8 - length digits) 0.
