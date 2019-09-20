@@ -31,6 +31,8 @@ Definition primitive (name : string) : bool :=
   else false.
 Redirect "/tmp/coqgkuM3j" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Unset Silent.
+Set Printing Width 98.
 Fixpoint value (t : term) : bool :=
   match t with
   | Nil => true
@@ -38,5 +40,45 @@ Fixpoint value (t : term) : bool :=
   | Cons a b => value a && value b
   | App f a => false
   end.
-Redirect "/tmp/coqSxNVO1" Print Ltac Signatures.
+Redirect "/tmp/coqACDvw1" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Module TermNotations.
+Set Silent.
+Declare Scope coucou_scope.
+Notation "{ f a }" := (App f a) (f  at level 0, a  at level 0) : coucou_scope.
+Notation "< a b >" := (Cons a b) (format "< a  b >", a  at level 0, b  at level 0) : coucou_scope.
+Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
+Notation "[ x ]" := (Cons x Nil) : coucou_scope.
+Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
+  (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
+Coercion Ident : string >-> term.
+End TermNotations.
+Import TermNotations.
+Open Scope coucou_scope.
+Unset Silent.
+Check
+  [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  {(Ident "myfun") (Ident "somArg")}].
+Redirect "/tmp/coqLRo0nb" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Timeout 1 Check @Ident.
+Timeout 1 Check @Ident.
+Timeout 1 Check @Ident.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Timeout 1 Check @term.
+Timeout 1 Check @term.
+Timeout 1 Check @primitive.
+Timeout 1 Check @primitive.
+Fixpoint step (t : term) : term :=
+  match t with
+  | Nil => Nil
+  | Ident _ => Nil
+  | <a b> => if value a then <a (step b)> else <(step a) b>
+  | _ => t
+  end.
+Redirect "/tmp/coqMMj85L" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Print step.
