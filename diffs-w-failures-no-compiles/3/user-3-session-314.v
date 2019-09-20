@@ -172,5 +172,9 @@ Lemma recover_cok :
   proc_hspec Var.dynamics impl.(recover)
     recover_spec.
 Proof.
-(simpl).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
+(simpl).
+(eapply ret_hspec; firstorder).
