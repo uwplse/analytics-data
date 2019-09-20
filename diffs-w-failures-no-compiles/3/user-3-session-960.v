@@ -12,4 +12,4 @@ From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Comm.
+Timeout 1 Check @MRet.
