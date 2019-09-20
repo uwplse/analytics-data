@@ -843,4 +843,4 @@ Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @FinMapToList.
-(apply eq_existT_curried).
+(eapply eq_existT_curried).
