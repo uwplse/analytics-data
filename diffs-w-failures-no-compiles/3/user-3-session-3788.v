@@ -81,6 +81,11 @@ Timeout 1 Check @AProc.
 Timeout 1 Check @AProc.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
 (match goal with
- | |- proc_spec _ ?p _ _ => pose proof (AProc p)
+ | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
  end).
