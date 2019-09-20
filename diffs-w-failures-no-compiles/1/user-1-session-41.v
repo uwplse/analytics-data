@@ -365,6 +365,9 @@ Module GTeq.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 66.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 66.
 Function
  eq (G : GT * GT) {measure
  fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
@@ -390,5 +393,11 @@ Function
        eq (GRow tl1, GRow tl2)
    | (GRow (Some None :: tl1), GRow (Some None :: tl2)) =>
        eq (GRow tl1, GRow tl2)
+   | (GRow (None :: tl1), GRow []) => eq (GRow tl1, GRow [])
+   | (GRow [], GRow (None :: tl1)) => eq (GRow [], GRow tl1)
    | _ => False
    end.
+all: (intros; subst; simpl; eauto with math).
+all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
+Defined.
+Theorem eq_refl : forall A, reflexive _ (eq (A:=A)).
