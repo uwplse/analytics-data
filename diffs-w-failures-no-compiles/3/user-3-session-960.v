@@ -184,4 +184,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Search -nat_to_le.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Search -"nat_to_le".
