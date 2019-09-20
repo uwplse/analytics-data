@@ -413,8 +413,7 @@ Defined.
 Set Silent.
 Definition eq (G_1 G_2 : GT) := eq_fn (G_1, G_2).
 Unset Silent.
-Theorem eq_refl : reflexive GT eq.
-Proof.
-(unfold reflexive).
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 66.
+Notation "G_1 === G_2" := (eq G_1 G_2).
