@@ -267,4 +267,16 @@ Show.
 (rewrite disk_oob_eq by omega; auto).
 (rewrite <- Hremap by omega; auto).
 Timeout 1 Check @rew_const.
-constructor.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(constructor; eauto).
+Set Silent.
+*
+Unset Silent.
+(subst; eexists; intuition eauto).
+Timeout 1 Check @rew_const.
+Timeout 1 Check @repeat_length.
+(constructor; eauto).
