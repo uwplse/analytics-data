@@ -35,4 +35,30 @@ Lemma proc_rspec_refine_exec T R (p : proc C_Op T)
   _ <- absr; exec c_sem p ---> v <- spec_exec spec; _ <- absr; pure v.
 Proof.
 (intros Hprspec Habstr_pre).
-(intros sA sC b ([], (sTstart, (Hrd, Hexec)))).
+Unset Silent.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdAoIjW"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKwOLDP"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+Timeout 1 Check @List.Add.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq44j751"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqrIRuKB"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Lemma proc_rspec_refine_rec T R (p : proc C_Op T) 
+  (rec : proc C_Op R) spec :
+  (forall t, proc_rspec c_sem p rec (refine_spec spec t)) ->
+  (forall sA sC, absr sA sC tt -> (spec sA).(pre)) -> 
+  _ <- absr; rexec c_sem p rec ---> v <- spec_aexec spec; _ <- absr; pure v.
