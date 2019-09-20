@@ -156,14 +156,12 @@ typeclasses eauto.
 (destruct (x0 == x1); auto).
 Qed.
 Unset Silent.
-Print Assumptions aModel_wf.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMwDPii"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4FzNxL"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
+Set Diffs "off".
+Timeout 1 Check @gmap.gmap.
+Timeout 1 Check @GoModel.
+Timeout 1 Check @GoModel.
+Timeout 1 Check @GoModel.
+Timeout 1 Check @GoModel.
+Timeout 1 Check @GoModel.
+Timeout 1 Check @GoModel.
+Timeout 1 Check @gm.
