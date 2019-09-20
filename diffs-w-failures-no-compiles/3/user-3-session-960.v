@@ -292,9 +292,22 @@ Unset Search Output Name Only.
 Defined.
 Set Silent.
 Set Silent.
-Instance aModel : GoModel.
 Unset Silent.
-Proof.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_to_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Timeout 1 Check @nat64_from_le.
+Set Printing Width 78.
+Show.
 refine
  {|
  byte := {x | x < 256};
@@ -302,18 +315,9 @@ refine
  uint64_to_string := pretty.pretty_nat;
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii;
- uint64_to_le := nat_to_le 254;
- uint64_from_le := fun digits => Some (nat_from_le digits);
+ uint64_to_le := nat64_from_le;
+ uint64_from_le := nat64_from_le;
  File := Z;
  nilFile := (- 1)%Z;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqih90a6"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTXf3vY"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
