@@ -309,4 +309,8 @@ Timeout 1 Check @PeanoNat.Nat.mod_same.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
 Set Printing Width 78.
 Show.
-(rewrite IHn by (apply PeanoNat.Nat.mod_small; lia)).
+Check PeanoNat.Nat.mod_small.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @infinite.search_infinite.
+Timeout 1 Check @PeanoNat.Nat.mod_le.
+(rewrite IHn by (apply PeanoNat.Nat.mod_lt; lia)).
