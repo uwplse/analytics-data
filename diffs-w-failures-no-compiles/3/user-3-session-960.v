@@ -175,4 +175,20 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @FinMapToList.
 Set Printing Width 78.
-#[program]Fixpoint nat_to_le (x : nat) : list byte_nat.
+Timeout 1 Check @pointwise_relation.
+Timeout 1 Check @nil.
+Timeout 1 Check @Byte.x25.
+Print sigT.
+Print sig.
+Timeout 1 Check @ex.
+Timeout 1 Check @exist.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @nat_eq_dec.
+Timeout 1 Check @Byte.x25.
+Timeout 1 Check @gen.
+#[program]
+Fixpoint nat_to_le (x : nat) : list byte_nat :=
+  match x with
+  | 0 => nil
+  | _ => exist (x mod 256) _ :: nat_to_le (x / 256)
+  end.
