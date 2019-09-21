@@ -75,4 +75,5 @@ dependent destruction H'.
 (erewrite denote_compose with (\206\1471 := []); trivial).
 Locate ":Fun".
 Focus 3.
-(intros \206\1473 \206\1470' p0 H0 H1).
+Unset Silent.
+Show.
