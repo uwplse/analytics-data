@@ -1438,4 +1438,9 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite add_fresh_split).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
+Search -add_fresh_state.
