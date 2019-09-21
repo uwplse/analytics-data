@@ -51,4 +51,13 @@ Unset Silent.
 tauto.
 (apply IHHsub; try tauto).
 (apply mk_nf_nf__equal).
-constructor.
+Set Printing Width 148.
+(do 2 constructor; assumption).
+Qed.
+Set Silent.
+Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
+Unset Silent.
+Proof.
+Show.
+(intros t t' Hsub).
+(pose proof (sub_r__sub_r_mk_nf _ _ Hsub)).
