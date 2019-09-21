@@ -41,4 +41,7 @@ Unset Silent.
 Set Silent.
 Show.
 Set Printing Width 148.
-(destruct (free_in_ty__decidable X t'1)).
+Set Printing Width 148.
+(destruct (free_in_ty__decidable X t'1) as [HXt'1| HXt'1]).
+(apply match_ty_union_1; auto).
+(exfalso; apply not__free_and_fresh).
