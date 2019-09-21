@@ -40,4 +40,6 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqz3Zsi1" Print Ltac
 Timeout 1 Print Grammar tactic.
 Unset Silent.
 Set Printing Width 114.
-Eval simpl in fib 10 0 1.
+Unset Silent.
+Set Printing Width 114.
+Eval compute in fib 10 0 1.
