@@ -80,43 +80,6 @@ assumption.
 assumption.
 Abort.
 Set Printing Width 148.
-Set Silent.
-Lemma build_v_full :
-  forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
-  |-[ w] v <$ [X := tx] t ->
-  exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
+Set Printing Width 148.
+Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
 Proof.
-(intros X X').
-(induction w; induction t; intros v tx Hm).
--
-exists v.
-split.
-assumption.
-(apply match_ty_cname__inv in Hm; subst).
-(induction w'; induction t'; intros Hm; try assumption || contradiction).
-+
-(rewrite subst_union).
-(apply match_ty_union__inv in Hm).
-Unset Silent.
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-Set Silent.
-+
-(rewrite subst_union).
-(apply match_ty_union__inv in Hm).
-Unset Silent.
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-Set Silent.
-+
-(destruct (beq_idP X' i) as [Hbeq| Hbeq]).
-*
-subst.
-Show.
-Set Printing Width 148.
-Set Silent.
-(apply match_ty_exist__inv in Hm).
-Unset Silent.
-(destruct Hm as [ti Hm]).
-Show.
-Set Printing Width 148.
-(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
-exists ([X' := tx] ti).
