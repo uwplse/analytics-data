@@ -130,4 +130,20 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 matrix_denote.
+Msimpl.
+lma.
+Set Silent.
+-
+matrix_denote.
+Msimpl.
+Unset Silent.
+lma.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqXm3oVN"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
