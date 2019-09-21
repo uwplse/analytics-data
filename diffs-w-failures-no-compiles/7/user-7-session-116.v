@@ -59,6 +59,5 @@ Set Printing Width 148.
 (intros Hcontra).
 Search -IdSet.remove.
 Check IdSetFacts.remove_2.
-(apply Hfresh).
 Set Printing Width 148.
-(apply IdSetFacts.remove_2; assumption).
+symmetry in n.
