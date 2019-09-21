@@ -417,7 +417,8 @@ Set Printing Width 148.
 Show.
 (match goal with
  | Hcontra:|- ?t1 << ?t2
-   |- False =>
-       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
-        subst
+   |- False => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst
  end).
+Show.
+(inversion Heqx).
+Show.
