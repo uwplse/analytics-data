@@ -477,4 +477,10 @@ Timeout 1 Check @app.
 Timeout 1 Check @incl_appl.
 Set Printing Width 78.
 Show.
-(apply H).
+specialize (H a).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(assert (a < length bs ++ bs')).
