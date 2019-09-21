@@ -128,4 +128,9 @@ Unset Silent.
 {
 (rewrite subst_equation).
 Search -beq_id.
+Set Printing Width 148.
 (assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
+(rewrite Hbeq).
+(destruct (IdSet.mem i (FV tx))).
+{
+(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
