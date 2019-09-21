@@ -418,14 +418,5 @@ specialize (Hsem v').
 tauto.
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le_1 : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Unset Silent.
-Proof.
-Set Silent.
-(intros).
-Unset Silent.
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 Set Printing Width 148.
 (apply sem_sub_k_i_nf__inv_depth_le with k; tauto).
