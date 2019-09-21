@@ -130,4 +130,13 @@ Show.
 Search -IdSet.mem.
 (assert (Hmem : IdSet.mem Y (FV s) = false)).
 {
-(aply IdSetFacts.not_mem_iff).
+(apply IdSetFacts.not_mem_iff).
+assumption.
+}
+(rewrite Hmem).
+Set Silent.
+eexists.
+eexists.
+Unset Silent.
+reflexivity.
+Qed.
