@@ -218,5 +218,5 @@ Show.
 Show.
 (simpl).
 Show.
-auto.
-Show.
+Set Printing Width 148.
+tauto.
