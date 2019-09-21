@@ -220,5 +220,8 @@ Definition uniform (n : nat) : Matrix n n :=
   fun x y => if (x =? y) && (x <? n) then 1 / INR n else 0.
 Lemma bias1 : biased_coin 1 = \226\136\1631\226\159\169\226\159\1681\226\136\163.
 Proof.
-(unfold biased_coin).
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+lma.
