@@ -66,5 +66,9 @@ Theorem match_ty__value_type_l : forall (k : nat) (t v : ty), |-[ k] v <$ t -> v
 Set Printing Width 148.
 (intros k; induction t; induction v; intros Hm; try (solve [ constructor | destruct k; contradiction ])).
 Show.
-(destruct k; simpl in Hm).
+Show.
+Set Printing Width 148.
+(destruct k).
+Show.
+(simpl in Hm).
 Show.
