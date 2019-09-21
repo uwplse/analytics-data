@@ -70,4 +70,14 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t' -> | t | = | t' |.
+Unset Silent.
+Proof.
+(induction t; induction t'; intros k v Hsemeq).
+reflexivity.
+admit.
+admit.
+admit.
+admit.
