@@ -425,4 +425,7 @@ Set Printing Width 148.
 +
 (destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
 Set Printing Width 148.
-(destruct (IHta11 _ Hnf'1) as [IH1| IH1]).
+Show.
+Set Printing Width 148.
+(destruct (IHta11 _ Hnf'1) as [IH11| IH11]; destruct (IHta12 _ Hnf'1) as [IH12| IH12]; destruct (IHta21 _ Hnf'2) as [IH21| IH21];
+  destruct (IHta22 _ Hnf'2) as [IH22| IH22]).
