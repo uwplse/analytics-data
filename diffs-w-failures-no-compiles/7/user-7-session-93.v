@@ -34,5 +34,8 @@ Definition vx := 1.
 Definition vy := 2.
 Unset Silent.
 Definition vz := 3.
-Definition tx := TVar vx.
-Definition ty := TVar vy.
+Set Printing Width 148.
+Set Silent.
+Definition tX := TVar vx.
+Unset Silent.
+Definition tY := TVar vy.
