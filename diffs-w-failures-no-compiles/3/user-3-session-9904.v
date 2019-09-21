@@ -269,5 +269,13 @@ Set Diffs "off".
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
-intuition congruence.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+intuition.
 +
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Tauto.A.
+(exists (n0 :: s); intuition auto).
