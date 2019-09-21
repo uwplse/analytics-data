@@ -407,6 +407,7 @@ right.
        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
         subst
  end).
+Set Printing Width 148.
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || apply mk_nf_nf__equal
  end).
