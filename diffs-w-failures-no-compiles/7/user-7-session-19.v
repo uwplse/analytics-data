@@ -123,5 +123,15 @@ Set Silent.
 Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ])).
+Show.
+(try (solve
+  [ match goal with
+    | |- | ?t1 | <= | ?t2 | =>
+          (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
+            (H 0 _ Hv); destruct H as [H _]; specialize (H Hm); contradiction) ||
+            (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
+              (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
+    end ])).
 Show.
