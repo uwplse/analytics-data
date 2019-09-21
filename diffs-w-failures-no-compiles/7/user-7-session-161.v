@@ -81,5 +81,10 @@ assumption.
 Abort.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
+Unset Silent.
 Proof.
+(intros X Y t).
+(induction t).
