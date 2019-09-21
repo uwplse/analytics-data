@@ -48,14 +48,13 @@ lia.
 Qed.
 Theorem init_ok : init_abstraction init recover abstr inited.
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 Proof.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2grtcA"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq39110d"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @init.
+(unfold init).
+(eapply then_init_compose; eauto).
