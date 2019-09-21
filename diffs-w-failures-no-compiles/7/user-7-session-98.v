@@ -153,4 +153,7 @@ Set Printing Width 148.
 (destruct Hm as [Hv [tx Heqx]]; subst).
 Set Printing Width 148.
 (simpl in *).
-(split; auto).
+Set Printing Width 148.
+split.
+assumption.
+(exists tx; reflexivity).
