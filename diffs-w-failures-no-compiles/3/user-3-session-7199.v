@@ -222,10 +222,11 @@ Timeout 1 Check @block.
 Timeout 1 Check @block.
 Timeout 1 Check @block0.
 Set Printing Width 78.
+Timeout 1 Check @spec_abstraction_compose.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' => state' = state /\ r = nth state a block0;
+     post := fun r state' => state' = state /\ r = nth a state block0;
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
