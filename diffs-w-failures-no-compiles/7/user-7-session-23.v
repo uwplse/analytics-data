@@ -97,4 +97,4 @@ Set Silent.
 Proof.
 Unset Silent.
 (intros t1 t2 Hsemdec).
-(apply sub_d__semantic_complete).
+(apply sub_d__semantic_complete_i).
