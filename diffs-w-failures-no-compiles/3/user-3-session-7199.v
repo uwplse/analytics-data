@@ -370,7 +370,25 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @diskGet.
 Timeout 1 Check @diskGet.
 Timeout 1 Check @diskGet.
-Search -diskGet -"inbounds".
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Set Printing Width 78.
+Show.
+Search -diskGet -diskSize.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @BaseOp.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @None.
+Timeout 1 Check @nil.
+Timeout 1 Check @nil.
+(assert (diskGet nil 0 = None)).
