@@ -324,35 +324,6 @@ admit.
 -
 admit.
 -
-(destruct Hcontra as [v Hcontra]).
-Search -id.
-Set Printing Width 148.
-(destruct (beq_idP X i)).
-+
 Show.
 Set Printing Width 148.
-Set Printing Width 148.
-subst.
-(simpl in Hcontra).
-(assert (Heq : beq_id i i = true)).
-{
-admit.
-}
-Search -beq_id_refl.
-(rewrite Heq in Hcontra).
-(apply Hnotm).
-exists v.
-assumption.
-+
-(simpl in Hcontra).
-(assert (Heq : beq_id X i = false)).
-Set Silent.
-{
-admit.
-Unset Silent.
-}
-(rewrite Heq in Hcontra).
-(apply match_ty_exist__inv in Hcontra).
-Show.
-(destruct Hcontra as [tx Hcontra]).
-Show.
+(assert (Hnotm' : ~ (exists v, tx, |-[ k, w] v <$ [i := tx] t))).
