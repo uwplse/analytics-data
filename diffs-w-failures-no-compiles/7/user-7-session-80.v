@@ -606,4 +606,5 @@ Lemma match_ty_value_type__inv_depth_equal : forall v v' : ty, value_type v' -> 
 Proof.
 (intros v v' Hv' k Hm1).
 Unset Silent.
-(pose proof (match_ty__inv_depth_le v v' k Hm1) as Hdep1).
+Show.
+(pose proof (match_ty__inv_depth_le_l v v' k Hm1) as Hdep1).
