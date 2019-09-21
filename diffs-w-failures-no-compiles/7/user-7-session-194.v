@@ -14,38 +14,36 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjt.
-Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
-Proof.
-(intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
-Unset Silent.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma f_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (f_free_in_ty X t).
 Proof.
 (intros X t).
-(unfold f_free_in_ty).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma b_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (b_free_in_ty X t).
 Proof.
 (intros X t).
-(unfold f_free_in_ty).
-Set Printing Width 148.
+(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Qed.
 Lemma f_free_in_ty__dec : forall (X : id) (t : ty), f_free_in_ty X t \/ not_f_free_in_ty X t.
-Set Silent.
 Proof.
 (intros X t).
-(unfold f_free_in_ty).
-Unset Silent.
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma b_free_in_ty__dec : forall (X : id) (t : ty), b_free_in_ty X t \/ not_b_free_in_ty X t.
 Proof.
 (intros X t).
-(unfold b_free_in_ty).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
 Unset Silent.
 Qed.
+Set Silent.
+Lemma not_free_union__inv : forall (X : id) (fvs1 fvs2 : id_set), not_free X (IdSet.union fvs1 fvs2) -> not_free X fvs1 /\ not_free X fvs2.
+Proof.
+(intros X fvs1 fvs2 H).
+(unfold not_free in *).
+(split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma not_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_free_in_ty X (TPair t1 t2) -> not_free_in_ty X t1 /\ not_free_in_ty X t2.
