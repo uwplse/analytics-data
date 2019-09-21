@@ -253,12 +253,9 @@ Show.
 Set Printing Width 148.
 Show.
 Set Printing Width 148.
-(try
-  match goal with
-  | Hsem:||-[ ?k][?t]<= [?t']
-    |- | ?t | = | ?t' | =>
-        destruct Hsem as [Hsem _]; specialize (Hsem 0); destruct Hsem as [w2 Hsem];
-         assert (Hm : |-[ 0, 0] t <$ t) by (apply match_ty_value_type__reflexive; constructor); specialize (Hsem _ Hm); 
-         destruct w2; simpl in Hsem; contradiction
-  end).
+Set Printing Width 148.
+(try match goal with
+     | Hsem:||-[ ?k][?t]<= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
+     end).
+Show.
 Show.
