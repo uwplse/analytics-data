@@ -75,4 +75,4 @@ Set Printing Width 114.
 Unset Silent.
 Set Printing Width 114.
 Unset Silent.
-Timeout 1 Check @match_app_event.
+Timeout 1 Check @match_event.
