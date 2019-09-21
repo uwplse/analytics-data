@@ -806,13 +806,16 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 (apply spec_abstraction_compose).
-step_proc.
-Timeout 1 Check @sig.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @sig.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
-(destruct a' as [[] bs]).
+Set Silent.
+step_proc.
+Unset Silent.
+(destruct a' as [[] bs]; simpl in *).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @div_eucl_th.
+intuition euto.
