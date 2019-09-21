@@ -80,4 +80,7 @@ Unset Silent.
 Proof.
 Set Silent.
 Set Printing Width 148.
-(destruct k, w, v; try contradiction).
+Set Printing Width 148.
+(destruct k, w, v; simpl in Hm; try contradiction).
+Show.
+exists v.
