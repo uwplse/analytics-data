@@ -120,4 +120,7 @@ subst.
 Unset Silent.
 contradiction.
 *
+Show.
+Set Printing Width 148.
+(rewrite subst_exist_eq).
 (rewrite subst_exist_neq).
