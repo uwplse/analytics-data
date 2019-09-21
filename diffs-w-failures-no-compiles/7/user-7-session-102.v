@@ -83,5 +83,11 @@ Set Silent.
 Definition sem_sub_k_w (k w1 w2 : nat) (t1 t2 : ty) := forall v : ty, |-[ k, w1] v <$ t1 -> |-[ k, w2] v <$ t2.
 Unset Silent.
 Notation "'||-[' k ',' w1 ',' w2 ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_k_w k w1 w2 t1 t2) (at level 45) : btjm_scope.
+Set Printing Width 148.
+Set Silent.
 Definition sem_sub_k (k : nat) (t1 t2 : ty) := forall w1 : nat, exists w2 : nat, ||-[ k, w1, w2][t1]<= [t2].
+Unset Silent.
 Notation "'||-[' k ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_k k t1 t2) (at level 47) : btjm_scope.
+Definition sem_eq_k (k : nat) (t1 t2 : ty) := ||-[ k][t1]<= [t2] /\ ||-[ k][t2]<= [t1].
+Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_k k t1 t2) (at level 47) : btjm_scope.
+Hint Unfold sem_sub_k_w sem_sub_k sem_eq_k: DBBetaJulia.
