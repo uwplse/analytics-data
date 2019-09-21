@@ -87,4 +87,7 @@ Qed.
 Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> ||- [t1]<= [t2].
 Unset Silent.
 Proof.
-(intros Hsemi).
+Set Printing Width 148.
+(intros t1 t2 Hsemi).
+(apply sub_d__semantic_sound).
+(apply sub_d__sem_sub_i).
