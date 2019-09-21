@@ -50,12 +50,49 @@ Module Log (d: OneDiskAPI)<: LogAPI.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Set Printing Width 78.
+Definition len_addr : addr := 0.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqvP75sv"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdw5bof"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @block.
+Timeout 1 Check @addr.
+Timeout 1 Check @addr.
+Definition log_addr a : addr := S a.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqt5ZCBD"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7wi6k6"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @Ret.
+Timeout 1 Check @In.
+Timeout 1 Check @Initialized.
+Timeout 1 Check @Initialized.
+Timeout 1 Check @Initialized.
+Timeout 1 Check @Initialized.
+Timeout 1 Check @Initialized.
+Set Silent.
 Definition init : proc InitResult.
-Timeout 1 Check @Qfield.Qsft.
-Print OneDiskAPI.
-Timeout 1 Locate Ltac OneDiskAPI.
-Timeout 1 Locate OneDiskAPI.
-Timeout 1 Locate OneDiskAPI.
-Timeout 1 Locate Ltac OneDiskAPI.
-Timeout 1 Locate OneDiskAPI.
-Timeout 1 Locate OneDiskAPI.
+Unset Silent.
