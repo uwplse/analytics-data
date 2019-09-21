@@ -155,6 +155,6 @@ Set Printing Width 148.
 (apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
 specialize (IHw _ _ Hwftx HX Hm).
 (destruct IHw as [v' [Hm' IHw]]).
-exists v'.
-split.
-(apply match_ty_exist).
+Show.
+Set Printing Width 148.
+(rewrite b_subst_neq__permute in Hm').
