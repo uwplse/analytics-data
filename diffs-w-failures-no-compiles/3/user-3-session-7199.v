@@ -210,129 +210,22 @@ Timeout 1 Check @spec_abstraction_compose.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
-Proof.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @rec_wipe.
-Timeout 1 Check @rec_wipe.
-Timeout 1 Check @rec_wipe.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @sig.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(unfold rec_wipe; simpl; intros).
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Show.
-(apply spec_abstraction_compose).
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-step_proc.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-(destruct a as [_ bs]; simpl in *; intuition eauto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYQenis"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Timeout 1 Check @Ret.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @repeat_length.
 Timeout 1 Check @spec_abstraction_compose.
-Hint Resolve recover_wipe: core.
-Theorem get_upto_ok a :
+Timeout 1 Check @nth.
+Timeout 1 Check @nth.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block0.
+Set Printing Width 78.
+Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
-     pre := a <= length state;
-     post := fun r state' => state' = state /\ r = firstn a state;
-     recovered := fun _ state' => state' = state |}) 
-    (get_upto a) recover abstr.
-Proof.
-(induction a; simpl).
--
-step_proc.
--
-Timeout 1 Check @spec_abstraction_compose.
-step_proc.
+     pre := a < length state;
+     post := fun r state' => state' = state /\ r = nth state a block0;
+     recovered := fun _ state' => state' = state |}) get_len recover abstr.
