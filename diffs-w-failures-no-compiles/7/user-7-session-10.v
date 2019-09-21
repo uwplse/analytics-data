@@ -176,10 +176,11 @@ Unset Silent.
 -
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 Lemma sub_r_nf__trans2 :
   forall tm1 tm2 : ty,
   |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
-Set Silent.
 Proof.
 (intros tm1 tm2 Hsub).
 (induction Hsub; intros Hnfm1 Hnfm2).
@@ -200,86 +201,19 @@ tauto.
 (destruct (in_nf_union__inv _ _ Hnfm1) as [Hnfm11 Hnfm12]).
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
 (destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
-(split; intros tx Hsub').
+Unset Silent.
+(split; intros tx Hsub'; try (solve [ constructor; auto ])).
+Set Silent.
 +
 (remember (TUnion t1 t2) as ty eqn:Heqy ).
+Unset Silent.
 (induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
-+
-(constructor; auto).
+Set Silent.
 -
 (destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
 (destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
-(apply sub_r_union_l__inv in Hsub').
+Unset Silent.
+(apply sub_r_union_l__inv in Hsub'; try (solve [ constructor; auto ])).
 (destruct Hsub'; auto).
--
-(destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
-(destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
-(split; intros tx Hsub'; try (solve [ constructor; auto ])).
-+
-(apply sub_r_union_l__inv in Hsub').
-(destruct Hsub'; auto).
--
-(pose proof (in_nf_ref__inv _ Hnfm1) as Hnf1).
-(pose proof (in_nf_ref__inv _ Hnfm2) as Hnf2).
-(destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
-(destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
-(split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst;
-  try (solve [ constructor; auto ])).
-+
-(apply IHHsub').
-(apply mk_nf_nf__equal; assumption).
-(apply mk_nf__in_nf).
--
-(split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
-(apply sub_r__mk_nf_sub_r; assumption).
-Set Printing Width 148.
-Set Silent.
-Lemma sub_r__trans2 :
-  forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
-Unset Silent.
-Proof.
-Show.
-Set Silent.
-(intros tm1 tm2 Hsub).
-Unset Silent.
-(induction Hsub).
-Set Silent.
--
-Unset Silent.
-tauto.
-Set Silent.
--
-Unset Silent.
-Show.
-Set Silent.
-(destruct IHHsub1 as [IHHsub11 IHHsub12]).
-Unset Silent.
-(destruct IHHsub2 as [IHHsub21 IHHsub22]).
-(split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
-  subst; try (solve [ constructor; auto ])).
-Set Silent.
-+
-Unset Silent.
-Show.
-(assert (Hsub : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
-(apply SR_NormalForm).
-(apply sub_r__mk_nf_sub_r in Hsub).
-Set Silent.
-(pose proof (mk_nf__in_nf (TPair t1 t2)) as Hnf1).
-Unset Silent.
-(pose proof (mk_nf__in_nf (TPair t1' t2')) as Hnf2).
-Show.
-(pose proof (sub_r_nf__trans2 _ _ Hsub Hnf1 Hnf2) as Htrans).
-(destruct Htrans as [_ Htrans]).
-(apply Htrans; assumption).
-Set Silent.
--
-Unset Silent.
-Show.
-Set Silent.
-(destruct IHHsub1 as [IHHsub11 IHHsub12]).
-(destruct IHHsub2 as [IHHsub21 IHHsub22]).
-Unset Silent.
-(split; intros tx Hsub').
