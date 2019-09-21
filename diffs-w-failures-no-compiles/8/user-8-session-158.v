@@ -342,18 +342,27 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-3: {
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Set Silent.
+Focus 3.
 econstructor.
 3: eauto.
 3: eauto.
 2: monoid.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 validate.
-}
+Unfocus.
+2: monoid.
+(subst; validate).
+(subst; validate).
+-
+split.
+validate.
+monoid.
+Unset Silent.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq5JskZl"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
