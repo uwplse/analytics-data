@@ -216,4 +216,5 @@ Unset Silent.
 (assert (Hm : |-[ 0] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem 0 _ Hm).
 (apply match_ty_i_union__inv in Hsem).
+Set Printing Width 148.
 (destruct Hsem; [ left | right ]).
