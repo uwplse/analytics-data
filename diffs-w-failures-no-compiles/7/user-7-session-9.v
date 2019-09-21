@@ -61,4 +61,18 @@ Set Silent.
 Unset Silent.
 (rewrite unite_pairs_atom_union; try assumption).
 Set Printing Width 148.
-(apply sub_r_union_l__inv in Hsub2; assumption).
+(apply sub_r_union_l__inv in Hsub2; try assumption).
+(inversion Hsub2).
+(constructor; [ apply IHHnf2_1 | apply IHHnf2_2 ]; assumption).
+Set Silent.
++
+(intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
+(rewrite (unite_pairs_union_t t1 t0 t2')).
+Unset Silent.
+(destruct (atom_sub_r_union__inv _ _ _ Hsub1 H) as [Hsub11| Hsub12]; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
+Set Silent.
+-
+Unset Silent.
+(intros Hnf1' Hnf2 Hn2' Hsub1 Hsub2).
+(rewrite (unite_pairs_union_t t1 t0 t2)).
+(destruct (sub_r_union_l__inv _ _ _ Hsub1 Hnf) as [Hsub11 Hsub12]).
