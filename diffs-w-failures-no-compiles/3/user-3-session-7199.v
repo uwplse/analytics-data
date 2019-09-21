@@ -625,5 +625,20 @@ Qed.
 Hint Resolve get_upto_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
-(unfold get, get_spec; intros).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold get, get_spec; intros).
+Timeout 1 Check @app.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(apply spec_abstraction_compose).
