@@ -21,12 +21,6 @@ Set Printing Width 131.
 Unset Silent.
 Unset Silent.
 Set Printing Width 131.
-Fact denote_compose :
-  forall safe w (c : Circuit w) (\206\147 : Ctx) \207\129,
-  \206\147 \226\138\162 c :Circ ->
-  forall w' (f : Pat w -> Circuit w') (\206\1470 \206\1471 \206\1471' \206\14701 : Ctx),
-  \206\1471 \226\138\162 f :Fun ->
-  \206\1471' \226\169\181 \206\1471 \226\136\153 \206\147 ->
-  \206\14701 \226\169\181 \206\1470 \226\136\153 \206\1471 ->
-  denote_circuit safe (compose c f) \206\1470 \206\1471' \207\129 =
-  compose_super (denote_circuit safe (f (add_fresh_pat w \206\1471)) \206\1470 (add_fresh_state w \206\1471)) (denote_circuit safe c \206\14701 \206\147) \207\129.
+Timeout 1 About denote_circuit.
+Timeout 1 Print denote_circuit.
+Timeout 1 Print Ltac denote_circuit.
