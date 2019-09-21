@@ -2800,6 +2800,5 @@ Show.
 (eapply t0).
 split.
 easy.
-(apply pf_merge).
 Unset Silent.
 Show.
