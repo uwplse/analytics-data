@@ -503,4 +503,14 @@ constructor.
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf).
 Check sem_eq_k_i__inv_depth_eq_1.
-(pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href)).
+Set Printing Width 148.
+(pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href) as Hdepeq).
+(rewrite <- Hdepeq; assumption).
+admit.
+}
+Admitted.
+Set Silent.
+Theorem nf_sem_sub__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+Unset Silent.
+Proof.
+(intros t Hnf t' Hsem).
