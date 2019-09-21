@@ -207,4 +207,9 @@ Proof.
 (induction n as [| n' IHn']).
 -
 (simpl).
-(rewrite <- plus_n_O).
+reflexivity.
+-
+Timeout 1 Check @sig.
+(simpl).
+(rewrite IHn').
+reflexivity.
