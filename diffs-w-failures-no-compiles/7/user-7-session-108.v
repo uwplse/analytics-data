@@ -147,18 +147,4 @@ Unset Silent.
 Proof.
 Show.
 (intros X t1 t2 k w1).
-exists w1.
-(intros v Hm).
-Show.
-(apply match_ty_pair__inv in Hm).
 Set Printing Width 148.
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(destruct w1).
--
-(apply match_ty_exist__0_inv in Hm1).
-contradiction.
--
-(apply match_ty_exist).
-(apply match_ty_exist__inv in Hm1).
-(destruct Hm1 as [tx Hmx]).
-exists tx.
