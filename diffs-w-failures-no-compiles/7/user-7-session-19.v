@@ -218,4 +218,5 @@ Show.
 Show.
 (simpl).
 Show.
-assumption.
+auto.
+Show.
