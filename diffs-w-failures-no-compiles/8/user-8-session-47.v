@@ -627,5 +627,12 @@ Proof.
 (induction n; intros).
 -
 (simpl).
-Msimpl.
 Unset Silent.
+Show.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqkgd1Jh"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Set Printing Width 85.
+Show.
+(rewrite (kron_1_r u)).
