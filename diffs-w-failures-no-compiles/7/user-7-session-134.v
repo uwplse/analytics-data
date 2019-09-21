@@ -116,4 +116,6 @@ exists w1.
 (destruct w1; simpl; tauto).
 -
 Show.
-(apply sem_sub_k_ref).
+Set Printing Width 148.
+(apply sem_sub_k_ref; auto).
+Qed.
