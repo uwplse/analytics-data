@@ -137,4 +137,5 @@ Set Printing Width 148.
 (unfold subst_func).
 (rewrite fix_sub_eq).
 Show.
+(simpl).
 reflexivity.
