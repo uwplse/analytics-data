@@ -14,6 +14,8 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
+Set Printing Width 148.
+Set Silent.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   wf_ty tx ->
@@ -101,14 +103,9 @@ specialize (IHw' HX').
 (rewrite f_subst_exist).
 exists ([FX' := tx] ti).
 split.
-Unset Silent.
 (apply wf_ty__wf_ty_f_subst; assumption).
-(rewrite f_b_subst__spec_permute in IHw').
-Set Printing Width 148.
-Set Printing Width 148.
 (rewrite f_b_subst__spec_permute in IHw'; assumption).
 -
-Show.
 admit.
 -
 admit.
@@ -120,92 +117,22 @@ subst.
 (apply match_ty_exist__0_inv in Hm).
 contradiction.
 +
-Set Silent.
 subst.
-Unset Silent.
 (rewrite b_subst_exist_neq in Hm; try assumption).
-Set Silent.
 (apply match_ty_exist__0_inv in Hm).
-Unset Silent.
 contradiction.
 -
 admit.
-Set Silent.
 -
-Unset Silent.
 admit.
-Set Silent.
 -
-Unset Silent.
 admit.
-Set Silent.
 -
-Unset Silent.
 admit.
-Set Silent.
 -
-Unset Silent.
 admit.
-Set Silent.
 -
-Unset Silent.
 admit.
-Set Silent.
--
-Unset Silent.
-Show.
-Show.
-Show.
-Set Printing Width 148.
-Set Silent.
-(destruct (beq_idP X i)).
-+
-subst.
-(rewrite b_subst_exist_eq in *).
-exists v.
-split.
-assumption.
-(intros w' t' Hm').
-(split; intros HX').
-Unset Silent.
-assumption.
-Set Silent.
-Abort.
-Open Scope btjm.
-Theorem sub_d__semantic_sound : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
-Proof.
-(intros t1 t2 Hsub).
-(induction Hsub).
--
-(apply sem_sub__refl).
--
-(apply sem_sub__trans with t2; assumption).
--
-(apply sem_sub_pair; assumption).
--
-(apply sem_sub_union; assumption).
--
-(apply sem_sub_union_1).
-(apply sem_sub__refl).
--
-(apply sem_sub_union_2).
-(apply sem_sub__refl).
--
-(intros w1).
-exists w1.
-(intros v Hm).
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_union__inv in Hm1).
-(destruct Hm1; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
--
-(intros w1).
-exists w1.
-(intros v Hm).
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_union__inv in Hm2).
-(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
 -
 Unset Silent.
 Show.
