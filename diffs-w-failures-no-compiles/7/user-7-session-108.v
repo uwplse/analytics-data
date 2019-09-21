@@ -251,26 +251,16 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Lemma not_match_ty_var__not_match_ty_subs :
-  forall (t v : ty) (k w : nat), ~ |-[ k, w] v <$ t -> forall (X : id) (s : ty), ~ |-[ k, w] v <$ [X := s] t.
-Proof.
-Show.
-(induction t; intros v k w Hnotm X S Hcontra).
-Show.
--
-(destruct k, w, v; apply Hnotm; assumption).
--
-Show.
-(simpl in Hcontra).
-Show.
-(apply match_ty_pair__inv in Hcontra).
-Show.
 Set Printing Width 148.
+Lemma not_match_ty_var__not_match_ty_subs :
+  forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
+Set Silent.
+Proof.
+Unset Silent.
+(induction t; intros k w Hnotm X S Hcontra).
+-
+(apply Hnotm; assumption).
+-
+(simpl in Hcontra).
+Set Silent.
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
-Show.
-subst.
-Show.
-(assert (Hcontra : ~ |-[ k, w] v1 <$ t1 \/ ~ |-[ k, w] v2 <$ t2)).
-Show.
-{
-Show.
