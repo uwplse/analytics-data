@@ -453,4 +453,4 @@ Set Silent.
 Unset Silent.
 (destruct Hcontra as [Hcontra _]).
 Set Silent.
-(destruct Ht as [w1 [v Hm]]).
+Unset Silent.
