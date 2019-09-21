@@ -125,4 +125,8 @@ Show.
 Set Printing Width 148.
 (apply match_ty_exist).
 exists tint.
-(simpl).
+Set Printing Width 148.
+(apply match_ty_value_type__reflexive).
+constructor.
+}
+Show.
