@@ -70,4 +70,4 @@ Search -Morphisms.Proper.
 Search -Morphisms.Proper.
 Check Hfact.
 Print Morphisms.Proper.
-specialize (Hfact _ _ _ (FBV t) IdSet.empty Ht).
+specialize (Hfact X X _ (FBV t) IdSet.empty Ht).
