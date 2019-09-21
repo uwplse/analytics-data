@@ -65,15 +65,17 @@ tauto.
 (assert (Heq : ||-[ k][t]= [t']) by (apply sem_sub_k__sem_eq_k; auto)).
 (eapply sem_eq_k__trans; eassumption).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Theorem sub_d__semantic_complete : forall t1 t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
 Proof.
 (intros t1 t2 Hsem).
 (apply SD_Trans with (MkNF( t1))).
 (apply mk_nf__sub_d_r; assumption).
 (apply nf_sem_sub__sub_d).
-(apply mk_nf__in_nf).
 Unset Silent.
-(eapply sem_sub__trans; try eassumption).
+(apply mk_nf__in_nf).
 Show.
+(apply sem_sub__trans with t1; try assumption).
 (apply mk_nf__sem_sub_l).
 Qed.
