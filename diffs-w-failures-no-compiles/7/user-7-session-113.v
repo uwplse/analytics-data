@@ -37,6 +37,6 @@ Proof.
 (intros X t).
 (induction t; intros Hnfresh s; try (solve [ reflexivity ])).
 -
-(simpl).
-Unset Silent.
-(unfold fresh_in_ty in *).
+Set Printing Width 148.
+(unfold not_fresh_in_ty in *).
+Show.
