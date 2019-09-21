@@ -15,22 +15,49 @@ Require Import Coq.Bool.Bool.
 Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
+Set Printing Width 148.
+Set Silent.
 Lemma atom_sub_r_union__inv : forall t t1' t2' : ty, |- t << TUnion t1' t2' -> atom_type t -> |- t << t1' \/ |- t << t2'.
 Proof.
 (intros t t1' t2' Hsub).
 (remember (TUnion t1' t2') as t' eqn:Heq ).
-Set Printing Width 148.
-Set Printing Width 148.
 (induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ]); inversion Heq; subst).
-Set Silent.
 -
 (left; assumption).
 -
-Unset Silent.
 (right; assumption).
-Show.
 -
 (assert (Hnf : InNF( t)) by (constructor; assumption)).
 (rewrite (mk_nf_nf__equal t Hnf) in IHHsub).
 tauto.
 Qed.
+Lemma unite_pairs_of_nf__preserves_sub_r :
+  forall t1 t1' t2 t2' : ty,
+  InNF( t1) -> InNF( t1') -> InNF( t2) -> InNF( t2') -> |- t1 << t1' -> |- t2 << t2' -> |- unite_pairs t1 t2 << unite_pairs t1' t2'.
+Proof.
+(intros t1 t1' t2 t2' Hnf1).
+(induction Hnf1).
+-
+(intros Hnf1'; induction Hnf1').
++
+(intros Hnf2; induction Hnf2).
+*
+(intros Hnf2'; induction Hnf2'; intros Hsub1 Hsub2).
+{
+(rewrite (unite_pairs_of_atomtys _ _ H H1)).
+(rewrite (unite_pairs_of_atomtys _ _ H0 H2)).
+(constructor; assumption).
+Unset Silent.
+}
+Set Silent.
+{
+(rewrite unite_pairs_atom_union; try assumption).
+(destruct (atom_sub_r_union__inv _ _ _ Hsub2 H1) as [Hsub21| Hsub22]; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
+Unset Silent.
+}
+Set Silent.
+*
+(intros Hnf2'; intros Hsub1 Hsub2).
+Unset Silent.
+(rewrite unite_pairs_atom_union; try assumption).
+(apply sub_r_union_l__inv in Hsub2; try assumption).
