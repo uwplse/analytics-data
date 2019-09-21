@@ -195,23 +195,10 @@ Set Printing Width 148.
 Set Printing Width 148.
 (intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v); tauto).
 Show.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma value_sem_sub_k_union__value_sem_sub_k_component :
-  forall k : nat, forall v : ty, value_type v -> forall ta tb : ty, ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-(induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem).
-Show.
+  forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
+Proof.
+Unset Silent.
+(intros v Hv; induction Hv; intros k ta tb Hsem; unfold sem_sub_k_i in Hsem).
