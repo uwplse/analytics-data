@@ -81,4 +81,6 @@ Proof.
 (intros).
 Unset Silent.
 Show.
+(simpl).
+Set Silent.
 reflexivity.
