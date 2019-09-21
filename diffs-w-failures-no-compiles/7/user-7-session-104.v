@@ -89,4 +89,7 @@ Fixpoint inv_depth (t : ty) :=
   | TEV _ => 0
   end
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
-Lemma sem_eq_k_inv_depth__exists_not : forall (k : nat) (t : ty), | t | <= k -> exists t' : ty, ~ ||-[ k][t']= [t].
+Set Printing Width 148.
+Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
+Proof.
+(induction k).
