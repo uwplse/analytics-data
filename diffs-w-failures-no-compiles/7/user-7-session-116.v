@@ -94,4 +94,17 @@ reflexivity.
 *
 Set Printing Width 148.
 Set Printing Width 148.
-(rewrite IHt; assumption).
+(rewrite IHt; try assumption).
+reflexivity.
+Set Silent.
+-
+Unset Silent.
+(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
+Set Silent.
++
+Unset Silent.
+contradiction.
++
+(simpl).
+(rewrite <- beq_id_refl).
+(apply subs_fresh_in_ty).
