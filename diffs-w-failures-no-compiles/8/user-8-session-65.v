@@ -1415,4 +1415,9 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+-
+Timeout 1 Check @denote_box_compat.
