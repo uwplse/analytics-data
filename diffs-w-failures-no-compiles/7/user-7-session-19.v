@@ -367,7 +367,4 @@ Proof.
 Unset Silent.
 (intros ta; induction ta; intros tb; induction tb; intros Hsem).
 Set Silent.
-16: {
-idtac.
-Unset Silent.
-clear IHta.
+Show.
