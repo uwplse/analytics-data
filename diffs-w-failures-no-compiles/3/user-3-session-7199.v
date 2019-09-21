@@ -361,4 +361,13 @@ Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Set Printing Width 78.
 Show.
-(destruct (a == a0)).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sum.
+Timeout 1 Check @Nsub.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(destruct (a == a0); subst; autorewrite with upd; auto).
