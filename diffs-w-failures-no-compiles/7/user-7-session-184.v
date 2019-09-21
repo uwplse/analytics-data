@@ -72,4 +72,6 @@ admit.
 Unset Silent.
 Show.
 (rewrite subst_exist in Hm).
+Set Printing Width 148.
 (pose proof (subst_exist X tx i t) as Heq).
+(destruct Heq as [X [tz Heq]]).
