@@ -130,5 +130,8 @@ Set Silent.
 Unset Silent.
 reflexivity.
 -
-(destruct (beq_idP X i)).
-+
+Set Printing Width 148.
+(destruct (beq_idP X i); try reflexivity).
+(rewrite IHt).
+reflexivity.
+-
