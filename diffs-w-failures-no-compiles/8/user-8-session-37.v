@@ -573,4 +573,10 @@ Show.
 Set Printing Width 85.
 Show.
 (destruct safe; trivial).
+Timeout 1 Check @valid_ancillae.
+Timeout 1 Check @valid_ancillae.
+Timeout 1 Check @valid_ancillae.
+Timeout 1 Check @valid_ancillae'.
+Timeout 1 Check @valid_ancillae_box.
+(unfold valid_ancillae_box in H).
 (rewrite <- H; assumption).
