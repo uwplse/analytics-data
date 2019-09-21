@@ -39,16 +39,16 @@ Proof.
 (induction Hsub; try inversion Heq1; inversion Heq2; subst).
 reflexivity.
 Set Printing Width 148.
+Set Printing Width 148.
+Lemma sub_r_nf_ref__inv : forall t t' : ty, InNF( t) -> InNF( t') -> |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Set Silent.
-Lemma sub_r_nf_ref__inv : forall t t' : ty, InNF( t') -> InNF( t') -> |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
-Unset Silent.
 (intros t t' Hnf Hnf' Hsub).
-Set Silent.
 (remember (TRef t) as t1 eqn:Heq1 ).
 (remember (TRef t') as t2 eqn:Heq2 ).
-Unset Silent.
 (induction Hsub; try inversion Heq1; inversion Heq2; subst).
+Unset Silent.
 tauto.
 (apply IHHsub; try tauto).
 (apply mk_nf_nf__equal).
+constructor.
