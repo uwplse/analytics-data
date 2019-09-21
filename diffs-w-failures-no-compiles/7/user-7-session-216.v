@@ -422,4 +422,9 @@ tauto.
 (rewrite f_subst_exist).
 Set Printing Width 148.
 Set Printing Width 148.
-(unfold wf_ty in *; simpl).
+Set Printing Width 148.
+(unfold wf_ty in *; simpl in *).
+Search -IdSet.Empty.
+Search -IdSet.Empty.
+Search -IdSet.remove.
+admit.
