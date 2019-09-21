@@ -2833,6 +2833,5 @@ Show.
 dependent destruction t.
 (apply singleton_equiv in s; subst).
 (simpl).
-(rewrite singleton_size).
 Unset Silent.
 Show.
