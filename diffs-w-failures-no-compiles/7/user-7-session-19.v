@@ -71,21 +71,8 @@ Unset Silent.
 Set Silent.
 Lemma match_ty_i_ref__inv :
   forall v t : ty, forall k : nat, |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ (forall v' : ty, |-[ k] v' <$ t' <-> |-[ k] v' <$ t).
-Proof.
-(intros v; induction v; try (solve [ intros t k Hm; destruct k; simpl in Hm; contradiction ])).
-clear IHv.
-(intros t k).
-(intros Hm).
+Show.
+Set Printing Width 148.
 (pose proof Hm as Href).
-Unset Silent.
 (simpl in Href).
-Set Silent.
-exists v.
-split.
-Unset Silent.
-reflexivity.
-Set Silent.
-(intros v').
-Unset Silent.
-specialize (Href v').
-(destruct Href; split; assumption).
+Show.
