@@ -118,6 +118,5 @@ Set Printing Width 78.
 Show.
 -
 destruct_all.
--
 Unset Silent.
 Set Diffs "off".
