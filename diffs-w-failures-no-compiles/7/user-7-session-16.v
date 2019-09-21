@@ -410,4 +410,7 @@ Set Silent.
 (intros Hcontra).
 (apply sub_r__mk_nf_sub_r1 in Hcontra).
 Set Printing Width 148.
+Set Printing Width 148.
 (induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst).
+Show.
+Show 2.
