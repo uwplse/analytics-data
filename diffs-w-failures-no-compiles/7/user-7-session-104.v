@@ -41,4 +41,9 @@ constructor.
 Unset Silent.
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
+Show.
+Set Printing Width 148.
+(simpl).
 exists t'.
+(split; intros w; exists w; tauto).
+Show.
