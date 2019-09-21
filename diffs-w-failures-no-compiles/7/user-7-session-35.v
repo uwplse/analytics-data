@@ -7,6 +7,5 @@ Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
-Unset Silent.
-Require Import BetaJulia.Sub0250a.BaseProps.
+Set Printing Width 148.
 Require Import BetaJulia.Sub0250a.AltMatchDefs.
