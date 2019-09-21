@@ -231,4 +231,15 @@ Set Diffs "off".
 Timeout 1 Check @false.
 Set Printing Width 51.
 Show.
-Search -(_ * S _).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @mult_n_O.
+Timeout 1 Check @mult_n_O.
+Timeout 1 Check @mult_n_O.
+Timeout 1 Check @mult_n_O.
+Timeout 1 Check @mult_n_O.
+Timeout 1 Check @mult_n_O.
+Timeout 1 Check @mult_n_Sm.
+Set Printing Width 51.
+Show.
+Locate mult_n_Sm.
