@@ -20,4 +20,7 @@ Lemma value_sem_sub_k_i_union__inv :
 Proof.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k in Hsem).
 Unset Silent.
-(assert (Hdep : | v | <= k) by apply match_ty__inv_depth_l_le_index with (TUnion ta tb)).
+Set Silent.
+(assert (Hdep : | v | <= k)).
+Unset Silent.
+(apply match_ty__inv_depth_l_le_index with (TUnion ta tb)).
