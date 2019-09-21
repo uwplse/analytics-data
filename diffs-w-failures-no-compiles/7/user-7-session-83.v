@@ -188,4 +188,4 @@ Unset Silent.
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
 Set Silent.
 -
-(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+Unset Silent.
