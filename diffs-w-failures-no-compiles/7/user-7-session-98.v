@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -12,8 +13,6 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjm.
-Set Printing Width 148.
-Set Silent.
 Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
@@ -37,15 +36,15 @@ Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (k : nat), (exists tx :
 Proof.
 (intros v X t k Hex).
 (destruct v; assumption).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k : nat), |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; contradiction ])).
 (intros c0 k Hm).
 (destruct k; simpl in Hm; subst; reflexivity).
+Unset Silent.
 Qed.
+Set Silent.
 Lemma match_ty_pair__inv :
   forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ k] v1 <$ t1 /\ |-[ k] v2 <$ t2.
 Proof.
@@ -76,9 +75,8 @@ clear IHv.
 (intros t k Hm).
 (simpl in Hm).
 exists v.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
+auto.
+Qed.
 Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty), |-[ 0] v <$ TExist X t -> |-[ 0] v <$ t.
 Unset Silent.
 Proof.
