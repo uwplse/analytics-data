@@ -16,27 +16,49 @@ Inductive cname : Type :=
   | NFlt : _
   | NStr : _.
 Set Printing Width 148.
-Set Silent.
+Set Printing Width 148.
 Inductive ty : Type :=
   | TCName : cname -> ty
   | TPair : ty -> ty -> ty
   | TUnion : ty -> ty -> ty
   | TRef : ty -> ty
-  | TVar : id -> ty
-  | TExist : id -> ty -> ty.
+  | TExist : id -> ty -> ty
+  | TVar : id -> ty.
+Set Silent.
 Definition tint := TCName NInt.
 Definition tflt := TCName NFlt.
 Definition tstr := TCName NStr.
 Definition tIntInt := TPair tint tint.
-Set Printing Width 148.
-Set Silent.
 Definition vX := Id 1.
-Set Printing Width 148.
-Set Silent.
 Definition vY := Id 2.
 Definition vZ := Id 3.
 Definition tX := TVar vX.
 Definition tY := TVar vY.
 Definition teXX := TExist vX tX.
-Unset Silent.
 Definition tyXRefX := TExist vX (TRef tX).
+Declare Scope btjt_scope.
+Delimit Scope btjt_scope with btjt.
+Open Scope btjt.
+Reserved Notation "'|' t '|'" (at level 20).
+Fixpoint inv_depth (t : ty) :=
+  match t with
+  | TCName _ => 0
+  | TPair t1 t2 => Nat.max (| t1 |) (| t2 |)
+  | TUnion t1 t2 => Nat.max (| t1 |) (| t2 |)
+  | TRef t' => 1 + | t' |
+  | TExist _ t' => | t' |
+  | TVar _ => 0
+  end
+where "'|' t '|'" := (inv_depth t) : btjt_scope.
+Reserved Notation "'[' x ':=' s ']' t" (at level 30).
+Unset Silent.
+Fixpoint subst (x : id) (s t : ty) :=
+  match t with
+  | TCName _ => t
+  | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
+  | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
+  | TRef t' => TRef (subst x s t')
+  | TExist y t' => TExist y (if beq_id x y then t' else subst x s t')
+  | TVar y => if beq_id x y then s else t
+  end
+where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
