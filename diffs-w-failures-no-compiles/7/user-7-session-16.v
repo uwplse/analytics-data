@@ -462,4 +462,4 @@ Unset Silent.
 specialize (H1 _ Hnf'').
 specialize (H2 _ Hnf'').
 (destruct H1 as [H1| H1]; destruct H2 as [H2| H2]).
-(left; constructor; assumption).
+Show.
