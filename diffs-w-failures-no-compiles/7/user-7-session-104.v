@@ -93,25 +93,28 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma not__ref_t_match_ty_t : forall (t : ty) (k : nat), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
+Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
 Unset Silent.
 Proof.
 Show.
+(induction k).
+-
 (induction t).
--
-(intros k Hdep w Hcontra).
++
+(intros Hdep w Hcontra).
 (apply match_ty_cname__inv in Hcontra).
-Set Printing Width 148.
 (inversion Hcontra).
--
++
+(intros Hdep w Hcontra).
 Set Silent.
-Show.
-Set Printing Width 148.
 (apply match_ty_pair__inv in Hcontra).
-Show.
 (destruct Hcontra as [v1 [v2 [Heq _]]]).
+Unset Silent.
 (inversion Heq).
-Show.
--
-Show.
++
+(intros Hdep w Hcontra).
+(apply match_ty_union__inv in Hcontra).
+(destruct Hcontra as [Hcontra| Hcontra]).
+*
