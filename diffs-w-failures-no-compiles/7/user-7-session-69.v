@@ -293,4 +293,9 @@ Proof.
           end
    end).
 Qed.
+Set Printing Width 148.
+Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Set Silent.
+Proof.
 Unset Silent.
+(induction k; induction t; intros v; split; intros Hm).
