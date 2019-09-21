@@ -397,17 +397,10 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @disk.
 Timeout 1 Check @diskSize.
 Timeout 1 Check @diskSize.
-Search -diskGet -diskSize.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @disk_oob_eq.
-Timeout 1 Check @disk_oob_eq.
-Timeout 1 Check @disk_oob_eq.
-Timeout 1 Check @disk_oob_eq.
-Timeout 1 Check @disk_oob_eq.
-Timeout 1 Check @disk_oob_eq.
-Timeout 1 Check @disk_oob_eq.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (apply disk_oob_eq).
+Timeout 1 Check @split.
+lia.
