@@ -490,4 +490,5 @@ Set Silent.
 Set Printing Width 148.
 Show.
 Set Printing Width 148.
-(solve_atom_sub_r_union__decidable IHt12 IHt22).
+(solve_atom_sub_r_union__decidable IH12 IH22).
+Show.
