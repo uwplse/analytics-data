@@ -326,21 +326,8 @@ admit.
 -
 Show.
 Set Printing Width 148.
-(assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
-{
+Show.
 Set Printing Width 148.
-Set Printing Width 148.
-(intros [v [tx Hm]]).
-(assert (Hme : |-[ k, S w] v <$ TExist i t)).
-{
-(apply match_ty_exist).
-exists tx.
-assumption.
-}
-(apply Hnotm).
-exists v.
-assumption.
-}
 Set Silent.
 (destruct Hcontra as [v Hcontra]).
 (destruct (beq_idP X i)).
@@ -363,5 +350,8 @@ admit.
 }
 (rewrite Heq in Hcontra).
 (apply match_ty_exist__inv in Hcontra).
-Unset Silent.
 (destruct Hcontra as [tx Hcontra]).
+Unset Silent.
+(assert (Hnotm' : ~ (exists v, |-[ k, w] v <$ [i := tx] t))).
+{
+(intros [v Hm]).
