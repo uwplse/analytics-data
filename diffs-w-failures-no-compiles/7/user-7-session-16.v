@@ -423,6 +423,7 @@ Set Printing Width 148.
         subst
  end).
 Set Printing Width 148.
+Set Printing Width 148.
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra
  end).
