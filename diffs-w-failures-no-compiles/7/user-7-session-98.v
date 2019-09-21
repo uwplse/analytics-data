@@ -176,4 +176,6 @@ Unset Silent.
 clear Heq'.
 clear Hm.
 Set Printing Width 148.
+Set Printing Width 148.
 (assert (Hm : |-[ 1] TRef tx <$ TRef tx) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hsem' Hm).
