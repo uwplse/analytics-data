@@ -115,4 +115,26 @@ Unset Silent.
 Show.
 Set Printing Width 148.
 (apply match_ty_exist__inv in Hm').
-(destruct Hm' as [tx Hm']).
+(destruct Hm' as [ti Hm']).
+exists ti.
+auto.
+Set Silent.
+-
+Unset Silent.
+Show.
+Set Silent.
+admit.
+-
+(pose proof (subst_exist X tx i t) as Heq).
+(destruct Heq as [Z [tz Heq]]).
+(rewrite Heq in Hm).
+Unset Silent.
+(apply match_ty_exist__0_inv in Hm; contradiction).
+Set Silent.
+-
+Unset Silent.
+Show.
+(destruct (beq_idP X i) as [HXi| HXi]).
++
+subst.
+(rewrite subst_var_eq).
