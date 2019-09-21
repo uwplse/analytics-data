@@ -139,5 +139,13 @@ Set Printing Width 148.
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
      end ])).
--
 Show.
+Set Printing Width 148.
+2: {
+idtac.
+Show.
+clear IHt'1 IHt'2.
+Show.
+(simpl).
+Show.
+(apply f_equals).
