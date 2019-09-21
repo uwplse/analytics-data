@@ -445,4 +445,8 @@ Unset Silent.
 +
 (simpl).
 Set Printing Width 148.
-(intros v Hv).
+Show.
+(intros v).
+specialize (Href v).
+(split; tauto).
++
