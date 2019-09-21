@@ -69,5 +69,5 @@ subst.
 contradiction.
 -
 (unfold fresh in Hfresh).
-(destruct (beq_idP X i)).
-+
+Set Printing Width 148.
+(destruct (beq_idP X i); try reflexivity).
