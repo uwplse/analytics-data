@@ -319,4 +319,4 @@ Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t
 Unset Silent.
 Proof.
 (intros t11 t12 t2).
-(simpl).
+Show.
