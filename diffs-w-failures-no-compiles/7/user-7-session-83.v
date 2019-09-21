@@ -79,34 +79,49 @@ generalize dependent v.
 (apply match_ty_i_cname__inv in Hm; subst).
 constructor.
 -
-(apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
--
-(apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto).
--
-(apply match_ty_i_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]; subst).
-constructor.
-Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
-Unset Silent.
 Proof.
 (intros v Hv; induction Hv; intros k).
-Set Silent.
 -
-Unset Silent.
 (destruct k; reflexivity).
-Set Silent.
 -
-Unset Silent.
 (apply match_ty_i_pair; auto).
-Set Silent.
 -
 (destruct k).
-Unset Silent.
 constructor.
-Set Silent.
 (simpl).
+tauto.
 Unset Silent.
+Qed.
+Set Silent.
+Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
+Proof.
+auto with DBBetaJulia.
+Qed.
+Lemma sem_sub_k_i__sem_eq_k_i : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t1] -> ||-[ k][t1]= [t2].
+Proof.
+(intros k t1 t2 Hsem1 Hsem2).
+(split; auto).
+Qed.
+Lemma sem_eq_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq_k in *).
+(intros v).
+specialize (Hsem1 v).
+specialize (Hsem2 v).
 tauto.
 Qed.
+Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname) (t2 : ty), ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
+Proof.
+(intros k c t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+Unset Silent.
+(assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+Set Silent.
+-
+Unset Silent.
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
