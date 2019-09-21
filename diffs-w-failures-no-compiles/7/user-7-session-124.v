@@ -88,3 +88,6 @@ Lemma sem_sub_k_pair__inv :
 Unset Silent.
 Proof.
 (intros k t1 t2 t1' t2').
+Set Printing Width 148.
+(intros k t1 t2 t1' t2' Hsem).
+(split; intros w1).
