@@ -210,4 +210,4 @@ Set Printing Width 148.
 (destruct Hm' as [ti [Hwfti Hm']]).
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw' _]).
-(apply not_f_free_in_ty_exist__inv in HX').
+Show.
