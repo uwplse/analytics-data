@@ -250,7 +250,18 @@ Search -length -add_fresh_state.
 Unset Silent.
 (simpl).
 Abort.
+Unset Silent.
+Set Printing Width 85.
+Set Silent.
 Lemma CNOT_spec :
   forall b1 b2 safe : bool,
-  denote_box safe CNOT (bool_to_matrix b1 \226\138\151 bool_to_matrix b2) =
+  denote_box safe CNOT (bool_to_matrix b1 \226\138\151 bool_to_matrix b2) ==
   bool_to_matrix b1 \226\138\151 bool_to_matrix (b1 \226\138\149 b2).
+Proof.
+vector_denote.
+(destruct b1, b2; unfold bool_to_ket; simpl; Msimpl; solve_matrix).
+Qed.
+Unset Silent.
+Lemma TRUE_spec :
+  forall z safe,
+  denote_box safe TRUE (bool_to_matrix z) == bool_to_matrix (true \226\138\149 z).
