@@ -725,5 +725,10 @@ Set Diffs "off".
 Timeout 1 Check @Tauto.A.
 Set Printing Width 78.
 Show.
-(unfold log_length_ok in *; intros; autorewrite with upd in *; simpl in *;
-  subst; auto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+(unfold log_length_ok in *; intros; autorewrite with upd list in *;
+  simpl in *; subst; auto).
