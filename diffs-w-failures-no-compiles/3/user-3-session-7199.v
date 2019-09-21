@@ -313,4 +313,10 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
 (unfold spec_impl; intros).
-(destruct a0 as [_ bs]).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(destruct a0 as [_ bs]; simpl in *).
