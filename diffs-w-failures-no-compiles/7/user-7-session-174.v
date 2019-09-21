@@ -150,4 +150,4 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 (unfold subst_terminate).
-reflexivity.
+Search -subst_terminate.
