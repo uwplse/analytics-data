@@ -239,8 +239,5 @@ Set Silent.
 (simpl).
 Unset Silent.
 (apply le_n_S).
-(apply IHk).
-(assert (Hv : value_type (TRef t)) by constructor).
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
-specialize (Hsem _ Hm).
-(simpl in Hsem).
+Set Printing Width 148.
+(inversion Hnf; subst).
