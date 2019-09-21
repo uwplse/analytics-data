@@ -658,26 +658,47 @@ Set Printing Width 78.
 Show.
 (destruct a0; simpl in *; auto).
 Timeout 1 Check @Ascii.N_of_ascii.
-f_equal.
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @bytes.
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Tauto.A.
 Set Printing Width 78.
 Show.
 (rewrite IHd by lia; auto).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOAvt48"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoRrV0P"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Opaque firstn.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
+Proof.
+(induction a; simpl).
+-
+step_proc.
+-
+step_proc.
+step_proc.
+intuition eauto.
+{
+lia.
+}
+step_proc.
+Timeout 1 Check @app.
+Timeout 1 Check @firstn.
+Timeout 1 Check @firstn_O.
+Timeout 1 Check @Tauto.A.
+(apply firstn_one_more; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFLf0mY"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
