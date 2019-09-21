@@ -433,6 +433,16 @@ Set Printing Width 148.
 Show.
 Set Silent.
 -
-(inversion Hle; subst).
-Unset Silent.
+Set Printing Width 148.
 assumption.
+-
+Set Silent.
+clear IHt.
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+Unset Silent.
+(inversion Hle; subst).
++
+(simpl).
+auto.
+Show.
