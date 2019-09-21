@@ -454,9 +454,17 @@ Set Silent.
 -
 Unset Silent.
 (destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
-(destruct Hdep as [Hdept| Hdept']).
+Set Printing Width 148.
+Set Silent.
+(destruct Hdep as [Hdep| Hdep]).
 +
-(destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
 (destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
 (simpl; apply Nat.max_le_compat; auto).
 +
+Unset Silent.
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+Set Silent.
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+Unset Silent.
+(simpl; apply Nat.max_le_compat; auto).
