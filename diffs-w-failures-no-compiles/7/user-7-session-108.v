@@ -269,4 +269,7 @@ exists w,v.
 (apply match_ty_union_1).
 assumption.
 -
-exists w,(TRef t).
+exists 0,(TRef t).
+(destruct k).
+reflexivity.
+split.
