@@ -162,4 +162,4 @@ exists w1.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
-(rewrite subs_fresh_in_ty in Hm; try assumption).
+Unset Silent.
