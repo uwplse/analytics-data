@@ -58,4 +58,6 @@ Proof.
 (intros t' X' Hfresh Hsem).
 Unset Silent.
 (simpl in *).
-(apply sem_sub__trans with (TCName c)).
+Set Printing Width 148.
+(apply sem_sub__trans with (TCName c); try assumption).
+(apply sem_sub_k_exist_fresh_l).
