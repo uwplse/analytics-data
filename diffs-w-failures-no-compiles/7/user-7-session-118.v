@@ -159,6 +159,9 @@ Unset Silent.
 Qed.
 Set Silent.
 Lemma sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] -> ||- [t1]<= [t3].
-Proof.
-Unset Silent.
-(intros t1 t2 t3).
+Set Printing Width 148.
+(intros t1 t2 t3 Hsem1 Hsem2).
+Show.
+(intros k).
+Show.
+(apply sem_sub_k__trans).
