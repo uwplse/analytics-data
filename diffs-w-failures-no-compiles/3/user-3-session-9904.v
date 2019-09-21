@@ -99,14 +99,13 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 step_proc.
 (destruct a'; simpl in *; intuition).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
+step_proc.
+Timeout 1 Check @spec_abstraction_compose.
+(split; [ solve [ auto ] |  ]).
 step_proc.
