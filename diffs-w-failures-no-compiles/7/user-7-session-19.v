@@ -210,9 +210,14 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
+     | Hsem:||-[ ?k][?t]<= [?t']
+       |- | ?t | <= | ?t' | =>
+           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
+            (Hsem _ Hm); contradiction
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
        |- _ =>
            assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
@@ -231,12 +236,5 @@ Set Printing Width 148.
        |- _ =>
            destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
-     end ]);
-  try
-   match goal with
-   | Hsem:||-[ ?k][?t]<= [?t']
-     |- | ?t | <= | ?t' | =>
-         assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
-          (Hsem _ Hm); contradiction
-   end).
+     end ])).
 Show.
