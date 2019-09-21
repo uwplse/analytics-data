@@ -174,18 +174,19 @@ Unset Silent.
 (simpl).
 (constructor; assumption).
 -
-(rewrite <- mk_nf__idempotent).
-assumption.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma sub_r_nf__trans :
   forall tm1 tm2 : ty,
   |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
-Proof.
-(intros tm1 tm2 Hsub).
 Unset Silent.
-(induction Hsub; intros Hnfm1 Hnfm2).
+Proof.
+Show.
 Set Silent.
+(intros tm1 tm2 Hsub).
+(induction Hsub; intros Hnfm1 Hnfm2).
 -
 Unset Silent.
 tauto.
+-
+(destruct (in_nf_pair__inv _ _ Hnfm1) as [Hnfmx Hnfmy]).
