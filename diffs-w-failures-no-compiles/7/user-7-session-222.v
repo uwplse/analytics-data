@@ -165,4 +165,4 @@ Unset Silent.
 (simpl).
 Search -IdSet.remove.
 Set Printing Width 148.
-(apply IdSetFacts.remove_2; assumption).
+(apply IdSetFacts.remove_2; tauto).
