@@ -416,6 +416,9 @@ Set Printing Width 148.
 Set Silent.
 (assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
 Set Printing Width 148.
+Set Printing Width 148.
+(destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
+Set Silent.
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
@@ -423,14 +426,14 @@ Set Printing Width 148.
    | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 +
-(destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
+Unset Silent.
 (destruct (IHta11 _ Hnf'1) as [IH11| IH11]; destruct (IHta12 _ Hnf'1) as [IH12| IH12]; destruct (IHta21 _ Hnf'2) as [IH21| IH21];
   destruct (IHta22 _ Hnf'2) as [IH22| IH22];
   try (solve
    [ left; constructor; assumption
    | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
+Set Silent.
 +
+Unset Silent.
+Show.
+(solve_atom_sub_r_union__decidable IHt2_1 IHt2_2; assumption).
