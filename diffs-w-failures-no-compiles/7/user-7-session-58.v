@@ -26,4 +26,5 @@ Show.
 Show.
 (left; intros v' Hm').
 Show.
-contradiction.
+(exfalso; apply Hcontra).
+Show.
