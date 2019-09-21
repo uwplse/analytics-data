@@ -150,8 +150,7 @@ Proof.
 Set Printing Width 148.
 (intros X; induction w; induction t; intros v).
 Show.
-(intros Hm).
-Set Silent.
-(apply match_ty_cname__inv in Hm).
-Unset Silent.
+Set Printing Width 148.
 exists v.
+Show.
+assumption.
