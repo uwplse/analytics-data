@@ -58,4 +58,5 @@ Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> f
 Unset Silent.
 Proof.
 Show.
+Set Printing Width 148.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle).
