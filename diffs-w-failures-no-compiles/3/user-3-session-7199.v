@@ -602,4 +602,5 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @split.
-(unfold log_size_ok; lia).
+Timeout 1 Check @log_size_ok.
+(unfold log_size_ok; simpl).
