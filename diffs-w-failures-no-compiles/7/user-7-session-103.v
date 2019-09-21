@@ -27,5 +27,6 @@ Proof.
 (intros v t1 t2 k w Hm).
 Show.
 (destruct k, w).
-(simpl).
-left.
+Set Printing Width 148.
+(destruct v).
+(left; assumption).
