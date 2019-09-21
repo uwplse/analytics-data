@@ -202,4 +202,19 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 step_proc.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+intuition eauto.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(eexists; intuition eauto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+(destruct H0).
