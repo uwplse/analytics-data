@@ -47,4 +47,11 @@ Set Silent.
 Unset Silent.
 reflexivity.
 -
-(rewrite Iht; try assumption).
+(rewrite IHt; try assumption).
+reflexivity.
+-
+(destruct (beq_idP X i)).
+reflexivity.
+(rewrite IHt).
+reflexivity.
+(unfold fresh).
