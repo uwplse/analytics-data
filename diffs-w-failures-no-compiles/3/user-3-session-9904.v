@@ -168,4 +168,12 @@ Show.
 (exists s; intuition).
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @Tauto.A.
-(left; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+left.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition.
+(unfold statdb_abstraction in *).
+(destruct s; intuition; simpl in *; try congruence).
