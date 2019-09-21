@@ -101,4 +101,7 @@ Proof.
 Set Printing Width 148.
 (intros w k).
 Set Printing Width 148.
-(induction k; induction t).
+Set Printing Width 148.
+(induction k; induction t; intros Hdep Hm).
+(apply match_ty_cname__inv in Hm).
+subst.
