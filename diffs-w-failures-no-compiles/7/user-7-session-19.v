@@ -194,10 +194,8 @@ Proof.
 (unfold sem_sub_k_i in Hsem).
 Set Printing Width 148.
 Set Silent.
-Ltac
- solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2 :=
-  pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
-   [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
+Set Printing Width 148.
+Set Silent.
 Lemma sem_sub_k_i_nf__inv_depth_le_1 : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
 (induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
@@ -244,16 +242,14 @@ specialize (Hsem _ Hm).
 (intros v').
 specialize (Hsem v').
 tauto.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Ltac
  solve__value_sem_sub_i_union__inv_depth_le_2 Hdept' Hv Hsem t'1 t'2 :=
   destruct (max_inv_depth_le__components_le _ _ _ Hdept') as [Hdept'1 Hdept'2]; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
    destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
    tauto || apply Max.le_max_l || apply Max.le_max_r.
 Lemma sem_sub_k_i_nf__inv_depth_le_2 : forall (k : nat) (t t' : ty), InNF( t) -> | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Set Printing Width 148.
-Set Printing Width 148.
+Proof.
 (induction k; induction t; induction t'; intros Hnft Hdept' Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -280,20 +276,47 @@ Set Printing Width 148.
            destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
-Show.
-Set Silent.
 -
-Unset Silent.
 (inversion Hdept'; subst).
-Set Silent.
 -
-Unset Silent.
-Show.
 (simpl).
 (apply le_n_S).
 (inversion Hnft; subst).
 (inversion H; subst).
-Set Silent.
 (simpl in Hdept').
-Unset Silent.
 (apply le_S_n in Hdept').
+Unset Silent.
+(apply IHk; try assumption).
+Set Silent.
+(assert (Hv : value_type (TRef t)) by constructor).
+Unset Silent.
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
+Set Silent.
+specialize (Hsem _ Hm).
+Unset Silent.
+(simpl in Hsem).
+(intros v').
+specialize (Hsem v').
+tauto.
+Qed.
+Set Silent.
+Lemma match_ty_i_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Proof.
+(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ])).
+Unset Silent.
+Admitted.
+Set Silent.
+Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
+Proof.
+auto with DBBetaJulia.
+Qed.
+Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Proof.
+(intros k t t' H).
+(split; intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_sub_k_i__inv_depth_le_1 : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
+(intros k t t' Hdept Hsem).
+(rewrite <- inv_depth_mk_nf).
+(apply sem_sub_k_i_nf__inv_depth_le with k).
