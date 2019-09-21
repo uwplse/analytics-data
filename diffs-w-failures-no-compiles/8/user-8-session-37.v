@@ -568,7 +568,9 @@ Lemma valid_denote_true :
   valid_ancillae_box c -> denote_box true c \207\129 == \207\129' -> denote_box safe c \207\129 == \207\129'.
 Set Silent.
 Proof.
-(intros W W' c \207\129 \207\129' safe T H D).
-(destruct safe; trivial).
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(destruct safe; trivial).
 (rewrite <- H; assumption).
