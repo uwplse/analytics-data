@@ -418,10 +418,8 @@ Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb :
 Proof.
 Show.
 Set Printing Width 148.
-Set Silent.
-(assert (Hm : |-[ 0] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem 0 _ Hm).
+(assert (Hm : |-[ | TUnion ta tb |] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+specialize (Hsem _ _ Hm).
 (apply match_ty_i_union__inv in Hsem).
-Unset Silent.
 (destruct Hsem; [ left | right ]).
 Show.
