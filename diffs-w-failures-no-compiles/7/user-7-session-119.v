@@ -24,4 +24,5 @@ Set Silent.
 (apply sem_sub__refl).
 -
 Unset Silent.
+Show.
 (apply sem_sub__trans).
