@@ -467,6 +467,5 @@ step_proc.
 destruct matches.
 -
 step_proc.
-(descend; intuition eauto).
 Unset Silent.
 Set Diffs "off".
