@@ -88,4 +88,5 @@ Show.
 Set Printing Width 85.
 Show.
 (destruct b; unfold bool_to_ket; simpl; Msimpl).
-(rewrite kron_1_r').
+Unset Silent.
+Show.
