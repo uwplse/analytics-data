@@ -3375,6 +3375,9 @@ Show.
 Set Printing Width 85.
 Show.
 (intros \207\129 b).
-(unfold HOAS_Equiv in H).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(unfold HOAS_Equiv in H).
+(rewrite H; auto).
