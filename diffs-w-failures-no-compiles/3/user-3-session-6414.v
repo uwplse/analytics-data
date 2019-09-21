@@ -250,15 +250,67 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 (unfold log_length_ok; intros).
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @sig.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
 Set Printing Width 78.
 Show.
-(rewrite H; simpl).
-Timeout 1 Check @repeat_length.
-(eexists; eauto).
+(rewrite H; simpl; eauto).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8SRjHv"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquvJho6"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @nil.
+Timeout 1 Check @nil.
+Theorem log_abstraction_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_abstraction; intros).
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @plus_n_O.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+(split; eauto using log_length_ok_nil).
