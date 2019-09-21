@@ -198,10 +198,11 @@ Definition tester_of_unifier (u : itree (appE id +' unifyE +' randomE) unit) : s
      | (|(ue|)) => handle_unifier ue
      | (e|) | (||e) => @liftState state X (itree taE) _ (trigger e)
      end) u.
+Unset Silent.
 CoFixpoint match_app_event {X} (e0 : appE id X) (x0 : X) (t : itree taE unit) : itree taE unit :=
   match t.(observe) with
   | RetF r => Ret r
-  | TauF t => Tau (match_event e0 x0 t)
+  | TauF t => Tau (match_app_event e0 x0 t)
   | VisF e k =>
       match e with
       | (te|) =>
