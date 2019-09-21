@@ -90,6 +90,9 @@ Show.
 Set Printing Width 85.
 Show.
 (repeat rewrite Mmult_assoc; try rewrite inv).
-(unfold WF_Unitary in inv).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(unfold WF_Unitary in inv).
+(rewrite inv).
