@@ -255,6 +255,9 @@ dependent destruction TP.
 subst.
 easy.
 Qed.
+Unset Silent.
+Set Printing Width 85.
+Set Silent.
 Lemma fresh_wtype :
   forall (w : WType) (\206\147 : Ctx), add_fresh_state w \206\147 = \206\147 ++ add_fresh_state w [].
 Proof.
@@ -276,7 +279,6 @@ replace (add_fresh_state w2 (add_fresh_state w1 [])) with
 reflexivity.
 Unset Silent.
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqTRDGmZ"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqByvNx9"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
