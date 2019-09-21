@@ -165,4 +165,14 @@ Show.
 (intros k).
 Show.
 Set Printing Width 148.
-(apply sem_sub_k__trans with t2; tauto).
+(apply sem_sub_k__trans with t2; auto).
+Show.
+Qed.
+Set Silent.
+Lemma sem_eq__trans : forall t1 t2 t3 : ty, ||- [t1]= [t2] -> ||- [t2]= [t3] -> ||- [t1]= [t3].
+Proof.
+(intros t1 t2 t3 Hsem1 Hsem2).
+(intros k).
+(apply sem_eq_k__trans with t2; auto).
+Unset Silent.
+Qed.
