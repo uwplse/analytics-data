@@ -70,7 +70,4 @@ Unset Silent.
 (rewrite (subs_fresh_in_ty _ _ Hfresh) in Hm).
 (eapply match_ty__ge_w).
 eassumption.
-(repeat constructor).
--
-Set Silent.
 Show.
