@@ -372,4 +372,20 @@ step_proc.
 step_proc.
 (exists nil; simpl).
 Timeout 1 Check @repeat_length.
-eauto.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Set Printing Width 78.
+Show.
+(apply log_abstraction_nil).
