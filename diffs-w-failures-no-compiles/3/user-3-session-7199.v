@@ -493,4 +493,21 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold log_size_ok in H).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Set Printing Width 78.
+Show.
+(unfold log_size_ok, log_addr, diskSize in *).
+Timeout 1 Check @split.
+lia.
