@@ -276,5 +276,5 @@ clear H.
 {
 (apply Z).
 (eapply evalIntEq).
-(erewrite <- evalTimes).
+(rewrite <- evalTimes).
 Unset Silent.
