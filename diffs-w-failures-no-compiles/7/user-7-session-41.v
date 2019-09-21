@@ -34,5 +34,13 @@ Set Silent.
 Unset Silent.
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (unfold sem_sub_k in *).
+Unset Silent.
 auto.
+Set Silent.
+-
+Unset Silent.
+Show.
+(apply match_ty_pair__inv in Hm).
