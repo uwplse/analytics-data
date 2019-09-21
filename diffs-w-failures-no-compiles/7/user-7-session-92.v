@@ -37,4 +37,4 @@ assumption.
 Unset Silent.
 Qed.
 Set Silent.
-Theorem sub_r__complete : forall t1 t2 : ty, (|- t1 << t2)%btj -> |- t1 << t2.
+Unset Silent.
