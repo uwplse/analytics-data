@@ -100,44 +100,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(assert (inv : WF_Unitary (denote_ctrls (\226\159\166 W \226\159\167) U li))).
-{
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (apply denote_ctrls_unitary).
-Set Silent.
-(intros).
-(rewrite Heqli in H).
-(simpl).
-(rewrite (ctx_wtype_size _ (add_fresh_pat W []) (add_fresh_state W []))).
-(eapply pat_to_list_bounded).
-split.
-validate.
-(rewrite merge_nil_r).
-easy.
-(eapply get_fresh_typed).
-(rewrite get_fresh_split).
-specialize (add_fresh_state_merge W [] _ eq_refl) as AFE.
-(rewrite merge_nil_l in AFE).
-(inversion AFE).
-(rewrite <- H1).
-easy.
-(rewrite <- add_fresh_pat_eq).
-(rewrite subst_pat_fresh by constructor).
-Unset Silent.
-easy.
-(apply add_fresh_typed_empty).
-(rewrite add_fresh_split).
-easy.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
