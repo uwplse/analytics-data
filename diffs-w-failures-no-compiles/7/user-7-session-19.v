@@ -143,16 +143,18 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 -
 Show.
-Set Printing Width 148.
-Set Silent.
 (assert (IH1 : forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ TCName c <-> |-[ k] v <$ t'1)).
 {
-Unset Silent.
+Show.
+Show.
 (intros k v Hv).
+Show.
 specialize (H k v Hv).
+Show.
 (destruct H as [H1 H2]).
-Set Printing Width 148.
+Show.
 (split; intros Hm).
 Show.
