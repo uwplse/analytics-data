@@ -411,5 +411,9 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros ta; induction ta; intros tb; induction tb; intros Hsem; pose proof Hsem as Hsem'; unfold sem_sub_i, sem_sub_k_i in Hsem';
-  unfold sem_sub_deq, sem_sub_k_deq).
+Set Printing Width 148.
+(intros ta; induction ta; intros tb; induction tb; intros Hsem).
+Show.
+Show 3.
+16: {
+Abort.
