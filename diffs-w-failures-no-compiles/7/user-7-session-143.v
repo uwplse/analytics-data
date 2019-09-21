@@ -72,27 +72,24 @@ Qed.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma sem_sub_fresh_var__sem_sub_any :
-  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
-Unset Silent.
+  forall (X : id) (t t' : ty) (X' : id),
+  fresh_in_ty X t -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
-Show.
 (intros X t).
-Set Printing Width 148.
 (induction t; try (solve [ intros; simpl; tauto ])).
 -
-Show.
 (induction t').
 +
 admit.
 +
-Set Printing Width 148.
-Set Silent.
+admit.
++
+admit.
++
 admit.
 +
 Unset Silent.
-admit.
-+
-admit.
-+
+(intros X' HX HX' Hsem).
