@@ -455,10 +455,9 @@ eauto.
 -
 (left; exists (TEV i); apply match_ty_ev).
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Unset Silent.
 Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
-Set Silent.
 Proof.
 (induction t; intros k Hdep Hcontra).
 -
