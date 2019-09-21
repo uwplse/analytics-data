@@ -24,4 +24,25 @@ Lemma build_v_full :
   |-[ w] v <$ [BX := tx] t ->
   exists v' : ty,
     |-[ w] v' <$ [BX := TFVar X'] t /\
-    (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> (fresh_in_ty X' t' -> |-[ w'] v <$ t') /\ (free_in_ty X' t' -> |-[ w'] v <$ [FX' := tx] t')).
+    (forall (w' : nat) (t' : ty),
+     |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w'] v <$ [FX' := tx] t')).
+Set Silent.
+Proof.
+(intros X X' tx).
+Unset Silent.
+(induction w; induction t; intros v Hm).
+Set Silent.
+-
+Unset Silent.
+Show.
+(rewrite b_subst_cname in *).
+exists v.
+split.
+assumption.
+(apply match_ty_cname__inv in Hm; subst).
+(induction w'; induction t'; intros Hm'; try (solve [ contradiction || tauto ])).
+Set Silent.
++
+Unset Silent.
+Show.
+(rewrite subst_union).
