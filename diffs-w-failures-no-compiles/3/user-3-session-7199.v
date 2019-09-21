@@ -495,4 +495,12 @@ Timeout 1 Check @split.
 autorewrite with upd list in *.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(simpl in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+(simpl in *; lia).
++
+admit.
++
