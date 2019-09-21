@@ -141,5 +141,5 @@ exists w2.
 Unset Silent.
 (intros v Hm).
 (induction w1).
-2: {
-idtac.
+Set Printing Width 148.
+Abort.
