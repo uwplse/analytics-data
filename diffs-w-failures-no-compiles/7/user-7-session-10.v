@@ -197,6 +197,6 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
+Set Printing Width 148.
 (split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
-  subst).
-+
+  subst; try (solve [ constructor; auto ])).
