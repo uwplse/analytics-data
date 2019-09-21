@@ -654,4 +654,40 @@ Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @Zdiv.Zmod'.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+rename state into d.
 rename state0 into d'.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @spec_abstraction_compose.
+rename v into bs'.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+rename r0 into len_b.
+Timeout 1 Show.
+Timeout 1 Show Intros.
+Timeout 1
+(repeat
+  match goal with
+  | company_coq_hyp__:_
+    |- _ =>
+        clear dependent company_coq_hyp__;
+         (let dummy := H0 in
+          let dummy := H5 in
+          let dummy := H3 in
+          let dummy := H2 in
+          idtac)
+  end;
+  repeat
+   match goal with
+   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
+   end).
+Timeout 1 Show Intros.
