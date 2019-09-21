@@ -50,4 +50,4 @@ matrix_denote.
 setoid_rewrite denote_unitary_transpose.
 Unset Silent.
 (simpl in *; Msimpl).
-Timeout 1 Check @unitary_transpose_id_qubit.
+(repeat rewrite Mmult_assoc; try rewrite unitary_gate_unitary).
