@@ -141,4 +141,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 (repeat rewrite fix_sub_eq).
 (simpl).
+(repeat rewrite fix_sub_eq).
 reflexivity.
