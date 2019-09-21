@@ -108,6 +108,21 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
-Proof.
-Unset Silent.
+Set Printing Width 148.
 all: (try (intros; simpl; Omega.omega)).
+Set Silent.
+-
+(intros).
+(simpl).
+(rewrite rename__size).
+Unset Silent.
+Omega.omega.
+Set Silent.
+-
+Unset Silent.
+(apply (well_founded_lt_compat ty size)).
+Set Silent.
+(intros).
+Unset Silent.
+tauto.
+Defined.
