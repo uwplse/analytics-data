@@ -45,6 +45,5 @@ Show.
 (simpl).
 (unfold compose_super).
 (unfold denote_circuit).
-(simpl).
 Unset Silent.
 Show.
