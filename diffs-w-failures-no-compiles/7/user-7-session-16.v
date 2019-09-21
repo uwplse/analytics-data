@@ -345,4 +345,12 @@ generalize dependent t1.
      (fun (t1 : ty) (Hnf : in_nf t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2)))).
 -
 (intros c t2).
+Set Printing Width 148.
 (induction t2).
++
+(destruct (cname_eq__decidable c c0)).
+*
+(subst; left; constructor).
+*
+right.
+(intros Hcontra; inversion Hcontra).
