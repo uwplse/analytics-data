@@ -255,8 +255,37 @@ Unset Silent.
 (unfold sem_eq_k in *).
 (split; intros v; specialize (Hsem v); tauto).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma sem_eq_k__sem_sub_k_1 : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t1]<= [t2].
 Proof.
 (apply sem_eq_k__sem_sub_k).
-Show.
 Qed.
+Lemma sem_eq_k__sem_sub_k_2 : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]<= [t1].
+Proof.
+(apply sem_eq_k__sem_sub_k).
+Unset Silent.
+Qed.
+Set Silent.
+Theorem sem_sub__refl : forall t : ty, ||- [t]<= [t].
+Proof.
+auto with DBBetaJulia.
+Unset Silent.
+Qed.
+Set Silent.
+Theorem sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] -> ||- [t1]<= [t3].
+Proof.
+auto with DBBetaJulia.
+Unset Silent.
+Qed.
+Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
+Set Silent.
+Proof.
+(intros; split; tauto).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sem_eq__comm : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t2]= [t1].
+Proof.
+Unset Silent.
+auto with DBBetaJulia.
