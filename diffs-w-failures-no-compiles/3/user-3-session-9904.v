@@ -185,28 +185,25 @@ Unset Silent.
 congruence.
 }
 Timeout 1 Check @sig.
-(simpl).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @statdb_abstraction.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
 (unfold statdb_abstraction in *; intuition).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoBERUr"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqyMkn2P"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Set Silent.
+Theorem recover_wipe : rec_wipe recover abstr no_crash.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+{
+eauto.
+}
