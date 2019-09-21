@@ -76,4 +76,7 @@ Show.
 Set Printing Width 85.
 Show.
 restore_dims.
+Timeout 1 About simpl_rewrite.
+Timeout 1 Print simpl_rewrite.
+Timeout 1 Print Ltac simpl_rewrite.
 (simpl_rewrite (unitary_gate_unitary U)).
