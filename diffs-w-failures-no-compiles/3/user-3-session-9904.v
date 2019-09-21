@@ -262,6 +262,5 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(let x := fresh "state2" in
- idtac
- x).
+Unset Silent.
+Set Diffs "off".
