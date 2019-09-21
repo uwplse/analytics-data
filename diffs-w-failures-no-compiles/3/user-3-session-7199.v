@@ -696,36 +696,17 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-(apply spec_abstraction_compose).
-step_proc.
 Unset Silent.
 Set Diffs "off".
-Set Printing Width 78.
-Show.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-step_proc.
-(descend; intuition eauto).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-destruct matches.
--
-Timeout 1 Check @spec_abstraction_compose.
-step_proc.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @app.
+Timeout 1 Check @append.
+Timeout 1 Check @append.
+Timeout 1 Check @append_at.
+Timeout 1 Check @append_at.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
