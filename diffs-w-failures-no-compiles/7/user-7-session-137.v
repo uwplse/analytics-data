@@ -17,12 +17,17 @@ Require Import Coq.Bool.Bool.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma sem_eq_k_exist_fresh : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]= [t].
+Lemma sem_sub_k_exist_fresh_l : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]<= [t].
 Proof.
 (intros k X t).
+Unset Silent.
 (induction t; intros Hfresh).
+Set Silent.
 -
 Unset Silent.
-Show.
-split.
+(intros w1).
+exists w1.
+(intros v Hm).
+(destruct w1).
