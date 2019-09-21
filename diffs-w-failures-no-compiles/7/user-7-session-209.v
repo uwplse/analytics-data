@@ -102,4 +102,4 @@ Set Printing Width 148.
 (destruct Hm' as [ti [Hwf Hm']]).
 (split; intros HX').
 *
-exists ti'.
+exists ti.
