@@ -82,22 +82,14 @@ Abort.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
-Unset Silent.
-Proof.
-(intros X Y t).
 Set Printing Width 148.
-(induction t; intros tx ty; try reflexivity).
+Set Silent.
+Lemma subst_nested : forall (X Y : id) (tx ty t : ty), X <> Y -> [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
+Proof.
+(intros X Y tx ty t).
+(induction t; intros Hneq; try reflexivity).
 -
 (repeat rewrite subst_pair).
-Set Printing Width 148.
 (rewrite IHt1, IHt2).
-reflexivity.
-Set Printing Width 148.
-Set Silent.
-(repeat rewrite subst_union).
-(rewrite IHt1, IHt2).
-Unset Silent.
 reflexivity.
 -
