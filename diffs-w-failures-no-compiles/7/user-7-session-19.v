@@ -129,6 +129,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction t; induction t'; intros H; try reflexivity;
   try (solve
    [ match goal with
@@ -138,23 +139,5 @@ Set Printing Width 148.
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
      end ])).
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 -
-Show.
-(assert (IH1 : forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ TCName c <-> |-[ k] v <$ t'1)).
-{
-Show.
-Show.
-(intros k v Hv).
-Show.
-Show.
-Set Printing Width 148.
-(split; intros Hm).
-Show.
-+
 Show.
