@@ -126,4 +126,8 @@ reflexivity.
 Unset Silent.
 (rewrite subst_equation).
 (rewrite (false_beq_id _ _ HXY)).
-(pose proof (IdSetFacts.mem_2 Hin) as Hmem).
+Show.
+Search -IdSet.mem.
+(assert (Hmem : IdSet.mem Y (FV s) = false)).
+{
+(aply IdSetFacts.not_mem_iff).
