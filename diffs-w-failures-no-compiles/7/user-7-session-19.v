@@ -229,4 +229,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
+Set Printing Width 148.
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor ])).
