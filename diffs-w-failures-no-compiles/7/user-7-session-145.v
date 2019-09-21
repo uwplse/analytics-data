@@ -178,6 +178,4 @@ admit.
 Show.
 (intros w1).
 (induction w1).
-(intros k).
-exists 0.
-(intros v Hm).
+Show.
