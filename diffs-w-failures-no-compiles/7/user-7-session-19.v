@@ -114,9 +114,11 @@ Abort.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma match_ty_i__inv_depth_stable :
-  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+  forall (k k' : nat) (t : ty),
+  inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, inv_depth v <= k -> inv_depth v <= k' -> |-[ k] v <$ t <-> |-[ k'] v <$ t.
 Proof.
 (induction k; induction k').
 -
@@ -128,16 +130,13 @@ admit.
 -
 (induction t).
 admit.
-Set Printing Width 148.
-clear IHk' IHt.
-(intros Htk Htk' v).
-Set Silent.
+admit.
+admit.
++
+clear IHk'.
+(intros Htk Htk' v Hvk Hvk').
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv); specialize
-  (IHk k' t Htk Htk' v)).
-Show.
+(apply le_S_n in Htk').
+Unset Silent.
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv)).
