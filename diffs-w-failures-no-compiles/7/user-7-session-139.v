@@ -32,4 +32,10 @@ Set Silent.
 (destruct Hm as [tx Hm]).
 Unset Silent.
 (simpl in Hm).
-(rewrite subs_fresh_in_ty in Hm).
+Set Printing Width 148.
+(rewrite subs_fresh_in_ty in Hm; try assumption).
+Set Silent.
+(eapply match_ty__ge_w).
+eassumption.
+Unset Silent.
+(repeat constructor).
