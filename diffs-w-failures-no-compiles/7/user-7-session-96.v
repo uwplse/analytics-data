@@ -16,6 +16,27 @@ Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
+Set Printing Width 148.
+Set Silent.
+Lemma match_ty_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
+Proof.
+(intros v1 v2 t1 t2 k Hm1 Hm2).
+(destruct k; split; assumption).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ t1 -> |-[ k] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 k Hm).
+(destruct k; destruct v; left; assumption).
+Qed.
+Unset Silent.
+Lemma match_ty_union_2 : forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ t2 -> |-[ k] v <$ TUnion t1 t2.
+Set Silent.
+Proof.
+(intros v t1 t2 k Hm).
+(destruct k; destruct v; right; assumption).
+Qed.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k : nat), |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; contradiction ])).
@@ -54,16 +75,10 @@ clear IHv.
 exists v.
 auto.
 Qed.
-Set Printing Width 148.
-Set Silent.
 Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty), |-[ 0] v <$ TExist X t -> |-[ 0] v <$ t.
-Unset Silent.
 Proof.
-Set Silent.
-Unset Silent.
 (intros v; induction v; intros X t Hm; assumption).
 Qed.
-Set Silent.
 Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k] v <$ TExist X t -> exists tx : ty, |-[ k] v <$ [X := tx] t.
 Proof.
 (intros v; induction v; intros X t k Hm; assumption).
@@ -78,24 +93,43 @@ Proof.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | destruct v; contradiction ])).
 -
-Unset Silent.
-Show.
 (apply match_ty_exist__0_inv in Hm).
 auto.
-Set Silent.
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 (eapply IHk; eassumption).
-Unset Silent.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
-Unset Silent.
 (intros v Hv; induction Hv; intros k).
+-
+Unset Silent.
+(destruct k; reflexivity).
 Set Silent.
 -
-(destruct k; reflexivity).
--
 Unset Silent.
+(apply match_ty_pair; auto).
+Set Silent.
+-
+(destruct k).
+constructor.
+(simpl).
+Unset Silent.
+tauto.
+Show.
+Qed.
+Set Silent.
+Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
+Proof.
+(intros k; destruct k; intros v Hm).
+2: {
+idtac.
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+exists t'.
+Unset Silent.
+(apply match_ty__reflexive).
+constructor.
+}
