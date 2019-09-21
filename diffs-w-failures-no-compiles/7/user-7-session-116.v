@@ -32,16 +32,15 @@ Unset Silent.
 (induction t; intros Hfresh s; try (solve [ reflexivity ])).
 Set Silent.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (unfold fresh_in_ty in *).
-Show.
 (simpl in Hfresh).
-Show.
 (apply fresh_union__inv in Hfresh).
-Show.
 (destruct Hfresh as [Hfresh1 Hfresh2]).
-Show.
 (simpl).
-Show.
 (rewrite IHt1; try assumption).
 (rewrite IHt2; try assumption).
+Unset Silent.
 reflexivity.
+-
