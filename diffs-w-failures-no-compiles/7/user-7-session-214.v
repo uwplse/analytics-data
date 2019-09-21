@@ -292,4 +292,5 @@ Unset Silent.
 (rewrite b_subst_exist_eq).
 assumption.
 +
-(rewrite b_subst_exist_neq).
+Set Printing Width 148.
+(rewrite b_subst_exist_neq; try assumption).
