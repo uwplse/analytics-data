@@ -108,6 +108,9 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl).
-(unfold denote_pat; simpl).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+autounfold with den_db.
+(simpl).
