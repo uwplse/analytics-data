@@ -440,4 +440,6 @@ Set Printing Width 148.
 +
 (destruct Hdep as [Hdept| Hdept']).
 *
-specialize (IHt'1 (left Hdept)).
+Check left.
+Print "\/".
+specialize (IHt'1 (or_introl Hdept)).
