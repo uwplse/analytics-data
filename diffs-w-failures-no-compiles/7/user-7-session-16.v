@@ -406,4 +406,6 @@ right.
 (remember (TCName c) as t eqn:Heq1 ; remember (TPair t2_1 t2_2) as t' eqn:Heq2 ).
 Unset Silent.
 (induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ])).
+Set Printing Width 148.
+subst.
 (apply IHHcontra).
