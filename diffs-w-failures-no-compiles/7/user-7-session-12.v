@@ -305,4 +305,6 @@ Set Printing Width 148.
 (apply sub_r__rflxv).
 -
 Show.
-(rewrite unite_pairs_union_t).
+Set Printing Width 148.
+(repeat rewrite unite_pairs_union_t).
+(constructor; eapply SD_Trans; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
