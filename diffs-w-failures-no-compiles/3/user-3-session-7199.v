@@ -489,4 +489,8 @@ Set Diffs "off".
 Timeout 1 Check @Tauto.A.
 Set Printing Width 78.
 Show.
-(rewrite app_nil_r in *; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite app_nil_r; auto).
