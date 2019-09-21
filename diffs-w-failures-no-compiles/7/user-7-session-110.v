@@ -195,4 +195,14 @@ Unset Silent.
 Set Silent.
 -
 Unset Silent.
-(intros v1 t3 k Hm1 Hm2).
+Set Printing Width 148.
+(intros v1 t3 k w Hm1 Hm2).
+(apply match_ty_cname__inv in Hm1; subst).
+assumption.
+Set Silent.
+-
+Unset Silent.
+(intros v0 t3 k w Hm1 Hm2).
+(apply match_ty_pair__inv in Hm1).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hm11 Hmpv12]]]]; subst).
+(induction t3; try (solve [ destruct k; contradiction ])).
