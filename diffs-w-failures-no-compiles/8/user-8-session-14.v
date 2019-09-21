@@ -237,4 +237,5 @@ Set Printing Width 85.
 Show.
 Set Printing Implicit.
 Show.
-restore_dims.
+Unset Silent.
+Show.
