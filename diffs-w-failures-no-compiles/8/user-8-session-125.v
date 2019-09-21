@@ -265,5 +265,9 @@ Msimpl.
 solve_matrix.
 +
 (simpl).
-matrix_denote.
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+matrix_denote.
+Msimpl.
