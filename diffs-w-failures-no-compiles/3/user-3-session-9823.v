@@ -192,4 +192,15 @@ Show.
 (destruct (a == r)).
 -
 invert_abstraction.
-(step_proc; intuition).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(step_proc; intuition eauto).
+Timeout 1 Check @repeat_length.
+(step_proc; intuition eauto).
+Timeout 1 Check @repeat_length.
+(step_proc; intuition eauto).
+replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
+(exists s; repeat split; auto).
+(destruct (stateBadBlock state == diskSize s)).
