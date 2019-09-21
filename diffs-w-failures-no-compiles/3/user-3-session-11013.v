@@ -8,4 +8,4 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 78.
 Set Silent.
-Require Export LF.Induction.
+Unset Silent.
