@@ -189,5 +189,7 @@ clear IHk' IHt.
 Set Printing Width 148.
 Show.
 Set Printing Width 148.
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv)).
+Set Printing Width 148.
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv);
+  simpl in Hvk, Hvk'; apply le_S_n in Hvk; apply le_S_n in Hvk').
 Show.
