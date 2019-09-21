@@ -119,4 +119,8 @@ step_proc.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 intuition.
 Timeout 1 Check @sig.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (simpl).
