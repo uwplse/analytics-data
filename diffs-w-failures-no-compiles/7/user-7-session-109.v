@@ -114,6 +114,7 @@ Open Scope btjd.
 Reserved Notation "'|-' t1 '<<' t2" (at level 50).
 Unset Silent.
 Set Printing Width 148.
+Set Printing Width 148.
 Inductive sub_d : ty -> ty -> Prop :=
   | SD_Refl : forall t, |- t << t
   | SD_Trans : forall t1 t2 t3, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3
