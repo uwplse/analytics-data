@@ -131,5 +131,5 @@ Show.
 (destruct H as [tx [Heq Href]]).
 (inversion Heq; subst).
 Show.
-auto.
-Show.
+Set Printing Width 148.
+tauto.
