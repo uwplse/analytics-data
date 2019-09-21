@@ -176,6 +176,5 @@ Set Silent.
 Msimpl.
 Unset Silent.
 Show.
-Set Printing Width 85.
 Unset Silent.
 Show.
