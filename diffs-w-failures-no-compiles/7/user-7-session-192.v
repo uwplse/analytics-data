@@ -107,37 +107,16 @@ admit.
 specialize (IHw' _ Hm').
 Show.
 Set Printing Width 148.
-(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
-*
 Show.
-Set Silent.
-specialize (IHw'b H).
+Set Printing Width 148.
 (split; intros HX').
+Set Silent.
 {
 (apply match_ty_exist).
 exists ti.
 assumption.
-}
 Unset Silent.
+}
 {
 Show.
 Set Silent.
-(destruct (beq_idP X' i)).
-{
-subst.
-(unfold free_in_ty in HX').
-(simpl in HX').
-admit.
-}
-Unset Silent.
-{
-Set Silent.
-(rewrite subst_equation).
-(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
-(rewrite Hbeq).
-(destruct (IdSet.mem i (FV tx)) eqn:Hmem).
-{
-(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
-(apply match_ty_exist).
-Unset Silent.
-exists ([X' := tx] ti).
