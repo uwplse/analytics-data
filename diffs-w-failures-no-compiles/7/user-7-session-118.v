@@ -164,4 +164,5 @@ Set Printing Width 148.
 Show.
 (intros k).
 Show.
-(apply sem_sub_k__trans).
+(apply sem_sub_k__trans with t2).
+Show.
