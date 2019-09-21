@@ -355,6 +355,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-intuition eauto.
+Set Printing Width 78.
+Show.
+(unfold proc_spec in *; intuition; subst; repeat deex).
