@@ -218,4 +218,5 @@ Proof.
 Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction t; intros w k v Hm).
+Set Printing Width 148.
+(induction t; intros w k v Hm w').
