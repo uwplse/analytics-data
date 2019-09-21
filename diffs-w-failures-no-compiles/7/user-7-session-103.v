@@ -58,9 +58,20 @@ Set Printing Width 148.
 (intros v t1 t2 k w Hm).
 Set Printing Width 148.
 (destruct k, w, v; simpl in Hm; contradiction || (exists v1,v2; split; [ reflexivity | tauto ])).
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma match_ty_union__inv : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ TUnion t1 t2 -> |-[ k, w] v <$ t1 \/ |-[ k, w] v <$ t2.
 Proof.
 Unset Silent.
 (intros v t1 t2 k w Hm).
+(destruct k, w, v; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_ref__weak_inv : forall (v t : ty) (k w : nat), |-[ k, w] v <$ TRef t -> exists t' : ty, v = TRef t'.
+Unset Silent.
+Proof.
+Set Silent.
+(intros v t k w Hm).
+Unset Silent.
+(destruct k, w, v; simpl in Hm; try contradiction).
+exists v.
