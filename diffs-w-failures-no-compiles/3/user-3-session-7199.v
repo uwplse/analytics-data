@@ -231,4 +231,14 @@ Timeout 1 Check @Nat.induction.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(induction a).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(induction a; simpl).
+-
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @repeat_length.
+eauto.
