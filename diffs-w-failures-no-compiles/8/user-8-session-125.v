@@ -174,6 +174,14 @@ Show.
 (rewrite inv by (subst; rewrite size_wtype_length; easy)).
 Set Silent.
 Msimpl.
-(rewrite (Mmult_assoc \207\129 _ A)).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(rewrite inv by (subst; rewrite size_wtype_length; easy)).
+Set Silent.
+Msimpl.
+(rewrite Mmult_assoc).
+Unset Silent.
+easy.
+(subst; rewrite size_wtype_length; easy).
