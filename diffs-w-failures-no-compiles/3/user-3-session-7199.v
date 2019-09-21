@@ -500,6 +500,9 @@ Show.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(rewrite H0 in *).
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
 auto.
