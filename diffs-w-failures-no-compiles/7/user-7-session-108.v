@@ -329,7 +329,6 @@ Search -id.
 Set Printing Width 148.
 (destruct (beq_idP X i)).
 +
-subst.
-(apply Hnotm).
-exists v.
-assumption.
+Show.
+Set Printing Width 148.
+(simpl in Hcontra).
