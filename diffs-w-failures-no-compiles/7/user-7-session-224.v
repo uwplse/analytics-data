@@ -92,4 +92,5 @@ exists w2.
 (destruct Hm as [tx [Hwftx Hm]]).
 (rewrite b_subst_not_b_free_in_ty in Hm; try assumption).
 Set Printing Width 148.
-tauto.
+auto.
+}
