@@ -100,4 +100,12 @@ Show.
 Search -IdSet.singleton.
 Set Printing Width 148.
 (intros X Y Hin).
-(destruct (beq_idP X Y) as HXY).
+(destruct (beq_idP X Y) as [HXY| HXY]).
+-
+Show.
+subst.
+exfalso.
+Show.
+(apply Hin).
+Show.
+(apply IdSetFacts.singleton_q).
