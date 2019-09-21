@@ -26,3 +26,5 @@ Timeout 1 Print LoadPath.
 Set Printing Width 78.
 Module Exercises (vars: VarsAPI).
 Check vars.read.
+Unset Silent.
+Set Diffs "off".
