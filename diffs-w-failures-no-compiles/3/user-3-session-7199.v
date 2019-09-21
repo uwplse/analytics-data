@@ -720,5 +720,10 @@ Set Diffs "off".
 Timeout 1 Check @sum.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
 (unfold log_length_ok in *; intros; autorewrite with upd in *; simpl in *;
-  subst).
+  subst; auto).
