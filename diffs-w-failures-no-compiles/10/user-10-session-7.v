@@ -275,4 +275,15 @@ Timeout 1 Check @match_app_event.
 Timeout 1 Check @match_app_event.
 Timeout 1 Check @match_app_event.
 Timeout 1 Check @match_app_event.
-Print tE.
+Locate tE.
+Set Silent.
+Notation sE := (networkE +' exceptE error +' hsgenE +' randomE).
+Unset Silent.
+Notation tE := (nondetE +' sE).
+Print networkE.
+Timeout 1 Check @networkE.
+Timeout 1 Check @networkE.
+Timeout 1 Check @networkE.
+Timeout 1 Check @networkE.
+Timeout 1 Check @showErr.
+Print Error.
