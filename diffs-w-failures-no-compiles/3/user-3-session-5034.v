@@ -125,6 +125,10 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 (step_proc; intuition; subst; eauto).
-{
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+{
+(step_proc; intuition; subst; eauto).
+(exists nil; intuition).
