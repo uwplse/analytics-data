@@ -574,4 +574,9 @@ Timeout 1 Check @nodup.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-autorewrite with upd in *.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @app.
+Set Printing Width 78.
+Show.
+autorewrite with upd app in *.
