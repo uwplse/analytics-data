@@ -474,4 +474,15 @@ Unset Silent.
 lia.
 }
 Timeout 1 Check @Ascii.nat_ascii_bounded.
-(destruct (log_addr a == log_addr (length bs))).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct (a == length bs)).
+-
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @or_assoc.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+autorewrite with upd.
