@@ -214,4 +214,4 @@ Proof.
 (intros t t' Hsem).
 Unset Silent.
 Show.
-(apply nf_sem_sub_k__sub_d with (| t |)).
+(apply nf_sem_sub_k__sub_d).
