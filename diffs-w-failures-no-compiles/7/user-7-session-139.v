@@ -20,22 +20,23 @@ Set Printing Width 148.
 (intros k X t Hfresh).
 Show.
 (intros w1).
-exists w1.
-Show.
-(intros v Hm).
-(destruct w1).
-Show.
-(apply match_ty_exist__0_inv in Hm; contradiction).
-Show.
-(apply match_ty_exist__inv in Hm).
-Set Silent.
-(destruct Hm as [tx Hm]).
-Unset Silent.
-(simpl in Hm).
 Set Printing Width 148.
-(rewrite subs_fresh_in_ty in Hm; try assumption).
 Set Silent.
+(intros v Hm).
+Unset Silent.
+(destruct w1).
+Set Silent.
+-
+Unset Silent.
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+Set Silent.
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
+(rewrite subs_fresh_in_ty in Hm; try assumption).
 (eapply match_ty__ge_w).
 eassumption.
-Unset Silent.
 (repeat constructor).
+Unset Silent.
+Qed.
