@@ -209,4 +209,24 @@ Show.
 Show.
 (apply match_ty_union_1).
 Show.
-(rewrite f_subst_not_b_free_in_ty; try assumption).
+Set Printing Width 148.
+(rewrite f_subst_not_b_free_in_ty; auto).
+Set Silent.
+}
+Unset Silent.
+}
+Set Silent.
+{
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_2; auto).
+Unset Silent.
+}
+Set Silent.
+{
+(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
+{
+(apply match_ty_union_2; auto).
+}
+{
+(apply match_ty_union_2).
+(rewrite f_subst_not_b_free_in_ty; assumption).
