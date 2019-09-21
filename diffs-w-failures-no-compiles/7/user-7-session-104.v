@@ -117,16 +117,26 @@ Unset Silent.
 (destruct Href as [w2 Hsem]).
 Set Printing Width 148.
 (destruct (sem_eq_k__exists_not 0 t) as [t' Hnoteq]).
-(assert (Hm : |-[ 1, 1] TRef tint <$ TExist vX (TRef tX))).
+Set Printing Width 148.
+(assert (Hm : |-[ 1, 1] TRef t' <$ TExist vX (TRef tX))).
+Set Silent.
 {
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
 (apply match_ty_exist).
-exists tint.
-Set Printing Width 148.
+Unset Silent.
+exists t'.
 (apply match_ty_value_type__reflexive).
+Set Silent.
 constructor.
+Unset Silent.
 }
-Show.
+specialize (Hsem _ Hm).
+(destruct w2).
+contradiction.
+(apply match_ty_ref__inv in Hsem).
+(destruct Hsem as [tx [Heqx Href]]).
+Set Silent.
+(inversion Heqx; subst).
+Unset Silent.
+clear Heqx.
+contradiction.
+Qed.
