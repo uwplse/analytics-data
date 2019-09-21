@@ -386,4 +386,9 @@ Timeout 1 Check @diskGet.
 Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_oob_eq.
 Timeout 1 Check @diskUpd_oob_eq.
-(rewrite diskUpd_oob_eq).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+(rewrite diskUpd_oob_eq; lia).
