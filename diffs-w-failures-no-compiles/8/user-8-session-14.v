@@ -1251,4 +1251,4 @@ Show.
 Set Printing Width 85.
 Show.
 Msimpl.
-(apply init0_end_superoperator).
+(eapply init0_end_superoperator).
