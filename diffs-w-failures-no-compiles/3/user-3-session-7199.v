@@ -354,4 +354,23 @@ Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(destruct d; simpl in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+(destruct d; simpl in *; [  | lia ]).
+Timeout 1 Check @app.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Search -diskGet -"inbounds".
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
