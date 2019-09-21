@@ -136,5 +136,10 @@ Defined.
 Unset Silent.
 Set Printing Width 148.
 Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
+Set Printing Width 148.
+Set Silent.
 Proof.
+Unset Silent.
+(intros X s t1 t2).
 (apply subst_equation).
+Qed.
