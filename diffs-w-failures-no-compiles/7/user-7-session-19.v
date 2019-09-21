@@ -229,4 +229,4 @@ Unset Silent.
 +
 Show.
 Show.
-(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; assumption)).
+(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
