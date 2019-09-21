@@ -19,6 +19,11 @@ Open Scope btjm_scope.
 Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
-(intros v Hv k ta tb Hsem).
-Unset Silent.
-(pose proof (match_ty_value_type_r v Hv k)).
+Set Printing Width 148.
+(destruct (match_ty_value_type_r v Hv k) as [Hcontra| Hm]).
+Show.
+-
+Show.
+(left; intros v' Hm').
+Show.
+contradiction.
