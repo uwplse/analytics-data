@@ -71,7 +71,14 @@ Lemma match_ty_ref__weak_inv : forall (v t : ty) (k w : nat), |-[ k, w] v <$ TRe
 Unset Silent.
 Proof.
 Set Silent.
+Set Printing Width 148.
+(destruct k, w, v; simpl in Hm; contradiction || (exists v; reflexivity)).
+Qed.
+Set Silent.
+Lemma match_ty_ref__inv : forall (v t : ty) (k w : nat), |-[ S k, w] v <$ TRef t -> exists t' : ty, v = TRef t' /\ ||-[ k][t']= [t].
+Unset Silent.
+Proof.
+Set Silent.
 (intros v t k w Hm).
 Unset Silent.
 (destruct k, w, v; simpl in Hm; try contradiction).
-exists v.
