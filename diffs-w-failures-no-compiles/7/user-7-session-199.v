@@ -154,6 +154,7 @@ assumption.
 Qed.
 Lemma match_ty__match_ty_f_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [BX := tint] t.
 Proof.
+Set Printing Width 148.
 (intros X; induction w; induction t; intros v;
   try (solve
    [ intros Hm; exists v; assumption
@@ -162,10 +163,15 @@ Proof.
    | intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ];
       exists v'; rewrite b_subst_union; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption
    | intros Hm; destruct (beq_idP X i);
-      [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
--
-(intros Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
+      [ subst; rewrite b_subst_bvar_eq; exists tint; reflexivity | rewrite b_subst_bvar_neq; try assumption; exists v; assumption ] ])).
+Show.
+Set Silent.
 -
 (intros Hm).
 Unset Silent.
+(apply match_ty_exist__0_inv in Hm; contradiction).
+Set Silent.
+-
+Unset Silent.
+(intros Hm).
+(simpl).
