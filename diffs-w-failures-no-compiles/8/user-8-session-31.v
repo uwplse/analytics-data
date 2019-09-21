@@ -2777,6 +2777,10 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 (rewrite pf_merge in *).
 (rewrite size_octx_merge by easy).
 (simpl_rewrite (octx_wtype_size W p1 \206\1471 t)).
-(apply compose_super_correct).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
