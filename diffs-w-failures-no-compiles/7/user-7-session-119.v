@@ -25,6 +25,9 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(apply sem_sub__trans with t2).
+Set Printing Width 148.
+(apply sem_sub__trans with t2; assumption).
 Set Silent.
+-
 Unset Silent.
+Show.
