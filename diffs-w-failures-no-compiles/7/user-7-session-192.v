@@ -74,7 +74,9 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm).
 -
-(rewrite subst_cname in *).
+Show.
+Set Printing Width 148.
+Set Silent.
 exists v.
 split.
 assumption.
@@ -101,5 +103,29 @@ admit.
 (apply match_ty_exist__inv in Hm').
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
-Unset Silent.
 (destruct IHw' as [IHw'a IHw'b]).
+(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
+*
+specialize (IHw'b H).
+(split; intros HX').
+{
+(apply match_ty_exist).
+exists ti.
+assumption.
+}
+{
+(destruct (beq_idP X' i)).
+{
+subst.
+(unfold free_in_ty in HX').
+(simpl in HX').
+admit.
+}
+{
+(rewrite subst_equation).
+(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
+(rewrite Hbeq).
+(destruct (IdSet.mem i (FV tx))).
+{
+Unset Silent.
+(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
