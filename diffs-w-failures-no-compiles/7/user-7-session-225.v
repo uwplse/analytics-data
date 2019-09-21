@@ -139,5 +139,6 @@ Set Silent.
 (unfold b_free_in_ty, free).
 Unset Silent.
 (simpl).
-(intros X Y).
-(apply IdSetFacts.singleton_1).
+Set Printing Width 148.
+(intros X Y Hin).
+(apply IdSetFacts.singleton_1 in Hin).
