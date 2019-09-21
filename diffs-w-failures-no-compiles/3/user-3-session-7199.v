@@ -433,25 +433,15 @@ Theorem append_at_ok a bs' :
                   log_contents_ok state' bs |}) (append_at a bs') recover
     d.abstr.
 Proof.
-(induction bs'; simpl).
--
-step_proc.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @dependent_choice.
+Timeout 1 Check @dependent_choice.
+Timeout 1 Check @dependent_choice.
+Timeout 1 Check @dependent_choice.
+Timeout 1 Check @dependent_choice.
 Set Printing Width 78.
 Show.
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
-{
-(apply log_contents_ok_unchanged; eauto).
-}
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @app.
-Timeout 1 Check @append.
-Timeout 1 Check @append.
-Timeout 1 Check @append_at.
-Timeout 1 Check @append_at.
+generalize dependent a.
+(induction bs'; simpl).
