@@ -90,4 +90,38 @@ Set Silent.
 +
 Unset Silent.
 Show.
-(destruct (fresh_in_ty_pair__inv _ _ HX') as [HX'1 HX'2]).
+Show.
+(destruct (fresh_in_ty_pair__inv _ _ _ HX') as [HX'1 HX'2]).
+Set Silent.
+(apply match_ty_pair_pair__inv in Hm').
+(destruct Hm' as [Hm'1 Hm'2]).
+Unset Silent.
+(apply match_ty_pair; auto).
+Set Silent.
++
+Unset Silent.
+(destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]; apply match_ty_union__inv in Hm').
+(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+Set Silent.
++
+Unset Silent.
+(destruct (fresh_in_ty_pair__inv _ _ _ HX') as [HX'1 HX'2]).
+Set Silent.
+(apply match_ty_pair_pair__inv in Hm').
+(destruct Hm' as [Hm'1 Hm'2]).
+Unset Silent.
+(apply match_ty_pair; auto).
+Set Silent.
++
+Unset Silent.
+(destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+Set Silent.
+(apply match_ty_union__inv in Hm').
+Unset Silent.
+(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+Set Silent.
++
+Unset Silent.
+Show.
+(apply match_ty_exist__inv in Hm').
+(destruct Hm' as [ti Hm']).
