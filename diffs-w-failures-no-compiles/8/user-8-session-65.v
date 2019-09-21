@@ -975,4 +975,14 @@ Show.
 (rewrite (init_at_spec_strong b m i); [  | omega ]).
 (destruct safe).
 -
-(simpl_rewrite (assert_at_spec_safe b m i); [  | omega ]).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite (assert_at_spec_safe b m i); [  | omega ]).
+gen \207\129.
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(intros \207\129 M).
+(repeat rewrite Mmult_assoc).
