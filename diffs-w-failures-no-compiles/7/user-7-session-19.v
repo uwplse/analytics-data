@@ -173,6 +173,7 @@ Unset Silent.
 +
 clear IHt3.
 Set Silent.
-(destruct k).
-Unset Silent.
-(destruct v1; try contradiction).
+Set Printing Width 148.
+(destruct v1; contradiction || constructor).
+Show.
+(apply match_ty_ref__inv in Hm2).
