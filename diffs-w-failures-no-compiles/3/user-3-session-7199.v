@@ -483,4 +483,18 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
-(assert (a < length bs ++ bs')).
+(assert (a < length (bs ++ bs'))).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @app_length.
+Timeout 1 Check @split.
+(rewrite app_length; lia).
