@@ -252,4 +252,4 @@ Show.
 Set Silent.
 (intros k t1 t2 Hsem).
 Unset Silent.
-(unfold sem_sub_k; intros v Hm).
+(unfold sem_eq_k in *; intros v Hm).
