@@ -50,24 +50,19 @@ reflexivity.
 (rewrite IHt; try assumption).
 reflexivity.
 -
-(destruct (beq_idP X i)).
-reflexivity.
+Set Printing Width 148.
+(destruct (beq_idP X i); try reflexivity).
+Set Silent.
 (rewrite IHt).
 reflexivity.
-Set Printing Width 148.
 (unfold fresh in *).
 (intros Hcontra).
-Search -IdSet.remove.
-Check IdSetFacts.remove_2.
-Set Printing Width 148.
-Set Silent.
 (apply Hfresh).
-Unset Silent.
 (apply IdSetFacts.remove_2; try assumption).
 (intros Heq).
 subst.
 contradiction.
 -
 (unfold fresh in Hfresh).
-Set Printing Width 148.
+Unset Silent.
 (destruct (beq_idP X i); try reflexivity).
