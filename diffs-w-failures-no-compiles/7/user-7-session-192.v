@@ -22,16 +22,18 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (intros X s; induction w; induction t; intros v HX Hm;
   try (solve
    [ rewrite subst_cname in *; assumption
    | rewrite subst_pair; destruct (fresh_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]; apply match_ty_pair__inv in Hm;
       destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; auto
+   | rewrite subst_union; destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
+      [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto
    | rewrite subst_ev in *; assumption ])).
 Show.
 Set Silent.
-Set Printing Width 148.
-Set Printing Width 148.
-(rewrite subst_union; destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
-  [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto).
+-
+Unset Silent.
 Show.
+(apply match_ty_exist__0_inv in Hm).
