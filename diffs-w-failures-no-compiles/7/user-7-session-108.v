@@ -290,4 +290,4 @@ Unset Silent.
 (split; intros w1; exists w1; auto).
 -
 Set Silent.
-(destruct (IHt k) as [v Hm]).
+Unset Silent.
