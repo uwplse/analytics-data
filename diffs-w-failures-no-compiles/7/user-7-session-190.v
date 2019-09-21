@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -36,12 +37,8 @@ assumption.
 (destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
 (apply match_ty_union_1; auto).
 *
-Unset Silent.
 (rewrite subst_union).
-Set Silent.
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
 (destruct (free_in_ty__decidable X t'1) as [HXt'1| HXt'1]).
 (apply match_ty_union_1; auto).
+Unset Silent.
 (exfalso; apply not__free_and_fresh_in_ty).
