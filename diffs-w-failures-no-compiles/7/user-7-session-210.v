@@ -86,3 +86,7 @@ Unset Silent.
 Proof.
 (unfold f_free_in_ty, free).
 (intros X Y t HX Hcontra).
+(intros X Y t HX).
+(simpl in HX).
+assumption.
+Qed.
