@@ -50,7 +50,7 @@ subst.
 (repeat rewrite subst_exist_eq).
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
-(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
-(rewrite (subst_exist_neq _ _ _ _ HY)).
-Unset Silent.
-(rewrite subst_exist_eq).
+Show.
+Set Printing Width 148.
+(rewrite subst_equation).
+Show.
