@@ -188,4 +188,16 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct s; simpl in *; auto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(destruct s; intuition).
+Timeout 1 Check @sig.
+(simpl in *).
+Timeout 1 Check @split.
+lia.
+-
+(step_proc; intros).
+(exists tt; simpl; intuition idtac).
