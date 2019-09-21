@@ -42,6 +42,5 @@ Set Printing Width 131.
 Show.
 -
 (intros w' f \206\1470 \206\1471 \206\1471' \206\14701 WT pf_merge1 pf_merge2).
-(simpl).
 Unset Silent.
 Show.
