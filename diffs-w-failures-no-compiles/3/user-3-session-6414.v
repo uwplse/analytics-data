@@ -244,19 +244,5 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Timeout 1 Show.
 Timeout 1 Show.
-Timeout 1 Show Intros.
-Timeout 1
-(repeat
-  match goal with
-  | company_coq_hyp__:_
-    |- _ =>
-        clear dependent company_coq_hyp__;
-         (let dummy := H1 in
-          let dummy := H0 in
-          idtac)
-  end;
-  repeat
-   match goal with
-   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
-   end).
-Timeout 1 Show Intros.
+Unset Silent.
+Set Diffs "off".
