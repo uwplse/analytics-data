@@ -533,4 +533,11 @@ Timeout 1 Check @log_abstraction_nil.
 step_proc.
 intuition.
 {
-eauto using log_abstraction_preserved.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(exists bs; eauto using log_abstraction_preserved).
+}
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
