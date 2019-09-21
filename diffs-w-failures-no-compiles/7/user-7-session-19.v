@@ -104,4 +104,5 @@ constructor.
 (apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 Set Printing Width 148.
 Set Printing Width 148.
-(constructor; [ eapply IHt1 | eapply IHt2 ]).
+Set Printing Width 148.
+(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
