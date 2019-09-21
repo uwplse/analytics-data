@@ -176,5 +176,13 @@ Set Silent.
 (rewrite (subst_equation X sx) in Hm).
 Unset Silent.
 (destruct (IdSet.mem i (FV sx))).
+Set Printing Width 148.
+Set Silent.
+*
 (unfold mk_subst_exist in Hm).
+Unset Silent.
 (rewrite (subst_equation Y sy) in Hm).
+(destruct (IdSet.mem (gen_fresh (IdSet.union (FV sx) (FV t))) (FV sy))).
+Show.
+(unfold mk_subst_exist in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
