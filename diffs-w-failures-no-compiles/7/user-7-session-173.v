@@ -87,9 +87,8 @@ reflexivity.
 +
 assumption.
 -
-(destruct (beq_idP x i); reflexivity).
-Qed.
-Unset Silent.
+Set Printing Width 148.
+Set Silent.
 Function
  subst (x : id) (s t : ty) {measure size t} : ty :=
    match t with
@@ -103,7 +102,6 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
-Set Silent.
 -
 (intros).
 (simpl).
@@ -128,6 +126,6 @@ Omega.omega.
 -
 (intros).
 (simpl).
-Unset Silent.
 Omega.omega.
-Qed.
+Unset Silent.
+Defined.
