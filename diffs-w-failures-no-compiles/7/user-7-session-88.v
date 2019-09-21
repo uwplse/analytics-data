@@ -427,6 +427,9 @@ Set Printing Width 148.
             (Hsem _ Hm); contradiction
      end ])).
 Show.
+Set Printing Width 148.
+-
 (assert (Hv : value_type (TCName c)) by constructor).
+Show.
 (destruct IHt'1).
 Show.
