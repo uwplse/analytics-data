@@ -154,6 +154,9 @@ Set Printing Width 148.
 Set Printing Width 148.
 (simpl in *).
 Set Printing Width 148.
-split.
-assumption.
-(exists tx; reflexivity).
+Set Printing Width 148.
+(split; eauto).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl).
