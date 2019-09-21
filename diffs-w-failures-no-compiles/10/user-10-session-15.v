@@ -44,4 +44,8 @@ Unset Silent.
 Set Printing Width 114.
 Unset Silent.
 Set Printing Width 114.
-Eval simpl in fib 10 0 1.
+Unset Silent.
+Set Printing Width 114.
+Eval compute in fib 10 0 1.
+Timeout 1 Check @fib.
+Check stream.
