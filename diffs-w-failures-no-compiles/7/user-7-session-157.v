@@ -61,4 +61,6 @@ exists (TEV X').
 Show.
 Set Printing Width 148.
 Show.
-(apply match_ty_var).
+Show.
+(simpl).
+(rewrite <- bew_id_refl).
