@@ -414,4 +414,16 @@ tauto.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 Set Printing Width 148.
+Set Printing Width 148.
 Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
+Proof.
+Show.
+(induction k; induction v).
+Show.
+4: {
+idtac.
+Show.
+(intros Hm k' Hle).
+(inversion Hle; subst).
+Show.
+asumption.
