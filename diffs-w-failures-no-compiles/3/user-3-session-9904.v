@@ -229,4 +229,5 @@ Show.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @spec_abstraction_compose.
-(destruct state).
+Unset Silent.
+Set Diffs "off".
