@@ -231,6 +231,10 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(apply mixed_unitary; trivial).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 Set Printing Implicit.
 Show.
+restore_dims.
