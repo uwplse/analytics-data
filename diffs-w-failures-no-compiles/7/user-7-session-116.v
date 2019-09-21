@@ -109,4 +109,9 @@ assumption.
 +
 (simpl).
 Search -beq_id.
-(rewrite false_beq_id).
+Show.
+Set Printing Width 148.
+(rewrite (false_beq_id _ _ n)).
+(rewrite (false_beq_id _ _ n0)).
+reflexivity.
+Qed.
