@@ -165,6 +165,9 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSEfhnW"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Definition inc1X_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -175,5 +178,30 @@ Definition inc1X_ok :
              mkState (1 + StateX state) (StateY state) (StateZ state);
      recovered := fun _ state' => True |}) (inc1 VarX) vars.recover
     vars.abstr.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @inc1.
+Proof.
+(unfold inc1).
+step_proc.
+step_proc.
+step_proc.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqT1GK25"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve inc1X_ok: core.
+Fixpoint increment (v1 : var) (n : nat) : proc unit :=
+  match n with
+  | 0 => Ret tt
+  | S n' => _ <- inc1 v1; increment v1 n'
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfNAH2v"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBk5ULg"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
