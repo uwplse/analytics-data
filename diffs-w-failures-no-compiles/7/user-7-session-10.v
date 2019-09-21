@@ -286,5 +286,5 @@ Unset Silent.
 (assert (Hsub : |- TRef t << TRef t') by (constructor; assumption)).
 (apply sub_r__mk_nf_sub_r in Hsub).
 Set Printing Width 148.
-(apply sub_r_nf__trans2 with (MkNF( TRef t')); try assumption || apply mk_nf__in_nf).
-Show.
+Set Printing Width 148.
+(apply sub_r_nf__trans2 with (MkNF( TRef t')); assumption || apply mk_nf__in_nf).
