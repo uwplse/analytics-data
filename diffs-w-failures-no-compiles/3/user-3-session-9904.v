@@ -228,4 +228,9 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 (destruct s; intuition).
 +
 Timeout 1 Check @eq_existT_curried.
-exists [].
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(exists []; intuition).
