@@ -217,8 +217,12 @@ Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @id.
 Timeout 1 Check @firstn_length.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
-          end _) |- _ => idtac a
+          end _) |- _ => idtac H a
  end).
