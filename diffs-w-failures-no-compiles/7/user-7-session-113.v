@@ -25,4 +25,18 @@ Set Silent.
 Unset Silent.
 (unfold not_fresh in *).
 Search -IdSet.union.
-(simpl in H).
+Show.
+Search -IdSet.union.
+Set Printing Width 148.
+Set Silent.
+Abort.
+Unset Silent.
+Lemma subs_not_in_FV : forall (X : id) (t : ty), not_fresh_in_ty X t -> forall s : ty, [X := s] t = t.
+Set Silent.
+Proof.
+(intros X t).
+(induction t; intros Hnfresh s; try (solve [ reflexivity ])).
+-
+(simpl).
+Unset Silent.
+(unfold fresh_in_ty in *).
