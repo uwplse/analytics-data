@@ -98,23 +98,6 @@ Set Silent.
 Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
 Unset Silent.
 Proof.
-Show.
-(induction k).
+Set Printing Width 148.
 -
-(induction t).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_cname__inv in Hcontra).
-(inversion Hcontra).
-+
-(intros Hdep w Hcontra).
-Set Silent.
-(apply match_ty_pair__inv in Hcontra).
-(destruct Hcontra as [v1 [v2 [Heq _]]]).
-Unset Silent.
-(inversion Heq).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_union__inv in Hcontra).
-(destruct Hcontra as [Hcontra| Hcontra]).
-*
+Show.
