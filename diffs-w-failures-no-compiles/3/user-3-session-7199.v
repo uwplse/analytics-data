@@ -498,4 +498,8 @@ Set Printing Width 78.
 Show.
 (unfold log_abstraction, log_length_ok, log_size_ok; intuition).
 Timeout 1 Check @log_contents_ok.
-congruence.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(rewrite H0 in *).
+Timeout 1 Check @Tauto.A.
+auto.
