@@ -211,5 +211,8 @@ Timeout 1 Check @proc_spec.
 Timeout 1 Check @hypo_proof.
 Set Printing Width 78.
 Show.
-(pose proof H).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (apply H1 in H).
