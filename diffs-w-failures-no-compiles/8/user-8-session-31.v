@@ -3323,5 +3323,19 @@ Timeout 1 Print Grammar tactic.
 Lemma HOAS_Equiv_refl : forall w1 w2 (c : Box w1 w2), c \226\137\161 c.
 Proof.
 (intros w1 w2 c \207\129 b).
-auto.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+reflexivity.
 Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq4KT1cp"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma HOAS_Equiv_sym : forall w1 w2 (c1 c2 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c1.
+Proof.
+Set Silent.
+(intros).
+(intros \207\129 b H').
+Unset Silent.
+(rewrite H; auto).
