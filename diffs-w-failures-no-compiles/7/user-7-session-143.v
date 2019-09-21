@@ -92,4 +92,5 @@ admit.
 admit.
 +
 Unset Silent.
-(intros X' HX HX' Hsem).
+Set Printing Width 148.
+(intros X' HX HX' Hsem tx).
