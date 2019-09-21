@@ -710,4 +710,15 @@ Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
-(apply proc_spec_weaken).
+Timeout 1 Check @repeat_length.
+(eapply proc_spec_weaken; eauto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @spec_impl.
+Timeout 1 Check @spec_impl.
+(unfold spec_impl).
