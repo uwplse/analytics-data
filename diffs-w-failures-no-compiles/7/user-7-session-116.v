@@ -31,20 +31,12 @@ Proof.
 Unset Silent.
 (induction t; intros Hfresh s; try (solve [ reflexivity ])).
 Set Silent.
--
-Unset Silent.
-(simpl).
+Set Printing Width 148.
 (unfold fresh_in_ty in *).
 Show.
-Set Printing Width 148.
 (simpl in Hfresh).
-(apply fresh_union__inv in Hfresh).
-(destruct Hfresh as [Hfresh1 Hfresh2]).
 Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
-(rewrite IHt1).
-(rewrite IHt2).
-Unset Silent.
-reflexivity.
+(apply fresh_union__inv in Hfresh).
+Show.
+(destruct Hfresh as [Hfresh1 Hfresh2]).
+(rewrite IHt1; try assumption).
