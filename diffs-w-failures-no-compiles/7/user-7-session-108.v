@@ -331,4 +331,12 @@ Set Printing Width 148.
 +
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
+subst.
 (simpl in Hcontra).
+(assert (Heq : beq_id i i = true)).
+{
+admit.
+}
+Search -beq_id_refl.
+(rewrite Heq).
