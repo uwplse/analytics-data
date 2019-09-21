@@ -81,4 +81,7 @@ Unset Silent.
 (destruct v; contradiction).
 -
 (apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]).
+Set Printing Width 148.
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+tauto.
