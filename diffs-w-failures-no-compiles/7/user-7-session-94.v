@@ -73,5 +73,10 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros v X t k Hm).
-Show.
+Set Printing Width 148.
+Set Silent.
+(intros v; induction v).
+-
+Unset Silent.
+(intros X t k Hm).
+(simpl in Hm).
