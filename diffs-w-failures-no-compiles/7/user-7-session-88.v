@@ -469,4 +469,12 @@ Show.
 (inversion Hnft; subst).
 (inversion H; subst).
 (simpl in Hdep).
-(apply IHk; try assumption).
+Set Printing Width 148.
+Set Silent.
+(assert (Hv : value_type (TRef t)) by constructor).
+Unset Silent.
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
+Set Silent.
+specialize (Hsem _ Hm).
+Unset Silent.
+(simpl in Hsem).
