@@ -173,4 +173,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 (split; repeat rewrite subst_union; intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
-  try (destruct (IHt1 v) as [Hm1 Hm2]; specialize (Hm1 Hm)); destruct (IHt2 v) as [Hm1 Hm2]).
+  try (destruct (IHt1 v) as [Hm1 Hm2]; specialize (Hm1 Hm)); try destruct (IHt2 v) as [Hm1 Hm2]).
+Show.
