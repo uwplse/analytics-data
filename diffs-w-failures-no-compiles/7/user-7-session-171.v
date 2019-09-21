@@ -76,5 +76,7 @@ Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
 Proof.
 Set Silent.
 Set Printing Width 148.
-(induction t; simpl).
+Set Printing Width 148.
+(induction t; simpl; try reflexivity).
+Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Show.
