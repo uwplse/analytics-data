@@ -244,15 +244,16 @@ specialize (Hsem _ Hm).
 (intros v').
 specialize (Hsem v').
 tauto.
-Qed.
-Unset Silent.
-Ltac
- solve__value_sem_sub_i_union__inv_depth_le_2 Hv Hsem t'1 t'2 :=
-  pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
-   [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
-Set Silent.
-Lemma sem_sub_k_i_nf__inv_depth_le_2 : forall (k : nat) (t t' : ty), InNF( t) -> | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Set Printing Width 148.
+Set Silent.
+Ltac
+ solve__value_sem_sub_i_union__inv_depth_le_2 Hdept' Hv Hsem t'1 t'2 :=
+  destruct (max_inv_depth_le__components_le _ _ _ Hdept') as [Hdept'1 Hdept'2]; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
+   destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
+   tauto || apply Max.le_max_l || apply Max.le_max_r.
+Lemma sem_sub_k_i_nf__inv_depth_le_2 : forall (k : nat) (t t' : ty), InNF( t) -> | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
+Unset Silent.
 (induction k; induction t; induction t'; intros Hnft Hdept' Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -263,9 +264,9 @@ Set Printing Width 148.
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
        |- _ =>
            assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
-            solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+            solve__value_sem_sub_i_union__inv_depth_le_2 Hdept' Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
-       |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+       |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le_2 Hdept' Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
        |- _ <= | ?t' | =>
            assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
@@ -280,10 +281,5 @@ Set Printing Width 148.
             destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
-Show.
-(assert (Hv : value_type (TCName c)) by constructor).
-Show.
-(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu).
-Show.
-(destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]).
-Show.
+(destruct (max_inv_depth_le__components_le _ _ _ Hdept') as [Hdept'1 Hdept'2]; destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2];
+  destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
