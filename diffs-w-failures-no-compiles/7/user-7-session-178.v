@@ -138,4 +138,10 @@ Set Printing Width 148.
 reflexivity.
 -
 Set Printing Width 148.
-(destruct (beq_idP X i)).
+Show.
+Set Printing Width 148.
+(rewrite subst_equation).
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Qed.
