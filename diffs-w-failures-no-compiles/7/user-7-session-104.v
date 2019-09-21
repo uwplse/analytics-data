@@ -189,4 +189,21 @@ exists tx.
 Show.
 Set Printing Width 148.
 (apply match_ty_union_1).
+Set Printing Width 148.
 assumption.
+-
+Set Silent.
+(destruct w1).
++
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl in Hmx).
+(apply match_ty_exist).
+exists tx.
+Unset Silent.
+(apply match_ty_union_2).
+assumption.
+Qed.
