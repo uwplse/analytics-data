@@ -107,4 +107,7 @@ Show.
 Set Printing Width 148.
 (destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
 *
-specialize (IHw'a _ H).
+specialize (IHw'b H).
+(split; intros HX').
+{
+exists ti.
