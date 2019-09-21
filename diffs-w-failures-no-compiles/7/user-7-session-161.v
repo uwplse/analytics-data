@@ -97,4 +97,5 @@ reflexivity.
 -
 Set Silent.
 (repeat rewrite subst_pair).
-(rewrite IHt1, IHt2).
+Unset Silent.
+Show.
