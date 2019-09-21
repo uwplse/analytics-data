@@ -222,4 +222,18 @@ Unset Silent.
 Set Printing Width 85.
 Lemma bias1 : biased_coin 1 == \226\136\1631\226\159\169\226\159\1681\226\136\163.
 Proof.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Set Silent.
+lma.
+Unset Silent.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqvIAyK0"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
+Lemma even_bias : biased_coin (1 / 2) = fair_coin.
+Proof.
 lma.
