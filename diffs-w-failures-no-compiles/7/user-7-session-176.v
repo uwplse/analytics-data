@@ -155,4 +155,12 @@ Show.
 (intros Hm).
 (apply match_ty_pair__inv in Hm).
 Show.
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+Set Printing Width 148.
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Show.
+Set Silent.
+(destruct (IHt1 _ Hm1) as [v1' Hm1']).
+Unset Silent.
+(destruct (IHt2 _ Hm2) as [v2' Hm2']).
+exists (TPair v1' v2').
+(apply match_ty_pair).
