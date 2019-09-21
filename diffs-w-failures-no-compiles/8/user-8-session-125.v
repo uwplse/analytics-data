@@ -103,4 +103,10 @@ matrix_denote.
 Msimpl.
 (destruct W; try (solve [ inversion U ])).
 -
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
+(unfold denote_pat; simpl).
+(unfold swap_list; simpl).
