@@ -994,4 +994,5 @@ Show.
 Set Printing Width 85.
 Show.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-gridify.
+(repeat rewrite Mmult_assoc).
+Msimpl.
