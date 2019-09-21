@@ -107,5 +107,14 @@ Lemma match_ty_exist__inv :
   forall (v : ty) (X : id) (t : ty) (k w : nat), |-[ k, S w] v <$ TExist X t -> exists tx : ty, |-[ k, w] v <$ [X := tx] t.
 Unset Silent.
 Proof.
-(intros v X t k w).
+Set Printing Width 148.
+(intros v X t k w Hm).
 (destruct k, v; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_var__inv : forall (v : ty) (X : id) (k w : nat), |-[ k, w] v <$ TVar X -> v = TEV X.
+Proof.
+(intros v X k w Hm).
+Unset Silent.
+(destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
+Qed.
