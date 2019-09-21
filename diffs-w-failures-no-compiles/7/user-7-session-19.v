@@ -415,5 +415,9 @@ Set Printing Width 148.
 (intros ta; induction ta; intros tb; induction tb; intros Hsem).
 Show.
 Show 3.
+Set Printing Width 148.
 16: {
-Abort.
+idtac.
+Show.
+clear IHta.
+Show.
