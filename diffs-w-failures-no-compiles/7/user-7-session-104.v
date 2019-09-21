@@ -77,9 +77,16 @@ Set Printing Width 148.
 Set Silent.
 Lemma sem_eq_k__exists_not : forall (k : nat) (t : ty), exists t' : ty, ~ ||-[ k][t']= [t].
 Proof.
-(intros k t).
-(induction k; induction t).
-admit.
-Unset Silent.
-admit.
--
+Show.
+Set Printing Width 148.
+exists (TRef t).
+Show.
+(intros Hcontra).
+Show.
+(destruct Hcontra as [Hsem1 Hsem2]).
+Show.
+specialize (Hsem1 1).
+Show.
+(destruct Hsem1 as [w2 Hsem1]).
+Show.
+(assert (Hm : |-[ k, 1] TRef t <$ TRef t)).
