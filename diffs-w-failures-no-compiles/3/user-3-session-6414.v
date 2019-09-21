@@ -238,11 +238,13 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxfJz1W"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Qed.
-Set Silent.
-Theorem get_ok : proc_spec get_spec get recover abstr.
 Unset Silent.
-Proof.
-(unfold get; intros).
-(apply spec_abstraction_compose; simpl).
-step_proc.
+Set Diffs "off".
+Timeout 1 Check @Ret.
+Timeout 1 Check @ge.
+Timeout 1 Check @get.
+Timeout 1 Check @get_at.
+Timeout 1 Check @get_len.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Hint Resolve get_len: core.
