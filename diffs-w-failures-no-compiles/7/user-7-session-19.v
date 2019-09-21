@@ -121,4 +121,4 @@ Show.
 (inversion Hsem').
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair__inv in Hsem').
+Show.
