@@ -129,6 +129,7 @@ Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair
 Unset Silent.
 Proof.
 (intros X s t1 t2).
-(unfold subst).
-(unfold subst_terminate).
-Show.
+Check subst_equation.
+Set Printing Width 148.
+(apply subst_equation).
+Qed.
