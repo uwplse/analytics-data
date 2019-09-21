@@ -482,4 +482,12 @@ Show.
 (rewrite H; eauto).
 }
 {
-(unfold log_size_ok, log_abstraction in *; intuition eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold log_size_ok, log_abstraction in *; intuition).
+Timeout 1 Check @rec_wipe_compose.
+(rewrite H1).
+Timeout 1 Check @split.
+lia.
