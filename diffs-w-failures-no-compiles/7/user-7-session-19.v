@@ -100,4 +100,7 @@ Show.
 (simpl).
 (intros v Hv).
 specialize (Href v Hv).
-(split; auto).
+Set Printing Width 148.
+split.
+*
+Abort.
