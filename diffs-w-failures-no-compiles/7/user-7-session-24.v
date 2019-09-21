@@ -63,6 +63,8 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
 Theorem match_ty__value_type_l : forall (k : nat) (t v : ty), |-[ k] v <$ t -> value_type v.
-Proof.
-Unset Silent.
+Set Printing Width 148.
 (intros k; induction t; induction v; intros Hm; try (solve [ constructor | destruct k; contradiction ])).
+Show.
+(destruct k; simpl in Hm).
+Show.
