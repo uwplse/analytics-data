@@ -400,4 +400,6 @@ Set Silent.
 Unset Silent.
 (intros c).
 Set Printing Width 148.
-(split; intros t'; induction t'; try (solve [ right; solve_not_x_sub_r_y_full ])).
+Set Printing Width 148.
+(split; intros t'; induction t').
++
