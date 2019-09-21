@@ -172,5 +172,8 @@ Lemma SWAP_spec_sep :
   forall (\207\1291 \207\1292 : Density 2) safe,
   WF_Matrix \207\1291 -> WF_Matrix \207\1292 -> denote_box safe SWAP (\207\1291 \226\138\151 \207\1292) = \207\1292 \226\138\151 \207\1291.
 Proof.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (intros).
-(rewrite SWAP_spec).
