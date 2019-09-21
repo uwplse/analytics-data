@@ -666,4 +666,11 @@ Timeout 1 Check @log_abstraction.
 Set Printing Width 78.
 Show.
 (unfold log_abstraction; intuition).
-(unfold log_length_ok; intros).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold log_length_ok in *; intros).
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
