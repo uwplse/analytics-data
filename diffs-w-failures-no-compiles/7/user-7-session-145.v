@@ -176,6 +176,10 @@ admit.
 -
 (intros t X' HX HX' Hsem).
 Show.
-(intros w1).
-(induction w1).
 Show.
+Set Printing Width 148.
+(intros k w1).
+(induction w1).
+exists 0.
+(intros v Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
