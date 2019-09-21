@@ -497,4 +497,16 @@ Timeout 1 Check @app_length.
 Timeout 1 Check @app_length.
 Timeout 1 Check @app_length.
 Timeout 1 Check @split.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+Set Silent.
+{
 (rewrite app_length; lia).
+}
+Unset Silent.
+intuition.
+Timeout 1 Check @rec_wipe_compose.
+(rewrite H).
