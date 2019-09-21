@@ -60,15 +60,11 @@ Set Printing Width 85.
 Show.
 Unset Silent.
 Show.
+Unset Silent.
+Show.
 Set Printing Width 85.
 Show.
-Set Silent.
+specialize (unitary_gate_unitary U) as inv.
 (simpl in *).
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
