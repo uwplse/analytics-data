@@ -134,7 +134,9 @@ Qed.
 Unset Silent.
 Lemma b_free_in_ty_bvar__inv : forall X Y : id, b_free_in_ty X (TBVar Y) -> X = Y.
 Proof.
-(intros X Y).
+Set Printing Width 148.
+Set Silent.
 (unfold b_free_in_ty, free).
+Unset Silent.
 (simpl).
-Search -IdSet.singleton.
+(apply IdSetFacts.singleton_1).
