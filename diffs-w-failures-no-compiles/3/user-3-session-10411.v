@@ -129,7 +129,25 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (match goal with
  | Hexec:exec (rx _) _ _
-   |- _ => eapply RExec in Hexec; eapply H4 in Hexec; eauto
+   |- _ => eapply RExec in Hexec; eapply H4 in Hexec; simpl; eauto
  end).
+Set Silent.
+-
+inv_exec.
++
+(match goal with
+ | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
+ end).
+(eapply H0 in H2; repeat deex).
+(eapply H in H10; simpl in *; safe_intuition repeat deex; eauto).
+(match goal with
+ | Hexec:exec (rx _) _ _
+   |- _ => eapply RExecCrash in Hexec; eauto; eapply H4 in Hexec; eauto
+ end).
++
