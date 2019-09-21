@@ -280,4 +280,6 @@ exists (TPair v'1 v'2).
 Unset Silent.
 admit.
 }
-(destruct Hcontra as [Hcontra| Hcontra]; auto).
+Show.
+Set Printing Width 148.
+(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]).
