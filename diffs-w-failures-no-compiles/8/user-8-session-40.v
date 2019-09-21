@@ -128,4 +128,5 @@ Show.
 Set Printing Width 85.
 Show.
 Msimpl.
-lma.
+Unset Silent.
+Show.
