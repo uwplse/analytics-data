@@ -274,5 +274,23 @@ Show.
 Set Printing Width 85.
 Show.
 (erewrite VA).
-reflexivity.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+easy.
 (eapply t0; [ apply pf1 | apply t ]).
+Set Silent.
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+Unset Silent.
+(eapply t0; [ apply pf1 | apply t ]).
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+2: (constructor; apply singleton_singleton).
