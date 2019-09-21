@@ -331,4 +331,8 @@ Unset Silent.
 (apply SR_NormalForm).
 (apply sub_r__transitive with (MkNF( t'))).
 assumption.
+Set Printing Width 148.
+Set Silent.
 (apply mk_nf__sub_r1).
+Unset Silent.
+Qed.
