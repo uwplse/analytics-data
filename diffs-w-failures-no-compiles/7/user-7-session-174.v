@@ -138,4 +138,6 @@ Set Silent.
 (simpl).
 Omega.omega.
 Unset Silent.
-Defined.
+Show.
+-
+(simpl).
