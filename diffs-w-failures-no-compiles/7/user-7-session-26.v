@@ -19,6 +19,7 @@ Proof.
 Qed.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma in_nf_pair__inv : forall t1 t2 : ty, InNF( TPair t1 t2) -> InNF( t1) /\ InNF( t2).
 Proof.
@@ -52,54 +53,38 @@ generalize dependent ta.
               (in_nf_mut (fun (t2 : ty) (_ : atom_type t2) => InNF( unite_pairs tz t2)) (fun (t2 : ty) (_ : in_nf t2) => InNF( unite_pairs tz t2)));
              try (solve [ subst; intros; simpl; auto with DBBetaJulia ])
       end ])).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma unite_pairs_t_union :
   forall t t1 t2 : ty, ~ (exists ta tb, t = TUnion ta tb) -> unite_pairs t (TUnion t1 t2) = TUnion (unite_pairs t t1) (unite_pairs t t2).
 Proof.
 (intros t t1 t2 Hcontra).
-Unset Silent.
 (destruct t; try (solve [ simpl; reflexivity ])).
 exfalso.
-Set Printing Width 148.
-Set Silent.
 (apply Hcontra).
-Unset Silent.
 (do 2 eexists).
 reflexivity.
 Qed.
-Set Silent.
 Ltac resolve_not_union := intros [tx [ty Hcontra]]; inversion Hcontra.
 Lemma unite_pairs_union_t : forall t1 t2 t' : ty, unite_pairs (TUnion t1 t2) t' = TUnion (unite_pairs t1 t') (unite_pairs t2 t').
 Proof.
 (intros t1 t2 t').
 (destruct t'; try (solve [ simpl; reflexivity ])).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma mk_nf_pair : forall t1 t2 : ty, MkNF( TPair t1 t2) = unite_pairs (MkNF( t1)) (MkNF( t2)).
 Proof.
 reflexivity.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma mk_nf_union : forall t1 t2 : ty, MkNF( TUnion t1 t2) = TUnion (MkNF( t1)) (MkNF( t2)).
 Proof.
 reflexivity.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma mk_nf_ref : forall t : ty, MkNF( TRef t) = TRef (MkNF( t)).
 Proof.
 reflexivity.
-Unset Silent.
 Qed.
 Hint Resolve mk_nf_pair mk_nf_union mk_nf_ref: DBBetaJulia.
-Set Silent.
 Theorem mk_nf__in_nf : forall t : ty, InNF( MkNF( t)).
-Set Printing Width 148.
-Set Silent.
+Proof.
 (intros t; induction t; try (solve [ simpl; auto using unite_pairs__preserves_nf with DBBetaJulia ])).
 Unset Silent.
 Qed.
