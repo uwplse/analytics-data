@@ -79,11 +79,19 @@ Unset Silent.
 (simpl in *).
 Set Printing Width 148.
 Set Printing Width 148.
-(induction t'; intros k; destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]; specialize (Hsem k w);
+Set Printing Width 148.
+Set Silent.
+(induction t').
++
+Unset Silent.
+(intros k; destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]; specialize (Hsem k w);
   destruct Hsem as [w2 Hsem]; specialize (Hsem _ Hm); apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Set Silent.
+(apply match_ty_cname__inv in Hsem).
+Unset Silent.
+(inversion Hsem).
 Set Silent.
 +
 Unset Silent.
-(apply match_ty_cname__inv in Hsem).
-(inversion Hsem).
-+
+Show.
+clear IHt'1.
