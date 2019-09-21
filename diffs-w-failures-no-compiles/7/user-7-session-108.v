@@ -121,6 +121,10 @@ exists tx.
 (apply match_ty_union_2).
 assumption.
 Qed.
+Set Printing Width 148.
+Definition ty_not_empty_k (t : ty) (k : nat) : Prop := exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Hint Unfold ty_not_empty_k: DBBetaJulia.
+Set Silent.
 Reserved Notation "'|' t '|'" (at level 20).
 Fixpoint inv_depth (t : ty) :=
   match t with
@@ -174,9 +178,6 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
 Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
 (induction w; induction t; intros k v Hm w' Hle).
@@ -246,36 +247,20 @@ assumption.
 -
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma ty_empty__subs_ty_empty :
   forall (w : nat) (t : ty) (k : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
 Proof.
-Unset Silent.
 (induction w; induction t; intros k Hnotm X s Hcontra).
-Set Silent.
 -
-Unset Silent.
 (apply Hnotm; assumption).
-Set Silent.
 -
 (simpl in Hcontra).
 (destruct Hcontra as [v Hcontra]).
 (apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 subst.
-Unset Silent.
 (remember 0 as w).
-Set Silent.
 (assert (Hcontra : ~ (exists v1 : ty, |-[ k, w] v1 <$ t1) \/ ~ (exists v2 : ty, |-[ k, w] v2 <$ t2))).
 {
 (assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
@@ -286,34 +271,24 @@ exists (TPair v'1 v'2).
 (apply match_ty_pair; assumption).
 }
 admit.
-Unset Silent.
 }
-Show.
 (destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k Hcontra X s) | specialize (IHt2 k Hcontra X s) ]; [ apply IHt1 | apply IHt2 ]; eauto).
-Set Silent.
 -
-Unset Silent.
 admit.
-Set Silent.
 -
-Unset Silent.
 (apply Hnotm).
 exists (TRef t).
 (apply match_ty_value_type__reflexive; constructor).
 -
-Show.
 (destruct Hcontra as [v Hcontra]).
 admit.
 -
 (apply Hnotm).
-Set Printing Width 148.
 exists (TEV i).
 (destruct k; reflexivity).
 -
-Set Silent.
 (apply Hnotm).
 exists (TEV i).
-Unset Silent.
 (destruct k; reflexivity).
 -
 admit.
@@ -324,11 +299,6 @@ admit.
 -
 admit.
 -
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-Set Silent.
 (destruct Hcontra as [v Hcontra]).
 (destruct (beq_idP X i)).
 +
@@ -351,7 +321,6 @@ admit.
 (rewrite Heq in Hcontra).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
-Unset Silent.
 (assert (Hnotm' : ~ (exists v, |-[ k, w] v <$ [i := tx] t))).
 {
 (intros [v0 Hm]).
@@ -362,30 +331,22 @@ exists tx.
 assumption.
 }
 (apply Hnotm).
-Set Printing Width 148.
 exists v0.
 assumption.
 }
-Set Printing Width 148.
 specialize (IHw _ _ Hnotm' X s).
 (apply IHw).
 exists v.
-Show.
 admit.
 -
-Set Silent.
 (apply Hnotm).
 exists (TEV i).
-Unset Silent.
 (destruct k; reflexivity).
 -
-Set Silent.
 (apply Hnotm).
 exists (TEV i).
-Unset Silent.
 (destruct k; reflexivity).
 Admitted.
-Set Silent.
 Lemma ty__empty_or_matching_ty_exists :
   forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
 Proof.
@@ -420,7 +381,6 @@ admit.
 (left; exists (TRef t)).
 (destruct k).
 reflexivity.
-Unset Silent.
 (split; intros w1; exists w1; auto).
 -
 (destruct (IHw t k) as [Hm| Hnotm]).
@@ -429,37 +389,30 @@ Unset Silent.
 (left; exists v).
 (apply match_ty_exist).
 exists (TVar i).
-Set Silent.
 (assert (Heq : [i := TVar i] t = t)).
-Unset Silent.
 admit.
-Set Silent.
 (rewrite Heq).
-Unset Silent.
 assumption.
 +
-Show.
-Set Printing Width 148.
-Set Silent.
 right.
 (intros Hcontra).
 (destruct Hcontra as [v Hcontra]).
-Unset Silent.
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
-Check ty_empty__subs_ty_empty.
 (apply (ty_empty__subs_ty_empty _ _ _ Hnotm i tx)).
 eauto.
 -
 (left; exists (TEV i); apply match_ty_var).
 -
 (left; exists (TEV i); apply match_ty_ev).
-Set Printing Width 148.
-Set Printing Width 148.
+Admitted.
+Unset Silent.
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t k -> ~ ||-[ S k][t]<= [TRef t].
 Set Silent.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
-(induction t; intros k Hdep Hcontra).
+Unset Silent.
+(induction t; intros k Ht Hcontra).
+Set Silent.
 -
 specialize (Hcontra 0).
 (destruct Hcontra as [w Hcontra]).
@@ -468,8 +421,5 @@ specialize (Hcontra _ Hm).
 clear Hm.
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Hcontra _]]).
-(inversion Hcontra).
--
-specialize (Hcontra 0).
 Unset Silent.
-(destruct Hcontra as [w Hcontra]).
+(inversion Hcontra).
