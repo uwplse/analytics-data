@@ -22,4 +22,41 @@ Arguments appE : clear implicits.
 Unset Silent.
 Redirect "/tmp/coq16819L5B" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Check @showAppE.
+Instance showAppE  {T}: (Show (appE id T)) :=
+ {|
+ show := fun ae =>
+         match ae with
+         | App_Accept => "Application Accept"
+         | App_Recv c => "Application Receive " ++ show c
+         | App_Send c msg =>
+             "Application Send " ++ show c ++ " \226\159\185 " ++ show msg
+         end |}.
+Redirect "/tmp/coq16819YDI" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Redirect "/tmp/coq16819lNO" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
+Definition smE := appE exp +' evalE +' nondetE.
+Definition kvs_state exp_ := list (N * exp_ N).
+Unset Silent.
+Fixpoint choose {A E} `{nondetE -< E} (a : A) (l : list A) : 
+itree E A :=
+  match l with
+  | [] => ret a
+  | x :: l' => b <- trigger Or;; (if b : bool then ret x else choose x l')
+  end.
+Redirect "/tmp/coq16819yXU" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Check @kvs_state.
+Timeout 1 Check @kvs_state.
+Timeout 1 Check @kvs_state.
+Timeout 1 Check @kvs_state.
+Timeout 1 Check @kvs_state.
+Timeout 1 Check @kvs_state.
+Timeout 1 Check @kvs_state.
+Check Or.
+Locate or.
+Check or.
