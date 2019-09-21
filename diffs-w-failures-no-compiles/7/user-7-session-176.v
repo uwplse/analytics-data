@@ -154,4 +154,4 @@ Show.
 Set Silent.
 (apply match_ty_cname__inv in Hm).
 Unset Silent.
-(exists v; assumption).
+exists v.
