@@ -338,6 +338,4 @@ Set Silent.
 generalize dependent t2.
 Unset Silent.
 generalize dependent t1.
-(apply
-  (in_nf_mut (fun (t1 : ty) (Hat : atom_type t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2))
-     (fun (t1 : ty) (Hnf : in_nf t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2)))).
+Show.
