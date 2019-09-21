@@ -1005,5 +1005,5 @@ Show.
 (repeat rewrite Mmult_assoc).
 Msimpl.
 (match goal with
- | |- ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) => idtac A; idtac B; idtac C; idtac D
+ | |- context [ ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) ] => idtac A; idtac B; idtac C; idtac D
  end).
