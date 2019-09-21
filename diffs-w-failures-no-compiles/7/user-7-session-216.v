@@ -439,4 +439,5 @@ Set Printing Width 148.
 (destruct (beq_idP X i)).
 +
 subst.
-(simpl).
+Set Printing Width 148.
+(rewrite f_subst_fvar_eq).
