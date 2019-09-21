@@ -1020,4 +1020,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(unify_matrix_dims idtac).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(apply f_equal_gen).
