@@ -82,9 +82,13 @@ Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct v).
-Show.
--
 Set Printing Width 148.
-(destruct k, w; simpl in Hm; contradiction).
+(destruct v; try (solve [ destruct k, w; simpl in Hm; contradiction ])).
+Show.
+exists v.
+split.
+Show.
+reflexivity.
+Show.
+(simpl in Hm).
 Show.
