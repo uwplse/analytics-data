@@ -973,33 +973,10 @@ Proof.
 (unfold compose_super).
 (rewrite (init_at_spec_strong b m i); [  | omega ]).
 (destruct safe).
--
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
 gen \207\129.
 (rewrite size_ntensor).
-(simpl).
-(rewrite Nat.mul_1_r).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-remember_differences.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-revert \207\129.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(rewrite Lt).
