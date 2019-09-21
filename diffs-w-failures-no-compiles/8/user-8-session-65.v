@@ -950,11 +950,11 @@ Fact assert_at_spec_unsafe :
 Admitted.
 Lemma assert_init_at_id :
   forall b m i, i < S m -> (assert_at b m i \194\183 init_at b m i \226\137\161 id_circ)%qc.
-Proof.
-(intros b m i Lt \207\129 safe).
-(simpl).
-(simpl_rewrite id_circ_spec).
-(simpl_rewrite inSeq_correct; [  | apply assert_at_WT | apply init_at_WT ]).
-(unfold compose_super).
-(rewrite size_ntensor, Nat.mul_1_r in M).
 Unset Silent.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Set Printing Width 85.
+Lemma assert_init_at_id :
+  forall b m i, i < S m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
