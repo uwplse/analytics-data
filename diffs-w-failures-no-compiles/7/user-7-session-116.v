@@ -20,12 +20,5 @@ Lemma fresh_union__inv : forall (X : id) (fvs1 fvs2 : id_set), fresh X (IdSet.un
 Proof.
 (intros X fvs1 fvs2 H).
 (unfold fresh in *).
-Unset Silent.
-(split; intros Hcontra).
-SearchPattern (IdSet.In (IdSet.union _ _)).
-Search -IdSet.union.
-Show.
-(apply IdSetFacts.union_2 in Hcontra).
-Check IdSetFacts.union_2.
-Check IdSetFacts.union_2.
-(apply (IdSetFacts.union_2 fvs2) in Hcontra).
+Set Printing Width 148.
+(split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]).
