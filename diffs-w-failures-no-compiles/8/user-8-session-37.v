@@ -301,4 +301,86 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (eapply t0; [  | constructor; apply singleton_singleton ]).
+dependent destruction p.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+(inversion pf_merge).
+subst.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(rewrite merge_comm, merge_singleton_append).
+easy.
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+reflexivity.
+(eapply t0).
+2: (constructor; apply singleton_singleton).
+dependent destruction p.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+Set Silent.
+(inversion pf_merge).
+subst.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(rewrite merge_comm, merge_singleton_append).
+Unset Silent.
+easy.
+Set Silent.
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+Unset Silent.
+(eapply t0; [  | constructor; apply singleton_singleton ]).
+dependent destruction p.
+Set Silent.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+(inversion pf_merge).
+subst.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(rewrite merge_comm, merge_singleton_append).
+easy.
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+Unset Silent.
+(eapply t0; [  | constructor; apply singleton_singleton ]).
+Set Silent.
+dependent destruction p.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+(inversion pf_merge).
+subst.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(rewrite merge_comm, merge_singleton_append).
+Unset Silent.
+easy.
+-
+dependent destruction p.
+dependent destruction t.
