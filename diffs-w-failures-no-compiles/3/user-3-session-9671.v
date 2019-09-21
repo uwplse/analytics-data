@@ -603,8 +603,16 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 68.
 Show.
-intuition.
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @repeat_length.
+Set Printing Width 68.
+Show.
+intuition eauto.
 {
-eauto.
+(exists []; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+(rewrite diskUpd_eq; eauto).
 }
+{
+(exists []; intuition eauto).
