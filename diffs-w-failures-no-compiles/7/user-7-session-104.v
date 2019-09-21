@@ -131,7 +131,7 @@ Set Printing Width 148.
 (apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; assumption).
 -
 Set Silent.
-(apply match_ty_union__inv in Hm).
-Unset Silent.
-(destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]).
-auto.
+Set Printing Width 148.
+(destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
+Show.
+(apply Nat.max_lub_l).
