@@ -151,6 +151,11 @@ Show.
 (rewrite inv).
 Msimpl.
 (rewrite (Mmult_assoc \207\129 _ A)).
-(rewrite inv).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(rewrite inv).
+Msimpl.
+(rewrite Mmult_assoc).
+easy.
