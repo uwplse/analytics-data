@@ -259,5 +259,6 @@ Unset Silent.
 (assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
 Set Silent.
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
+Set Printing Width 148.
 +
-Unset Silent.
+Show.
