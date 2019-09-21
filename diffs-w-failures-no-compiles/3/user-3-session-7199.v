@@ -322,12 +322,9 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 (unfold log_size_ok, log_contents_ok; intros).
-(specialize (H0 a); intuition).
-(unfold log_addr in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @incl.
+Set Printing Width 78.
+Show.
 (rewrite disk_oob_eq; simpl; auto).
-autorewrite with upd.
-Timeout 1 Check @split.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-intro.
-Timeout 1 Check @split.
-lia.
