@@ -94,8 +94,10 @@ Set Printing Width 148.
 Set Printing Width 148.
 (rewrite IHt1, IHt2).
 reflexivity.
--
+Set Printing Width 148.
 Set Silent.
-(repeat rewrite subst_pair).
+(repeat rewrite subst_union).
+(rewrite IHt1, IHt2).
 Unset Silent.
-Show.
+reflexivity.
+-
