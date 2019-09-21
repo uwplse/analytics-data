@@ -176,4 +176,4 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 specialize (Hcontra 1).
-(assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
+(assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
