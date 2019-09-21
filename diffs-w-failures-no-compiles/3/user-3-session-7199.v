@@ -339,4 +339,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct (a0 == S a); subst; try lia).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+lia.
