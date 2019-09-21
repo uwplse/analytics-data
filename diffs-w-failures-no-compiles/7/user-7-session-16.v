@@ -400,11 +400,8 @@ Ltac
   destruct IHt2_1 as [IH1| IH1]; try assumption; destruct IHt2_2 as [IH2| IH2]; try assumption;
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor; assumption.
-Ltac
- solve_union_sub_r__decidable IHt'1 IHt'2 :=
-  destruct IHt'1 as [IH1| IH1]; try assumption; destruct IHt'2 as [IH2| IH2]; try assumption;
-   try (solve [ right; intros Hcontra; destruct (sub_r_union_l__inv _ _ _ Hcontra) as [Hsub1 Hsub2]; contradiction ]); left; constructor;
-   assumption.
+Set Printing Width 148.
+Set Silent.
 Lemma nf_sub_r__decidable2 :
   forall t : ty,
   InNF( t) -> (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)).
@@ -432,8 +429,7 @@ Proof.
 (intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
 (assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
 (destruct (in_nf_pair__inv _ _ Hnf) as [Hnf1 Hnf2]).
-Set Printing Width 148.
-Set Printing Width 148.
+(destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
@@ -446,17 +442,12 @@ Set Printing Width 148.
       try (solve
        [ left; constructor; assumption
        | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ]) ])).
-Show.
-Set Silent.
 +
 (right; solve_not_x_sub_r_y_full).
 (intros Hnf'').
-Unset Silent.
 (apply sub_r_dec__mk_nf_sub_r_dec; tauto).
-Set Silent.
 -
 (intros t Hnf).
-Unset Silent.
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
@@ -467,25 +458,14 @@ Unset Silent.
    [ pose proof (in_nf_ref__inv _ Hnf') as Hnf''; destruct H as [H1 H2]; specialize (H1 _ Hnf''); specialize (H2 _ Hnf''); destruct H1 as [H1| H1];
       destruct H2 as [H2| H2]; try (solve [ right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction ]); left;
       constructor; assumption ])).
-Set Silent.
 +
-Unset Silent.
 (right; solve_not_x_sub_r_y_full; intros Hnf''; apply sub_r_dec__mk_nf_sub_r_dec; tauto).
 -
 tauto.
-Set Silent.
 -
-Unset Silent.
-Show.
 (intros t1 t2 Hnf1 [IH11 IH12] Hnf2 [IH21 IH22]).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 (split; intros t'; induction t'; intros Hnf'; try (inversion Hnf'; subst); specialize (IH11 _ Hnf'); specialize (IH12 _ Hnf'); specialize
   (IH21 _ Hnf'); specialize (IH22 _ Hnf');
   try (solve [ solve_union_sub_r__decidable IH11 IH21 | solve_atom_sub_r_union__decidable IH12 IH22 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
+Unset Silent.
 Qed.
