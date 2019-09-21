@@ -203,4 +203,5 @@ Timeout 1 Check @repeat_length.
 (step_proc; intuition eauto).
 replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
 (exists s; repeat split; auto).
-(destruct (stateBadBlock state == diskSize s)).
+Unset Silent.
+Set Diffs "off".
