@@ -232,6 +232,9 @@ Show.
 (destruct s; intuition).
 +
 (unfold statdb_abstraction in *; simpl in *).
-intuition.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+intuition.
++
