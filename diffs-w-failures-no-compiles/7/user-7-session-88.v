@@ -424,4 +424,5 @@ Set Silent.
 (intros).
 Unset Silent.
 Show.
-(apply sem_sub_k_i_nf__inv_depth_le).
+(eapply sem_sub_k_i_nf__inv_depth_le).
+tauto.
