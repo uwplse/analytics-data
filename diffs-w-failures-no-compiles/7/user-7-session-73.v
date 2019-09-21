@@ -209,16 +209,10 @@ assumption.
 (apply mk_nf__sem_sub_k_l).
 (apply sem_eq_k__sem_sub_k; assumption).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Theorem nf_sem_sub__sub_d : forall t t' : ty, InNF( t) -> ||- [t]<= [t'] -> |- t << t'.
 Proof.
-Set Printing Width 148.
 (intros t t' Hnf Hsem).
-(apply nf_sem_sub_k__sub_d with (| t |)).
-Show.
-assumption.
-Show.
-constructor.
-Show.
-(apply Hsem).
-Show.
-Qed.
+Unset Silent.
+(apply nf_sem_sub_k__sub_d with (| t |); tauto).
