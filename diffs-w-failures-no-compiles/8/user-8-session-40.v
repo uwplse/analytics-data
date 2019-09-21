@@ -94,4 +94,4 @@ Lemma init0_spec : forall safe, denote_box safe init0 (I (2 ^ 0)) = \226\136\163
 Proof.
 (intros).
 matrix_denote.
-Msimpl.
+Unset Silent.
