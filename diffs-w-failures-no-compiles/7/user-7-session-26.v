@@ -296,5 +296,6 @@ Proof.
 (intros k t1 t2 t' Hsem).
 Unset Silent.
 (unfold sem_sub_k in Hsem).
-(split; intros v Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_union_1; assumption) || (apply match_ty_union_2; assumption);
-  apply Hsem; assumption).
+Set Printing Width 148.
+(split; intros v Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_union_1 || apply match_ty_union_2; assumption); apply Hsem;
+  assumption).
