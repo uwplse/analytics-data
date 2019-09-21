@@ -244,13 +244,15 @@ Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @block.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' =>
-             state' = state /\ diskGet state (log_addr a) = Some r;
+     post := fun r state' => state' = state /\ diskGet state a = Some r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
 Proof.
@@ -260,20 +262,25 @@ Proof.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; intros).
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
+Set Silent.
 (descend; intuition eauto).
-(descend; intuition eauto).
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
+(descend; intuition eauto).
 (apply disk_inbounds_exists in H; intuition eauto).
-Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(rewrite H in *).
+(unfold log_abstraction in H0).
