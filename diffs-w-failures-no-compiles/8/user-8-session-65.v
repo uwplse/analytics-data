@@ -998,4 +998,6 @@ Show.
 Set Printing Width 85.
 Show.
 fill_differences.
-gridify.
+Timeout 1 About gridify.
+Timeout 1 Print gridify.
+Timeout 1 Print Ltac gridify.
