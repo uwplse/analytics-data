@@ -622,10 +622,13 @@ congruence.
 Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
 Set Printing Width 78.
-Set Silent.
 Lemma log_abstraction_extend :
-  forall (bs' : list block) (bs : LogAPI.State) (d : State),
+  forall (d : disk) (bs bs' : list block),
   log_abstraction d bs ->
   forall d' : State,
   log_size_ok d' (bs ++ bs') ->
@@ -634,5 +637,53 @@ Lemma log_abstraction_extend :
   block_to_addr len_b = length bs + length bs' ->
   log_abstraction d' (bs ++ bs').
 Proof.
-Unset Silent.
 (intros).
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_abstraction; intuition).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_length_ok; intros).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
