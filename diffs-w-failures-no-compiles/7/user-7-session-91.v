@@ -94,10 +94,9 @@ Proof.
 (rewrite (unite_pairs_union_t t1 t0 t2)).
 (destruct (sub_r_union_l__inv _ _ _ Hsub1) as [Hsub11 Hsub12]).
 (constructor; tauto).
-Unset Silent.
-Qed.
+Set Printing Width 148.
 Set Silent.
-Lemma unite_pairs_of_nf__preserves_sub_r1 :
+Lemma unite_pairs_of_nf__preserves_sub_r_l :
   forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros ta' tb' Hnf1 Hsub1 Hnf2 Hsub2;
@@ -114,12 +113,11 @@ Proof.
            change_no_check (|- TUnion (unite_pairs t1 t) (unite_pairs t2 t) << TPair tx ty); destruct (in_nf_union__inv _ _ Hnf2) as [Hnfb1 Hnfb2];
             destruct (sub_r_union_l__inv _ _ _ Hsub) as [Hsubb1 Hsubb2]; constructor; [ apply IHta1 | apply IHta2 ]; assumption
      end ])).
-Unset Silent.
 Qed.
-Set Silent.
 Lemma sub_r_unite_pairs_nf_l__inv :
   forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
-Set Printing Width 148.
+Proof.
+Unset Silent.
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
   try (solve
    [ match goal with
@@ -139,9 +137,8 @@ Set Printing Width 148.
             destruct Hsub as [Hsub1 Hsub2]; specialize (IHt1_1 _ _ _ Hsub1 Hnf11 Hnf2); specialize (IHt1_2 _ _ _ Hsub2 Hnf12 Hnf2); split;
             tauto || constructor; tauto
      end ])).
-Show.
-Qed.
 Set Silent.
+Qed.
 Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
 (intros t1 t2 t1' t2' Hsub).
@@ -156,3 +153,82 @@ Proof.
 (destruct Hsub; split; apply SR_NormalForm; assumption).
 Unset Silent.
 Qed.
+Set Silent.
+Lemma mk_nf__sub_r_eq : forall t : ty, |- MkNF( t) << t /\ |- t << MkNF( t).
+Proof.
+(induction t).
+-
+(split; simpl; constructor).
+-
+(destruct IHt1; destruct IHt2).
+(split; simpl).
++
+(apply unite_pairs_of_nf__preserves_sub_r_l; assumption || apply mk_nf__in_nf).
++
+(apply SR_NormalForm).
+(simpl).
+(apply sub_r__rflxv).
+-
+(destruct IHt1; destruct IHt2).
+(split; simpl; constructor; (apply SR_UnionR1; assumption) || (apply SR_UnionR2; assumption)).
+-
+(simpl).
+(destruct IHt).
+(split; constructor; assumption).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma mk_nf__sub_r_l : forall t : ty, |- MkNF( t) << t.
+Proof.
+(intros t).
+(pose proof (mk_nf__sub_r_eq t) as H; tauto).
+Qed.
+Lemma mk_nf__sub_r_r : forall t : ty, |- t << MkNF( t).
+Proof.
+(intros t).
+(pose proof (mk_nf__sub_r_eq t) as H; tauto).
+Qed.
+Lemma sub_r__mk_nf_sub_r : forall t t' : ty, |- t << t' -> |- MkNF( t) << MkNF( t').
+Proof.
+(intros t t' Hsub; induction Hsub; try (solve [ simpl; constructor ])).
+-
+(simpl).
+(apply unite_pairs_of_nf__preserves_sub_r; assumption || apply mk_nf__in_nf).
+-
+(simpl).
+(constructor; assumption).
+-
+(apply SR_UnionR1; assumption).
+-
+(apply SR_UnionR2; assumption).
+-
+(simpl).
+(constructor; assumption).
+-
+(rewrite <- mk_nf__idempotent).
+assumption.
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sub_r__reflexive : forall t : ty, |- t << t.
+Proof.
+(apply sub_r__rflxv).
+Qed.
+Lemma sub_r_nf__trans2 :
+  forall tm1 tm2 : ty,
+  |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
+Proof.
+(intros tm1 tm2 Hsub).
+(induction Hsub; intros Hnfm1 Hnfm2).
+-
+tauto.
+-
+(destruct (in_nf_pair__inv _ _ Hnfm1) as [Hnfm11 Hnfm12]).
+(destruct (in_nf_pair__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
+(destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
+(destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
+(split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
+  subst; try (solve [ constructor; auto ])).
++
+(apply IHHsub').
+(apply mk_nf_nf__equal; assumption).
