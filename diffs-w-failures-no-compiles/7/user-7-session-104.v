@@ -171,9 +171,19 @@ Set Printing Width 148.
 Show.
 -
 Show.
-(destruct w1).
+Set Printing Width 148.
++
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+Show.
+(apply match_ty_exist__inv in Hm).
+Show.
+(destruct Hm as [tx Hmx]).
 Show.
 Set Silent.
-(apply match_ty_exist__0_inv in Hm).
+(simpl in Hmx).
 Unset Silent.
-contradiction.
+(apply match_ty_exist).
+exists tx.
+(apply match_ty_union_1).
