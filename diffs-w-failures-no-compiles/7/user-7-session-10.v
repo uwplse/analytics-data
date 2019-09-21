@@ -132,6 +132,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
   try (solve
    [ match goal with
@@ -141,3 +142,7 @@ Set Printing Width 148.
             assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; inversion Heqx; 
             inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
      end ])).
+-
+Show.
+(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22];
+  apply sub_r_nf_union_l__inv in Hsub).
