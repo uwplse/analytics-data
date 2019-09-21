@@ -1261,4 +1261,5 @@ Show.
 Set Printing Width 85.
 Show.
 (repeat rewrite kron_mixed_product).
-Msimpl.
+Unset Silent.
+Show.
