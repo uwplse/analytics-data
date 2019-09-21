@@ -174,10 +174,53 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma match_ty__match_ge_world : forall (t : ty) (k w : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Set Printing Width 148.
+Set Silent.
+Lemma match_ty__match_ge_world : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-(induction t; intros k w v Hm w' Hle).
+Unset Silent.
+(induction w; induction t; intros k v Hm w' Hle).
+Set Silent.
 -
+(apply match_ty_cname__inv in Hm).
+subst.
+Unset Silent.
+(apply match_ty_cname).
+Set Silent.
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Unset Silent.
+(apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
+Set Silent.
+-
+(apply match_ty_union__inv in Hm).
+Unset Silent.
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto).
+Set Silent.
+-
+(destruct k).
++
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(destruct w'; constructor).
++
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+Unset Silent.
+(destruct w'; assumption).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(apply match_ty_var__inv in Hm; subst).
+(apply match_ty_var).
+-
+Set Silent.
+(apply match_ty_ev__inv in Hm; subst).
+Unset Silent.
+(apply match_ty_ev).
+-
+Set Silent.
 (apply match_ty_cname__inv in Hm).
 subst.
 (apply match_ty_cname).
@@ -191,27 +234,17 @@ subst.
 -
 (destruct k).
 +
-Unset Silent.
-Show.
-(apply match_ty_ref__weak_inv in Hm; subst).
-Set Printing Width 148.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
-Show.
-Set Printing Width 148.
 (destruct w'; constructor).
 +
-Show.
 (apply match_ty_ref__inv in Hm).
-Set Printing Width 148.
 (destruct Hm as [t' [Heq Href]]; subst).
+Unset Silent.
 (destruct w'; assumption).
 -
-(destruct w).
-+
-Set Printing Width 148.
-(apply match_ty_exist__0_inv in Hm; contradiction).
-+
-Set Printing Width 148.
+Set Silent.
 (apply match_ty_exist__inv in Hm).
+Unset Silent.
 (destruct Hm as [tx Hmx]).
+(apply match_ty_exist).
