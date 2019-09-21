@@ -293,6 +293,8 @@ Unset Silent.
 (unfold compose_super).
 (erewrite VA).
 easy.
-(eapply t0).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(eapply t0; [  | constructor; apply singleton_singleton ]).
