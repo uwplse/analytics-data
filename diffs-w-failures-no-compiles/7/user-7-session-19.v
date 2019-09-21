@@ -202,5 +202,6 @@ Proof.
 Show.
 (unfold sem_sub_i in Hsem).
 Show.
-(split; intros k; specialize (Hsem k)).
+Set Printing Width 148.
+(split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem)).
 Show.
