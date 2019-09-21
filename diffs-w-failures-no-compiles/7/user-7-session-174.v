@@ -156,4 +156,4 @@ Set Printing Width 148.
 +
 constructor.
 (intros y Hy).
-constructor.
+Show.
