@@ -144,4 +144,9 @@ Show.
 Search -match_ty_i.
 (assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
 Show.
-(pose proof (Hse _ Hv Hm) as Hmu).
+(pose proof (Hsem _ Hv Hm) as Hmu).
+Show.
+(apply match_ty_i_union__inv in Hmu).
+Show.
+(destruct Hmu as [Hmu1| Hmu2]).
+Show.
