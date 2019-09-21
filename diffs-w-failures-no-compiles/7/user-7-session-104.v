@@ -108,4 +108,5 @@ Set Silent.
 -
 Unset Silent.
 (apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+Set Printing Width 148.
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
