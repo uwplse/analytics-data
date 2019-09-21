@@ -106,56 +106,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
-replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by (subst; easy).
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(unfold apply_U, apply_unitary, super).
-(destruct W; try (solve [ inversion HeqW ])).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(rewrite denote_ctrls_transpose).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(remember (denote_ctrls (\226\159\166 W3 \226\138\151 W4 \226\159\167) U li) as A).
-(remember (swap_list (\226\159\166 W3 \226\138\151 W4 \226\159\167) li) as S).
-(rewrite <- (Mmult_assoc _ (A \195\151 \207\129) _)).
-(rewrite <- (Mmult_assoc _ A \207\129)).
-(simpl in inv).
-(rewrite inv).
-Msimpl.
-(rewrite (Mmult_assoc \207\129 _ A)).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(rewrite inv).
-Msimpl.
-(rewrite Mmult_assoc).
-easy.
+specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li _ _) as inv.
