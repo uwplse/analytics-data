@@ -542,4 +542,4 @@ Timeout 1 Check @app_assoc.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(rewrite app_assoc in *).
+(rewrite <- app_assoc in *).
