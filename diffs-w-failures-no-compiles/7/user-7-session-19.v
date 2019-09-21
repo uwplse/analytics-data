@@ -290,4 +290,4 @@ Check le_unique.
 SearchPattern (_ <= _ -> _ = _).
 Set Printing Width 148.
 Set Printing Width 148.
-(apply Nat.le_antisymm; apply sem_sub_k_i__inv_depth_le; assumption).
+(apply Nat.le_antisymm; eapply sem_sub_k_i__inv_depth_le; assumption).
