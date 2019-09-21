@@ -203,4 +203,5 @@ reflexivity.
 (unfold not_b_free_in_ty, not_free).
 (intros Hcontra).
 Search -IdSet.In.
+Show.
 (apply IdSetFacts.empty_iff).
