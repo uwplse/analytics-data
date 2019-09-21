@@ -127,4 +127,8 @@ easy.
 (apply add_fresh_typed_empty).
 (rewrite add_fresh_split).
 easy.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 subst.
