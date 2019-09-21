@@ -106,8 +106,12 @@ Set Printing Width 148.
 (inversion Hcontra).
 -
 Set Silent.
-(intros k Hdep w Hcontra).
+Show.
+Set Printing Width 148.
 (apply match_ty_pair__inv in Hcontra).
-Unset Silent.
-(inversion Hcontra).
+Show.
+(destruct Hcontra as [v1 [v2 [Heq _]]]).
+(inversion Heq).
+Show.
+-
 Show.
