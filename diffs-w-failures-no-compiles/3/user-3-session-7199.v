@@ -571,4 +571,23 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-{
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+(exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
++
+(simpl; lia).
++
+(unfold log_size_ok in *; simpl in *).
+autorewrite with upd list in *.
+(simpl in *; lia).
++
+admit.
++
+(unfold log_size_ok in *; simpl in *).
+autorewrite with upd list in *.
+(simpl in *; lia).
