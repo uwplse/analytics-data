@@ -140,8 +140,13 @@ assumption.
 Unset Silent.
 Qed.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma sem_sub__pair_exist_distr_1 : forall (X : id) (t1 t2 : ty), ||- [TPair (TExist X t1) t2]<= [TExist X (TPair t1 t2)].
 Unset Silent.
 Proof.
-Abort.
+Show.
+(intros X t1 t2 k w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_exist).
