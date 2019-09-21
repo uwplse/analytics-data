@@ -243,11 +243,10 @@ subst.
 exists v.
 assumption.
 +
-(apply match_ty_exist__inv in Hm).
+Show.
+Set Printing Width 148.
+Set Silent.
 (destruct Hm as [tx Hm]).
+Unset Silent.
 specialize (IHw _ _ Hm).
 (destruct IHw as [v' IHw]).
-exists v'.
-(apply match_ty_exist).
-Unset Silent.
-exists tx.
