@@ -103,5 +103,8 @@ admit.
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
 Set Printing Width 148.
-(split; intros HX').
+Show.
+Set Printing Width 148.
+(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
 *
+specialize (IHw'a H).
