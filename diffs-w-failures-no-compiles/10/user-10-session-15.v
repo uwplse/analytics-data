@@ -55,4 +55,6 @@ Unset Silent.
 Set Printing Width 114.
 Unset Silent.
 Set Printing Width 114.
-Eval compute in nth 10 (fib 11 0 1) 233.
+Unset Silent.
+Set Printing Width 114.
+Eval compute in nth 5 (fib 10 0 1) - 1.
