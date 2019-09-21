@@ -76,7 +76,9 @@ exfalso.
 (apply IdSetFacts.singleton_2).
 reflexivity.
 Qed.
-Lemma subs_neq__permute :
+Set Printing Width 148.
+Set Silent.
+Lemma subst_neq__permute :
   forall X Y : id, X <> Y -> forall t s1 s2 : ty, fresh_in_ty X s2 -> fresh_in_ty Y s1 -> [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
 Proof.
 (intros X Y Hneq t).
@@ -104,12 +106,37 @@ contradiction.
 (simpl).
 (rewrite <- beq_id_refl).
 symmetry.
-Unset Silent.
 (apply subst_fresh_in_ty).
-Set Silent.
 assumption.
 +
 (simpl).
 (rewrite <- beq_id_refl).
-Unset Silent.
 (apply subst_fresh_in_ty).
+assumption.
++
+(simpl).
+(rewrite (false_beq_id _ _ n)).
+(rewrite (false_beq_id _ _ n0)).
+reflexivity.
+Qed.
+Lemma subst_id : forall (X : id) (t : ty), [X := TVar X] t = t.
+Proof.
+(intros X t; induction t; simpl; try reflexivity).
+-
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(destruct (beq_idP X i); try reflexivity).
+(rewrite IHt).
+reflexivity.
+-
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Unset Silent.
+Qed.
