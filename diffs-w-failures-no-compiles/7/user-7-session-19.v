@@ -409,16 +409,8 @@ Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> (
 Proof.
 Set Printing Width 148.
 Set Printing Width 148.
-Show.
 Set Printing Width 148.
-Set Silent.
--
-(apply match_ty_i_cname__inv in Hsem').
-(inversion Hsem').
-Unset Silent.
-(destruct k; reflexivity).
--
-(apply match_ty_i_pair__inv in Hsem').
-(destruct Hsem' as [v1 [v2 [Heq _]]]).
-(inversion Heq).
--
+(intros ta; induction ta; intros tb; induction tb; intros Hsem; pose proof Hsem as Hsem'; unfold sem_sub_i, sem_sub_k_i in Hsem';
+  unfold sem_sub_deq, sem_sub_k_deq; intros k v Hm1).
+Show.
+Show 3.
