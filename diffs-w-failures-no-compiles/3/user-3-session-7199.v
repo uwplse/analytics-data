@@ -282,4 +282,4 @@ Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec.
 Timeout 1 Check @proc_spec_rx.
 Timeout 1 Check @proc_spec_weaken.
-(apply proc_spec_weaken).
+(eapply proc_spec_weaken).
