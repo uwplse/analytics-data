@@ -738,4 +738,10 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(repeat rewrite Nat.mul_1_l).
+(rewrite (kron_1_r A)).
+(rewrite (kron_1_r B)).
