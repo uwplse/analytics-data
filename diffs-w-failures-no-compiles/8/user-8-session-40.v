@@ -154,4 +154,6 @@ Unset Silent.
 Set Printing Width 85.
 Unset Silent.
 Set Printing Width 85.
-Search -SWAP.
+Unset Silent.
+Set Printing Width 85.
+Search -swap.
