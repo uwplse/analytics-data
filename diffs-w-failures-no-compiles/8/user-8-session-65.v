@@ -1491,4 +1491,6 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(simpl_rewrite inSeq_correct).
+Timeout 1 About inSeq_correct.
+Timeout 1 Print inSeq_correct.
+Timeout 1 Print Ltac inSeq_correct.
