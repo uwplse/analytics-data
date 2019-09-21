@@ -194,6 +194,7 @@ Proof.
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -207,6 +208,8 @@ Set Printing Width 148.
             destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
             tauto || apply Max.le_max_l || apply Max.le_max_r
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
-       |- _ <= | ?t' | => assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption)
+       |- _ <= | ?t' | =>
+           assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+            assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption)
      end ])).
 Show.
