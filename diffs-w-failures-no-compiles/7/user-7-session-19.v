@@ -568,4 +568,5 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 (intros v; split; intros Hm; specialize (Href v)).
-specialize (IHHsub2 k Hm).
+specialize (IHHsub2 k _ Hm).
+tauto.
