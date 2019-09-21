@@ -78,5 +78,38 @@ Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction t; simpl; try (solve [ reflexivity | rewrite IHt1; rewrite IHt2; reflexivity ])).
+-
 Show.
+(apply f_equal).
+Show.
+(destruct (beq_idP x i)).
++
+subst.
+Show.
+reflexivity.
++
+Show.
+assumption.
+-
+Show.
+(destruct (beq_idP x i); reflexivity).
+Qed.
+Set Silent.
+Reserved Notation "'[' x ':=' s ']' t" (at level 30).
+Unset Silent.
+#[program]
+Fixpoint subst (x : id) (s t : ty) {measure size t :=
+  match t with
+  | TCName _ => t
+  | TPair t1 t2 => TPair ([x := s] t1) ([x := s] t2)
+  | TUnion t1 t2 => TUnion ([x := s] t1) ([x := s] t2)
+  | TExist y t' =>
+      if IdSet.mem y (FV s)
+      then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else [x := s] tz)
+      else TExist y (if beq_id x y then t' else [x := s] t')
+  | TVar y => if beq_id x y then s else t
+  | TEV y => t
+  end
+where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
