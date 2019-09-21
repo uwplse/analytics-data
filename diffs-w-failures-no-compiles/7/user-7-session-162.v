@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -48,8 +49,6 @@ Definition fresh (X : id) (fvs : id_set) := ~ IdSet.In X fvs.
 Definition fresh_in_ty (X : id) (t : ty) := fresh X (FV t).
 Definition free_in_ty (X : id) (t : ty) := IdSet.In X (FV t).
 Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
-Set Printing Width 148.
-Variable (gen_fresh : id_set -> id).
-Set Silent.
 Unset Silent.
-Show.
+Axiom (gen_fresh : id_set -> id).
+Axiom (gen_fresh__fresh : forall fvs : id_set, fresh (gen_fresh Z) fvs).
