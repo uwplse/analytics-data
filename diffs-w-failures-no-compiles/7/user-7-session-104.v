@@ -211,7 +211,9 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Lemma match_ty__match_ge_world : forall (w k : nat) (t v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Set Printing Width 148.
+Set Silent.
+Lemma match_ty__match_ge_world : forall (t : ty) (w k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-(induction w; intros k t; generalize k; induction t).
-Show.
+Unset Silent.
+(induction t; intros w k t).
