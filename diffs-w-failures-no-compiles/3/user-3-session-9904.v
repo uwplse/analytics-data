@@ -184,4 +184,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct s; simpl in *).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct s; simpl in *; auto).
