@@ -482,4 +482,14 @@ Unset Silent.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @split.
 Timeout 1 Check @split.
-lia.
+(simpl; lia).
++
+(unfold log_size_ok in *; simpl in *).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+Timeout 1 Check @split.
+Timeout 1 Check @list.
+Timeout 1 Check @list.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @split.
+(autorewrite with upd list in *; lia).
