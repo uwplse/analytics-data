@@ -95,9 +95,5 @@ Msimpl.
 (unfold super).
 (simpl).
 (remember (W1 \226\138\151 W2) as W).
-(remember (pat_to_list (add_fresh_pat W [])) as li).
-specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
 Unset Silent.
-(intros).
-Set Silent.
-Unset Silent.
+Show.
