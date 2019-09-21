@@ -91,4 +91,8 @@ Show.
 (intros WT pf_merge1 pf_merge2).
 replace (compose (gate g p1 f0) f) with gate g p1 (fun p2 => compose (f0 p2) f) by auto.
 (repeat rewrite denote_gate_circuit; fold_denotation).
+Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
 (simpl).
