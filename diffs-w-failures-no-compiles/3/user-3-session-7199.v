@@ -530,4 +530,13 @@ Timeout 1 Check @len_addr.
 Set Printing Width 78.
 Show.
 (unfold log_size_ok, log_contents_ok, len_addr; intros).
-(destruct (a == a0); subst; autorewrite with upd; auto).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @Byte.xa0.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @split.
+(destruct (0 == log_addr a); try lia).
