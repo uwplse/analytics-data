@@ -1070,4 +1070,8 @@ Msimpl.
 Msimpl.
 (destruct b; simpl; Msimpl).
 +
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169 with @Zero 1 1 by lma.
