@@ -275,4 +275,13 @@ Set Printing Width 78.
 Show.
 (eapply diskGet_eq_values; eauto).
 Timeout 1 Check @split.
-lia.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+(unfold log_addr).
