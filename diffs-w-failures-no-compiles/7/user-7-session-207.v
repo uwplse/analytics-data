@@ -39,4 +39,12 @@ Unset Silent.
   destruct IHt' as [IHt'a IHt'b]; split; intros HX').
 *
 Show.
-(destruct (not_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_1; auto).
+*
+Show.
+(destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
+{
+(apply match_ty_union_1; auto).
+}
+{
