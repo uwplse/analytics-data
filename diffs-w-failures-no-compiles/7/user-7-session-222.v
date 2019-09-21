@@ -375,4 +375,9 @@ subst.
 (unfold b_free_in_ty, free in HX).
 (simpl in HX).
 Search -IdSet.remove.
-exfalso.
+Set Printing Width 148.
+(apply IdSetFacts.remove_1 in HX).
+contradiction.
+reflexivity.
+*
+(apply b_free_in_ty_exist_neq__inv in HX).
