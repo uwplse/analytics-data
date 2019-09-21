@@ -93,10 +93,12 @@ Set Printing Width 148.
 (intros v; induction v; try (solve [ intros t w k Hm; destruct w; destruct k; contradiction ])).
 Set Silent.
 Set Silent.
-clear IHv.
+Set Printing Width 148.
 (intros t w k Hm).
 (simpl in Hm).
+Show.
 exists v.
-auto.
-Unset Silent.
-Qed.
+Show.
+(simpl in Hm).
+Show.
+Show.
