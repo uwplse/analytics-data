@@ -663,4 +663,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite IHd).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @bytes.
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+(rewrite IHd by lia).
