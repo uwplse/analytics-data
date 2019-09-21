@@ -218,5 +218,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 (assert (Hmt't : |-[ S k] TRef t' <$ TRef t) by (intros v'; split; intros Hm'; specialize (Href v'); tauto)).
 Show.
-(eapply match_ty_i__transitive_on_value_type).
-Show.
+Set Printing Width 148.
+(eapply match_ty_i__transitive_on_value_type; eassumption).
