@@ -1411,4 +1411,8 @@ Lemma denote_box_compat :
 Proof.
 (intros).
 (induction c).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
