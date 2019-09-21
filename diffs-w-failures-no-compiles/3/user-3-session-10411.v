@@ -355,4 +355,5 @@ Show.
 (descend; intuition eauto).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
-intuition eauto.
+Unset Silent.
+Set Diffs "off".
