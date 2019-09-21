@@ -106,4 +106,4 @@ Set Silent.
 (unfold swap_list; simpl).
 (unfold swap_two; simpl).
 Msimpl.
-(rewrite Mmult_assoc).
+Unset Silent.
