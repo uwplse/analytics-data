@@ -125,21 +125,23 @@ Unset Silent.
 (intros v Hm).
 Set Silent.
 Set Printing Width 148.
-Lemma sem_sub_fresh_var__sem_sub_exist :
+Set Printing Width 148.
+Set Silent.
+Lemma sem_sub_fresh_var__sem_sub_exist' :
   forall (X : id) (t t' : ty) (X' : id),
   IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
 (intros X t t' X' HX HX' Hsem tx).
-Show.
-Set Silent.
 (intros k w1).
-Unset Silent.
 specialize (Hsem k w1).
-Set Silent.
 (destruct Hsem as [w2 Hsem]).
 exists w2.
-Unset Silent.
 (intros v Hm).
 (induction w1).
-Set Printing Width 148.
 Abort.
+Unset Silent.
+Lemma xxx :
+  forall (X : id) (w1 k w2 : nat) (t t' : ty) (X' : id),
+  IdSet.In X (FV t) ->
+  fresh_in_ty X' t' ->
+  (forall v, |-[ k, w1] v <$ [X := X'] t -> |-[ k, w2] v <$ t') -> forall tx : ty, forall v, |-[ k, w1] v <$ [X := tx] t -> |-[ k, w2] v <$ t'.
