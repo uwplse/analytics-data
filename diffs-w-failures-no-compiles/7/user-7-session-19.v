@@ -444,5 +444,5 @@ Unset Silent.
 (inversion Hle; subst).
 +
 (simpl).
-auto.
-Show.
+Set Printing Width 148.
+(intros v Hv).
