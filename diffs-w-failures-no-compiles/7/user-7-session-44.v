@@ -212,4 +212,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 (unfold sem_sub_k in *).
 Set Printing Width 148.
-(split; tauto).
+(split; auto).
+Show.
