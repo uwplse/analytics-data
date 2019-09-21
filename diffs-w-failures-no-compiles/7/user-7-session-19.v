@@ -192,4 +192,5 @@ Proof.
 (intros t1 t2 t1' t2' k Hsem).
 Unset Silent.
 (unfold sem_sub_k_i in Hsem).
-(split; intros v Hm).
+Set Printing Width 148.
+(split; intros v Hm; [ pose proof (match_ty_i_exists t2 k) | pose proof (match_ty_i_exists t1 k) ]).
