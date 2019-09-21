@@ -369,6 +369,22 @@ generalize dependent t1.
   (in_nf_mut (fun (t1 : ty) (Hat : atom_type t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2))
      (fun (t1 : ty) (Hnf : in_nf t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2)))).
 -
-(intros c t2).
+Set Printing Width 148.
+Set Silent.
+(induction t2).
++
+(destruct (cname_eq__decidable c c0)).
+*
+(subst; left; constructor).
+*
+right.
+(intros Hcontra).
+(apply sub_r_cname__inv in Hcontra).
+contradiction.
++
 Unset Silent.
-(induction t2; try solve_not_x_sub_r_y_full).
+Show.
+right.
+(intros Hcontra).
+(remember (TCName c) as t eqn:Heq1 ; remember (TPair t2_1 t2_2) as t' eqn:Heq2 ).
+(induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ])).
