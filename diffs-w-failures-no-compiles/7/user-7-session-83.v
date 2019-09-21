@@ -568,4 +568,14 @@ assumption.
 Unset Silent.
 Show.
 (apply mk_nf__sem_sub_k_i_l).
-(apply sem_eq_k_i__sem_sub_k_i).
+Set Printing Width 148.
+(apply sem_eq_k_i__sem_sub_k_i; assumption).
+Qed.
+Set Silent.
+Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+Proof.
+(intros t Hnf t' Hsem).
+(apply nf_sem_sub_k_i__sub_d with (| t |); auto).
+Unset Silent.
+Qed.
+Close Scope btjmi.
