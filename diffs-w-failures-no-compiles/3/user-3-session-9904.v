@@ -253,4 +253,9 @@ Set Printing Width 78.
 Show.
 (right; intuition congruence).
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+intuition.
