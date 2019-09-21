@@ -50,5 +50,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(simpl).
-(destruct (unitary_gate_unitary U) as [WF inv]).
+Unset Silent.
+Show.
+Timeout 1 About unitary_gate_unitary.
+Timeout 1 Print unitary_gate_unitary.
+Timeout 1 Print Ltac unitary_gate_unitary.
