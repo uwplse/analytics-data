@@ -133,6 +133,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
   try (solve
    [ match goal with
@@ -141,26 +142,10 @@ Set Printing Width 148.
            remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ;
             assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; inversion Heqx; 
             inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
+     | Hsub:|- unite_pairs _ (TUnion _ _) << TPair _ _
+       |- _ =>
+           rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
+            apply sub_r_union_l__inv in Hsub; destruct Hsub as [Hsub1 Hsub2]; specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize
+            (IHt2_2 _ _ Hsub2 Hnf1 Hnf22); split; tauto || constructor; tauto
      end ])).
--
 Show.
-Set Printing Width 148.
-Set Printing Width 148.
-(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
-  apply sub_r_union_l__inv in Hsub; destruct Hsub as [Hsub1 Hsub2]).
-Show.
-(specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22)).
-(split; tauto || constructor; tauto).
-Show.
-Set Silent.
-Show.
-Set Printing Width 148.
-Set Silent.
-Unset Silent.
-(match goal with
- | Hsub:|- unite_pairs _ (TUnion _ _) << TPair _ _
-   |- _ =>
-       rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
-        apply sub_r_union_l__inv in Hsub; destruct Hsub as [Hsub1 Hsub2]; specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize
-        (IHt2_2 _ _ Hsub2 Hnf1 Hnf22); split; tauto || constructor; tauto
- end).
