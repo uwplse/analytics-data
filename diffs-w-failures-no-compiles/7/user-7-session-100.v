@@ -99,6 +99,9 @@ Set Printing Width 148.
 Show.
 exists v.
 Show.
-(simpl in Hm).
 Show.
+Set Printing Width 148.
+split.
+Show.
+reflexivity.
 Show.
