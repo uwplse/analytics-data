@@ -108,6 +108,8 @@ Set Printing Width 148.
 Set Printing Width 148.
 Show.
 Set Printing Width 148.
-(eapply IHk).
+Show.
 Set Printing Width 148.
-(eapply Hm).
+(destruct Hm as [tx Hmx]).
+auto.
+Show.
