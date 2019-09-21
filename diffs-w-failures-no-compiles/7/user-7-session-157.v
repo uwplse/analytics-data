@@ -63,4 +63,8 @@ Set Printing Width 148.
 Show.
 Show.
 (simpl).
-(rewrite <- bew_id_refl).
+(rewrite <- beq_id_refl).
+reflexivity.
++
+exists v.
+assumption.
