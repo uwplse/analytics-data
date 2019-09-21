@@ -1147,4 +1147,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Msimpl.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite id_kron).
