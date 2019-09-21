@@ -594,7 +594,8 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 Set Silent.
-{
-eauto using log_abstraction_preserved.
 Unset Silent.
-}
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+eauto using log_abstraction_preserved.
