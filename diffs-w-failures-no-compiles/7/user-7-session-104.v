@@ -100,4 +100,5 @@ Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, 
 Proof.
 Set Printing Width 148.
 (intros w k).
-(induction k).
+Set Printing Width 148.
+(induction k; induction t).
