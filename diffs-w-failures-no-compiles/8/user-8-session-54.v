@@ -42,4 +42,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(rewrite super_I).
+Unset Silent.
+Show.
+Timeout 1 About super_I.
+Timeout 1 Print super_I.
+Timeout 1 Print Ltac super_I.
