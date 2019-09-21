@@ -148,4 +148,20 @@ Show.
 (exists tt; simpl; intuition idtac).
 (step_proc_basic; intros).
 Set Silent.
+{
+eauto.
+}
+(simpl in *; intuition subst).
+2: (autounfold in *; intuition).
+(unfold statdb_abstraction in *).
+(destruct s; intuition).
+(eexists; intuition auto).
+(right; intuition congruence).
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_crash.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc_basic; intros).
 eauto.
