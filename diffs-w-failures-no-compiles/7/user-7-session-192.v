@@ -19,4 +19,5 @@ Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fres
 Proof.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros X s; induction w; induction t; intros v HX Hm; try (solve [ rewrite subst_cname in *; assumption ]); Abort).
+(intros X s; induction w; induction t; intros v HX Hm; try (solve [ rewrite subst_cname in *; assumption ])).
+Show.
