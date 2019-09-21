@@ -92,6 +92,8 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
 Definition mk_subst_exist (x : id) (y : id) (t ts : ty) := TExist y (if beq_id x y then t else ts).
+Set Printing Width 148.
+Set Silent.
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
@@ -105,34 +107,7 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-(rewrite rename__size).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(apply (well_founded_lt_compat ty size)).
-(intros).
-tauto.
 Unset Silent.
-Defined.
+Proof.
+Show.
+(try (solve [ intros; simpl; Omega.omega ])).
