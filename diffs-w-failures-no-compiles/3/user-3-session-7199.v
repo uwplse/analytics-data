@@ -653,6 +653,18 @@ Timeout 1 Check @len_addr.
 Set Printing Width 78.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
+Set Silent.
+Theorem abstr_length_sz_bound d bs :
+  log_size_ok d bs -> len_addr < diskSize d.
+Proof.
+(unfold log_size_ok, len_addr, diskSize).
+(intros; lia).
+Qed.
+Hint Resolve abstr_length_sz_bound: core.
 Lemma log_abstraction_commit :
   forall bs bs' : list block,
   forall d' : State,
@@ -665,19 +677,7 @@ Lemma log_abstraction_commit :
 Proof.
 (intros).
 (unfold log_abstraction; intuition).
+Unset Silent.
 (unfold log_length_ok in *; intros).
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
 (assert (len_addr < diskSize d')).
-Timeout 1 Check @repeat_length.
 eauto.
