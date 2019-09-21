@@ -108,4 +108,4 @@ exfalso.
 Show.
 (apply Hin).
 Show.
-(apply IdSetFacts.singleton_1).
+(apply IdSet.Facts.singleton_1).
