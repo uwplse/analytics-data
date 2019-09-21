@@ -732,4 +732,39 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction_nil.
-Hint Resolve log_abstraction_commit.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Hint Resolve log_abstraction_commit: core.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose).
+Set Silent.
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+step_proc.
+(descend; intuition eauto).
+destruct matches.
+-
+step_proc.
+(descend; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto using log_abstraction_preserved).
+}
+step_proc.
+intuition.
+{
+(exists bs; eauto using log_abstraction_preserved).
+}
+step_proc.
+intuition.
+{
+Unset Silent.
+(exists (bs ++ v); intuition).
