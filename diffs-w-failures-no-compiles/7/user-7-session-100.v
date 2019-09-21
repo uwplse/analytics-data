@@ -96,6 +96,7 @@ Set Silent.
 (intros X w k Hm).
 (destruct w; destruct k; simpl in Hm; subst; reflexivity).
 Set Printing Width 148.
+Set Printing Width 148.
 (induction w; induction k; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
@@ -104,13 +105,29 @@ Set Printing Width 148.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | apply match_ty_var__inv in Hm; subst; constructor
    | apply match_ty_ev__inv in Hm; subst; constructor
-   | apply match_ty_exist__0_inv in Hm; auto ])).
+   | apply match_ty_exist__0_inv in Hm; auto
+   | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
 Show.
+Qed.
+Set Silent.
+Lemma match_ty_value_type__reflexive : forall v : ty, value_type v -> forall w k : nat, |-[ w, k] v <$ v.
+Proof.
+Unset Silent.
+(intros v Hv; induction Hv; intros w k).
+Set Silent.
+-
+Unset Silent.
+(destruct w, k; reflexivity).
 Set Silent.
 -
 Unset Silent.
 Show.
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(eapply IHw; eassumption).
+(apply match_ty_pair; auto).
+Set Silent.
 -
+Unset Silent.
+Show.
+Set Silent.
+(destruct k).
+Unset Silent.
+constructor.
