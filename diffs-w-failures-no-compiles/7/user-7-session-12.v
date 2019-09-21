@@ -299,3 +299,5 @@ generalize dependent t21.
 -
 Show.
 (rewrite unite_pairs_atom_union).
+Set Printing Width 148.
+(rewrite unite_pairs_atom_union; try assumption).
