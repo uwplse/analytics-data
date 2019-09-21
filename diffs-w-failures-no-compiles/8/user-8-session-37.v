@@ -30,25 +30,22 @@ Set Printing Width 85.
 Unset Silent.
 Set Printing Width 85.
 Set Silent.
-Definition valid_ancillae {W} (c : Circuit W) : Prop :=
-  forall (\206\147 \206\1470 : Ctx) \207\129, \206\147 \226\138\162 c :Circ -> (\226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169) \207\129 == (\226\159\168! \206\1470 | \206\147 \226\138\169 c !\226\159\169) \207\129.
 Unset Silent.
-Definition valid_ancillae_box {W1} {W2} (c : Box W1 W2) 
-  \207\129 := Typed_Box c -> denote_box true c \207\129 == denote_box false c \207\129.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqL4MsFn"
+Set Printing Width 85.
+Definition valid_ancillae_box {W1} {W2} (c : Box W1 W2) :=
+  forall \207\129, Typed_Box c -> denote_box true c \207\129 == denote_box false c \207\129.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqjMNFPS"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Definition valid_ancillae' {W} (c : Circuit W) :=
   forall (\206\147 \206\1470 : Ctx) \207\129,
   \206\147 \226\138\162 c :Circ -> Mixed_State \207\129 -> trace ((\226\159\168! \206\1470 | \206\147 \226\138\169 c !\226\159\169) \207\129) = 1.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqkof24o"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRFmcai"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Set Silent.
 Definition valid_ancillae_box' {W1} {W2} (c : Box W1 W2) : Prop :=
   forall \207\129, Typed_Box c -> Mixed_State \207\129 -> trace (denote_box false c \207\129) = 1.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqYDUbNe"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Proposition valid_ancillae_equal :
   forall W (c : Circuit W), valid_ancillae c <-> valid_ancillae' c.
 Proof.
@@ -62,25 +59,15 @@ split.
 admit.
 -
 (induction c as [| W' W0 g p c IH| IH]).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
++
 reflexivity.
 +
+Unset Silent.
 (intros H \206\147 \206\1470 \207\129 H').
 replace (gate g p c) with compose (gate g p (fun p' => output p')) c by auto.
 dependent destruction H'.
 (destruct \206\1471 as [| \206\1471]; try invalid_contradiction).
 (erewrite denote_compose with (\206\1471 := []); trivial).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 Focus 3.
 (intros \206\1473 \206\1470' p0 H0 H1).
 (destruct H0).
