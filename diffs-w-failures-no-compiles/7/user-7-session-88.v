@@ -450,4 +450,14 @@ Set Silent.
 (apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_l ]).
 Unset Silent.
 *
-(destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_r ]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_l ]).
++
+Set Silent.
+(destruct Hdep as [Hdept| Hdept']).
+*
+Unset Silent.
+(apply Nat.le_trans with (| t'2 |); [ tauto | apply Max.le_max_r ]).
+Set Silent.
+*
+Unset Silent.
+(destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; apply Nat.le_trans with (| t'2 |); [ tauto | apply Max.le_max_r ]).
