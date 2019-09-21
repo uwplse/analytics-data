@@ -39,6 +39,6 @@ assumption.
 Unset Silent.
 (rewrite subst_union).
 Set Silent.
-(destruct (free_in_ty_union__inv _ _ _ HX') as [HX''| HX'']).
-Unset Silent.
-(apply match_ty_union_1; auto).
+Show.
+Set Printing Width 148.
+(destruct (free_in_ty__decidable X t'1)).
