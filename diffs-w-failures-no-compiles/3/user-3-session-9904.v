@@ -160,4 +160,12 @@ Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Set Printing Width 78.
 Show.
-exists s.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(exists s; intuition).
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @Tauto.A.
+(left; auto).
