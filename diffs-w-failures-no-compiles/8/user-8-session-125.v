@@ -80,6 +80,8 @@ Msimpl.
 matrix_denote.
 Msimpl.
 (rewrite Mmult_assoc).
-specialize (unitary_gate_unitary U) as inv.
 Unset Silent.
-(simpl_rewrite @denote_unitary_transpose).
+Show.
+Set Printing Width 85.
+Show.
+(rewrite denote_unitary_transpose).
