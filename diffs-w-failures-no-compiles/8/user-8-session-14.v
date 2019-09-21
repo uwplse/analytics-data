@@ -191,10 +191,8 @@ Proof.
 (unfold WF_Superoperator).
 (intros).
 (induction g).
-+
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Unset Silent.
-Show.
+(simpl).
