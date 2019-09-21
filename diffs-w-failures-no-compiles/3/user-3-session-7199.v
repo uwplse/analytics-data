@@ -521,4 +521,9 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @split.
 Set Printing Width 78.
 Show.
-(rewrite app_length; simpl; lia).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
+-
