@@ -90,5 +90,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(simpl).
-(rewrite pad_nothing).
+Unset Silent.
+Show.
