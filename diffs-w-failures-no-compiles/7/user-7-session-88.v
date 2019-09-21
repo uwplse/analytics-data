@@ -433,5 +433,7 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct IHt'1).
+Show.
+Set Printing Width 148.
+(destruct (IHt'1 Hnft)).
 Show.
