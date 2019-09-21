@@ -212,4 +212,31 @@ reflexivity.
 Timeout 1 Check @sig.
 (simpl).
 (rewrite IHn').
+Timeout 1 Check @plus_n_O.
+Timeout 1 Check @plus_n_O.
+Timeout 1 Check @plus_n_O.
+Timeout 1 Check @plus_n_O.
+(rewrite plus_swap).
 reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHU0aZp"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Set Silent.
+Theorem mult_comm : forall m n : nat, m * n = n * m.
+Proof.
+(intros m n).
+(induction m as [| m' IHm']).
+-
+(simpl).
+(rewrite <- mult_n_O).
+reflexivity.
+-
+(simpl).
+Unset Silent.
+(rewrite IHm').
+(rewrite <- mult_n_Sm).
+(rewrite plus_comm).
