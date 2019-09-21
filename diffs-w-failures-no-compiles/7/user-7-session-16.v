@@ -415,6 +415,8 @@ Set Printing Width 148.
    end).
 +
 right.
+Set Printing Width 148.
 (match goal with
- | |- ~ |- ?t1 << ?t2 => remember t1 as tx eqn:Heq1 ; remember t2 as ty eqn:Heq2 
+ | |- ~ |- ?t1 << ?t2 =>
+       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ])
  end).
