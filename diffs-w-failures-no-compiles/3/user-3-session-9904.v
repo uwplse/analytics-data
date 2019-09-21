@@ -233,4 +233,5 @@ Show.
 +
 (unfold statdb_abstraction in *; simpl in *).
 intuition.
-+
+Unset Silent.
+Set Diffs "off".
