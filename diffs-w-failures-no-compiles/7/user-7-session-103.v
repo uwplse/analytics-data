@@ -79,6 +79,5 @@ Lemma match_ty_ref__inv : forall (v t : ty) (k w : nat), |-[ S k, w] v <$ TRef t
 Unset Silent.
 Proof.
 Set Silent.
-(intros v t k w Hm).
-Unset Silent.
-(destruct k, w, v; simpl in Hm; try contradiction).
+Set Printing Width 148.
+(destruct k, w, v; try contradiction).
