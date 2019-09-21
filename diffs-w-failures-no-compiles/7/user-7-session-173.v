@@ -141,4 +141,10 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 (rewrite fix_sub_eq).
+Set Printing Width 148.
+Set Silent.
 (fold (subst X s t1)).
+Unset Silent.
+(fold (subst X s t2)).
+(simpl).
+reflexivity.
