@@ -297,4 +297,9 @@ Unset Silent.
 Proof.
 Set Silent.
 Set Printing Width 148.
-(pose proof (sub_r__trans2 _ _ Hsub1) as H).
+Set Printing Width 148.
+(destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
+Show.
+auto.
+Show.
+Qed.
