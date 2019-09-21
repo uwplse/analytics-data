@@ -564,4 +564,6 @@ Unset Silent.
 (destruct Hm as [tx [Heq Href]]; subst).
 (simpl).
 Set Printing Width 148.
-(intros v; split; specialize (Href v); try tauto).
+Show.
+Set Printing Width 148.
+(intros v; split; intros Hm; specialize (Href v); specialize (IHHsub1 k Hm)).
