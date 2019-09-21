@@ -452,6 +452,8 @@ Admitted.
 Hint Resolve append_at_ok: core.
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
 Set Printing Width 78.
 Set Silent.
 Theorem append_ok :
@@ -466,10 +468,7 @@ step_proc.
 (descend; intuition eauto).
 destruct matches.
 -
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
+step_proc.
 (descend; intuition eauto).
 {
 (unfold log_size_ok; autorewrite with list; auto).
@@ -482,30 +481,13 @@ Show.
 (rewrite H; eauto).
 }
 {
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_size_ok.
-Set Printing Width 78.
-Show.
-Timeout 1 Check @log_size_ok.
 (unfold log_abstraction, log_size_ok in *; intuition).
 (rewrite H1).
-Timeout 1 Check @log_contents_ok.
 congruence.
+Unset Silent.
 }
-Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMAC3RX"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDaSUn9"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+}
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+intuition.
