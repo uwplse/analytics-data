@@ -418,9 +418,10 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
 Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
-Proof.
-(intros v Hv ta tb Hsem; unfold sem_sub_i in Hsem).
-(assert (Hm : |-[ | TUnion ta tb |] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem _ _ Hm).
-Unset Silent.
-(apply match_ty_i_union__inv in Hsem).
+Set Printing Width 148.
+(intros v Hv ta tb Hsem).
+Show.
+(pose proof (| TUnion ta tb |) as kmax).
+(assert (Hdeple : | v | <= kmax)).
+{
+(apply sem_sub_k_i__inv_depth_le_2).
