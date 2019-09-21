@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -16,11 +17,7 @@ Require Import Coq.Bool.Bool.
 Open Scope btjm_scope.
 Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
-Unset Silent.
 Proof.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k in Hsem).
-(assert (Hm : |-[ k] v <$ v) by (apply match_ty_value_type__reflexive; assumption)).
-Check match_ty_value_type__reflexive.
-Show.
-Search -match_ty.
+Unset Silent.
 (assert (Hdep : | v | <= k) by apply match_ty__inv_depth_l_le_index).
