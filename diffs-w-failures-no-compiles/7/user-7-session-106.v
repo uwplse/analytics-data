@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -178,7 +179,8 @@ Lemma match_ty__match_ge_world : forall (t : ty) (w k : nat) (v : ty), |-[ k, w]
 Proof.
 (induction t; intros w k v Hm w' Hle).
 -
-Unset Silent.
 (apply match_ty_cname__inv in Hm).
 subst.
+Unset Silent.
 (apply match_ty_cname).
+-
