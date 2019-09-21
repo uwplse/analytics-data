@@ -747,4 +747,4 @@ step.
 -
 step.
 (destruct s; simplify).
-(exists d,FullySynced; simplify; finish).
+Unset Silent.
