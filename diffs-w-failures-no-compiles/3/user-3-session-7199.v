@@ -390,4 +390,4 @@ Timeout 1 Check @disk.
 Timeout 1 Check @diskGet.
 Timeout 1 Check @diskGet.
 Timeout 1 Check @diskGet.
-Check diskGet_oob_eq.
+(apply diskGet_oob).
