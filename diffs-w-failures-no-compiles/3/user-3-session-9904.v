@@ -279,13 +279,16 @@ Set Diffs "off".
 Timeout 1 Check @id.
 Set Printing Width 78.
 Show.
-(match goal with
- | H:pre (match ?a with
-          | (x, y) => _
-          end _)
-   |- _ =>
-       idtac x y;
-        (let x := fresh x in
-         let y := fresh y in
-         destruct a as [x y]; cbn[pre post recovered] in *)
- end).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct a as [_ state2]; simpl in *; intuition).
+intuition eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqvzPn3W"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
