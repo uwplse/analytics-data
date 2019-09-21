@@ -98,4 +98,4 @@ Set Silent.
 -
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair; auto).
+Unset Silent.
