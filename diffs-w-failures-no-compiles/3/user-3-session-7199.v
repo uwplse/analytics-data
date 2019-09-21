@@ -231,25 +231,15 @@ Timeout 1 Check @Wf.F_unfold.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @d.recover_wipe.
 Timeout 1 Check @d.recover_wipe.
-(unfold recover).
-Timeout 1 Check @app.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
+Unset Silent.
+Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-(unfold abstr).
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @d.recover_wipe.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @rec_wipe_compose.
-(apply rec_wipe_compose).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(unfold rec_wipe; simpl).
