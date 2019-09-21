@@ -89,4 +89,4 @@ Check Hsem.
 specialize (Hsem k w).
 (destruct Hsem as [w2 Hsem]).
 specialize (Hsem _ Hm).
-(apply match_ty_pair_inv in Hm).
+(apply match_ty_pair__inv in Hm).
