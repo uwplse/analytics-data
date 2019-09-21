@@ -247,4 +247,12 @@ Timeout 1 Check @get_at.
 Timeout 1 Check @get_len.
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
-Hint Resolve get_len: core.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Hint Resolve get_len_ok: core.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+(unfold get; intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
