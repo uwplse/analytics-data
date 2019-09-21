@@ -84,5 +84,21 @@ Set Printing Width 148.
 (destruct v; try contradiction).
 Set Printing Width 148.
 (inversion Hle; subst).
+Set Printing Width 148.
+tauto.
+Set Silent.
+-
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(inversion Hle; subst).
++
 (simpl).
-constructor.
+(intros v Hv).
+specialize (Href v Hv).
+Unset Silent.
+(split; tauto).
+Set Silent.
++
+Unset Silent.
+(destruct k').
+tauto.
