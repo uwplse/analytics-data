@@ -141,4 +141,5 @@ Set Printing Width 85.
 Show.
 subst.
 (rewrite size_wtype_length).
-easy.
+Unset Silent.
+Show.
