@@ -274,12 +274,6 @@ constructor.
 (apply sem_eq_k_i__sem_sub_k_i in Href).
 tauto.
 *
-(apply SD_Trans with (MkNF( t2))).
-(apply mk_nf__sub_d_r; assumption).
-(apply IHk).
-Unset Silent.
+Set Printing Width 148.
 (apply mk_nf__in_nf).
-Set Silent.
-(rewrite inv_depth_mk_nf).
-Unset Silent.
-assumption.
+Show.
