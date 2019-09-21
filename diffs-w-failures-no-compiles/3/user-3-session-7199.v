@@ -590,4 +590,22 @@ Set Silent.
 {
 (descend; intuition eauto).
 Unset Silent.
+Timeout 1 Check @addr.
+Set Silent.
+admit.
 }
+{
+(descend; intuition eauto).
+admit.
+Unset Silent.
+}
+-
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @div_eucl_th.
+Set Silent.
+{
+Unset Silent.
+(descend; intuition euuto).
