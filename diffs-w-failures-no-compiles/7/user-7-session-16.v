@@ -469,10 +469,17 @@ Proof.
 (pose proof (in_nf_ref__inv _ Hnf') as Hnf'').
 (destruct H as [H1 H2]).
 specialize (H1 _ Hnf'').
-specialize (H2 _ Hnf'').
-Unset Silent.
-(destruct H1 as [H1| H1]; destruct H2 as [H2| H2]).
+Set Printing Width 148.
+(destruct H1 as [H1| H1]; destruct H2 as [H2| H2];
+  try (solve [ right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction ])).
 (left; constructor; assumption).
-Set Printing Width 148.
-Set Printing Width 148.
-(right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction).
++
+Set Silent.
+(pose proof (in_nf_ref__inv _ Hnf') as Hnf'').
+(destruct H as [H1 H2]).
+specialize (H1 _ Hnf'').
+specialize (H2 _ Hnf'').
+(destruct H1 as [H1| H1]; destruct H2 as [H2| H2];
+  try (solve [ right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction ])).
+Unset Silent.
+(left; constructor; assumption).
