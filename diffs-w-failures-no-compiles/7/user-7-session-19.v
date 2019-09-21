@@ -283,4 +283,4 @@ Lemma xxx : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t 
 Unset Silent.
 Proof.
 Show.
-(induction k; induction t; induction t'; intros Hnft Hdept Hsem).
+(induction k; induction t; induction t'; intros Hdept Hsem).
