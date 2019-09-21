@@ -89,7 +89,7 @@ assumption.
 Qed.
 Unset Silent.
 Function
- subst (x : id) (s t : ty) {measure size t :=
+ subst (x : id) (s t : ty) {measure size t : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
