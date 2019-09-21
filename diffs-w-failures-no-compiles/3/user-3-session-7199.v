@@ -528,4 +528,4 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @nil.
 Timeout 1 Check @nil.
-(apply (log_abstraction_preserved state nil)).
+(apply (log_abstraction_preserved state' nil)).
