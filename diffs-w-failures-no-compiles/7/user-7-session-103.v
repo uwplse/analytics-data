@@ -52,7 +52,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 (intros v c k w Hm).
 Set Printing Width 148.
-(destruct k, w, v; simpl in Hm).
+Set Printing Width 148.
+(destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
 Show.
-subst.
-Show.
+Qed.
