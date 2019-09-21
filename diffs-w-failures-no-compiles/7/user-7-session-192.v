@@ -124,8 +124,11 @@ admit.
 {
 (rewrite subst_equation).
 (assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
-(rewrite Hbeq).
-(destruct (IdSet.mem i (FV tx))).
+Set Printing Width 148.
+(destruct (IdSet.mem i (FV tx)) eqn:Hmem).
+Show.
+Set Silent.
 {
 Unset Silent.
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
+exists ti.
