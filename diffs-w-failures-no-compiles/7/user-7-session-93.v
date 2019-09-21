@@ -52,6 +52,7 @@ Fixpoint inv_depth (t : ty) :=
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
 Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Set Printing Width 148.
+Set Printing Width 148.
 Fixpoint subst (x : id) (s t : ty) :=
   match t with
   | TCName _ => t
