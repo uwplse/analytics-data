@@ -151,4 +151,5 @@ Set Printing Width 148.
 Set Printing Width 148.
 (unfold well_founded).
 (intros t; induction t; constructor; intros k Hk).
--
++
+(inversion Hk).
