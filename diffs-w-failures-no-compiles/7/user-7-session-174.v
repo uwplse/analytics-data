@@ -142,4 +142,6 @@ Unset Silent.
 (intros X s t1 t2).
 Search -subst.
 Show.
-(apply subst_equation).
+Search -subst_equation.
+Check subst_equation.
+(apply (subst_equation X s (TPair t1 t2))).
