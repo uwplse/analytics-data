@@ -17,4 +17,12 @@ Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
 Set Printing Width 148.
-Lemma fresh_union__inv : forall (X : id) (fvs1 fvs2 : id_set), fresh X (IdSet.union fvs1 fvs2) -> fresh X fvs1 /\ not_fresh X fvs2.
+Lemma fresh_union__inv : forall (X : id) (fvs1 fvs2 : id_set), fresh X (IdSet.union fvs1 fvs2) -> fresh X fvs1 /\ fresh X fvs2.
+Proof.
+Set Silent.
+(intros X fvs1 fvs2 H).
+Unset Silent.
+(unfold fresh in *).
+(split; intros Hcontra).
+Show.
+Search -IdSet.union.
