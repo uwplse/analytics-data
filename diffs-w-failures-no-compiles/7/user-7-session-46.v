@@ -69,11 +69,32 @@ Unset Silent.
 (simpl in Hm).
 exists v.
 auto.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Theorem match_ty_i__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
 Proof.
 (intros v t).
 generalize dependent v.
-Unset Silent.
 (induction t; intros k v Hm).
+-
+(apply match_ty_i_cname__inv in Hm; subst).
+Unset Silent.
+constructor.
+Set Silent.
+-
+Unset Silent.
+(apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
+Set Silent.
+-
+Unset Silent.
+(apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto).
+Set Silent.
+-
+Unset Silent.
+Set Silent.
+(apply match_ty_i_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+constructor.
+Unset Silent.
+Qed.
