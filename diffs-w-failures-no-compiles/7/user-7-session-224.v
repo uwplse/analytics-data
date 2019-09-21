@@ -17,6 +17,8 @@ Require Import Coq.Bool.Bool.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   wf_ty tx ->
@@ -27,3 +29,10 @@ Lemma build_v_full :
     (forall w' : nat,
      exists w2 : nat,
        forall t' : ty, |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w2] v <$ [FX' := tx] t')).
+Unset Silent.
+Proof.
+Set Silent.
+(intros X X' tx).
+Unset Silent.
+(induction w; induction t; intros v Hwftx HX Hm;
+  try (solve [ unfold b_free_in_ty, free in HX; simpl in HX; rewrite IdSetFacts.empty_iff in HX; contradiction ])).
