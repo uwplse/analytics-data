@@ -175,29 +175,22 @@ contradiction.
 (destruct Hm as [tx Hmx]).
 Abort.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma match_ty__match_ge_world : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-Unset Silent.
 (induction w; induction t; intros k v Hm w' Hle).
-Set Silent.
 -
 (apply match_ty_cname__inv in Hm).
 subst.
-Unset Silent.
 (apply match_ty_cname).
-Set Silent.
 -
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-Unset Silent.
 (apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
-Set Silent.
 -
 (apply match_ty_union__inv in Hm).
-Unset Silent.
 (destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto).
-Set Silent.
 -
 (destruct k).
 +
@@ -207,7 +200,6 @@ Set Silent.
 +
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
-Unset Silent.
 (destruct w'; assumption).
 -
 (apply match_ty_exist__0_inv in Hm; contradiction).
@@ -215,12 +207,9 @@ Unset Silent.
 (apply match_ty_var__inv in Hm; subst).
 (apply match_ty_var).
 -
-Set Silent.
 (apply match_ty_ev__inv in Hm; subst).
-Unset Silent.
 (apply match_ty_ev).
 -
-Set Silent.
 (apply match_ty_cname__inv in Hm).
 subst.
 (apply match_ty_cname).
@@ -240,14 +229,10 @@ subst.
 +
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
-Unset Silent.
 (destruct w'; assumption).
 -
-Set Silent.
 (apply match_ty_exist__inv in Hm).
-Unset Silent.
 (destruct Hm as [tx Hmx]).
-Show.
 (destruct w').
 (inversion Hle).
 (apply match_ty_exist).
@@ -256,15 +241,12 @@ exists tx.
 assumption.
 (apply le_S_n; assumption).
 -
-Set Silent.
 (apply match_ty_var__inv in Hm; subst).
 (apply match_ty_var).
 -
 (apply match_ty_ev__inv in Hm; subst).
-Unset Silent.
 (apply match_ty_ev).
 Qed.
-Set Silent.
 Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
 Proof.
 (induction t; intros k).
@@ -273,6 +255,7 @@ exists 0,(TCName c).
 (apply match_ty_value_type__reflexive; constructor).
 -
 (destruct (IHt1 k) as [w1 [v1 Hm1]]).
-Unset Silent.
 (destruct (IHt2 k) as [w2 [v2 Hm2]]).
 exists (Nat.max w1 w2),(TPair v1 v2).
+Unset Silent.
+(apply match_ty_pair; apply match_ty__ge_w).
