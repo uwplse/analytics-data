@@ -3295,6 +3295,5 @@ clear c p Heqc0.
 (induction c0; auto).
 *
 (simpl).
-(apply f_equal).
 Unset Silent.
 Show.
