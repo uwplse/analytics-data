@@ -75,4 +75,8 @@ Set Printing Width 148.
 Lemma not_sem_sub__refint_refflt : ~ ||- [TRef tint]<= [TRef tflt].
 Proof.
 (intros Hcontra).
-specialize (Hcontra 1).
+Set Printing Width 148.
+specialize (Hcontra 1 0).
+(destruct Hcontra as [w2 Hcontra]).
+(assert (Hm : |-[ 1, 0] TRef tint <$ TRef tint) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra Hm).
