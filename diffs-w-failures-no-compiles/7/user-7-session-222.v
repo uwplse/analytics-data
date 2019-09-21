@@ -380,4 +380,5 @@ Set Printing Width 148.
 contradiction.
 reflexivity.
 *
-(apply b_free_in_ty_exist_neq__inv in HX).
+Set Printing Width 148.
+(apply b_free_in_ty_exist_neq__inv in HX; try assumption).
