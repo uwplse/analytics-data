@@ -371,4 +371,8 @@ Set Diffs "off".
 Timeout 1 Check @PeanoNat.Nat.mod_small.
 Set Printing Width 78.
 Show.
-(unfold proc_spec in *; intuition; simpl in *; intuition eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
