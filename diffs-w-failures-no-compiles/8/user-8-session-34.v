@@ -215,4 +215,4 @@ Show.
 Set Printing Width 131.
 Show.
 (unfold compose_super).
-(rewrite E2).
+Timeout 1 Check @HOAS_Equiv_inSeq.
