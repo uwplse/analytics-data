@@ -210,4 +210,13 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
-(exists (n0 :: s); intuition auto).
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(exists s; intuition).
+(right; intuition congruence).
