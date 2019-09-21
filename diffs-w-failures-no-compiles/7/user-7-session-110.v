@@ -211,9 +211,18 @@ Set Printing Width 148.
 (induction w; intros v0 t3 k Hm1 Hm2; apply match_ty_pair__inv in Hm1; destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst; induction t3;
   try (solve [ destruct k; contradiction ])).
 Set Silent.
-+
+Show.
+Set Printing Width 148.
+Set Silent.
 (apply match_ty_pair__inv in Hm2).
 (destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
 (inversion Heq; subst).
 Unset Silent.
 auto using match_ty_pair.
+Set Silent.
++
+(apply match_ty_union__inv in Hm2).
+Unset Silent.
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+Show.
