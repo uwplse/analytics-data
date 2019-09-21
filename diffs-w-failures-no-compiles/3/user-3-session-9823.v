@@ -152,7 +152,5 @@ step_proc.
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any; split; auto).
 Unset Silent.
-(constructor; intuition; autorewrite with upd in *; intuition).
-Set Silent.
--
 Unset Silent.
+Set Diffs "off".
