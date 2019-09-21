@@ -607,4 +607,14 @@ Unset Silent.
 (destruct (a == a0); simplify; finish).
 *
 (destruct (a == a0); simplify; finish).
+Unshelve.
+{
+auto.
 }
+exact (fun _ => True).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqvoBkdJ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
