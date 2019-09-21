@@ -239,5 +239,7 @@ exists (eval L env (Int 3)).
 reflexivity.
 +
 eexists.
-(apply evalVar).
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+(erewrite evalIntConst).
 Unset Silent.
