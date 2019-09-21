@@ -25,4 +25,4 @@ Proof.
 -
 Unset Silent.
 Show.
-(intros w1).
+split.
