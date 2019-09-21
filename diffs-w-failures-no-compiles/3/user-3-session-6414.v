@@ -321,9 +321,15 @@ Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
 split.
--
-eauto using log_length_ok_nil.
-Set Silent.
--
 Unset Silent.
-(exfalso; simpl in *; lia).
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+-
+(intuition; exfalso; simpl in *; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqu9prmS"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
