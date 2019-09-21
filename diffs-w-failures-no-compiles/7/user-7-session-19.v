@@ -17,7 +17,8 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Open Scope btjmi_scope.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty_i_pair : forall v1 v2 t1 t2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
@@ -32,8 +33,7 @@ Lemma match_ty_i_union_2 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t2 -
 Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; right; assumption).
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
 (intros v Hv; induction Hv; intros k).
@@ -67,40 +67,25 @@ Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; assumption).
 Qed.
+Unset Silent.
+Set Silent.
 Lemma match_ty_i_ref__inv :
-  forall v t : ty,
-  forall k : nat, |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ (forall v' : ty, value_type v' -> |-[ k] v' <$ t' <-> |-[ k] v' <$ t).
+  forall v t : ty, forall k : nat, |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ (forall v' : ty, |-[ k] v' <$ t' <-> |-[ k] v' <$ t).
 Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; simpl in Hm; contradiction ])).
 clear IHv.
 (intros t k).
 (intros Hm).
 (pose proof Hm as Href).
+Unset Silent.
 (simpl in Href).
+Set Silent.
 exists v.
 split.
-reflexivity.
-(intros v' Hv').
-specialize (Href v' Hv').
-(destruct Href; split; assumption).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
-Set Silent.
-Proof.
 Unset Silent.
-(induction k; induction t; induction t'; intros H).
-32: {
-idtac.
-(simpl).
-(apply le_n_S).
-(apply IHk).
-Set Printing Width 148.
-(assert (Hv : value_type (TRef t)) by constructor).
-Set Printing Width 148.
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
-specialize (H _ Hm).
-(apply match_ty_i_ref__inv in H).
-Set Printing Width 148.
-(destruct H as [tx [Heq Href]]; inversion Heq; subst).
+reflexivity.
+Set Silent.
+(intros v').
+Unset Silent.
+specialize (Href v').
+(destruct Href; split; assumption).
