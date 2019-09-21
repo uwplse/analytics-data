@@ -206,5 +206,9 @@ Set Printing Width 148.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
 Show.
 Set Printing Width 148.
-(assert (Hmv : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+Set Printing Width 148.
+(assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+specialize (Hsem _ Hv Hm).
 Show.
+(apply match_ty_i_union__inv in Hsem).
+(destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
