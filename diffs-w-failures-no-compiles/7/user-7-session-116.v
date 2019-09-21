@@ -54,4 +54,8 @@ reflexivity.
 reflexivity.
 (rewrite IHt).
 reflexivity.
-(unfold fresh).
+Set Printing Width 148.
+(unfold fresh in *).
+(intros Hcontra).
+Search -IdSet.remove.
+(apply (IdSetFacts.remove_2 _ _ _ n) in Hcontra).
