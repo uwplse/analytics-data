@@ -93,4 +93,5 @@ subst.
 reflexivity.
 *
 Set Printing Width 148.
-(rewrite IHt; try assumption).
+Set Printing Width 148.
+(rewrite IHt; assumption).
