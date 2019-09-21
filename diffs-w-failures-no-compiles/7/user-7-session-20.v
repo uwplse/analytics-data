@@ -29,4 +29,6 @@ Proof.
 Unset Silent.
 (intros t1 t2 Hnf).
 Set Printing Width 134.
-(inversion Hnf; subst; inversion H; subst).
+(inversion Hnf; subst).
+(inversion H).
+(split; assumption).
