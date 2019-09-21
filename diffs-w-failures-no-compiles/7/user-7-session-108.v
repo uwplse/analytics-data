@@ -429,4 +429,5 @@ specialize (Hcontra w1).
 Unset Silent.
 (destruct Hcontra as [w2 Hcontra]).
 Show.
-specialize (Hcontra _ Hm).
+Check Hcontra.
+specialize (Hcontra Hm).
