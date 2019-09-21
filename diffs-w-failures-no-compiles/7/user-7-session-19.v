@@ -84,5 +84,7 @@ Unset Silent.
 Set Printing Width 148.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
-auto.
 Show.
+Set Printing Width 148.
+(intros v Hv).
+(aplit; tauto).
