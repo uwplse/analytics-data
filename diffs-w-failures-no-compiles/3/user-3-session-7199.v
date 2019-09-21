@@ -448,4 +448,10 @@ step_proc.
 {
 (apply log_contents_ok_unchanged; eauto).
 }
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @app.
+Timeout 1 Check @append.
+Timeout 1 Check @append.
+Timeout 1 Check @append_at.
+Timeout 1 Check @append_at.
