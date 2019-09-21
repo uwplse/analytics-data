@@ -1109,4 +1109,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Search -(_ ^ _ <> 0).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+2: (apply Nat.pow_nonzero).
