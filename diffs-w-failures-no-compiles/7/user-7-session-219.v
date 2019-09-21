@@ -154,17 +154,17 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(destruct (beq_idP X i)).
 Show.
 Set Printing Width 148.
 Set Silent.
+(destruct (beq_idP X i)).
 +
-Unset Silent.
 subst.
 (rewrite b_subst_exist_eq in *).
 exists v.
 split.
 assumption.
 (intros w' t' Hm').
+Unset Silent.
 (split; intros HX').
 assumption.
