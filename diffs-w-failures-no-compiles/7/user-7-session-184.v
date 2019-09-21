@@ -82,6 +82,11 @@ specialize (IHt2 _ _ Hm2).
 exists (TPair v1' v2').
 split.
 (apply match_ty_pair; assumption).
-(induction w'; induction t'; intros Hm'; try contradiction).
+Set Printing Width 148.
+(induction w'; induction t'; intros HX' Hm'; try contradiction).
+Set Silent.
 +
-Unset Silent.
+(apply match_ty_pair_pair__inv in Hm').
+(destruct Hm' as [Hm'1 Hm'2]).
+(apply match_ty_pair; auto).
++
