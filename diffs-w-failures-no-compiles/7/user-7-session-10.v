@@ -166,7 +166,9 @@ Proof.
 -
 (apply SR_UnionR2; assumption).
 -
+Show.
+Set Printing Width 148.
 constructor.
+Show.
 assumption.
-Unset Silent.
 Show.
