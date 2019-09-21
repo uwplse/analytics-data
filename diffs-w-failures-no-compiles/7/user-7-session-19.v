@@ -226,9 +226,15 @@ Set Silent.
 Unset Silent.
 (assert (Hva : value_type (TCName c)) by constructor).
 Set Printing Width 148.
-(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
-(induction t2; intros Hsem).
+Set Printing Width 148.
+(induction t2; intros Hsem; specialize (Hsem _ _ Hma)).
 Set Silent.
 +
 Unset Silent.
-Show.
+(simpl in Hsem).
+subst.
+constructor.
++
+(simpl in Hsem).
+contradiction.
++
