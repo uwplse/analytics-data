@@ -105,5 +105,6 @@ Show.
 Show.
 Set Printing Width 148.
 (apply match_ty_exist__inv in Hm).
-auto.
+Set Printing Width 148.
+eauto.
 Show.
