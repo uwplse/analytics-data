@@ -106,4 +106,9 @@ Lemma f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TPa
 Unset Silent.
 Proof.
 Show.
+Set Printing Width 148.
+Set Silent.
 (unfold f_free_in_ty).
+Unset Silent.
+(simpl).
+(apply free_union__inv).
