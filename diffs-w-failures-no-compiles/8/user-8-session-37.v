@@ -489,4 +489,4 @@ Show.
 replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
 Set Silent.
 (unfold compose_super).
-(erewrite VA).
+Unset Silent.
