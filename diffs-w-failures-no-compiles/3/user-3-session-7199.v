@@ -711,7 +711,24 @@ intuition.
 (unfold spec_impl; simpl; intuition).
 (descend; intuition eauto).
 {
-(descend; intuition eauto).
-(eapply log_abstraction_nil; eauto).
 Unset Silent.
-}
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(eapply log_abstraction_nil; eauto).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_eq.
+Timeout 1 Check @diskUpd_eq.
+(rewrite diskUpd_eq).
