@@ -997,4 +997,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(repeat rewrite Mmult_assoc).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+gridify.
