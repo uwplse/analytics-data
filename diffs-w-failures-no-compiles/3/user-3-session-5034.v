@@ -452,6 +452,5 @@ Show.
 (step_proc; intuition; subst; eauto).
 {
 (step_proc; intuition; subst; eauto).
-*
 Unset Silent.
 Set Diffs "off".
