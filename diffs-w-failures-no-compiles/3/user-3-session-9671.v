@@ -549,4 +549,8 @@ intuition eauto.
 Unset Silent.
 (exists []; intuition eauto).
 Timeout 1 Check @rec_wipe_compose.
-(apply log_abstraction_nil with (b := r); eauto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Show.
+(apply log_abstraction_nil with (b := r)).
