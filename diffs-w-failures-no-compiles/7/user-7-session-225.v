@@ -139,4 +139,5 @@ Set Silent.
 (unfold b_free_in_ty, free).
 Unset Silent.
 (simpl).
+(intros X Y).
 (apply IdSetFacts.singleton_1).
