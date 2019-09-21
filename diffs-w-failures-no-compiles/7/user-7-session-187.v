@@ -51,4 +51,5 @@ Lemma free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TUnion
 Proof.
 (intros X t1 t2 HX).
 Set Printing Width 148.
-(unfold fresh_in_ty in *).
+Set Printing Width 148.
+(unfold freee_in_ty in *).
