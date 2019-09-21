@@ -20,6 +20,12 @@ Timeout 1 Print LoadPath.
 Set Silent.
 Proof.
 (intros W \207\129 safe H).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Set Silent.
+(intros W \207\129 safe).
 (simpl).
 (unfold denote_box).
 (simpl).
@@ -31,13 +37,5 @@ autorewrite with proof_db.
 (rewrite Nat.sub_diag).
 (rewrite kron_1_r').
 (rewrite subst_pat_fresh_empty).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
+(rewrite denote_pat_fresh_id).
+(rewrite super_I; easy).
