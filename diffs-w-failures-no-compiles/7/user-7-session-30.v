@@ -65,5 +65,17 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction v; induction t; intros k Hm; try (solve [ destruct k; contradiction | auto with DBBetaJulia ])).
+Set Printing Width 148.
+Set Silent.
+(intros v t).
+generalize dependent v.
+Unset Silent.
+(induction t; intros v k Hm).
+Set Silent.
+-
+Unset Silent.
+(apply match_ty_cname__inv in Hm; subst).
+constructor.
+-
 (apply match_ty_pair__inv in Hm).
+(destruct Hm as [[v1 v2] [Heq [Hm1 Hm2]]]; subst).
