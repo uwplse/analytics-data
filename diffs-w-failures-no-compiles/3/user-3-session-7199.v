@@ -554,4 +554,9 @@ Timeout 1 Check @app_length.
 Timeout 1 Check @app_length.
 Timeout 1 Check @app_length.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(rewrite app_length in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_size_ok.
+Set Printing Width 78.
+Show.
+(rewrite app_length in *; simpl).
