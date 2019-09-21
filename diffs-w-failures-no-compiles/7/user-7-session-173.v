@@ -131,4 +131,5 @@ Omega.omega.
 -
 Set Silent.
 (simpl).
-(rewrite rename__size).
+Unset Silent.
+Show.
