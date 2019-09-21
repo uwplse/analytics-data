@@ -109,4 +109,12 @@ clear IHt1 IHt2.
 split.
 (apply Nat.max_lub; tauto).
 (apply Nat.max_le_compat; tauto).
-+
+-
+(intros t k Hm).
+Unset Silent.
+(apply match_ty__value_type_l in Hm).
+(inversion Hm).
+Set Silent.
+-
+Unset Silent.
+(intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction | solve_match_ty__inv_depth_l__union_r IHt1 IHt2 ])).
