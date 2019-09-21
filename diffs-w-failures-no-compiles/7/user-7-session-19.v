@@ -439,4 +439,9 @@ Unset Silent.
 Set Silent.
 (unfold sem_sub_i in Hsem).
 Unset Silent.
-(assert (Hm : |-[ kamx] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+(assert (Hm : |-[ kmax] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+Set Silent.
+specialize (Hsem _ _ Hm).
+Unset Silent.
+(apply match_ty_i_union__inv in Hsem).
+(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
