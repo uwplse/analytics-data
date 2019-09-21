@@ -1420,4 +1420,5 @@ Show.
 Set Printing Width 85.
 Show.
 -
-Timeout 1 Check @denote_box_compat.
+(unfold denote_box; simpl).
+(simpl).
