@@ -557,4 +557,15 @@ Timeout 1 Check @app.
 Timeout 1 Check @app.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Show.
+(apply spec_abstraction_compose).
 (eapply proc_spec_weaken).
