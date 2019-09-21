@@ -128,4 +128,12 @@ Theorem log_length_ok_nil d b :
 Proof.
 (unfold log_length_ok; intros).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(rewrite H in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(rewrite H in H1; simpl in H1).
+Timeout 1 Check @Tauto.A.
+auto.
