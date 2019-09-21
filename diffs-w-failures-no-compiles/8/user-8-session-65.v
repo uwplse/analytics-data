@@ -1088,12 +1088,9 @@ Show.
 Set Printing Width 85.
 Show.
 mat_replace \226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169 with I 1 by lma.
-Msimpl.
-Timeout 1 About id_kron.
-Timeout 1 Print id_kron.
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Set Silent.
-Unset Silent.
+Msimpl.
+(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
