@@ -205,5 +205,5 @@ Show.
 }
 {
 (step_proc; intuition idtac).
-{
-(step_proc; intuition idtac).
+Unset Silent.
+Set Diffs "off".
