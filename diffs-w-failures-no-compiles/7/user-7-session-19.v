@@ -408,4 +408,4 @@ Set Silent.
 (pose proof (IHk k' t Htk Htk' v) as Ht).
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 Unset Silent.
-tauto.
+Show.
