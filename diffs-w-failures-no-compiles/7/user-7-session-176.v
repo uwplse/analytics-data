@@ -147,5 +147,11 @@ Lemma match_ty__exists_w_v : forall t : ty, exists (w : nat) (v : ty), |-[ w] v 
 Set Printing Width 148.
 Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [X := tint] t.
 Proof.
-(induction w).
+Set Printing Width 148.
+(intros X; induction w; induction t; intros v).
 Show.
+(intros Hm).
+Set Silent.
+(apply match_ty_cname__inv in Hm).
+Unset Silent.
+(exists v; assumption).
