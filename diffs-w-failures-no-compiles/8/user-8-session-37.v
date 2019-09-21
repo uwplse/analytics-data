@@ -73,6 +73,8 @@ replace (gate g p c) with compose (gate g p (fun p' => output p')) c by auto.
 dependent destruction H'.
 (destruct \206\1471 as [| \206\1471]; try invalid_contradiction).
 (erewrite denote_compose with (\206\1471 := []); trivial).
-Locate ":Fun".
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+Locate ":Fun".
