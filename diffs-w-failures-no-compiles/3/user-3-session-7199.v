@@ -738,6 +738,7 @@ Timeout 1 Check @spec_abstraction_compose.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Theorem log_length_ok_unchanged d bs :
+Timeout 1 Check @Zdiv.Zmod'.
+Theorem log_length_ok_unchanged d bs d' :
   log_length_ok d bs ->
   diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
