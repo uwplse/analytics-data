@@ -87,4 +87,8 @@ Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) =
 Unset Silent.
 Proof.
 (intros X Y t).
-(induction t).
+Set Printing Width 148.
+(induction t; intros tx ty; try reflexivity).
+-
+(repeat rewrite subst_pair).
+(rewrite IHt1).
