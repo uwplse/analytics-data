@@ -85,5 +85,6 @@ Set Printing Width 148.
 (destruct v).
 Show.
 -
-(destruct k, w; simpl in Hm; try contradiction).
+Set Printing Width 148.
+(destruct k, w; simpl in Hm; contradiction).
 Show.
