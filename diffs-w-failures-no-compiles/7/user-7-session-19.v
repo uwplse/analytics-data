@@ -189,4 +189,5 @@ clear IHk' IHt.
 Set Printing Width 148.
 Set Silent.
 (simpl in Hvk, Hvk').
-(apply le_S_n in Hvk).
+Unset Silent.
+Show.
