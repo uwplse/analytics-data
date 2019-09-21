@@ -425,6 +425,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hdep Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -449,7 +450,7 @@ Set Printing Width 148.
             simpl; apply Nat.max_le_compat; auto
      | Hsem:||-[ ?k][TUnion _ _]<= [_]
        |- _ =>
-           destruct Hdep as [Hdep| Hdep]; destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2];
+           destruct Hdep as [Hdep| Hdep]; try destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2];
             destruct (sem_sub_k_i_union_l__inv _ _ _ _ Hsem) as [Hsem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
@@ -457,4 +458,4 @@ Show.
 Set Silent.
 -
 Unset Silent.
-(destruct Hdep as [Hdep| Hdep]).
+(inversion Hdept; subst).
