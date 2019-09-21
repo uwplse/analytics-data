@@ -30,16 +30,15 @@ split.
 assumption.
 (induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
 +
+Show.
+Set Printing Width 148.
 (apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
   destruct IHt' as [IHt'a IHt'b]; split; intros HX').
+Show.
 *
 (destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
 (apply match_ty_union_1; auto).
 *
+Show.
 (rewrite subst_union).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-(destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]; apply match_ty_union_1; auto).
 Show.
