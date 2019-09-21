@@ -88,4 +88,13 @@ intuition eauto.
 Unset Silent.
 +
 specialize (IHblocks (off + 1)).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 step_proc.
+Set Silent.
+Set Silent.
+intuition subst; eauto.
+Unset Silent.
+(f_equal; lia).
