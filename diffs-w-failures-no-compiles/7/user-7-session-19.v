@@ -387,9 +387,10 @@ Unset Silent.
 Set Printing Width 148.
 (intros v; specialize (IHk v t); specialize (Href v)).
 tauto.
-Qed.
+Set Printing Width 148.
 Set Silent.
-Lemma match_ty_i_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
 Unset Silent.
 Proof.
-Show.
+(intros t k).
+(apply match_ty_i_nf').
