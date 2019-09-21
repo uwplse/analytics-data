@@ -301,4 +301,4 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(repeat rewrite kron_1_l).
+(rewrite kron_1_l).
