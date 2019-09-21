@@ -368,3 +368,6 @@ Timeout 1 Check @server.
 Timeout 1 Check @server.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqZCAd7v"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
