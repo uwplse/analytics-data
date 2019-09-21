@@ -1489,4 +1489,4 @@ Proof.
 (unfold denote_pat).
 (simpl).
 (rewrite swap_fresh_seq by validate).
-(rewrite swap_list_n_id).
+Unset Silent.
