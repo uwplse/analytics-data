@@ -433,9 +433,11 @@ Set Silent.
 Unset Silent.
 specialize (IHt'1 Hnft).
 specialize (IHt'2 Hnft).
-(destruct Hdep as [Hdept| Hdept']).
 Show.
 Set Printing Width 148.
+(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu).
+(destruct Hsemu as [Hsemu| Hsemu]).
 +
-(destruct IHt'1 as [IHt'1| IHt'1]).
-Show.
+(destruct Hdep as [Hdept| Hdept']).
+*
+specialize (IHt'1 (left Hdept)).
