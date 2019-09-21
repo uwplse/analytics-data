@@ -1445,4 +1445,6 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-restore_dims.
+Search -subst_pat.
+Search -swap_list_aux.
+Search -pat_to_list.
