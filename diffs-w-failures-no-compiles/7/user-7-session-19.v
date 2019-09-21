@@ -155,6 +155,4 @@ specialize (H k v Hv).
 (destruct H as [H1 H2]).
 Set Printing Width 148.
 (split; intros Hm).
-+
-Set Printing Width 148.
-specialize (H1 Hm).
+Show.
