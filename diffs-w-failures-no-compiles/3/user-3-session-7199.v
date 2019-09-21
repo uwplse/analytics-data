@@ -645,159 +645,18 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqB5pbtF"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Theorem abstr_length_sz_bound d bs :
+  log_size_ok d bs -> len_addr < diskSize d.
 Proof.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @reset.
-Timeout 1 Check @reset.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold reset; intros).
-Timeout 1 Check @app.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-(apply spec_abstraction_compose).
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-step_proc.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(destruct a' as [[] bs]; simpl in *).
-intuition.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @div_eucl_th.
-Timeout 1 Check @repeat_length.
-Set Silent.
-{
-Unset Silent.
-(descend; intuition eauto).
-}
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec_rx.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @proc_spec_weaken.
-Timeout 1 Check @repeat_length.
-(eapply proc_spec_weaken; eauto).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Wf.F_unfold.
 Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @spec_impl.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(unfold spec_impl; simpl; intuition).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
-(descend; intuition eauto).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
-Set Silent.
-{
-Unset Silent.
-(descend; intuition eauto).
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction_nil.
-Timeout 1 Check @log_abstraction_nil.
-Timeout 1 Check @log_abstraction_nil.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-(eapply log_abstraction_nil; eauto).
-Timeout 1 Check @BinPos.Pos.switch_Eq.
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @abstr_get_len.
-Timeout 1 Check @abstr_length_proj.
-Timeout 1 Check @abstr_length_proj.
-Timeout 1 Check @abstr_length_proj.
-Timeout 1 Check @abstr_length_proj.
-Timeout 1 Check @abstr_length_proj.
-Timeout 1 Check @abstr_length_proj.
-Timeout 1 Check @abstr_length_proj.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
-Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_contents_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
@@ -805,14 +664,6 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskSize.
+(unfold log_size_ok).
+Timeout 1 Check @split.
+lia.
