@@ -263,4 +263,11 @@ Unset Silent.
 -
 (simpl in Hcontra).
 Set Silent.
+Unset Silent.
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_pair__inv in Hcontra).
+Set Silent.
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+Unset Silent.
+subst.
+(apply IHt1).
