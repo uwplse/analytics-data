@@ -9,9 +9,8 @@ Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import Coq.Lists.List.
 Import ListNotations.
-Require Import Coq.Arith.Arith.
-Require Import Coq.Bool.Bool.
-Require Import Coq.Program.Wf.
+Set Printing Width 148.
+Set Silent.
 Require Import Recdef.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
@@ -87,11 +86,8 @@ reflexivity.
 +
 assumption.
 -
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
+(destruct (beq_idP x i); reflexivity).
+Qed.
 Function
  subst (x : id) (s t : ty) {measure size t} : ty :=
    match t with
@@ -120,18 +116,14 @@ Omega.omega.
 -
 (intros).
 (simpl).
-Unset Silent.
-Omega.omega.
-Set Silent.
--
-(intros).
-Unset Silent.
-(simpl).
-Set Silent.
 Omega.omega.
 -
 (intros).
 (simpl).
-Unset Silent.
 Omega.omega.
+-
+(intros).
+(simpl).
+Omega.omega.
+Unset Silent.
 Defined.
