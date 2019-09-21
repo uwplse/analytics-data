@@ -114,6 +114,9 @@ Unset Silent.
 Qed.
 Set Silent.
 Theorem mk_nf_nf__equal : forall t : ty, InNF( t) -> MkNF( t) = t.
+Set Printing Width 134.
+Set Silent.
+Theorem mk_nf_nf : forall t : ty, InNF( t) -> MkNF( t) = t.
 Proof.
 (apply (in_nf_mut (fun (t : ty) (Hat : atom_type t) => MkNF( t) = t) (fun (t : ty) (Hnf : in_nf t) => MkNF( t) = t))).
 -
@@ -135,13 +138,83 @@ tauto.
 (simpl).
 (rewrite IH1, IH2).
 reflexivity.
-Unset Silent.
 Qed.
-Set Silent.
 Theorem mk_nf__idempotent : forall t : ty, MkNF( MkNF( t)) = MkNF( t).
 Proof.
 (intros t).
-(apply mk_nf_nf__equal).
+(apply mk_nf_nf).
 (apply mk_nf__in_nf).
 Unset Silent.
 Qed.
+Set Silent.
+Open Scope btjd_scope.
+Lemma sub_d_union_l__inv : forall t1 t2 t' : ty, |- TUnion t1 t2 << t' -> |- t1 << t' /\ |- t2 << t'.
+Proof.
+(intros t1 t2 t' H).
+(remember (TUnion t1 t2) as t eqn:Heq ).
+(induction H; try (solve [ inversion Heq ])).
+-
+(subst; split; constructor).
+-
+(specialize (IHsub_d1 Heq); destruct IHsub_d1 as [Hsub1 Hsub2]).
+(split; solve_trans).
+-
+(inversion Heq; subst).
+(split; assumption).
+-
+(inversion Heq; subst).
+(split; apply union_right_1; constructor).
+-
+(inversion Heq; subst).
+(split; apply union_right_2; constructor).
+Unset Silent.
+Qed.
+Set Silent.
+Close Scope btjd_scope.
+Open Scope btjr_scope.
+Lemma sub_r__rflxv : forall t : ty, |- t << t.
+Proof.
+(induction t; try (solve [ constructor; assumption ])).
+(constructor; [ apply SR_UnionR1 | apply SR_UnionR2 ]; assumption).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sub_r_nf_union_l__inv : forall t1 t2 t' : ty, |- TUnion t1 t2 << t' -> InNF( TUnion t1 t2) -> |- t1 << t' /\ |- t2 << t'.
+Proof.
+(intros t1 t2 t' H Hnf).
+(remember (TUnion t1 t2) as t eqn:Heq ).
+(induction H; try (solve [ inversion Heq ])).
+-
+(inversion Heq; subst).
+(split; assumption).
+-
+(split; apply SR_UnionR1; tauto).
+-
+(split; apply SR_UnionR2; tauto).
+-
+(rewrite (mk_nf_nf _ Hnf) in IHsub_r).
+specialize (IHsub_r Heq Hnf).
+assumption.
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sub_r_union_l__inv : forall t1 t2 t' : ty, |- TUnion t1 t2 << t' -> |- t1 << t' /\ |- t2 << t'.
+Proof.
+(intros t1 t2 t' Hsub).
+(remember (TUnion t1 t2) as t eqn:Heqt ).
+(induction Hsub; inversion Heqt; subst).
+-
+tauto.
+-
+(split; apply SR_UnionR1; tauto).
+-
+(split; apply SR_UnionR2; tauto).
+-
+Unset Silent.
+Show.
+(simpl in Hsub).
+(apply sub_r_nf_union_l__inv in Hsub).
++
+(destruct Hsub as [Hsub1 Hsub2]).
+(split; apply SR_NormalForm; assumption).
++
