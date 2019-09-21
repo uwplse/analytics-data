@@ -166,5 +166,5 @@ Unset Silent.
 (destruct Hcontra as [tx Hmx]).
 Show.
 Set Printing Width 148.
-(assert (Heq : [vY := tx] TRef (TRef tY) = TRef (TRef tx))).
-reflexivity.
+Set Printing Width 148.
+(assert (Heq : [vY := tx] TRef (TRef tY) = TRef (TRef tx)) by reflexivity).
