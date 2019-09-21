@@ -52,4 +52,4 @@ Set Printing Width 148.
 Variable (gen_fresh : id_set -> id).
 Set Silent.
 Unset Silent.
-Axiom (gen_fresh : id_set -> id).
+Show.
