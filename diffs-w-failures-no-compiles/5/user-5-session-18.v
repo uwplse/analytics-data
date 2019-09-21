@@ -54,4 +54,6 @@ Theorem simplify_correct :
   forall (L : EpsilonLogic) (t : Term) env,
   L.(eval) env t = L.(eval) env (simplify t).
 Proof.
-(induction t; intros).
+(induction t; intros; simpl in *).
+-
+reflexivity.
