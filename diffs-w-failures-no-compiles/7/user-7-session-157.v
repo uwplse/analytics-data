@@ -58,4 +58,6 @@ Set Printing Width 148.
 +
 subst.
 exists (TEV X').
-(simpl).
+Show.
+Set Printing Width 148.
+(apply match_ty_var).
