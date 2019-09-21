@@ -177,4 +177,9 @@ Set Printing Width 148.
 (inversion Heqx).
 Show.
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma sem_sub__eunion__union_e : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
+Unset Silent.
+Proof.
+(intros X t1 t2 k).
