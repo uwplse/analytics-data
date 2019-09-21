@@ -116,4 +116,12 @@ Show.
 (destruct w).
 +
 Show.
-(apply match_ty_ref__0_inv in Hm; contradiction).
+(apply match_ty_exist__0_inv in Hm; contradiction).
++
+Show.
+(apply match_ty_exist__inv in Hm).
+Show.
+(destruct Hm as [tx Hm]).
+Show.
+(unfold fresh_in_ty in HX).
+Show.
