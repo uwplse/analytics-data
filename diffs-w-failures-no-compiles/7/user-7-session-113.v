@@ -25,4 +25,5 @@ Lemma subs_neq__permute : forall X Y : id, X <> Y -> forall t s1 s2 : ty, [X := 
 Proof.
 (intros X Y Hneq t).
 Set Printing Width 148.
-(induction t; intros s1 s2; try (solve [ simpl; reflexivity ])).
+Set Printing Width 148.
+(induction t; intros s1 s2; try (solve [ simpl; reflexivity | auto ])).
