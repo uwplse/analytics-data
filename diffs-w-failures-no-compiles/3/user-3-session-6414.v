@@ -141,4 +141,11 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @then_init.
+Timeout 1 Check @then_init.
+Timeout 1 Check @then_init.
+Timeout 1 Check @d.init.
+Timeout 1 Check @d.init.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @init.
