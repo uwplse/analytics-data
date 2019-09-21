@@ -157,4 +157,15 @@ Set Printing Width 148.
 Show.
 assumption.
 Qed.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [Exist vY (TRef (TRef tY))].
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+Show.
+(intros Hcontra).
+Show.
+specialize (Hcontra 0).
+Show.
+(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX)))).
+{
+Show.
+(simpl).
+Show.
