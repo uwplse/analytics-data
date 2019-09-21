@@ -72,7 +72,10 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqcAMjSv"
 Print Ltac Signatures.
 Unset Silent.
 Set Printing Width 85.
-Hint Rewrite @kron_1_r'.
+Unset Silent.
+Set Printing Width 85.
+Hint Rewrite @kron_1_r' : M_db.
+Set Silent.
 Lemma X_spec :
   forall b safe : bool,
   denote_box safe (boxed_gate _X) (bool_to_matrix b) == bool_to_matrix (\194\172 b).
@@ -80,13 +83,4 @@ Proof.
 (intros).
 vector_denote.
 Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 (destruct b; unfold bool_to_ket; simpl; Msimpl).
-Unset Silent.
-Show.
