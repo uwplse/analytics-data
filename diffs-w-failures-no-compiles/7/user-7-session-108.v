@@ -255,4 +255,8 @@ Proof.
 (induction w; induction t; intros k).
 -
 Unset Silent.
-(TCName c).
+exists (TCName c).
+(apply match_ty_value_type__reflexive; constructor).
+Set Silent.
+-
+(destruct (IHt1 k) as [w1 [v1 Hm1]]).
