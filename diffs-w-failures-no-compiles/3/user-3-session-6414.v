@@ -413,4 +413,21 @@ Set Diffs "off".
 Timeout 1 Check @sig.
 Set Printing Width 78.
 Show.
-simplify.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(autorewrite with upd; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHBXADb"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+Timeout 1 Check @ge.
+(unfold get; intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
