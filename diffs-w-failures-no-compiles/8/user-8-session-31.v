@@ -3296,4 +3296,5 @@ clear c p Heqc0.
 *
 (simpl).
 (apply f_equal).
-(apply functional_extensionality; intros p').
+Unset Silent.
+Show.
