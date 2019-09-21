@@ -601,4 +601,12 @@ step_proc.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 intuition eauto.
 Timeout 1 Check @split.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
++
+Unset Silent.
 lia.
++
