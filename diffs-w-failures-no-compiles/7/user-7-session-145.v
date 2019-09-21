@@ -143,8 +143,27 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
+Unset Silent.
 Lemma xxx :
-  forall (X : id) (w1 : ty) (t : ty) (k w2 : nat) (t' : ty) (X' : id),
+  forall (X : id) (w1 : nat) (t : ty) (k w2 : nat) (t' : ty) (X' : id),
   IdSet.In X (FV t) ->
   fresh_in_ty X' t' ->
   (forall v, |-[ k, w1] v <$ [X := TVar X'] t -> |-[ k, w2] v <$ t') -> forall tx : ty, forall v, |-[ k, w1] v <$ [X := tx] t -> |-[ k, w2] v <$ t'.
+Set Silent.
+Proof.
+(intros X w1).
+(induction w1).
+Unset Silent.
+admit.
+Set Silent.
+(intros t).
+Unset Silent.
+(induction t).
+Set Silent.
+admit.
+admit.
+admit.
+Unset Silent.
+admit.
+-
+(intros k w2 t' X' HX HX').
