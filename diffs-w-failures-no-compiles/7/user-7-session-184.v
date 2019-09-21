@@ -30,4 +30,4 @@ Proof.
 Unset Silent.
 -
 exists v.
-(simpl).
+Show.
