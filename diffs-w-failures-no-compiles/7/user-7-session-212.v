@@ -235,5 +235,8 @@ Proof.
 Set Silent.
 (intros Y s X t HX).
 Unset Silent.
-(induction t).
-(simpl).
+Set Printing Width 148.
+(induction t; try (solve [ simpl; assumption ])).
+-
+Show.
+(rewrite b_subst_pair).
