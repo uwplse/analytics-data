@@ -306,5 +306,23 @@ Show.
 admit.
 -
 (apply Hnotm).
-exists (TEV X).
+Set Printing Width 148.
+exists (TEV i).
 (destruct k; reflexivity).
+-
+Set Silent.
+(apply Hnotm).
+exists (TEV i).
+Unset Silent.
+(destruct k; reflexivity).
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+(destruct Hcontra as [v Hcontra]).
+(destruct (dec_id X i)).
