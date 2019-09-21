@@ -237,111 +237,23 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' => state' = state /\ r = nth a state block0;
+     post := fun r state' => state' = state /\ diskGet state a = Some r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
 Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
 (simpl).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @d.recover_wipe.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Check proc_spec_weaken.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec_rx.
-Timeout 1 Check @proc_spec_weaken.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
 (eapply proc_spec_weaken; eauto).
-Timeout 1 Check @sig.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @spec_impl.
-Timeout 1 Check @sig.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
 (unfold spec_impl; intros).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @sig.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
 (descend; intuition eauto).
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @eq_existT_curried.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @repeat_length.
 (descend; intuition eauto).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @nodup.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
