@@ -148,4 +148,8 @@ clear IHt'1 IHt'2.
 Show.
 (simpl).
 Show.
-(apply f_equals).
+Show.
+(assert (Heq1 : | t1 | = | t'1 |)).
+{
+(apply IHt1).
+Show.
