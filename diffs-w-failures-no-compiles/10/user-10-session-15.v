@@ -34,4 +34,21 @@ Import ListNotations.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqOesgEy" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
+Set Silent.
+Open Scope N_scope.
+Unset Silent.
+Fixpoint fib (fuel : nat) (a b : N) : list N :=
+  match fuel with
+  | O => []
+  | S fuel => a :: print_id (fib fuel b (a + b))
+  end.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqUPskrz" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+CoFixpoint Fib (a b : N) : Stream N := Cons a (print_id (Fib b (a + b))).
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqRuTBbi" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Timeout 1 Check @fib.
+Check nth.
+Print nth.
+Timeout 1 Check @fib.
+Eval compute in nth 10 (fib 100 0 1) 233.
