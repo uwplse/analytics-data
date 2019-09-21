@@ -104,25 +104,31 @@ Function
    end.
 Set Silent.
 -
-(intros).
-(unfold lt_size).
+Set Printing Width 148.
+Set Silent.
 (simpl).
 Omega.omega.
 -
 (intros).
-(unfold lt_size).
 (simpl).
 Omega.omega.
 -
 (intros).
-(unfold lt_size).
 (simpl).
 Omega.omega.
 -
 (intros).
-(unfold lt_size).
 (simpl).
+Omega.omega.
+-
 Unset Silent.
-Omega.omega.
--
 (intros).
+(simpl).
+Omega.omega.
+Set Silent.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+tauto.
+Unset Silent.
+Defined.
