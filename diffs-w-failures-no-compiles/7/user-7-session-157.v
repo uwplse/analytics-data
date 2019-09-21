@@ -72,4 +72,4 @@ Set Printing Width 148.
 Check beq_id_false_iff.
 Print "<->".
 Print "/\".
-(rewrite (beq_id_false_iff X i)).
+(destruct (beq_id_false_iff X i) as [H1 H2]).
