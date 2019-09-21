@@ -619,4 +619,12 @@ Set Diffs "off".
 Timeout 1 Check @sig.
 Set Printing Width 78.
 Show.
-(induction d; simpl).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(induction d; simpl in *).
+-
+Timeout 1 Check @split.
+lia.
+-
