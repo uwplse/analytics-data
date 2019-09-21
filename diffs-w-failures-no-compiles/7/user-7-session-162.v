@@ -51,4 +51,5 @@ Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
 Set Printing Width 148.
 Variable (gen_fresh : id_set -> id).
 Set Silent.
-Variable (gen_fresh : id_set -> id).
+Unset Silent.
+Axiom (gen_fresh : id_set -> id).
