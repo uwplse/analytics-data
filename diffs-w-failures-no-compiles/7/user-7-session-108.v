@@ -186,4 +186,10 @@ Abort.
 Unset Silent.
 Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
-(induction k; induction t; induction t'; intros Hdep Hsem).
+Set Printing Width 148.
+(induction k; induction t; induction t'; intros Hdep Hsem; try reflexivity).
+Set Silent.
+-
+Unset Silent.
+(destruct Hsem as [Hsem _]).
+specialize (Hsem 0).
