@@ -65,30 +65,28 @@ split.
 assumption.
 tauto.
 -
-admit.
--
-admit.
--
-Unset Silent.
 Show.
-(rewrite subst_exist in Hm).
 Set Printing Width 148.
-(pose proof (subst_exist X tx i t) as Heq).
-(destruct Heq as [Z [tz Heq]]).
-(rewrite Heq in Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
-Set Silent.
--
-Unset Silent.
+(rewrite subst_pair in *).
 Show.
-Set Silent.
-admit.
--
-admit.
-Set Printing Width 148.
-Set Silent.
-exists v.
+(apply match_ty_pair__inv in Hm).
+Show.
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Show.
+specialize (IHt1 _ _ Hm1).
+specialize (IHt2 _ _ Hm2).
+Show.
+(destruct IHt1 as [v1' [Hm1' IHt1]]).
+(destruct IHt2 as [v2' [Hm2' IHt2]]).
+Show.
+exists (TPair v1' v2').
 split.
-assumption.
-Unset Silent.
-tauto.
+Show.
+(apply match_ty_pair; assumption).
+Show.
+(induction w'; induction t'; intros Hm'; try contradiction).
+Show.
++
+(apply match_ty_pair_pair__inv in Hm').
+Show.
+(apply match_ty_pair; tauto).
