@@ -51,5 +51,8 @@ Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k w : nat), |-[ k, w] v
 Set Printing Width 148.
 Set Printing Width 148.
 (intros v c k w Hm).
-(destruct k, w, v; try contradiction).
+Set Printing Width 148.
+(destruct k, w, v; simpl in Hm).
+Show.
+subst.
 Show.
