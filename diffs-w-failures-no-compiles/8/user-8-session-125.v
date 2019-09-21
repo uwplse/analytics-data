@@ -85,4 +85,9 @@ Set Printing Width 85.
 Show.
 setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (repeat rewrite Mmult_assoc; try rewrite inv).
+(rewrite inv).
