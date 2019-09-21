@@ -628,4 +628,4 @@ Proof.
 -
 (simpl).
 Msimpl.
-(rewrite (kron_1_r u)).
+Unset Silent.
