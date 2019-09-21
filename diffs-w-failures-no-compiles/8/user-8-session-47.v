@@ -1244,4 +1244,8 @@ Show.
 Timeout 1 Check @kron_1_r'.
 Timeout 1 Check @kron_1_r'.
 Timeout 1 Check @kron_1_r'.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (repeat rewrite kron_mixed_product).
