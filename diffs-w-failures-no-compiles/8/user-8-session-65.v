@@ -1405,4 +1405,5 @@ constructor.
 +
 (unfold valid_ancillae_box).
 (intros TB).
+Unset Silent.
 (apply functional_extensionality).
