@@ -60,4 +60,5 @@ Set Printing Width 148.
 Search -IdSet.remove.
 Check IdSetFacts.remove_2.
 (apply Hfresh).
-(apply IdSetFacts.remove_2).
+Set Printing Width 148.
+(apply IdSetFacts.remove_2; assumption).
