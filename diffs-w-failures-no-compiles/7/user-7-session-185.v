@@ -47,4 +47,29 @@ Proof.
 contradiction.
 Qed.
 Unset Silent.
-Lemma subst_cname : forall (X : id) (s : ty) (c : cname), [X := s] TCName c = TCname c.
+Lemma subst_cname : forall (X : id) (s : ty) (c : cname), [X := s] TCName c = TCName c.
+Proof.
+Set Silent.
+(intros).
+(apply subst_equation).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma subst_pair : forall (X : id) (s t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
+Proof.
+(intros).
+(apply subst_equation).
+Qed.
+Lemma subst_union : forall (X : id) (s t1 t2 : ty), [X := s] TUnion t1 t2 = TUnion ([X := s] t1) ([X := s] t2).
+Proof.
+(intros).
+(apply subst_equation).
+Qed.
+Unset Silent.
+Lemma subst_ev : forall (X : id) (s : ty) (Y : id), [X := s] TEV Y = TEV Y.
+Set Silent.
+Proof.
+(intros).
+(apply subst_equation).
+Unset Silent.
+Qed.
