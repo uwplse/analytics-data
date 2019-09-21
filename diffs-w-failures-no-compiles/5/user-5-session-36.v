@@ -210,5 +210,5 @@ Proof.
 -
 assumption.
 -
-contradiction  n.
+H.
 Unset Silent.
