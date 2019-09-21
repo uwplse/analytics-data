@@ -168,9 +168,9 @@ Show.
 -
 (split; intros Hm).
 Show.
-(rewrite subst_equation in Hm).
 Show.
+Set Printing Width 148.
+(rewrite (subst_equation X sx) in Hm).
 Show.
-Show.
-Show.
+(destruct (IdSet.mem i (FV sx))).
 Show.
