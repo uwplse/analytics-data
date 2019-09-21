@@ -97,4 +97,6 @@ Set Silent.
 Set Silent.
 intuition subst; eauto.
 Unset Silent.
+*
 (f_equal; lia).
+(repeat deex).
