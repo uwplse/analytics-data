@@ -216,6 +216,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ])).
 Show.
+Set Printing Width 148.
 (match goal with
- | Hsem:||-[ ?k][?t1]<= [?t2] |- | ?t1 | <= | ?t2 | => idtac
+ | Hsem:||-[ ?k][?t1]<= [?t2] |- | ?t1 | <= | ?t2 | => assert (Hv : value_type t1) by constructor
  end).
