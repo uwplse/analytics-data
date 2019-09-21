@@ -81,4 +81,19 @@ Proof.
 Set Printing Width 148.
 (intros).
 Show.
+Set Printing Width 148.
+(rewrite subst_equation).
+Show.
+(rewrite <- beq_id_refl).
+Show.
+reflexivity.
+Qed.
+Set Silent.
+Lemma subst_exist_neq : forall (X : id) (s : ty) (Y : id) (t : ty), X <> Y -> fresh_in_ty Y s -> [X := s] TExist Y t = TExist Y ([X := s] t).
+Unset Silent.
+Proof.
+(intros X s Y t Hneq HY).
+(rewrite subst_equation).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
 (simpl).
