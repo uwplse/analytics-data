@@ -53,4 +53,9 @@ Show.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
 Set Printing Width 148.
+Set Printing Width 148.
 (destruct (beq_idP X i)).
++
+subst.
+exists (TEV X').
+(simpl).
