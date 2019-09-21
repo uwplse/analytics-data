@@ -386,4 +386,7 @@ tauto.
 -
 (destruct (beq_idP Y i)).
 +
+Show.
+Set Printing Width 148.
 subst.
+Set Silent.
