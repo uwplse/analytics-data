@@ -345,15 +345,11 @@ Proof.
 (destruct r).
 -
 clear H.
-(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
-(eapply H0 in H2; eauto).
-(destruct matches in *; safe_intuition repeat deex; eauto).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(descend; intuition eauto).
+(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @PeanoNat.Nat.mod_small.
-Unset Silent.
-Set Diffs "off".
+intuition eauto.
