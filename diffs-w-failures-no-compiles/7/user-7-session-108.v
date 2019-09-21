@@ -362,4 +362,8 @@ exists tx.
 assumption.
 }
 (apply Hnotm).
-exists v.
+Set Printing Width 148.
+exists v0.
+assumption.
+}
+specialize (IHw _ _ Hnotm').
