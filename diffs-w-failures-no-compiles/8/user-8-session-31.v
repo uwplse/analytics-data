@@ -3292,4 +3292,6 @@ Unset Silent.
 Set Printing Width 85.
 Unset Silent.
 Set Printing Width 85.
+Unset Silent.
+Set Printing Width 85.
 Notation "a \226\137\161 b" := (HOAS_Equiv a b) (at level 70) : circ_scope.
