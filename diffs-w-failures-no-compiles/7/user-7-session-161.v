@@ -110,15 +110,10 @@ Set Silent.
 (destruct (beq_idP X' i) as [Hbeq| Hbeq]).
 *
 subst.
-(rewrite subst_exist_eq).
 Show.
 Set Printing Width 148.
 Set Silent.
 (apply match_ty_exist__inv in Hm).
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-exists ([X' := tx] ti).
-Show.
-Show.
+Unset Silent.
+(destruct Hm as [ti Hm]).
+(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
