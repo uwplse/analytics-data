@@ -107,15 +107,29 @@ Lemma match_ty_i_eq__inv_depth_eq :
 Proof.
 (induction t; induction t'; intros H).
 reflexivity.
-15: {
-idtac.
+Show.
+Set Printing Width 148.
 clear IHt'.
+Show.
 (simpl).
 (apply f_equal).
+Show.
 (apply IHt).
-(intros k v).
+Show.
+(intros k v Hv).
+Show.
 (assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
 specialize (H (S k) (TRef t)).
-Unset Silent.
+Show.
 (destruct H as [H _]).
+Show.
+constructor.
+Show.
+specialize (H Hmt).
+Show.
+(apply match_ty_i_ref__inv in H).
+(destruct H as [tx [Heq Href]]).
+(inversion Heq; subst).
+Show.
+auto.
 Show.
