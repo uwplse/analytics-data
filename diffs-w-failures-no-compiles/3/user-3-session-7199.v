@@ -540,4 +540,18 @@ Show.
 (exists bs; eauto using log_abstraction_preserved).
 }
 Timeout 1 Check @spec_abstraction_compose.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+Set Silent.
 step_proc.
+Unset Silent.
+intuition.
+{
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @plus_n_O.
