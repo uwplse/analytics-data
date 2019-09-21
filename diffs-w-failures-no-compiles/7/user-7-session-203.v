@@ -216,12 +216,8 @@ Unset Silent.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-(destruct IHt1 as [IHt1| [w1 [v1 IHt1]]]; destruct IHt2 as [IHt2| [w2 [v2 IHt2]]]).
 Set Printing Width 148.
-(left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-(exfalso; eauto).
-Show.
+(destruct IHt1 as [IHt1| [w1 [v1 IHt1]]]; destruct IHt2 as [IHt2| [w2 [v2 IHt2]]];
+  try (solve [ left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; exfalso; eauto ])).
++
+(left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
