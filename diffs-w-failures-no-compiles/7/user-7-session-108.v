@@ -281,4 +281,9 @@ Set Silent.
 Unset Silent.
 reflexivity.
 Set Printing Width 148.
-(split; intros; auto).
+Set Printing Width 148.
+(split; intros w1; exists w1; auto).
+-
+(destruct (IHt k) as [v Hm]).
+exists v.
+(apply match_ty_exist).
