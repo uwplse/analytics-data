@@ -135,8 +135,17 @@ Lemma match_ty__inv_depth_l_le_r : forall (v t : ty) (k : nat), |-[ k] v <$ t ->
 Proof.
 (apply match_ty__inv_depth_l).
 Qed.
-Lemma match_ty_value_type_k : forall (v : ty) (k : nat), value_type v -> ~ (exists v' : ty, |-[ k] v' <$ v) \/ | v | <= k.
-Unset Silent.
-Proof.
-(induction v; intros k Hv).
 Set Printing Width 148.
+Set Silent.
+Lemma match_ty_value_type_k : forall v : ty, value_type v -> forall k : nat, ~ (exists v' : ty, |-[ k] v' <$ v) \/ | v | <= k.
+Proof.
+(intros v Hv).
+Unset Silent.
+(induction Hv; intros k).
+Set Silent.
+-
+Unset Silent.
+(right; simpl; apply Nat.le_0_l).
+Set Silent.
+-
+(inversion Hv; subst).
