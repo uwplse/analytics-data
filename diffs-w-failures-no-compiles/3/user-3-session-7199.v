@@ -565,4 +565,7 @@ Show.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @spec_abstraction_compose.
-(destruct a as [[] bs]).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
