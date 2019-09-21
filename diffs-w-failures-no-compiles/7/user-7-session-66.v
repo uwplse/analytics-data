@@ -234,4 +234,12 @@ Proof.
 (exists (TCName c); split).
 exists (TCName c).
 Unset Silent.
-reflexivity.
+Show.
+(destruct k; reflexivity).
+Set Silent.
+-
+Unset Silent.
+Set Silent.
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+Unset Silent.
+(destruct (IHt1 k Hdep1) as [v1 [Hv1 Hm1]]).
