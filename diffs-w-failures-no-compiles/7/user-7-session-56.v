@@ -184,7 +184,7 @@ Proof.
 (destruct k).
 Unset Silent.
 (destruct v'; contradiction).
-(assert (Hdep : | TRef t | <= S k)).
-(eapply match_ty_value_type_r__inv_depth_r_le_index).
-constructor.
-eassumption.
+Set Printing Width 148.
+(assert (Hdep : | TRef t | <= S k) by (eapply match_ty_value_type_r__inv_depth_r_le_index; constructor || eassumption)).
+contradiction.
+Qed.
