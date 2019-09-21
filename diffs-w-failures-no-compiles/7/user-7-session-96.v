@@ -103,4 +103,7 @@ Set Silent.
 idtac.
 Unset Silent.
 (apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]).
+Set Printing Width 148.
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+exists t'.
