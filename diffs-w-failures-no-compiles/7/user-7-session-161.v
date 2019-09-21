@@ -123,4 +123,5 @@ contradiction.
 Show.
 Set Printing Width 148.
 (rewrite subst_exist_eq).
-(rewrite subst_exist_neq).
+Set Printing Width 148.
+(rewrite (subst_exist_neq HX)).
