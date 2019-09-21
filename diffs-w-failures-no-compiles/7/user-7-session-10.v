@@ -296,6 +296,5 @@ Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |-
 Unset Silent.
 Proof.
 Set Silent.
-(intros t1 t2 t3 Hsub1 Hsub2).
-Unset Silent.
-(pose proof (sub_r__trans2 _ _ Hsub1)).
+Set Printing Width 148.
+(pose proof (sub_r__trans2 _ _ Hsub1) as H).
