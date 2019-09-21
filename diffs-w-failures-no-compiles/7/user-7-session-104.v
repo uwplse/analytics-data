@@ -216,4 +216,5 @@ Unset Silent.
 Proof.
 (induction t; intros k).
 -
-exists 0 (TCName c).
+exists 0,(TCName c).
+(destruct k; reflexivity).
