@@ -204,4 +204,6 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl).
-(apply mixed_unitary; trivial).
+(unfold super).
+restore_dims.
+Msimpl.
