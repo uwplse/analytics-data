@@ -204,9 +204,10 @@ Proof.
 Set Silent.
 (intros t t' Hsub).
 Unset Silent.
-(pose proof (sub_r__mk_nf_sub_r _ _ Hsub)).
-Show.
 Set Printing Width 148.
+Set Silent.
+(pose proof (sub_r__mk_nf_sub_r _ _ Hsub) as Hsubnf).
 (pose proof (mk_nf__in_nf (TRef t)) as Hnf).
 (pose proof (mk_nf__in_nf (TRef t')) as Hnf').
-Check sub_r_nf_ref__inv.
+Unset Silent.
+(pose proof (sub_r_nf_ref__inv _ _ Hnf Hnf' Hsubnf) as H).
