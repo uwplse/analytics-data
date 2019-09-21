@@ -147,5 +147,8 @@ reflexivity.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti [Hwfti Hm]]).
 (rewrite b_subst_neq__permute in Hm; try assumption || auto).
-Unset Silent.
-specialize (IHw ([Bi := ti] t) v Hwftx).
+Show.
+Set Printing Width 148.
+(apply b_free_in_ty_exist_neq__inv in HX; try assumption).
+Show.
+specialize (IHw ([Bi := ti] t) v Hwftx HX).
