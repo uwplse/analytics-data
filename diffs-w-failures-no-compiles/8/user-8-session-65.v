@@ -1443,4 +1443,6 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl).
-Search -add_fresh_state.
+Unset Silent.
+Show.
+Timeout 1 Check @denote_box_compat.
