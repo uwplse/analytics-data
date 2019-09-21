@@ -390,4 +390,57 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 (unfold log_size_ok; simpl).
-(rewrite app_length).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(rewrite app_length; intros).
+lia.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdE1TWa"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @Ret.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_contents_ok.
+Hint Resolve log_size_ok_shrink: core.
+Theorem append_at_ok a bs' :
+  proc_spec
+    (fun (bs : list block) state =>
+     {|
+     pre := a = length bs /\
+            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
+     post := fun r state' =>
+             diskGet state' len_addr = diskGet state len_addr /\
+             diskSize state' = diskSize state /\
+             log_size_ok state' (bs ++ bs') /\
+             log_contents_ok state' (bs ++ bs');
+     recovered := fun _ state' =>
+                  diskGet state' len_addr = diskGet state len_addr /\
+                  diskSize state' = diskSize state /\
+                  log_contents_ok state' bs |}) (append_at a bs') recover
+    d.abstr.
+Proof.
+(induction bs'; simpl).
+-
+step_proc.
+intuition eauto.
+(rewrite app_nil_r; auto).
+-
+step_proc.
+(intuition eauto; autorewrite with upd; auto).
+(apply log_contents_ok_unchanged; eauto).
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
