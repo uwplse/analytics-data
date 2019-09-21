@@ -153,5 +153,7 @@ Unset Silent.
 (intros k v Hv).
 specialize (H k v Hv).
 (destruct H as [H1 H2]).
-split.
+Set Printing Width 148.
+(split; intros Hm).
 +
+specialize H1.
