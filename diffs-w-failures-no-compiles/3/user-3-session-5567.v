@@ -585,4 +585,4 @@ step_proc.
 *
 intuition eauto.
 {
-step.
+Unset Silent.
