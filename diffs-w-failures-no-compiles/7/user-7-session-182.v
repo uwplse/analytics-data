@@ -64,36 +64,33 @@ Show.
 (remember (gen_fresh (IdSet.union (FV tY) (IdSet.add Y (FV t)))) as z).
 Show.
 Set Silent.
-Abort.
+Set Printing Width 148.
+Set Silent.
 Lemma build_v_full :
   forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
-  |-[ w] v <$ [X := tx] t ->
-  exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
+  |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ t').
+Unset Silent.
 Proof.
+Set Silent.
 (intros X X').
 (induction w; induction t; intros v tx Hm).
 -
+Unset Silent.
+Show.
 exists v.
 split.
 assumption.
-(apply match_ty_cname__inv in Hm; subst).
-(induction w'; induction t'; intros Hm; try assumption || contradiction).
-+
-(rewrite subst_union).
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(rewrite subst_union).
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(destruct (beq_idP X' i) as [Hbeq| Hbeq]).
-*
-subst.
-(rewrite subst_exist_eq).
-assumption.
-*
-(apply match_ty_exist__inv in Hm).
-Set Printing Width 148.
-specialize (IHw' _ Hm).
+tauto.
+Set Silent.
+-
+Unset Silent.
 Show.
+Set Silent.
+admit.
+-
+Unset Silent.
+admit.
+Set Silent.
+-
+Unset Silent.
+(apply match_ty_exist__0_inv in Hm; contradiction).
