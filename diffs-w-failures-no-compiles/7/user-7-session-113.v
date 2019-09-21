@@ -26,4 +26,13 @@ Proof.
 (intros X Y Hneq t).
 Set Printing Width 148.
 Set Printing Width 148.
-(induction t; intros s1 s2; try (solve [ simpl; reflexivity | auto ])).
+Set Printing Width 148.
+(induction t; intros s1 s2; try (solve [ simpl; reflexivity ])).
+-
+(simpl).
+(rewrite (IHt1 s1 s2)).
+Show.
+(rewrite (IHt2 s1 s2)).
+Show.
+reflexivity.
+-
