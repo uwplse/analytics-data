@@ -219,6 +219,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
