@@ -217,5 +217,5 @@ Show.
 (intros k t1 t2 Hsem).
 Set Printing Width 148.
 (unfold sem_eq_k in *).
-auto.
-Show.
+Set Printing Width 148.
+tauto.
