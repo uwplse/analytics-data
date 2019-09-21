@@ -67,4 +67,8 @@ Show.
 specialize (unitary_gate_unitary U) as inv.
 (simpl in *).
 matrix_denote.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 setoid_rewrite denote_unitary_transpose.
