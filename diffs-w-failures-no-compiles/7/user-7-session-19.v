@@ -673,4 +673,4 @@ Set Printing Width 148.
 (intros k v).
 specialize (H k).
 Set Printing Width 148.
-tauto.
+Show.
