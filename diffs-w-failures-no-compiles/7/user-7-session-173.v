@@ -137,4 +137,5 @@ Omega.omega.
 (intros).
 (simpl).
 Omega.omega.
-Qed.
+Show.
+Defined.
