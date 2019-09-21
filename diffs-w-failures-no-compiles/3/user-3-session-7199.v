@@ -850,4 +850,5 @@ Timeout 1 Check @log_abstraction_commit.
 Timeout 1 Check @log_abstraction_commit.
 Timeout 1 Check @log_abstraction_commit.
 Timeout 1 Check @repeat_length.
-(eapply log_abstraction_commit; eauto).
+Unset Silent.
+Set Diffs "off".
