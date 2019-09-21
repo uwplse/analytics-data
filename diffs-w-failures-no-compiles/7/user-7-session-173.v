@@ -89,62 +89,17 @@ assumption.
 -
 Set Printing Width 148.
 Set Printing Width 148.
-#[program]
-Fixpoint subst (x : id) (s t : ty) {measure size t : ty :=
-  match t with
-  | TCName _ => t
-  | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
-  | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
-  | TExist y t' =>
-      if IdSet.mem y (FV s)
-      then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
-      else TExist y (if beq_id x y then t' else subst x s t')
-  | TVar y => if beq_id x y then s else t
-  | TEV y => t
-  end.
-Next Obligation.
-(simpl).
-Set Silent.
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-(rewrite rename__size).
-Omega.omega.
-Unset Silent.
-Qed.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
-Set Silent.
-Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
-Proof.
-Unset Silent.
-(intros X s t1 t2).
-(unfold subst).
-Show.
 Set Printing Width 148.
-(unfold subst_func).
-Show.
-Check fix_sub_eq.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-(rewrite fix_sub_eq).
-Set Printing Width 148.
-Set Silent.
-(fold (subst X s t1)).
-Unset Silent.
-(fold (subst X s t2)).
-(simpl).
-reflexivity.
+Function
+ subst (x : id) (s t : ty) {measure size t} : ty :=
+   match t with
+   | TCName _ => t
+   | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
+   | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
+   | TExist y t' =>
+       if IdSet.mem y (FV s)
+       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
+       else TExist y (if beq_id x y then t' else subst x s t')
+   | TVar y => if beq_id x y then s else t
+   | TEV y => t
+   end.
