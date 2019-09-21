@@ -90,8 +90,5 @@ Proof.
 (induction t; intros Hneq; try reflexivity).
 -
 (repeat rewrite subst_pair).
-(rewrite IHt1, IHt2).
-reflexivity.
-Unset Silent.
-Show.
-assumption.
+Set Printing Width 148.
+(rewrite IHt1, IHt2; try assumption reflexivity).
