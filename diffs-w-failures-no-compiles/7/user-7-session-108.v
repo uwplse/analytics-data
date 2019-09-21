@@ -422,5 +422,11 @@ clear Hm.
 Unset Silent.
 -
 Set Printing Width 148.
-(destruct Ht as [w [v Hm]]).
-specialize (Hcontra w).
+Set Printing Width 148.
+Set Silent.
+(destruct Ht as [w1 [v Hm]]).
+specialize (Hcontra w1).
+Unset Silent.
+(destruct Hcontra as [w2 Hcontra]).
+Show.
+specialize (Hcontra _ Hm).
