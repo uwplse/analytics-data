@@ -20,5 +20,60 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
 (induction w; induction t; intros v Hm; try (solve [ exists v; assumption ])).
+Show.
+Set Printing Width 148.
+Set Silent.
+-
+(rewrite subst_pair in *).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(destruct (IHt1 _ Hm1) as [v1' Hm1']).
+(destruct (IHt2 _ Hm2) as [v2' Hm2']).
+exists (TPair v1' v2').
+(apply match_ty_pair; assumption).
+-
+(rewrite subst_union in *).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
+  [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
 -
 Unset Silent.
+(apply match_ty_exist__0_inv in Hm; contradiction).
+Set Silent.
+-
+(destruct (beq_idP X i)).
++
+subst.
+exists (TEV X').
+(simpl).
+(rewrite <- beq_id_refl).
+reflexivity.
++
+exists v.
+(simpl in *).
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+specialize (Hid n).
+(rewrite Hid in *).
+Unset Silent.
+assumption.
+Set Silent.
+-
+(rewrite subst_pair in *).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(destruct (IHt1 _ Hm1) as [v1' Hm1']).
+(destruct (IHt2 _ Hm2) as [v2' Hm2']).
+exists (TPair v1' v2').
+(apply match_ty_pair; assumption).
+-
+(rewrite subst_union in *).
+(apply match_ty_union__inv in Hm).
+Unset Silent.
+(destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
+  [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
+Set Silent.
+-
+Unset Silent.
+Show.
+(destruct (beq_idP X i)).
++
