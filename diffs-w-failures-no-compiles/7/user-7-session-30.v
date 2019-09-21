@@ -121,6 +121,19 @@ Set Printing Width 148.
 (inversion Heq; subst).
 (simpl).
 Set Printing Width 148.
-split.
 Set Printing Width 148.
-(apply Nat.max_lub; auto).
+Set Silent.
+(specialize (IHv1 _ _ Hm1); specialize (IHv2 _ _ Hm2)).
+split.
+(apply Nat.max_lub; tauto).
+Unset Silent.
+(apply Nat.max_le_compat; tauto).
+Set Silent.
++
+Unset Silent.
+Set Silent.
+clear IHv1 IHv2.
+Unset Silent.
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ specialize (IHt1 _ Hm) | specialize (IHt2 _ Hm) ]; split; try tauto; rewrite inv_depth_union;
+  [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; try tauto; apply Max.le_max_l || apply Max.le_max_r).
