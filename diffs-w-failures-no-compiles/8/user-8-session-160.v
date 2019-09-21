@@ -120,4 +120,4 @@ Hint Rewrite bra0ket0 bra0ket1 bra1ket0 bra1ket1 : ket_db.
 Unset Silent.
 Hint Rewrite
  @Mmult_plus_dist_l @Mmult_plus_dist_r @kron_plus_dist_l @kron_plus_dist_r
- Mscale_plus_dist_r : ket_db.
+ @Mscale_plus_dist_r : ket_db.
