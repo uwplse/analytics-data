@@ -102,5 +102,6 @@ admit.
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
-split.
+Set Printing Width 148.
+(split; intros HX').
 *
