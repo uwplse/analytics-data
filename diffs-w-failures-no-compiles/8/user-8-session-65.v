@@ -1394,12 +1394,4 @@ Unset Silent.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
 Set Printing Width 85.
-Require Import Setoid.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqfL4nV2"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Unset Silent.
-Timeout 1 About denote_box.
-Timeout 1 Print denote_box.
 Unset Silent.
