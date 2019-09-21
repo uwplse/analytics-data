@@ -44,4 +44,19 @@ Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (w k : nat), (exists tx
 Unset Silent.
 Proof.
 (intros v X t w k Hex).
-(destruct v; assumption).
+(destruct k; destruct v; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (w k : nat), |-[ w, k] v <$ TCName c -> v = TCName c.
+Proof.
+Unset Silent.
+(intros v; induction v; try (solve [ intros c w k Hm; destruct w; destruct k; contradiction ])).
+(intros c0 w k Hm).
+(destruct w; destruct k; simpl in Hm; subst; reflexivity).
+Qed.
+Set Silent.
+Lemma match_ty_pair__inv :
+  forall (v t1 t2 : ty) (w k : nat), |-[ w, k] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ w, k] v1 <$ t1 /\ |-[ w, k] v2 <$ t2.
+Proof.
+Unset Silent.
+(intros v; induction v; try (solve [ intros t1 t2 k Hm; destruct w; destruct k; contradiction ])).
