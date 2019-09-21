@@ -344,5 +344,4 @@ econstructor.
 3: eauto.
 2: monoid.
 Unset Silent.
-Unset Silent.
 Show.
