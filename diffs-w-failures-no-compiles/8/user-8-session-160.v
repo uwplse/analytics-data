@@ -69,6 +69,8 @@ Lemma X1_spec : \207\131x \195\151 \226\136\163 1 \226\159\169 == \226\136\163 0
 Proof.
 solve_matrix.
 Qed.
-Lemma Y0_spec : \207\131y \195\151 \226\136\163 0 \226\159\169 == Ci .* \226\136\163 1 \226\159\169.
 Unset Silent.
-Show.
+Set Printing Width 85.
+Lemma Y0_spec : \207\131y \195\151 \226\136\163 0 \226\159\169 == Ci .* \226\136\163 1 \226\159\169.
+Proof.
+solve_matrix.
