@@ -122,4 +122,4 @@ Unset Silent.
 Show.
 (destruct (fresh_in_ty_pair__inv _ _ _ Hfresh') as [Hfresh1 Hfresh2]).
 Set Silent.
-specialize (IHt1 _ _ Hfresh1 Hsem1).
+Unset Silent.
