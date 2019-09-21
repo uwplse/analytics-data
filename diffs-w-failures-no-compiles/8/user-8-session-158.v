@@ -344,10 +344,5 @@ econstructor.
 3: eauto.
 2: monoid.
 Unset Silent.
-validate.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 Unset Silent.
 Show.
