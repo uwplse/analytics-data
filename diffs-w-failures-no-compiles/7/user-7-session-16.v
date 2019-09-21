@@ -407,13 +407,17 @@ Unset Silent.
    end).
 +
 Set Silent.
-right.
-Unset Silent.
+Show.
+Set Printing Width 148.
 (match goal with
  | |- ~ |- ?t1 << ?t2 =>
        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
         subst
  end).
+Show.
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
+ | Hcontra:|- ?t1 << ?t2
+   |- False =>
+       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
+        subst
  end).
