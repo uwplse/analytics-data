@@ -260,4 +260,4 @@ exists (Nat.max w1 w2),(TPair v1 v2).
 Unset Silent.
 Set Printing Width 148.
 (apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
-(apply Nat.max_le_r).
+(apply Nat.max_le_l).
