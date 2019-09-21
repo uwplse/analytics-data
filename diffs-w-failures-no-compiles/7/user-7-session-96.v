@@ -88,22 +88,14 @@ Set Silent.
 (destruct Hm as [tx Hmx]).
 (eapply IHk; eassumption).
 Unset Silent.
-Qed.
+Set Printing Width 148.
 Set Silent.
-Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
-Unset Silent.
+Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-(intros k; destruct k; intros v Hm).
-Set Silent.
-2: {
-idtac.
 Unset Silent.
-(apply match_ty_ref__inv in Hm).
-Set Printing Width 148.
-(destruct Hm as [t' [Heq Href]]; subst).
-(simpl).
-exists t'.
+(intros v Hv; induction Hv; intros k).
+Set Silent.
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_i_pair; auto).
