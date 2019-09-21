@@ -256,4 +256,5 @@ Timeout 1 Check @mult_n_O.
 Timeout 1 Check @mult_n_Sm.
 Set Printing Width 51.
 Show.
-(rewrite mult_n_Sm).
+(rewrite <- mult_n_Sm).
+About mult_n_Sm.
