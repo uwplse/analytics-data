@@ -1488,6 +1488,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(apply source_symmetric_WT in H).
 Unset Silent.
 Show.
