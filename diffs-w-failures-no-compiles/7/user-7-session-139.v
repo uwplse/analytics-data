@@ -58,4 +58,4 @@ Proof.
 (intros t' X' Hfresh Hsem).
 Unset Silent.
 (simpl in *).
-(apply sem_sub_trans).
+(apply sem_sub_trans with (TCName c)).
