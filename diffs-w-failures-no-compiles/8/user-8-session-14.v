@@ -1281,4 +1281,9 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
+(repeat rewrite Nat.pow_add_r).
