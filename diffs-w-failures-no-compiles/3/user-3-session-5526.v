@@ -238,4 +238,8 @@ Show.
 {
 (exists s; split; eauto).
 (destruct (a == diskSize s); subst).
-*
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
++
