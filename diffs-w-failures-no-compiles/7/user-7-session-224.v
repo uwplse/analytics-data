@@ -181,4 +181,6 @@ subst.
 exists (TEV X').
 split.
 Show.
+Set Printing Width 148.
 reflexivity.
+(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
