@@ -120,5 +120,13 @@ constructor.
 (simpl).
 tauto.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty_i_eq__inv_depth_eq :
   forall t t' : ty, (forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
+Proof.
+Unset Silent.
+(induction t; induction t'; intros H; try reflexivity).
+(match goal with
+ | |- | ?t1 | = | ?t2 | => assert (Hv : value_type t1) by constructor
+ end).
