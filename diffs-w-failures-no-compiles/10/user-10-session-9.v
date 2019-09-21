@@ -177,10 +177,12 @@ Unset Silent.
 Set Printing Width 114.
 Unset Silent.
 Set Printing Width 114.
+Unset Silent.
+Set Printing Width 114.
 Definition nmi_of_smi {T} (m : itree smE T) : itree (appE id +' exceptE err +' randomE) T :=
   interp
     (fun T e =>
-     match e return (itree (appE id +' exceptE err +' randomE) T) with
+     match e return (_ (appE id +' exceptE err +' randomE) T) with
      | (ae|) => embed_exp ae
      | (|ee) =>
          match ee in (evalE T) return (_ T) with
@@ -191,5 +193,5 @@ Definition nmi_of_smi {T} (m : itree smE T) : itree (appE id +' exceptE err +' r
                              end
          end
      end) m.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqp02cOL" Print Ltac Signatures.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqHCL2Gz" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
