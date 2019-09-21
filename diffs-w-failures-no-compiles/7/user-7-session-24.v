@@ -65,4 +65,4 @@ Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> v
 Unset Silent.
 Proof.
 Set Printing Width 148.
-(intros k; induction v; induction t; intros Hm; constructor).
+(intros k; induction v; induction t; intros Hm; try constructor).
