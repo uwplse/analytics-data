@@ -425,4 +425,4 @@ Set Silent.
 Unset Silent.
 Show.
 Set Printing Width 148.
-(eapply sem_sub_k_i_nf__inv_depth_le; tauto).
+(eapply sem_sub_k_i_nf__inv_depth_le; eauto).
