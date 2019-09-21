@@ -51,4 +51,6 @@ Timeout 1 Check @fib.
 Check nth.
 Print nth.
 Timeout 1 Check @fib.
-Eval compute in nth 10 (fib 100 0 1) 233.
+Unset Silent.
+Set Printing Width 114.
+Eval compute in nth 10 (fib 10 0 1) 233.
