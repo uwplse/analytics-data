@@ -98,4 +98,6 @@ Proof.
 (simpl).
 Show.
 Search -IdSet.singleton.
-(intros X Y).
+Set Printing Width 148.
+(intros X Y Hin).
+(destruct (beq_idP X Y) as HXY).
