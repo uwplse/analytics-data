@@ -470,21 +470,5 @@ step_proc.
 (descend; intuition eauto).
 (unfold log_size_ok; autorewrite with list; auto).
 (exists bs; intuition eauto).
-(unfold log_abstraction; intuition eauto).
-Unset Silent.
-(unfold log_length_ok).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 Unset Silent.
 Set Diffs "off".
