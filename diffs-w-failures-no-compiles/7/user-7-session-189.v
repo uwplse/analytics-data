@@ -17,4 +17,9 @@ Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
 Unset Silent.
-Lemma free_in_type__decidable : forall (X : id) (t : ty), Decidable.decidable (free_in_type X t).
+Lemma free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (free_in_ty X t).
+Proof.
+Set Silent.
+(intros X t).
+Unset Silent.
+(unfold free).
