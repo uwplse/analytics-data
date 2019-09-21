@@ -544,4 +544,4 @@ Lemma pair_sem_sub_k_i__sub_d :
 Proof.
 Unset Silent.
 (intros k ta1 ta2 Hat Hdep IH1 IH2).
-(pose proof (atom_type__vaue_type _ Hat) as Hva).
+Check atom_type__vaue_type.
