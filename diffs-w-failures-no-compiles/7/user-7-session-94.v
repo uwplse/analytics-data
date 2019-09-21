@@ -76,5 +76,29 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros v; induction v; auto).
+Set Printing Width 148.
+(intros v; induction v; intros X t k Hm; assumption).
+Qed.
+Set Silent.
+Theorem match_ty__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
+Proof.
+(intros v t).
+generalize dependent v.
+(induction t; intros v k Hm).
+-
+(apply match_ty_cname__inv in Hm; subst).
+constructor.
+-
+(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+constructor.
+-
+Unset Silent.
 Show.
+(destruct k).
+contradiction.
