@@ -154,4 +154,14 @@ Set Silent.
 Unset Silent.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
+Show.
+Set Printing Width 148.
 (destruct w'; constructor).
+Set Silent.
++
+Unset Silent.
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(destruct w'; assumption).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
