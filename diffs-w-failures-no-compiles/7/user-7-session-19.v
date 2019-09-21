@@ -420,25 +420,20 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
+Lemma nf_sem_sub_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
-(apply
-  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
-     (fun (t1 : ty) (_ : in_nf t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))).
+Unset Silent.
+(induction k;
+  match goal with
+  | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
+        apply
+         (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
+            (fun (t1 : ty) (_ : in_nf t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))
+  end).
+Set Silent.
 -
 (intros c k Hdep t2).
 (assert (Hva : value_type (TCName c)) by constructor).
 (assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
-+
-Unset Silent.
-Show.
-Set Printing Width 148.
-(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
-(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
--
-admit.
--
-(intros t Hnft _ k Hdep t2).
-(assert (Hva : value_type (TRef t)) by constructor).
