@@ -115,4 +115,8 @@ clear Heq.
 specialize (Href 1).
 Unset Silent.
 (destruct Href as [w2 Hsem]).
-(pose proof (sem_eq_k__exists_not 0 t)).
+Set Printing Width 148.
+(destruct (sem_eq_k__exists_not 0 t) as [t' Hnoteq]).
+(assert (Hm : |-[ 1, 1] TRef tint <$ TExist vX (TRef tX))).
+{
+(simpl).
