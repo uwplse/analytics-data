@@ -40,4 +40,5 @@ autorewrite with proof_db.
 (rewrite denote_pat_fresh_id).
 Unset Silent.
 (rewrite super_I).
-easy.
+Unset Silent.
+Show.
