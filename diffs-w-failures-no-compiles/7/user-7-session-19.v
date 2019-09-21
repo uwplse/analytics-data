@@ -126,4 +126,5 @@ Set Silent.
 (destruct H as [tx [Heq Href]]).
 Unset Silent.
 (inversion Heq; subst).
-tauto.
+auto.
+Show.
