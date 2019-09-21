@@ -25,4 +25,6 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(apply sem_sub__trans).
+(apply sem_sub__trans with t2).
+Set Silent.
+-
