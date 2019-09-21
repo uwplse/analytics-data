@@ -369,4 +369,4 @@ clear IHt.
 (intros v; specialize (IHk v t); specialize (Href v)).
 Unset Silent.
 Show.
-(split; tauto).
+(split; auto).
