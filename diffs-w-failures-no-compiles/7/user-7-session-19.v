@@ -259,20 +259,6 @@ Set Printing Width 148.
 (intros v').
 specialize (Hsem v').
 tauto.
-Qed.
-Set Silent.
-Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -> ||- [t1]<= [t'] /\ ||- [t2]<= [t'].
-Proof.
-(intros t1 t2 t' Hsem).
-(unfold sem_sub_i in Hsem).
-(split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem); assumption).
 Set Printing Width 148.
-Set Silent.
-Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
+Lemma match_ty_nf : forall k : nat, forall t : ty, ||-[ k][t]= [MkNF( t)].
 Proof.
-(intros v Hv ta tb Hsem; unfold sem_sub_i in Hsem).
-(assert (Hm : |-[ 0] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem 0 _ Hm).
-(apply match_ty_i_union__inv in Hsem).
-Unset Silent.
-(destruct Hsem; [ left | right ]).
