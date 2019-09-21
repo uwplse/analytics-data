@@ -91,7 +91,18 @@ admit.
 admit.
 admit.
 -
-(destruct (beq_idP X i)).
+Show.
 Set Printing Width 148.
+Set Silent.
+(apply match_ty_exist__inv in Hm).
+Unset Silent.
+(destruct Hm as [tx Hm]).
+Show.
+Search -IdSet.In.
+Show.
+Set Silent.
+(destruct (beq_idP X i)).
 +
+Unset Silent.
 subst.
+exists tx.
