@@ -258,4 +258,11 @@ Show.
 (induction t; intros v k w Hnotm X S Hcontra).
 Show.
 -
-(destruct k; destruct v; destruct v; apply Hnotm; assumption).
+(destruct k, w, v; apply Hnotm; assumption).
+-
+Show.
+(simpl in Hcontra).
+Show.
+(apply match_ty_pair__inv in Hcontra).
+Show.
+(destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
