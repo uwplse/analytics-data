@@ -43,4 +43,8 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-ereflexivity.
+Set Silent.
+(rewrite IHt1).
+(rewrite IHt2).
+Unset Silent.
+reflexivity.
