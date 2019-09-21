@@ -120,4 +120,9 @@ Set Silent.
 Unset Silent.
 Omega.omega.
 -
+Set Silent.
+(intros).
+(simpl).
+Unset Silent.
 Omega.omega.
+-
