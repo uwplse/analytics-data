@@ -69,13 +69,20 @@ clear IHv.
 exists v.
 auto.
 Qed.
+Set Printing Width 148.
+Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty), |-[ 0] v <$ TExist X t -> value_type v /\ (exists tx, v = [X := tx] t).
+Set Silent.
+Proof.
+Unset Silent.
+(intros v; induction v; intros X t Hm; assumption).
+Qed.
+Set Silent.
 Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k] v <$ TExist X t -> exists tx : ty, |-[ k] v <$ [X := tx] t.
 Proof.
 (intros v; induction v; intros X t k Hm; assumption).
 Qed.
 Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
 Proof.
-Unset Silent.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
@@ -84,4 +91,6 @@ Unset Silent.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | destruct v; contradiction ])).
 -
-(destruct v; tauto).
+(apply match_ty_exist__0_inv in Hm).
+Unset Silent.
+auto.
