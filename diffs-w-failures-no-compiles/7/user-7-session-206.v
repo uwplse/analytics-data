@@ -59,4 +59,4 @@ Set Printing Width 148.
 (destruct (IdSetFacts.empty_iff X) as [H _]).
 (apply H).
 Set Printing Width 148.
-solve_proper.
+Morphisms.solve_proper.
