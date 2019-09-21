@@ -36,10 +36,10 @@ exists (TPair v1' v2').
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
--
-Unset Silent.
 Set Printing Width 148.
 Set Silent.
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
++
 subst.
 exists (TEV X').
 (simpl).
@@ -49,7 +49,7 @@ reflexivity.
 exists v.
 (simpl in *).
 (destruct (beq_id_false_iff X i) as [_ Hid]).
-specialize (Hid n).
+specialize (Hid Hbeq).
 (rewrite Hid in *).
 assumption.
 -
@@ -65,9 +65,8 @@ exists (TPair v1' v2').
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
-Set Printing Width 148.
+-
 (destruct (beq_idP X i) as [Hbeq| Hbeq]).
-Set Silent.
 +
 subst.
 (simpl in *).
@@ -75,4 +74,7 @@ subst.
 (exists v; assumption).
 +
 Unset Silent.
-Show.
+Set Silent.
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+Unset Silent.
+specialize (Hid Hbeq).
