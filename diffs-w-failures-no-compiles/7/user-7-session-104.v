@@ -222,4 +222,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 (induction t; intros w k v Hm w' Hle).
 -
+Set Printing Width 148.
 (apply match_ty_cname__inv in Hm).
+subst.
+(apply match_ty_cname).
