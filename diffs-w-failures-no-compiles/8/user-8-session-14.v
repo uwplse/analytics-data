@@ -1220,22 +1220,12 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Set Printing All.
+Show.
 gen \207\129.
 subst.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Timeout 1 Check @kron_1_r'.
-Timeout 1 Check @kron_1_r'.
-Timeout 1 Check @kron_1_r'.
-Timeout 1 Check @kron_1_r'.
-Timeout 1 Check @kron_1_r'.
-Timeout 1 Check @kron_1_r'.
-Timeout 1 Check @kron_1_r'.
+(repeat rewrite Nat.pow_add_r).
