@@ -212,4 +212,6 @@ Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]
 Proof.
 Unset Silent.
 (intros t t' Hsem).
-(split; intros k).
+Set Printing Width 148.
+(split; intros k; specialize (Hsem (S k))).
+(assert (Hvref : value_type (TRef t))).
