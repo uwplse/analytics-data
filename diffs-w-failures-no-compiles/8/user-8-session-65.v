@@ -1445,5 +1445,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-autounfold with den_db.
-(rewrite H).
+Unset Silent.
+Show.
