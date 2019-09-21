@@ -91,18 +91,22 @@ Set Printing Width 148.
 Show.
 specialize (Hcontra _ Hm).
 Show.
+Set Printing Width 148.
+clear Hm.
+Set Silent.
 (destruct w).
 -
-Show.
 (apply Hcontra).
-Show.
 -
-Show.
 (apply match_ty_exist__inv in Hcontra).
-Show.
 (destruct Hcontra as [t Hcontra]).
-Show.
 (assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
 (rewrite Heq in Hcontra).
+Unset Silent.
 clear Heq.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Heq Href]]).
+(inversion Heq; subst).
+clear Heq.
+(simpl in Href).
 Show.
