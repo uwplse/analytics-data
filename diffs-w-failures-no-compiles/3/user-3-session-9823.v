@@ -188,13 +188,8 @@ Proof.
 (unfold read).
 (intros).
 (apply spec_abstraction_compose; simpl).
-(step_proc; intros).
-(destruct a'; simpl in *; intuition idtac).
-{
-(subst; eauto).
-}
-(destruct (a == r)).
--
-invert_abstraction.
 Unset Silent.
-(step_proc; intuition).
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct a'; simpl in *; intuition).
