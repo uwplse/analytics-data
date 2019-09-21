@@ -71,6 +71,13 @@ Proof.
 Qed.
 Set Printing Width 148.
 Set Printing Width 148.
-Lemma sem_sub_k_fresh_var__sem_sub_k_any :
+Set Printing Width 148.
+Set Silent.
+Lemma sem_sub_fresh_var__sem_sub_any :
   forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
+Unset Silent.
 Proof.
+Show.
+(intros X t).
+(induction t).
+(intros; simpl; tauto).
