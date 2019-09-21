@@ -72,4 +72,4 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Check @True.
-Definition abstr : Abstraction State := True.
+Definition abstr : Abstraction State := fun _ _ => True.
