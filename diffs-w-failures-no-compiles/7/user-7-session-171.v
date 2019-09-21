@@ -90,6 +90,7 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Reserved Notation "'[' x ':=' s ']' t" (at level 30).
+Unset Silent.
 #[program]
 Fixpoint subst (x : id) (s t : ty) {measure size t :=
   match t with
