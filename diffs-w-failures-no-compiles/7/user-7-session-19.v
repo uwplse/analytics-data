@@ -93,4 +93,4 @@ Set Silent.
 Unset Silent.
 Set Printing Width 148.
 Show.
-(destruct v; contradiction).
+(destruct v; simpl in Hm; contradiction).
