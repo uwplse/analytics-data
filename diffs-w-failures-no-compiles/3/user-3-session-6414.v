@@ -249,4 +249,28 @@ Set Diffs "off".
 Timeout 1 Check @repeat_length.
 Set Printing Width 78.
 Show.
-(exists nil; eauto).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(exists nil; simpl).
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @block.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @forallb.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @Some.
