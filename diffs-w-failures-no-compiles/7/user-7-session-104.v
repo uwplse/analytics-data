@@ -85,9 +85,24 @@ specialize (Hcontra 2 1).
 Set Silent.
 Show.
 Set Printing Width 148.
+Show.
+Set Printing Width 148.
+(unfold sem_sub_k_w in Hcontra).
+Show.
+specialize (Hcontra _ Hm).
+Show.
 (destruct w).
+-
+Show.
+(apply Hcontra).
 Show.
 -
-(simpl in Hcontra).
 Show.
+(apply match_ty_exist__inv in Hcontra).
+Show.
+(destruct Hcontra as [t Hcontra]).
+Show.
+(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
+(rewrite Heq in Hcontra).
+clear Heq.
 Show.
