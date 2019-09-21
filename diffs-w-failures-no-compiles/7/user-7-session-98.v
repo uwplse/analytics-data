@@ -149,4 +149,6 @@ Proof.
 (intros k; destruct k; intros v Hm).
 -
 (apply match_ty_exist__0_inv in Hm).
-(destruct Hm as [Hv [tx Heqx]]).
+Set Printing Width 148.
+(destruct Hm as [Hv [tx Heqx]]; subst).
+(simpl).
