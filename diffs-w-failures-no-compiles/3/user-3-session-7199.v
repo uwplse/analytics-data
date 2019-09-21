@@ -312,18 +312,13 @@ Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Timeout 1 Check @log_size_ok.
 Set Printing Width 78.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Theorem log_contents_ok_unchanged d bs a0 b :
   log_size_ok d bs ->
   log_contents_ok d bs ->
-  log_addr a0 >= length bs -> log_contents_ok (diskUpd d a0 b) bs.
+  a0 >= length bs -> log_contents_ok (diskUpd d (log_addr a0) b) bs.
 Proof.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (unfold log_size_ok, log_contents_ok; intros).
 (destruct (log_addr a == a0); subst; autorewrite with upd; auto).
