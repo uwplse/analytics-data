@@ -321,3 +321,46 @@ intuition eauto.
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskUpd.
+Timeout 1 Check @diskUpd.
+Timeout 1 Check @diskUpd.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @spec_abstraction_compose.
