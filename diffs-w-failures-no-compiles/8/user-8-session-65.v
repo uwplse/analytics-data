@@ -1449,4 +1449,15 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-restore_dims.
+Timeout 1 About restore_dims.
+Timeout 1 Print restore_dims.
+Timeout 1 Print Ltac restore_dims.
+(match goal with
+ | |- ?A => let A' := restore_dims_rec tac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+(apply f_equal_gen; trivial).
