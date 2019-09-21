@@ -659,4 +659,8 @@ Show.
 (destruct a0; simpl in *; auto).
 Timeout 1 Check @Ascii.N_of_ascii.
 f_equal.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (rewrite IHd).
