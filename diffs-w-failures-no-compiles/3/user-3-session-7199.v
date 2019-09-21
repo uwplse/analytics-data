@@ -519,4 +519,15 @@ Theorem log_contents_ok_len_change d bs b :
   log_size_ok d bs ->
   log_contents_ok d bs -> log_contents_ok (diskUpd d len_addr b) bs.
 Proof.
-(unfold log_size_ok, log_contents_ok; intros).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Timeout 1 Check @len_addr.
+Set Printing Width 78.
+Show.
+(unfold log_size_ok, log_contents_ok, len_addr; intros).
+(destruct (a == a0); subst; autorewrite with upd; auto).
