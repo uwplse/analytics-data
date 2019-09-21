@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -64,13 +65,9 @@ Proof.
 Qed.
 Lemma b_subst_cname : forall (X : id) (s : ty) (c : cname), [BX := s] TCName c = TCName c.
 Proof.
-Unset Silent.
 (intros).
 reflexivity.
 Qed.
-Set Silent.
-Set Printing Width 148.
-Set Silent.
 Lemma b_subst_pair : forall (X : id) (s t1 t2 : ty), [BX := s] TPair t1 t2 = TPair ([BX := s] t1) ([BX := s] t2).
 Proof.
 (intros).
@@ -79,8 +76,14 @@ Qed.
 Lemma b_subst_union : forall (X : id) (s t1 t2 : ty), [BX := s] TUnion t1 t2 = TUnion ([BX := s] t1) ([BX := s] t2).
 Proof.
 (intros).
-Unset Silent.
-Show.
 (simpl).
-Set Silent.
+reflexivity.
 Unset Silent.
+Qed.
+Lemma b_subst_ev : forall (X : id) (s : ty) (Y : id), [BX := s] TEV Y = TEV Y.
+Set Silent.
+Proof.
+(intros).
+reflexivity.
+Unset Silent.
+Qed.
