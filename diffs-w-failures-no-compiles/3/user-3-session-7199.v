@@ -569,4 +569,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(unfold spec_impl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold spec_impl; intros).
+(destruct a as [[] bs]; simpl in *).
