@@ -101,4 +101,4 @@ constructor.
 Unset Silent.
 Show.
 (destruct k).
-contradiction.
+(destruct v; contradiction).
