@@ -465,6 +465,4 @@ Proof.
 (intros v Hv ta tb Hsem; unfold sem_sub_i in Hsem).
 (assert (Hm : |-[ | TUnion ta tb |] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem _ _ Hm).
-(apply match_ty_i_union__inv in Hsem).
-Unset Silent.
-(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
+Show.
