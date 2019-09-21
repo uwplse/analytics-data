@@ -457,145 +457,22 @@ Set Diffs "off".
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Set Silent.
-Theorem log_abstraction_preserved d bs d' :
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Theorem log_abstraction_preserved d bs d' bs' :
   log_abstraction d bs ->
   diskGet d' len_addr = diskGet d len_addr ->
-  diskSize d' = diskSize d -> log_contents_ok d' bs -> log_abstraction d' bs.
-Unset Silent.
+  diskSize d' = diskSize d ->
+  log_contents_ok d' (bs ++ bs') -> log_abstraction d' bs.
 Proof.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
 (unfold log_abstraction, log_length_ok, log_size_ok; intuition).
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Tauto.A.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 -
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
 replace (diskGet d' len_addr) in *.
 auto.
 -
-Timeout 1 Check @log_contents_ok.
 congruence.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMrjmBN"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Set Silent.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Unset Silent.
-Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step_proc.
-(descend; intuition eauto).
-destruct matches.
--
-step_proc.
-(descend; intuition eauto).
-{
-Timeout 1 Check @plus_n_O.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction_nil.
-Set Silent.
-(unfold log_size_ok; autorewrite with list; auto).
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-{
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-eauto using log_abstraction_preserved.
-Set Silent.
-}
-Unset Silent.
-step_proc.
-intuition.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-Set Silent.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-eauto using log_abstraction_preserved.
