@@ -114,4 +114,9 @@ Lemma assert0_spec : forall safe, denote_box safe assert0 \226\136\1630\226\159\
 Proof.
 (destruct safe).
 -
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 matrix_denote.
+Msimpl.
