@@ -47,4 +47,8 @@ Show.
 (intros U \207\129 safe).
 Set Silent.
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
+(destruct (unitary_gate_unitary U) as [WF inv]).
