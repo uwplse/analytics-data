@@ -157,4 +157,27 @@ specialize (IHw _ _ Hwftx HX Hm).
 (destruct IHw as [v' [Hm' IHw]]).
 Show.
 Set Printing Width 148.
-(rewrite b_subst_neq__permute in Hm').
+Set Printing Width 148.
+(rewrite b_subst_neq__permute in Hm'; try assumption).
+Set Silent.
+exists v'.
+Unset Silent.
+split.
+Set Silent.
+(apply match_ty_exist).
+Unset Silent.
+exists ti.
+tauto.
+assumption.
+(unfold wf_ty).
+(simpl).
+Search -IdSet.empty.
+auto.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_bvar_eq in *).
+exists (TEV X').
+split.
+(apply match_ty_ev).
