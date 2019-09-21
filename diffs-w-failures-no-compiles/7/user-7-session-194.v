@@ -60,4 +60,5 @@ Proof.
 (intros X t1 t2 Hfresh).
 (unfold not_b_free_in_ty in *; simpl in Hfresh; simpl).
 (apply not_free_union__inv in Hfresh).
-assumption.
+Unset Silent.
+Show.
