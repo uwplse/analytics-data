@@ -641,4 +641,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 68.
 Show.
-(exists []; intuition).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 68.
+Show.
+(exists []; intuition eauto).
