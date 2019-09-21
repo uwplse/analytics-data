@@ -249,4 +249,13 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (unfold equal_after; intuition).
+-
+(autorewrite with upd; eauto).
+-
+(apply le_eq_or_S_le in H1; intuition subst).
+(destruct (lt_dec a' (diskSize d_0)); autorewrite with upd).
