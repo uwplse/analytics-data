@@ -104,4 +104,8 @@ Proof.
 (unfold sem_sub in Hsem).
 Unset Silent.
 Show.
-(split; intros k).
+Set Printing Width 148.
+(split; unfold sem_sub; intros k Hm).
+Set Silent.
+-
+Unset Silent.
