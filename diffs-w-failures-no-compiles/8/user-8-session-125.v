@@ -122,6 +122,8 @@ Set Printing Width 85.
 Show.
 (unfold apply_U, apply_unitary, super).
 (destruct W; try (solve [ inversion HeqW ])).
-(rewrite denote_ctrls_transpose).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(rewrite denote_ctrls_transpose).
