@@ -8,4 +8,3 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 51.
 Set Silent.
-Require Import POCS.
