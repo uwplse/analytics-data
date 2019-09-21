@@ -411,20 +411,8 @@ validate.
 (apply pf1).
 Unset Silent.
 -
-(simpl).
-(unfold compose_super).
-Set Silent.
 Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
+now erewrite VA.
