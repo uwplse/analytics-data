@@ -49,7 +49,34 @@ Set Printing Width 148.
 (apply match_ty_exist__0_inv in Hm).
 contradiction.
 +
+Set Printing Width 148.
+Set Silent.
 subst.
 (rewrite b_subst_exist_neq in Hm; try assumption).
 (apply match_ty_exist__0_inv in Hm).
+Unset Silent.
 contradiction.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_bvar_eq in *).
+exists (TEV X').
+split.
+reflexivity.
+(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
+Set Silent.
+*
+Unset Silent.
+Set Silent.
+(rewrite f_subst_union).
+(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
+  destruct IHt' as [IHt'a IHt'b]; split; intros HX').
+{
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_1; auto).
+}
+{
+(destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
+{
+(apply match_ty_union_1; auto).
