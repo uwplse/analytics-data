@@ -229,7 +229,13 @@ tauto.
 Qed.
 Set Silent.
 Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
-Proof.
+Set Printing Width 148.
+Set Silent.
+(intros k t1 t2 t3 Hsem1 Hsem2).
 Unset Silent.
-auto with DBBetaJulia.
-Show.
+(unfold sem_eq_k in *).
+Set Silent.
+(intros v).
+specialize (Hsem1 v).
+Unset Silent.
+specialize (Hsem v).
