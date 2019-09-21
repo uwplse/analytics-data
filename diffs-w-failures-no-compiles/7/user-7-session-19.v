@@ -439,14 +439,23 @@ assumption.
 Set Silent.
 clear IHt.
 (apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-Unset Silent.
-(inversion Hle; subst).
-+
-(simpl).
 Set Printing Width 148.
-Show.
+(inversion Hle; subst; simpl).
++
+Set Silent.
 (intros v).
 specialize (Href v).
+Unset Silent.
 (split; tauto).
 +
+Show.
+(destruct k').
+(simpl).
+tauto.
+(simpl).
+Set Silent.
+(intros v).
+Unset Silent.
+specialize (Href v).
+split.
+*
