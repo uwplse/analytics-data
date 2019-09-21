@@ -486,7 +486,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
-Set Silent.
-(unfold compose_super).
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(unfold compose_super).
