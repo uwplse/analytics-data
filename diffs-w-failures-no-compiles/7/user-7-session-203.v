@@ -242,4 +242,4 @@ Unset Silent.
 (left; intros w v Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; exfalso; eauto).
 +
 (right; eexists; eexists).
-(apply match_ty_union_1; assumption).
+((apply match_ty_union_1; assumption) || (apply match_ty_union_2; assumption)).
