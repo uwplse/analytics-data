@@ -225,4 +225,4 @@ clear Hm.
 -
 specialize (Hcontra 0).
 (destruct Hcontra as [w Hcontra]).
-(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+Unset Silent.
