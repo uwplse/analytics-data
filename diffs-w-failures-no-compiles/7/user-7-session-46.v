@@ -64,8 +64,11 @@ Unset Silent.
 Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
-(intros t k).
+Set Printing Width 148.
+Set Silent.
+(intros t k Hm).
+Unset Silent.
+(simpl in Hm).
+exists v.
+auto.
 Show.
-Set Printing Width 148.
-Set Printing Width 148.
-(intros Hm).
