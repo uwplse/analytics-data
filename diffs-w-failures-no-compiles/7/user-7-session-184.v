@@ -84,4 +84,5 @@ split.
 (apply match_ty_pair; assumption).
 Set Printing Width 148.
 Set Printing Width 148.
-(induction w'; induction t'; intros HX' Hm'; destruct (fresh_in_ty_pair__inv _ _ HX') as [HX'1 HX'2]; try contradiction).
+(induction w'; induction t'; intros HX' Hm').
+Show.
