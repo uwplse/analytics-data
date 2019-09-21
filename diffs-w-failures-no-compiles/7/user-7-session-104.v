@@ -125,5 +125,6 @@ constructor.
 Unset Silent.
 (simpl).
 Set Printing Width 148.
-(destruct (max_inv_depth_le__inv v1 v2 (S k)) as [Hdep1 Hdep2]).
+Set Printing Width 148.
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
 (apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; try assumption).
