@@ -1456,14 +1456,8 @@ Show.
 Set Printing Width 85.
 Show.
 (unfold valid_ancillae_box).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (intros \207\129 TB).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
