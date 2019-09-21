@@ -402,6 +402,7 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (split; intros t'; induction t';
   try
    match goal with
@@ -409,3 +410,7 @@ Set Printing Width 148.
          destruct (cname_eq__decidable c1 c2);
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
+Set Silent.
++
+Unset Silent.
+(right; solve_not_x_sub_r_y_full).
