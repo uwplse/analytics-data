@@ -114,4 +114,7 @@ Set Printing Width 148.
 Show.
 Search -IdSet.In.
 Set Printing Width 148.
-(destruct H as [H| H]; [ apply IdSetFacts.union_2 | apply IdSetFacts.union_3 ]).
+Set Printing Width 148.
+(destruct H as [H| H]; [ apply IdSetFacts.union_2 | apply IdSetFacts.union_3 ]; assumption).
+Show.
+Show.
