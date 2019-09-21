@@ -238,4 +238,18 @@ Set Silent.
 (intros v).
 specialize (Hsem1 v).
 Unset Silent.
-specialize (Hsem v).
+Set Silent.
+specialize (Hsem2 v).
+Unset Silent.
+tauto.
+Qed.
+Search -and.
+Set Silent.
+Lemma sem_eq_k__sem_sub_k : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t1]<= [t2] /\ ||-[ k][t2]<= [t1].
+Unset Silent.
+Proof.
+Show.
+Set Silent.
+(intros k t1 t2 Hsem).
+Unset Silent.
+(unfold sem_sub_k; intros v Hm).
