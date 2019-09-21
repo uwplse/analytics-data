@@ -138,4 +138,5 @@ Omega.omega.
 (simpl).
 Omega.omega.
 Show.
+Set Silent.
 Defined.
