@@ -79,5 +79,10 @@ Unset Silent.
 Proof.
 Show.
 (intros X t).
-(induction t).
-(intros; simpl; tauto).
+Set Printing Width 148.
+(induction t; try (solve [ intros; simpl; tauto ])).
+-
+Show.
+(induction t').
++
++
