@@ -114,4 +114,4 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 -
-(rewrite IHt1).
+(simpl).
