@@ -206,10 +206,10 @@ Set Printing Width 148.
 Set Printing Width 148.
 (split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem); assumption).
 Show.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
-Unset Silent.
 Proof.
+Unset Silent.
 (intros t t' Hsem).
-Abort.
+(split; intros k).
