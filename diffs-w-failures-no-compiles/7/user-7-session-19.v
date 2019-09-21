@@ -208,5 +208,6 @@ idtac.
 (assert (Hmref : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
 (pose proof (Hsem _ Hvref Hmref) as Hmu).
 Set Printing Width 148.
-(destruct Hmu as [Hmu1| Hmu2]; [ left | right ]; intros v Hv Hm).
+Set Printing Width 148.
+(destruct Hmu as [Hmu1| Hmu2]; [ left | right ]; intros v Hv Hm; apply match_ty_i_ref__inv in Hm).
 Show.
