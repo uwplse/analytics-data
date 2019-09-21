@@ -994,4 +994,9 @@ remember_differences.
 gen \207\129.
 (rewrite size_ntensor).
 (simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite Nat.mul_1_r).
+(rewrtie Lt).
