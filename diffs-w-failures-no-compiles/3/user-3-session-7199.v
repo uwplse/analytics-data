@@ -568,4 +568,6 @@ Set Diffs "off".
 Set Printing Width 78.
 Show.
 (rewrite ?app_length in *; simpl in *).
-lia.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+autorewrite with upd.
