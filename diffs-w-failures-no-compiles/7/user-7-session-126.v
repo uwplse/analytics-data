@@ -109,4 +109,6 @@ Qed.
 Unset Silent.
 Lemma subs_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
-(intros X t; induction t).
+Set Printing Width 148.
+(intros X t; induction t; try reflexivity).
+auto.
