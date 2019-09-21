@@ -134,4 +134,5 @@ Unset Search Output Name Only.
 Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @Nat.mod_1_r.
+Set Printing Width 78.
 Opaque Nat.di.
