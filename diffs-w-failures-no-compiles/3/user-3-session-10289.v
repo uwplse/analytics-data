@@ -13,55 +13,27 @@ Set Printing Width 78.
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
-Require Coq.Strings.String.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6EHQSi"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoeGQqP"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Import Coq.Strings.String.StringSyntax.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqk16bqe"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq77Gl8C"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Require Import Helpers.Helpers.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzcx1u8"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqO6RHU6"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Require Import Proc.
-Set Silent.
-Set Silent.
-Require Import ProcTheorems.
 Unset Silent.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4DEKPQ"
+Set Diffs "off".
+Set Printing Width 78.
+Set Silent.
+Require Import Coq.Strings.String.
+Unset Silent.
+Import StringSyntax.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqrFgtUU"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8Qd0ER"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqIuiiUa"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Set Silent.
+Require Import Helpers.Helpers.
+Require Import Proc.
+Require Import ProcTheorems.
 Record LayerAbstraction State1 State2 :={abstraction :
                                           State1 -> State2 -> Prop}.
 Definition Abstraction State := LayerAbstraction world State.
@@ -115,18 +87,9 @@ Proof.
 (destruct r; simpl in *; repeat deex; intuition eauto).
 Qed.
 Hint Resolve tt: core.
-Unset Silent.
 Inductive Marker : String.string -> Type :=
     mark : forall s, Marker s.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqExPtxA"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0PM91J"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Unset Silent.
 Theorem proc_spec_rx :
   forall `(spec : Specification A T R State) `(p : proc T) 
     `(rec : proc R) `(rx : T -> proc T')
@@ -148,3 +111,15 @@ Theorem proc_spec_rx :
          post := fun r state'' => post (spec' a' state) r state'';
          recovered := fun r state'' => recovered (spec' a' state) r state'' |})
         (rx r) rec abs)) -> proc_spec spec' (Bind p rx) rec abs.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAYn5wi"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7GSvsZ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+Proof.
+(unfold proc_spec at 3; intros).
