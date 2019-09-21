@@ -80,5 +80,5 @@ Timeout 1 Check @VarMap.t.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @CompSpec2Type.
 Timeout 1 Check @CompSpec2Type.
-Inductive Marker : string -> Type :=
+Inductive Marker : String.string -> Type :=
     mark : _.
