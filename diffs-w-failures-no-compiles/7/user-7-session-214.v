@@ -298,5 +298,9 @@ Unset Silent.
 Set Printing Width 148.
 tauto.
 -
+Set Printing Width 148.
+(unfold f_free_in_ty, free in HX).
 (simpl in HX).
-Show.
+Search -IdSet.empty.
+exfalso.
+(apply IdSetFacts.empty_iff).
