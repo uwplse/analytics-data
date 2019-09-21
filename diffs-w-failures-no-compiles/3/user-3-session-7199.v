@@ -579,4 +579,6 @@ Set Diffs "off".
 Timeout 1 Check @app.
 Set Printing Width 78.
 Show.
-autorewrite with upd app in *.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+autorewrite with upd length in *.
