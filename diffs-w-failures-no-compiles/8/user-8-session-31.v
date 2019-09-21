@@ -2836,5 +2836,9 @@ specialize (apply_U_correct Qubit) as AUC.
 (simpl in AUC).
 (unfold process_gate_state).
 (simpl).
-unify_pows_two.
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+unify_pows_two.
+(rewrite Nat.add_1_r).
