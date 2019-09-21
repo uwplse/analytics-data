@@ -176,4 +176,7 @@ Set Silent.
 Set Printing Width 148.
 (destruct v1; contradiction || constructor).
 Show.
-(apply match_ty_ref__inv in Hm2).
+(apply match_ty_i_ref__inv in Hm2).
+Show.
+(destruct Hm2 as [t'' [Heq' Href']]).
+Show.
