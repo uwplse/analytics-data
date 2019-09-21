@@ -733,4 +733,4 @@ Show.
 (repeat rewrite Nat.mul_1_l).
 (rewrite (kron_1_r A)).
 (rewrite (kron_1_r B)).
-restore_dims.
+(apply H).
