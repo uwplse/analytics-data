@@ -313,4 +313,19 @@ Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_length_ok.
 Timeout 1 Check @log_length_ok.
-(split; eauto using log_length_ok_nil).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(intuition; eauto using log_length_ok_nil).
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @split.
+(simpl in *; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqK5CR8r"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
