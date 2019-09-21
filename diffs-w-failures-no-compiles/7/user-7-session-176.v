@@ -207,4 +207,6 @@ Set Silent.
 Unset Silent.
 subst.
 contradiction.
+Set Printing Width 148.
+(rewrite subst_var_neq; try assumption).
 (rewrite subst_var_neq).
