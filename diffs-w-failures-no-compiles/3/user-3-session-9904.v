@@ -64,3 +64,12 @@ Proof.
 Unset Silent.
 (unfold init').
 (step_proc; intros).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+step_proc.
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+step_proc.
+step_proc.
