@@ -47,9 +47,14 @@ Qed.
 Ltac
  solve_not_free_union fvname := intros X t1 t2 Hfresh; unfold fvname in *; simpl in Hfresh; simpl; apply not_free_union__inv in Hfresh; assumption.
 Unset Silent.
-Lemma wf_ty__not_b_free_in_ty : forall (t : ty) (X : id), wf_ty t -> not_b_free_in_ty X t.
-Proof.
-Set Silent.
-(unfold wf_ty in *).
-Unset Silent.
-(unfold not_b_free_in_ty, not_free).
+Set Printing Width 148.
+(unfold wf_ty, not_b_free_in_ty, not_free).
+(intros t X Ht Hcontra).
+(apply IdSetProps.empty_is_empty_1 in Ht).
+Search -IdSet.empty.
+Search -IdSet.Equal.
+Search -IdSet.In.
+(pose proof IdSetFacts.In_m).
+Search -Morphisms.Proper.
+Search -Morphisms.respectful.
+(destruct (IdSetFacts.empty_iff Y) as [H _]).
