@@ -513,4 +513,20 @@ Theorem sub_d__sem_sub_i : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
 Set Printing Width 148.
 (unfold sem_sub_i).
 Show.
-(induction Hsub; intros k; unfold sem_sub_k_i; intros v Hv Hm).
+(induction Hsub; intros k v Hm).
+Set Silent.
+-
+Unset Silent.
+assumption.
+Set Silent.
+-
+Unset Silent.
+specialize (IHHsub1 k).
+specialize (IHHsub2 k).
+auto.
+-
+specialize (IHHsub1 k).
+specialize (IHHsub2 k).
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(inversion Hv; subst).
