@@ -268,9 +268,5 @@ Unset Silent.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
 Set Silent.
 Set Printing Width 148.
-clear IHt2.
-Show.
-Set Silent.
-(simpl in Hdep).
-Unset Silent.
-(pose proof (le_S_n _ _ Hdep) as Hdt').
+Set Printing Width 148.
+(simpl in Hdt).
