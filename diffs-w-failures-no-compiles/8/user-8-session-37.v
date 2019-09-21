@@ -462,5 +462,10 @@ clear H.
 (intros \206\147 \206\1470 WT).
 (unfold denote_circuit in *).
 (simpl in *).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
+(unfold compose_super).
 (erewrite VA).
