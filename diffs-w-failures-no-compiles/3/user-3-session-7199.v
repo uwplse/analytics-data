@@ -608,4 +608,4 @@ Timeout 1 Check @div_eucl_th.
 Set Silent.
 {
 Unset Silent.
-(descend; intuition euuto).
+(descend; intuition euato).
