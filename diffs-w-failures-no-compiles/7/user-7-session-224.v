@@ -70,5 +70,8 @@ Show.
 Set Printing Width 148.
 (destruct (b_free_in_ty__dec X t) as [HX| HX]).
 Set Printing Width 148.
+Set Printing Width 148.
 2: {
-Abort.
+idtac.
+Search -not_b_free_in_ty.
+(rewrite b_subst_not_b_free_in_ty in IHHsub).
