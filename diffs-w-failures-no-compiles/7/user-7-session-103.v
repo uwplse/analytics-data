@@ -158,8 +158,5 @@ Set Silent.
 Unset Silent.
 Show.
 Set Printing Width 148.
-(destruct k, w).
-(simpl; tauto).
-(simpl).
-tauto.
-(simpl).
+Set Printing Width 148.
+(destruct k, w; try (solve [ tauto ])).
