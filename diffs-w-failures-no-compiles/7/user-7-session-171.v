@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -10,9 +11,7 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Set Printing Width 148.
 Require Import Coq.Program.Wf.
-Set Silent.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
