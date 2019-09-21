@@ -277,4 +277,15 @@ Unset Silent.
 Set Silent.
 specialize (Hsem _ Hma).
 Unset Silent.
-(apply match_ty_ref__inv in Hsem).
+(apply match_ty_i_ref__inv in Hsem).
+(destruct Hsem as [t' [Heqt' Href]]).
+Set Silent.
+(inversion Heqt'; subst).
+Unset Silent.
+clear Heqt'.
+constructor.
+Set Silent.
+*
+Unset Silent.
+(apply IHk; try assumption).
+(apply sem_eq_k_i__sem_sub_k in Href).
