@@ -24,3 +24,5 @@ Proof.
 -
 Unset Silent.
 (apply sem_sub__trans).
+Show.
+(apply sem_sub__trans).
