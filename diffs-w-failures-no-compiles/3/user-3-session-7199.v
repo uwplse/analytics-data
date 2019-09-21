@@ -512,4 +512,12 @@ Show.
 autorewrite with upd list in *.
 (simpl in *; lia).
 +
-autorewrite with upd in *.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @addr.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(simpl in *).
