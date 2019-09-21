@@ -118,4 +118,10 @@ Unset Silent.
 Set Silent.
 (apply match_ty_exist__inv in Hm).
 Set Printing Width 148.
-specialize (IHw' _ HX't' Hm).
+specialize (IHw' _ Hm).
+Set Silent.
+(rewrite subst_neq__permute in IHw').
+exists ti.
+Unset Silent.
+assumption.
+assumption.
