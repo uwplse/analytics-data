@@ -136,4 +136,5 @@ specialize (H _ Hm).
 (destruct H as [tx [Heq Href]]; inversion Heq; subst).
 Set Printing Width 148.
 Set Printing Width 148.
-(intros v Hmv; auto).
+Set Printing Width 148.
+(intros v Hmv; apply Href).
