@@ -74,4 +74,5 @@ Proof.
 (apply mk_nf__in_nf).
 (eapply sem_sub__trans; try eassumption).
 Unset Silent.
-(apply mk_nf__sem_sub_k_r).
+Show.
+(apply mk_nf__sem_sub_k_l).
