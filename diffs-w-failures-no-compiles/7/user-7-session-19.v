@@ -101,4 +101,28 @@ Set Silent.
 +
 Unset Silent.
 (destruct k').
+(simpl).
+Show.
 tauto.
+(simpl).
+(intros v Hv).
+specialize (Href v Hv).
+Set Silent.
+split.
+*
+Abort.
+Unset Silent.
+Lemma match_ty_i__inv_depth_stable :
+  forall (k k' : nat) (t : ty),
+  inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, inv_depth v <= k -> inv_depth v <= k' -> |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Proof.
+(induction k; induction k').
+-
+Show.
+Show.
+tauto.
+-
+admit.
+-
+admit.
+-
