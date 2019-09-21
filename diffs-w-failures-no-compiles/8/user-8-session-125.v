@@ -151,4 +151,8 @@ Unset Silent.
 (rewrite <- (Mmult_assoc _ (A \195\151 \207\129) _)).
 (rewrite <- (Mmult_assoc _ A \207\129)).
 (simpl in inv).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite inv).
