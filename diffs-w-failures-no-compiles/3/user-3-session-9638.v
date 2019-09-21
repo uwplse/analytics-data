@@ -328,5 +328,9 @@ Theorem then_init_compose :
 Proof.
 (intros).
 (eapply init_abstraction_any_rec with rec).
-(unfold init_abstraction; intros).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Show.
+(unfold init_abstraction; intros).
+(step_proc; intuition; simpl in *).
