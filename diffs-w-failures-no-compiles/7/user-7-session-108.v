@@ -366,4 +366,64 @@ Set Printing Width 148.
 exists v0.
 assumption.
 }
-specialize (IHw _ _ Hnotm').
+Set Printing Width 148.
+specialize (IHw _ _ Hnotm' X s).
+(apply IHw).
+exists v.
+Show.
+admit.
+-
+Set Silent.
+(apply Hnotm).
+exists (TEV i).
+Unset Silent.
+(destruct k; reflexivity).
+-
+Set Silent.
+(apply Hnotm).
+exists (TEV i).
+Unset Silent.
+(destruct k; reflexivity).
+Admitted.
+Set Silent.
+Lemma ty__empty_or_matching_ty_exists :
+  forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
+Proof.
+(induction w; induction t; intros k).
+-
+(left; exists (TCName c); apply match_ty_cname).
+-
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+(destruct k).
+reflexivity.
+(split; intros w1; exists w1; auto).
+-
+right.
+(intros Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(eapply match_ty_exist__0_inv; eassumption).
+-
+(left; exists (TEV i); apply match_ty_var).
+-
+(left; exists (TEV i); apply match_ty_ev).
+-
+(left; exists (TCName c); apply match_ty_cname).
+-
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+(destruct k).
+reflexivity.
+Unset Silent.
+(split; intros w1; exists w1; auto).
+-
+(destruct (IHw t k) as [Hm| Hnotm]).
++
+(destruct Hm as [v Hm]).
+(left; v).
