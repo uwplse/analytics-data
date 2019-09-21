@@ -103,10 +103,18 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction k; induction t; intros Hdep Hm; try (solve [ apply match_ty_cname__inv in Hm; subst; constructor ])).
+Set Printing Width 148.
+(induction k).
+Set Silent.
+(intros v t Hdep Hm).
+Unset Silent.
+(inversion Hdep; subst).
+(rewrite H0).
+(apply le_0_n).
+(intros v t).
+generalize dependent v.
+(induction t; intros v Hdep Hm).
 Set Silent.
 -
 Unset Silent.
-(apply match_ty_pair__inv in Hm).
-Set Printing Width 148.
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_cname in Hm; subst).
