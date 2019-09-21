@@ -333,4 +333,4 @@ Set Diffs "off".
 Set Printing Width 68.
 Show.
 (unfold init_abstraction; intros).
-(step_proc; intuition; simpl in *).
+step_proc_basic.
