@@ -285,5 +285,11 @@ Proof.
 (exists 0; simpl).
 reflexivity.
 -
-(step_proc; intuition; subst; eauto).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
