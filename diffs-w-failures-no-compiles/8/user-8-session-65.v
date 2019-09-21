@@ -1004,4 +1004,4 @@ Set Printing Width 85.
 Show.
 (repeat rewrite Mmult_assoc).
 Msimpl.
-(rewrite kron_mixed_product).
+setoid_rewrite kron_mixed_product.
