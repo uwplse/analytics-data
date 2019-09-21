@@ -116,10 +116,14 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
+(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
 (rewrite (false_beq_id _ _ HXY)).
 (rewrite Hmem).
-Unset Silent.
 eexists.
 eexists.
 reflexivity.
 +
+Unset Silent.
+(rewrite subst_equation).
+(rewrite (false_beq_id _ _ HXY)).
+(pose proof (IdSetFacts.mem_2 Hin) as Hmem).
