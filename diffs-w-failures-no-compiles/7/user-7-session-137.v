@@ -21,5 +21,16 @@ Set Printing Width 148.
 Set Silent.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction t; intros Hfresh).
+Set Printing Width 148.
+Set Silent.
+(induction t; intros Hfresh; intros w1; exists w1; intros v Hm; destruct w1; try (solve [ apply match_ty_exist__0_inv in Hm; contradiction ])).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
+(eapply match_ty__ge_w).
+eassumption.
+(repeat constructor).
+-
+Unset Silent.
 Show.
