@@ -416,5 +416,5 @@ Set Printing Width 148.
 Set Silent.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k \/ | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Set Printing Width 148.
-(induction k; induction t; induction t'; intros Hnft Hdept Hsem).
-Show.
+Set Printing Width 148.
+(induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ])).
