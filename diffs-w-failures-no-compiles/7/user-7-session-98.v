@@ -133,4 +133,4 @@ Set Printing Width 148.
 (destruct Hm as [t' Heq]; subst).
 (simpl).
 Set Printing Width 148.
-tauto.
+(split; tauto).
