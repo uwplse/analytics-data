@@ -198,4 +198,51 @@ Unset Silent.
 (unfold log_length_ok in H).
 Timeout 1 Check @app.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(apply H in H0).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqUxDb1R"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @Ret.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Hint Resolve abstr_get_len: core.
+Theorem get_len_ok :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := True;
+     post := fun r state' => state' = state /\ r = length state;
+     recovered := fun _ state' => state' = state |}) get_len d.recover abstr.
+Proof.
+(unfold get_len; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [_ bs]; simpl in *; intuition eauto).
+step_proc.
+intuition eauto.
+(eexists; intuition eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxfJz1W"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Set Silent.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Unset Silent.
+Proof.
+(unfold get; intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
