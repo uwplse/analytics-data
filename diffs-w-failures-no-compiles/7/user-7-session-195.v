@@ -108,6 +108,34 @@ Lemma match_ty_fbar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar
 Unset Silent.
 Proof.
 Set Silent.
+Set Printing Width 148.
+(destruct w, v; simpl in Hm; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_fvar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TFVar X -> v = TEV X.
+Proof.
 (intros v X w Hm).
+(destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
 Unset Silent.
-(destruct w, v; simpl in Hm).
+Qed.
+Set Silent.
+Lemma match_ty_ev__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TEV X -> v = TEV X.
+Proof.
+(intros v X w Hm).
+(destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
+Unset Silent.
+Qed.
+Set Silent.
+Theorem match_ty__value_type_l : forall (w : nat) (v t : ty), |-[ w] v <$ t -> value_type v.
+Proof.
+Unset Silent.
+(intros w; induction w; intros v t; generalize dependent v; induction t; intros v Hm;
+  try (solve
+   [ apply match_ty_cname__inv in Hm; subst; constructor
+   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
+   | apply match_ty_fvar__inv in Hm; subst; constructor
+   | apply match_ty_ev__inv in Hm; subst; constructor
+   | apply match_ty_exist__0_inv in Hm; contradiction
+   | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
