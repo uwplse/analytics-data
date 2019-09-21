@@ -370,4 +370,20 @@ Timeout 1 Check @nodup.
 Timeout 1 Check @Tauto.A.
 Set Printing Width 78.
 Show.
-(destruct (a == a0); subst; autorewrite with upd; auto).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct (log_addr a == a0); subst; autorewrite with upd; auto).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+Timeout 1 Check @diskUpd_oob_eq.
+(rewrite diskUpd_oob_eq).
