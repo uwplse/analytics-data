@@ -484,4 +484,14 @@ Set Silent.
 (pose proof Hsem as Hsem').
 Unset Silent.
 (unfold sem_sub_k_i in Hsem).
-specialize (Hsem _ Hva Hma).
+specialize (Hsem _ Hma).
+(apply match_ty_i_ref__inv in Hsem).
+(destruct Hsem as [t' [Heqt' Href]]).
+Set Silent.
+(inversion Heqt'; subst).
+Unset Silent.
+clear Heqt'.
+constructor.
+{
+(apply IHk; try assumption).
+(apply sem_eq_k_i__sem_sub_k_i; assumption).
