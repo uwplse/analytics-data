@@ -109,4 +109,11 @@ Show.
 (split; apply Nat.le_0_l).
 -
 Show.
-(intros t; induction t; intros k Hm; try (solve [ destruct k; simpl in Hm; contradiction ])).
+Set Printing Width 148.
+(intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction ])).
+Set Silent.
++
+Unset Silent.
+clear IHt1 IHt2.
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1' [v2' [Heqp [Hm1 Hm2]]]]).
