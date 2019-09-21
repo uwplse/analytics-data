@@ -211,9 +211,6 @@ Unset Silent.
 Set Silent.
 -
 (destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
-(destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
-(split; intros tx Hsub'; try (solve [ constructor; auto ])).
-+
-Unset Silent.
-(apply sub_r_union_l__inv in Hsub'; try (solve [ constructor; auto ])).
-(destruct Hsub'; auto).
+Set Printing Width 148.
+(split; intros tx Hsub').
+Show.
