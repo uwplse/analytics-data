@@ -87,4 +87,8 @@ specialize (Href v').
 Set Printing Width 148.
 (destruct Href; split; assumption).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty_i__value_type : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
+Unset Silent.
+Proof.
