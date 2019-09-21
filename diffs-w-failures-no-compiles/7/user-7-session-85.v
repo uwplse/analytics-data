@@ -128,4 +128,4 @@ Proof.
 (apply nf_sem_sub_i__sub_d).
 (apply mk_nf__in_nf).
 (apply sem_sub_i__trans with t1).
-(apply mk_nf__sem_sub_i1).
+Unset Silent.
