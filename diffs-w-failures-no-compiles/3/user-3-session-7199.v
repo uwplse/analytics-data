@@ -490,4 +490,9 @@ Unset Silent.
 Timeout 1 Check @spec_abstraction_compose.
 step_proc.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-intuition.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+intuition eauto.
