@@ -274,12 +274,18 @@ Timeout 1 Check @id.
 Timeout 1 Check @id.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @id.
+Set Printing Width 78.
+Show.
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
           end _)
    |- _ =>
-       let x := fresh x in
-       let y := fresh y in
-       idtac x y; destruct a as [x y]; cbn[pre post recovered] in *
+       idtac x y;
+        (let x := fresh x in
+         let y := fresh y in
+         destruct a as [x y]; cbn[pre post recovered] in *)
  end).
