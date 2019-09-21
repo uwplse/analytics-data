@@ -64,4 +64,10 @@ Proof.
 Set Printing Width 148.
 Set Printing Width 148.
 (intros X s Y Hneq).
+Set Printing Width 148.
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
 (simpl).
+(rewrite Hid).
+reflexivity.
+Qed.
