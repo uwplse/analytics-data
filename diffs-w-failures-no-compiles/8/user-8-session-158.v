@@ -339,8 +339,5 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 3: {
 Set Silent.
-econstructor.
-3: eauto.
-3: eauto.
 Unset Silent.
 Show.
