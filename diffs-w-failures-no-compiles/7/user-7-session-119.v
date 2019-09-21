@@ -17,12 +17,11 @@ Open Scope btjm.
 Theorem sub_d__semantic_sound : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
 Proof.
 (intros t1 t2 Hsub).
-(unfold sem_sub).
+Set Printing Width 148.
 (induction Hsub).
+Set Silent.
 -
 (apply sem_sub__refl).
 -
 Unset Silent.
-(apply sem_sub__trans).
-Show.
 (apply sem_sub__trans).
