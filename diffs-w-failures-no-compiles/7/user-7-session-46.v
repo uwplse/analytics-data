@@ -65,4 +65,6 @@ Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
 (intros t k).
-(intros Hm).
+Show.
+Set Printing Width 148.
+(simpl).
