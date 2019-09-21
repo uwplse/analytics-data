@@ -491,7 +491,5 @@ Set Silent.
 Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct IHt'1 as [IH1| IH1]; destruct IHt'2 as [IH2| IH2]; try assumption).
-(left; constructor; assumption).
-(right; intros Hcontra).
-(apply sub_r_union_l__inv in Hcontra).
+Set Printing Width 148.
+(solve_union_sub_r__decidable IHt'1 IHt'2).
