@@ -3320,64 +3320,35 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqIYANg7"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma HOAS_Equiv_refl : forall w1 w2 (c : Box w1 w2), c \226\137\161 c.
-Proof.
-(intros w1 w2 c \207\129 b).
 Unset Silent.
-Show.
 Set Printing Width 85.
-Show.
+Set Silent.
+Lemma inSeq_assoc :
+  forall {w1} {w2} {w3} {w4} (c1 : Box w1 w2) (c2 : Box w2 w3) (c3 : Box w3 w4),
+  c3 \194\183 c2 \194\183 c1 = (c3 \194\183 c2) \194\183 c1.
+Proof.
+(intros w1 w2 w3 w4 [c1] [c2] [c3]).
+(unfold inSeq).
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p1).
+(simpl).
+(remember (c1 p1) as c).
+clear c1 p1 Heqc.
+dependent induction c.
+-
 reflexivity.
-Qed.
-Unset Silent.
-Set Printing Width 85.
-Lemma HOAS_Equiv_sym : forall w1 w2 (c1 c2 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c1.
-Proof.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(intros).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(intros \207\129 b).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-(unfold HOAS_Equiv in H).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
+-
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p2).
 (rewrite H).
 reflexivity.
+-
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p2).
+(rewrite H).
+reflexivity.
+Unset Silent.
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRB43Ni"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqwr1ZnE"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma HOAS_Equiv_trans :
-  forall w1 w2 (c1 c2 c3 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c3 -> c1 \226\137\161 c3.
-Proof.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Set Silent.
-(intros).
-(intros \207\129 b).
-(unfold HOAS_Equiv in H).
-(rewrite H; auto).
-Unset Silent.
-Qed.
-Unset Silent.
