@@ -258,8 +258,9 @@ Set Printing Width 148.
 Set Silent.
 Lemma ty_empty__subs_ty_empty :
   forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
-Proof.
-(induction t; intros k w Hnotm X S Hcontra).
+Set Printing Width 148.
+Set Silent.
+(induction t; intros k w Hnotm X s Hcontra).
 -
 (apply Hnotm; assumption).
 -
@@ -277,9 +278,7 @@ subst.
 exists (TPair v'1 v'2).
 (apply match_ty_pair; assumption).
 }
-Unset Silent.
 admit.
 }
-Show.
-Set Printing Width 148.
+Unset Silent.
 (destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]).
