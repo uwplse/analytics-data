@@ -26,5 +26,8 @@ Show.
 Show.
 (left; intros v' Hm').
 Show.
-(exfalso; apply Hcontra).
+Set Printing Width 148.
+(exfalso; apply Hcontra; eauto).
+Show.
+-
 Show.
