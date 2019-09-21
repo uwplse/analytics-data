@@ -220,6 +220,6 @@ Set Printing Width 148.
 Set Silent.
 (split; intros tx Hsub').
 +
-(remember (TUnion t1 t2) as ty eqn:Heqy ).
-Unset Silent.
-(induction Hsub'; inversion Heqy; subst).
+Set Printing Width 148.
+(induction Hsub'; inversion Heqy; subst; try (solve [ auto using DBBetaJulia ])).
+Show.
