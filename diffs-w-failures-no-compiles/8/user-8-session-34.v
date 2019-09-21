@@ -84,5 +84,9 @@ Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
 (intros WT pf_merge1 pf_merge2).
-replace (compose (gate g p1 f)) with gate g p1 (fun p2 => compose (f p2)) by auto.
+replace (compose (gate g p1 f0) f) with gate g p1 (fun p2 => compose (f0 p2) h) by auto.
