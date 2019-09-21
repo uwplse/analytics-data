@@ -404,13 +404,11 @@ Proof.
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
 +
-right.
+Show.
+Set Printing Width 148.
+Set Silent.
 (intros Hcontra).
-Unset Silent.
 (apply sub_r__mk_nf_sub_r1 in Hcontra).
 (remember (MkNF( TPair t'1 t'2)) as tx eqn:Heqx ; remember (TCName c) as ty eqn:Heqy ).
+Unset Silent.
 (induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst).
-Set Printing Width 148.
-Set Printing Width 148.
-(induction t'1; induction t'2; try (solve [ inversion Heqx ])).
-(rewrite mk_nf_pair in Heqx).
