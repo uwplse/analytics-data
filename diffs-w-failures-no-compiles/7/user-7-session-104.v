@@ -170,4 +170,5 @@ Show.
 Set Silent.
 -
 (destruct w1).
+Unset Silent.
 (v Hm).
