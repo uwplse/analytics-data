@@ -108,5 +108,12 @@ Show.
 Show.
 clear IHt.
 Show.
+Show.
+Set Printing Width 148.
+(simpl in Htk).
+Show.
 (apply le_S_n in Htk).
 Show.
+(apply match_ty_i_ref__inv in Hm).
+Show.
+(destruct Hm as [t' [Heq Href]]).
