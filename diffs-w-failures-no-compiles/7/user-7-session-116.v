@@ -25,22 +25,9 @@ Set Printing Width 148.
 (split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
 Qed.
 Set Silent.
-Lemma subs_fresh : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
-Proof.
-(intros X t).
-Unset Silent.
-(induction t; intros Hfresh s; try (solve [ reflexivity ])).
-Set Silent.
 Set Printing Width 148.
-Set Printing Width 148.
+(induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh).
 Set Silent.
-(unfold fresh_in_ty in *).
-(simpl in Hfresh).
-(apply fresh_union__inv in Hfresh).
-(destruct Hfresh as [Hfresh1 Hfresh2]).
-(simpl).
-(rewrite IHt1; try assumption).
-(rewrite IHt2; try assumption).
-Unset Silent.
-reflexivity.
 -
+Unset Silent.
+Show.
