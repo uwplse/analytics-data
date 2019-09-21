@@ -2835,18 +2835,5 @@ dependent destruction t.
 specialize (apply_U_correct Qubit) as AUC.
 (simpl in AUC).
 (unfold process_gate_state).
-(simpl).
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 Unset Silent.
 Show.
