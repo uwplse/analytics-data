@@ -152,9 +152,9 @@ Show.
 Show.
 (intros k v Hv).
 Show.
-specialize (H k v Hv).
 Show.
-(destruct H as [H1 H2]).
-Show.
+Set Printing Width 148.
 (split; intros Hm).
+Show.
++
 Show.
