@@ -27,4 +27,12 @@ Unset Silent.
 (intros v t1 t2 k w Hm).
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct k, w; destruct v; left; assumption).
+Set Printing Width 148.
+(destruct k, w, v; left; assumption).
+Set Silent.
+Qed.
+Lemma match_ty_union_2 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t2 -> |-[ k, w] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 k w Hm).
+Unset Silent.
+(destruct k, w, v; right; assumption).
