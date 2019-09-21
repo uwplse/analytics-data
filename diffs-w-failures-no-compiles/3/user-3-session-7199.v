@@ -626,5 +626,15 @@ Show.
 (induction d; simpl in *).
 -
 Timeout 1 Check @split.
-lia.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(exfalso; lia).
 -
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(destruct d; simpl in *).
+Timeout 1 Check @split.
+lia.
