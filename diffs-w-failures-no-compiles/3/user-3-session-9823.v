@@ -233,5 +233,10 @@ Set Printing Width 78.
 Show.
 (destruct (a == diskSize s); subst).
 +
-(rewrite disk_oob_eq by lia; simpl; auto).
-+
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+Set Printing Width 78.
+Show.
+autorewrite with upd.
