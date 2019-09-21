@@ -131,4 +131,6 @@ Set Printing Width 78.
 Show.
 {
 (step_proc; intuition; subst; eauto).
+{
 (exists nil; intuition).
+eauto.
