@@ -79,4 +79,5 @@ Set Silent.
 {
 (destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
 {
-(apply match_ty_union_1; auto).
+Unset Silent.
+Show.
