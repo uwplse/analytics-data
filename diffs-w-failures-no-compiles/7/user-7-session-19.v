@@ -218,4 +218,4 @@ Set Printing Width 148.
 Set Printing Width 148.
 (split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
   assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm)).
-(simpl in Hsem').
+(simpl in Hsem).
