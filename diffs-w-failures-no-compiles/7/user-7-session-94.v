@@ -72,4 +72,11 @@ Proof.
 generalize dependent v.
 (induction t; intros k v Hm).
 -
-(apply match_ty_i_cname__inv in Hm; subst).
+(apply match_ty_cname__inv in Hm; subst).
+Unset Silent.
+constructor.
+Set Silent.
+-
+(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+Unset Silent.
+(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
