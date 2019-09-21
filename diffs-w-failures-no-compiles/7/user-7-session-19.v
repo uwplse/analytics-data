@@ -508,9 +508,6 @@ Set Printing Width 148.
 (rewrite <- Hdepeq; assumption).
 admit.
 }
-Admitted.
+Set Printing Width 148.
 Set Silent.
-Theorem nf_sem_sub__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
-Unset Silent.
-Proof.
-(intros t Hnf t' Hsem).
+Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
