@@ -217,4 +217,5 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 intuition.
 (step_proc; intros).
 {
-eauto.
+Unset Silent.
+Set Diffs "off".
