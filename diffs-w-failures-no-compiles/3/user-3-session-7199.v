@@ -234,4 +234,26 @@ Timeout 1 Check @d.read.
 Timeout 1 Check @d.read_ok.
 Timeout 1 Check @d.read_ok.
 Set Printing Width 78.
-Check d.read_ok.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Theorem get_at_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a < length state;
+     post := fun r state' => state' = state /\ r = nth a state block0;
+     recovered := fun _ state' => state' = state |}) 
+    (get_at a) recover abstr.
+Proof.
+(unfold get_at; intros).
+(apply spec_abstraction_compose).
+(simpl).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @d.recover_wipe.
+(unfold recover).
+step_proc.
