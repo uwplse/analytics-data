@@ -2800,4 +2800,21 @@ Show.
 (rewrite <- size_octx_merge by easy).
 (rewrite <- pf_merge in *).
 (simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (eapply (IH p1); trivial).
+(eapply t0).
+split.
+easy.
+(apply pf_merge).
+easy.
+*
+(rewrite Nat.add_sub).
+(apply apply_U_correct).
+(rewrite size_wtype_length).
+reflexivity.
+(unfold subst_pat).
+replace (size_wtype W) with \226\159\166 W \226\159\167 by easy.
+(rewrite <- size_octx_merge by easy).
