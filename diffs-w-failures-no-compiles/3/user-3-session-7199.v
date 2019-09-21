@@ -76,204 +76,28 @@ Timeout 1 Print LoadPath.
 Set Silent.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @forallb.
+Timeout 1 Check @forallb.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Set Printing Width 78.
 Definition log_abstraction (d : disk) (log : list block) : Prop :=
   log_length_ok d log /\
-  (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0).
-Definition abstr : Abstraction State :=
-  abstraction_compose d.abstr {| abstraction := log_abstraction |}.
-Theorem log_length_ok_nil d b :
-  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
-Proof.
-(unfold log_length_ok; intros).
-(rewrite H in *; simpl in *; subst).
-auto.
-Qed.
-Theorem log_abstraction_nil d b :
-  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
-Proof.
-(unfold log_abstraction; intros).
-split.
--
-eauto using log_length_ok_nil.
--
-(simpl; intuition).
-(exfalso; lia).
-Qed.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
-Proof.
-(eapply then_init_compose; eauto).
-step_proc.
-(destruct (lt_dec r 1)).
--
-step_proc.
--
-step_proc.
-step_proc.
-step_proc.
-(exists nil; simpl).
-(split; auto).
-(eapply log_abstraction_nil; eauto).
-(autorewrite with upd; auto).
-Qed.
-Theorem log_abstraction_length d bs :
-  log_abstraction d bs -> log_length_ok d bs.
-Proof.
-(unfold log_abstraction; intuition).
-Qed.
-Hint Resolve log_abstraction_length: core.
-Lemma abstr_get_len :
-  forall (bs : list block) (state : State),
-  log_length_ok state bs ->
-  forall r : block,
-  diskGet state len_addr =?= r -> block_to_addr r = length bs.
-Proof.
-(intros).
-(unfold log_length_ok in H).
-auto.
-Qed.
-Hint Resolve abstr_get_len: core.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Theorem get_len_ok :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := True;
-     post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len recover abstr.
-Proof.
-(unfold get_len; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
-Set Silent.
-step_proc.
-intuition eauto.
-(eexists; intuition eauto).
-Unset Silent.
-Qed.
-Hint Resolve get_len_ok: core.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @proc.
-Timeout 1 Check @proc.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @Zdiv.Zmod_eq_full.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @unit.
-Timeout 1 Check @unit.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @True.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @Zdiv.Zmod_eq_full.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @find.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @recover.
-Timeout 1 Check @recovered.
-Timeout 1 Check @Zdiv.Zmod_eq_full.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Timeout 1 Check @ge.
-Timeout 1 Check @get_at.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @get_upto.
-Timeout 1 Check @recover.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @nth.
-Timeout 1 Check @nth.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block0.
-Set Printing Width 78.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @get.
-Timeout 1 Check @get_at.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Choice.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read.
-Timeout 1 Check @d.read_ok.
-Timeout 1 Check @d.read_ok.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @block.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Theorem get_at_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a < length state;
-     post := fun r state' => state' = state /\ diskGet state a = Some r;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Proof.
-(unfold get_at; intros).
-(apply spec_abstraction_compose).
-(simpl).
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intros).
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
-Set Silent.
-(descend; intuition eauto).
-Unset Silent.
-(descend; intuition eauto).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Show.
-(unfold log_abstraction in H0; intuition).
-Timeout 1 Check @app.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-(apply H1 in H).
+  (forall a,
+   a < length log -> forall b, diskGet d (log_addr a) =?= nth a log block0).
