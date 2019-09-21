@@ -66,6 +66,8 @@ Set Silent.
 (simpl in *).
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
-(simpl in *; Msimpl).
 Unset Silent.
-(repeat rewrite Mmult_assoc; try rewrite unitary_gate_unitary).
+Show.
+Set Printing Width 85.
+Show.
+(repeat rewrite Mmult_assoc; rewrite unitary_gate_unitary).
