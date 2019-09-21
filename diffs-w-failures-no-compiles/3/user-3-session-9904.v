@@ -206,4 +206,4 @@ Proof.
 (step_proc; intros).
 {
 eauto.
-}
+Unset Silent.
