@@ -760,5 +760,9 @@ Timeout 1 Check @nodup.
 Timeout 1 Check @split.
 Timeout 1 Check @Nat.of_uint.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(unfold log_size_ok; autorewrite with upd list in *).
-lia.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold log_size_ok in *; autorewrite with upd list in *).
