@@ -352,4 +352,12 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Check @app.
 Timeout 1 Check @app.
-Timeout 1 Check @append.
+Timeout 1 Check @append_at.
+Timeout 1 Check @append_at.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @spec_abstraction_compose.
+Definition append (bs : list block) : proc bool :=
+  size <- d.size;
+  len <- get_len;
+  (if le_dec (1 + len + length bs) size then append_at len bs else Ret false).
