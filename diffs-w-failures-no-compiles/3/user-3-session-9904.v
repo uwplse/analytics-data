@@ -215,4 +215,9 @@ Set Printing Width 78.
 Show.
 (step_proc; intuition).
 Timeout 1 Check @Ascii.nat_ascii_bounded.
-(destruct s).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(exists s; intuition).
+right.
