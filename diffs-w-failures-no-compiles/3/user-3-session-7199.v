@@ -500,33 +500,5 @@ Timeout 1 Check @split.
 Unset Silent.
 Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Set Silent.
-{
-(rewrite app_length; lia).
-}
-Unset Silent.
-intuition.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @nth.
-Timeout 1 Check @nth_O.
-Search -nth -"++".
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @app_nth1.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @bytes.
-Timeout 1 Check @split.
-Set Printing Width 78.
-Show.
 Unset Silent.
 Set Diffs "off".
