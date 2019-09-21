@@ -27,4 +27,5 @@ Unset Silent.
 -
 Show.
 Set Printing Width 148.
-(pose proof (IdSetFacts.singleton_2 _ _ e)).
+Check IdSetFacts.singleton_2.
+(pose proof (IdSetFacts.singleton_2 e)).
