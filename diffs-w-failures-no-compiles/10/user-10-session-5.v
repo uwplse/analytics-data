@@ -14,7 +14,9 @@ From Coq Require Import Basics ExtrOcamlIntConv List NArith String.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqRp5hKL" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Require Import Analytical.Analytics.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqE0q7Fg" Print Ltac Signatures.
+Unset Silent.
+Set Printing Width 114.
+Import Analytics.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq8OecSp" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
