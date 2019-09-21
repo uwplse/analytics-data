@@ -356,6 +356,8 @@ Definition map_exceptE {e1} {e2} (f : e1 -> e2) : exceptE e1 ~> exceptE e2 :=
              | Throw e => Throw (f e)
              end.
 Unset Silent.
+Locate taE.
+Print taE.
 Definition network_of_app_ta sk : taE ~> itree tE :=
   fun _ tae =>
   match tae with
