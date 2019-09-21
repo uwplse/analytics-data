@@ -367,4 +367,6 @@ clear IHt.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 (intros v; specialize (IHk v t); specialize (Href v)).
-tauto.
+Unset Silent.
+Show.
+(split; tauto).
