@@ -664,4 +664,21 @@ Set Silent.
 (rewrite Hdept'').
 split.
 tauto.
-(intros v Hv).
+(intros v).
+(split; intros H).
++
+(eapply match_ty__inv_depth_stable; try assumption).
+(rewrite Hdept''; eassumption).
+eassumption.
+(apply Href; try assumption).
+(eapply match_ty__inv_depth_stable; try eassumption).
+(rewrite <- Hdept''; assumption).
++
+(eapply match_ty__inv_depth_stable; try assumption).
+(rewrite <- Hdept''; eassumption).
+(apply Href; try assumption).
+(eapply match_ty__inv_depth_stable; try assumption).
+(rewrite Hdept''; eassumption).
+assumption.
+Unset Silent.
+Qed.
