@@ -73,4 +73,9 @@ Check beq_id_false_iff.
 Print "<->".
 Print "/\".
 Set Printing Width 148.
-(destruct (beq_id_false_iff X i) as [_ Hbeq]).
+Set Printing Width 148.
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+specialize (Hid n).
+(rewrite Hid in *).
+assumption.
+-
