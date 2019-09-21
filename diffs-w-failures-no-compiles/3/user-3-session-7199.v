@@ -216,12 +216,14 @@ step_proc.
 intuition eauto.
 (eexists; intuition eauto).
 Qed.
-Hint Resolve get_len_ok: core.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
-     pre := a < length state;
+     pre := log_addr a < length state;
      post := fun r state' => state' = state /\ nth a state block0 = r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
@@ -234,13 +236,6 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
+(unfold log_abstraction in H0; intuition).
 (pose proof (H1 a); intuition).
 eq_values.
