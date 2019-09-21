@@ -221,9 +221,14 @@ Set Silent.
 Show.
 Set Printing Width 148.
 Set Silent.
-+
+Show.
+Set Printing Width 148.
+Set Silent.
 (remember (TUnion t1 t2) as ty eqn:Heqy ).
-Unset Silent.
 (induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
 +
+Unset Silent.
 (constructor; auto).
+Set Silent.
+-
+Unset Silent.
