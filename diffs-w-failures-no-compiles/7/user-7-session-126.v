@@ -132,6 +132,13 @@ reflexivity.
 -
 Set Printing Width 148.
 (destruct (beq_idP X i); try reflexivity).
+Set Printing Width 148.
+Set Silent.
 (rewrite IHt).
 reflexivity.
 -
+Unset Silent.
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Qed.
