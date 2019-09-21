@@ -39,4 +39,5 @@ Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
-dependent induction TP.
+Unset Silent.
+Show.
