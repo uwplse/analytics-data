@@ -2837,4 +2837,4 @@ specialize (apply_U_correct Qubit) as AUC.
 (unfold process_gate_state).
 (simpl).
 unify_pows_two.
-(rewrite Nat.add_1_r).
+Unset Silent.
