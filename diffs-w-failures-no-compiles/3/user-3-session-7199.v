@@ -112,6 +112,41 @@ Unset Search Output Name Only.
 Set Silent.
 Definition abstr : Abstraction State :=
   abstraction_compose d.abstr {| abstraction := log_abstraction |}.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Lemma diskGet_eq_values :
+  forall d a b b',
+  diskGet d a =?= b -> diskGet d a =?= b' -> a < diskSize d -> b = b'.
+Proof.
+Set Silent.
+(intros).
+(destruct (diskGet d a) eqn:?; simpl in *).
+-
+congruence.
+-
+exfalso.
+(apply disk_inbounds_not_none in Heqo; eauto).
+Qed.
+Unset Silent.
+Ltac
+ eq_values :=
+  match goal with
+  | H:diskGet ?d ?a =?= ?b, H':diskGet ?d ?a =?= ?b'
+    |- _ =>
+        assert (b = b') by
+         (apply (@diskGet_eq_values d a b b'); try lia; auto); subst
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZ1eFZJ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquxxYPs"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
 Theorem log_length_ok_nil d b :
   diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
 Proof.
@@ -173,19 +208,15 @@ Theorem get_len_ok :
 Proof.
 (unfold get_len; intros).
 (apply spec_abstraction_compose).
+Unset Silent.
 step_proc.
+Set Silent.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
 (eexists; intuition eauto).
 Qed.
-Unset Silent.
 Hint Resolve get_len_ok: core.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @spec_abstraction_compose.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
@@ -194,7 +225,6 @@ Theorem get_at_ok a :
      post := fun r state' => state' = state /\ nth a state block0 = r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
-Set Silent.
 Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
@@ -204,15 +234,9 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
+(unfold log_abstraction in H0; intuition).
 Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @hypo_proof.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
 (apply H1 in H).
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+eq_values.
