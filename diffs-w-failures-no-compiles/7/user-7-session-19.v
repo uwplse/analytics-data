@@ -32,6 +32,20 @@ Lemma match_ty_i_union_2 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t2 -
 Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; right; assumption).
+Set Printing Width 148.
+Set Silent.
+Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros k).
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_i_pair; auto).
+-
+(destruct k).
+constructor.
+(simpl).
+tauto.
 Qed.
 Lemma match_ty_i_cname__inv : forall (v : ty) (c : cname), forall k : nat, |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
@@ -69,10 +83,7 @@ reflexivity.
 (intros v' Hv').
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
 Proof.
 (induction k; induction t; intros Htk v Hm;
@@ -98,5 +109,3 @@ clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 Unset Silent.
 (destruct Hm as [t' [Heq Href]]; subst).
-Show.
-Show.
