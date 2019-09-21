@@ -272,4 +272,20 @@ Timeout 1 Check @d.read.
 Timeout 1 Check @d.read.
 Timeout 1 Check @d.read_ok.
 Timeout 1 Check @d.read_ok.
-Check d.read_ok.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec_rx.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Set Printing Width 78.
+Show.
+proc_spec_weaken.
