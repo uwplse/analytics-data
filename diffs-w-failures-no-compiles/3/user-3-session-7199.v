@@ -601,4 +601,10 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 (intros).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @find.
-Print firstn.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @Nat.induction.
+Set Printing Width 78.
+Show.
+(induction a).
