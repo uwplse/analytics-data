@@ -320,4 +320,4 @@ Proof.
 (unfold log_contents_ok; intros).
 (specialize (H0 a); intuition).
 Timeout 1 Check @split.
-lia.
+(unfold log_addr in *).
