@@ -337,6 +337,11 @@ Proof.
 Unset Silent.
 (intros t1 t21 t22).
 Set Silent.
-(repeat rewrite mk_nf_union, mk_nf_pair).
-Unset Silent.
+Show.
+Set Printing Width 148.
 (rewrite mk_nf_pair).
+Show.
+(apply unite_pairs__distr21).
+Show.
+(apply mk_nf__in_nf).
+Qed.
