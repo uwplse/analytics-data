@@ -117,4 +117,10 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(unfold apply_U).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(unfold apply_U; simpl).
+Msimpl.
+(rewrite Mmult_assoc).
