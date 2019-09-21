@@ -268,4 +268,11 @@ Timeout 1 Check @block.
 Timeout 1 Check @block.
 Timeout 1 Check @block0.
 (assert (v = nth a bs block0)).
-(eapply diskGet_eq_values).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(eapply diskGet_eq_values; eauto).
+Timeout 1 Check @split.
+lia.
