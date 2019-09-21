@@ -255,5 +255,8 @@ Timeout 1 Check @Wf.F_unfold.
 Timeout 1 Check @Wf.F_unfold.
 Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @d.recover_wipe.
-(unfold recover).
-step_proc.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+step_proc_basic.
