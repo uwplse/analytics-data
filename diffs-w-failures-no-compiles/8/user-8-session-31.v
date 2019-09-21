@@ -2783,4 +2783,9 @@ Set Printing Width 85.
 Show.
 (apply compose_super_correct).
 *
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (unfold denote_circuit in IH).
+(unfold process_gate_state).
