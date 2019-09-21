@@ -88,23 +88,18 @@ Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][
 Proof.
 (intros k t t' Hsem).
 Set Printing Width 148.
-(destruct Hsem as [Hsem1 Hsem2]).
-Show.
 Set Printing Width 148.
 Set Silent.
 (intros w1).
 exists w1.
-Unset Silent.
 (intros v Hm).
 (destruct k).
 -
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [tx Heq]; subst).
-Unset Silent.
 (destruct w1; simpl; tauto).
 -
+Unset Silent.
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [tx [Heq Href]]; subst).
+(apply match_ty_ref).
