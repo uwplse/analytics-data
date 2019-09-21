@@ -42,4 +42,5 @@ assumption.
 (apply match_ty_union_1; auto).
 Unset Silent.
 Set Printing Width 148.
-(exfalso; eapply not__free_and_fresh_in_ty; eassumption).
+Show.
+Show.
