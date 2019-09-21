@@ -105,4 +105,55 @@ Unset Silent.
 (apply wf_ty__wf_ty_f_subst; assumption).
 (rewrite f_b_subst__spec_permute in IHw').
 Set Printing Width 148.
-(rewrite f_b_subst__spec_permute in IHw'; try assumption).
+Set Printing Width 148.
+(rewrite f_b_subst__spec_permute in IHw'; assumption).
+-
+Show.
+admit.
+-
+admit.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+Set Silent.
+subst.
+Unset Silent.
+(rewrite b_subst_exist_neq in Hm; try assumption).
+Set Silent.
+(apply match_ty_exist__0_inv in Hm).
+Unset Silent.
+contradiction.
+-
+admit.
+Set Silent.
+-
+Unset Silent.
+admit.
+Set Silent.
+-
+Unset Silent.
+admit.
+Set Silent.
+-
+Unset Silent.
+admit.
+Set Silent.
+-
+Unset Silent.
+admit.
+Set Silent.
+-
+Unset Silent.
+admit.
+Set Silent.
+-
+Unset Silent.
+Show.
+(destruct (beq_idP X i)).
++
+subst.
