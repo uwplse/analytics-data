@@ -80,4 +80,6 @@ Proof.
 Show.
 Set Printing Width 148.
 (unfold not_f_free_in_ty, not_free).
-(intros X Y t).
+Set Printing Width 148.
+(intros X Y t Ht).
+Show.
