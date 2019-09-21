@@ -28,8 +28,10 @@ From Coq Require Import List NArith Streams.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq23gu0W" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Set Silent.
-Open Scope N_scope.
 Unset Silent.
 Set Printing Width 114.
-Unset Silent.
+Import ListNotations.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqOesgEy" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Timeout 1 Check @fib.
