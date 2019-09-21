@@ -227,4 +227,6 @@ Set Printing Width 78.
 Show.
 (right; intuition).
 Timeout 1 Check @spec_abstraction_compose.
-congruence.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @spec_abstraction_compose.
+(destruct state).
