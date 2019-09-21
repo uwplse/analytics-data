@@ -9,6 +9,9 @@ Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
+Set Printing Width 148.
+Set Silent.
+Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.AltMatchDefs.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -67,14 +70,9 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
 Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
-Unset Silent.
 Proof.
-Set Printing Width 148.
-Set Printing Width 148.
+Unset Silent.
 (induction k; induction t; intros Htk v Hm;
   try match goal with
       | Hm:|-[ ?k'] ?v <$ TCName _ |- _ => apply match_ty_i_cname__inv in Hm; subst; constructor
