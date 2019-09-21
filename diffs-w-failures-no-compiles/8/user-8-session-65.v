@@ -1433,4 +1433,9 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Search -add_fresh.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite add_fresh_split).
+(simpl).
