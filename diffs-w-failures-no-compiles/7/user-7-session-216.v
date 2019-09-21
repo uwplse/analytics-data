@@ -324,11 +324,17 @@ Proof.
 (intros).
 reflexivity.
 Qed.
-Lemma f_subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), [FX := s] TExist Y t = TExist Y ([FX := s] t).
+Set Printing Width 148.
+Set Silent.
+Lemma f_subst_fvar_eq : forall (X : id) (s : ty), [FX := s] TFVar X = s.
 Proof.
 (intros).
+(simpl).
+(rewrite <- beq_id_refl).
 reflexivity.
+Unset Silent.
 Qed.
+Set Silent.
 Lemma f_subst_fvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [FX := s] TFVar Y = TFVar Y.
 Proof.
 (intros X s Y Hneq).
@@ -384,22 +390,18 @@ assumption.
 Qed.
 Lemma wf_ty_pair : forall t1 t2 : ty, wf_ty t1 /\ wf_ty t2 -> wf_ty (TPair t1 t2).
 Proof.
-Unset Silent.
 (unfold wf_ty in *; simpl in *).
 (intros t1 t2 Hwf).
 (apply union_empty).
 assumption.
 Qed.
-Set Silent.
 Lemma wf_ty_union : forall t1 t2 : ty, wf_ty t1 /\ wf_ty t2 -> wf_ty (TUnion t1 t2).
 Proof.
 (unfold wf_ty in *; simpl in *).
 (intros t1 t2 Hwf).
 (apply union_empty).
 assumption.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma wf_ty__wf_ty_f_subst : forall (X : id) (s t : ty), wf_ty s -> wf_ty t -> wf_ty ([FX := s] t).
 Proof.
 (intros X s t Hwfs).
@@ -407,37 +409,26 @@ generalize dependent t.
 (induction t; intros Hwft; try (solve [ simpl; assumption ])).
 -
 (rewrite f_subst_pair).
-Unset Silent.
 (apply wf_ty_pair__inv in Hwft).
 (apply wf_ty_pair).
 tauto.
 -
-Set Silent.
 (rewrite f_subst_union).
 (apply wf_ty_union__inv in Hwft).
-Unset Silent.
 (apply wf_ty_union).
 tauto.
 -
 (rewrite f_subst_exist).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
 (unfold wf_ty in *; simpl in *).
-Search -IdSet.Empty.
-Search -IdSet.Empty.
-Search -IdSet.remove.
-Show.
-Search -IdSet.In.
-Set Printing Width 148.
 (destruct (IdSetProps.In_dec i (FBV t))).
 admit.
 admit.
 -
-Show.
-Set Printing Width 148.
 (destruct (beq_idP X i)).
 +
 subst.
-Set Printing Width 148.
+Unset Silent.
 (rewrite f_subst_fvar_eq).
+assumption.
++
+(rewrite f_subst_fvar_neq).
