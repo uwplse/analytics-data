@@ -104,4 +104,5 @@ Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : b
 Unset Silent.
 Definition sem_eq (t1 t2 : ty) := forall k : nat, ||-[ k][t1]= [t2].
 Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
+Set Printing Width 148.
 Hint Unfold sem_sub_k_w sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
