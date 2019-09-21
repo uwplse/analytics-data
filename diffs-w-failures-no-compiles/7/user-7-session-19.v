@@ -100,4 +100,13 @@ Set Printing Width 148.
 Set Printing Width 148.
 (destruct v; try contradiction).
 Show.
-constructor.
+Show.
+Set Printing Width 148.
+(inversion Htk).
+Show.
+-
+Show.
+clear IHt.
+Show.
+(apply le_S_n in Htk).
+Show.
