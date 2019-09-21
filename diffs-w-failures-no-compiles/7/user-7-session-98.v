@@ -97,20 +97,41 @@ Proof.
 Qed.
 Set Silent.
 Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
+Set Printing Width 148.
+Set Silent.
+-
+Unset Silent.
+(apply match_ty_exist__0_inv in Hm).
+Set Silent.
+auto.
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(eapply IHk; eassumption).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros k).
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_pair; auto).
+-
+(destruct k).
+constructor.
+(simpl).
+tauto.
+Unset Silent.
+Qed.
+Set Silent.
+Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
 Unset Silent.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm;
-  try (solve
-   [ apply match_ty_cname__inv in Hm; subst; constructor
-   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
-   | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
-   | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
-   | apply match_ty_var__inv in Hm; assumption ])).
-Set Silent.
--
-(apply match_ty_exist__0_inv in Hm).
-Unset Silent.
-auto.
+(intros k; destruct k; intros v Hm).
 Set Silent.
 -
 Unset Silent.
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
