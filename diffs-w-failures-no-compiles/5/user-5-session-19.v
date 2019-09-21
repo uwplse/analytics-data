@@ -56,4 +56,7 @@ Theorem eval_eq_true_or_false :
   L.(eval) env (Eq t1 t2) = L.(vTrue) \/ L.(eval) env (Eq t1 t2) = L.(vFalse).
 Proof.
 (intros).
-(destruct (L.(value_eq_dec) (eval env t1) (eval env t2)) eqn:E).
+(destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2)) eqn:E).
+-
+left.
+(apply L.(evalIntConst)).
