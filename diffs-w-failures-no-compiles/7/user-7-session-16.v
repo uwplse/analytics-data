@@ -434,4 +434,5 @@ Set Printing Width 148.
 (solve_atom_sub_r_union__decidable IHt2_1 IHt2_2; assumption).
 +
 (right; solve_not_x_sub_r_y_full).
-(apply IHHcontra; try tauto).
+Set Printing Width 148.
+(apply IHHcontra; try auto).
