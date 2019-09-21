@@ -214,7 +214,4 @@ exfalso.
 refine (_ _).
 (apply evalIntInj).
 +
-eassumption.
-+
-eassumption.
 Unset Silent.
