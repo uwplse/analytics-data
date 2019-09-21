@@ -434,4 +434,11 @@ Proof.
 +
 Unset Silent.
 Show.
-(apply value_sem_sub_k_i_union__inv in Hsem).
+Set Printing Width 148.
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+-
+admit.
+-
+(intros t Hnft _ k Hdep t2).
+(assert (Hva : value_type (TRef t)) by constructor).
