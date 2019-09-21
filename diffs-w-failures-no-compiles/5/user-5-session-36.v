@@ -270,4 +270,8 @@ refine (_ _).
 (apply evalBoolInj).
 (rewrite H0).
 (apply evalBoolConst).
++
+assumption.
+}
+(erewrite <- H; reflexivity).
 Unset Silent.
