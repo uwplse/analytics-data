@@ -166,14 +166,9 @@ Theorem regex_match_is_explicit :
   forall (r : regex) (s : string),
   regex_match r s <-> regex_match_length r s (String.length s).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 Proof.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqW22qF9"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQhOyyi"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
+Timeout 1 Check @negb_involutive.
+(split; intros).
