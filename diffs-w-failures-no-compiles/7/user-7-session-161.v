@@ -117,18 +117,13 @@ Set Silent.
 *
 (rewrite subst_exist_eq).
 (rewrite (subst_exist_neq _ _ _ _ HX)).
-Unset Silent.
-(rewrite subst_exist_eq).
-reflexivity.
-Set Silent.
-+
-Unset Silent.
+Show.
+Set Printing Width 148.
 (destruct (beq_idP X i) as [HX| HX]).
+Show.
 Set Silent.
 *
-Unset Silent.
 subst.
-Set Silent.
 (rewrite (subst_exist_neq _ _ _ _ HY)).
 (repeat rewrite subst_exist_eq).
 Unset Silent.
