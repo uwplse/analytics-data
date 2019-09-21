@@ -3365,4 +3365,5 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite H).
-reflexivity.
+Unset Silent.
+Show.
