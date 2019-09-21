@@ -486,4 +486,25 @@ Set Diffs "off".
 Timeout 1 Check @nodup.
 Set Printing Width 78.
 Show.
-(destruct (a == length bs); subst; autorewrite with upd).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct (a == length bs); subst).
+-
+autorewrite with upd.
+Timeout 1 Check @log_size_ok.
+(simpl).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @nth.
+Timeout 1 Check @nth_O.
+Timeout 1 Check @nth_ok.
+Timeout 1 Check @nth_O.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+Timeout 1 Check @app_nth1.
+(rewrite app_nth2).
