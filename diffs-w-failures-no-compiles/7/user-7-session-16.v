@@ -396,15 +396,8 @@ Lemma nf_sub_r__decidable2 :
   forall t : ty,
   InNF( t) -> (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)).
 Proof.
-(apply
-  (in_nf_mut
-     (fun (t : ty) (Hat : atom_type t) =>
-      (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)))
-     (fun (t : ty) (Hnf : in_nf t) =>
-      (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t))))).
--
-(intros c).
-Unset Silent.
+Set Printing Width 148.
+Set Silent.
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
@@ -416,8 +409,13 @@ Unset Silent.
         destruct (cname_eq__decidable c1 c2);
          [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
   end).
-Set Silent.
 -
-Unset Silent.
-Show.
 (intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
+Unset Silent.
+(split; intros t'; induction t'; intros Hnf';
+  try
+   match goal with
+   | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
+(right; solve_not_x_sub_r_y_full).
