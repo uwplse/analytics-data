@@ -207,7 +207,12 @@ contradiction.
 Abort.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma not_sem_eq__reft_t : forall (k : nat) (t : ty), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
-Unset Silent.
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
+Unset Silent.
+(induction t; intros k Hdep Hcontra).
+-
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hconttra]).
