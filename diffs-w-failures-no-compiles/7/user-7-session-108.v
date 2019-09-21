@@ -253,29 +253,17 @@ Set Printing Width 148.
 Lemma ty__empty_or_matching_ty_exists :
   forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
 Set Silent.
-Proof.
-Unset Silent.
-(induction w; induction t; intros k).
+Set Printing Width 148.
+(left; exists (TCName c); apply match_ty_cname).
 Set Silent.
 -
-Unset Silent.
-(left; exists (TCName c)).
-(apply match_ty_value_type__reflexive; constructor).
--
-Show.
-Show.
-admit.
-Set Silent.
--
-Unset Silent.
 admit.
 -
-Show.
+admit.
+-
 (left; exists (TRef t)).
-Set Silent.
 (destruct k).
 reflexivity.
-Unset Silent.
 (split; intros w1; exists w1; auto).
 -
 right.
@@ -287,4 +275,19 @@ right.
 -
 (left; exists (TEV i); apply match_ty_ev).
 -
+Unset Silent.
 (left; exists (TCName c); apply match_ty_cname).
+-
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+Set Silent.
+(destruct k).
+reflexivity.
+Unset Silent.
+(split; intros w1; exists w1; auto).
+-
+Set Silent.
+(destruct (IHt k) as [v Hm]).
