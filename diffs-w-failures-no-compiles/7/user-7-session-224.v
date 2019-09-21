@@ -159,9 +159,3 @@ Set Printing Width 148.
 Show.
 (unfold not_f_free_in_ty, not_free in HX').
 Show.
-(simpl in HX').
-Set Silent.
-exfalso.
-(apply HX').
-Unset Silent.
-Show.
