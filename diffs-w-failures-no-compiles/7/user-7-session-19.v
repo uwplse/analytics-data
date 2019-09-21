@@ -276,9 +276,11 @@ Proof.
 (pose proof (match_ty_i_nf k t) as H).
 (intros v Hm; specialize (H v); tauto).
 Qed.
-Unset Silent.
-Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
-Proof.
 Set Printing Width 148.
-(intros k t t' Hdept H).
+Set Silent.
+Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> | t' | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+Unset Silent.
+(intros k t t' Hdept Hdept' H).
 (destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
+(pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept h1)).
