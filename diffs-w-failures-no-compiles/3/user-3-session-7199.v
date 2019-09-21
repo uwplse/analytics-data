@@ -600,4 +600,5 @@ Proof.
 Unset Silent.
 (intros a state H).
 Timeout 1 Check @sig.
-(simpl).
+Unset Silent.
+Set Diffs "off".
