@@ -77,51 +77,21 @@ Lemma match_ty_ev__match_ty_any :
 Proof.
 Show.
 Set Printing Width 148.
-(intros k w X t HX Hm v Hv).
-Show.
 Set Printing Width 148.
+Set Silent.
+(intros k w).
+Unset Silent.
+generalize dependent k.
+(induction w).
+admit.
+(intros k X t HX Hm v Hv).
 (induction t).
+admit.
+admit.
+admit.
+admit.
 -
-Show.
-Show.
-(apply match_ty_cname__inv in Hm).
-Show.
-(inversion Hm).
--
-Show.
-(apply match_ty_pair__inv in Hm).
-Show.
-(destruct Hm as [v1 [v2 [Heq _]]]).
-(inversion Heq).
-Show.
--
-Show.
-(apply match_ty_union__inv in Hm).
-Show.
-(destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]).
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-Show.
--
-Show.
-(apply match_ty_ref__weak_inv in Hm).
-Show.
-(destruct Hm as [t' Heq]).
-(inversion Heq).
-Show.
--
-Show.
-(destruct w).
-+
-Show.
-(apply match_ty_exist__0_inv in Hm; contradiction).
-+
-Show.
+(destruct (beq_idP X i)).
+subst.
 (apply match_ty_exist__inv in Hm).
-Show.
 (destruct Hm as [tx Hm]).
-Show.
-Set Printing Width 148.
-Show.
