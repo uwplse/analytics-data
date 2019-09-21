@@ -8,9 +8,9 @@ Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Require Import BetaJulia.Sub0250a.BaseProps.
-Require Import BetaJulia.Sub0250a.AltMatchDef.
+Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -146,8 +146,10 @@ clear IHt3.
 (destruct k).
 (destruct v1; contradiction || constructor).
 (apply match_ty_i_ref__inv in Hm1).
-Set Printing Width 148.
-Set Silent.
+(destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
+(simpl in Hm2).
+(apply sem_eq_k_i__trans with t; assumption).
+Qed.
 Lemma match_ty_i_exists : forall (t : ty) (k : nat), exists v : ty, |-[ k] v <$ t.
 Proof.
 (induction t; intros k).
@@ -163,14 +165,11 @@ Proof.
 exists (TRef t).
 (apply match_ty_i__reflexive).
 constructor.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
 auto with DBBetaJulia.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
 Proof.
 (intros k t t' H).
@@ -272,9 +271,15 @@ clear Heqt'.
 constructor.
 *
 (apply IHk; try assumption).
-Unset Silent.
 (apply sem_eq_k_i__sem_sub_k_i in Href).
 tauto.
 *
 (apply SD_Trans with (MkNF( t2))).
 (apply mk_nf__sub_d_r; assumption).
+(apply IHk).
+Unset Silent.
+(apply mk_nf__in_nf).
+Set Silent.
+(rewrite inv_depth_mk_nf).
+Unset Silent.
+assumption.
