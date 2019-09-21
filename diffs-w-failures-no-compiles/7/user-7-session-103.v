@@ -26,4 +26,5 @@ Proof.
 Unset Silent.
 (intros v t1 t2 k w Hm).
 Set Printing Width 148.
-(destruct k, w, v; left; assumption).
+Set Printing Width 148.
+(destruct k, w; destruct v; left; assumption).
