@@ -49,6 +49,9 @@ Lemma subst_var_eq : forall (X : id) (s : ty), [X := s] TVar X = s.
 Set Silent.
 Proof.
 (intros; reflexivity).
-Unset Silent.
+Set Printing Width 148.
+Set Silent.
 (intros).
+Unset Silent.
 (simpl).
+(rewrite beq_id_refl).
