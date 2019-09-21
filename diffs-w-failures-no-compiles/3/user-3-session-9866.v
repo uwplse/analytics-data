@@ -144,12 +144,5 @@ Timeout 1 Check @maybe_eq.
 Timeout 1 Check @None.
 Timeout 1 Check @True.
 Theorem maybe_eq_None_is_True T (v : T) : maybe_eq None v = True.
-Proof.
-reflexivity.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq9TFSV2"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+Unset Silent.
+Set Diffs "off".
