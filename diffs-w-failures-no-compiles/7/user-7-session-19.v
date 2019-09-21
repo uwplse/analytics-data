@@ -206,11 +206,12 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (try
   match goal with
   | Hsem:forall v, value_type v -> |-[ ?k] v <$ TCName ?c -> _
     |- _ =>
         assert (Hvv : value_type (TCName c)) by constructor;
-         assert (Hmv : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)
+         assert (Hmv : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hvv Hmv)
   end).
 Show.
