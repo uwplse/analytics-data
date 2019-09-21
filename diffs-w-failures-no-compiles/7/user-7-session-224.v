@@ -40,4 +40,6 @@ Set Printing Width 148.
 (simpl in HX).
 Search -IdSet.empty.
 (rewrite IdSetFacts.empty_iff in HX).
+Set Printing Width 148.
 contradiction.
+Show.
