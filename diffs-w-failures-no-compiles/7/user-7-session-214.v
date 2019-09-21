@@ -267,4 +267,8 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 Set Printing Width 148.
-(destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
+Set Printing Width 148.
+(apply f_free_in_ty_pair).
+Show.
+(apply f_free_in_ty_pair__inv).
+Show.
