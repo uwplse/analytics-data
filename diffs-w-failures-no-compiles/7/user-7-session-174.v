@@ -145,4 +145,8 @@ Set Printing Width 148.
 (unfold well_founded).
 (intros a).
 (unfold lt_size).
-(unfold Acc).
+Show.
+Search -Acc.
+Check Acc.
+(intros).
+Show.
