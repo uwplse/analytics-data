@@ -72,4 +72,15 @@ subst.
 Show.
 Set Printing Width 148.
 (simpl in *).
+Set Silent.
+(rewrite <- beq_id_refl in *).
+Unset Silent.
 (exists v; assumption).
+Set Silent.
++
+Unset Silent.
+Show.
+Set Silent.
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+Unset Silent.
+specialize (Hid n).
