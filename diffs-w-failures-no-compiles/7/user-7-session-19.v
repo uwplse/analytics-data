@@ -268,5 +268,9 @@ Set Printing Width 148.
 Set Printing Width 148.
 (pose proof (match_ty_i_nf k t) as H).
 Show.
-auto with DBBetaJulia.
 Show.
+Set Printing Width 148.
+(intros v Hm; specialize (H v); tauto).
+Show.
+Qed.
+Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
