@@ -434,4 +434,7 @@ Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(apply match_ty_i_pair; [ eapply IHt1 | eapply IHt2 ]; etauto).
+(apply match_ty_i_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_i_union__inv in Hm).
+(destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]).
