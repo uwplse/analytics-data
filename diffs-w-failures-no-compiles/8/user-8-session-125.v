@@ -270,4 +270,4 @@ Show.
 Set Printing Width 85.
 Show.
 matrix_denote.
-Msimpl.
+restore_dims.
