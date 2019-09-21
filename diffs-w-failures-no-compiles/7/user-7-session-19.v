@@ -61,10 +61,9 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle).
-Unset Silent.
--
+Show.
 Set Printing Width 148.
-(apply match_ty_i_cname__inv in Hm; subst).
-reflexivity.
--
+(match goal with
+ | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; reflexivity
+ end).
+Show.
