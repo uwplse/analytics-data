@@ -131,4 +131,7 @@ Proof.
 Unset Silent.
 reflexivity.
 (unfold not_b_free_in_ty in *).
+Set Printing Width 148.
+(unfold not_b_free_in_ty, not_free in *).
 (simpl in HX).
+(intros Hcontra admit).
