@@ -426,4 +426,10 @@ Show.
 (intros Hm k' Hle).
 (inversion Hle; subst).
 Show.
-asumption.
+assumption.
+}
+Show.
+7: {
+idtac.
+Show.
+clear IHv.
