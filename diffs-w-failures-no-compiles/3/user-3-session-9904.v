@@ -90,4 +90,10 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(apply spec_abstraction_compose).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+(destruct a'; simpl in *; intuition).
