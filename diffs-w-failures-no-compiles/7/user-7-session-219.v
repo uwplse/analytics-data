@@ -15,10 +15,12 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   wf_ty tx ->
+  b_free_in_ty X t ->
   |-[ w] v <$ [BX := tx] t ->
   exists v' : ty,
     |-[ w] v' <$ [BX := TFVar X'] t /\
@@ -26,14 +28,18 @@ Lemma build_v_full :
      |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w'] v <$ [FX' := tx] t')).
 Proof.
 (intros X X' tx).
-(induction w; induction t; intros v Hwftx Hm).
+Unset Silent.
+(induction w; induction t; intros v Hwftx HX Hm).
+Set Silent.
 -
 (rewrite b_subst_cname in *).
 exists v.
 split.
 assumption.
 (apply match_ty_cname__inv in Hm; subst).
+Unset Silent.
 (induction w'; induction t'; intros Hm'; try (solve [ contradiction || tauto ])).
+Set Silent.
 +
 (rewrite f_subst_union).
 (apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
@@ -108,7 +114,9 @@ split.
 -
 admit.
 -
+Unset Silent.
 admit.
+Set Silent.
 -
 (destruct (beq_idP X i)).
 +
@@ -120,7 +128,9 @@ contradiction.
 subst.
 (rewrite b_subst_exist_neq in Hm; try assumption).
 (apply match_ty_exist__0_inv in Hm).
+Unset Silent.
 contradiction.
+Set Silent.
 -
 admit.
 -
@@ -135,4 +145,11 @@ admit.
 admit.
 -
 Unset Silent.
-Show.
+(destruct (beq_idP X i)).
++
+subst.
+(unfold b_free_in_ty, free in HX).
+(simpl in HX).
+Search -IdSet.remove.
+exfalso.
+(apply IdSetFacts.remove_1).
