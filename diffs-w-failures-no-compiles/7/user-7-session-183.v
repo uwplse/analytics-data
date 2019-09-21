@@ -105,4 +105,9 @@ Unset Silent.
 -
 subst.
 exists Y,t.
-(rewrite subst_exist_eq).
+Set Printing Width 148.
+(apply subst_exist_eq).
+-
+(destruct (IdSetProps.In_dec Y (FV s)) as [Hin| Hin]).
++
+(rewrite subst_equation).
