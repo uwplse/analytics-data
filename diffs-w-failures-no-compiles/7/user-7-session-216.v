@@ -434,4 +434,9 @@ Set Printing Width 148.
 admit.
 admit.
 -
+Show.
+Set Printing Width 148.
+(destruct (beq_idP X i)).
++
+subst.
 (simpl).
