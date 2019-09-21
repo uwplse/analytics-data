@@ -533,4 +533,28 @@ Timeout 1 Check @bytes.
 Timeout 1 Check @split.
 replace (length bs - length bs) with 0 by lia.
 Timeout 1 Check @log_size_ok.
-(simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @rec_wipe_compose.
+Set Printing Width 78.
+Show.
+reflexivity.
+-
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+(assert (a < length bs)).
+{
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @Zcomplements.Zlength_aux.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(rewrite length_app in *).
