@@ -553,4 +553,8 @@ Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
 Timeout 1 Check @proc_spec_weaken.
-(apply proc_spec_weaken).
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(eapply proc_spec_weaken).
