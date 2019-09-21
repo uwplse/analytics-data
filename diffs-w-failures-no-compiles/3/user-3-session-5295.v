@@ -656,4 +656,5 @@ intuition eauto.
 Unset Silent.
 step.
 (destruct r; try step).
+{
 (destruct (a == a0); simplify; finish).
