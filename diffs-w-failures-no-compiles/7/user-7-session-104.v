@@ -109,5 +109,8 @@ clear Heq.
 (inversion Heq; subst).
 clear Heq.
 Set Printing Width 148.
-(unfold sem_sub_k in Href).
-Show.
+Set Printing Width 148.
+(unfold sem_eq_k in Href).
+(destruct Href as [Href _]).
+specialize (Href 1).
+(destruct Href as [w Hsem]).
