@@ -97,5 +97,7 @@ Show.
 specialize (Href v Hv).
 (split; tauto).
 +
-(simpl).
 Show.
+Set Printing Width 148.
+(destruct k').
+(simpl).
