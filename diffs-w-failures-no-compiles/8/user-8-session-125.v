@@ -112,5 +112,11 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-autounfold with den_db.
-(simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+matrix_denote.
+Msimpl.
+(rewrite Mmult_assoc).
+(destruct (unitary_gate_unitary U) as [WFU inv]).
