@@ -434,8 +434,22 @@ Unset Silent.
   end).
 Set Silent.
 -
-(intros c k Hdep t2).
+Set Printing Width 148.
+(intros c Hdep t2).
 (assert (Hva : value_type (TCName c)) by constructor).
-Unset Silent.
 (assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
+Show.
+Set Silent.
++
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+-
+Unset Silent.
+Show.
+admit.
+Set Silent.
+-
+Unset Silent.
+Show.
+(intros).
