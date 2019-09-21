@@ -93,6 +93,8 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Silent.
 Definition mk_subst_exist (x : id) (y : id) (t ts : ty) := TExist y (if beq_id x y then t else ts).
+Set Printing Width 148.
+Set Silent.
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
@@ -107,29 +109,5 @@ Function
    | TEV y => t
    end.
 Proof.
+Unset Silent.
 all: (try (intros; simpl; Omega.omega)).
-Set Printing Width 148.
-Set Silent.
--
-(intros).
-(simpl).
-Unset Silent.
-(rewrite rename__size).
-Set Silent.
-Omega.omega.
--
-(apply (well_founded_lt_compat ty size)).
-(intros).
-tauto.
-Unset Silent.
-Defined.
-Set Silent.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
-Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
-Unset Silent.
-Proof.
-(intros X s t1 t2).
-Check subst_equation.
-Set Printing Width 148.
-(apply subst_equation).
-Qed.
