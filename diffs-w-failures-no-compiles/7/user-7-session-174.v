@@ -90,7 +90,7 @@ Qed.
 Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
 Set Printing Width 148.
 Function
- subst (x : id) (s t : ty) {wf lt size} : ty :=
+ subst (x : id) (s t : ty) {measure size t : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
