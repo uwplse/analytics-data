@@ -35,10 +35,10 @@ symmetry in e.
 contradiction.
 -
 assumption.
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fresh_in_ty X t -> |-[ w] v <$ t -> |-[ w] v <$ [X := s] t.
-Set Printing Width 148.
+Proof.
 (intros X s; induction w; induction t; intros v HX Hm;
   try (solve
    [ rewrite subst_cname in *; assumption
@@ -48,26 +48,21 @@ Set Printing Width 148.
       [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto
    | pose proof (fresh_in_ty_var__neq _ _ HX) as HXi; rewrite subst_var_neq; assumption
    | rewrite subst_ev in *; assumption ])).
-Show.
-Set Silent.
 -
 (apply match_ty_exist__0_inv in Hm; contradiction).
-Unset Silent.
 -
 (rewrite subst_equation).
-Set Printing Width 148.
-Set Printing Width 148.
 (destruct (beq_idP X i) as [HXi| HXi]; try assumption).
-Show.
 (destruct (IdSet.mem i (FV s))).
 +
 (remember (gen_fresh (IdSet.union (FV s) (IdSet.add X (FV t)))) as z).
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
 (apply match_ty_exist).
+Unset Silent.
 exists ti.
-Abort.
 Set Silent.
+Abort.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   |-[ w] v <$ [X := tx] t ->
@@ -94,3 +89,13 @@ assumption.
 (destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
 Unset Silent.
 (apply match_ty_union_1; auto).
+(apply match_ty_union_1).
+admit.
+*
+admit.
+*
+admit.
++
+admit.
++
+(apply match_ty_exist__iv in Hm').
