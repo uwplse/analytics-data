@@ -445,5 +445,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(apply log_contents_ok_unchanged; eauto).
-Timeout 1 Check @log_size_ok.
+Unset Silent.
+Set Diffs "off".
