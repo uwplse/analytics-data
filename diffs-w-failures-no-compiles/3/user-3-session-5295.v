@@ -263,4 +263,5 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(destruct (lt_dec a' (diskSize d_0)); autorewrite with upd).
+Unset Silent.
+Set Diffs "off".
