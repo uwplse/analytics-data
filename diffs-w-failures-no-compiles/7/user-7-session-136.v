@@ -17,4 +17,6 @@ Unset Silent.
 Lemma sem_sub__sem_eq : forall t t' : ty, ||- [t]<= [t'] -> ||- [t']<= [t] -> ||- [t]= [t'].
 Proof.
 (intros t t' Hsem1 Hsem2 k).
-(simpl).
+Show.
+Set Printing Width 148.
+(unfold sem_eq_k).
