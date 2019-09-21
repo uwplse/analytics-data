@@ -134,4 +134,6 @@ Set Printing Width 148.
 6: {
 idtac.
 Show.
-(unfold sem_sub_k_i).
+Set Printing Width 148.
+(unfold sem_sub_k_i in *).
+Show.
