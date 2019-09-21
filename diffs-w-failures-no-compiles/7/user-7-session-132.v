@@ -104,14 +104,4 @@ exists w1.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [tx Heq]; subst).
 (destruct w1; simpl; tauto).
--
-(apply match_ty_ref__inv in Hm).
-Set Printing Width 148.
-(apply match_ty_ref).
-Show.
-Set Printing Width 148.
-(apply sem_eq_k__trans with t).
-Show.
-assumption.
-Show.
 Show.
