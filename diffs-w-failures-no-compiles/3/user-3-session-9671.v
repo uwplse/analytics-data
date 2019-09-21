@@ -637,8 +637,8 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 68.
 Show.
-(exists bs; intuition).
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 68.
+Show.
+(exists []; intuition).
