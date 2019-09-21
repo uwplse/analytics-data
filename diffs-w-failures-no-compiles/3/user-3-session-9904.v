@@ -173,4 +173,29 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(right; intuition congruence).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(right; intuition).
+Timeout 1 Check @spec_abstraction_compose.
+Set Silent.
+{
+Unset Silent.
+congruence.
+}
+Timeout 1 Check @sig.
+(simpl).
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @statdb_abstraction.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold statdb_abstraction in *).
