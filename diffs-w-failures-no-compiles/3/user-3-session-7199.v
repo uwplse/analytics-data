@@ -563,6 +563,9 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(rewrite ?app_length in *; simpl).
-Timeout 1 Check @split.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite ?app_length in *; simpl in *).
 lia.
