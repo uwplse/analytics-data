@@ -222,6 +222,10 @@ Set Printing Width 51.
 Show.
 -
 (simpl).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 51.
+Show.
 (assert (H1 : m * S n' = m + m * n')).
 {
 (induction m as [| m' IHm']).
@@ -229,8 +233,3 @@ Show.
 (simpl).
 reflexivity.
 -
-(simpl).
-(rewrite IHm').
-(rewrite plus_swap).
-reflexivity.
-}
