@@ -2801,4 +2801,5 @@ Show.
 split.
 easy.
 (apply pf_merge).
-easy.
+Unset Silent.
+Show.
