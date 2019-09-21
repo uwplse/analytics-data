@@ -1025,7 +1025,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 remember_differences.
-Timeout 1 About remember_differences.
-Timeout 1 Print remember_differences.
-Timeout 1 Print Ltac remember_differences.
