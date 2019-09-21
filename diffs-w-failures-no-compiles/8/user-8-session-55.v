@@ -965,5 +965,8 @@ Example move_to_0_test_24 :
 Proof.
 (intros q0 q1 q2 q3 WF0 WF1 WF2 WF3).
 (unfold move_to_0, move_to_0_aux).
-(repeat rewrite Mmult_assoc).
 Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(repeat rewrite Mmult_assoc).
