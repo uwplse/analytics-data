@@ -78,4 +78,4 @@ Proof.
 (intros).
 vector_denote.
 Set Silent.
-(destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
+Unset Silent.
