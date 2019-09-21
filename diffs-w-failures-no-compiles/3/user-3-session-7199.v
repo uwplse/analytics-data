@@ -581,4 +581,17 @@ Set Printing Width 78.
 Show.
 Timeout 1 Check @firstn_length.
 Timeout 1 Check @firstn_length.
-autorewrite with upd length in *.
+(rewrite ?app_length in *; simpl in *).
+autorewrite with upd.
+lia.
++
+Timeout 1 Check @addr.
+admit.
++
+Timeout 1 Check @addr.
+admit.
++
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @nodup.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+autorewrite with upd in *.
