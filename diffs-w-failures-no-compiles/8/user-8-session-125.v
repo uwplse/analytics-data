@@ -122,5 +122,8 @@ Show.
 Set Printing Width 85.
 Show.
 (unfold apply_U; simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 Msimpl.
-(rewrite Mmult_assoc).
