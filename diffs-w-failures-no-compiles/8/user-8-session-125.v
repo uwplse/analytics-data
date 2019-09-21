@@ -184,4 +184,8 @@ Msimpl.
 (rewrite Mmult_assoc).
 Unset Silent.
 easy.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 2: (subst; rewrite size_wtype_length; easy).
