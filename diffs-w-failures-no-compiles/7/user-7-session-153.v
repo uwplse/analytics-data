@@ -17,17 +17,23 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
-Lemma build_v : forall (X X' : id) (w : nat) (tx v t : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t.
+Lemma build_v : forall (X X' : id) (w : nat) (tx t v : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t.
 Proof.
-(intros X X' w tx v t).
-(induction t; intros Hm).
+(intros X X' w tx t).
 Unset Silent.
+(induction t; intros v Hm).
+Set Silent.
 -
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
 exists (TCName c).
+Unset Silent.
 (apply match_ty_cname).
+Set Silent.
 -
+Unset Silent.
+Show.
+(simpl in Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(destruct (IHt1 _ Hm1) as [v1' Hm1']).
