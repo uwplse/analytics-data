@@ -489,4 +489,5 @@ Set Printing Width 148.
 Set Silent.
 +
 Unset Silent.
-(destruct IHt'1 as [IH1| IH1]; destruct IHt'2 as [IH2| IH2]).
+Set Printing Width 148.
+(destruct IHt'1 as [IH1| IH1]; destruct IHt'2 as [IH2| IH2]; try assumption).
