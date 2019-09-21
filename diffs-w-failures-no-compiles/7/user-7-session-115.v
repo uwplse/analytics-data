@@ -22,6 +22,6 @@ Proof.
 (induction t; intros Hfresh s; try (solve [ reflexivity ])).
 -
 (simpl).
-Unset Silent.
-(unfold fresh_in_ty in *).
+Set Printing Width 148.
+(unfold fresh_in_ty, fresh in *).
 Show.
