@@ -80,5 +80,46 @@ Timeout 1 Check @VarMap.t.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @CompSpec2Type.
 Timeout 1 Check @CompSpec2Type.
+Timeout 1 Check @List.forallb.
+Timeout 1 Check @VarMap.t.
 Inductive Marker : String.string -> Type :=
-    mark : _.
+    mark : forall s, Marker s.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqEPAVnL"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfqp9p0"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Timeout 1 Check @Marker.
+Theorem proc_spec_rx :
+  forall `(spec : Specification A T R State) `(p : proc T) 
+    `(rec : proc R) `(rx : T -> proc T')
+    `(spec' : Specification A' T' R State) `(abs : Abstraction State),
+  proc_spec spec p rec abs ->
+  (forall a' state,
+   pre (spec' a' state) ->
+   exists a,
+     pre (spec a state) /\
+     (forall r state',
+      recovered (spec a state) r state' ->
+      Marker "recovered condition" -> recovered (spec' a' state) r state') /\
+     (forall r,
+      Marker "post condition" ->
+      proc_spec
+        (fun (_ : unit) state' =>
+         {|
+         pre := post (spec a state) r state';
+         post := fun r state'' => post (spec' a' state) r state'';
+         recovered := fun r state'' => recovered (spec' a' state) r state'' |})
+        (rx r) rec abs)) -> proc_spec spec' (Bind p rx) rec abs.
