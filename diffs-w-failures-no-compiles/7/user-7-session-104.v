@@ -205,5 +205,9 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Unset Silent.
+Set Printing Width 148.
+Set Silent.
 Lemma not_sem_eq__reft_t : forall (k : nat) (t : ty), | t | <= k -> ~ ||-[ S k][TRef t]= [t].
+Unset Silent.
+Proof.
+Show.
