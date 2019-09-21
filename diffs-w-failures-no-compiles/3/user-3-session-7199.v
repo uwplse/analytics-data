@@ -522,4 +522,10 @@ Timeout 1 Check @app_nth1.
 Timeout 1 Check @app_nth1.
 Timeout 1 Check @app_nth1.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(rewrite app_nth1 in H).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @bytes.
+Timeout 1 Check @split.
+Set Printing Width 78.
+Show.
+(rewrite app_nth1 in H by lia).
