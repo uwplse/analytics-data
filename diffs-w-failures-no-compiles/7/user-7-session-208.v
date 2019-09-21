@@ -255,7 +255,20 @@ Lemma f_subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), [FX := s] TExi
 Proof.
 (intros).
 reflexivity.
+Set Printing Width 148.
+Set Silent.
+Lemma f_subst_fvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [FX := s] TFVar Y = TFVar Y.
+Proof.
+(intros X s Y Hneq).
+(simpl).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
+(simpl).
+(rewrite Hid).
+reflexivity.
+Unset Silent.
 Qed.
+Set Silent.
 Lemma f_subst_not_b_free_in_ty : forall (X : id) (t : ty), not_f_free_in_ty X t -> forall s : ty, [FX := s] t = t.
 Proof.
 (intros X t).
@@ -265,19 +278,15 @@ Proof.
    | try destruct (not_f_free_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]; try destruct (not_f_free_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; simpl;
       rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
 -
-Unset Silent.
 (rewrite f_subst_exist).
 (apply not_f_free_in_ty_exist__inv in HX).
 (rewrite IHt).
 reflexivity.
 assumption.
-Set Silent.
 -
-Unset Silent.
 (destruct (beq_idP X i)).
 +
 subst.
-Set Printing Width 148.
 (unfold not_f_free_in_ty, not_free in HX).
 (simpl in HX).
 exfalso.
@@ -286,3 +295,7 @@ exfalso.
 reflexivity.
 +
 subst.
+Unset Silent.
+(rewrite f_subst_fvar_neq; try assumption).
+reflexivity.
+Qed.
