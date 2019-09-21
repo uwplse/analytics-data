@@ -1420,4 +1420,8 @@ Show.
 Set Printing Width 85.
 Show.
 (unfold denote_box; simpl).
-(rewrite add_fresh_split).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(rewrite add_fresh_split; simpl).
