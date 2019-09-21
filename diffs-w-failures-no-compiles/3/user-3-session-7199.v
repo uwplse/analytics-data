@@ -241,4 +241,31 @@ Proof.
 (descend; intuition eauto).
 (unfold log_abstraction in H0; intuition).
 (pose proof (H1 a); intuition).
-eq_values.
+Print eq_values.
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @diskGet_eq_values.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @nth.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block0.
+(assert (v = nth a bs block0)).
+(eapply diskGet_eq_values).
