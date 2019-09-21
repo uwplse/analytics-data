@@ -414,13 +414,13 @@ specialize (Hsem _ Hm).
 (apply IHk; try assumption).
 (destruct Hdep as [Hdep| Hdep]; [ left | right ]; apply le_S_n; assumption).
 (intros v').
-specialize (Hsem v').
-tauto.
-Qed.
-Lemma sem_sub_k_i_nf__inv_depth_le_1 : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Set Printing Width 148.
 Set Silent.
+Lemma sem_sub_k_i_nf__inv_depth_le_1 : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
 (intros).
-Unset Silent.
 (apply sem_sub_k_i_nf__inv_depth_le with k; tauto).
+Unset Silent.
 Qed.
+Set Silent.
+Lemma sem_sub_k_i_nf__inv_depth_le_2 : forall (k : nat) (t t' : ty), InNF( t) -> | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
