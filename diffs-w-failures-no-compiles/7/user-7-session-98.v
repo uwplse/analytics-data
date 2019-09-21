@@ -148,5 +148,9 @@ Show.
 Set Printing Width 148.
 (apply match_ty_exist).
 Show.
+Show.
+Set Printing Width 148.
 exists tx.
+Show.
+(simpl).
 Show.
