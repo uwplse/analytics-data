@@ -245,13 +245,8 @@ Theorem equal_after_diskUpd :
   equal_after (S a) d_0 d_1 ->
   equal_after a (diskUpd d_0 a b) (diskUpd d_1 a b).
 Proof.
-(unfold equal_after; intuition).
-Unset Silent.
--
-(autorewrite with upd; eauto).
--
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(apply le_eq_or_S_le in H1; intuition subst).
+(unfold equal_after; intuition).
