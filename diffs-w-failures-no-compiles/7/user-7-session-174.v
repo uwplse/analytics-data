@@ -150,8 +150,5 @@ Print lt_wf.
 Set Printing Width 148.
 Set Printing Width 148.
 (unfold well_founded).
-(intros t; induction t; constructor; intros k Hk).
-+
 Set Printing Width 148.
-(inversion Hk; subst).
-Search -Acc.
+(intros t; induction t; constructor; induction t'; intros H).
