@@ -214,5 +214,5 @@ Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @eq_existT_curried.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(exists s; intuition).
-Timeout 1 Check @eq_existT_curried.
+Unset Silent.
+Set Diffs "off".
