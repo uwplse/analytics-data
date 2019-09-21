@@ -216,4 +216,9 @@ Set Diffs "off".
 Timeout 1 Check @sig.
 Set Printing Width 78.
 Show.
-(destruct a' as [_ bs]; simpl in *).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(destruct a' as [_ bs]; simpl in *; intuition).
