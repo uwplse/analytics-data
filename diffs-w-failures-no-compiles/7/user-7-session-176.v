@@ -156,5 +156,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst;
-  destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]).
+  destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]; apply match_ty_pair; tauto).
+Show.
