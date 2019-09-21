@@ -700,4 +700,17 @@ Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
 (unfold append; intros).
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(apply spec_abstraction_compose).
 step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+Timeout 1 Check @spec_abstraction_compose.
