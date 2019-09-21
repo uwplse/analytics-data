@@ -174,4 +174,4 @@ Set Silent.
 -
 Unset Silent.
 (intros Hm).
-(simpl).
+Show.
