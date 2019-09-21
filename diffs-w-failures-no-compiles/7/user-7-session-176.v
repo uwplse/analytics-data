@@ -170,7 +170,11 @@ Show.
 Show.
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
++
 (rewrite (subst_equation X sx) in Hm).
-Show.
+Unset Silent.
 (destruct (IdSet.mem i (FV sx))).
-Show.
+(unfold mk_subst_exist in Hm).
+(rewrite (subst_equation Y sy) in Hm).
