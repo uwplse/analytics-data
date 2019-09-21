@@ -101,5 +101,19 @@ Show.
 (destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]).
 Show.
 Set Printing Width 148.
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto).
+Set Printing Width 148.
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 Show.
+-
+Show.
+(apply match_ty_ref__weak_inv in Hm).
+Show.
+(destruct Hm as [t' Heq]).
+(inversion Heq).
+Show.
+-
+Show.
+(destruct w).
++
+Show.
+(apply match_ty_ref__0_inv in Hm; contradiction).
