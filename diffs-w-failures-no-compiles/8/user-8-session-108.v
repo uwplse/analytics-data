@@ -217,9 +217,12 @@ Proof.
 Qed.
 Definition denote_isometry_box {W} {W'} (c : Box W W') :=
   denote_iso_db_box (hoas_to_db_box c).
+Unset Silent.
+Set Printing Width 85.
+Set Silent.
 Lemma denote_unitary_isometry_box_eq :
   forall W (c : Box W W),
-  Unitary_Box c -> denote_unitary_box c = denote_isometry_box c.
+  Unitary_Box c -> denote_unitary_box c == denote_isometry_box c.
 Proof.
 (intros W [f] pf).
 (unfold Unitary_Box in pf).
@@ -233,4 +236,31 @@ clear Heqc f p.
 -
 (unfold denote_iso_db_box, denote_u_db_box).
 (simpl).
+(rewrite pad_nothing).
+reflexivity.
+-
+dependent destruction pf.
+(simpl in *).
 Unset Silent.
+(rewrite H0; easy).
+Set Silent.
+-
+Unset Silent.
+(inversion pf).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coquJXjKx"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Set Silent.
+Lemma denote_isometry_box_eq :
+  forall W W' (c : Box W W') \207\129,
+  Isometry_Box c ->
+  denote_box false c \207\129 = denote_isometry_box c \195\151 \207\129 \195\151 (denote_isometry_box c) \226\128\160.
+Proof.
+(intros W W' [f] \207\129 pf).
+(simpl in pf).
+(unfold denote_isometry_box, denote_box).
+(unfold denote_db_box).
+(unfold hoas_to_db_box).
+Unset Silent.
+Abort.
