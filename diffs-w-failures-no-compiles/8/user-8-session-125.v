@@ -103,5 +103,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(intros).
-(rewrite Heqli in H).
+Unset Silent.
+Show.
