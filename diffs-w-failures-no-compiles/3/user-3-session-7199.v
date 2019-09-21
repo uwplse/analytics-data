@@ -597,20 +597,8 @@ step_proc.
 Unset Silent.
 step_proc.
 Timeout 1 Check @spec_abstraction_compose.
-step_proc.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-intuition eauto.
-Timeout 1 Check @split.
 Unset Silent.
 Set Diffs "off".
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
-Set Silent.
-{
-lia.
-}
-Unset Silent.
 step_proc.
