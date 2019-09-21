@@ -148,11 +148,8 @@ Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
-(erewrite DC with (\206\1471 := [])).
-(simpl).
-(unfold compose_super).
 Unset Silent.
 Show.
 Set Printing Width 131.
 Show.
-(rewrite H2, H3).
+(erewrite DC with (\206\1471 := []) (\206\14701 := \226\136\133)).
