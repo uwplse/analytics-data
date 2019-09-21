@@ -165,10 +165,15 @@ Show.
 Set Printing Width 148.
 (apply match_ty_union__inv in Hm).
 Set Printing Width 148.
+Show.
+Set Printing Width 148.
 (destruct Hm as [Hm| Hm]).
 Show.
-Set Silent.
 -
+Show.
 (destruct w1).
+Show.
+Set Silent.
+(apply match_ty_exist__0_inv in Hm).
 Unset Silent.
-(v Hm).
+contradiction.
