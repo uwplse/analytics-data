@@ -109,4 +109,6 @@ Set Silent.
 exists w1.
 Unset Silent.
 Set Printing Width 148.
-tauto.
+Show.
+auto.
+Show.
