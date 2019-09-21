@@ -238,4 +238,6 @@ Set Printing Width 148.
      end ])).
 -
 Set Printing Width 148.
-(destruct (match_ty_i_exists t1 0) as [v1 Hm1]; destruct (match_ty_i_exists t2 0) as [v2 Hm2]).
+Show.
+Set Printing Width 148.
+(inversion Hnft; subst).
