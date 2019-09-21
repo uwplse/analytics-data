@@ -769,22 +769,11 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(exists (bs ++ v); intuition eauto).
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction.
-Timeout 1 Check @log_abstraction_nil.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @repeat_length.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @div_eucl_th.
 Set Printing Width 78.
 Show.
-(eapply log_abstraction_commit; eauto).
+(exists bs; intuition euato).
