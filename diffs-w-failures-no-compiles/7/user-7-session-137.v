@@ -30,4 +30,12 @@ Unset Silent.
 (intros w1).
 exists w1.
 (intros v Hm).
+Set Printing Width 148.
+Set Silent.
 (destruct w1).
+Unset Silent.
+(apply match_ty_exist__0_inv in Hm; contradiction).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
+(apply match_ty__ge_w; assumption).
