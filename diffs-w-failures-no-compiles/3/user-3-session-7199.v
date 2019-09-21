@@ -505,9 +505,14 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @abstr.
 Set Printing Width 78.
 Unset Silent.
+Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @unit.
+Timeout 1 Check @True.
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
+Set Silent.
 Theorem get_len_ok :
   proc_spec
     (fun bs state =>
@@ -516,130 +521,16 @@ Theorem get_len_ok :
      post := fun r state' => state' = state /\ r = length bs;
      recovered := fun _ state' => state' = state |}) get_len recover d.abstr.
 Proof.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
+(unfold get_len; intros).
+step_proc.
+step_proc.
 eauto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDxj4HU"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Set Silent.
-Hint Resolve get_len_ok: core.
-Theorem log_size_bound d bs a :
-  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
-Proof.
-(unfold log_size_ok, log_addr; intros; lia).
-Qed.
-Hint Resolve log_size_bound: core.
-Theorem get_at_ok a :
+Unset Silent.
+Theorem get_len_abstr_ok :
   proc_spec
-    (fun (_ : unit) state =>
+    (fun _ state =>
      {|
-     pre := a < length state;
-     post := fun r state' => state' = state /\ nth a state block0 = r;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Proof.
-(unfold get_at; intros).
-Unset Silent.
-(apply spec_abstraction_compose).
-(simpl).
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intros).
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
-(descend; intuition eauto).
-(descend; intuition eauto).
-(unfold log_abstraction in H0; intuition).
-(pose proof (H3 a); intuition).
-(assert (v = nth a bs block0)).
-(eapply diskGet_eq_values; eauto).
-auto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmLSIKh"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Hint Resolve get_at_ok: core.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
-Proof.
-(unfold rec_wipe; simpl; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a as [_ bs]; simpl in *; intuition eauto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqiannE"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Hint Resolve recover_wipe: core.
-Lemma firstn_one_more :
-  forall (a : nat) (d : list block),
-  S a <= length d -> firstn a d ++ [nth a d block0] = firstn (S a) d.
-Proof.
-Set Silent.
-Set Silent.
-Set Silent.
-(intros).
-generalize dependent a.
-(induction d; simpl; intros).
--
-(exfalso; lia).
--
-(destruct a0; simpl in *; auto).
-(rewrite IHd by lia; auto).
-Qed.
-Opaque firstn.
-Theorem get_upto_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a <= length state;
-     post := fun r state' => state' = state /\ r = firstn a state;
-     recovered := fun _ state' => state' = state |}) 
-    (get_upto a) recover abstr.
-Proof.
-(induction a; simpl).
--
-step_proc.
--
-step_proc.
-step_proc.
-Unset Silent.
-intuition eauto.
-Set Silent.
-{
-lia.
-}
-step_proc.
-auto using firstn_one_more.
-Qed.
-Hint Resolve get_upto_ok: core.
-Theorem get_ok : proc_spec get_spec get recover abstr.
-Proof.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Show.
-(unfold get, get_spec; intros).
-Timeout 1 Check @app.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
+     pre := True;
+     post := fun r state' => state' = state /\ r = length state;
+     recovered := fun _ state' => state' = state |}) get_len recover abstr.
