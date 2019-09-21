@@ -692,4 +692,5 @@ Set Printing Width 78.
 Show.
 -
 (unfold log_length_ok in *; intros).
-(assert (len_addr < diskSize d') by eauto).
+Unset Silent.
+Set Diffs "off".
