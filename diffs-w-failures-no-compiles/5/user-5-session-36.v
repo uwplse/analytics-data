@@ -266,5 +266,10 @@ clear H.
 (destruct H).
 (erewrite evalBoolConst in H0).
 (rewrite <- evalEqTrue in H0).
-(assert (x0 = 3) by admit).
+(assert (x0 = 3%Z) by admit).
+subst.
+(rewrite evalVar in H).
+(rewrite extendEnv_eq in H).
+(rewrite H).
+(apply evalIntConst).
 Unset Silent.
