@@ -1026,4 +1026,9 @@ Set Printing Width 85.
 Show.
 (rewrite Nat.pow_add_r, <- (Nat.mul_1_r (2 ^ i))).
 (intros \207\129).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+Msimpl.
