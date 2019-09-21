@@ -264,5 +264,10 @@ Set Printing Width 78.
 Show.
 (unfold statdb_abstraction in *; simpl in *).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-intuition.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Set Printing Width 78.
+Show.
+intuition congruence.
 +
