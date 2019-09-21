@@ -71,6 +71,7 @@ specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
 Proof.
@@ -97,99 +98,5 @@ clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 Unset Silent.
 (destruct Hm as [t' [Heq Href]]; subst).
-Set Silent.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
-Proof.
-(intros v Hv; induction Hv; intros k).
 Show.
-Set Silent.
--
-Unset Silent.
-(destruct k; reflexivity).
--
-Set Printing Width 148.
-(apply match_ty_i_pair; auto).
--
-Show.
-(destruct k).
-constructor.
-(simpl).
-tauto.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
-Lemma match_ty_i_eq__inv_depth_eq :
-  forall t t' : ty, (forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-(induction t; induction t'; intros H; try reflexivity;
-  try (solve
-   [ match goal with
-     | |- | ?t1 | = | ?t2 | =>
-           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-             (H 0 _ Hv); destruct H as [H _]; specialize (H Hm); contradiction) ||
-             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-               (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
-     end ])).
-Show.
-Set Printing Width 148.
-Show.
-Show 3.
-Set Printing Width 148.
-9: {
-idtac.
-Set Silent.
-clear IHt'.
-(simpl).
-(apply f_equal).
-(apply IHt).
-(intros k v Hv).
-(assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
-specialize (H (S k) (TRef t)).
-(destruct H as [H _]).
-constructor.
-specialize (H Hmt).
-(apply match_ty_i_ref__inv in H).
-(destruct H as [tx [Heq Href]]).
-(inversion Heq; subst).
-auto.
-Unset Silent.
-}
-Abort.
-Set Silent.
-Lemma match_ty_i__inv_depth_stable :
-  forall (k k' : nat) (t : ty),
-  inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, inv_depth v <= k -> inv_depth v <= k' -> |-[ k] v <$ t <-> |-[ k'] v <$ t.
-Proof.
-(induction k; induction k').
--
-tauto.
--
-admit.
--
-admit.
--
-(induction t).
-admit.
-admit.
-admit.
-+
-clear IHk' IHt.
-(intros Htk Htk' v Hvk Hvk').
-(simpl in Htk, Htk').
-(apply le_S_n in Htk).
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv);
-  simpl in Hvk, Hvk'; apply le_S_n in Hvk; apply le_S_n in Hvk').
 Show.
