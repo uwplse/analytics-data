@@ -152,4 +152,6 @@ Proof.
 Unset Silent.
 Show.
 (apply match_ty_exist__0_inv in Hm).
-(simpl).
+Show.
+Set Printing Width 148.
+(destruct v; simpl).
