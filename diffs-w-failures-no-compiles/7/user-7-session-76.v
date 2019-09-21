@@ -9,7 +9,9 @@ Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
-Require Import BetaJulia.Sub0250a.MatchProps.
+Set Printing Width 148.
+Set Silent.
+Require Import BetaJulia.Sub0250a.SemSubProps.
 Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
 Require Import BetaJulia.Sub0250a.AltMatchProps.
@@ -74,5 +76,4 @@ Proof.
 (apply mk_nf__in_nf).
 (eapply sem_sub__trans; try eassumption).
 Unset Silent.
-Show.
 (apply mk_nf__sem_sub_k_l).
