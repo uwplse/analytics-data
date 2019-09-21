@@ -1233,4 +1233,8 @@ Show.
 Set Printing All.
 Show.
 gen \207\129.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 subst.
