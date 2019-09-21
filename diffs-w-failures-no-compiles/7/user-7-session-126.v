@@ -112,5 +112,6 @@ Proof.
 Set Printing Width 148.
 (intros X t; induction t; try reflexivity).
 Set Printing Width 148.
-(simpl).
-auto.
+Set Printing Width 148.
+-
+(rewrite IHt1).
