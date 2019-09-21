@@ -96,4 +96,6 @@ Proof.
 eauto.
 }
 (simpl in *; intuition subst).
+{
 (eexists; intuition auto).
+}
