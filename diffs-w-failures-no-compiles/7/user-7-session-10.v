@@ -270,4 +270,16 @@ Set Silent.
 (pose proof (mk_nf__in_nf (TPair t1 t2)) as Hnf1).
 Unset Silent.
 (pose proof (mk_nf__in_nf (TPair t1' t2')) as Hnf2).
-(pose proof (sub_r_nf__trans2 _ _ Hsub1 Hnf1 Hnf2) as Htrans).
+Show.
+(pose proof (sub_r_nf__trans2 _ _ Hsub Hnf1 Hnf2) as Htrans).
+(destruct Htrans as [_ Htrans]).
+(apply Htrans; assumption).
+Set Silent.
+-
+Unset Silent.
+Show.
+Set Silent.
+(destruct IHHsub1 as [IHHsub11 IHHsub12]).
+(destruct IHHsub2 as [IHHsub21 IHHsub22]).
+Unset Silent.
+(split; intros tx Hsub').
