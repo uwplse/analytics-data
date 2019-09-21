@@ -30,4 +30,6 @@ Unset Silent.
 Set Printing Width 114.
 Unset Silent.
 Set Printing Width 114.
+Unset Silent.
+Set Printing Width 114.
 Eval compute in Str_nth 10 (map print_id (fib 0 1)).
