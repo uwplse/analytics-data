@@ -173,8 +173,5 @@ Set Printing Width 85.
 Show.
 (rewrite inv by (subst; rewrite size_wtype_length; easy)).
 Set Silent.
-Msimpl.
-Unset Silent.
-Show.
 Unset Silent.
 Show.
