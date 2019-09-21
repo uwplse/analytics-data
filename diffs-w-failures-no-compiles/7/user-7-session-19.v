@@ -4,6 +4,7 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -65,13 +66,9 @@ reflexivity.
 (intros v' Hv').
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Silent.
+Qed.
 Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
 Proof.
-Unset Silent.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
   try
    match goal with
@@ -80,24 +77,5 @@ Unset Silent.
    | |- |-[ ?k'] ?v <$ TUnion _ _ =>
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
-Set Silent.
 -
-Unset Silent.
 (destruct v; contradiction).
-Set Silent.
--
-Unset Silent.
-Show.
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(inversion Hle; subst).
-+
-(simpl).
-(intros v Hv).
-specialize (Href v Hv).
-(split; tauto).
-+
-Show.
-Set Printing Width 148.
-(destruct k').
-(simpl).
