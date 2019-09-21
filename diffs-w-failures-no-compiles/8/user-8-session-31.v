@@ -2831,6 +2831,5 @@ Show.
 Set Printing Width 85.
 Show.
 dependent destruction t.
-(apply singleton_equiv in s; subst).
 Unset Silent.
 Show.
