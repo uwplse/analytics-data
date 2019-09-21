@@ -219,4 +219,9 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (apply mixed_unitary; trivial).
+(rewrite kron_1_r').
