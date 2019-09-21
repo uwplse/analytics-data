@@ -78,4 +78,6 @@ Proof.
 Show.
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
+admit.
 admit.
