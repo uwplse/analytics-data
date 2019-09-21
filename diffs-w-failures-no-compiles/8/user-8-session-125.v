@@ -143,6 +143,8 @@ specialize (denote_ctrls_unitary W _ U _ L) as inv.
 replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by (subst; easy).
 Set Silent.
 (unfold apply_U, apply_unitary, super).
-(destruct W; try (solve [ inversion HeqW ])).
 Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(rewrite denote_ctrls_transpose).
