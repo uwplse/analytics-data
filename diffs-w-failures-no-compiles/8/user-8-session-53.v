@@ -950,3 +950,11 @@ Proof.
 (intros b m i Lt \207\129 safe M).
 (simpl).
 (simpl_rewrite id_circ_spec; auto with wf_db).
+Unset Silent.
+Set Printing Width 84.
+Show.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqm7FDzo"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+(simpl_rewrite id_circ_spec; auto with wf_db).
