@@ -255,14 +255,18 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-Set Silent.
-Lemma ty_empty__subs_ty_empty :
-  forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
 Set Printing Width 148.
 Set Silent.
-(induction t; intros k w Hnotm X s Hcontra).
+Lemma ty_empty__subs_ty_empty :
+  forall (w : nat) (t : ty) (k : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
+Proof.
+Unset Silent.
+(induction w; induction t; intros k Hnotm X s Hcontra).
+Set Silent.
 -
+Unset Silent.
 (apply Hnotm; assumption).
+Set Silent.
 -
 (simpl in Hcontra).
 (destruct Hcontra as [v Hcontra]).
@@ -270,32 +274,3 @@ Set Silent.
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 subst.
 (assert (Hcontra : ~ (exists v1 : ty, |-[ k, w] v1 <$ t1) \/ ~ (exists v2 : ty, |-[ k, w] v2 <$ t2))).
-{
-(assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
-{
-(intros [[v'1 Hcontra'1] [v'2 Hcontra'2]]).
-(apply Hnotm).
-exists (TPair v'1 v'2).
-(apply match_ty_pair; assumption).
-}
-admit.
-Set Printing Width 148.
-Set Printing Width 148.
-(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]; [ apply IHt1 | apply IHt2 ];
-  eauto).
-Show.
--
-Show.
-admit.
--
-Show.
-Show.
-Set Printing Width 148.
-(apply Hnotm).
-Show.
-exists (TRef t).
-Show.
-(apply match_ty_value_type__reflexive; constructor).
-Show.
--
-Show.
