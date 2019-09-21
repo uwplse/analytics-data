@@ -187,6 +187,8 @@ Show.
 Set Printing Width 85.
 Show.
 Set Silent.
-{
 Unset Silent.
-(inversion HeqW).
+Show.
+Set Printing Width 85.
+Show.
+(inversion HeqW; subst).
