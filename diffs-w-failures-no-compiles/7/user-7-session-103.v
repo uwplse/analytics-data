@@ -29,4 +29,25 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct k, w; destruct v; left; assumption).
+Set Printing Width 148.
+(destruct k, w, v; left; assumption).
+Set Silent.
+Qed.
+Lemma match_ty_union_2 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t2 -> |-[ k, w] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 k w Hm).
+Unset Silent.
+(destruct k, w, v; right; assumption).
+Set Silent.
+Qed.
+Unset Silent.
+Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (k w : nat), (exists tx : ty, |-[ k, w] v <$ [X := tx] t) -> |-[ k, S w] v <$ TExist X t.
+Proof.
+(intros v X t k w Hex).
+(destruct k, v; assumption).
+Qed.
+Set Silent.
+Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k w : nat), |-[ k, w] v <$ TCName c -> v = TCName c.
+Proof.
+Unset Silent.
+(intros v; destruct v; try (solve [ intros c k w Hm; destruct k, w; contradiction ])).
