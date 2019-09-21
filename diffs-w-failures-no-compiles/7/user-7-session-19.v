@@ -426,4 +426,4 @@ idtac.
 Unset Silent.
 (intros Hm k' Hle).
 (inversion Hle; subst).
-assumption.
+Show.
