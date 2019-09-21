@@ -1394,6 +1394,10 @@ Theorem source_symmetric_valid :
   forall (n t : nat) (c : Square_Box ((n + t) \226\168\130 Qubit)),
   source_symmetric n t c -> valid_ancillae_box c.
 Proof.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (intros n t c H).
 (induction H).
 -
@@ -1402,10 +1406,3 @@ constructor.
 constructor.
 -
 (inversion g0).
-+
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
-Unset Silent.
-Show.
