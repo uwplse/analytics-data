@@ -439,11 +439,13 @@ step_proc.
 intuition eauto.
 (rewrite app_nil_r; auto).
 -
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
 Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-Unset Silent.
-Set Diffs "off".
+step_proc.
+(intuition eauto; autorewrite with upd; auto).
+{
+(apply log_contents_ok_unchanged; eauto).
+}
+(simpl).
