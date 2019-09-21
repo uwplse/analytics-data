@@ -2794,6 +2794,5 @@ Show.
 (unfold denote_circuit in IH).
 (rewrite Nat.add_sub).
 (rewrite <- size_octx_merge by easy).
-(rewrite <- pf_merge in *).
 Unset Silent.
 Show.
