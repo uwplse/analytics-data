@@ -242,4 +242,17 @@ Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @sig.
 Set Printing Width 78.
 Show.
-(unfold rec_wipe; simpl).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(unfold rec_wipe; simpl; intros).
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @proc_spec.
+proc_spec.
