@@ -39,3 +39,5 @@ Show.
 (intros k w1).
 exists w1.
 (intros v).
+Set Printing Width 148.
+(intros v Hm).
