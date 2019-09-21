@@ -603,12 +603,8 @@ Unset Silent.
 Timeout 1 Check @spec_abstraction_compose.
 step_proc.
 Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @div_eucl_th.
-Set Silent.
-{
-Unset Silent.
-Timeout 1 Check @repeat_length.
-(descend; intuition eauto).
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(descend; intuition eauto).
