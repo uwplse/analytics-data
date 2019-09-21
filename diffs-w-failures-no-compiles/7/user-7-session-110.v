@@ -237,6 +237,9 @@ auto using match_ty_pair.
 Show.
 Set Printing Width 148.
 Set Silent.
-+
-Unset Silent.
-(destruct w).
+Show.
+Set Printing Width 148.
+(apply match_ty_exist__inv in Hm2).
+Show.
+(destruct Hm2 as [tx Hm2]).
+Show.
