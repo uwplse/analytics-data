@@ -214,4 +214,5 @@ Set Silent.
 -
 Unset Silent.
 Show.
+Set Printing Width 148.
 (destruct IHt1 as [IHt1| [w1 [v1 Hm1]]]; destruct IHt2 as [IHt2| [w2 [v2 Hm2]]]).
