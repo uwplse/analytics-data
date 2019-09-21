@@ -124,4 +124,6 @@ constructor.
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 Unset Silent.
 (simpl).
-(destruct (max_inv_depth_le__inv v1 v2 (S k)) as [Hdep1 hdep2]).
+Set Printing Width 148.
+(destruct (max_inv_depth_le__inv v1 v2 (S k)) as [Hdep1 Hdep2]).
+(apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; try assumption).
