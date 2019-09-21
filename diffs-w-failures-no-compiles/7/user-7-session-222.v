@@ -123,6 +123,32 @@ Lemma f_free_in_ty_union : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_
 Proof.
 (solve_free_union f_free_in_ty).
 Qed.
+Set Printing Width 148.
+Set Silent.
+Lemma b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), b_free_in_ty X (TPair t1 t2) -> b_free_in_ty X t1 \/ b_free_in_ty X t2.
+Proof.
+(solve_free_union_inv b_free_in_ty).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma b_free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), b_free_in_ty X (TUnion t1 t2) -> b_free_in_ty X t1 \/ b_free_in_ty X t2.
+Proof.
+(solve_free_union_inv b_free_in_ty).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma b_free_in_ty_pair : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TPair t1 t2).
+Proof.
+(solve_free_union b_free_in_ty).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma b_free_in_ty_union : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TUnion t1 t2).
+Proof.
+Unset Silent.
+(solve_free_union b_free_in_ty).
+Set Silent.
+Qed.
 Lemma f_free_in_ty_exist : forall (X Y : id) (t : ty), f_free_in_ty X t -> f_free_in_ty X (TExist Y t).
 Proof.
 (unfold f_free_in_ty, free).
@@ -317,13 +343,33 @@ contradiction.
 Qed.
 Lemma b_free_in_ty__b_free_in_b_subst_neq : forall (Y : id) (s : ty) (X : id) (t : ty), X <> Y -> b_free_in_ty X t -> b_free_in_ty X ([BY := s] t).
 Proof.
-Set Printing Width 148.
 (intros Y s X t HXY HX).
 (induction t; try (solve [ simpl; assumption ])).
+-
+(rewrite b_subst_pair).
+(apply b_free_in_ty_pair).
+(apply b_free_in_ty_pair__inv in HX).
+tauto.
+-
+Unset Silent.
+Set Silent.
+(rewrite b_subst_union).
+(apply b_free_in_ty_union).
+(apply b_free_in_ty_union__inv in HX).
+Unset Silent.
+tauto.
 Set Silent.
 -
 Unset Silent.
 Show.
-(rewrite b_subst_pair).
-Set Silent.
-Unset Silent.
+(destruct (beq_idP Y i)).
++
+subst.
+(rewrite b_subst_exist_eq).
+assumption.
++
+(rewrite b_subst_exist_neq; try assumption).
+(destruct (beq_idP X i)).
+*
+subst.
+(unfold b_free_in_ty_i, free in HX).
