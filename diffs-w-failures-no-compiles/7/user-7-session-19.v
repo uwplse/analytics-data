@@ -205,6 +205,7 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem;
   try
    match goal with
@@ -214,6 +215,9 @@ Set Printing Width 148.
           assert (Hmv : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hvv Hmv);
           apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm';
           apply match_ty_i_cname__inv in Hm'; subst; assumption
-   | Hsem:forall v, value_type v -> |-[ ?k] v <$ TPair ?v1 ?v2 -> _ |- _ => assert (Hvv : value_type (TPair v1 v2)) by (constructor; assumption)
+   | Hsem:forall v, value_type v -> |-[ ?k] v <$ TPair ?v1 ?v2 -> _
+     |- _ =>
+         assert (Hvv : value_type (TPair v1 v2)) by (constructor; assumption);
+          assert (Hmv : |-[ k] TPair v1 v2 <$ TPair v1 v2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hvv Hmv)
    end).
 Show.
