@@ -766,44 +766,14 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @append.
-Timeout 1 Check @append.
-Timeout 1 Check @append.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-(unfold append; intros).
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @sig.
+Timeout 1 Check @d.size.
+Timeout 1 Check @d.size.
+Timeout 1 Check @size_spec.
+Timeout 1 Check @d.size_ok.
+Timeout 1 Check @d.size_ok.
+Timeout 1 Check @forallb.
