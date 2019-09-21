@@ -93,6 +93,7 @@ Timeout 1 Check @Initialized.
 Timeout 1 Check @Initialized.
 Timeout 1 Check @Initialized.
 Timeout 1 Check @Initialized.
-Set Silent.
-Definition init : proc InitResult.
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Definition init : proc InitResult := _ <- d.write len_addr 0; Ret Initialized.
