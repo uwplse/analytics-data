@@ -161,4 +161,15 @@ Unset Silent.
 Set Silent.
 -
 Unset Silent.
-(destruct (dec_le (| TRef v |) k) as [Hle| Hle]).
+Show.
+(destruct (dec_le (| TRef t |) k) as [Hle| Hle]).
+Set Silent.
++
+Unset Silent.
+(right; assumption).
++
+(left; intros Hcontra).
+(destruct Hcontra as [v' Hm]).
+(destruct k).
+(destruct v'; contradiction).
+(pose proof (match_ty_value_type__inv_depth_le_index _ _ Hv _ Hm) as Hdep).
