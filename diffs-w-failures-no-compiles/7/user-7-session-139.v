@@ -73,7 +73,4 @@ eassumption.
 (repeat constructor).
 -
 Set Silent.
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
-Unset Silent.
-(simpl in Hm).
+Show.
