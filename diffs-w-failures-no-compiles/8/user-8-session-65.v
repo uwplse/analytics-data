@@ -999,4 +999,4 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite Nat.mul_1_r).
-(rewrtie Lt).
+(rewrite Lt).
