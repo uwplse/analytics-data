@@ -287,4 +287,11 @@ Set Printing Width 78.
 Show.
 (apply spec_abstraction_compose).
 Timeout 1 Check @spec_abstraction_compose.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @spec_abstraction_compose.
+(destruct a as [_ bs]).
