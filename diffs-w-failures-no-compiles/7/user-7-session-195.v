@@ -102,3 +102,12 @@ Proof.
 (destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
 Unset Silent.
 Qed.
+Set Printing Width 148.
+Set Silent.
+Lemma match_ty_fbar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
+Unset Silent.
+Proof.
+Set Silent.
+(intros v X w Hm).
+Unset Silent.
+(destruct w, v; simpl in Hm).
