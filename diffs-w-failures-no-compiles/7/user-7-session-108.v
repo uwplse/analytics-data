@@ -255,6 +255,8 @@ Show.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Show.
 (match goal with
- | Hsem:||-[ ?k][?t]<= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
+ | Hsem:||-[ ?k][?t]= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
  end).
+Show.
