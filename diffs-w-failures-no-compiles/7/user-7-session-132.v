@@ -88,5 +88,9 @@ Set Printing Width 148.
 Lemma match_ty_ref : forall (k w : nat) (t t' : ty), ||-[ k][t]= [t'] -> |-[ S k, w] TRef t <$ TRef t'.
 Proof.
 (intros k w t t' Hsem).
+Set Printing Width 148.
+(destruct Hsem as [Hsem1 Hsem2]).
+Set Silent.
 (destruct w; simpl).
+Unset Silent.
 tauto.
