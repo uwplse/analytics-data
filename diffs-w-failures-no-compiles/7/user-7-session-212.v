@@ -107,8 +107,8 @@ Unset Silent.
 Proof.
 Show.
 Set Printing Width 148.
-Set Silent.
+Set Printing Width 148.
+(intros X t1 t2).
 (unfold f_free_in_ty).
-Unset Silent.
 (simpl).
 (apply free_union__inv).
