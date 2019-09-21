@@ -40,4 +40,6 @@ Unset Silent.
 (simpl in Hm).
 (eapply match_ty__ge_w).
 eassumption.
-constructor.
+Set Printing Width 148.
+(repeat constructor).
+-
