@@ -95,13 +95,6 @@ Set Silent.
 Set Silent.
 Set Printing Width 148.
 (intros t w k Hm).
-(simpl in Hm).
-Show.
-exists v.
-Show.
-Show.
 Set Printing Width 148.
-split.
-Show.
-reflexivity.
+(destruct w; simpl in Hm; exists v; auto).
 Show.
