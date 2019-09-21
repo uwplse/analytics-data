@@ -243,4 +243,6 @@ Set Printing Width 148.
 (inversion Hnft; subst).
 Show.
 (inversion H; subst).
-(apply IHk).
+Set Printing Width 148.
+(simpl in Hdept).
+(apply le_S_m in Hdept).
