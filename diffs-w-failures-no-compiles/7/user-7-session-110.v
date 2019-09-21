@@ -224,4 +224,10 @@ Unset Silent.
 +
 (destruct w).
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (apply match_ty_exist__0_inv in Hm2; contradiction).
+Unset Silent.
+Show.
+(apply match_ty_exist__inv in Hm2).
+(destruct Hm2 as [tx Hmx]).
