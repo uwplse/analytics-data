@@ -85,4 +85,5 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl).
-show_dimensions.
+Unset Silent.
+Show.
