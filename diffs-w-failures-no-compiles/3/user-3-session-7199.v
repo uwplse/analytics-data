@@ -614,4 +614,9 @@ Timeout 1 Check @Nat.induction.
 Timeout 1 Check @Nat.induction.
 Set Printing Width 78.
 Show.
-(induction d).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Set Printing Width 78.
+Show.
+(induction d; simpl).
