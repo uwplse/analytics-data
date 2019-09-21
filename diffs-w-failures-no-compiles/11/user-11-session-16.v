@@ -42,4 +42,4 @@ Set Silent.
 Definition smE := appE exp +' evalE +' nondetE.
 Unset Silent.
 Set Printing Width 115.
-Definition kvs_state exp_ : Set := list connection * list (N * exp_ N)%type.
+Definition kvs_state exp_ : Set := list connection * list (N * exp_ N).
