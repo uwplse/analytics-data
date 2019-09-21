@@ -426,4 +426,20 @@ Unset Silent.
 (destruct (IHw t k) as [Hm| Hnotm]).
 +
 (destruct Hm as [v Hm]).
-(left; v).
+(left; exists v).
+(apply match_ty_exist).
+exists (TVar i).
+Set Silent.
+(assert (Heq : [i := TVar i] t = t)).
+Unset Silent.
+admit.
+Set Silent.
+(rewrite Heq).
+Unset Silent.
+assumption.
++
+right.
+(intros Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [tx Hcontra]).
