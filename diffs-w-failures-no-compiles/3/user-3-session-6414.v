@@ -41,16 +41,10 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Unset Silent.
-Hint Resolve addr_to_block_ok: core.
-Module Log (d: OneDiskAPI)<: LogAPI.
-Timeout 1 Check @Ret.
-Timeout 1 Check @In.
-Timeout 1 Check @Init.Nat.t.
-Timeout 1 Check @Init.Nat.t.
-Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Set Silent.
+Module Log (d: OneDiskAPI)<: LogAPI.
 Definition init : proc InitResult.
 Admitted.
 Definition get : proc (list block).
@@ -60,57 +54,14 @@ Admitted.
 Definition reset : proc unit.
 Admitted.
 Definition recover : proc unit.
-Unset Silent.
 Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqX06zjQ"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1ktiSB"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @True.
-Print Abstraction.
-Print LayerAbstraction.
 Definition abstr : Abstraction State := {| abstraction := fun _ _ => True |}.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqznJnVn"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKnKN0c"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @Add.
-Set Silent.
 Theorem init_ok : init_abstraction init recover abstr inited_any.
-Unset Silent.
 Proof.
 Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJzPZdC"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqE7OdLW"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Check @BoolTheory.
-Timeout 1 Check @Add.
-Set Silent.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 Admitted.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @BoolTheory.
-Set Printing Width 78.
-Set Silent.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
@@ -119,25 +70,7 @@ Theorem reset_ok : proc_spec reset_spec reset recover abstr.
 Proof.
 Admitted.
 Theorem recover_wipe : rec_wipe recover abstr no_wipe.
-Unset Silent.
 Proof.
 Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDeDx9w"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnAF75v"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Unset Silent.
 End Log.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqofeRUT"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxssI6y"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
