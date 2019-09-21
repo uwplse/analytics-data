@@ -444,5 +444,5 @@ Check left.
 Print "\/".
 Show.
 Set Printing Width 148.
-(apply Nat.le_trans with (| t'1 |)).
-tauto.
+Set Printing Width 148.
+(apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_l ]).
