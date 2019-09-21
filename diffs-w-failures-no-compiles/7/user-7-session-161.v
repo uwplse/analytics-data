@@ -115,10 +115,7 @@ Show.
 Set Printing Width 148.
 Set Silent.
 (apply match_ty_exist__inv in Hm).
-(destruct Hm as [ti Hm]).
+Show.
+Set Printing Width 148.
 specialize (IHw' _ Hm).
-Unset Silent.
-(rewrite subst_neq__permute in IHw').
-Show.
-Show.
 Show.
