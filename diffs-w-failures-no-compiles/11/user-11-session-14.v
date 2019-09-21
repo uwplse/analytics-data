@@ -42,8 +42,10 @@ Set Silent.
 Import ApplicativeNotation FunctorNotation ListNotations MonadNotation SumNotations.
 Unset Silent.
 Set Printing Width 115.
+Unset Silent.
+Set Printing Width 115.
 Set Silent.
-Open Scope monad_scope.
+Open Scope sum_scope.
 Open Scope N_scope.
 Module App.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
@@ -78,20 +80,3 @@ Definition kvs : itree smE void :=
          end
      | _ => embed ServerApp_Send Kvs_BadRequest;; call st
      end) [].
-Definition unwrap_data (rx : kvs_data exp) : kvs_data id :=
-  match rx with
-  | Kvs_GET k => Kvs_GET k
-  | Kvs_PUT k v => Kvs_PUT k v
-  | Kvs_CAS k x v => Kvs_CAS k x v
-  | Kvs_OK vx => Kvs_OK (unwrap vx)
-  | Kvs_NoContent => Kvs_NoContent
-  | Kvs_BadRequest => Kvs_BadRequest
-  | Kvs_PreconditionFailed => Kvs_PreconditionFailed
-  end.
-Definition embed_exp {T} {E} `{serverAppE id -< E} (ex : serverAppE exp T) : itree E T :=
-  match ex in (serverAppE _ T) return (itree E T) with
-  | ServerApp_Recv => trigger ServerApp_Recv
-  | ServerApp_Send rx => trigger (ServerApp_Send (unwrap_data rx))
-  | ServerApp_Fresh => i <- trigger ServerApp_Fresh;; Ret (exp_int (i : id N))
-  end.
-Unset Silent.
