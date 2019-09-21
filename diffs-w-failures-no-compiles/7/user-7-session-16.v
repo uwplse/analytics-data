@@ -418,9 +418,12 @@ Unset Silent.
 (intros ta1 ta2 Hat1 IH1 Hat2 IH2).
 (intros t2; induction t2).
 +
+Set Printing Width 148.
+Set Silent.
 (right; solve_not_x_sub_r_y_full).
 (apply IHHcontra; try tauto).
-Search -mk_nf.
+Unset Silent.
 (apply mk_nf_nf__equal).
 (do 2 constructor; assumption).
 +
+Check atom_pair_sub_r_pair__sub_r_components.
