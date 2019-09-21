@@ -52,5 +52,6 @@ subst.
 {
 Show.
 Set Printing Width 148.
-(rewrite subst_equation).
 Show.
+Set Printing Width 148.
+(rewrite subst_equation  at 2).
