@@ -289,5 +289,8 @@ Show.
 admit.
 -
 Show.
-(simpl in Hcontra).
 Show.
+Set Printing Width 148.
+(apply Hnotm).
+Show.
+(exists (TRef t); apply match_ty__reflexive; constructor).
