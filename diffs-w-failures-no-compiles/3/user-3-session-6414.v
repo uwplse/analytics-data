@@ -234,4 +234,14 @@ Timeout 1 Check @lt_dec.
 -
 step_proc.
 -
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 step_proc.
+step_proc.
+step_proc.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @nil.
+Timeout 1 Check @nil.
+exists nil.
