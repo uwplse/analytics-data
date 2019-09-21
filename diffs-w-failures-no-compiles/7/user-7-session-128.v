@@ -92,6 +92,7 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (split; intros w1; destruct (match_ty__exists_w_v t1 k) as [w11 [v1 Hm1]]; destruct (match_ty__exists_w_v t2 k) as [w12 [v2 Hm2]];
-  [ specialize (Hsem (Nat.max w1 w11)) | specialize (Hsem (Nat.max w1 w12)) ]).
+  [ specialize (Hsem (Nat.max w1 w11)) | specialize (Hsem (Nat.max w1 w12)) ]; destruct Hsem as [w2 Hsem]).
 Show.
