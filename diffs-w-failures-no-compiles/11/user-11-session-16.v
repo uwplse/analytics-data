@@ -15,57 +15,63 @@ SumNotations.
 Open Scope N_scope.
 Open Scope monad_scope.
 Open Scope sum_scope.
-Module App.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
-Please report at http://coq.inria.fr/bugs/.
-Arguments appE : clear implicits.
 Unset Silent.
-Redirect "/tmp/coq16819L5B" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+Timeout 1 Check @choose.
+Timeout 1 Check @choose.
+Timeout 1 Check @choose.
+Set Printing Width 115.
+Set Silent.
+Module App.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Arguments appE : clear implicits.
 Instance showAppE  {T}: (Show (appE id T)) :=
  {|
  show := fun ae =>
          match ae with
          | App_Accept => "Application Accept"
          | App_Recv c => "Application Receive " ++ show c
-         | App_Send c msg =>
-             "Application Send " ++ show c ++ " \226\159\185 " ++ show msg
+         | App_Send c msg => "Application Send " ++ show c ++ " \226\159\185 " ++ show msg
          end |}.
-Redirect "/tmp/coq16819YDI" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
-Please report at http://coq.inria.fr/bugs/.
-Redirect "/tmp/coq16819lNO" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Set Silent.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
 Definition smE := appE exp +' evalE +' nondetE.
-Unset Silent.
-Set Printing Width 115.
-Unset Silent.
-Set Printing Width 115.
-Unset Silent.
-Set Printing Width 115.
 Definition kvs_state exp_ : Type := list connection * list (N * exp_ N).
-Redirect "/tmp/coq16819Z2m" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Fixpoint choose {A E} `{nondetE -< E} (a : A) (l : list A) : itree E A :=
   match l with
   | [] => ret a
   | x :: l' => b <- trigger Or;; (if b : bool then ret x else choose x l')
   end.
-Redirect "/tmp/coq16819mAt" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Unset Silent.
-Set Printing Width 115.
 Definition smi : itree smE void :=
   rec
     (fun cst : kvs_state exp =>
-     let (conns, st) := cst in
+     let (cs, st) := cst in
      match conns with
      | [] => conn <- trigger App_Accept;; call ([conn], st)
-     | c0 :: cs => or (c <- trigger App_Accept;; call (c :: conns, st)) (call cst)
+     | c0 :: cs' =>
+         or (c <- trigger App_Accept;; call (c :: cs, st))
+           (c <- choose c0 cs';;
+            req <- embed App_Recv c;;
+            match req with
+            | Kvs_GET k =>
+                match kvs_get k st with
+                | Some v => embed App_Send c (Kvs_OK v);; call cst
+                | None => v <- trigger Eval_Var;; embed App_Send c (Kvs_OK v);; call (cs, kvs_put k v st)
+                end
+            | Kvs_PUT k v => embed App_Send c Kvs_NoContent;; call (cs, kvs_put k (exp_int v) st)
+            | Kvs_CAS k x v' =>
+                match kvs_get k st with
+                | Some v =>
+                    b <- trigger (Eval_Decide (exp_eq x v));;
+                    (if b : bool
+                     then embed App_Send c Kvs_NoContent;; call (cs, kvs_put k (exp_int v') st)
+                     else embed App_Send c Kvs_PreconditionFailed;; call cst)
+                | None =>
+                    v <- trigger Eval_Var;;
+                    b <- trigger (Eval_Decide (exp_eq x v));;
+                    (if b : bool
+                     then embed App_Send c Kvs_NoContent;; call (cs, kvs_put k (exp_int v') st)
+                     else embed App_Send c Kvs_PreconditionFailed;; call (cs, kvs_put k v st))
+                end
+            | _ => embed App_Send c Kvs_BadRequest;; call cst
+            end)
      end) ([], []).
-Redirect "/tmp/coq16819lUC" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-End App.
