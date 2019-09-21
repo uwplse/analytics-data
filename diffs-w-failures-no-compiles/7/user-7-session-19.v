@@ -106,16 +106,12 @@ Set Printing Width 148.
 Show.
 -
 Show.
+Show.
+Set Printing Width 148.
 clear IHt.
 Show.
-Show.
-Set Printing Width 148.
 (simpl in Htk).
-Show.
 (apply le_S_n in Htk).
-Show.
 (apply match_ty_i_ref__inv in Hm).
-Show.
-Set Printing Width 148.
 (destruct Hm as [t' [Heq Href]]; subst).
 Show.
