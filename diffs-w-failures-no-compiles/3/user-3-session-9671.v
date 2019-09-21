@@ -610,6 +610,8 @@ Set Diffs "off".
 Set Printing Width 68.
 Show.
 (exists []; intuition eauto).
-{
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 68.
+Show.
+(descend; intuition eauto).
