@@ -21,4 +21,5 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Extraction Language OCaml.
+Unset Silent.
+Set Diffs "off".
