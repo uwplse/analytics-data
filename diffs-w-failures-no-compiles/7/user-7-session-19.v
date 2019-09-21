@@ -461,5 +461,9 @@ Set Printing Width 148.
 Show.
 (assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
 Set Printing Width 148.
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
+Set Printing Width 148.
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
 Show.
+Set Silent.
++
+Unset Silent.
