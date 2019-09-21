@@ -197,4 +197,10 @@ Show.
 Set Printing Width 148.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
-(simpl).
+Show.
+Set Printing Width 148.
+(destruct w'; constructor).
++
+Show.
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]).
