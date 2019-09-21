@@ -141,4 +141,10 @@ Unset Silent.
 (simpl).
 Set Printing Width 148.
 (intros X Y Hin).
+Set Printing Width 148.
+Set Silent.
 (apply IdSetFacts.singleton_1 in Hin).
+subst.
+Unset Silent.
+reflexivity.
+Qed.
