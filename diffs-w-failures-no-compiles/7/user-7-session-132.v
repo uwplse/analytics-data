@@ -96,9 +96,16 @@ Set Silent.
 Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ S k][TRef t]<= [TRef t'].
 Proof.
 (intros k t t' Hsem).
+Set Printing Width 148.
 (intros w1).
 exists w1.
 (intros v Hm).
-(destruct k).
--
+Show.
+(apply match_ty_ref__inv in Hm).
+Show.
+Set Silent.
+(destruct Hm as [tx [Heq Href]]; subst).
 Unset Silent.
+(apply match_ty_ref).
+(apply sem_eq_k__trans with t; assumption).
+Qed.
