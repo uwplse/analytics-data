@@ -111,6 +111,7 @@ Set Silent.
 -
 Unset Silent.
 Check value_type_matching_ty__exists.
-(destruct (value_type_matching_ty__exists t2 k) as [pv2 Hpv2]).
-(remember (Nat.max k (| t2 |)) as kmax).
 Show.
+Check value_type_matching_ty__exists.
+Set Printing Width 148.
+(destruct (value_type_matching_ty__exists t2 k) as [pv2 Hpv2]).
