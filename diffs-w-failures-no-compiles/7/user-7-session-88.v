@@ -418,7 +418,9 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
+Set Printing Width 148.
+Set Silent.
+(induction k; induction t; induction t'; intros Hnft Hdep Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
      | Hsem:||-[ ?k][?t]<= [?t']
@@ -426,18 +428,11 @@ Set Printing Width 148.
            assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
             (Hsem _ Hm); contradiction
      end ])).
-Show.
-Set Printing Width 148.
 -
 (assert (Hv : value_type (TCName c)) by constructor).
-Show.
-Set Printing Width 148.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
+Unset Silent.
 specialize (IHt'1 Hnft).
-Show.
 specialize (IHt'2 Hnft).
-Show.
+(destruct Hdep as [Hdept| Hdept']).
++
+(destruct IHt'1).
