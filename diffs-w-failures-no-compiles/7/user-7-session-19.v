@@ -202,11 +202,8 @@ Lemma value_sem_sub_k_union__value_sem_sub_k_component :
 Set Printing Width 148.
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem).
 Show.
-(try
-  match goal with
-  | Hsem:forall v, value_type v -> |-[ ?k] v <$ TCName ?c -> _
-    |- _ =>
-        assert (Hvv : value_type (TCName c)) by constructor; assert (Hmv : |-[ k] TCName c <$ TCName c) by reflexivity; specialize (Hsem _ Hv Hm)
-  end).
-Show.
+Set Printing Width 148.
+(try match goal with
+     | Hsem:forall v, value_type v -> |-[ ?k] v <$ TCName ?c -> _ |- _ => idtac
+     end).
 Show.
