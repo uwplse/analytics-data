@@ -71,5 +71,9 @@ Set Printing Width 148.
 subst.
 Show.
 (simpl in *).
-(rewrite <- beq_id_refl in Hm).
+Set Printing Width 148.
+(rewrite <- beq_id_refl in *).
 Show.
+(exists v; assumption).
+Show.
++
