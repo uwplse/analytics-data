@@ -199,5 +199,15 @@ Timeout 1 Check @sig.
 Timeout 1 Check @split.
 lia.
 -
-(step_proc; intros).
-(exists tt; simpl; intuition idtac).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+(step_proc; intuition).
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(step_proc; intuition).
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+(exists (n0 :: s); intuition auto).
