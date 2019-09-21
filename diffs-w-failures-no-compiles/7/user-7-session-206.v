@@ -204,4 +204,8 @@ reflexivity.
 (intros Hcontra).
 Search -IdSet.In.
 Show.
-(destruct IdSetFacts.empty_iff as [H _]).
+(destruct (IdSetFacts.empty_iff Y) as [H _]).
+(apply H).
+Search -IdSet.In.
+Show.
+Search -m.
