@@ -69,20 +69,17 @@ Proof.
 (intros X t1 t2 k).
 (apply sem_sub_k_exist_pair).
 Qed.
+Set Printing Width 148.
+Set Silent.
 Lemma sem_sub_fresh_var__sem_sub_any :
   forall (X : id) (t t' : ty) (X' : id),
   fresh_in_ty X t -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
 (intros X t).
-Set Printing Width 148.
 (intros t' X' HX HX' Hsem tx).
-Show.
 (intros k w1).
-Show.
 specialize (Hsem k w1).
-Show.
 (destruct Hsem as [w2 Hsem]).
-Show.
 exists w2.
+Unset Silent.
 (intros v Hm).
-Show.
