@@ -239,4 +239,9 @@ Timeout 1 Check @rec_wipe_compose.
 Timeout 1 Check @nodup.
 Set Printing Width 78.
 Show.
-autorewrite with upd.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Tauto.A.
+Set Printing Width 78.
+Show.
+(autorewrite with upd; auto).
