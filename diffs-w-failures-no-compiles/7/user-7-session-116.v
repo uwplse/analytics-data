@@ -39,4 +39,5 @@ Show.
 (apply fresh_union__inv in Hfresh).
 Show.
 (destruct Hfresh as [Hfresh1 Hfresh2]).
+Show.
 (rewrite IHt1; try assumption).
