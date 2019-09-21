@@ -588,4 +588,8 @@ Timeout 1 Check @diskUpd_neq.
 Timeout 1 Check @diskUpd_neq.
 Set Printing Width 78.
 Show.
-(rewrite diskUpd_neq).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(rewrite diskUpd_neq by auto).
