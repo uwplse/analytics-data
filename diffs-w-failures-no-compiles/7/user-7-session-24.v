@@ -68,4 +68,5 @@ Fixpoint match_ty (k : nat) :=
       | _, _, _ => False
       end
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
+Set Printing Width 148.
 Definition sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> |-[ k] v <$ t2.
