@@ -173,4 +173,10 @@ Msimpl.
 Set Silent.
 (rewrite Mmult_assoc).
 Unset Silent.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 easy.
+{
+(apply denote_ctrls_unitary).
