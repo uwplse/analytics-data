@@ -387,8 +387,33 @@ Set Printing Width 85.
 Show.
 Set Silent.
 -
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Set Silent.
+dependent destruction p.
+dependent destruction t.
 (simpl).
 (unfold compose_super).
 (erewrite VA).
 easy.
 Unset Silent.
+(eapply t0; [  | constructor; apply singleton_singleton ]).
+(apply singleton_equiv in s; subst).
+Set Silent.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(unfold change_type).
+(eapply update_merge).
+(apply pf1).
+Unset Silent.
+-
+(simpl).
+(unfold compose_super).
+Set Silent.
+(erewrite VA).
+Unset Silent.
+easy.
