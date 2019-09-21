@@ -400,4 +400,9 @@ Show.
 Timeout 1 Check @no_wipe.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @spec_abstraction_compose.
-autorewrite with core.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @diskUpd.
+Set Printing Width 78.
+Show.
+autorewrite with diskUpd.
