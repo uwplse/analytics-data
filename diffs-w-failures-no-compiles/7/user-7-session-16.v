@@ -439,7 +439,4 @@ Set Printing Width 148.
 (apply IHHcontra; try tauto).
 (apply mk_nf_nf__equal).
 Set Printing Width 148.
--
-Set Silent.
-*
-Unset Silent.
+Set Printing Width 148.
