@@ -1402,7 +1402,4 @@ Timeout 1 Print LoadPath.
 Unset Silent.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
-Set Printing Width 85.
-Unset Silent.
-Set Printing Width 85.
 Unset Silent.
