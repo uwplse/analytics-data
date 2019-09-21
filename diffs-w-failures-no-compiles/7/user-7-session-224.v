@@ -33,4 +33,7 @@ Set Silent.
 -
 Unset Silent.
 Show.
-(rewrite b_subst_cname in *).
+Show.
+Set Printing Width 148.
+(unfold b_free_in_ty, free in HX).
+(simpl).
