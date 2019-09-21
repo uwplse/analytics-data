@@ -32,15 +32,20 @@ Lemma b_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (b
 Proof.
 (intros X t).
 (unfold f_free_in_ty).
-(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
-Unset Silent.
-Qed.
+Set Printing Width 148.
+Lemma f_free_in_ty__dec : forall (X : id) (t : ty), f_free_in_ty X t \/ not_f_free_in_ty X t.
 Set Silent.
-Lemma f_free_in_ty__dec : forall (X : id) (t : ty), {f_free_in_ty X t} + {not_f_free_in_ty X t}.
-Unset Silent.
 Proof.
-Set Silent.
 (intros X t).
 (unfold f_free_in_ty).
 Unset Silent.
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Qed.
+Set Silent.
+Lemma b_free_in_ty__dec : forall (X : id) (t : ty), b_free_in_ty X t \/ not_b_free_in_ty X t.
+Proof.
+(intros X t).
+(unfold f_free_in_ty).
+(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Unset Silent.
+Qed.
