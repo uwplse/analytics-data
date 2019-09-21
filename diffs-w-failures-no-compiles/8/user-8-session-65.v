@@ -1481,5 +1481,11 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+(repeat simpl_rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
+  try apply source_symmetric_WT; trivial).
 (repeat simpl_rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
   try apply source_symmetric_WT; trivial).
