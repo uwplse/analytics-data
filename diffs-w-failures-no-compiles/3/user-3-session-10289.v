@@ -101,4 +101,81 @@ Set Diffs "off".
 Timeout 1 Check @Ret.
 Timeout 1 Check @mark.
 Set Printing Width 78.
-Hint Resolve mark.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Hint Resolve mark: core.
+Theorem proc_spec_rx :
+  forall `(spec : Specification A T R State) `(p : proc T) 
+    `(rec : proc R) `(rx : T -> proc T')
+    `(spec' : Specification A' T' R State) `(abs : Abstraction State),
+  proc_spec spec p rec abs ->
+  (forall a' state,
+   pre (spec' a' state) ->
+   exists a,
+     pre (spec a state) /\
+     (forall r state',
+      recovered (spec a state) r state' ->
+      Marker "recovered condition" -> recovered (spec' a' state) r state') /\
+     (forall r,
+      Marker "post condition" ->
+      proc_spec
+        (fun (_ : unit) state' =>
+         {|
+         pre := post (spec a state) r state';
+         post := fun r state'' => post (spec' a' state) r state'';
+         recovered := fun r state'' => recovered (spec' a' state) r state'' |})
+        (rx r) rec abs)) -> proc_spec spec' (Bind p rx) rec abs.
+Proof.
+(unfold proc_spec at 3; intros).
+inv_rexec.
+Set Silent.
+-
+inv_exec.
+(match goal with
+ | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
+ end).
+(eapply H0 in H2; repeat deex).
+(eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
+(match goal with
+ | Hexec:exec (rx _) _ _
+   |- _ => eapply RExec in Hexec; eapply H4 in Hexec; eauto
+ end).
+-
+inv_exec.
++
+(match goal with
+ | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
+ end).
+(eapply H0 in H2; repeat deex).
+(eapply H in H10; simpl in *; safe_intuition repeat deex; eauto).
+(match goal with
+ | Hexec:exec (rx _) _ _
+   |- _ => eapply RExecCrash in Hexec; eauto; eapply H4 in Hexec; eauto
+ end).
++
+(assert (Hexec : exec p w' (Crashed w')) by (constructor; eauto)).
+(eapply RExecCrash in Hexec; eauto).
+(eapply H0 in H2; repeat deex).
+(eapply H in Hexec; simpl in *; safe_intuition repeat deex; eauto).
++
+inv_exec.
+(match goal with
+ | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
+ end).
+(eapply H0 in H2; repeat deex).
+(eapply H in H10; simpl in *; safe_intuition repeat deex; eauto).
+(match goal with
+ | Hexec:exec (rx _) _ _
+   |- _ =>
+       apply ExecCrashEnd in Hexec; eapply RExecCrash in Hexec; eauto;
+        eapply H4 in Hexec; eauto
+ end).
++
+(match goal with
+ | Hexec:exec p _ _ |- _ => eapply RExecCrash in Hexec; eauto
+ end).
+(eapply H0 in H2; repeat deex).
+(eapply H in H10; simpl in *; safe_intuition repeat deex; eauto).
+Unset Silent.
+Qed.
