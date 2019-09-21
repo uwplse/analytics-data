@@ -262,4 +262,22 @@ Set Silent.
 Unset Silent.
 Show.
 Set Silent.
-(destruct IHt1 as [v1 Hm1]).
+(destruct (IHt1 k) as [v1 Hm1]).
+Unset Silent.
+(destruct (IHt2 k) as [v2 Hm2]).
+exists (TPair v1 v2).
+(apply match_ty_pair; assumption).
+Set Silent.
+-
+Unset Silent.
+(destruct (IHt1 k) as [v Hm]).
+exists v.
+(apply match_ty_union_1).
+assumption.
+-
+exists (TRef t).
+Set Silent.
+(destruct k).
+Unset Silent.
+reflexivity.
+(split; auto).
