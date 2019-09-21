@@ -38,11 +38,8 @@ exists (TPair v1' v2').
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
 -
 Unset Silent.
-(apply match_ty_exist__0_inv in Hm; contradiction).
+Set Printing Width 148.
 Set Silent.
--
-(destruct (beq_idP X i)).
-+
 subst.
 exists (TEV X').
 (simpl).
@@ -54,9 +51,7 @@ exists v.
 (destruct (beq_id_false_iff X i) as [_ Hid]).
 specialize (Hid n).
 (rewrite Hid in *).
-Unset Silent.
 assumption.
-Set Silent.
 -
 (rewrite subst_pair in *).
 (apply match_ty_pair__inv in Hm).
@@ -68,12 +63,12 @@ exists (TPair v1' v2').
 -
 (rewrite subst_union in *).
 (apply match_ty_union__inv in Hm).
-Unset Silent.
 (destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
-Set Silent.
 -
-Unset Silent.
-Show.
 (destruct (beq_idP X i)).
 +
+Unset Silent.
+subst.
+(simpl in Hm).
+(rewrite <- beq_id_refl).
