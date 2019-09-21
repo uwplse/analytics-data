@@ -40,12 +40,12 @@ Proof.
 (unfold f_free_in_ty).
 Unset Silent.
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
-Qed.
+Set Printing Width 148.
 Set Silent.
 Lemma b_free_in_ty__dec : forall (X : id) (t : ty), b_free_in_ty X t \/ not_b_free_in_ty X t.
 Proof.
 (intros X t).
-(unfold f_free_in_ty).
+(unfold b_free_in_ty).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
 Unset Silent.
 Qed.
