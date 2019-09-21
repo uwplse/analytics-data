@@ -87,4 +87,4 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 (intros v Hv).
-(aplit; tauto).
+(split; tauto).
