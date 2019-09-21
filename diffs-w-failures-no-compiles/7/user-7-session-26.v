@@ -203,7 +203,8 @@ Proof.
 auto with DBBetaJulia.
 Qed.
 Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
-Proof.
+Set Printing Width 148.
+Set Silent.
+(intros; split; auto).
 Unset Silent.
-auto with DBBetaJulia.
-Show.
+Qed.
