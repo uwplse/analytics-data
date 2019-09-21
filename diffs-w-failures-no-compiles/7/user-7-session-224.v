@@ -239,4 +239,15 @@ Unset Silent.
 (destruct (beq_idP X' i0)).
 {
 subst.
-(split; intros i0).
+(split; intros Hi0).
+{
+(unfold not_f_free_in_ty, not_free in Hi0).
+Show.
+(simpl in Hi0).
+exfalso.
+(apply Hi0).
+Search -IdSet.singleton.
+(apply IdSetFacts.singleton_2).
+reflexivity.
+}
+{
