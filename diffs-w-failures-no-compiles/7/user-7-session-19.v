@@ -112,4 +112,18 @@ Unset Silent.
 (destruct k; reflexivity).
 -
 Set Printing Width 148.
-(apply match_ty_i_pair; tauto).
+(apply match_ty_i_pair; auto).
+-
+Show.
+(destruct k).
+constructor.
+(simpl).
+tauto.
+Qed.
+Set Silent.
+Lemma match_ty_i_eq__inv_depth_eq :
+  forall t t' : ty, (forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
+Proof.
+Unset Silent.
+(induction t; induction t'; intros H).
+reflexivity.
