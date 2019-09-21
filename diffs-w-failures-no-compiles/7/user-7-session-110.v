@@ -230,4 +230,5 @@ Set Silent.
 Unset Silent.
 Show.
 (apply match_ty_exist__inv in Hm2).
-(destruct Hm2 as [tx Hmx]).
+Set Printing Width 148.
+(destruct Hm2 as [tx Hm2]).
