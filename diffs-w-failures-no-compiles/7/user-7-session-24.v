@@ -69,4 +69,5 @@ Show.
 Show.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct Hm).
+Show.
+Search -le.
