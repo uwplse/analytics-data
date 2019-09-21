@@ -451,6 +451,32 @@ Show.
 {
 (step_proc; intuition; subst; eauto).
 {
-(step_proc; intuition; subst; eauto).
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(step_proc; intuition; subst; eauto).
++
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
+(erewrite log_abstraction_len in * by eauto).
+(rewrite app_length).
+lia.
++
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
+(erewrite log_abstraction_len in * by eauto).
+(rewrite app_length).
+lia.
+}
+Set Silent.
++
+(exists s; simpl; intuition).
+(apply log_abstraction_pre_commit; auto).
++
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
+(erewrite log_abstraction_len in * by eauto).
+(rewrite app_length).
+lia.
+*
