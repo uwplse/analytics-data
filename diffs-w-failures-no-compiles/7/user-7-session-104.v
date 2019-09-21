@@ -164,8 +164,10 @@ exists w1.
 Show.
 Set Printing Width 148.
 (apply match_ty_union__inv in Hm).
+Set Printing Width 148.
 (destruct Hm as [Hm| Hm]).
 Show.
+Set Silent.
 -
 (destruct w1).
-Show.
+(v Hm).
