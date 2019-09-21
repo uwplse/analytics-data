@@ -294,4 +294,45 @@ Show.
 step_proc.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @spec_abstraction_compose.
-(destruct a as [_ bs]).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @sig.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+(destruct a as [_ bs]; simpl in *; intuition eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYQenis"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @Ret.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @d.recover_wipe.
+Timeout 1 Check @spec_abstraction_compose.
+Hint Resolve recover_wipe: core.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
+Proof.
+(induction a; simpl).
+-
+step_proc.
+-
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
