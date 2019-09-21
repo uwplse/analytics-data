@@ -527,10 +527,34 @@ step_proc.
 eauto.
 Qed.
 Unset Silent.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @unit.
 Theorem get_len_abstr_ok :
   proc_spec
-    (fun _ state =>
+    (fun (_ : unit) state =>
      {|
      pre := True;
      post := fun r state' => state' = state /\ r = length state;
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
+Proof.
+(unfold get_len; intros).
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @incl_appl.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(apply spec_abstraction_compose).
+Timeout 1 Check @app.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+Timeout 1 Check @proc_spec_weaken.
+(apply spec_weaken).
