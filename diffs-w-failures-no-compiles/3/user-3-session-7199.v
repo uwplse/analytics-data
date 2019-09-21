@@ -505,4 +505,5 @@ Proof.
 Unset Silent.
 (unfold get_len; intros).
 step_proc.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
+step_proc.
+intuition eauto.
