@@ -74,22 +74,13 @@ Lemma sem_sub_fresh_var__sem_sub_any :
   fresh_in_ty X t -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
 (intros X t).
-(induction t; try (solve [ intros; simpl; tauto ])).
--
-(induction t').
-+
-admit.
-+
-admit.
-+
-admit.
-+
-admit.
-+
-Unset Silent.
-(intros X' HX HX' Hsem tx).
+Set Printing Width 148.
+(intros t' X' HX HX' Hsem tx).
+Show.
 (intros k w1).
+Show.
 specialize (Hsem k w1).
+Show.
 (destruct Hsem as [w2 Hsem]).
-exists w2.
-(intros v Hm).
+Show.
+(exist w2).
