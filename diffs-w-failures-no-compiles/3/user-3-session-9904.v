@@ -251,18 +251,5 @@ Set Diffs "off".
 Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Show.
-(right; intuition congruence).
-Timeout 1 Check @sig.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Set Printing Width 78.
-Show.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @split.
-Timeout 1 Check @sig.
-Set Printing Width 78.
-Show.
 Unset Silent.
 Set Diffs "off".
