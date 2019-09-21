@@ -323,13 +323,8 @@ Show.
 split.
 Unset Silent.
 Set Diffs "off".
+Unset Silent.
+Set Diffs "off".
 Set Printing Width 78.
 Show.
--
-(intuition; exfalso; simpl in *; lia).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqu9prmS"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+(simpl; lia).
