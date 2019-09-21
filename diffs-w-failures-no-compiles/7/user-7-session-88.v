@@ -475,6 +475,10 @@ Set Silent.
 Unset Silent.
 (assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
 Set Silent.
-specialize (Hsem _ Hm).
-Unset Silent.
+Show.
+Set Printing Width 148.
 (simpl in Hsem).
+Show.
+(apply IHk; try assumption).
+Show.
+tauto.
