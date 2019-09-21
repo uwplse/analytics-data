@@ -140,4 +140,6 @@ Omega.omega.
 Unset Silent.
 Show.
 -
-(simpl).
+Show.
+Set Printing Width 148.
+(unfold well_dounded).
