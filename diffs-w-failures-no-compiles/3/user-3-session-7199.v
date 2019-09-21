@@ -391,4 +391,7 @@ Set Diffs "off".
 Timeout 1 Check @split.
 Set Printing Width 78.
 Show.
-(rewrite diskUpd_oob_eq; lia).
+Timeout 1 Check @log_size_ok.
+(rewrite diskUpd_oob_eq; simpl; auto).
+Timeout 1 Check @split.
+lia.
