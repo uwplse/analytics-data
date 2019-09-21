@@ -452,7 +452,6 @@ Set Silent.
 +
 Unset Silent.
 (right; solve_not_x_sub_r_y_full).
-(rewrite mk_nf_nf__equal).
-reflexivity.
 Set Printing Width 148.
+(apply mk_nf_nf__equal).
 (do 2 constructor; assumption).
