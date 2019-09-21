@@ -589,4 +589,12 @@ Set Silent.
 Unset Silent.
 step_proc.
 intuition.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
 {
+eauto using log_abstraction_preserved.
+Unset Silent.
+}
