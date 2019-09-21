@@ -144,6 +144,9 @@ Proof.
 (split; eauto).
 -
 (apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-Unset Silent.
-(simpl).
+Show.
+Set Printing Width 148.
+(apply match_ty_exist).
+Show.
+exists tx.
+Show.
