@@ -355,4 +355,4 @@ Unset Silent.
 (apply match_ty_exist__inv in Hcontra).
 Show.
 (destruct Hcontra as [tx Hcontra]).
-(apply Hnotm).
+Show.
