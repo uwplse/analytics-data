@@ -234,9 +234,9 @@ Set Silent.
 auto using match_ty_pair.
 +
 (apply match_ty_union__inv in Hm2).
-Unset Silent.
-(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+Show.
+Set Printing Width 148.
 Set Silent.
 +
 Unset Silent.
-Show.
+(destruct w).
