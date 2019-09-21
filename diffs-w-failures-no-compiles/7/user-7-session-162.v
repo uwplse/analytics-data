@@ -50,4 +50,5 @@ Definition free_in_ty (X : id) (t : ty) := IdSet.In X (FV t).
 Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
 Set Printing Width 148.
 Variable (gen_fresh : id_set -> id).
-Show.
+Set Silent.
+Variable (gen_fresh : id_set -> id).
