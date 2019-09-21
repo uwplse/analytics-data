@@ -84,4 +84,5 @@ Set Silent.
 (intros k).
 Unset Silent.
 specialize (Hsem k).
-(destruct (match_ty__exists_w_v k (TPair ([X := TVar X'] t1) ([X := TVar X'] t2))) as [w [v Hm]]).
+Check match_ty__exists_w_v.
+(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]).
