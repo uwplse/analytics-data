@@ -36,4 +36,8 @@ Show.
 Show.
 Set Printing Width 148.
 (unfold b_free_in_ty, free in HX).
-(simpl).
+Set Printing Width 148.
+(simpl in HX).
+Search -IdSet.empty.
+(rewrite IdSetFacts.empty_iff in HX).
+contradiction.
