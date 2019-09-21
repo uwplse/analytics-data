@@ -204,7 +204,15 @@ Set Diffs "off".
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(step_proc; intuition).
-Timeout 1 Check @Ascii.nat_ascii_embedding.
 Unset Silent.
 Set Diffs "off".
+Set Printing Width 78.
+Show.
+(step_proc; intuition).
+(step_proc; intuition).
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @eq_existT_curried.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(exists s; intuition).
+Timeout 1 Check @eq_existT_curried.
