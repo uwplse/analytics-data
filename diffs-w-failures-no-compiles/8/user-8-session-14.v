@@ -1897,6 +1897,8 @@ admit.
 admit.
 -
 Abort.
+Unset Silent.
+Set Printing Width 85.
 Proposition process_gate_state_merge :
   forall w1 w2 (g : Gate w1 w2) p \206\1471 \206\1472 \206\147,
   Types_Pat \206\1471 p ->
@@ -1904,6 +1906,5 @@ Proposition process_gate_state_merge :
   Valid (process_gate_state g p \206\147) = process_gate_state g p \206\147 \226\139\147 \206\1472.
 Proof.
 Abort.
-Unset Silent.
 Lemma index_merge_l :
   forall \206\147 \206\1471 \206\1472 n w, \206\147 \226\137\136 \206\1471 \226\136\153 \206\1472 -> index \206\1471 n = Some w -> index \206\147 n = Some w.
