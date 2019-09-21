@@ -90,5 +90,7 @@ split.
 Show.
 reflexivity.
 Show.
-(simpl in Hm).
+Show.
+Set Printing Width 148.
+auto.
 Show.
