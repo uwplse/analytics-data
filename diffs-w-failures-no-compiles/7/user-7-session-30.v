@@ -64,4 +64,6 @@ Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction v; induction t; intros k Hm; try (solve [ contradiction | auto with DBBetaJulia ])).
+Set Printing Width 148.
+(induction v; induction t; intros k Hm; try (solve [ destruct k; contradiction | auto with DBBetaJulia ])).
+(apply match_ty_pair__inv in Hm).
