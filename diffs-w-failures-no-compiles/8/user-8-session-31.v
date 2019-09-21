@@ -2880,4 +2880,8 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl in AUC).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (apply AUC).
