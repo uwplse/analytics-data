@@ -51,10 +51,7 @@ specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
 Set Printing Width 148.
-Set Silent.
-Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
-Unset Silent.
+Set Printing Width 148.
+Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k] v <$ t.
 Proof.
-Show.
-(intros v Hv; induction Hv).
--
+Abort.
