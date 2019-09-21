@@ -161,8 +161,9 @@ Set Printing Width 148.
 (rewrite b_subst_exist_neq in *; try assumption).
 (apply match_ty_exist__inv in Hm).
 Set Printing Width 148.
-(destruct Hm as [ti [Hwfi Hm]]).
 Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
+Set Silent.
+(destruct Hm as [ti [Hwfti Hm]]).
 (rewrite b_subst_neq__permute in Hm; try assumption || auto).
+Unset Silent.
+specialize (IHw ([Bi := ti] t) v Hwftx).
