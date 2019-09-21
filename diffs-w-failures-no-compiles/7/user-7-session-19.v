@@ -209,5 +209,6 @@ idtac.
 (pose proof (Hsem _ Hvref Hmref) as Hmu).
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct Hmu as [Hmu1| Hmu2]; [ left | right ]; intros v Hv Hm; apply match_ty_i_ref__inv in Hm).
+Set Printing Width 148.
+(destruct Hmu as [Hmu1| Hmu2]; [ left | right ]; intros v Hv Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst).
 Show.
