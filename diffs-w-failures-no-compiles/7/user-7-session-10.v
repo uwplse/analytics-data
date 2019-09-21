@@ -131,5 +131,13 @@ Lemma sub_r_unite_pairs_nf_l__inv :
 Set Printing Width 148.
 Set Printing Width 148.
 Set Printing Width 148.
-(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2).
-Show.
+Set Printing Width 148.
+(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
+  try (solve
+   [ match goal with
+     | Hsub:|- ?t1 << ?t2
+       |- _ =>
+           remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ;
+            assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; inversion Heqx; 
+            inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
+     end ])).
