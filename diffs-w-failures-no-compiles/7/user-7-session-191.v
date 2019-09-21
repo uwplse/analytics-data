@@ -165,4 +165,6 @@ Unset Silent.
 Lemma either_free_or_fresh_in_ty : forall (X : id) (t : ty), free_in_ty X t \/ fresh_in_ty X t.
 Proof.
 (unfold free_in_ty, fresh_in_ty, fresh).
+(intros X t).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Qed.
