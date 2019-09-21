@@ -117,9 +117,5 @@ Unset Silent.
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 Set Silent.
 (apply match_ty_exist__inv in Hm).
-Unset Silent.
-(destruct Hm as [ti Hm]).
-Set Silent.
-exists ti.
-Unset Silent.
-Show.
+Set Printing Width 148.
+specialize (IHw' _ HX't' Hm).
