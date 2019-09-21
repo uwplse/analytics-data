@@ -557,5 +557,14 @@ Proof.
 step.
 (destruct r; try step).
 (destruct r; try step).
-(destruct (v == v0); subst).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(destruct (v == v0); subst).
+-
+step.
+-
+step.
+Unshelve.
+auto.
