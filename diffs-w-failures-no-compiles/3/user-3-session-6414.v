@@ -198,4 +198,17 @@ Timeout 1 Check @log_abstraction.
 Timeout 1 Check @log_abstraction.
 Set Printing Width 78.
 Show.
-(unfold log_abstraction; intuition).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Set Printing Width 78.
+Show.
+(unfold log_abstraction, log_length_ok; intuition).
