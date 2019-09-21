@@ -316,4 +316,5 @@ Unset Silent.
 (intros t11 t12 t2).
 Set Printing Width 148.
 Set Printing Width 148.
-(repeat rewrite mk_nf_pair, mk_nf_union).
+Set Printing Width 148.
+(repeat rewrite mk_nf_union, mk_nf_pair, mk_nf_union).
