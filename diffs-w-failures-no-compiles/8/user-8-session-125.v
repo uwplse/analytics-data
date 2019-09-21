@@ -301,5 +301,5 @@ Show.
 Set Printing Width 85.
 Show.
 restore_dims.
-(repeat rewrite kron_1_r).
-Msimpl.
+Unset Silent.
+Show.
