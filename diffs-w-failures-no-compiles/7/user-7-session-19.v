@@ -59,4 +59,9 @@ Unset Silent.
 Proof.
 Show.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle).
+Unset Silent.
+-
+(apply match_ty_i_cname__inv in Hm).
