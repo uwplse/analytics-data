@@ -145,4 +145,7 @@ replace (size_wtype W2) with \226\159\166 \206\1472 \226\159\167.
 specialize denote_compose as DC.
 (unfold denote_circuit in DC).
 Unset Silent.
+Show.
+Set Printing Width 131.
+Show.
 (erewrite DC with (\206\1471 := [])).
