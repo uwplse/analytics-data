@@ -175,4 +175,5 @@ Unset Silent.
 (inversion Heq'; subst).
 clear Heq'.
 clear Hm.
-(assert (Hm : |-[ 1] TRef tx <$ TRef tx)).
+Set Printing Width 148.
+(assert (Hm : |-[ 1] TRef tx <$ TRef tx) by (apply match_ty_value_type__reflexive; constructor)).
