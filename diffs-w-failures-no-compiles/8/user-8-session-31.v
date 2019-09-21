@@ -2837,6 +2837,10 @@ assumption.
 (apply t).
 (apply IN).
 +
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
 (destruct pf1).
 (rewrite pf_merge in *).
@@ -2863,8 +2867,6 @@ dependent destruction t.
 (simpl).
 (rewrite Nat.add_succ_r).
 specialize (apply_U_correct Qubit) as AUC.
-Unset Silent.
-Show.
-Set Printing Width 85.
-Show.
 (simpl in AUC).
+unify_pows_two.
+(rewrite Nat.add_1_r).
