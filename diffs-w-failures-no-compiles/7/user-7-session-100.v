@@ -122,4 +122,11 @@ Set Silent.
 Proof.
 Unset Silent.
 Set Printing Width 148.
-(intros v; induction v; try (solve [ intros c w k Hm; destruct w; destruct k; contradiction ])).
+Set Printing Width 148.
+(intros v; induction v; try (solve [ intros X w k Hm; destruct w; destruct k; contradiction ])).
+Set Silent.
+Set Silent.
+-
+Unset Silent.
+Show.
+Show.
