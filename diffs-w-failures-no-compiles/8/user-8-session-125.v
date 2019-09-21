@@ -116,6 +116,5 @@ Show.
 Set Printing Width 85.
 Show.
 (remember (denote_ctrls (\226\159\166 W3 \226\138\151 W4 \226\159\167) U li) as A).
-(remember (swap_list (\226\159\166 W3 \226\138\151 W4 \226\159\167) li) as S).
 Unset Silent.
 Show.
