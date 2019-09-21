@@ -131,4 +131,8 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite denote_ctrls_transpose).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (remember (denote_ctrls (\226\159\166 W3 \226\138\151 W4 \226\159\167) U li) as A).
