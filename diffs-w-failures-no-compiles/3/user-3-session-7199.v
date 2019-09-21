@@ -226,5 +226,8 @@ step_proc.
 (exists nil; simpl).
 (split; auto).
 (eapply log_abstraction_nil; eauto).
-(autorewrite with upd; auto).
 Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(autorewrite with upd; auto).
