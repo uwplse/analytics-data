@@ -107,7 +107,16 @@ Function
    end.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
+-
+(intros).
+(simpl).
+Omega.omega.
+-
+(intros).
+(simpl).
+Omega.omega.
 -
 (intros).
 (simpl).
@@ -121,8 +130,5 @@ Unset Silent.
 Omega.omega.
 -
 Set Silent.
-(intros).
 (simpl).
-Unset Silent.
-Omega.omega.
--
+(rewrite rename__size).
