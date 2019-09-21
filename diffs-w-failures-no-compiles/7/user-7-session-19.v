@@ -187,4 +187,5 @@ Set Printing Width 148.
 (pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ H) as Hsemu).
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]).
+Set Printing Width 148.
+(destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; auto).
