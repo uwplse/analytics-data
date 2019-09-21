@@ -106,4 +106,5 @@ Set Silent.
 -
 Unset Silent.
 Set Silent.
-(apply match_ty_exist__inv in Hm).
+Unset Silent.
+Show.
