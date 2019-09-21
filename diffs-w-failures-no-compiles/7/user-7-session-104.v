@@ -89,4 +89,9 @@ specialize (Hsem1 1).
 Show.
 (destruct Hsem1 as [w2 Hsem1]).
 Show.
-(assert (Hm : |-[ k, 1] TRef t <$ TRef t)).
+Set Printing Width 148.
+(assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
+Show.
+specialize (Hsem1 _ Hm).
+Show.
+(destruct k, w2, t; try (solve [ simpl in Hsem1; contraidction ])).
