@@ -1441,4 +1441,8 @@ Show.
 Set Printing Width 85.
 Show.
 matrix_denote.
-(simpl).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+restore_dims.
