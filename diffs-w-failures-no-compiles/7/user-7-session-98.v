@@ -164,8 +164,14 @@ Show.
 Show.
 specialize (Hcontra 0).
 Show.
-(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX)))).
-{
+Set Printing Width 148.
+(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
 Show.
-(simpl).
+specialize (Hcontra _ Hm).
+Show.
+(apply match_ty_exist__0_inv in Hcontra).
+Show.
+(destruct Hcontra as [Hv [tx Heqx]]).
+Show.
+(simpl in Heqx).
 Show.
