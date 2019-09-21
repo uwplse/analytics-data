@@ -56,5 +56,8 @@ Qed.
 Lemma mk_nf__sem_sub_k_r : forall (k : nat) (t : ty), ||-[ k][t]<= [MkNF( t)].
 Proof.
 (intros k t).
+Show.
+Set Printing Width 148.
 (apply sem_eq_k__sem_sub_k).
-Unset Silent.
+Show.
+(apply mk_nf__sem_eq_k).
