@@ -246,6 +246,16 @@ Timeout 1 Check @firstn_length.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @proc_spec.
+Timeout 1 Check @hypo_proof.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @statdb_abstraction.
+Set Printing Width 78.
+Show.
+(pose proof I as state2).
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
