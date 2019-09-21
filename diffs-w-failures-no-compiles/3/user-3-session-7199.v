@@ -619,59 +619,20 @@ replace (diskGet d' len_addr) in *.
 auto.
 -
 congruence.
-Qed.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step_proc.
-(descend; intuition eauto).
-destruct matches.
--
-step_proc.
-(descend; intuition eauto).
-{
-(unfold log_size_ok; autorewrite with list; auto).
-}
-{
-(exists bs; intuition eauto using log_abstraction_preserved).
-}
-step_proc.
-intuition.
-{
-(exists bs; eauto using log_abstraction_preserved).
-}
-step_proc.
-intuition.
-{
-Unset Silent.
-(exists (bs ++ v); intuition).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @Zdiv.Zmod'.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
-Show.
-rename state into d.
-rename state0 into d'.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @spec_abstraction_compose.
-rename v into bs'.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @diskUpd_oob_eq.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-rename r0 into len_b.
-Timeout 1 Show.
+Set Silent.
+Lemma log_abstraction_extend :
+  forall (bs' : list block) (bs : LogAPI.State) (d : State),
+  log_abstraction d bs ->
+  forall d' : State,
+  log_size_ok d' (bs ++ bs') ->
+  log_contents_ok d' (bs ++ bs') ->
+  forall len_b : block,
+  block_to_addr len_b = length bs + length bs' ->
+  log_abstraction d' (bs ++ bs').
+Proof.
 Unset Silent.
-Set Diffs "off".
+(intros).
