@@ -187,7 +187,7 @@ clear IHk' IHt.
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
 Set Printing Width 148.
-Set Silent.
-(simpl in Hvk, Hvk').
-Unset Silent.
+Show.
+Set Printing Width 148.
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv)).
 Show.
