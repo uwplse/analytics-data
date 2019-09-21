@@ -468,31 +468,12 @@ Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Unset Silent.
 Unset Silent.
+Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @spec_abstraction_compose.
 Set Printing Width 78.
 Set Silent.
 Theorem log_abstraction_preserved d bs d' bs' :
   log_abstraction d bs ->
   diskGet d' len_addr = diskGet d len_addr ->
-  diskSize d' = diskSize d ->
-  log_contents_ok d' (bs ++ bs') -> log_abstraction d' bs.
-Proof.
-Unset Silent.
-(unfold log_abstraction, log_length_ok, log_size_ok; intuition).
-Set Silent.
--
-replace (diskGet d' len_addr) in *.
-auto.
--
-congruence.
--
-Unset Silent.
-eauto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1fE9YP"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Unset Silent.
-Set Diffs "off".
+  diskSize d' = diskSize d -> log_contents_ok d' bs -> log_abstraction d' bs.
