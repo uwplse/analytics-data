@@ -1429,4 +1429,8 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-Search -add_fresh -\226\136\133.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
+Search -add_fresh.
