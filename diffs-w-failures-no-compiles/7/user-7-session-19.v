@@ -556,10 +556,11 @@ Proof.
 Unset Silent.
 Set Printing Width 148.
 Set Printing Width 148.
+Set Printing Width 148.
 (induction k;
   match goal with
   | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
         apply
          (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
             (fun (t1 : ty) (_ : in_nf t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))
-  end).
+  end; try tauto).
