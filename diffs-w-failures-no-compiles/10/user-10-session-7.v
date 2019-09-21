@@ -271,8 +271,4 @@ CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itre
       end
   end.
 Unset Silent.
-Definition match_event_list {X} (e0 : networkE X) (x0 : X) : list (itree tE unit) -> list (itree tE unit) :=
-  fmap (match_event e0 x0).
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqDZoFmR" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
+Timeout 1 Check @match_app_event.
