@@ -164,4 +164,7 @@ specialize (Hcontra _ Hm).
 (apply match_ty_exist__inv in Hcontra).
 Unset Silent.
 (destruct Hcontra as [tx Hmx]).
-(simpl in Hmx).
+Show.
+Set Printing Width 148.
+(assert (Heq : [vY := tx] TRef (TRef tY) = TRef (TRef tx))).
+reflexivity.
