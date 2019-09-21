@@ -114,5 +114,8 @@ Unset Silent.
 (apply IHt).
 (intros k v).
 Set Printing Width 148.
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
-specialize (H _ _ Hm).
+Set Printing Width 148.
+Set Silent.
+(assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
+Unset Silent.
+(assert (Hmt' : |-[ S k] TRef t' <$ TRef t') by (simpl; tauto)).
