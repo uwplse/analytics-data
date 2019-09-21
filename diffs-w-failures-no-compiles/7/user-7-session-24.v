@@ -68,6 +68,5 @@ Set Printing Width 148.
 Show.
 Show.
 Set Printing Width 148.
-(destruct k).
-Show.
-Show.
+Set Printing Width 148.
+(destruct Hm).
