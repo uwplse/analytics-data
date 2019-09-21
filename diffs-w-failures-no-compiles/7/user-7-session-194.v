@@ -43,16 +43,28 @@ Proof.
 (unfold not_free in *).
 (split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
 Set Printing Width 148.
-Ltac solve_not_free fvname := intros X t1 t2 Hfresh; unfold fvname in *; simpl in Hfresh; simpl; apply not_free_union__inv in Hfresh; assumption.
+Set Printing Width 148.
 Set Silent.
+Ltac
+ solve_not_free_union fvname := intros X t1 t2 Hfresh; unfold fvname in *; simpl in Hfresh; simpl; apply not_free_union__inv in Hfresh; assumption.
 Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
-Unset Silent.
 Proof.
-(solve_not_free not_f_free_in_ty).
+(solve_not_free_union not_f_free_in_ty).
 Qed.
-Set Silent.
 Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TPair t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
 Proof.
-(solve_not_free not_b_free_in_ty).
+(solve_not_free_union not_b_free_in_ty).
+Qed.
+Lemma not_f_free_in_ty_union__inv :
+  forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TUnion t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_f_free_in_ty).
+Unset Silent.
+Qed.
+Set Silent.
+Lemma not_b_free_in_ty_union__inv :
+  forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TUnion t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_b_free_in_ty).
 Unset Silent.
 Qed.
