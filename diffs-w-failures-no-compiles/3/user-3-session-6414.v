@@ -161,10 +161,38 @@ Timeout 1 Check @d.recover.
 Timeout 1 Check @d.recover.
 Timeout 1 Check @d.recover.
 Timeout 1 Check @d.recover.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
 Theorem get_len_ok :
   proc_spec
     (fun (_ : unit) state =>
      {|
      pre := True;
-     post := fun r state' => state' = state /\ block_to_addr r = a;
-     recovered := fun _ state' => state' = state |}) get_len d.recover.
+     post := fun r state' => state' = state /\ r = length state;
+     recovered := fun _ state' => state' = state |}) get_len d.recover abstr.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @ge.
+Timeout 1 Check @get_len.
+Timeout 1 Check @get_len.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold get_len; intros).
+Timeout 1 Check @app.
+Timeout 1 Check @app.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(apply spec_abstraction_compose).
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(intros).
