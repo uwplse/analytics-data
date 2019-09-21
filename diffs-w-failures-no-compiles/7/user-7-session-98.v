@@ -181,4 +181,6 @@ Set Printing Width 148.
 specialize (Hsem' (TRef tx)).
 (destruct Hsem' as [Hsem'1 Hsem'2]).
 specialize (Hsem'2 Hm).
+Show.
+Set Printing Width 148.
 (simpl in Hsem'2).
