@@ -68,4 +68,9 @@ specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
 Set Printing Width 148.
+Set Printing Width 148.
+Set Silent.
 Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
+Unset Silent.
+Proof.
+(induction k; induction t; intros Htk v Hm).
