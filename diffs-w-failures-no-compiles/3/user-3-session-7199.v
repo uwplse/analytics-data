@@ -787,4 +787,15 @@ Set Diffs "off".
 Timeout 1 Check @repeat_length.
 Set Printing Width 78.
 Show.
-eauto.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Set Printing Width 78.
+Show.
+Search -log_contents_ok.
