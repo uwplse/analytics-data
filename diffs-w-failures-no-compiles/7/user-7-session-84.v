@@ -150,6 +150,8 @@ clear IHt2_1 IHt2_2.
 (apply value_sem_sub_k_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
 Qed.
+Set Printing Width 134.
+Set Silent.
 Lemma nf_sem_sub_k__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
 (induction k;
@@ -172,8 +174,10 @@ Proof.
    | |- forall ta : ty, atom_type ta -> _ => tauto
    end).
 -
-(intros t Hnft IHt Hdt).
-(inversion Hdt).
+(intros t Hnft IHt Hdep).
+Unset Silent.
+(inversion Hdep).
+Set Silent.
 -
 (intros t Hnft IH).
 (intros Hdt t2).
@@ -181,34 +185,10 @@ Proof.
 (assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; assumption)).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
 +
+Unset Silent.
 (apply value_sem_sub_k_union__inv in Hsem; try assumption).
+Set Silent.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
 +
 clear IHt2.
-(simpl in Hdt).
-(pose proof (le_S_n _ _ Hdt) as Hdt').
-Unset Silent.
-Set Silent.
-(unfold sem_sub_k in Hsem).
-specialize (Hsem _ Hma).
-(apply match_ty_ref__inv in Hsem).
-(destruct Hsem as [t' [Heqt' [[Hk Hdt't2] Href]]]).
-(inversion Heqt'; subst).
-clear Heqt'.
-constructor.
-*
-(apply IHk; try assumption).
-(apply sem_eq_k__sem_sub_k in Href).
-tauto.
-*
-(apply SD_Trans with (MkNF( t2))).
-(apply mk_nf__sub_d_r; assumption).
-(apply IHk).
-(apply mk_nf__in_nf).
-(rewrite inv_depth_mk_nf).
-assumption.
-(apply sem_sub_k__trans with t2).
-(apply mk_nf__sem_sub_k_l).
-(apply sem_eq_k__sem_sub_k; assumption).
-Unset Silent.
-Qed.
+(simpl in Hdep).
