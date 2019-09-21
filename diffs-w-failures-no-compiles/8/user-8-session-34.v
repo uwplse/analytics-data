@@ -72,4 +72,6 @@ admit.
 Unset Silent.
 Set Silent.
 -
-(intros w' h \206\1473 \206\1472 \206\1473' \206\14703 WT pf_merge1 pf_merge2).
+Unset Silent.
+(intros WT pf_merge1 pf_merge2).
+replace (compose (gate g p1 f) h) with gate g p1 (fun p2 => compose (f p2) h) by auto.
