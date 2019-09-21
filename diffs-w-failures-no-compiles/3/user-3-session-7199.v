@@ -818,4 +818,7 @@ Unset Silent.
 (destruct a' as [[] bs]; simpl in *).
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @div_eucl_th.
-intuition euto.
+Timeout 1 Check @repeat_length.
+intuition eauto.
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
