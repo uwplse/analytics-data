@@ -125,9 +125,5 @@ Show.
 (apply match_ty_pair; auto).
 Set Silent.
 -
-Unset Silent.
-Show.
-Set Silent.
-(destruct k).
-Unset Silent.
-Show.
+Set Printing Width 148.
+(destruct w, k).
