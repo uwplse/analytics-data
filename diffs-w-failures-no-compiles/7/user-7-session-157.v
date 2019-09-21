@@ -70,10 +70,5 @@ exists (TPair v1' v2').
 Set Printing Width 148.
 subst.
 Show.
-(simpl in *).
 Set Printing Width 148.
-(rewrite <- beq_id_refl in *).
-Show.
 (exists v; assumption).
-Show.
-+
