@@ -49,4 +49,4 @@ Search -IdSet.remove.
 (intros Hcontra).
 Search -IdSet.remove.
 Check IdSetFacts.remove_2.
-(apply (IdSetFacts.remove_2 _ _ _ Hneq) in Hcontra).
+(apply (IdSetFacts.remove_2 _ _ Hneq) in Hcontra).
