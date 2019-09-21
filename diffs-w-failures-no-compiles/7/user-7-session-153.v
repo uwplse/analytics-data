@@ -3,6 +3,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
@@ -30,4 +31,12 @@ Proof.
 -
 (apply sem_sub_pair; assumption).
 -
-Unset Silent.
+(apply sem_sub_union; assumption).
+-
+(apply sem_sub_union_1).
+(apply sem_sub__refl).
+-
+(apply sem_sub_union_2).
+(apply sem_sub__refl).
+-
+(intros k w1).
