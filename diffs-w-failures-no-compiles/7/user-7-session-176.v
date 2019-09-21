@@ -158,4 +158,5 @@ Set Printing Width 148.
 Show.
 (destruct (IHt1 v1) as [Hm1' _]; destruct (IHt2 v2) as [Hm2' _]).
 Show.
-(exists (TPair v1' v2'); rewrite subst_pair; apply match_ty_pair; tauto).
+(apply match_ty_pair; tauto).
+Show.
