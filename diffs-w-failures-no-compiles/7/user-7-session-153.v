@@ -26,4 +26,8 @@ Unset Silent.
 -
 Show.
 Set Printing Width 148.
-(apply match_ty_cname__inv in Hm; subst).
+Show.
+Set Printing Width 148.
+exists (TCName c).
+(apply match_ty_cname).
+-
