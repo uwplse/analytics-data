@@ -156,4 +156,6 @@ Unset Silent.
 Set Silent.
 -
 Unset Silent.
-(destruct k, w; constructor; simpl; tauto).
+Show.
+(destruct k, w).
+(simpl).
