@@ -1288,4 +1288,5 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(apply mixed_state_trace_1; auto).
+Unset Silent.
+Show.
