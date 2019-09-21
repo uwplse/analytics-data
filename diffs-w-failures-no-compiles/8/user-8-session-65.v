@@ -1096,4 +1096,4 @@ Show.
 Set Printing Width 85.
 Show.
 Set Silent.
-(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
+Unset Silent.
