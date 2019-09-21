@@ -971,4 +971,10 @@ Show.
 Set Printing Width 84.
 Show.
 (simpl_rewrite id_circ_spec).
+Unset Silent.
+Show.
+Set Printing Width 84.
+Show.
 (simpl_rewrite inSeq_correct; [  | apply assert_at_WT | apply init_at_WT ]).
+(unfold compose_super).
+(rewrite size_ntensor, Nat.mul_1_r in M).
