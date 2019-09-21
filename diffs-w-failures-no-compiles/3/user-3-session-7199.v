@@ -711,6 +711,14 @@ Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @spec_abstraction_compose.
 (apply spec_abstraction_compose).
 step_proc.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 (destruct a' as [[] bs]; simpl in *).
 intuition eauto.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(descend; intuition eauto).
 Timeout 1 Check @spec_abstraction_compose.
