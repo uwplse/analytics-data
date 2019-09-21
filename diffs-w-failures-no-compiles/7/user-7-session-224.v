@@ -29,6 +29,18 @@ Set Printing Width 148.
   try (solve [ unfold b_free_in_ty, free in HX; simpl in HX; rewrite IdSetFacts.empty_iff in HX; contradiction ])).
 Show.
 Set Silent.
+Set Printing Width 148.
+admit.
+Show.
+-
+Show.
+admit.
+Show.
+Set Silent.
 -
 Unset Silent.
-admit.
+Show.
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_exist_eq in Hm).
