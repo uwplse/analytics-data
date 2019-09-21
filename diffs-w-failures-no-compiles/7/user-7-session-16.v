@@ -487,6 +487,7 @@ Set Printing Width 148.
 Show.
 Set Printing Width 148.
 Set Silent.
-+
-Unset Silent.
-(destruct IH12 as [IH12| IH12]; destruct IH22 as [IH22| IH22]).
+Set Printing Width 148.
+(destruct IH12 as [IH12| IH12]; destruct IH22 as [IH22| IH22]; try (solve [ left; constructor; assumption ])).
+Show.
+(right; intros Hcontra; destruct (sub_r_union_l__inv _ _ _ Hcontra) as [Hsub1 Hsub2]).
