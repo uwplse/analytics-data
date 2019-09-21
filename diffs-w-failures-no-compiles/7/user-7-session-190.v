@@ -41,4 +41,4 @@ assumption.
 (destruct (free_in_ty__decidable X t'1) as [HXt'1| HXt'1]).
 (apply match_ty_union_1; auto).
 Unset Silent.
-(exfalso; apply not__free_and_fresh_in_ty).
+(exfalso; eapply not__free_and_fresh_in_ty).
