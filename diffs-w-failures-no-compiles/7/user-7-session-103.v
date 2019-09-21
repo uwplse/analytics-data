@@ -25,4 +25,5 @@ Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t1 ->
 Proof.
 Set Printing Width 148.
 Set Printing Width 148.
-(destruct k, w, v; left; assumption).
+Set Printing Width 148.
+(destruct k, w; left; assumption).
