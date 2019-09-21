@@ -483,4 +483,14 @@ Timeout 1 Check @split.
 Set Silent.
 {
 Unset Silent.
-lia.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_contents_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_size_ok in H).
