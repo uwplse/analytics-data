@@ -83,4 +83,6 @@ Set Printing Width 148.
 idtac.
 clear IHt'.
 (simpl).
-(apply f_apply).
+Show.
+(apply f_equal).
+(apply IHt).
