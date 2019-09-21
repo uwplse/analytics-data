@@ -209,5 +209,6 @@ Proof.
 (intros k t1 t2 Hsem).
 Set Printing Width 148.
 (intros k t1 t2 Hsem1 Hsem2).
-auto with DBBetaJulia.
-Show.
+Set Printing Width 148.
+(unfold sem_sub_k in *).
+split.
