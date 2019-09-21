@@ -33,5 +33,5 @@ Set Silent.
 Set Printing Width 148.
 (rewrite subst_union; destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]).
 Show.
-(apply match_ty_union_1; auto).
-Show.
+Set Printing Width 148.
+(apply match_ty_union_1; tauto).
