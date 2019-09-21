@@ -481,7 +481,34 @@ Set Silent.
 lia.
 Unset Silent.
 }
-+
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+Set Silent.
+(exists s; simpl; intuition).
+Unset Silent.
+(apply log_abstraction_pre_commit; auto).
+}
 (exists s; simpl; intuition).
 (apply log_abstraction_pre_commit; auto).
-+
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgOIzX2"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Set Silent.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+eauto.
+(destruct a; simpl in *).
+(autounfold in *; intuition; subst; eauto).
+Qed.
+Unset Silent.
+End Log.
