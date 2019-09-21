@@ -610,4 +610,6 @@ Timeout 1 Check @app.
 Timeout 1 Check @app.
 Set Printing Width 78.
 Show.
-(unfold log_size_ok; autorewrite with app).
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @split.
+(unfold log_size_ok; autorewrite with list; auto).
