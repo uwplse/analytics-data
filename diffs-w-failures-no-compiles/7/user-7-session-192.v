@@ -132,6 +132,11 @@ Set Silent.
 Unset Silent.
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
 Set Silent.
-(apply match_ty_exist).
-Unset Silent.
+Set Printing Width 148.
+exists ([X' := tx] ti).
+Show.
+admit.
+}
+Show.
+{
 exists ti.
