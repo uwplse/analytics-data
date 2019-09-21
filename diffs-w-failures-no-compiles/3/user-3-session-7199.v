@@ -713,4 +713,8 @@ Timeout 1 Check @diskUpd_eq.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Set Printing Width 78.
 Show.
-(rewrite diskUpd_eq in H2).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @firstn_length.
+Timeout 1 Check @firstn_length.
