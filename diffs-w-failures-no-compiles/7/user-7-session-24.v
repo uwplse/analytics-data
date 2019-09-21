@@ -29,8 +29,10 @@ Inductive value_type : ty -> Prop :=
   | VT_Pair : forall v1 v2, value_type v1 -> value_type v2 -> value_type (TPair v1 v2)
   | VT_Ref : forall t, value_type (TRef t).
 Hint Constructors value_type: DBBetaJulia.
+Set Printing Width 148.
+Declare Scope btjm_scope.
+Set Silent.
 Reserved Notation "'|' t '|'" (at level 20).
-Unset Silent.
 Fixpoint inv_depth (t : ty) :=
   match t with
   | TCName _ => 0
@@ -39,3 +41,4 @@ Fixpoint inv_depth (t : ty) :=
   | TRef t' => 1 + | t' |
   end
 where "'|' t '|'" := (inv_depth t) : btjm_scope.
+Unset Silent.
