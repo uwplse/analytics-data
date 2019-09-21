@@ -241,23 +241,8 @@ Theorem log_size_bound d bs a :
   log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
 Proof.
 (unfold log_size_ok, log_addr; intros; lia).
-Qed.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Timeout 1 Check @plus_n_O.
-Timeout 1 Check @Relation_Definitions.inclusion.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_contents_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_ok.
-Timeout 1 Check @log_size_bound.
-Timeout 1 Check @log_size_bound.
-Timeout 1 Check @log_size_bound.
-Timeout 1 Check @log_size_bound.
 Set Printing Width 68.
 Set Silent.
 Theorem get_at_ok a :
@@ -280,5 +265,287 @@ step.
 (pose proof (H3 a); intuition).
 (assert (log_addr a < diskSize state)).
 {
+eauto using log_size_bound.
+}
+eq_values.
+auto.
 Unset Silent.
-eauto using log_size_bounds.
+Qed.
+Set Silent.
+Hint Resolve get_at_ok: core.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe; simpl; intros).
+(apply spec_abstraction_compose).
+step.
+(destruct a as [_ bs]; simpl in *; intuition eauto).
+Qed.
+Hint Resolve recover_wipe: core.
+Lemma firstn_one_more :
+  forall (a : nat) (d : list block),
+  S a <= length d ->
+  firstn a d ++ [nth a d block0] = firstn (S a) d.
+Proof.
+(intros).
+generalize dependent a.
+(induction d; simpl; intros).
+-
+(exfalso; lia).
+-
+(destruct a0; simpl in *; auto).
+(rewrite IHd by lia; auto).
+Qed.
+Opaque firstn.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
+Proof.
+(induction a; simpl).
+-
+step.
+-
+step.
+step.
+intuition eauto.
+{
+lia.
+}
+step.
+auto using firstn_one_more.
+Qed.
+Hint Resolve get_upto_ok: core.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+(unfold get, get_spec; intros).
+step.
+step.
+(rewrite firstn_all; auto).
+Qed.
+Theorem log_contents_ok_unchanged d bs a0 b :
+  log_size_ok d bs ->
+  log_contents_ok d bs ->
+  a0 >= length bs -> log_contents_ok (diskUpd d (log_addr a0) b) bs.
+Proof.
+(unfold log_size_ok, log_contents_ok; intros).
+(destruct (a == a0); subst; autorewrite with upd; auto).
+(simpl; auto).
+Qed.
+Theorem log_size_ok_shrink d bs bs' :
+  log_size_ok d (bs ++ bs') -> log_size_ok d bs.
+Proof.
+(unfold log_size_ok; simpl).
+(rewrite app_length; intros).
+lia.
+Qed.
+Hint Resolve log_size_ok_shrink: core.
+Hint Rewrite app_length : list.
+Theorem log_contents_ok_prefix d bs bs' :
+  log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
+Proof.
+(unfold log_contents_ok; intros).
+specialize (H a).
+(rewrite app_nth1 in H by lia).
+(apply H).
+(rewrite app_length; lia).
+Qed.
+Hint Resolve log_contents_ok_prefix: core.
+Theorem log_contents_ok_append d bs b bs' :
+  log_size_ok d (bs ++ b :: bs') ->
+  log_contents_ok d bs ->
+  log_contents_ok (diskUpd d (log_addr (length bs)) b) (bs ++ [b]).
+Proof.
+(unfold log_contents_ok; intros).
+(assert (log_addr (length bs) < diskSize d)).
+{
+(unfold log_size_ok, log_addr, diskSize in *).
+(rewrite app_length in *; simpl in *).
+lia.
+}
+(destruct (a == length bs); subst; autorewrite with upd).
+-
+(simpl).
+(rewrite app_nth2 by lia).
+replace (length bs - length bs) with 0 by lia.
+reflexivity.
+-
+(assert (a < length bs)).
+{
+(rewrite app_length in *; simpl in *; lia).
+}
+(rewrite app_nth1 by lia).
+auto.
+Qed.
+Hint Resolve log_contents_ok_append: core.
+Theorem append_at_ok a bs' :
+  proc_spec
+    (fun (bs : list block) state =>
+     {|
+     pre := a = length bs /\
+            log_size_ok state (bs ++ bs') /\
+            log_contents_ok state bs;
+     post := fun r state' =>
+             diskGet state' len_addr = diskGet state len_addr /\
+             diskSize state' = diskSize state /\
+             log_size_ok state' (bs ++ bs') /\
+             log_contents_ok state' (bs ++ bs');
+     recovered := fun _ state' =>
+                  diskGet state' len_addr = diskGet state len_addr /\
+                  diskSize state' = diskSize state /\
+                  log_contents_ok state' bs |}) 
+    (append_at a bs') recover d.abstr.
+Proof.
+generalize dependent a.
+(induction bs'; simpl; intros).
+-
+step.
+intuition eauto.
+(rewrite app_nil_r; auto).
+-
+step.
+(intuition eauto; autorewrite with upd; auto).
+step.
+(exists (a' ++ [a]); intuition eauto; autorewrite with upd list
+  in *; eauto).
++
+(simpl; lia).
++
+(unfold log_size_ok in *; simpl in *).
+autorewrite with upd list in *.
+(simpl in *; lia).
++
+(unfold log_size_ok in *; simpl in *).
+autorewrite with upd list in *.
+(simpl in *; lia).
++
+(rewrite <- app_assoc in *; simpl in *; auto).
+Qed.
+Hint Resolve append_at_ok: core.
+Theorem log_abstraction_preserved d bs d' :
+  log_abstraction d bs ->
+  diskGet d' len_addr = diskGet d len_addr ->
+  diskSize d' = diskSize d ->
+  log_contents_ok d' bs -> log_abstraction d' bs.
+Proof.
+(unfold log_abstraction, log_length_ok, log_size_ok; intuition).
+-
+replace (diskGet d' len_addr) in *.
+auto.
+-
+congruence.
+Qed.
+Theorem abstr_length_sz_bound d bs :
+  log_size_ok d bs -> len_addr < diskSize d.
+Proof.
+(unfold log_size_ok, len_addr, diskSize).
+(intros; lia).
+Qed.
+Hint Resolve abstr_length_sz_bound: core.
+Theorem log_contents_ok_len_change d bs b :
+  log_size_ok d bs ->
+  log_contents_ok d bs -> log_contents_ok (diskUpd d len_addr b) bs.
+Proof.
+(unfold log_size_ok, log_contents_ok, len_addr; intros).
+(destruct (0 == log_addr a); autorewrite with upd).
+-
+(exfalso; unfold log_addr in *; lia).
+-
+auto.
+Qed.
+Lemma log_abstraction_commit :
+  forall bs bs' : list block,
+  forall d' : State,
+  log_size_ok d' (bs ++ bs') ->
+  log_contents_ok d' (bs ++ bs') ->
+  forall len_b : block,
+  block_to_addr len_b = length bs + length bs' ->
+  log_abstraction (diskUpd d' len_addr len_b) (bs ++ bs').
+Proof.
+(intros).
+(assert (len_addr < diskSize d') by eauto).
+(unfold log_abstraction; intuition).
+-
+(unfold log_length_ok in *; intros; autorewrite with upd list in *).
+(simpl in *; intuition).
+-
+(unfold log_size_ok in *; autorewrite with upd list in *).
+lia.
+-
+(apply log_contents_ok_len_change; auto).
+Qed.
+Hint Resolve log_abstraction_commit: core.
+Theorem log_length_ok_unchanged d bs d' :
+  log_length_ok d bs ->
+  diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
+Proof.
+(unfold log_length_ok; intros).
+(rewrite H0 in *).
+eauto.
+Qed.
+Hint Resolve log_length_ok_unchanged: core.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose).
+step.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+step.
+(exists bs; intuition eauto).
+destruct matches.
+-
+step.
+(exists bs; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto using log_abstraction_preserved).
+}
+step.
+intuition.
+{
+(exists bs; eauto using log_abstraction_preserved).
+}
+step.
+intuition.
+{
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+}
+{
+(exists (bs ++ v); intuition).
+}
+step.
+intuition.
+{
+(exists (bs ++ v); intuition eauto).
+}
+{
+(exists (bs ++ v); intuition eauto).
+}
+-
+step.
+intuition eauto.
+Qed.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+(unfold reset; intros).
+(apply spec_abstraction_compose).
+step.
+(destruct a' as [[] bs]; simpl in *).
+intuition.
+{
+(exists bs; intuition eauto).
+}
+step.
+intuition eauto.
+{
+Unset Silent.
+(exists []; intuition eauto).
+(apply log_abstraction_nil; eauto).
