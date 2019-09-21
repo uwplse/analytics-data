@@ -145,4 +145,28 @@ Show.
 }
 *
 specialize (IHw'a H).
-split.
+Set Printing Width 148.
+(split; intros HX').
+Set Silent.
+{
+(apply match_ty_exist).
+exists ti.
+assumption.
+Unset Silent.
+}
+{
+(destruct (beq_idP X' i)).
+{
+subst.
+(rewrite subst_exist_eq).
+(apply match_ty_exist).
+exists ti.
+assumption.
+}
+Set Silent.
+(rewrite subst_equation).
+(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
+Unset Silent.
+(rewrite Hbeq).
+{
+(rewrite Hmem).
