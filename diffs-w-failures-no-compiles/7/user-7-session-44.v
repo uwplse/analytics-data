@@ -207,3 +207,6 @@ Lemma sem_sub_k__sem_eq_k : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]<= [t2] ->
 Unset Silent.
 Proof.
 (intros k t1 t2 Hsem).
+Set Printing Width 148.
+(intros k t1 t2 Hsem1 Hsem2).
+auto using DBBetaJulia.
