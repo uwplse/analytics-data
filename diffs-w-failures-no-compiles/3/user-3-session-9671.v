@@ -485,4 +485,9 @@ Timeout 1 Check @Zabs.Zabs_dec.
 Timeout 1 Check @spec_abstraction_compose.
 Timeout 1 Check @Zabs.Zabs_dec.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
-(exists bs; intuition).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 68.
+Show.
+(exists bs; intuition eauto).
