@@ -216,6 +216,9 @@ Show.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 intuition.
 (step_proc; intros).
-{
 Unset Silent.
 Set Diffs "off".
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Set Printing Width 78.
+Show.
+autounfold in *.
