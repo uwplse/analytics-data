@@ -353,5 +353,6 @@ clear IHt.
 split.
 tauto.
 (eapply sem_eq_k__trans; eauto).
-(apply sem_eq_k__comm).
-auto.
+Set Printing Width 148.
+(apply sem_eq_k__comm; auto).
+Qed.
