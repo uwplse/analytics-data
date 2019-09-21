@@ -99,4 +99,6 @@ intuition subst; eauto.
 Unset Silent.
 *
 (f_equal; lia).
+*
 (repeat deex).
+(exists (S nwritten); simpl).
