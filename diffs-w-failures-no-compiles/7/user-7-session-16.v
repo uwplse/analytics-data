@@ -408,6 +408,7 @@ right.
         subst
  end).
 Set Printing Width 148.
+Set Printing Width 148.
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || apply mk_nf_nf__equal
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || (apply mk_nf_nf__equal; assumption)
  end).
