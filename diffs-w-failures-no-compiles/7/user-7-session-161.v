@@ -121,4 +121,4 @@ Show.
 Set Printing Width 148.
 exists ([X' := tx] ti).
 Show.
-(apply IHw').
+Show.
