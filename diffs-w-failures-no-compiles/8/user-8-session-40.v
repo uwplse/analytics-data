@@ -84,4 +84,4 @@ Show.
 Set Printing Width 85.
 Show.
 vector_denote.
-(destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
+(destruct b; unfold bool_to_ket; simpl; Msimpl).
