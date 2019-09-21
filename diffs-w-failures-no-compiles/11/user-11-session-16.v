@@ -40,23 +40,6 @@ Redirect "/tmp/coq16819lNO" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Set Silent.
 Definition smE := appE exp +' evalE +' nondetE.
-Definition kvs_state exp_ := list (N * exp_ N).
 Unset Silent.
-Fixpoint choose {A E} `{nondetE -< E} (a : A) (l : list A) : 
-itree E A :=
-  match l with
-  | [] => ret a
-  | x :: l' => b <- trigger Or;; (if b : bool then ret x else choose x l')
-  end.
-Redirect "/tmp/coq16819yXU" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Check @kvs_state.
-Timeout 1 Check @kvs_state.
-Timeout 1 Check @kvs_state.
-Timeout 1 Check @kvs_state.
-Timeout 1 Check @kvs_state.
-Timeout 1 Check @kvs_state.
-Timeout 1 Check @kvs_state.
-Check Or.
-Locate or.
-Check or.
+Set Printing Width 115.
+Definition kvs_state exp_ := list connection * list (N * exp_ N).
