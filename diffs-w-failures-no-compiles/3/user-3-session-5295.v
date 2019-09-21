@@ -193,4 +193,12 @@ Set Silent.
 }
 Unset Silent.
 (destruct (lt_dec a (diskSize a'))).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
 -
+eauto.
+-
+simplify.
+(destruct r; step).
