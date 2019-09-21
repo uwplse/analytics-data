@@ -395,5 +395,9 @@ Unset Silent.
 }
 congruence.
 -
-(simpl; intuition).
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(unfold log_contents_ok; intuition).
 (exfalso; lia).
