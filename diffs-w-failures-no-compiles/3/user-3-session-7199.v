@@ -241,5 +241,8 @@ Unset Silent.
 Set Diffs "off".
 Set Printing Width 78.
 Show.
-(pose proof (H1 (log_addr a)); intuition).
-eq_values.
+Unset Silent.
+Set Diffs "off".
+Set Printing Width 78.
+Show.
+(pose proof (H1 a); intuition).
