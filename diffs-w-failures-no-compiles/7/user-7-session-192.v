@@ -114,15 +114,18 @@ specialize (IHw'b H).
 exists ti.
 assumption.
 }
+Set Printing Width 148.
+Set Silent.
+{
 (destruct (beq_idP X' i)).
 {
 subst.
-Show.
-Set Printing Width 148.
 (unfold free_in_ty in HX').
 (simpl in HX').
-Set Silent.
 admit.
-Unset Silent.
 }
+Unset Silent.
 {
+(rewrite subst_equation).
+Search -beq_id.
+(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
