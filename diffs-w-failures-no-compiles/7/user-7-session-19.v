@@ -147,6 +147,17 @@ Unset Silent.
 (apply match_ty_i_pair__inv in Hm2).
 Set Silent.
 (destruct Hm2 as [pv21 [pv22 [Heq [Hm21 Hm22]]]]).
-(inversion Heq; subst).
+Set Printing Width 148.
+auto using match_ty_i_pair.
+Show.
+Set Silent.
++
 Unset Silent.
-auto using match_ty_pair.
+(apply match_ty_i_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
+Set Silent.
+-
+(intros v1 v3 k Hm1 Hm2).
+(destruct k).
+(destruct v1; inversion Hm1).
+(apply match_ty_i_ref__inv in Hm1).
