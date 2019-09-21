@@ -34,8 +34,6 @@ Set Silent.
 -
 Show.
 Set Printing Width 148.
-(simpl in Hm).
-(simpl).
-Set Silent.
-Unset Silent.
 Show.
+Set Printing Width 148.
+(simpl).
