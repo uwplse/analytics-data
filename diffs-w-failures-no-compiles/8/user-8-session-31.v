@@ -3289,5 +3289,9 @@ Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c \226\137\161
 Proof.
 (destruct c).
 (unfold inSeq).
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (simpl).
-(apply f_equal).
+(intros \207\129 b).
