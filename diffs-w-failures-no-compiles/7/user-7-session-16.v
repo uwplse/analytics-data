@@ -360,7 +360,9 @@ Set Silent.
 Unset Silent.
 (destruct Hdec as [Hdec| Hdec]).
 -
-left.
-(apply sub_r__transitive with t1).
+Set Printing Width 148.
+Set Silent.
+(left; apply sub_r__transitive with t1).
 (apply mk_nf__sub_r1).
+Unset Silent.
 assumption.
