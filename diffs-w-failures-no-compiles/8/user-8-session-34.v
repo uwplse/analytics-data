@@ -215,4 +215,4 @@ Show.
 Set Printing Width 131.
 Show.
 (unfold compose_super).
-(rewrite E1 by easy).
+(rewrite E2).
