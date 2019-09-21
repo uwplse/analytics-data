@@ -131,11 +131,23 @@ admit.
 Unset Silent.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 Set Silent.
--
-Unset Silent.
-Show.
+Set Printing Width 148.
 (destruct (beq_idP X i) as [HXi| HXi]).
+Show.
 +
 subst.
-Set Printing Width 148.
+Show.
 (rewrite subst_var_eq in *).
+exists (TEV X').
+Show.
+split.
+Show.
+reflexivity.
+Show.
+(induction w'; induction t'; intros Hm'; try contradiction).
+Show.
+*
+Set Silent.
+(apply match_ty_union__inv in Hm').
+Unset Silent.
+(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
