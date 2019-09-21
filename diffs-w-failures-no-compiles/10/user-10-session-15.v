@@ -46,8 +46,4 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqUPskrz" Print Ltac
 Timeout 1 Print Grammar tactic.
 Unset Silent.
 Set Printing Width 114.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqKaxtcz" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Eval compute in nth 5 (fib 9 0 1) 42.
-Eval compute in Str_nth 5 (Fib 0 1).
+Unset Silent.
