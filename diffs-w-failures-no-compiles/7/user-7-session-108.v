@@ -252,6 +252,11 @@ Proof.
 (induction k; induction t; induction t'; intros Hdep Hsem; try reflexivity).
 -
 (destruct Hsem as [Hsem _]).
-specialize (Hsem 0).
-Unset Silent.
+Show.
+Set Printing Width 148.
+(destruct Hsem as [w2 Hsem]).
 (assert (Hm : |-[ 0, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hsem _ Hm).
+Show.
+(destruct w2; simpl in Hsem; contradiction).
+Show.
