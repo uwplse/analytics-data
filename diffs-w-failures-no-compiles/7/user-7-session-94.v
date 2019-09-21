@@ -85,4 +85,8 @@ Unset Silent.
 Proof.
 Set Printing Width 148.
 Set Printing Width 148.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm; try (solve [ apply match_ty_cname__inv in Hm; subst; constructor ])).
+Set Printing Width 148.
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm;
+  try (solve
+   [ apply match_ty_cname__inv in Hm; subst; constructor
+   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto ])).
