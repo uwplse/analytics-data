@@ -421,4 +421,5 @@ tauto.
 -
 (rewrite f_subst_exist).
 Set Printing Width 148.
-(unfold wf_ty; simpl).
+Set Printing Width 148.
+(unfold wf_ty in *; simpl).
