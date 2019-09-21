@@ -35,4 +35,4 @@ Show.
 Set Printing Width 85.
 Show.
 (rewrite Nat.sub_diag).
-(rewrite kron_1_r).
+(rewrite kron_1_r').
