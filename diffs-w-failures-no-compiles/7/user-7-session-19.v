@@ -128,4 +128,43 @@ Proof.
 generalize dependent t3.
 generalize dependent v1.
 Unset Silent.
-(induction Hv2; intros v1 t3 k Hm1 Hm2).
+Show.
+(induction Hv2).
+Set Silent.
+-
+Unset Silent.
+(intros v1 t3 k Hm1 Hm2).
+Set Silent.
+(apply match_ty_i_cname__inv in Hm1; subst).
+Unset Silent.
+assumption.
+Set Silent.
+-
+Unset Silent.
+Show.
+(intros v0 t3 k Hm1 Hm2).
+Set Silent.
+(apply match_ty_i_pair__inv in Hm1).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hm11 Hmpv12]]]]; subst).
+Unset Silent.
+(induction t3; try (solve [ destruct k; simpl in Hm2; contradiction ])).
+Set Silent.
++
+(apply match_ty_i_pair__inv in Hm2).
+(destruct Hm2 as [pv21 [pv22 [Heq [Hm21 Hm22]]]]).
+(inversion Heq; subst).
+Unset Silent.
+auto using match_ty_i_pair.
+Set Silent.
++
+(apply match_ty_i_union__inv in Hm2).
+Unset Silent.
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
+Set Silent.
+-
+Unset Silent.
+(intros v1 t3 k Hm1 Hm2).
+Set Silent.
+(destruct k).
+(destruct v1; try contradiction).
+(apply match_ty_i_ref__inv in Hm1).
