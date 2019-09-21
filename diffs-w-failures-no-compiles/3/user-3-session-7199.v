@@ -629,4 +629,38 @@ Timeout 1 Check @Byte.x10.
 Set Printing Width 78.
 Show.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @repeat_length.
+Set Printing Width 78.
+Show.
+intuition eauto.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6X1HOm"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqB5pbtF"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @rec_wipe_compose.
+Timeout 1 Check @reset.
+Timeout 1 Check @reset.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold reset; intros).
+Timeout 1 Check @app.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+(apply spec_abstraction_compose).
+Timeout 1 Check @spec_abstraction_compose.
+step_proc.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
 intuition.
