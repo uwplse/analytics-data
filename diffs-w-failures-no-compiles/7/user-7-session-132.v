@@ -109,5 +109,5 @@ exists w1.
 Set Printing Width 148.
 (apply match_ty_ref).
 Show.
-(apply sem_eq_k__trans with t').
-Show.
+Set Printing Width 148.
+(apply sem_eq_k__trans with t; assumption).
