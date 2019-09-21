@@ -122,5 +122,6 @@ Qed.
 Set Silent.
 Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Set Printing Width 148.
-(induction k; induction t; induction t'; intros H; try solve constructor).
+Set Printing Width 148.
+(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ])).
 Show.
