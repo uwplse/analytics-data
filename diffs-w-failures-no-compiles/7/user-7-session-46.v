@@ -3,14 +3,19 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
 Require Import BetaJulia.BasicTactics.
-Set Printing Width 148.
-Set Silent.
+Require Import Coq.Lists.List.
+Import ListNotations.
+Require Import Coq.Arith.Arith.
+Require Import Coq.Bool.Bool.
+Close Scope btjm.
+Open Scope btjmi.
 Lemma match_ty_i_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
@@ -48,27 +53,27 @@ Proof.
 Qed.
 Lemma match_ty_i_ref__weak_inv : forall (v t : ty) (k : nat), |-[ k] v <$ TRef t -> exists t' : ty, v = TRef t'.
 Proof.
-Unset Silent.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
-Set Silent.
 clear IHv.
 (intros t k).
 (intros Hm).
 exists v.
 reflexivity.
-Unset Silent.
 Qed.
-Set Silent.
 Lemma match_ty_i_ref__inv : forall (v t : ty) (k : nat), |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ ||-[ k][t']= [t].
-Unset Silent.
 Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
-Set Printing Width 148.
-Set Silent.
 (intros t k Hm).
 Unset Silent.
 (simpl in Hm).
 exists v.
-Set Printing Width 148.
-(split; auto).
+auto.
+Qed.
+Set Silent.
+Theorem match_ty_i__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
+Proof.
+(intros v t).
+generalize dependent v.
+Unset Silent.
+(induction t; intros k v Hm).
