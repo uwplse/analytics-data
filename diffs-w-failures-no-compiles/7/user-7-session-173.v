@@ -128,8 +128,13 @@ Set Silent.
 (simpl).
 Unset Silent.
 Omega.omega.
--
-Set Silent.
+Set Printing Width 148.
+(intros).
 (simpl).
-Unset Silent.
-Show.
+(rewrite rename__size).
+Omega.omega.
+-
+(intros).
+(simpl).
+Omega.omega.
+Defined.
