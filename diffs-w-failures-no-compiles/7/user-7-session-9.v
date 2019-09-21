@@ -20,7 +20,17 @@ Proof.
 (intros t t1' t2' Hsub).
 (remember (TUnion t1' t2') as t' eqn:Heq ).
 Set Printing Width 148.
-(induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ]); inversion Heq).
+Set Printing Width 148.
+(induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ]); inversion Heq; subst).
 Set Silent.
 -
+(left; assumption).
+-
 Unset Silent.
+(right; assumption).
+Show.
+-
+(assert (Hnf : InNF( t)) by (constructor; assumption)).
+(rewrite (mk_nf_nf__equal t Hnf) in IHHsub).
+tauto.
+Qed.
