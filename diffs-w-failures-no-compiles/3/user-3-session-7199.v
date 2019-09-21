@@ -78,48 +78,206 @@ Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
 Unset Silent.
 Set Diffs "off".
-Timeout 1 Check @forallb.
-Timeout 1 Check @forallb.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
 Timeout 1 Check @block.
 Timeout 1 Check @log_addr.
 Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
 Timeout 1 Check @Ascii.nat_ascii_embedding.
 Timeout 1 Check @disk.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
+Timeout 1 Check @split.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @diskSize.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @repeat_length.
+Timeout 1 Check @block.
 Set Printing Width 78.
-Definition log_abstraction (d : disk) (log : list block) : Prop :=
-  log_length_ok d log /\
-  (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqeZIfbW"
+Definition log_size_ok (d : disk) (log : list block) :=
+  diskSize d >= 1 + length log.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZIyDu2"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKJ2ah1"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFam0Pk"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @log_size_ok.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+Timeout 1 Check @disk.
+Timeout 1 Check @block.
+Timeout 1 Check @split.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Definition log_contents_ok (d : disk) (log : list block) :=
+  forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqCfEuGO"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtTL5Ao"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition log_abstraction (d : disk) (log : list block) : Prop :=
+  log_length_ok d log /\ log_size_ok d log /\ log_contents_ok d log.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6dWtdM"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqP8jZBW"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Check @BoolTheory.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @block.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @log_length_ok.
+Timeout 1 Check @block.
+Timeout 1 Check @log_addr.
+Theorem abstr_length_proj d log :
+  log_abstraction d log -> log_length_ok d log.
+Proof.
+Timeout 1 Check @Ascii.nat_ascii_bounded.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @Wf.F_unfold.
+Timeout 1 Check @log_addr.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @log_abstraction.
+Timeout 1 Check @Ascii.nat_ascii_embedding.
+(unfold log_abstraction; intuition).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAKvZc6"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Set Silent.
+Qed.
+Unset Silent.
+Theorem abstr_size_proj d log : log_abstraction d log -> log_size_ok d log.
+Proof.
+(unfold log_abstraction; intuition).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlD3ueZ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
+Qed.
+Theorem abstr_contents_proj d log :
+  log_abstraction d log -> log_contents_ok d log.
+Proof.
+Unset Silent.
+(unfold log_abstraction; intuition).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsf4cme"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Timeout 1 Check @RExec.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @abstr_length_proj.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @abstr_size_proj.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Timeout 1 Check @spec_abstraction_compose.
+Hint Resolve abstr_length_proj abstr_size_proj abstr_contents_proj: core.
 Definition abstr : Abstraction State :=
   abstraction_compose d.abstr {| abstraction := log_abstraction |}.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzdr0VX"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqg1GM8y"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Set Silent.
 Lemma diskGet_eq_values :
   forall d a b b',
   diskGet d a =?= b -> diskGet d a =?= b' -> a < diskSize d -> b = b'.
 Proof.
-Set Silent.
 (intros).
 (destruct (diskGet d a) eqn:?; simpl in *).
 -
@@ -128,7 +286,6 @@ congruence.
 exfalso.
 (apply disk_inbounds_not_none in Heqo; eauto).
 Qed.
-Unset Silent.
 Ltac
  eq_values :=
   match goal with
@@ -137,15 +294,7 @@ Ltac
         assert (b = b') by
          (apply (@diskGet_eq_values d a b b'); try lia; auto); subst
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZ1eFZJ"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquxxYPs"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Unset Silent.
 Set Silent.
 Theorem log_length_ok_nil d b :
   diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
@@ -164,124 +313,3 @@ eauto using log_length_ok_nil.
 -
 (simpl; intuition).
 (exfalso; lia).
-Qed.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
-Proof.
-(eapply then_init_compose; eauto).
-step_proc.
-(destruct (lt_dec r 1)).
--
-step_proc.
--
-step_proc.
-step_proc.
-step_proc.
-(exists nil; simpl).
-(split; auto).
-(eapply log_abstraction_nil; eauto).
-(autorewrite with upd; auto).
-Qed.
-Theorem log_abstraction_length d bs :
-  log_abstraction d bs -> log_length_ok d bs.
-Proof.
-(unfold log_abstraction; intuition).
-Qed.
-Hint Resolve log_abstraction_length: core.
-Lemma abstr_get_len :
-  forall (bs : list block) (state : State),
-  log_length_ok state bs ->
-  forall r : block,
-  diskGet state len_addr =?= r -> block_to_addr r = length bs.
-Proof.
-(intros).
-(unfold log_length_ok in H).
-auto.
-Qed.
-Hint Resolve abstr_get_len: core.
-Theorem get_len_ok :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := True;
-     post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len recover abstr.
-Proof.
-(unfold get_len; intros).
-(apply spec_abstraction_compose).
-Unset Silent.
-step_proc.
-Set Silent.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
-step_proc.
-intuition eauto.
-(eexists; intuition eauto).
-Qed.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Theorem get_at_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a < length state;
-     post := fun r state' => state' = state /\ nth a state block0 = r;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Proof.
-(unfold get_at; intros).
-(apply spec_abstraction_compose).
-(simpl).
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intros).
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
-(descend; intuition eauto).
-(descend; intuition eauto).
-(unfold log_abstraction in H0; intuition).
-(pose proof (H1 a); intuition).
-Print eq_values.
-Timeout 1 Check @app.
-Timeout 1 Check @app.
-Timeout 1 Check @incl_appl.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @diskGet_eq_values.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @nth.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block0.
-(assert (v = nth a bs block0)).
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @repeat_length.
-Set Printing Width 78.
-Show.
-(eapply diskGet_eq_values; eauto).
-Timeout 1 Check @split.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @Wf.F_unfold.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-(unfold log_addr).
