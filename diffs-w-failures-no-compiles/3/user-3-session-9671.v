@@ -156,32 +156,9 @@ congruence.
 (unfold log_contents_ok; simpl in *; intuition).
 (exfalso; lia).
 Unset Silent.
+Unset Silent.
 Set Diffs "off".
 Set Printing Width 68.
-Set Silent.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
+Show.
 Proof.
 (eapply then_init_compose; eauto).
-step.
-(destruct (lt_dec r 1)).
--
-step.
--
-step.
-step.
-step.
-Unset Silent.
-(exists nil; simpl).
-(split; auto).
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @BinPos.Pos.switch_Eq.
-(apply log_abstraction_nil with (b := r0); eauto).
-(unfold len_addr).
-(autorewrite with upd; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqr2YPEg"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
