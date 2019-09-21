@@ -148,5 +148,6 @@ Show.
 Show.
 (apply match_ty_i_union__inv in Hmu).
 Show.
-(destruct Hmu as [Hmu1| Hmu2]).
+Set Printing Width 148.
+(destruct Hmu as [Hmu1| Hmu2]; [ left | right ]).
 Show.
