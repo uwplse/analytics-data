@@ -39,6 +39,7 @@ autorewrite with proof_db.
 (rewrite subst_pat_fresh_empty).
 (rewrite denote_pat_fresh_id).
 Unset Silent.
-(rewrite super_I).
-Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(rewrite super_I).
