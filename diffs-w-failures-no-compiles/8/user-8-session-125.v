@@ -164,4 +164,8 @@ Show.
 Set Printing Width 85.
 Show.
 clear H0 H1 HeqW.
+Unset Silent.
+Show.
+Set Printing Width 85.
+Show.
 (rewrite denote_ctrls_transpose).
