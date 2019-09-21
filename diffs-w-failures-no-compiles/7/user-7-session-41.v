@@ -17,4 +17,21 @@ Require Import Coq.Bool.Bool.
 Unset Silent.
 Set Printing Width 148.
 Open Scope btjm.
+Set Printing Width 148.
 Theorem sub_d__semantic_sound : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
+Set Silent.
+Proof.
+Unset Silent.
+(intros t1 t2 Hsub).
+(unfold sem_sub).
+(induction Hsub; intros k v Hm).
+Set Silent.
+-
+Unset Silent.
+assumption.
+Set Silent.
+-
+Unset Silent.
+Show.
+auto.
+Show.
