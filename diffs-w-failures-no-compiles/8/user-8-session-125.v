@@ -190,4 +190,4 @@ Show.
 Set Printing Width 85.
 Show.
 (simpl).
-(rewrite ctx_wtype_size).
+(erewrite ctx_wtype_size).
