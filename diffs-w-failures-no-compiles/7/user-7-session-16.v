@@ -411,4 +411,6 @@ Unset Silent.
 (remember (MkNF( TPair t'1 t'2)) as tx eqn:Heqx ; remember (TCName c) as ty eqn:Heqy ).
 (induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst).
 Set Printing Width 148.
-(induction t'1; induction t'2).
+Set Printing Width 148.
+(induction t'1; induction t'2; try (solve [ inversion Heqx ])).
+(rewrite mk_nf_pair in Heqx).
