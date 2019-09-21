@@ -438,4 +438,4 @@ Show.
 Set Printing Width 148.
 +
 (destruct IHt'1 as [IHt'1| IHt'1]).
-specialize (IHt'1 (left Hdept)).
+Show.
