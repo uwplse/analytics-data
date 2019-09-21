@@ -146,4 +146,7 @@ Proof.
 (intros X s t1 t2).
 Set Printing Width 148.
 (unfold subst).
-(unfold subst_terminate).
+Show.
+Set Printing Width 148.
+(simpl).
+Show.
