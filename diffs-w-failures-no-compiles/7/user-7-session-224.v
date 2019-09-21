@@ -194,17 +194,19 @@ Unset Silent.
 (apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
   destruct IHt' as [IHt'a IHt'b]; split; intros HX').
 Set Silent.
-{
-(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+Set Printing Width 148.
+Set Silent.
 (apply match_ty_union_1; auto).
 Unset Silent.
 }
-Set Silent.
 {
 (destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
+Show.
 {
 (apply match_ty_union_1; auto).
 }
 {
+Show.
 (apply match_ty_union_1).
-Unset Silent.
+Show.
+(rewrite f_subst_not_b_free_in_ty; try assumption).
