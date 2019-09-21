@@ -584,6 +584,12 @@ Unset Silent.
 Show.
 Set Printing Width 85.
 Show.
-(intros).
-Set Printing All.
+Unset Silent.
 Show.
+Set Printing Width 85.
+Show.
+(apply adjoint_compat; easy).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqtkTvwt"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
