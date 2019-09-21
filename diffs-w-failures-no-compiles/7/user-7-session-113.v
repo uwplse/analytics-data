@@ -46,10 +46,11 @@ reflexivity.
 -
 Show.
 (simpl).
+Set Printing Width 148.
 (destruct (beq_idP X i)).
+Set Silent.
 +
 subst.
-Set Printing Width 148.
 (destruct (beq_idP Y i); reflexivity).
 +
 (destruct (beq_idP Y i)).
@@ -58,6 +59,11 @@ subst.
 reflexivity.
 *
 (rewrite IHt).
-Show.
+Unset Silent.
 reflexivity.
+Set Silent.
 -
+Unset Silent.
+Show.
+(simpl).
+(destruct (beq_idP X i); destruct (beq_idP Y i); try reflexivity).
