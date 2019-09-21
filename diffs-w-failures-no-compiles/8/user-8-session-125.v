@@ -218,10 +218,8 @@ Definition biased_coin (c : C) : Matrix 2 2 :=
              end.
 Definition uniform (n : nat) : Matrix n n :=
   fun x y => if (x =? y) && (x <? n) then 1 / INR n else 0.
-Lemma bias1 : biased_coin 1 = \226\136\1631\226\159\169\226\159\1681\226\136\163.
-Proof.
 Unset Silent.
-Show.
 Set Printing Width 85.
-Show.
+Lemma bias1 : biased_coin 1 == \226\136\1631\226\159\169\226\159\1681\226\136\163.
+Proof.
 lma.
