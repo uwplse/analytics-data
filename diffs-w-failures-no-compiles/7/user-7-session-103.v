@@ -126,7 +126,9 @@ Qed.
 Set Silent.
 Theorem match_ty__value_type_l : forall (k w : nat) (v t : ty), |-[ k, w] v <$ t -> value_type v.
 Set Printing Width 148.
-(induction k, w; intros v t; generalize dependent v; induction t; intros v Hm;
+Show.
+Set Printing Width 148.
+(intros k w; generalize dependent k; induction w, k; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
    | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
@@ -137,6 +139,21 @@ Set Printing Width 148.
    | apply match_ty_exist__0_inv in Hm; contradiction
    | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
 Show.
-Show.
-(apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]).
-Show.
+Qed.
+Set Silent.
+Lemma match_ty_value_type__reflexive : forall v : ty, value_type v -> forall k w : nat, |-[ k, w] v <$ v.
+Proof.
+Unset Silent.
+(intros v Hv; induction Hv; intros k w).
+Set Silent.
+-
+Unset Silent.
+(destruct k, w; reflexivity).
+Set Silent.
+-
+Unset Silent.
+(apply match_ty_pair; auto).
+Set Silent.
+-
+Unset Silent.
+(destruct k, w; constructor; simpl; tauto).
