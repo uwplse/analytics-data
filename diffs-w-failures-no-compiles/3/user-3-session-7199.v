@@ -26,9 +26,17 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
-Notation "d [ a |-> b ]" := (diskUpd d a b) (at level 8, left associativity).
+Unset Silent.
+Set Diffs "off".
+Timeout 1 Check @Byte.x12.
+Timeout 1 Check @Byte.x12.
+Set Printing Width 78.
+Set Silent.
+Notation "d [ a |-> b ]" := (diskUpd d a b) (at level 12, left associativity).
+Unset Silent.
 Notation "d [ a |=> bs ]" := (diskUpds d a bs)
-  (at level 8, left associativity).
+  (at level 12, left associativity).
+Set Silent.
 Opaque diskGet.
 Module Log (d: OneDiskAPI)<: LogAPI.
 Definition len_addr : addr := 0.
@@ -53,39 +61,6 @@ proc unit :=
   | [] => Ret tt
   | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
   end.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @negb.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @addr_to_block.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @d.write.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @negb.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Set Printing Width 78.
 Definition append (bs : list block) : proc bool :=
   size <- d.size;
   len <- get_len;
@@ -95,16 +70,6 @@ Definition append (bs : list block) : proc bool :=
     len_b <- addr_to_block (len + length bs);
     _ <- d.write len_addr len_b; Ret true
    else Ret false).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFFqtqH"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdsgX9p"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Set Silent.
 Definition reset : proc unit :=
   len0 <- addr_to_block 0; d.write len_addr len0.
 Definition recover : proc unit := d.recover.
@@ -258,9 +223,7 @@ Theorem get_at_ok a :
     (get_at a) recover abstr.
 Proof.
 (unfold get_at; intros).
-Unset Silent.
 (apply spec_abstraction_compose).
-Set Silent.
 (simpl).
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; intros).
@@ -328,143 +291,6 @@ step_proc.
 (descend; intuition eauto).
 (rewrite firstn_all; auto).
 Qed.
-Unset Silent.
-Timeout 1 Check @Zdiv.Zmod_eq_full.
-Timeout 1 Check @Ascii.nat_ascii_bounded.
-Timeout 1 Check @unit.
-Timeout 1 Check @unit.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @proc_spec.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @Zdiv.Zmod_eq_full.
-Timeout 1 Check @spec_abstraction_compose.
-Print append_at.
-Timeout 1 Check @split.
-Timeout 1 Check @list.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @block.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @block.
-Timeout 1 Check @all.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @addr.
-Timeout 1 Check @addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @diskGet.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @len_addr.
-Timeout 1 Check @block.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @firstn_length.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Check log_contents_ok.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @app.
-Timeout 1 Check @append.
-Timeout 1 Check @append.
-Timeout 1 Check @append_at.
-Timeout 1 Check @append_at.
-Timeout 1 Check @append_at.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.recover_wipe.
-Timeout 1 Check @d.abstr.
-Timeout 1 Check @d.abstr.
-Timeout 1 Check @d.abstr.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @rec_wipe_compose.
-Timeout 1 Check @recovered.
-Timeout 1 Check @Zdiv.Zmod_eq_full.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @block.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @log_addr.
-Timeout 1 Check @spec_abstraction_compose.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @diskSize.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @Ascii.nat_ascii_embedding.
-Timeout 1 Check @disk.
-Timeout 1 Check @spec_abstraction_compose.
-Timeout 1 Check @spec_abstraction_compose.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Timeout 1 Check @spec_abstraction_compose.
-Check log_size_ok.
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
-Unset Silent.
-Set Diffs "off".
-Set Printing Width 78.
 Theorem append_at_ok a bs' :
   proc_spec
     (fun (bs : list block) state =>
@@ -490,3 +316,5 @@ intuition eauto.
 -
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
