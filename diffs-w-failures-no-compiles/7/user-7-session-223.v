@@ -384,3 +384,7 @@ Unset Silent.
 Search -IdSet.singleton.
 (apply IdSetFacts.singleton_1 in HX).
 contradiction.
+subst.
+contradiction.
++
+(rewrite b_subst_bvar_neq).
