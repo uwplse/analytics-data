@@ -79,18 +79,11 @@ Set Printing Width 148.
 Set Printing Width 148.
 (intros v; induction v; intros X t k Hm; assumption).
 Set Printing Width 148.
+Set Printing Width 148.
 Set Silent.
 Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
-Unset Silent.
 Proof.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
-Set Printing Width 148.
+Unset Silent.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
@@ -100,18 +93,12 @@ Set Printing Width 148.
    | destruct v; contradiction ])).
 Set Silent.
 -
-Unset Silent.
-Show.
-Show.
-Set Printing Width 148.
 (apply match_ty_exist__inv in Hm).
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
-Show.
-Set Printing Width 148.
 (destruct Hm as [tx Hmx]).
-Set Printing Width 148.
-Show.
 (eapply IHk; eassumption).
+Unset Silent.
 Qed.
+Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
+Proof.
+Show.
+(intros k v).
