@@ -79,7 +79,5 @@ clear IHt1 IHt2.
 (destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]).
 (inversion Heq; subst).
 (simpl).
-(specialize (IHv1 _ _ Hm1); specialize (IHv2 _ _ Hm2)).
 split.
-(apply Nat.max_lub; tauto).
-(apply Nat.max_le_compat; tauto).
+(apply Nat.max_lub; eauto).
