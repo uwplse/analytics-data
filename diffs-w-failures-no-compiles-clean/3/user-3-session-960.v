@@ -262,4 +262,5 @@ typeclasses eauto.
 (destruct x, y; simpl).
 (destruct (nat_eq_dec n n0); subst).
 left.
-Search -_ -(existT _ _ = existT _ _).
+Search -(existT _ _ = existT _ _).
+(rewrite eq_existT_curried).
