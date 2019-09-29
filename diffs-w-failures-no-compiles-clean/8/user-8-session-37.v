@@ -374,5 +374,4 @@ clear H.
 (intros \206\147 \206\1470 \207\129 WT).
 (unfold denote_circuit in *).
 (simpl in *).
-replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
 (unfold compose_super).
