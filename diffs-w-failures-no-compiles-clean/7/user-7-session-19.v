@@ -116,4 +116,4 @@ admit.
 clear IHk'.
 (intros Htk Htk' v Hvk Hvk').
 (simpl in Htk, Htk').
-(apply le_S_n in Htk).
+(apply le_S_n in Htk').
