@@ -427,4 +427,4 @@ step_proc.
 }
 {
 (exists bs; intuition).
-(apply (log_abstraction_preserved state nil)).
+(apply (log_abstraction_preserved state' nil)).
