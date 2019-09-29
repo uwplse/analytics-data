@@ -1132,4 +1132,3 @@ Proof.
 (intros w \207\129 T H\207\129).
 (rewrite denote_box_id_circ).
 *
-(apply mixed_state_trace_1; auto).
