@@ -553,4 +553,5 @@ generalize dependent G'.
 (induction H).
 -
 (intros; inversion H0; subst; eauto).
-congruence.
+Search -Singleton.
+Search -(Singleton _ _ = Singleton _ _).
