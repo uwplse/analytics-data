@@ -1231,8 +1231,6 @@ Proof.
 (intros n \207\129 M\207\129).
 (unfold apply_new1, super).
 gen \207\129.
-(rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
-(repeat rewrite Nat.pow_add_r).
 (intros).
 (rewrite Nat.mul_1_r).
 Msimpl.
