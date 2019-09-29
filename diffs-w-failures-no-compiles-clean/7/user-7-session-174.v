@@ -130,4 +130,7 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
-(unfold well_dounded).
+(unfold well_founded).
+(intros a).
+(unfold lt_size).
+(unfold Acc).
