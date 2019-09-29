@@ -315,4 +315,6 @@ generalize dependent a.
 -
 (exfalso; lia).
 -
-(destruct a0; simpl in *).
+(destruct a0; simpl in *; auto).
+f_equal.
+(rewrite IHd).
