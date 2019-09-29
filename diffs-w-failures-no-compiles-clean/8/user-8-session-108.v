@@ -79,4 +79,6 @@ Proof.
 (destruct (add_fresh W []) as [p \206\147]).
 specialize (pf p).
 gen \207\129.
-(induction (c p)).
+-
+(unfold denote_u_db_box).
+(simpl).
