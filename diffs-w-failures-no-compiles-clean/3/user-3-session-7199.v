@@ -387,4 +387,4 @@ specialize (H a).
 }
 intuition.
 Search -nth -"++".
-(rewrite app_nth1 in H).
+(rewrite app_nth1 in H by lia).
