@@ -89,4 +89,7 @@ specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
 (destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
 *
-specialize (IHw'a _ H).
+specialize (IHw'b H).
+(split; intros HX').
+{
+exists ti.
