@@ -35,5 +35,4 @@ Proof.
 (intros U \207\129 safe).
 Timeout 1 About unitary_gate_unitary.
 Timeout 1 Print unitary_gate_unitary.
-(simpl in *).
-matrix_denote.
+(simpl).
