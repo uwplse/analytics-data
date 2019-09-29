@@ -141,5 +141,16 @@ Inductive sub_d : ty -> ty -> Prop :=
 Hint Constructors sub_d: DBBetaJulia.
 Lemma union_right_1 : forall t t1 t2 : ty, |- t << t1 -> |- t << TUnion t1 t2.
 Proof.
+(eapply SD_Trans).
+eassumption.
+constructor.
+Qed.
+Lemma union_right_2 : forall t t1 t2 : ty, |- t << t2 -> |- t << TUnion t1 t2.
+Proof.
 (intros t t1 t2 H).
 (eapply SD_Trans).
+eassumption.
+constructor.
+Qed.
+Hint Resolve union_right_1 union_right_2: DBBetaJulia.
+Ltac solve_trans := eapply SD_Trans; eassumption.
