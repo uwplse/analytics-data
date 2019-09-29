@@ -399,7 +399,6 @@ eauto.
 (left; exists (TEV i); apply match_ty_var).
 -
 (left; exists (TEV i); apply match_ty_ev).
-Admitted.
 Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
 (induction t; intros k Hdep Hcontra).
