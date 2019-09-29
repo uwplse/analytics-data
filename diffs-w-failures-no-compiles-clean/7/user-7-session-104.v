@@ -125,4 +125,5 @@ exists w1.
 (destruct Hm as [Hm| Hm]).
 -
 (destruct w1).
-(v Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
