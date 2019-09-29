@@ -67,7 +67,4 @@ Lemma match_ty_ref__inv : forall (v t : ty) (w k : nat), |-[ w, S k] v <$ TRef t
 Proof.
 (intros v; induction v; try (solve [ intros t w k Hm; destruct w; destruct k; contradiction ])).
 (intros t w k Hm).
-(simpl in Hm).
-exists v.
-split.
-reflexivity.
+(destruct w; simpl in Hm; exists v; auto).
