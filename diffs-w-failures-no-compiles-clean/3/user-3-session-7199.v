@@ -315,4 +315,4 @@ Proof.
 (exfalso; lia).
 -
 (destruct d; simpl in *).
-(inversion H; subst).
+(assert (a = 0) by lia).
