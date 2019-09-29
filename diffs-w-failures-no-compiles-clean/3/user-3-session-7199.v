@@ -388,6 +388,7 @@ step_proc.
 (descend; intuition eauto).
 destruct matches.
 -
+step_proc.
 (descend; intuition eauto).
 {
 (unfold log_size_ok; autorewrite with list; auto).
@@ -404,13 +405,6 @@ destruct matches.
 (rewrite H1).
 congruence.
 }
-Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMAC3RX"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDaSUn9"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+}
+step_proc.
+intuition.
