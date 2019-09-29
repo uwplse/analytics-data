@@ -1254,4 +1254,4 @@ Proof.
 (induction (c p)).
 -
 (simpl).
-autounfold with U_db.
+autounfold with den_db.
