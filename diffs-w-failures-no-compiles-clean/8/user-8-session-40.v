@@ -41,4 +41,3 @@ Lemma X_spec :
 Proof.
 (intros).
 vector_denote.
-(destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
