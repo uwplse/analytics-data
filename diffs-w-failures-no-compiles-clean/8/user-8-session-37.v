@@ -335,5 +335,4 @@ validate.
 (eapply update_merge).
 (apply pf1).
 -
-(simpl).
-(unfold compose_super).
+now erewrite VA.
