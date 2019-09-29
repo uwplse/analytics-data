@@ -313,12 +313,20 @@ assumption.
 (apply sem_sub_k__i__trans with t; try assumption).
 (pose proof (match_ty_i_nf k t) as H).
 (intros v Hm; specialize (H v); tauto).
-Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Lemma sem_eq_k_i__inv_depth_eq_1 : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
 (intros k t t' Hdept H).
 (destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
 (pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept H1)).
 (pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept H2)).
+(apply Nat.le_antisymm; assumption).
+Qed.
+Lemma sem_eq_k_i__inv_depth_eq_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+(intros k t t' Hdept' H).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
+(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept' H1)).
+(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept' H2)).
 (apply Nat.le_antisymm; assumption).
 Qed.
 Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -> ||- [t1]<= [t'] /\ ||- [t2]<= [t'].
@@ -356,3 +364,8 @@ clear IHk' IHt.
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
 (apply le_S_n in Htk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
+(assert (Hdepeq : | t' | = | t |)).
+{
+Check sem_eq_k_i__inv_depth_eq_2.
+(apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Hrefv)).
