@@ -21,3 +21,4 @@ Proof.
 (apply sem_sub__refl).
 -
 (apply sem_sub__trans).
+(apply sem_sub__trans).
