@@ -133,4 +133,4 @@ Theorem log_abstraction_nil d b :
 Proof.
 (unfold log_abstraction; intros).
 split.
-(simpl; lia).
+(simpl).
