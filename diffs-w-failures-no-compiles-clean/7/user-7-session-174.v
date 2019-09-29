@@ -99,5 +99,14 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
-Proof.
 all: (try (intros; simpl; Omega.omega)).
+-
+(intros).
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+tauto.
+Defined.
