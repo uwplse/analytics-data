@@ -86,3 +86,4 @@ clear Hm'.
 contradiction.
 *
 (simpl; assumption).
+(simpl).
