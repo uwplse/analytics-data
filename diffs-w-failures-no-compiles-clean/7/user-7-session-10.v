@@ -192,4 +192,4 @@ tauto.
 (destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
 (split; intros tx Hsub').
 +
-(induction Hsub'; inversion Heqy; subst; try (solve [ constructor; tauto || auto ])).
+(induction Hsub'; inversion Heqy; subst; try (solve [ auto || constructor; tauto ])).
