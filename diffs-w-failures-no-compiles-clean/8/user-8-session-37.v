@@ -335,4 +335,4 @@ validate.
 (eapply update_merge).
 (apply pf1).
 -
-now erewrite VA.
+(erewrite VA).
