@@ -128,4 +128,4 @@ Proof.
 (simpl_rewrite inSeq_correct; trivial).
 (simpl_rewrite inSeq_correct; trivial).
 (unfold compose_super).
-(rewrite E1 by easy).
+(rewrite E2).
