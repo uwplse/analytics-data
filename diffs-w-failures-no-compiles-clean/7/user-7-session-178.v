@@ -119,4 +119,8 @@ contradiction.
 (rewrite IHt).
 reflexivity.
 -
-(destruct (beq_idP X i)).
+(rewrite subst_equation).
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Qed.
