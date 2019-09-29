@@ -980,4 +980,4 @@ Timeout 1 Print Ltac restore_dims.
             A'
  end).
 2: {
-(apply f_equal_gen; trivial).
+(do 2 apply f_equal_gen; trivial).
