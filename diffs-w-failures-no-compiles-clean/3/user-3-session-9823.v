@@ -158,4 +158,8 @@ Proof.
 (unfold read).
 (intros).
 (apply spec_abstraction_compose; simpl).
-(destruct a'; simpl in *; intuition).
+(destruct a'; simpl in *; intuition eauto).
+(destruct (a == r)).
+-
+invert_abstraction.
+(step_proc; intuition).
