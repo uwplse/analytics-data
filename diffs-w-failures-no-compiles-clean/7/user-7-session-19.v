@@ -316,7 +316,6 @@ Proof.
    end).
 Qed.
 Lemma match_ty_i_nf' : forall k : nat, forall v t : ty, |-[ k] v <$ t <-> |-[ k] v <$ MkNF( t).
-Proof.
 (induction k; intros v t; generalize dependent v; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ]);
   try
    match goal with
@@ -326,7 +325,7 @@ Proof.
           [ apply IHt1 | apply IHt2 ]; assumption
    | Hm:|-[ _] ?v <$ MkNF( TPair ?t1 ?t2)
      |- |-[ _] ?v <$ TPair ?t1 ?t2 =>
-         rewrite mk_nf_pair in Hm; apply match_ty_i__unite_pairs_pair in Hm; apply match_ty_i__pair__inv in Hm;
+         rewrite mk_nf_pair in Hm; apply match_ty_i__unite_pairs_pair in Hm; apply match_ty_i_pair__inv in Hm;
           destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; [ apply IHt1 | apply IHt2 ]; assumption
    end;
   try
@@ -340,3 +339,4 @@ Proof.
          rewrite mk_nf_union in Hm; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm| Hm];
           [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ apply IHt1 | apply IHt2 ]; assumption
    end; try (solve [ destruct v; contradiction ])).
+(simpl).
