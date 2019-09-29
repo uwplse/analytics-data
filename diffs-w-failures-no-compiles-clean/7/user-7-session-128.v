@@ -90,5 +90,4 @@ Proof.
   remember (Nat.max w1 w12) as w1' eqn:Heqw1' ).
 -
 (assert (Hmp : |-[ k, w1'] TPair v v2 <$ TPair t1 t2)).
-{
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
