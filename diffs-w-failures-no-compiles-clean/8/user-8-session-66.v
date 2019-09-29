@@ -174,3 +174,5 @@ Proof.
 (rewrite E2).
 (rewrite E1 by easy).
 reflexivity.
+(rewrite E1).
+reflexivity.
