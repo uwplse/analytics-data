@@ -65,37 +65,3 @@ Qed.
 Hint Resolve tt: core.
 Inductive Marker : string -> Type :=
     mark : forall s, Marker s.
-Hint Resolve mark: core.
-Theorem proc_spec_rx :
-  forall `(spec : Specification A T R State) `(p : proc T) 
-    `(rec : proc R) `(rx : T -> proc T')
-    `(spec' : Specification A' T' R State) `(abs : Abstraction State),
-  proc_spec spec p rec abs ->
-  (forall a' state,
-   pre (spec' a' state) ->
-   exists a,
-     pre (spec a state) /\
-     (forall r state',
-      recovered (spec a state) r state' ->
-      forall L : Marker "recovered condition",
-      recovered (spec' a' state) r state') /\
-     (forall r,
-      proc_spec
-        (fun (_ : unit) state' =>
-         {|
-         pre := post (spec a state) r state';
-         post := fun r state'' =>
-                 forall L : Marker "post condition",
-                 post (spec' a' state) r state'';
-         recovered := fun r state'' => recovered (spec' a' state) r state'' |})
-        (rx r) rec abs)) -> proc_spec spec' (Bind p rx) rec abs.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDHjduO"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqavNOEj"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
