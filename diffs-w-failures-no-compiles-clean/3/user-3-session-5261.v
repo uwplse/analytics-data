@@ -80,4 +80,6 @@ intuition eauto.
 (simpl write).
 step_proc.
 intuition eauto.
++
 specialize (IHblocks (off + 1)).
+step_proc.
