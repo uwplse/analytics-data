@@ -275,4 +275,4 @@ clear H.
 (assert (x0 = 3%Z)).
 {
 (apply Z).
-(erewrite evalTimes in H0).
+(apply evalIntEq).
