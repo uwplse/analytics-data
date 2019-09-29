@@ -133,4 +133,6 @@ Omega.omega.
 (unfold well_founded).
 (intros a).
 (unfold lt_size).
-(unfold Acc).
+Search -Acc.
+Check Acc.
+(intros).
