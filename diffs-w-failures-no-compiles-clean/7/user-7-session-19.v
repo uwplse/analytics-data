@@ -355,4 +355,3 @@ assumption.
 split.
 assumption.
 (intros v' Hv').
-specialize (Href v' Hv').
