@@ -1254,3 +1254,4 @@ Proof.
 (induction (c p)).
 -
 (simpl).
+autounfold with U_db.
