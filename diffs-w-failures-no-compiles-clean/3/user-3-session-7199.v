@@ -315,4 +315,4 @@ generalize dependent a.
 -
 (exfalso; lia).
 -
-(simpl).
+Search -firstn -cons.
