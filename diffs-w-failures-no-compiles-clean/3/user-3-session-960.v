@@ -122,4 +122,4 @@ auto.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
 (rewrite IHn).
-(rewrite (PeanoNat.Nat.div_mod n base)  at 4 by lia).
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
