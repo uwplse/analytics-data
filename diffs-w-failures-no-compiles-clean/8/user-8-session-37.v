@@ -337,4 +337,3 @@ validate.
 -
 (simpl).
 (unfold compose_super).
-easy.
