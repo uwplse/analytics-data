@@ -1217,4 +1217,3 @@ Proof.
 Set Printing All.
 gen \207\129.
 subst.
-(repeat rewrite Nat.pow_add_r).
