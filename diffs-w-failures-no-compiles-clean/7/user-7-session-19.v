@@ -205,10 +205,9 @@ Qed.
 Open Scope btj_scope.
 Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
 Proof.
-(apply
-  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
-     (fun (t1 : ty) (_ : in_nf t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
 -
+(intros c t2).
 (assert (Hva : value_type (TCName c)) by constructor).
 (induction t2; intros Hsem).
 +
+(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; assumption)).
