@@ -86,4 +86,3 @@ Proof.
 (destruct (beq_idP X i)).
 +
 subst.
-(destruct (beq_idP Y i); reflexivity).
