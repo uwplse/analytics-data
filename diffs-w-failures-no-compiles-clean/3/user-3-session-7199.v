@@ -358,4 +358,3 @@ Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 (unfold get; intros).
 step_proc.
-(eapply proc_spec_weaken; eauto).
