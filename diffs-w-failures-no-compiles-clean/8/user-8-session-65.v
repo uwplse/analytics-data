@@ -986,4 +986,4 @@ Timeout 1 About id_kron.
 Timeout 1 Print id_kron.
 restore_dims.
 (rewrite id_kron').
-Search -(_ ^ _ <> 0).
+2: (apply Nat.pow_nonzero).
