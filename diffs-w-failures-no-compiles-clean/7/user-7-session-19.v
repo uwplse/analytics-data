@@ -184,11 +184,13 @@ Proof.
   [ assert (Hmp : |-[ k] TPair v v' <$ TPair t1 t2) by (apply match_ty_i_pair; assumption)
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
+Qed.
 Ltac
  solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2 :=
   pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
    [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
@@ -214,3 +216,5 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 -
 (destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]).
 (destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
+SearchPattern (Nat.max _ _ <= _).
+(simpl).
