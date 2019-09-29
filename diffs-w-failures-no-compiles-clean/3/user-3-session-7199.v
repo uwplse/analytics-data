@@ -376,4 +376,5 @@ Proof.
 (apply spec_abstraction_compose).
 step_proc.
 (destruct a' as [[] bs]; simpl in *).
-intuition euto.
+intuition eauto.
+step_proc.
