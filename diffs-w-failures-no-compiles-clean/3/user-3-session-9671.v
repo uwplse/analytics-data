@@ -522,4 +522,4 @@ intuition.
 step.
 (unfold spec_impl; simpl; intuition).
 (exists []; intuition eauto).
-{
+(descend; intuition eauto).
