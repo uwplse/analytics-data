@@ -314,4 +314,4 @@ Proof.
 -
 (exfalso; lia).
 -
-(destruct d; simpl in *).
+(simpl).
