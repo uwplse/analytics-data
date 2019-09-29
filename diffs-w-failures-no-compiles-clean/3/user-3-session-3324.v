@@ -180,3 +180,4 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
 (rewrite <- Hremap by omega; auto).
 (constructor; eauto).
 (subst; eexists; intuition eauto).
+(constructor; eauto).
