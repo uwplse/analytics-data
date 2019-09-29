@@ -131,7 +131,6 @@ assumption.
 Qed.
 Lemma b_free_in_ty_bvar__inv : forall X Y : id, b_free_in_ty X (TBVar Y) -> X = Y.
 Proof.
-(intros X Y).
 (unfold b_free_in_ty, free).
 (simpl).
-Search -IdSet.singleton.
+(apply IdSetFacts.singleton_1).
