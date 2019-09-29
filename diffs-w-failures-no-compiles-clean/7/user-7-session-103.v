@@ -92,5 +92,4 @@ Proof.
 -
 (apply match_ty_pair; auto).
 -
-(destruct k, w).
-(simpl).
+(destruct k, w; simpl; tauto).
