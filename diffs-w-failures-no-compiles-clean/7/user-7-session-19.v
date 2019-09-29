@@ -250,4 +250,4 @@ Proof.
 (apply sem_sub_k_i_nf__inv_depth_le with k).
 (apply mk_nf__in_nf).
 (apply sem_sub_k__i__trans with t; try assumption).
-(pose proof (match_ty_i_nf k t)).
+(pose proof (match_ty_i_nf k t) as Heq).
