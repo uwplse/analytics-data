@@ -98,31 +98,4 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDsSWTC"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Qed.
-Theorem mean_ok : proc_spec mean_spec mean recover abstr.
-Proof.
-(unfold mean).
-(intros).
-(apply spec_abstraction_compose; simpl).
-step_proc.
-(destruct a'; simpl in *; intuition idtac).
-(destruct (r == 0)).
--
-(step_proc; intuition).
-(exists s; intuition).
-left.
-intuition.
-(unfold statdb_abstraction in *).
-(destruct s; intuition).
-(simpl in *).
-lia.
--
-(step_proc; intuition).
-(step_proc; intuition).
-(destruct s; intuition).
-+
-exfalso.
-(unfold statdb_abstraction in *; simpl in *).
-intuition.
-+
-(exists (n0 :: s); intuition).
+Opaque Nat.di.
