@@ -403,5 +403,3 @@ contradiction.
 (right; solve_not_x_sub_r_y_full).
 (apply IHHcontra; try tauto).
 (apply mk_nf_nf__equal).
--
-*
