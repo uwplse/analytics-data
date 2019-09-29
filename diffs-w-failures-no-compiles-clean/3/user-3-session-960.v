@@ -141,5 +141,4 @@ Set Search Output Name Only.
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlBjurg"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Instance aModel : GoModel.
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.Ascii.
