@@ -300,5 +300,8 @@ Theorem append_at_ok a bs' :
      post := fun r state' =>
              diskGet state' len_addr = diskGet state len_addr /\
              log_size_ok (bs ++ bs') state' /\
-             log_contents_ok state (bs ++ bs') |}) 
-    (append_at a bs') recover d.abstr.
+             log_contents_ok state (bs ++ bs');
+     recovered := fun _ state' =>
+                  diskGet state' len_addr = diskGet state len_addr /\
+                  log_contents_ok bs state' |}) (append_at a bs') recover
+    d.abstr.
