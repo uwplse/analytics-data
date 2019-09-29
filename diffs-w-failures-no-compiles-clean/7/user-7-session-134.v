@@ -111,4 +111,5 @@ exists w1.
 (destruct Hm as [tx Heq]; subst).
 (destruct w1; simpl; tauto).
 -
-(apply sem_sub_k_ref).
+(apply sem_sub_k_ref; auto).
+Qed.
