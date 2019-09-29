@@ -47,5 +47,5 @@ reflexivity.
 subst.
 contradiction.
 -
-(unfold fresh in Hfresh).
 (destruct (beq_idP X i); try reflexivity).
+subst.
