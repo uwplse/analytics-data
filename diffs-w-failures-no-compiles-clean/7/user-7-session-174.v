@@ -104,4 +104,3 @@ all: (try (intros; simpl; Omega.omega)).
 -
 (intros).
 (simpl).
-Omega.omega.
