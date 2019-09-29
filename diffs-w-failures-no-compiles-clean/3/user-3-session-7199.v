@@ -157,4 +157,4 @@ Proof.
 (apply spec_abstraction_compose).
 (simpl).
 (unfold recover).
-Check d.read_ok.
+proc_spec_weaken.
