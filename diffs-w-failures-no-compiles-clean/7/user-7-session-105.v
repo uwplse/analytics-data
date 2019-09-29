@@ -35,4 +35,14 @@ Proof.
 (intros v X t k w Hex).
 (destruct k, v; assumption).
 Qed.
-Lemma match_ty_var : forall (X : cname) (k w : nat), |-[ k, w] TEV X <$ TVar X.
+Check TEV.
+Lemma match_ty_var : forall (X : id) (k w : nat), |-[ k, w] TEV X <$ TVar X.
+Proof.
+(intros X k w).
+(destruct k, w; reflexivity).
+Qed.
+Lemma match_ty_ev : forall (X : id) (k w : nat), |-[ k, w] TEV X <$ TEV X.
+Proof.
+(intros X k w).
+(destruct k, w; reflexivity).
+Qed.
