@@ -261,4 +261,4 @@ typeclasses eauto.
 (intros; simpl).
 Search -sigT -"dec".
 Check Eqdep_dec.inj_pair2_eq_dec.
-(apply (Eqdep_dec.inj_pair2_eq_dec _ _ _ _ x y)).
+Check Eqdep_dec.inj_pair2_eq_dec.
