@@ -117,4 +117,3 @@ Omega.omega.
 Omega.omega.
 -
 (simpl).
-(rewrite rename__size).
