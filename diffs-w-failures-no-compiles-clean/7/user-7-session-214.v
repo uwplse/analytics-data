@@ -282,4 +282,6 @@ assumption.
 +
 (rewrite b_subst_exist_neq; try assumption).
 (apply f_free_in_ty_exist).
-auto.
+tauto.
+-
+(simpl in HX).
