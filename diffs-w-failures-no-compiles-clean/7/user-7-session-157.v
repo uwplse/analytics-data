@@ -22,4 +22,3 @@ exists (TCName c).
 -
 (simpl in Hm).
 (simpl).
-(apply match_ty_pair__inv in Hm).
