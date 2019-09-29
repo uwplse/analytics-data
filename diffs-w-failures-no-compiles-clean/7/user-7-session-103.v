@@ -27,8 +27,13 @@ Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (k w : nat), (exists tx
 Proof.
 (intros v X t k w Hex).
 (destruct k, v; assumption).
-Qed.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k w : nat), |-[ k, w] v <$ TCName c -> v = TCName c.
+Proof.
 (intros v c k w Hm).
 (destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
 Qed.
+Lemma match_ty_pair__inv :
+  forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ k, w] v1 <$ t1 /\ |-[ k, w] v2 <$ t2.
+Proof.
+(intros v c k w Hm).
+(destruct k, w, v; simpl in Hm; try contradiction).
