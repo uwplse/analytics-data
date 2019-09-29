@@ -83,4 +83,7 @@ Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> foral
 (inversion Htk).
 -
 clear IHt.
+(simpl in Htk).
 (apply le_S_n in Htk).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]).
