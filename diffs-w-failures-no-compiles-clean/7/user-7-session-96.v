@@ -81,5 +81,4 @@ Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
 (intros k; induction k; intros v Hm).
 2: {
-idtac.
-(simpl).
+(apply match_ty_ref__inv in Hm).
