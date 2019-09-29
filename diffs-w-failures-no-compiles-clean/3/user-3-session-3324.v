@@ -141,4 +141,3 @@ step_proc.
 step_proc.
 (case_eq (diskGet (stateDisk state) (diskSize (stateDisk state) - 1)); intros).
 {
-exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
