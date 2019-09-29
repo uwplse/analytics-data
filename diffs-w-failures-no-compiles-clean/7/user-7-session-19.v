@@ -653,5 +653,5 @@ Proof.
 (apply sem_sub__trans with t1).
 Search -mk_nf.
 (pose proof (SemSubProps.mk_nf__sem_eq t1)).
-(intros k v).
-specialize (H k).
+(intros k v Hv).
+specialize (H k v).
