@@ -452,5 +452,4 @@ admit.
 }
 -
 step_proc.
-{
 (descend; intuition eauto).
