@@ -56,4 +56,4 @@ Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
 (intros t k).
-(simpl).
+(intros Hm).
