@@ -3239,4 +3239,5 @@ Lemma HOAS_Equiv_trans :
 Proof.
 (intros).
 (intros \207\129 b H\207\129).
+(unfold HOAS_Equiv in H).
 (rewrite H; auto).
