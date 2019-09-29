@@ -69,4 +69,7 @@ Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> foral
   try match goal with
       | Hm:|-[ ?k'] ?v <$ TCName _ |- _ => apply match_ty_i_cname__inv in Hm; subst; constructor
       end).
-(destruct (max_inv_depth_le__components_le _ _ Htk) as [Htk1 Htk2]).
+(destruct (max_inv_depth_le__components_le _ _ _ Htk) as [Htk1 Htk2]).
+(apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+SearchPattern (Nat.max _ _ <= Nat.max _ _).
+(simpl; apply Nat.max_le_compat).
