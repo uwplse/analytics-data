@@ -45,3 +45,5 @@ Qed.
 Lemma subst_var_eq : forall (X : id) (s : ty), [X := s] TVar X = s.
 Proof.
 (intros; reflexivity).
+(intros).
+(simpl).
