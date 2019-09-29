@@ -262,5 +262,16 @@ step_proc.
 intuition eauto.
 (eexists; intuition eauto).
 Qed.
-Theorem log_size_bound d bs :
-  log_size_ok d bs -> forall a, a < length bs -> log_addr a < diskSize d.
+Theorem log_size_bound d bs a :
+  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
+Proof.
+(unfold log_size_ok, log_addr; intros; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWKTqVB"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem log_size_bound d bs a :
+  log_size_ok d bs -> log_addr a < diskSize d -> a < length bs.
