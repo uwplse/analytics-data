@@ -163,4 +163,4 @@ Theorem regex_match_is_explicit :
   regex_match r s <-> regex_match_length r s (String.length s).
 Proof.
 split.
-(induction 1).
+(induction 1; auto).
