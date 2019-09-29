@@ -87,8 +87,9 @@ Proof.
 (intros v X w Hm).
 (destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
 Qed.
-Lemma match_ty_fbar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
+Lemma match_ty_bvar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
 Proof.
+(intros v X w Hm).
 (destruct w, v; simpl in Hm; assumption).
 Qed.
 Lemma match_ty_fvar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TFVar X -> v = TEV X.
@@ -102,6 +103,7 @@ Proof.
 (destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
 Qed.
 Theorem match_ty__value_type_l : forall (w : nat) (v t : ty), |-[ w] v <$ t -> value_type v.
+Proof.
 (intros w; induction w; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
