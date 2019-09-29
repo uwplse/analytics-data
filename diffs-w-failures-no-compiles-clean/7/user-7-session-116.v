@@ -58,6 +58,7 @@ exfalso.
 (apply Hfresh).
 (apply IdSetFacts.singleton_2).
 reflexivity.
+Qed.
 Lemma subs_neq__permute :
   forall X Y : id, X <> Y -> forall t s1 s2 : ty, fresh_in_ty X s2 -> fresh_in_ty Y s1 -> [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
 Proof.
@@ -99,7 +100,6 @@ assumption.
 assumption.
 +
 (simpl).
-Search -beq_id.
 (rewrite (false_beq_id _ _ n)).
 (rewrite (false_beq_id _ _ n0)).
 reflexivity.
