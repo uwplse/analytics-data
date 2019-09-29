@@ -36,4 +36,5 @@ assumption.
 *
 (destruct (free_in_ty_union__inv _ _ _ HX') as [HX'| HX']).
 (destruct (free_in_ty_union__inv _ _ _ HX') as [HX''| HX'']).
+(rewrite subst_union).
 (apply match_ty_union_1; auto).
