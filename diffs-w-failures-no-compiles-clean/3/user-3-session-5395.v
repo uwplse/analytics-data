@@ -111,4 +111,3 @@ Proof.
 (destruct (le_dec (S a) (diskSize d0))).
 -
 destruct_all.
--
