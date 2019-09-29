@@ -257,6 +257,4 @@ Proof.
 (unfold get_len; intros).
 step_proc.
 step_proc.
-eauto.
-intuition eauto.
-(eexists; intuition eauto).
+(eapply abstr_get_len).
