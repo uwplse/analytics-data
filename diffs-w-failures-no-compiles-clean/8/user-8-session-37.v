@@ -235,4 +235,5 @@ dependent destruction WT.
 (destruct g).
 -
 (simpl).
+(unfold compose_super).
 (erewrite VA).
