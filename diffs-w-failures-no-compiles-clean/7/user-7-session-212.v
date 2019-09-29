@@ -55,6 +55,6 @@ specialize (Hfact X X Heq (FBV t) IdSet.empty Ht).
 tauto.
 Qed.
 Lemma free_union__inv : forall (X : id) (fvs1 fvs2 : id_set), free X (IdSet.union fvs1 fvs2) -> free X fvs1 \/ free X fvs2.
-Proof.
+(intros X fvs1 fvs2).
 (unfold free).
 (apply IdSetFacts.union_1).
