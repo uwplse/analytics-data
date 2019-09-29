@@ -119,4 +119,5 @@ lia.
 -
 (step_proc; intuition).
 (step_proc; intuition).
-(exists (n0 :: s); intuition auto).
+(exists s; intuition).
+(right; intuition congruence).
