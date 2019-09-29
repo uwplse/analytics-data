@@ -87,4 +87,3 @@ Proof.
 reflexivity.
 -
 (repeat rewrite subst_pair).
-(rewrite IHt1, IHt2).
