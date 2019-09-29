@@ -320,9 +320,11 @@ Proof.
 (intros).
 reflexivity.
 Qed.
-Lemma f_subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), [FX := s] TExist Y t = TExist Y ([FX := s] t).
+Lemma f_subst_fvar_eq : forall (X : id) (s : ty), [FX := s] TFVar X = s.
 Proof.
 (intros).
+(simpl).
+(rewrite <- beq_id_refl).
 reflexivity.
 Qed.
 Lemma f_subst_fvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [FX := s] TFVar Y = TFVar Y.
@@ -410,10 +412,6 @@ tauto.
 -
 (rewrite f_subst_exist).
 (unfold wf_ty in *; simpl in *).
-Search -IdSet.Empty.
-Search -IdSet.Empty.
-Search -IdSet.remove.
-Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FBV t))).
 admit.
 admit.
@@ -422,3 +420,6 @@ admit.
 +
 subst.
 (rewrite f_subst_fvar_eq).
+assumption.
++
+(rewrite f_subst_fvar_neq).
