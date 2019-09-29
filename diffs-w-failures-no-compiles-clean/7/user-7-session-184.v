@@ -104,4 +104,4 @@ admit.
 (destruct (beq_idP X i) as [HXi| HXi]).
 +
 subst.
-(rewrite subst_var_eq).
+(rewrite subst_var_eq in *).
