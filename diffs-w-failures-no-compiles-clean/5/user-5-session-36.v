@@ -257,4 +257,6 @@ reflexivity.
 (rewrite H in H0).
 clear H.
 (rewrite evalAnd in H0).
-(destruct (evalIn _ _ _)).
+(match goal with
+ | H:eval ?L ?env (If (In ?x ?S) _ _) |- _ => destruct (evalIn L env x S)
+ end).
