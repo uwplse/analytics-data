@@ -19,3 +19,6 @@ Proof.
 (intros X Y Hneq t).
 (induction t; intros s1 s2;
   try (solve [ simpl; reflexivity | specialize (IHt1 s1 s2); specialize (IHt2 s1 s2); simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
+-
+(simpl).
+(rewrite IHt).
