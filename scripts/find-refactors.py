@@ -34,7 +34,7 @@ with open(fpath, 'r') as f:
     groups = re.split(failure_or_cancellation, f.read())
     for group_num, group in enumerate(groups, start = 0):
         cancel_match = re.match(failure_or_cancellation, group)
-        failure = re.match(failure, group)
+        failure_match = re.match(failure, group)
         if cancel_match is None:
             _, *lines = re.split("\s*\(\*", group)
             for line_num, line in enumerate(lines, start = 0):
@@ -54,7 +54,7 @@ with open(fpath, 'r') as f:
                 group_cancels.pop()
                 group_failures.pop()
             group_cancels.append(state_num)
-            if failure is Some:
+            if failure_match is Some:
                 group_failures.append(True)
             else:
                 group_failures.append(False)
@@ -114,7 +114,7 @@ for i in range(len(group_ends) - 1):
 
     # Dump new version to file
     with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:
-        if group_failures[i] is False: # uncomment when we want failures, or add comment (TODO do we want i or j here?)
+        if group_failures[i] is False: # uncomment when we want failures, or add comment
             for curr_index in range(len(new_cumulative)):
                 if new_cumulative[curr_index] != "":
                     new = new_cumulative[curr_index]
