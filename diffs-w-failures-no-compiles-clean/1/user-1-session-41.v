@@ -401,4 +401,4 @@ all:
    end).
 all: (try congruence).
 -
-(intros; inversion H0; subst; eauto).
+specialize (IHAlpha1 _ H1).
