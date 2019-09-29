@@ -54,10 +54,10 @@ with open(fpath, 'r') as f:
                 group_cancels.pop()
                 group_failures.pop()
             group_cancels.append(state_num)
-            if failure_match is Some:
-                group_failures.append(True)
-            else:
+            if failure_match is None:
                 group_failures.append(False)
+            else:
+                group_failures.append(True)
 
 # Now go through the cancellations and find diffs
 if len(group_lines) > 0:
