@@ -66,4 +66,3 @@ monad_simpl.
 (let state := fresh "state" in
  intros ? state Hpre).
 exists tt.
-split.
