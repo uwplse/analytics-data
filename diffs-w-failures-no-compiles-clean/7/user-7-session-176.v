@@ -178,4 +178,5 @@ subst.
 (destruct (beq_idP Y i)).
 subst.
 contradiction.
+(rewrite subst_var_neq; try assumption).
 (rewrite subst_var_neq).
