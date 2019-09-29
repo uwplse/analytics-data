@@ -186,3 +186,4 @@ Proof.
 (intros).
 (induction g).
 (simpl).
+(apply mixed_unitary; trivial).
