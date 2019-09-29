@@ -189,4 +189,3 @@ Proof.
 (simpl).
 (rewrite Nat.mul_1_r).
 Set Printing Implicit.
-restore_dims.
