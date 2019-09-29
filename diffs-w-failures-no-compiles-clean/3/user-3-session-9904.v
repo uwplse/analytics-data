@@ -121,4 +121,4 @@ lia.
 (step_proc; intuition).
 (exists s; intuition).
 (right; intuition).
-congruence.
+(destruct state).
