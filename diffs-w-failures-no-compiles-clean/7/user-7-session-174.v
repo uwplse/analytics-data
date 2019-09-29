@@ -135,4 +135,6 @@ Omega.omega.
 (unfold lt_size).
 Search -Acc.
 Check Acc.
-(intros).
+constructor.
+(intros y Hlt).
+constructor.
