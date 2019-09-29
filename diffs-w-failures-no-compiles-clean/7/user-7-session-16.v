@@ -416,9 +416,6 @@ Proof.
    | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
 +
 (right; solve_not_x_sub_r_y_full).
-(intros Hnf'').
-(apply sub_r_dec__mk_nf_sub_r_dec; tauto).
-+
 (destruct (IHta11 _ Hnf'1) as [IH11| IH11]; destruct (IHta12 _ Hnf'1) as [IH12| IH12]; destruct (IHta21 _ Hnf'2) as [IH21| IH21];
   destruct (IHta22 _ Hnf'2) as [IH22| IH22];
   try (solve
@@ -432,4 +429,12 @@ Proof.
    | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
++
 (right; solve_not_x_sub_r_y_full; intros Hnf''; apply sub_r_dec__mk_nf_sub_r_dec; tauto).
++
+(pose proof (in_nf_ref__inv _ Hnf') as Hnf'').
+(destruct H as [H1 H2]).
+specialize (H1 _ Hnf'').
+specialize (H2 _ Hnf'').
+(destruct H1 as [H1| H1]; destruct H2 as [H2| H2]).
+(left; constructor; assumption).
