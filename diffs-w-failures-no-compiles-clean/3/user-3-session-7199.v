@@ -452,4 +452,4 @@ admit.
 }
 -
 step_proc.
-intuition eauto.
+eauto.
