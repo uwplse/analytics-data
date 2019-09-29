@@ -393,4 +393,3 @@ step_proc.
 {
 (step_proc; intuition; subst; eauto).
 *
-(exists (s ++ v); simpl; intuition).
