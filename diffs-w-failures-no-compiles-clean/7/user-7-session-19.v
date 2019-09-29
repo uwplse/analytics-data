@@ -372,4 +372,4 @@ Check sem_eq_k_i__inv_depth_eq_2.
 }
 (pose proof Htk as Ht'k).
 (pose proof Htk' as Ht'k').
-(rewrite Hdepeq in Ht'k).
+(rewrite <- Hdepeq in Ht'k).
