@@ -112,4 +112,10 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Next Obligation of nat_to_le_func.
 Proof.
-(sust; lia).
+(subst; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2zzV4u"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
