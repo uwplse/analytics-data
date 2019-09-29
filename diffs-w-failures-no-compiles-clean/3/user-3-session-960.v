@@ -171,5 +171,5 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Check Ascii.byte_of_ascii.
 Check Ascii.nat_of_ascii.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256} :=
-  Instance aModel : GoModel.
+Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
+refine (exist _ (Ascii.nat_of_ascii a) _).
