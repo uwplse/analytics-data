@@ -84,4 +84,4 @@ constructor.
 (apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; assumption).
 -
 (destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
-(eapply Nat.max_lub_l).
+(eapply Nat.le_max_l).
