@@ -392,4 +392,3 @@ step_proc.
 (step_proc; intuition; subst; eauto).
 {
 (step_proc; intuition; subst; eauto).
-*
