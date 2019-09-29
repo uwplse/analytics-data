@@ -109,4 +109,4 @@ step_proc.
 (destruct (r == 0)).
 -
 (step_proc; intuition).
-(unfold statdb_abstraction in *).
+exists s.
