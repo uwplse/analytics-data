@@ -76,12 +76,3 @@ Definition embed_exp {T} {E} `{serverAppE id -< E} (ex : serverAppE exp T) : itr
   | ServerApp_Send rx => trigger (ServerApp_Send (unwrap_data rx))
   | ServerApp_Fresh => i <- trigger ServerApp_Fresh;; Ret (exp_int (i : id N))
   end.
-Definition nmi_of_smi {T} (m : itree smE T) : itree (serverAppE id) T :=
-  interp
-    (fun T e =>
-     match e with
-     | (se|) => embed_exp se
-     | (|ee) => match ee in (evalE T) return (_ T) with
-                | Eval bx => ret (unwrap bx)
-                end
-     end) m.
