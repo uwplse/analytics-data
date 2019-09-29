@@ -79,4 +79,4 @@ exists w2.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx [Hwftx Hm]]).
 (rewrite b_subst_not_b_free_in_ty in Hm; try assumption).
-auto.
+tauto.
