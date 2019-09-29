@@ -177,7 +177,6 @@ Proof.
 (destruct Hcontra as [v' Hm]).
 (destruct k).
 (destruct v'; contradiction).
-(assert (Hdep : | TRef t | <= S k)).
-(eapply match_ty_value_type_r__inv_depth_r_le_index).
-constructor.
-eassumption.
+(assert (Hdep : | TRef t | <= S k) by (eapply match_ty_value_type_r__inv_depth_r_le_index; constructor || eassumption)).
+contradiction.
+Qed.
