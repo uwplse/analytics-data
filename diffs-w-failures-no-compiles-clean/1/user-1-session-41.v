@@ -368,4 +368,4 @@ Check eq.
 Theorem eq_refl : reflexive GT eq.
 Proof.
 (unfold reflexive).
-(induction x).
+(induction x; eauto).
