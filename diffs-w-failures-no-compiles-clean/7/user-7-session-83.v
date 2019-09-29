@@ -255,4 +255,4 @@ clear Heqt'.
 constructor.
 *
 (apply IHk; try assumption).
-(apply sem_eq_k_i__sem_sub_k in Href).
+(apply sem_eq_k_i__sem_sub_k_i in Href).
