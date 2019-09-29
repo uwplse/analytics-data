@@ -99,4 +99,5 @@ Next Obligation.
 Proof.
 subst digit.
 (destruct base).
-(simpl).
+Check Nat.mod_1_r.
+(rewrite Nat.mod_1_r).
