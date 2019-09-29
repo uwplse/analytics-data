@@ -78,5 +78,4 @@ Proof.
 (intros t k Hm).
 (simpl).
 (split; apply Nat.le_0_l).
--
 (intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction | solve_match_ty__inv_depth_l__union_r IHt1 IHt2 ])).
