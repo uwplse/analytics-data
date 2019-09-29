@@ -203,4 +203,4 @@ Proof.
 Print eq_values.
 (assert (v = nth a bs block0)).
 (eapply diskGet_eq_values; eauto).
-lia.
+(unfold log_addr).
