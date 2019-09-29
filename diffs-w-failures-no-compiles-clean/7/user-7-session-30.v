@@ -16,3 +16,4 @@ Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; contradiction ])).
 (intros c0 k Hm).
 (destruct k; simpl in Hm; subst; reflexivity).
+(destruct k; reflexivity).
