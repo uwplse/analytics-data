@@ -62,6 +62,7 @@ reflexivity.
 (intros v' Hv').
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
+Qed.
 Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
 Proof.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
@@ -74,15 +75,3 @@ Proof.
    end).
 -
 (destruct v; contradiction).
--
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(inversion Hle; subst).
-+
-(simpl).
-(intros v Hv).
-specialize (Href v Hv).
-(split; tauto).
-+
-(destruct k').
-(simpl).
