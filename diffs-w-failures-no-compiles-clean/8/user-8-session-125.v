@@ -65,4 +65,5 @@ Msimpl.
 matrix_denote.
 Msimpl.
 (rewrite Mmult_assoc).
-(destruct (unitary_gate_unitary U) as [WFU inv]).
+specialize (unitary_gate_unitary U) as inv.
+(unfold WF_Unitary in inv).
