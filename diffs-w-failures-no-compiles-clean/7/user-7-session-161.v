@@ -77,30 +77,3 @@ exists ti.
 assumption.
 assumption.
 Abort.
-(intros X Y tX tY Hneq HYfresh t).
-(induction t; try reflexivity).
--
-(repeat rewrite subst_pair).
-(rewrite IHt1, IHt2).
-reflexivity.
--
-(repeat rewrite subst_union).
-(rewrite IHt1, IHt2).
-reflexivity.
--
-(destruct (beq_idP Y i) as [HY| HY]).
-+
-subst.
-(destruct (beq_idP X i) as [HX| HX]).
-*
-subst.
-contradiction.
-*
-(rewrite subst_exist_eq).
-(rewrite (subst_exist_neq _ _ _ _ HX)).
-(destruct (beq_idP X i) as [HX| HX]).
-*
-subst.
-(rewrite (subst_exist_neq _ _ _ _ HY)).
-(repeat rewrite subst_exist_eq).
-(rewrite (subst_exist_neq _ _ _ _ HY)).
