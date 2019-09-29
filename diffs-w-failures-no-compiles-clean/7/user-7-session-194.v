@@ -24,10 +24,15 @@ Lemma b_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (b
 Proof.
 (intros X t).
 (unfold f_free_in_ty).
-(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
-Qed.
-Lemma f_free_in_ty__dec : forall (X : id) (t : ty), {f_free_in_ty X t} + {not_f_free_in_ty X t}.
+Lemma f_free_in_ty__dec : forall (X : id) (t : ty), f_free_in_ty X t \/ not_f_free_in_ty X t.
 Proof.
 (intros X t).
 (unfold f_free_in_ty).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Qed.
+Lemma b_free_in_ty__dec : forall (X : id) (t : ty), b_free_in_ty X t \/ not_b_free_in_ty X t.
+Proof.
+(intros X t).
+(unfold f_free_in_ty).
+(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Qed.
