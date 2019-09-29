@@ -241,36 +241,9 @@ assumption.
 -
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
-Lemma ty__empty_or_matching_ty_exists :
-  forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
-(left; exists (TCName c); apply match_ty_cname).
+Lemma not_match_ty_var__not_match_ty_subs :
+  forall (t v : ty) (k w : nat), ~ |-[ k, w] v <$ t -> forall (X : id) (s : ty), ~ |-[ k, w] v <$ [X := s] t.
+Proof.
+(induction t; intros v k w Hnotm X S Hcontra).
 -
-admit.
--
-admit.
--
-(left; exists (TRef t)).
-(destruct k).
-reflexivity.
-(split; intros w1; exists w1; auto).
--
-right.
-(intros Hcontra).
-(destruct Hcontra as [v Hcontra]).
-(eapply match_ty_exist__0_inv; eassumption).
--
-(left; exists (TEV i); apply match_ty_var).
--
-(left; exists (TEV i); apply match_ty_ev).
--
-(left; exists (TCName c); apply match_ty_cname).
--
-admit.
--
-admit.
--
-(left; exists (TRef t)).
-(destruct k).
-reflexivity.
-(split; intros w1; exists w1; auto).
--
+(destruct k; destruct v; destruct v; apply Hnotm; assumption).
