@@ -34,3 +34,4 @@ Proof.
 (unfold HOAS_Equiv).
 (intros U \207\129 safe).
 (simpl).
+(destruct (unitary_gate_unitary U) as [WF inv]).
