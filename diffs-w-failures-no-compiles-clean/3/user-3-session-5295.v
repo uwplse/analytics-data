@@ -188,3 +188,7 @@ step.
 }
 (destruct (lt_dec a (diskSize a'))).
 -
+eauto.
+-
+simplify.
+(destruct r; step).
