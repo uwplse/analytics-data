@@ -11,7 +11,6 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Open Scope btjmi_scope.
 Lemma match_ty_i_pair : forall v1 v2 t1 t2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
@@ -26,6 +25,7 @@ Lemma match_ty_i_union_2 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t2 -
 Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; right; assumption).
+Qed.
 Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
 (intros v Hv; induction Hv; intros k).
@@ -60,8 +60,7 @@ Proof.
 (destruct k; destruct v; assumption).
 Qed.
 Lemma match_ty_i_ref__inv :
-  forall v t : ty,
-  forall k : nat, |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ (forall v' : ty, value_type v' -> |-[ k] v' <$ t' <-> |-[ k] v' <$ t).
+  forall v t : ty, forall k : nat, |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ (forall v' : ty, |-[ k] v' <$ t' <-> |-[ k] v' <$ t).
 Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; simpl in Hm; contradiction ])).
 clear IHv.
@@ -72,19 +71,6 @@ clear IHv.
 exists v.
 split.
 reflexivity.
-(intros v' Hv').
-specialize (Href v' Hv').
+(intros v').
+specialize (Href v').
 (destruct Href; split; assumption).
-Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
-Proof.
-(induction k; induction t; induction t'; intros H).
-32: {
-idtac.
-(simpl).
-(apply le_n_S).
-(apply IHk).
-(assert (Hv : value_type (TRef t)) by constructor).
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
-specialize (H _ Hm).
-(apply match_ty_i_ref__inv in H).
-(destruct H as [tx [Heq Href]]; inversion Heq; subst).
