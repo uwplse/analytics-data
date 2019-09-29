@@ -106,4 +106,3 @@ subst.
 (rewrite size_wtype_length).
 easy.
 }
-replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by (subst; easy).
