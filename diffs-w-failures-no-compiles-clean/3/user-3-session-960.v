@@ -247,4 +247,4 @@ econstructor.
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
 Check Ascii.nat_ascii_embedding.
-(apply sig_eta).
+Search -(@eq (sig _)).
