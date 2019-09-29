@@ -327,3 +327,4 @@ Proof.
 (apply sub_r__transitive with (MkNF( t'))).
 assumption.
 (apply mk_nf__sub_r1).
+Qed.
