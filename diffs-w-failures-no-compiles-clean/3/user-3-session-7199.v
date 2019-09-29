@@ -182,5 +182,3 @@ Proof.
 split.
 -
 eauto using log_length_ok_nil.
--
-(simpl; intuition).
