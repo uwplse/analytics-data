@@ -396,4 +396,4 @@ Proof.
 -
 admit.
 -
-(intros).
+(intros t Hnft Hdep t2).
