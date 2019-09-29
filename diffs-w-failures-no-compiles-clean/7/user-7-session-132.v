@@ -97,8 +97,3 @@ exists w1.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [tx Heq]; subst).
 (destruct w1; simpl; tauto).
--
-(apply match_ty_ref__inv in Hm).
-(apply match_ty_ref).
-(apply sem_eq_k__trans with t).
-assumption.
