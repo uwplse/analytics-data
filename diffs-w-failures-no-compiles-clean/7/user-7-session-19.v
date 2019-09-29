@@ -132,4 +132,5 @@ auto using match_ty_i_pair.
 +
 clear IHt3.
 (destruct v1; contradiction || constructor).
-(apply match_ty_ref__inv in Hm2).
+(apply match_ty_i_ref__inv in Hm2).
+(destruct Hm2 as [t'' [Heq' Href']]).
