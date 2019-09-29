@@ -193,5 +193,4 @@ auto using match_ty_pair.
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
 (destruct w).
-(apply match_ty_exist__0_inv in Hm2).
-contradiction.
+(apply match_ty_exist__0_inv in Hm2; contradiction).
