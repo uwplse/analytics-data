@@ -185,11 +185,6 @@ Proof.
   [ assert (Hmp : |-[ k] TPair v v' <$ TPair t1 t2) by (apply match_ty_i_pair; assumption)
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
-Qed.
-Ltac
- solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2 :=
-  pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
-   [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
 (induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
@@ -235,6 +230,8 @@ specialize (Hsem _ Hm).
 (simpl in Hsem).
 (intros v').
 specialize (Hsem v').
+tauto.
+Qed.
 Lemma match_ty_i_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
 Proof.
 (induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ])).
@@ -242,6 +239,7 @@ Admitted.
 Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
 auto with DBBetaJulia.
+Qed.
 Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
 Proof.
 (intros k t t' H).
@@ -264,45 +262,8 @@ Proof.
 (destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
 (pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept H1)).
 (pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept' H2)).
-SearchPattern (_ <= _ -> _ <= _ -> _ = _).
-Check le_unique.
-SearchPattern (_ <= _ -> _ = _).
 (apply Nat.le_antisymm; assumption).
 Qed.
-Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -> ||- [t1]<= [t'] /\ ||- [t2]<= [t'].
+Lemma xxx : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
-(intros t1 t2 t' Hsem).
-(unfold sem_sub_i in Hsem).
-(split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem); assumption).
-Qed.
-Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
-Proof.
-(intros t t' Hsem).
-(split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
-  assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem; 
-  intros v' Hm'; specialize (Hsem v'); tauto).
-Qed.
-Open Scope btj_scope.
-Lemma match_ty_i__inv_depth_stable :
-  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
-Proof.
-(induction k; induction k').
--
-tauto.
--
-admit.
--
-admit.
--
-(induction t).
-admit.
-admit.
-admit.
-+
-clear IHk' IHt.
-(intros Htk Htk' v).
-(simpl in Htk, Htk').
-(apply le_S_n in Htk).
-(apply le_S_n in Htk').
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
-(pose proof (IHk k' t Htk Htk' v) as Ht).
+(induction k; induction t; induction t'; intros Hnft Hdept Hsem).
