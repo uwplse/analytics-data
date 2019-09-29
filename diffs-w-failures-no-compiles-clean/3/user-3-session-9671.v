@@ -208,4 +208,5 @@ Theorem get_len_abstr_ok :
 Proof.
 step.
 (destruct a' as [[] bs]; simpl in *; intuition eauto).
+step.
 (exists bs; intuition eauto).
