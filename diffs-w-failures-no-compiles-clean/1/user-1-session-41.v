@@ -578,4 +578,3 @@ subst.
 (f_equal; eauto).
 -
 (intros; inversion H0; subst; eauto).
-all: (try (apply singleton_eq in H1; congruence)).
