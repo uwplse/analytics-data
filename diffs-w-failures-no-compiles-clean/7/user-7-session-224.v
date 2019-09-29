@@ -47,7 +47,6 @@ exists (TEV X').
 split.
 reflexivity.
 (induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
-*
 (rewrite f_subst_union).
 (apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
   destruct IHt' as [IHt'a IHt'b]; split; intros HX').
@@ -58,3 +57,7 @@ reflexivity.
 {
 (destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
 {
+specialize (IHt'b HXt'1).
+(destruct IHt'b as [w2 IHt'b]).
+exists w2.
+(apply match_ty_union_1; auto).
