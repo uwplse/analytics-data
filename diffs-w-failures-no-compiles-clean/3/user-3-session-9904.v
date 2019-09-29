@@ -109,6 +109,4 @@ step_proc.
 (destruct (r == 0)).
 -
 (step_proc; intuition).
-{
-eauto.
-}
+(simpl in *; intuition subst).
