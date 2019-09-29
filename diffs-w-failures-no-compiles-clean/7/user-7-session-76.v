@@ -6,7 +6,7 @@ Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
-Require Import BetaJulia.Sub0250a.MatchProps.
+Require Import BetaJulia.Sub0250a.SemSubProps.
 Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
 Require Import BetaJulia.Sub0250a.AltMatchProps.
