@@ -365,4 +365,4 @@ Check relation.
 Print relation.
 Print eq.
 Check eq.
-Theorem eq_refl : forall A, reflexive GT (eq A A).
+Theorem eq_refl : forall A, reflexive GT eq.
