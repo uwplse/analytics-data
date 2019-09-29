@@ -14,6 +14,7 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
+  wf_ty tx ->
   |-[ w] v <$ [BX := tx] t ->
   exists v' : ty,
     |-[ w] v' <$ [BX := TFVar X'] t /\
@@ -21,7 +22,7 @@ Lemma build_v_full :
      |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w'] v <$ [FX' := tx] t')).
 Proof.
 (intros X X' tx).
-(induction w; induction t; intros v Hm).
+(induction w; induction t; intros v Hwftx Hm).
 -
 (rewrite b_subst_cname in *).
 exists v.
@@ -93,7 +94,6 @@ assumption.
 (apply f_free_in_ty_exist__inv in HX').
 specialize (IHw' _ Hm').
 (destruct IHw' as [_ IHw']).
-(apply f_free_in_ty__f_free_in_b_subst in HX').
 (apply (f_free_in_ty__f_free_in_b_subst i ti) in HX').
 specialize (IHw' HX').
 (rewrite f_subst_exist).
