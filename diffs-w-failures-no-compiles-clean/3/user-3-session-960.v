@@ -69,7 +69,7 @@ Class GoModel : Type :={byte : Type;
 Search -"endian".
 Opaque Nat.modulo Nat.div.
 #[program]
-Fixpoint nat_to_le base (x : nat) {measure lt x} :
+Fixpoint nat_to_le base (x : nat) {measure x :
 list {x : nat | x < S (S base)} :=
   match x with
   | 0 => nil
