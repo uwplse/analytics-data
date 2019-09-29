@@ -244,4 +244,8 @@ Proof.
 +
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
-(simpl in Hdt).
+(simpl in Hdep).
+(pose proof (le_S_n _ _ Hdep) as Hdep').
+(unfold sem_sub_k in Hsem).
+specialize (Hsem _ Hma).
+(apply match_ty_ref__inv in Hsem).
