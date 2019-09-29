@@ -282,4 +282,4 @@ clear IHt.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 Check sem_eq_k_i__trans.
-(eapply sem_eq_k_i__trans).
+(eapply sem_eq_k_i__trans; eassumption).
