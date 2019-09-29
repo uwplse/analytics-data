@@ -23,4 +23,3 @@ Proof.
 (induction w; induction t; intros v Hm).
 -
 exists v.
-(simpl).
