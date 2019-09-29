@@ -114,4 +114,5 @@ Proof.
 -
 auto.
 -
-generalize dependent S (S base).
+(assert (1 < S (S base)) by lia).
+(generalize dependent S (S base); intros base).
