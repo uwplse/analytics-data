@@ -57,4 +57,5 @@ Inductive ty : Type :=
   | Lock : _.
 Theorem mod_S_lt : forall n m, n `mod` S m < S m.
 Proof.
+(intros).
 (apply PeanoNat.Nat.mod_upper_bound).
