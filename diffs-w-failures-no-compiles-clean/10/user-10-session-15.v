@@ -30,4 +30,7 @@ Fixpoint fib (fuel : nat) (a b : N) : list N :=
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqz3Zsi1" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Eval compute in fib 10 0 1.
-Check stream.
+CoFixpoint fib' (a b : N) : Stream N := Cons a (print_id (fib' b (a + b))).
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqOya5lg" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Eval compute in Str_nth 10 (fib' 0 1).
