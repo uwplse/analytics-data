@@ -262,5 +262,6 @@ clear H.
  end).
 -
 (rewrite evalIfTrue in H0; auto).
-(apply evalInInts in H; auto).
-(destruct H).
+(apply evalInInts in H).
++
+admit.
