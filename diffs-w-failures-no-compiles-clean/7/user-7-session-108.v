@@ -402,8 +402,6 @@ eauto.
 -
 (left; exists (TEV i); apply match_ty_ev).
 Admitted.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t k -> ~ ||-[ S k][t]<= [TRef t].
-Proof.
 (induction t; intros k Ht Hcontra).
 -
 specialize (Hcontra 0).
@@ -414,3 +412,5 @@ clear Hm.
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
+-
+specialize (Hcontra 0).
