@@ -157,4 +157,3 @@ Proof.
 (apply spec_abstraction_compose).
 (simpl).
 (unfold recover).
-proc_spec_weaken.
