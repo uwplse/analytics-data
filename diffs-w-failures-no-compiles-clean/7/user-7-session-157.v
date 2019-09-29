@@ -28,10 +28,6 @@ exists (TPair v1' v2').
 (destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
 -
-(apply match_ty_exist__0_inv in Hm; contradiction).
--
-(destruct (beq_idP X i)).
-+
 subst.
 exists (TEV X').
 (simpl).
@@ -60,3 +56,6 @@ exists (TPair v1' v2').
 -
 (destruct (beq_idP X i)).
 +
+subst.
+(simpl in Hm).
+(rewrite <- beq_id_refl).
