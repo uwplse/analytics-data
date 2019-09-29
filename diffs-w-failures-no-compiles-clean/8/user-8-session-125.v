@@ -21,4 +21,15 @@ Global Unset Asymmetric Patterns.
 Delimit Scope matrix_scope with M.
 Lemma init_qubit1 : (\226\159\166 init true \226\159\167) (I 1) == \226\136\1631\226\159\169\226\159\1681\226\136\163.
 Proof.
-(matrix_denote; lma).
+matrix_denote.
+Msimpl.
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqjhuybc"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma unitary_transpose_id_qubit :
+  forall U : Unitary Qubit, unitary_transpose U \226\137\161 id_circ.
+Proof.
+(unfold HOAS_Equiv).
+(intros U \207\129 safe pf_\207\129).
