@@ -28,9 +28,9 @@ exists w1.
 (rewrite subs_fresh_in_ty in Hm; try assumption).
 (eapply match_ty__ge_w).
 eassumption.
-(repeat constructor).
-Qed.
 Lemma sem_sub_k_exist_fresh_r : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][t]<= [TExist X t].
+Proof.
+(intros k X t Hfresh).
 (intros w1).
 exists (S w1).
 (intros v Hm).
@@ -38,13 +38,7 @@ exists (S w1).
 exists (TEV X).
 (rewrite subs_fresh_in_ty; assumption).
 Qed.
-Lemma sem_sub_k_fresh_var__sem_sub_exist :
-  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Lemma sem_sub_exist_fresh_l : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]<= [t].
 Proof.
-(intros X t).
-(induction t).
--
-(intros t' X' Hfresh Hsem).
-(simpl in *).
-(apply sem_sub__trans with (TCName c); try assumption).
+(intros X t Hfresh k).
 (apply sem_sub_k_exist_fresh_l).
