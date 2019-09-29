@@ -96,5 +96,6 @@ Lemma f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TPa
 Proof.
 (solve_free_union f_free_in_ty).
 Qed.
-Lemma f_free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TUnion t1 t2) -> f_free_in_ty X t1 \/ f_free_in_ty X t2.
 Proof.
+(solve_free_union f_free_in_ty).
+Qed.
