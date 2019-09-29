@@ -18,4 +18,4 @@ Proof.
 (destruct (match_ty_value_type_r v Hv k) as [Hcontra| Hm]).
 -
 (left; intros v' Hm').
-contradiction.
+(exfalso; apply Hcontra).
