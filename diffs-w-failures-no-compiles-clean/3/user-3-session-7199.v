@@ -156,5 +156,4 @@ Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
 (simpl).
-(unfold recover).
-step_proc.
+step_proc_basic.
