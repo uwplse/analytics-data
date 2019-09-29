@@ -209,4 +209,6 @@ Proof.
   (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
      (fun (t1 : ty) (_ : in_nf t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
 -
+(assert (Hva : value_type (TCName c)) by constructor).
 (induction t2; intros Hsem).
++
