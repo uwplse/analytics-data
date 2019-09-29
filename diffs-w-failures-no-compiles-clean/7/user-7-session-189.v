@@ -17,4 +17,9 @@ Qed.
 Lemma free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (free_in_ty X t).
 Proof.
 (intros X t).
-(unfold free).
+(unfold free_in_ty).
+Search -IdSet.In.
+(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Qed.
+Lemma fresh_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (fresh_in_ty X t).
+Proof.
