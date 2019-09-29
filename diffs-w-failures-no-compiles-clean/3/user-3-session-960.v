@@ -100,4 +100,6 @@ Proof.
 lia.
 Qed.
 Proof.
-(simpl).
+(unfold MR).
+Search -wf.
+(apply wf_projected).
