@@ -84,4 +84,4 @@ admit.
 +
 admit.
 +
-(intros X' HX HX' Hsem).
+(intros X' HX HX' Hsem tx).
