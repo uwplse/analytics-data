@@ -3184,3 +3184,4 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
+Notation "a \226\137\161 b" := (HOAS_Equiv a b) (at level 70) : circ_scope.
