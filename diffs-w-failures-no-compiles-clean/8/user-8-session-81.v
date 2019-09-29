@@ -726,4 +726,4 @@ Print Ltac Signatures.
 (repeat rewrite Nat.mul_1_l).
 (rewrite (kron_1_r A)).
 (rewrite (kron_1_r B)).
-(apply H).
+(repeat rewrite <- Nat.mul_1_l).
