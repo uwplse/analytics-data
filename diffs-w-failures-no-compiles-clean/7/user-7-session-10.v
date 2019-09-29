@@ -167,6 +167,9 @@ Proof.
 (simpl).
 (constructor; assumption).
 -
+(rewrite <- mk_nf__idempotent).
+assumption.
+Qed.
 Lemma sub_r_nf__trans2 :
   forall tm1 tm2 : ty,
   |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
@@ -196,6 +199,7 @@ tauto.
 (induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
 -
 (destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
+(destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
@@ -208,6 +212,20 @@ tauto.
 (apply sub_r_union_l__inv in Hsub').
 (destruct Hsub'; auto).
 -
+(pose proof (in_nf_ref__inv _ Hnfm1) as Hnf1).
+(pose proof (in_nf_ref__inv _ Hnfm2) as Hnf2).
+(destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
+(destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
+(split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst;
+  try (solve [ constructor; auto ])).
++
+(apply IHHsub').
+(apply mk_nf_nf__equal; assumption).
+(apply mk_nf__in_nf).
+-
+(split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
+(apply sub_r__mk_nf_sub_r; assumption).
+Qed.
 Lemma sub_r__trans2 :
   forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
 Proof.
@@ -264,6 +282,7 @@ Proof.
 Qed.
 Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
 Proof.
+(intros t1 t2 t3 Hsub1 Hsub2).
 (destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
 auto.
 Qed.
