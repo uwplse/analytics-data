@@ -172,4 +172,6 @@ contradiction.
 Abort.
 Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
 Proof.
-(induction k; intros k).
+(induction t; intros k).
+-
+exists 0 (TCName c).
