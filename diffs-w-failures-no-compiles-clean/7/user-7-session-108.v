@@ -303,4 +303,17 @@ subst.
 admit.
 }
 Search -beq_id_refl.
-(rewrite Heq).
+(rewrite Heq in Hcontra).
+(apply Hnotm).
+exists v.
+assumption.
++
+(simpl in Hcontra).
+(assert (Heq : beq_id X i = false)).
+{
+admit.
+}
+(rewrite Heq in Hcontra).
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [tx Hcontra]).
+(apply Hnotm).
