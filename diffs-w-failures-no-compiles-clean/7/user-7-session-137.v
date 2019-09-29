@@ -12,14 +12,4 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-(induction t; intros Hfresh; intros w1; exists w1; intros v Hm; destruct w1; try (solve [ apply match_ty_exist__0_inv in Hm; contradiction ])).
--
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
-(simpl in Hm).
-(eapply match_ty__ge_w).
-eassumption.
-(repeat constructor).
--
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
+(induction t; intros Hfresh).
