@@ -254,4 +254,4 @@ Proof.
 (repeat newstep; auto).
 (destruct state0; simpl; auto).
 (destruct state0; simpl; auto).
-(simpl).
+step_ret.
