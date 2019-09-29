@@ -575,4 +575,6 @@ all:
 subst.
 (inversion H3).
 subst.
-f_equal.
+(f_equal; eauto).
+-
+(intros; eauto).
