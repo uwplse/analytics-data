@@ -171,4 +171,3 @@ solve_matrix.
 +
 (simpl).
 matrix_denote.
-Msimpl.
