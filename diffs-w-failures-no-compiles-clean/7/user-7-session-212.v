@@ -59,6 +59,7 @@ Lemma free_union__inv : forall (X : id) (fvs1 fvs2 : id_set), free X (IdSet.unio
 (unfold free).
 (apply IdSetFacts.union_1).
 Qed.
+Ltac solve_free_union fvname := intros X t1 t2; unfold fvname; simpl; apply free_union__inv.
 Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
 Proof.
 (solve_not_free_union not_f_free_in_ty).
@@ -93,7 +94,7 @@ assumption.
 Qed.
 Lemma f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TPair t1 t2) -> f_free_in_ty X t1 \/ f_free_in_ty X t2.
 Proof.
-(intros X t1 t2).
-(unfold f_free_in_ty).
-(simpl).
-(apply free_union__inv).
+(solve_free_union f_free_in_ty).
+Qed.
+Lemma f_free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TUnion t1 t2) -> f_free_in_ty X t1 \/ f_free_in_ty X t2.
+Proof.
