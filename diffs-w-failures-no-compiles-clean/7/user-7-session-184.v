@@ -69,4 +69,17 @@ admit.
 -
 (rewrite subst_exist in Hm).
 (pose proof (subst_exist X tx i t) as Heq).
-(destruct Heq as [X [tz Heq]]).
+(destruct Heq as [Z [tz Heq]]).
+(rewrite Heq in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
