@@ -146,3 +146,5 @@ Lemma sem_sub_pair__inv : forall t1 t2 t1' t2' : ty, ||- [TPair t1 t2]<= [TPair 
 Proof.
 (intros t1 t2 t1' t2' Hsem).
 (split; intros k; specialize (Hsem k); pose proof (sem_sub_k_pair__inv _ _ _ _ _ Hsem)).
+(split; intros k; specialize (Hsem k); pose proof (sem_sub_k_pair__inv _ _ _ _ _ Hsem); tauto).
+Qed.
