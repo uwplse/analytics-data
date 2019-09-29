@@ -97,4 +97,6 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Next Obligation.
 Proof.
-(apply PeanoNat.Nat.div_lt).
+subst digit.
+(destruct base).
+(simpl).
