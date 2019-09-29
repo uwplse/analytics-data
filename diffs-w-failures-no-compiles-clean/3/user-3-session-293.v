@@ -58,4 +58,3 @@ Instance var_crash_step_nonerror :
 Proof.
 (simpl).
 typeclasses eauto.
-Module DB.
