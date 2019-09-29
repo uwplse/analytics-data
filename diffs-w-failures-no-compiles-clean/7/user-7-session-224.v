@@ -77,4 +77,8 @@ exists 0.
 {
 specialize (IHt'b HXt'2).
 (destruct IHt'b as [w2 IHt'b]).
+exists w2.
 (apply match_ty_union_2; auto).
+}
+{
+(exisst 0).
