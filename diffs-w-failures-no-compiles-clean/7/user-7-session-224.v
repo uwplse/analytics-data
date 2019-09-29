@@ -186,4 +186,3 @@ reflexivity.
 }
 {
 (apply match_ty_union_1).
-(rewrite f_subst_not_b_free_in_ty; assumption).
