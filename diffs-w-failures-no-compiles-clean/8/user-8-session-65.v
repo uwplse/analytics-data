@@ -963,3 +963,7 @@ Proof.
 (rewrite (init_at_spec_strong b m i); [  | omega ]).
 (destruct safe).
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
+gen \207\129.
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
