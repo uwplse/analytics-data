@@ -376,10 +376,4 @@ tauto.
 (pose proof (IHk k' t Htk Htk' v) as Ht).
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
-Admitted.
-Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
-Proof.
-(assert (Hm : |-[ | TUnion ta tb |] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem _ _ Hm).
-(apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
+Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
