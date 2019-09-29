@@ -133,4 +133,5 @@ Omega.omega.
 (unfold lt_size).
 Check lt_wf.
 Print lt_wf.
-(pose proof lt_wf).
+(pose proof lt_wf as H).
+(unfold well_founded in H).
