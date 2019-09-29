@@ -430,4 +430,5 @@ Lemma valid_denote_true :
   valid_ancillae_box c -> denote_box true c \207\129 == \207\129' -> denote_box safe c \207\129 == \207\129'.
 Proof.
 (destruct safe; trivial).
+(unfold valid_ancillae_box in H).
 (rewrite <- H; assumption).
