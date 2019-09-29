@@ -73,4 +73,6 @@ Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> f
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto
    end).
 -
-(destruct v; simpl in Hm; contradiction).
+(destruct v).
+(simpl in Hm).
+contradiction.
