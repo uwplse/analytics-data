@@ -41,8 +41,7 @@ clear IHv.
 (intros t k Hm).
 (simpl in Hm).
 (exists v; auto).
-Qed.
-Lemma match_ty__value_type : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
+Lemma match_ty__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
 Proof.
 (intros v t).
 generalize dependent v.
@@ -90,4 +89,4 @@ clear IHv1 IHv2.
   [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; try tauto; apply Max.le_max_l || apply Max.le_max_r).
 -
 (intros t k Hm).
-(apply match_ty__value_type in Hm).
+(apply match_ty__value_type_l in Hm).
