@@ -385,11 +385,6 @@ Ltac
   destruct IHt2_1 as [IH1| IH1]; try assumption; destruct IHt2_2 as [IH2| IH2]; try assumption;
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor; assumption.
-Ltac
- solve_union_sub_r__decidable IHt'1 IHt'2 :=
-  destruct IHt'1 as [IH1| IH1]; try assumption; destruct IHt'2 as [IH2| IH2]; try assumption;
-   try (solve [ right; intros Hcontra; destruct (sub_r_union_l__inv _ _ _ Hcontra) as [Hsub1 Hsub2]; contradiction ]); left; constructor;
-   assumption.
 Lemma nf_sub_r__decidable2 :
   forall t : ty,
   InNF( t) -> (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)).
@@ -417,6 +412,7 @@ Proof.
 (intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
 (assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
 (destruct (in_nf_pair__inv _ _ Hnf) as [Hnf1 Hnf2]).
+(destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
