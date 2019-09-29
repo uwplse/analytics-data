@@ -478,4 +478,4 @@ intuition.
 (descend; intuition eauto).
 {
 (descend; intuition eauto).
-(eapply log_abstraction_nil).
+(eapply log_abstraction_nil; eauto).
