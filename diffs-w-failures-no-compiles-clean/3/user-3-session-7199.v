@@ -144,4 +144,3 @@ eauto using log_length_ok_nil.
 (apply disk_oob_eq).
 (simpl; lia).
 }
-congruence.
