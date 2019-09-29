@@ -970,3 +970,4 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 (intros \207\129).
 (repeat rewrite Mmult_assoc).
+Msimpl.
