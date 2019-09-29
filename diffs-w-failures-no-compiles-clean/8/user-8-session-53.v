@@ -947,4 +947,3 @@ Lemma assert_init_at_id :
 Proof.
 (intros b m i Lt \207\129 safe M).
 (simpl).
-(simpl).
