@@ -506,4 +506,4 @@ intuition.
 }
 {
 (exists (bs ++ v); intuition).
-(apply log_abstraction_commit).
+(eapply log_abstraction_commit; eauto).
