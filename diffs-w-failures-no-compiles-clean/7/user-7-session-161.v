@@ -105,3 +105,4 @@ subst.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+exists ([X' := tx] ti).
