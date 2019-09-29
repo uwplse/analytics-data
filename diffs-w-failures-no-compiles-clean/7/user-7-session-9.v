@@ -19,4 +19,3 @@ Proof.
 (remember (TUnion t1' t2') as t' eqn:Heq ).
 (induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ]); inversion Heq).
 -
-(left; assumption).
