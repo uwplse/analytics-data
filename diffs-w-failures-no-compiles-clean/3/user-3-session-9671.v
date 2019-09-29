@@ -225,7 +225,6 @@ Theorem log_size_bound d bs a :
 Proof.
 (unfold log_size_ok, log_addr; intros; lia).
 Qed.
-Hint Resolve log_size_bound: core.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
@@ -241,19 +240,9 @@ Proof.
 (simpl).
 step.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
+(exists bs; intuition eauto).
 (unfold log_abstraction in H0; intuition).
 (pose proof (H3 a); intuition).
 (assert (log_addr a < diskSize state)).
 {
-eauto.
-}
-eq_values.
-auto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqn7pS5Y"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+eauto using log_size_bounds.
