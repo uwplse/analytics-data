@@ -211,5 +211,11 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
        |- _ =>
            destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
-     end ])).
-Show 10.
+     end ]);
+  try
+   match goal with
+   | Hsem:||-[ ?k][?t]<= [?t']
+     |- | ?t | <= | ?t' | =>
+         assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
+          (Hsem _ Hm); contradiction
+   end).
