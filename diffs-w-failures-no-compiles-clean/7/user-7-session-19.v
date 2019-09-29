@@ -440,4 +440,3 @@ Check sem_eq_k_i__inv_depth_eq_1.
 (rewrite <- Hdepeq; assumption).
 admit.
 }
-Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
