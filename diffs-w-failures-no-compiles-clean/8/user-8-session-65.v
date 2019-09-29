@@ -964,4 +964,3 @@ Proof.
 (destruct safe).
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
 gen \207\129.
-(rewrite size_ntensor).
