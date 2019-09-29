@@ -87,5 +87,6 @@ admit.
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
-(split; intros HX').
+(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
 *
+specialize (IHw'a H).
