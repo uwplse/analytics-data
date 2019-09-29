@@ -201,5 +201,15 @@ contradiction.
 (simpl).
 (rewrite <- beq_id_refl).
 (rewrite b_subst_not_b_free_in_ty).
+(apply wf_ty__not_b_free_in_ty; assumption).
++
+(simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
 reflexivity.
-(apply wf_ty__not_b_free_in_ty).
+(apply wf_ty__not_b_free_in_ty; assumption).
++
+(rewrite b_subst_bvar_neq; try assumption).
+(rewrite b_subst_bvar_neq; try assumption).
+reflexivity.
+Qed.
