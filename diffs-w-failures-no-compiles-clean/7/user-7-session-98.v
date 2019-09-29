@@ -152,4 +152,3 @@ clear Hm.
 specialize (Hsem' (TRef tx)).
 (destruct Hsem' as [Hsem'1 Hsem'2]).
 specialize (Hsem'2 Hm).
-(simpl in Hsem'2).
