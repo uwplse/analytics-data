@@ -337,5 +337,4 @@ validate.
 -
 (simpl).
 (unfold compose_super).
-(erewrite VA).
 easy.
