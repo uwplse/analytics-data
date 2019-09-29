@@ -117,4 +117,3 @@ subst.
 (simpl in HX').
 exfalso.
 (apply HX').
-(apply IdSetFacts.singleton_2).
