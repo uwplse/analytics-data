@@ -260,4 +260,4 @@ typeclasses eauto.
 (unfold EqualDec).
 (intros; simpl).
 Check sigT_eq_dec.
-(apply sigT_eq_dec).
+Check sigT_eq_dec.
