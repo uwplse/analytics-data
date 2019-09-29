@@ -3192,4 +3192,4 @@ Proof.
 (destruct c).
 (unfold inSeq).
 (simpl).
-(apply f_equal).
+(intros \207\129 b).
