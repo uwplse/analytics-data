@@ -122,4 +122,4 @@ lia.
 +
 (unfold statdb_abstraction in *; simpl in *).
 intuition.
-(exists (n0 :: s); intuition).
++
