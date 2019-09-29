@@ -16,10 +16,11 @@ Lemma sem_sub_k_exist_fresh_l : forall (k : nat) (X : id) (t : ty), fresh_in_ty 
 Proof.
 (intros k X t Hfresh).
 (intros w1).
-exists w1.
 (intros v Hm).
 (destruct w1).
+-
 (apply match_ty_exist__0_inv in Hm; contradiction).
+-
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
@@ -27,3 +28,4 @@ exists w1.
 (eapply match_ty__ge_w).
 eassumption.
 (repeat constructor).
+Qed.
