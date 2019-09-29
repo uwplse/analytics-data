@@ -171,5 +171,4 @@ solve_matrix.
 +
 (simpl).
 matrix_denote.
-restore_dims.
-Msimpl.
+(repeat (restore_dims; autorewrite with M_db_light)).
