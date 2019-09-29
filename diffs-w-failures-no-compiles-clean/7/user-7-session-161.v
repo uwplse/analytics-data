@@ -102,6 +102,6 @@ assumption.
 (destruct (beq_idP X' i) as [Hbeq| Hbeq]).
 *
 subst.
-(rewrite subst_exist_eq).
 (apply match_ty_exist__inv in Hm).
-exists ([X' := tx] ti).
+(destruct Hm as [ti Hm]).
+(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
