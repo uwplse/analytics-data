@@ -467,4 +467,4 @@ Theorem abstr_length_sz_bound d bs :
   log_size_ok d bs -> len_addr < diskSize d.
 Proof.
 (unfold log_size_ok).
-lia.
+(intros; lia).
