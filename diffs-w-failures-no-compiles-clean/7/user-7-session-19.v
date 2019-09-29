@@ -78,3 +78,6 @@ specialize (Href v').
 Qed.
 Lemma match_ty_i__value_type : forall (t : ty) (k : nat) (v : ty), |-[ k] v <$ t -> value_type v.
 Proof.
+(induction t; intros k v Hm).
+-
+Abort.
