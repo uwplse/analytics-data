@@ -74,4 +74,3 @@ Lemma b_subst_union : forall (X : id) (s t1 t2 : ty), [BX := s] TUnion t1 t2 = T
 Proof.
 (intros).
 (simpl).
-reflexivity.
