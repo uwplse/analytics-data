@@ -57,4 +57,3 @@ admit.
 reflexivity.
 +
 (intros H \206\147 \206\1470 H').
-dependent destruction H'.
