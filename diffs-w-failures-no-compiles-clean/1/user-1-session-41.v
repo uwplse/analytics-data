@@ -383,4 +383,7 @@ Search -(Ensembles.In _ (Singleton _ _) _).
 all: (try specialize (H1 _ (In_singleton _ _ _))).
 Show Intros.
 all: (try specialize (H1 _ (In_singleton _ _))).
-destruct_pairs.
+all: (repeat match goal with
+             | H:exists _, _ |- _ => destruct H
+             end).
+all: congruence.
