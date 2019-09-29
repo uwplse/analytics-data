@@ -43,6 +43,7 @@ Definition isTheorem (L : EpsilonLogic) (t : Term) :=
 Fixpoint simplify (t : Term) : Term :=
   match t with
   | Var x => Var x
+  | Int i => Int i
   | Eq a b => Eq (simplify a) (simplify b)
   | Choose x P => Choose x (simplify P)
   end.
