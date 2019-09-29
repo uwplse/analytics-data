@@ -294,4 +294,9 @@ admit.
 -
 (destruct Hcontra as [v Hcontra]).
 Search -id.
-(destruct (beq_id X i)).
+(destruct (beq_idP X i)).
++
+subst.
+(apply Hnotm).
+exists v.
+assumption.
