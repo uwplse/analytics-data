@@ -151,4 +151,3 @@ clear IHk' IHt.
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
 (simpl in Hvk, Hvk').
-(apply le_S_n in Hvk).
