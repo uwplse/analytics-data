@@ -196,8 +196,4 @@ tauto.
 (induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
 -
 (destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
-(destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
-(split; intros tx Hsub'; try (solve [ constructor; auto ])).
-+
-(apply sub_r_union_l__inv in Hsub'; try (solve [ constructor; auto ])).
-(destruct Hsub'; auto).
+(split; intros tx Hsub').
