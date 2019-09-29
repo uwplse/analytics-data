@@ -98,4 +98,7 @@ auto using match_ty_i_pair.
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_i_pair).
 -
 (destruct k).
-(destruct v; contradiction).
+(destruct v; contradiction || constructor).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [tx [Heq Href]]; subst).
+(simpl).
