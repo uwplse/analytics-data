@@ -1245,4 +1245,3 @@ constructor.
 constructor.
 -
 (inversion g0).
-+
