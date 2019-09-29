@@ -61,16 +61,5 @@ Proof.
 Qed.
 Lemma match_ty_i_ref__inv :
   forall v t : ty, forall k : nat, |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ (forall v' : ty, |-[ k] v' <$ t' <-> |-[ k] v' <$ t).
-Proof.
-(intros v; induction v; try (solve [ intros t k Hm; destruct k; simpl in Hm; contradiction ])).
-clear IHv.
-(intros t k).
-(intros Hm).
 (pose proof Hm as Href).
 (simpl in Href).
-exists v.
-split.
-reflexivity.
-(intros v').
-specialize (Href v').
-(destruct Href; split; assumption).
