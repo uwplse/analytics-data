@@ -13,4 +13,3 @@ Require Import Layer.
 Section Abstraction.
 Context (AState CState : Type).
 Context (absr : relation AState CState unit).
-Context (absr_ok : NonError absr).
