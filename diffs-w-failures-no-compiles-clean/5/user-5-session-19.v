@@ -149,4 +149,5 @@ intro x.
 {
 admit.
 }
-(rewrite <- H).
+(erewrite <- H).
+reflexivity.
