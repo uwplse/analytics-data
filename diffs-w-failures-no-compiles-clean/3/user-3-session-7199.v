@@ -475,6 +475,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Hint Resolve abstr_length_sz_bound: core.
 Theorem reset_ok : proc_spec reset_spec reset recover abstr.
 Proof.
 (unfold reset; intros).
@@ -489,5 +490,7 @@ intuition.
 (unfold spec_impl; simpl; intuition).
 (descend; intuition eauto).
 {
+(descend; intuition eauto).
 (eapply log_abstraction_nil; eauto).
 (rewrite diskUpd_eq; eauto).
+}
