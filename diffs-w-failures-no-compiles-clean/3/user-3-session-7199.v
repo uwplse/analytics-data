@@ -281,4 +281,6 @@ Proof.
 (descend; intuition eauto).
 (descend; intuition eauto).
 (unfold log_abstraction in H0; intuition).
-(pose proof (H1 a); intuition).
+(pose proof (H3 a); intuition).
+(assert (v = nth a bs block0)).
+(eapply diskGet_eq_values; eauto).
