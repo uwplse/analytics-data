@@ -76,10 +76,7 @@ admit.
 admit.
 -
 admit.
--
-admit.
--
-admit.
--
-admit.
--
+exists v.
+split.
+assumption.
+tauto.
