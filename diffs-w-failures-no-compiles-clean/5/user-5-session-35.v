@@ -175,6 +175,9 @@ Fixpoint free_vars (t : Term) : list Identifier :=
   | Var x => [x]
   | Int _ => []
   | Bool _ => []
+  | Bools => []
+  | Ints => []
+  | In a b => free_vars a ++ free_vars b
   | Eq a b => free_vars a ++ free_vars b
   | And a b => free_vars a ++ free_vars b
   | Or a b => free_vars a ++ free_vars b
@@ -186,3 +189,5 @@ Fixpoint free_vars (t : Term) : list Identifier :=
   | Choose x P =>
       filter (fun y => if id_eq_dec x y then false else true) (free_vars P)
   end.
+Axiom (fresh_var : list Identifier -> Identifier).
+Axiom (fresh_var_unique : forall exclude, ~ In (fresh_var exclude) exclude).
