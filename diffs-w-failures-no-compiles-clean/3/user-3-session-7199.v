@@ -183,4 +183,5 @@ intuition.
 -
 eauto using log_length_ok_nil.
 -
-(simpl).
+(unfold log_size_ok).
+lia.
