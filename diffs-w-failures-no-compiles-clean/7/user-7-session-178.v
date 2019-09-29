@@ -74,5 +74,5 @@ Qed.
 Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
 Proof.
 (intros).
+(intros).
 (simpl).
-(rewrite <- beq_id_refl).
