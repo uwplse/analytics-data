@@ -462,4 +462,6 @@ Theorem log_length_ok_unchanged d bs d' :
   log_length_ok d bs ->
   diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
 Proof.
-(unfold log_length_ok; intros; congruence).
+(unfold log_length_ok; intros).
+(rewrite H0 in *).
+congruence.
