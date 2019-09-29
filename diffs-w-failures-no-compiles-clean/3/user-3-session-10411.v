@@ -312,4 +312,3 @@ clear H.
 (eapply H0 in H2; eauto).
 (destruct matches in *; safe_intuition repeat deex; eauto).
 (descend; intuition eauto).
-intuition eauto.
