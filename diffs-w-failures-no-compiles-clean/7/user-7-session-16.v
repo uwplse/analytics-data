@@ -388,3 +388,4 @@ Proof.
 (intros Hcontra).
 (apply sub_r__mk_nf_sub_r1 in Hcontra).
 (induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst).
+Show 2.
