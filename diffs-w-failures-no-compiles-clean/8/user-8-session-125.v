@@ -126,4 +126,4 @@ easy.
 (intros).
 (rewrite Heqli in H).
 (simpl).
-(rewrite ctx_wtype_size).
+(erewrite ctx_wtype_size).
