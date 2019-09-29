@@ -422,4 +422,4 @@ subst.
 (rewrite f_subst_fvar_eq).
 assumption.
 +
-(rewrite f_subst_fvar_neq).
+(rewrite f_subst_fvar_neq; try assumption).
