@@ -125,4 +125,4 @@ Check PeanoNat.Nat.mod_small.
 Check PeanoNat.Nat.mod_le.
 (rewrite IHn).
 Search -"mod" -div.
-(rewrite (PeanoNat.Nat.div_mod n base)).
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3).
