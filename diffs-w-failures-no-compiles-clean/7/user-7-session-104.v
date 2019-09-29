@@ -52,4 +52,4 @@ Proof.
 specialize (Hcontra 2 1).
 (destruct Hcontra as [w Hcontra]).
 (assert (Hm : |-[ 2, 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ _ Hm).
+(simpl in Hcontra).
