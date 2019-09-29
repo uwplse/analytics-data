@@ -63,3 +63,5 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Check puts.
 Instance nonError_puts  `(f : A -> A): (NonError (puts f)).
+Proof.
+(hnf).
