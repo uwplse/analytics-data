@@ -208,4 +208,5 @@ Qed.
 Theorem nf_sem_sub__sub_d : forall t t' : ty, InNF( t) -> ||- [t]<= [t'] -> |- t << t'.
 Proof.
 (intros t t' Hnf Hsem).
-(apply nf_sem_sub_k__sub_d with (| t |); tauto).
+(apply nf_sem_sub_k__sub_d with (| t |); auto).
+Qed.
