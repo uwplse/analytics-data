@@ -72,7 +72,6 @@ assumption.
 *
 (destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
 (apply match_ty_union_1; auto).
-(apply match_ty_union_1).
 admit.
 *
 admit.
@@ -105,12 +104,21 @@ admit.
 {
 (rewrite subst_equation).
 (assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
+(rewrite Hbeq).
 (destruct (IdSet.mem i (FV tx)) eqn:Hmem).
 {
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
+(apply match_ty_exist).
 exists ([X' := tx] ti).
 admit.
 }
 {
 (apply match_ty_exist).
 exists ([X' := tx] ti).
+admit.
+}
+}
+}
+*
+specialize (IHw'a H).
+split.
