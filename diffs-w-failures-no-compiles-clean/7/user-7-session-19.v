@@ -150,4 +150,4 @@ clear IHk' IHt.
 (intros Htk Htk' v Hvk Hvk').
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
-(simpl in Hvk, Hvk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv)).
