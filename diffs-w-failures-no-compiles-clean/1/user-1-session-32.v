@@ -88,4 +88,4 @@ Theorem insertion_sort_permutation :
 Proof with (simpl; eauto with sf).
 (induction l) ...
 Qed.
-Show Sorted.
+Print Universes.
