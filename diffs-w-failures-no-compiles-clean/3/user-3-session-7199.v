@@ -355,4 +355,4 @@ admit.
 autorewrite with upd list in *.
 (simpl in *; lia).
 +
-(rewrite app_assoc in *).
+(rewrite <- app_assoc in *).
