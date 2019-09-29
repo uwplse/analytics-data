@@ -83,4 +83,3 @@ gen \207\129.
 -
 (unfold denote_u_db_box).
 (simpl).
-(rewrite pad_nothing).
