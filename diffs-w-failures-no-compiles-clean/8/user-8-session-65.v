@@ -1254,6 +1254,4 @@ Proof.
 (induction (c p)).
 -
 matrix_denote.
-Search -subst_pat.
-Search -swap_list_aux.
-Search -pat_to_list.
+restore_dims.
