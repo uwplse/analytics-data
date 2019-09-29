@@ -85,7 +85,6 @@ assumption.
 -
 (destruct (beq_idP x i); reflexivity).
 Qed.
-Definition mk_subst_exist (x : id) (y : id) (t ts : ty) := TExist y (if beq_id x y then t else ts).
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
@@ -133,5 +132,5 @@ Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
 Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
 Proof.
 (intros X s t1 t2).
-(unfold subst).
-Search -subst_terminate.
+Search -subst.
+(apply subst_equation).
