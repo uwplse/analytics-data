@@ -248,5 +248,4 @@ Check repeat_length.
  | |- context [ nat_eq_dec ?n ?m ] => destruct (nat_eq_dec n m); try lia
  end).
 (rewrite nat_from_le_zeros; auto).
-Search -nat_from_le.
 (rewrite nat_le_inverse; auto).
