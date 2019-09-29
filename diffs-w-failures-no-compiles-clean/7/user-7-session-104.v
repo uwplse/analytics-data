@@ -174,4 +174,5 @@ Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : na
 Proof.
 (induction t; intros k).
 -
-exists 0 (TCName c).
+exists 0,(TCName c).
+(destruct k; reflexivity).
