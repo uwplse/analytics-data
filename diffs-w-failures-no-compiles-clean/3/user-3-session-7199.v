@@ -287,4 +287,4 @@ Theorem log_contents_ok_unchanged d bs a0 b :
 Proof.
 (unfold log_contents_ok; intros).
 (specialize (H0 a); intuition).
-lia.
+(unfold log_addr in *).
