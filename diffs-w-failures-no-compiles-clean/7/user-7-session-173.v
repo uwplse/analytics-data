@@ -115,6 +115,7 @@ Omega.omega.
 (intros).
 (simpl).
 Omega.omega.
+-
 (intros).
 (simpl).
 (rewrite rename__size).
@@ -123,4 +124,4 @@ Omega.omega.
 (intros).
 (simpl).
 Omega.omega.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
+Qed.
