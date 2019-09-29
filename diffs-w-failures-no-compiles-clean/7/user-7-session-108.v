@@ -261,4 +261,8 @@ assumption.
 exists (TRef t).
 (destruct k).
 reflexivity.
-(split; intros; auto).
+(split; intros w1; exists w1; auto).
+-
+(destruct (IHt k) as [v Hm]).
+exists v.
+(apply match_ty_exist).
