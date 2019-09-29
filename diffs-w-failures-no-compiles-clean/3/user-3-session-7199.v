@@ -453,4 +453,5 @@ admit.
 -
 step_proc.
 {
-(descend; intuition euato).
+(descend; intuition eauto).
+}
