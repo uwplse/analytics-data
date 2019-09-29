@@ -100,4 +100,4 @@ Function
    | TEV y => t
    end.
 Proof.
-all: (try (solve [ intros; simpl; Omega.omega ])).
+all: (try (intros; simpl; Omega.omega)).
