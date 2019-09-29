@@ -87,7 +87,8 @@ clear IHt.
 (apply le_S_n in Htk).
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
-Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, (forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
+Lemma match_ty_i_eq__inv_depth_eq :
+  forall t t' : ty, (forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
 Proof.
 (induction t; induction t'; intros H).
 reflexivity.
@@ -101,8 +102,3 @@ clear IHt'.
 (assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
 specialize (H (S k) (TRef t)).
 (destruct H as [H _]).
-specialize (H Hmt).
-(apply match_ty_i_ref__inv in H).
-(destruct H as [tx [Heq Href]]).
-(inversion Heq; subst).
-auto.
