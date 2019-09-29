@@ -169,4 +169,4 @@ subst.
 (rewrite b_subst_bvar_eq in *).
 exists (TEV X').
 split.
-(apply match_ty_ev).
+reflexivity.
