@@ -315,5 +315,7 @@ Qed.
 Lemma mk_nf__distr21 : forall t1 t21 t22 : ty, |- MkNF( TPair t1 (TUnion t21 t22)) << MkNF( TUnion (TPair t1 t21) (TPair t1 t22)).
 Proof.
 (intros t1 t21 t22).
-(repeat rewrite mk_nf_union, mk_nf_pair).
 (rewrite mk_nf_pair).
+(apply unite_pairs__distr21).
+(apply mk_nf__in_nf).
+Qed.
