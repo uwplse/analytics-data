@@ -80,4 +80,7 @@ Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> foral
    end).
 -
 (destruct v; try contradiction).
-constructor.
+(inversion Htk).
+-
+clear IHt.
+(apply le_S_n in Htk).
