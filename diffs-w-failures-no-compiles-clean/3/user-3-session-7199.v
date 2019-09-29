@@ -335,4 +335,3 @@ intuition eauto.
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
 (apply log_contents_ok_unchanged; eauto).
-(eapply proc_spec_weaken; eauto).
