@@ -130,4 +130,7 @@ tauto.
 Defined.
 Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
 Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
-(apply subst_equation).
+(intros X s t1 t2).
+(pose proof (subst_equation X s (TPair t1 t2))).
+(simpl in H).
+reflexivity.
