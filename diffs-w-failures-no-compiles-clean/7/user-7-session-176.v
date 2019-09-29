@@ -161,4 +161,6 @@ exists tint.
 (rewrite subst_var_eq).
 reflexivity.
 +
-(rewrite subst_var_neq).
+(rewrite subst_var_neq; try assumption).
+exists v.
+assumption.
