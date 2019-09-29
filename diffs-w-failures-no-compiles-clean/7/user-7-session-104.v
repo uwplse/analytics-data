@@ -83,6 +83,5 @@ constructor.
 (destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
 (apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; assumption).
 -
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]).
-auto.
+(destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
+(apply Nat.max_lub_l).
