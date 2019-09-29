@@ -75,4 +75,6 @@ Proof.
    end).
 -
 (destruct v; try contradiction).
-(inversion Hle).
+(inversion Hle; subst).
+(simpl).
+constructor.
