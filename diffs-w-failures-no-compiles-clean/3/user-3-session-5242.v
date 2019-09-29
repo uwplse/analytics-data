@@ -115,3 +115,4 @@ Proof.
 (destruct (r == 0)).
 -
 (step_proc_basic; intros).
+eauto.
