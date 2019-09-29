@@ -129,4 +129,5 @@ admit.
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
 lia.
 }
-lia.
+Search -"div" -"lt".
+(apply Nat.div_lt; lia).
