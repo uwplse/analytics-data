@@ -195,4 +195,3 @@ refine
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
 constructor.
-Search -(_ <= _).
