@@ -44,4 +44,4 @@ subst.
 (repeat rewrite subst_exist_eq).
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
-(rewrite subst_equation).
+(rewrite subst_equation  at 2).
