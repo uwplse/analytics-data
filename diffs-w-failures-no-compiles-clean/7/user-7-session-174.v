@@ -134,4 +134,3 @@ Omega.omega.
 (induction a).
 +
 (unfold lt_size).
-constructor.
