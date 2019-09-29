@@ -374,4 +374,6 @@ clear H.
 (intros \206\147 \206\1470 \207\129 WT).
 (unfold denote_circuit in *).
 (simpl in *).
-(unfold compose_super).
+(unfold compose_super, Splus).
+(erewrite VA).
+(erewrite VA).
