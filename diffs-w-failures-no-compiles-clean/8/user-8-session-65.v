@@ -1253,4 +1253,5 @@ Proof.
 (remember (add_fresh_pat W1 []) as p).
 (induction (c p)).
 -
-(simpl).
+matrix_denote.
+(rewrite H).
