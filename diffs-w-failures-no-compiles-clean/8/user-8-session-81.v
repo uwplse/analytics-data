@@ -723,6 +723,5 @@ Proof.
 (rewrite kron_1_l).
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq7AcHMp"
 Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Set Printing All.
-Timeout 1 Print LoadPath.
+(repeat rewrite Nat.mul_1_l).
+(rewrite kron_1_r).
