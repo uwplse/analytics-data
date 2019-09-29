@@ -252,4 +252,4 @@ Check repeat_length.
 (generalize dependent Datatypes.length (nat_to_le 254 x); intros).
 (assert (n > 8)).
 lia.
-lia.
+(exfalso; eauto).
