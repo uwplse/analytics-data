@@ -468,4 +468,4 @@ Proof.
 (unfold reset; intros).
 (apply spec_abstraction_compose).
 step_proc.
-intuition.
+(destruct a' as [[] bs]).
