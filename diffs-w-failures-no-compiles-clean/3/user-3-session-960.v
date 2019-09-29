@@ -253,4 +253,7 @@ Print subset_eq_compat.
 -
 admit.
 -
-(hnf).
+(simpl).
+typeclasses eauto.
+-
+typeclasses eauto.
