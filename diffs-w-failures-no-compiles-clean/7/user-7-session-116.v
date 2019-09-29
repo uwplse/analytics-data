@@ -40,4 +40,7 @@ reflexivity.
 reflexivity.
 (rewrite IHt).
 reflexivity.
-(unfold fresh).
+(unfold fresh in *).
+(intros Hcontra).
+Search -IdSet.remove.
+(apply (IdSetFacts.remove_2 _ _ _ n) in Hcontra).
