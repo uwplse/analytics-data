@@ -194,7 +194,3 @@ auto using match_ty_pair.
 +
 (destruct w).
 (apply match_ty_exist__0_inv in Hm2; contradiction).
-(apply match_ty_exist__inv in Hm2).
-(destruct Hm2 as [tx Hm2]).
-(apply match_ty_exist).
-exists tx.
