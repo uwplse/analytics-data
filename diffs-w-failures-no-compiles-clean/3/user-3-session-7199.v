@@ -156,4 +156,4 @@ Proof.
 (induction a; simpl).
 -
 step_proc.
-eauto.
+(apply d.recover_wipe).
