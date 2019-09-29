@@ -147,4 +147,5 @@ Hint Resolve get_len_ok: core.
 Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
 (unfold recover).
-(apply d.recover_wipe).
+(unfold abstr).
+(apply rec_wipe_compose).
