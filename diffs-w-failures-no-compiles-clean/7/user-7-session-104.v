@@ -59,4 +59,4 @@ clear Hm.
 clear Heq.
 (destruct Hcontra as [Hcontra _]).
 (assert (Hm : |-[ 1, 0] tint <$ tint) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ _ Hm).
+specialize (Hcontra _ Hm).
