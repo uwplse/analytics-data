@@ -381,3 +381,4 @@ step_proc.
 intuition eauto.
 step_proc.
 (descend; intuition eauto).
+step_proc.
