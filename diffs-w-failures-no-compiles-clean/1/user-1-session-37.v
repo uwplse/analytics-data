@@ -284,7 +284,6 @@ econstructor.
 Qed.
 End AGT_Spec.
 Module AGT_Bounded_Rows_Details.
-Inductive ST : Type :=
-  | SInt : ST
-  | SBool : ST
-  | SFun : ST -> ST -> ST.
+Search -unique.
+Search -uniqueness.
+Definition label := int.
