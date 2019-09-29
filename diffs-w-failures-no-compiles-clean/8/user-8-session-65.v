@@ -970,4 +970,6 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 (intros \207\129).
 fill_differences.
-gridify.
+Timeout 1 About gridify.
+Timeout 1 Print gridify.
+Timeout 1 Print Ltac gridify.
