@@ -411,7 +411,7 @@ specialize (Hsem v').
 tauto.
 Qed.
 Ltac
- solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2 :=
+ solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2 :=
   pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu]; destruct Hdep as [Hdept| Hdept'];
    try destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; (solve
    [ apply Nat.le_trans with (| t'1 |); tauto || apply Max.le_max_l | apply Nat.le_trans with (| t'2 |); tauto || apply Max.le_max_r ]).
