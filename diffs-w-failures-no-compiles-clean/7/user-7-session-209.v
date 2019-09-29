@@ -87,8 +87,7 @@ assumption.
 (rewrite f_subst_not_b_free_in_ty; assumption).
 }
 +
-(apply match_ty_exist__inv in Hm').
-(destruct Hm' as [ti [Hwf Hm']]).
 (split; intros HX').
 *
-exists ti.
+assumption.
+*
