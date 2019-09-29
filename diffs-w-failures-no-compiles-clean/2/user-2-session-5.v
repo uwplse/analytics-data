@@ -37,8 +37,12 @@ Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
 Notation "[ x ]" := (Cons x Nil) : coucou_scope.
 Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
   (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
+Coercion Ident : string >-> term.
 End TermNotations.
 Import TermNotations.
+Redirect "/tmp/coqhUNJDd" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 Open Scope coucou_scope.
 Check
   [<Nil <Nil (Ident "hi")>> (Cons (Ident "1") (Ident "2")) (Ident "a")
