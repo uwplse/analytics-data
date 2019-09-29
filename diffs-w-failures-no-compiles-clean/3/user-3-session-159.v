@@ -80,4 +80,3 @@ Lemma read_op_ok :
 Proof.
 (intros).
 (eapply op_spec_sound).
-Qed.
