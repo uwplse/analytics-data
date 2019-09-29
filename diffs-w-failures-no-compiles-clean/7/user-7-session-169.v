@@ -86,4 +86,8 @@ specialize (Hid Hneq).
 (unfold fresh_in_ty, fresh in HY).
 Search -IdSet.mem.
 Check IdSetFacts.not_mem_iff.
-(destruct (IdSetFacts.not_mem_iff (FV s) Y) as [_ Hmem]).
+(destruct (IdSetFacts.not_mem_iff (FV s) Y) as [Hmem _]).
+specialize (Hmem HY).
+(rewrite Hmem).
+reflexivity.
+Qed.
