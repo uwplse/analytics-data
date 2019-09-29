@@ -375,4 +375,4 @@ Proof.
 (unfold append; intros).
 (apply spec_abstraction_compose).
 step_proc.
-(simpl).
+(destruct a' as [_ bs]).
