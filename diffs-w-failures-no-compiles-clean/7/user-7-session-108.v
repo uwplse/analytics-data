@@ -243,6 +243,6 @@ reflexivity.
 Abort.
 Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
-(try match goal with
-     | Hsem:||-[ ?k][?t]<= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
-     end).
+(match goal with
+ | Hsem:||-[ ?k][?t]<= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
+ end).
