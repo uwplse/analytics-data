@@ -21,3 +21,5 @@ Lemma build_v_full :
 Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm).
+-
+(rewrite subst_cname).
