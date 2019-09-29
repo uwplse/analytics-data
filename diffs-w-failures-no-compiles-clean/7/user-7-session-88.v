@@ -444,9 +444,12 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
      end ])).
 -
 (destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
-(destruct Hdep as [Hdept| Hdept']).
+(destruct Hdep as [Hdep| Hdep]).
 +
-(destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
 (destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
 (simpl; apply Nat.max_le_compat; auto).
 +
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+(simpl; apply Nat.max_le_compat; auto).
