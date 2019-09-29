@@ -69,4 +69,3 @@ Msimpl.
 (unfold swap_two; simpl).
 (unfold apply_U; simpl).
 Msimpl.
-(rewrite Mmult_assoc).
