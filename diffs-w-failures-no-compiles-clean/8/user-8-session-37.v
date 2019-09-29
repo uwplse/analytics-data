@@ -250,4 +250,8 @@ easy.
 (unfold compose_super).
 (erewrite VA).
 easy.
+(eapply t0).
 2: (constructor; apply singleton_singleton).
+dependent destruction p.
+dependent destruction t.
+(destruct pf1).
