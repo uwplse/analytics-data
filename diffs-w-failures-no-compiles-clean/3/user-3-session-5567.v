@@ -567,4 +567,17 @@ step_proc.
 (destruct r; try step).
 (destruct r; try step).
 (destruct (v == v0); try step).
++
+(assert (a0 < a \/ a0 = a) by lia; intuition auto; simplify).
++
+intuition eauto.
+{
+(destruct (a == a0); simplify; finish).
+}
+step.
+(destruct r; try step).
 *
+(destruct (a == a0); simplify; finish).
+*
+(destruct (a == a0); simplify; finish).
+}
