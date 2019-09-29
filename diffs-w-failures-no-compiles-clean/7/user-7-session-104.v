@@ -184,4 +184,3 @@ clear Hm.
 (inversion Hcontra).
 -
 specialize (Hcontra 0).
-(destruct Hcontra as [w Hcontra]).
