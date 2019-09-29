@@ -294,4 +294,4 @@ admit.
 -
 (destruct Hcontra as [v Hcontra]).
 Search -id.
-Print ec_id.
+(destruct (eq_id X i)).
