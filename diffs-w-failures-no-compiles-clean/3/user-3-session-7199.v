@@ -157,4 +157,4 @@ Proof.
 (apply spec_abstraction_compose).
 (simpl).
 Check proc_spec_weaken.
-(apply proc_spec_weaken).
+(eapply proc_spec_weaken).
