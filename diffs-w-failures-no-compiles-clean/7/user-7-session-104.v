@@ -68,4 +68,3 @@ Proof.
 (intros k Hdep w Hcontra).
 (apply match_ty_pair__inv in Hcontra).
 (inversion Hcontra).
--
