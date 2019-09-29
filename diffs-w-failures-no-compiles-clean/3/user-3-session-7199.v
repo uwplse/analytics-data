@@ -486,4 +486,5 @@ intuition.
 }
 step_proc.
 intuition.
-(exists bs; intuition euato).
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
