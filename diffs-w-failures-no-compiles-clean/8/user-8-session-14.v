@@ -186,4 +186,6 @@ Proof.
 (intros).
 (induction g).
 (simpl).
-(apply mixed_unitary; trivial).
+(unfold super).
+restore_dims.
+Msimpl.
