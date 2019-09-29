@@ -96,4 +96,4 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Print projT1.
 Print sig.
-Search -(sig _ _ -> _).
+Search -(sig _ -> _).
