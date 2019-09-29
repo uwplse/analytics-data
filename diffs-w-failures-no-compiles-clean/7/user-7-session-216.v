@@ -409,6 +409,17 @@ tauto.
 (apply wf_ty_union__inv in Hwft).
 (apply wf_ty_union).
 tauto.
--
 (rewrite f_subst_exist).
 (unfold wf_ty in *; simpl in *).
+(destruct (IdSetProps.In_dec i (FBV t))).
+admit.
+admit.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite f_subst_fvar_eq).
+assumption.
++
+(rewrite f_subst_fvar_neq; assumption).
+Admitted.
