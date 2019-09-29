@@ -2190,4 +2190,6 @@ Timeout 1 About process_gate.
 Timeout 1 Print process_gate.
 Timeout 1 About process_gate_state.
 Timeout 1 Print process_gate_state.
-Timeout 1 Print Ltac process_gate_state.
+Timeout 1 About process_gate.
+Timeout 1 Print process_gate.
+Timeout 1 Print Ltac process_gate.
