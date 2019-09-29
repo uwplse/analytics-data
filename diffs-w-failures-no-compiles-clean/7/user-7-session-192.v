@@ -83,7 +83,6 @@ admit.
 (apply match_ty_exist__inv in Hm').
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
-(destruct IHw' as [IHw'a IHw'b]).
 (destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
 *
 specialize (IHw'b H).
@@ -98,6 +97,7 @@ assumption.
 {
 subst.
 (unfold free_in_ty in HX').
+(simpl in HX').
 admit.
 }
 {
