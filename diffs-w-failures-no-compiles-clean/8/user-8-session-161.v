@@ -9,4 +9,3 @@ Timeout 1 Print LoadPath.
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
-Require Export QWIRE.Quantum.
