@@ -218,8 +218,4 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 -
 (simpl).
 (apply le_n_S).
-(apply IHk).
-(assert (Hv : value_type (TRef t)) by constructor).
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
-specialize (Hsem _ Hm).
-(simpl in Hsem).
+(inversion Hnf; subst).
