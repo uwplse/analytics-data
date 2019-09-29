@@ -119,4 +119,3 @@ Next Obligation.
 (rewrite rename__size).
 Omega.omega.
 Qed.
-Defined.
