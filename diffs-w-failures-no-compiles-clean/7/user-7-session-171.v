@@ -105,4 +105,4 @@ Next Obligation.
 Search -S.
 Search -"+".
 (rewrite <- Nat.add_1_r).
-auto.
+Omega.omega.
