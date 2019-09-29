@@ -126,4 +126,4 @@ exfalso.
 intuition.
 +
 (exists (n0 :: s); intuition).
-right.
+(right; intuition).
