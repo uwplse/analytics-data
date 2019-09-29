@@ -1255,3 +1255,4 @@ Proof.
 -
 (simpl).
 autounfold with den_db.
+(rewrite H).
