@@ -87,7 +87,4 @@ assumption.
 (rewrite f_subst_not_b_free_in_ty; assumption).
 }
 +
-(split; intros HX').
-*
 assumption.
-*
