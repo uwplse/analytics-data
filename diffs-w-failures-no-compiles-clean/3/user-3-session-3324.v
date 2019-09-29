@@ -195,4 +195,3 @@ invert_abstraction.
 (rewrite <- Hgoodsec; auto).
 (subst; eexists).
 (subst; eexists).
--
