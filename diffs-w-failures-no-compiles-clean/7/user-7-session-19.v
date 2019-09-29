@@ -110,4 +110,8 @@ Lemma match_ty_i_eq__inv_depth_eq :
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
      end ])).
--
+2: {
+idtac.
+clear IHt'1 IHt'2.
+(simpl).
+(apply f_equals).
