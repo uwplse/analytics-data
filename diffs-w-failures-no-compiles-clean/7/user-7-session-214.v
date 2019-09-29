@@ -258,4 +258,5 @@ Proof.
 (intros Y s X t HX).
 (induction t; try (solve [ simpl; assumption ])).
 -
-(destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
+(apply f_free_in_ty_pair).
+(apply f_free_in_ty_pair__inv).
