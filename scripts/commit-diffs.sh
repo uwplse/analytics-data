@@ -33,6 +33,14 @@ do
     frompath="${diffpath}/user-${userid}-session-${sessionid}-${i}.v"
     topath="${diffpath}/user-${userid}-session-${sessionid}.v"
     mv ${frompath} ${topath}
+    # Clean up extra output
+    sed -i -re '/Set Silent\./d' ${topath}
+    sed -i -re '/Unset Silent\./d' ${topath}
+    sed -i -re '/Set Diffs "off"\./d' ${topath}
+    sed -i -re '/Set Printing Width [0-9]+\./d' ${topath}
+    sed -i -re '/Show\./d' ${topath}
+    sed -i -re '/Locate .*\./d' ${topath}
+    sed -i -re '/Timeout [0-9]+ Check .*\.' ${topath}
     git add ${topath}
     git commit -m "user ${userid}, session ${sessionid}, part ${i}"
 done
