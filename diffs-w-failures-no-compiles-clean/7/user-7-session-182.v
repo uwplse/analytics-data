@@ -35,4 +35,4 @@ subst.
 contradiction.
 *
 (rewrite subst_exist_eq).
-(simpl in *).
+(rewrite subst_exist_neq).
