@@ -115,5 +115,4 @@ Proof.
 -
 auto.
 -
-(assert (1 < S (S base_m2)) by lia).
-(generalize dependent S (S base_m2); intros base).
+(assert (base_m2 = S (S base_m2) - 2) by auto).
