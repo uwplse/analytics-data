@@ -292,5 +292,4 @@ Proof.
    end).
 Qed.
 Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
-Proof.
-(induction k; induction t; intros v; split; intros Hm).
+(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ])).
