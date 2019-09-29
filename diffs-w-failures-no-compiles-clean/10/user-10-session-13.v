@@ -26,4 +26,4 @@ Fixpoint fib' (fuel : nat) (x y : N) : list N :=
   end.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqHCmF2C" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Check fmap.
+Eval compute in List.map print_id (fib' 10 0 1).
