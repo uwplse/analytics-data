@@ -100,4 +100,5 @@ exists w1.
 -
 (apply match_ty_ref__inv in Hm).
 (apply match_ty_ref).
-(apply sem_eq_k__trans with t; assumption).
+(apply sem_eq_k__trans with t).
+assumption.
