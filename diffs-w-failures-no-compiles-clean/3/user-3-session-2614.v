@@ -143,4 +143,3 @@ admit.
 typeclasses eauto.
 -
 (simpl).
-(unfold EqualDec).
