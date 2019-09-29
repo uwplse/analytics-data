@@ -159,5 +159,3 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 (destruct a'; simpl in *; intuition eauto).
-(destruct (a == r)).
--
