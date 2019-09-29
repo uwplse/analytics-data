@@ -68,4 +68,6 @@ admit.
 (destruct (beq_idP X i) as [HXi| HXi]).
 +
 subst.
-(rewrite subst_exist_eq).
+(rewrite subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
++
