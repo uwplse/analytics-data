@@ -246,5 +246,4 @@ Proof.
 (step_proc; intuition; subst; eauto).
 (exists 0; simpl).
 reflexivity.
--
-(step_proc; intuition).
+(step_proc; intuition; eauto).
