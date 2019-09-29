@@ -88,4 +88,6 @@ specialize (Href v Hv).
 (simpl).
 (intros v Hv).
 specialize (Href v Hv).
-(split; auto).
+split.
+*
+Abort.
