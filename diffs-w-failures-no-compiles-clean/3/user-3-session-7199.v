@@ -156,4 +156,4 @@ Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
 (simpl).
-(unfold recover).
+(proc_spec_weaken d.read_ok).
