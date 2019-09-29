@@ -337,4 +337,3 @@ Proof.
 Check match_ty_i__reflexive.
 -
 (inversion Hdept; subst).
--
