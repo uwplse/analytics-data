@@ -251,3 +251,6 @@ Proof.
 (simpl in Hcontra).
 (apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+subst.
+(assert (Hcontra : ~ |-[ k, w] v1 <$ t1 \/ ~ |-[ k, w] v2 <$ t2)).
+{
