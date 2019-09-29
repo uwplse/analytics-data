@@ -121,4 +121,3 @@ lia.
 intuition.
 (step_proc; intros).
 {
-eauto.
