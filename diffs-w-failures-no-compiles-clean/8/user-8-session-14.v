@@ -1216,4 +1216,4 @@ Proof.
 (unfold apply_new0, super).
 gen \207\129.
 subst.
-(repeat rewrite Nat.pow_add_r).
+(rewrite Nat.pow_add_r).
