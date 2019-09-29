@@ -192,5 +192,4 @@ tauto.
 (destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
 (split; intros tx Hsub').
 +
-(remember (TUnion t1 t2) as ty eqn:Heqy ).
-(induction Hsub'; inversion Heqy; subst).
+(induction Hsub'; inversion Heqy; subst; try (solve [ auto using DBBetaJulia ])).
