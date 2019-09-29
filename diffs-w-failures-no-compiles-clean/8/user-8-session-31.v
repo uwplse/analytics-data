@@ -2849,4 +2849,3 @@ subst.
 (unfold process_gate_state).
 (simpl).
 (rewrite Nat.sub_0_r).
-replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
