@@ -316,4 +316,3 @@ admit.
 (rewrite Heq in Hcontra).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
-(apply Hnotm).
