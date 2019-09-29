@@ -99,4 +99,4 @@ Unset Search Output Name Only.
 Next Obligation.
 Proof.
 subst digit.
-(destruct base).
+(apply PeanoNat.Nat.div_lt).
