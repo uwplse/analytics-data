@@ -26,12 +26,15 @@ if not os.path.exists(outdir):
 group_ends = []
 group_starts = []
 group_cancels = []
+group_failures = []
 group_lines = []
 failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+)\*\)\s+)"
+failure = "(\(\*FAILED.*\*\)\s+)"
 with open(fpath, 'r') as f:
     groups = re.split(failure_or_cancellation, f.read())
     for group_num, group in enumerate(groups, start = 0):
         cancel_match = re.match(failure_or_cancellation, group)
+        failure = re.match(failure, group)
         if cancel_match is None:
             _, *lines = re.split("\s*\(\*", group)
             for line_num, line in enumerate(lines, start = 0):
@@ -49,7 +52,12 @@ with open(fpath, 'r') as f:
             state_num = int(re.search("([0-9]+)\*\)", group).group(1))
             if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
                 group_cancels.pop()
+                group_failures.pop()
             group_cancels.append(state_num)
+            if failure is Some:
+                group_failures.append(True)
+            else:
+                group_failures.append(False)
 
 # Now go through the cancellations and find diffs
 if len(group_lines) > 0:
@@ -58,11 +66,11 @@ if len(group_lines) > 0:
     for i in range(group_starts[0]):
         old_cumulative.insert(0, "")
 else:
-	exit(0) # Comment below and uncomment this line when we don't include compiles
+    exit(0) # Comment below and uncomment this line when we don't include compiles
     #old_cumulative = [] # Comment above and uncomment this line when we include compiles
 
 if len(group_lines) == 1:
-	exit(0) # Comment this out/remove this condition if we include compiles
+    exit(0) # Comment this out/remove this condition if we include compiles
 
 # Dump initial version to file
 (fname, fext) = os.path.splitext(os.path.basename(fpath))
@@ -106,10 +114,11 @@ for i in range(len(group_ends) - 1):
 
     # Dump new version to file
     with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:
-        for curr_index in range(len(new_cumulative)):
-            if new_cumulative[curr_index] != "":
-                new = new_cumulative[curr_index]
-                f.write(new + "\n")
+        if group_failures[i] is False: # uncomment when we want failures, or add comment
+            for curr_index in range(len(new_cumulative)):
+                if new_cumulative[curr_index] != "":
+                    new = new_cumulative[curr_index]
+                    f.write(new + "\n")
 
     # Now switch to use the new cumulative file
     old_cumulative = new_cumulative
