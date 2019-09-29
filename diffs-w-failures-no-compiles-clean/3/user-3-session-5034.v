@@ -414,4 +414,8 @@ lia.
 (erewrite log_abstraction_len in * by eauto).
 (rewrite app_length).
 lia.
-*
+}
++
+(exists s; simpl; intuition).
+(apply log_abstraction_pre_commit; auto).
++
