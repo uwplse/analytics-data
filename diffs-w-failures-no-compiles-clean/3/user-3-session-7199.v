@@ -380,4 +380,5 @@ Theorem log_contents_ok_prefix d bs bs' :
   log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
 Proof.
 (unfold log_contents_ok; intros).
-(apply H).
+specialize (H a).
+(assert (a < length bs ++ bs')).
