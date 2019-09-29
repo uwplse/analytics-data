@@ -135,3 +135,6 @@ Proof.
 (simpl).
 (intros X Y Hin).
 (apply IdSetFacts.singleton_1 in Hin).
+subst.
+reflexivity.
+Qed.
