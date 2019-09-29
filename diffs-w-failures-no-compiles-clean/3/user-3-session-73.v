@@ -7,9 +7,3 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Require Import Spec.Proc.
 Require Import Spec.Hoare.
-From Transitions Require Import Relations Rewriting.
-Require Import Abstraction.
-Require Import Layer.
-Section Abstraction.
-Context (AState CState : Type).
-Context (absr : relation AState CState unit).
