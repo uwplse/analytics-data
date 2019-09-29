@@ -98,4 +98,5 @@ clear IHt'.
 (apply f_equal).
 (apply IHt).
 (intros k v).
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by tauto).
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
+specialize (H _ _ Hm).
