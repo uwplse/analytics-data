@@ -147,4 +147,6 @@ exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
   intuition idtac).
 all: (rewrite ?diskUpd_neq by omega).
 all: (rewrite ?diskShrink_preserves; auto).
-all: (rewrite ?diskShrink_size; try lia).
+all: (rewrite ?diskShrink_size; try omega).
+all: (rewrite ?diskUpd_eq; auto).
+all: (rewrite ?diskShrink_size; omega).
