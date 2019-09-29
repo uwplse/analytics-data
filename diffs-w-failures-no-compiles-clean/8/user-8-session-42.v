@@ -692,17 +692,14 @@ Proof.
 (rewrite 2!Nat.mod_1_r).
 (simpl; lca).
 Qed.
-Lemma kron_1_r' : forall {m n : nat} (A : Matrix m n), A \226\138\151 I 1 = A.
+Lemma kron_1_l : forall {m n : nat} (A : Matrix m n), I 1 \226\138\151 A == A.
 Proof.
-(intros m n A).
+(intros m n A i j Hi Hj).
 (unfold I, kron).
-(apply functional_extensionality; intros).
-(apply functional_extensionality; intros).
-(rewrite 2!Nat.div_1_r).
-(rewrite 2!Nat.mod_1_r).
+(rewrite 2!Nat.mod_small by lia).
+(rewrite 2!Nat.div_small by lia).
 (simpl; lca).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqHkzGeT"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqMwSMS6"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
