@@ -103,4 +103,6 @@ exfalso.
 Search -IdSet.singleton.
 (apply IdSetFacts.singleton_2).
 reflexivity.
+-
+assumption.
 Qed.
