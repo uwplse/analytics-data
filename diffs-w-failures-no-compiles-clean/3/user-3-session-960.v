@@ -232,4 +232,6 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Instance aModel_wf : (GoModelWf aModel).
 Proof.
-constructor.
+econstructor.
+-
+(simpl).
