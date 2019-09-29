@@ -117,5 +117,3 @@ Lemma match_ty_i_eq__inv_depth_eq :
 specialize (H k v Hv).
 (destruct H as [H1 H2]).
 (split; intros Hm).
-+
-specialize (H1 Hm).
