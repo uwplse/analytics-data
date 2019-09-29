@@ -7,7 +7,10 @@ Add Search Blacklist "Private_" "_subproof".
 Redirect "/tmp/coq16819kFT" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-From Coq Require Import NArith String.
+Redirect "/tmp/coq16819-Zf" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+From Coq Require Import Basics NArith String.
 From QuickChick Require Import Decidability Show.
 From DeepWeb Require Import Exp.
 Open Scope string_scope.
@@ -41,3 +44,4 @@ Instance showDataX : (Show (kvs_data exp)) :=
          | Kvs_BadRequest => "400"
          | Kvs_PreconditionFailed => "412"
          end |}.
+Definition kvs_get {V} (k : N) : list (N * V) -> option V := fmap snd \226\136\152 find (N.eqb k \226\136\152 fst).
