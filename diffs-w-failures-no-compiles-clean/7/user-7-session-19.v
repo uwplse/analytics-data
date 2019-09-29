@@ -190,8 +190,7 @@ Proof.
 (intros t1 t2 t' Hsem).
 (unfold sem_sub_i in Hsem).
 (split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem); assumption).
-Qed.
 Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
 Proof.
 (intros t t' Hsem).
-Abort.
+(split; intros k).
