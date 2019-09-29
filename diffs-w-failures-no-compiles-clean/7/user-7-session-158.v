@@ -47,3 +47,4 @@ Proof.
 (intros; reflexivity).
 (intros).
 (simpl).
+(rewrite beq_id_refl).
