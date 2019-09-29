@@ -316,4 +316,4 @@ Proof.
 -
 (destruct d; simpl in *).
 (assert (a = 0) by lia; subst).
-(simpl).
+reflexivity.
