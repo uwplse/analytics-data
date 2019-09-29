@@ -1251,4 +1251,3 @@ constructor.
 (repeat simpl_rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
   try apply source_symmetric_WT; trivial).
 (unfold compose_super).
-(apply source_symmetric_WT in H).
