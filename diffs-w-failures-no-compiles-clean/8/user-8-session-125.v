@@ -104,4 +104,4 @@ Timeout 1 Print denote_ctrls_unitary.
 specialize (denote_ctrls_unitary W _ U _ L) as inv.
 replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by (subst; easy).
 (destruct W; inversion HeqW).
-subst.
+subst H0 H1.
