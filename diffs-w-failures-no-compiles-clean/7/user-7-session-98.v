@@ -123,4 +123,4 @@ Proof.
 (intros k; destruct k; intros v Hm).
 -
 (apply match_ty_exist__0_inv in Hm).
-(simpl).
+(destruct v; simpl).
