@@ -441,4 +441,5 @@ Proof.
 (intros).
 (unfold log_abstraction; intuition).
 (unfold log_length_ok in *; intros).
-eq_values.
+(assert (len_addr < diskSize d')).
+eauto.
