@@ -155,4 +155,5 @@ step_proc.
 step_proc.
 step_proc.
 (exists nil; simpl).
+(split; auto).
 (eapply log_abstraction_nil).
