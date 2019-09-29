@@ -123,4 +123,3 @@ lia.
 +
 (unfold statdb_abstraction in *; simpl in *).
 intuition.
-+
