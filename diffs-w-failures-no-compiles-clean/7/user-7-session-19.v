@@ -450,7 +450,4 @@ Qed.
 Close Scope btjmdeq_scope.
 Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> (||- [t1]<= [t2])%btjmdeq.
 Proof.
-(intros ta; induction ta; intros tb; induction tb; intros Hsem).
-16: {
-idtac.
-clear IHta.
+Show 3.
