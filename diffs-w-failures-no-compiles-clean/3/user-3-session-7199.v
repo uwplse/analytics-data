@@ -159,4 +159,7 @@ Proof.
 Check proc_spec_weaken.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; intros).
-(destruct a0 as [_ bs]; simpl in *).
+(destruct a0 as [_ bs]; simpl in *; intuition eauto).
+(descend; intuition eauto).
+(descend; intuition eauto).
+autorewrite with disk.
