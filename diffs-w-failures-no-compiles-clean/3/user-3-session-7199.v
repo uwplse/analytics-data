@@ -407,4 +407,4 @@ congruence.
 }
 }
 step_proc.
-intuition.
+intuition eauto.
