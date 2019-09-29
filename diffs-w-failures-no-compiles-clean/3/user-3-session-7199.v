@@ -320,4 +320,3 @@ Proof.
 step_proc.
 -
 step_proc.
-step_proc.
