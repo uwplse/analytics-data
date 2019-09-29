@@ -93,4 +93,3 @@ Proof.
 (apply match_ty_exist__0_inv in Hm).
 auto.
 -
-(apply match_ty_exist__inv in Hm).
