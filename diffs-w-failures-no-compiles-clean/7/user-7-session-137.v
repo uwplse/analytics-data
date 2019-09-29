@@ -17,4 +17,4 @@ Proof.
 (intros k X t).
 (induction t; intros Hfresh).
 -
-(intros w1).
+split.
