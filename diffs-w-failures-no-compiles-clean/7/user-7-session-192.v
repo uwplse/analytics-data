@@ -40,7 +40,6 @@ Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fres
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
 (rewrite subst_equation).
-(destruct (beq_idP X i) as [HXi| HXi]).
-+
-subst.
-assumption.
+(destruct (beq_idP X i) as [HXi| HXi]; try assumption).
+(destruct (IdSet.mem i (FV s)) as [Hmem| Hmem]).
+(destruct (IdSet.mem i (FV s))).
