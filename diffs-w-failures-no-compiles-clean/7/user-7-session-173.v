@@ -127,4 +127,5 @@ Proof.
 Check fix_sub_eq.
 (repeat rewrite fix_sub_eq).
 (simpl).
+(repeat rewrite fix_sub_eq).
 reflexivity.
