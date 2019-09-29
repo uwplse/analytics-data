@@ -147,4 +147,6 @@ Lemma value_sem_sub_k_i_union__inv :
 Proof.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
 (assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem _ Hv Hm).
+specialize (Hsem _ Hm).
+(apply match_ty_i_union__inv in Hsem).
+(destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
