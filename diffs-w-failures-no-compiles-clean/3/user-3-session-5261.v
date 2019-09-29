@@ -86,4 +86,6 @@ step_proc.
 intuition subst; eauto.
 *
 (f_equal; lia).
+*
 (repeat deex).
+(exists (S nwritten); simpl).
