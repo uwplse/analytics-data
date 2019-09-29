@@ -100,3 +100,4 @@ specialize (IHw' HX').
 exists ([FX' := tx] ti).
 split.
 (apply wf_ty__wf_ty_f_subst).
+(apply wf_ty__wf_ty_f_subst; assumption).
