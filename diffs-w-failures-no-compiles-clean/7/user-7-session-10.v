@@ -124,5 +124,5 @@ Lemma sub_r_unite_pairs_nf_l__inv :
             inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
      end ])).
 -
-(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22];
+(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
   apply sub_r_nf_union_l__inv in Hsub).
