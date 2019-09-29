@@ -85,4 +85,3 @@ Proof.
 -
 (destruct (beq_idP X i); try reflexivity).
 (rewrite IHt).
-reflexivity.
