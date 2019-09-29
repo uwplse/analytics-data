@@ -112,4 +112,5 @@ exists ([X' := tx] ti).
 admit.
 }
 {
-(apply match_ty_eist).
+(apply match_ty_exist).
+exists ti.
