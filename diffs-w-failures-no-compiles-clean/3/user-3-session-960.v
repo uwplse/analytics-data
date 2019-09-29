@@ -259,4 +259,5 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-Search -sigT.
+Search -sigT -"dec".
+(apply Eqdep_dec.inj_pair2_eq_dec).
