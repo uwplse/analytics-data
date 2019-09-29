@@ -78,6 +78,7 @@ Proof.
 (intros t k Hm).
 (simpl).
 (split; apply Nat.le_0_l).
+-
 (intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction | solve_match_ty__inv_depth_l__union_r IHt1 IHt2 ])).
 +
 clear IHt1 IHt2.
@@ -93,6 +94,7 @@ split.
 (intros t k Hm).
 (apply match_ty__value_type_l in Hm).
 (inversion Hm).
+-
 (intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction | solve_match_ty__inv_depth_l__union_r IHt1 IHt2 ])).
 +
 clear IHt.
@@ -104,4 +106,8 @@ contradiction.
 (simpl).
 (rewrite Hdept').
 (split; apply le_n_S; assumption || constructor).
+Qed.
+Lemma match_ty__inv_depth_l_le_index : forall v t : ty, forall k : nat, |-[ k] v <$ t -> inv_depth v <= k.
+Proof.
+(apply match_ty__inv_depth_l).
 Qed.
