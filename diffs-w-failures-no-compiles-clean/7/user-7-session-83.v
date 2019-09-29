@@ -143,4 +143,4 @@ clear IHt3.
 (apply match_ty_i_ref__inv in Hm1).
 (destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
 (simpl in Hm2).
-(apply sem_eq_i__trans with t).
+(apply sem_eq_k_i__trans with t).
