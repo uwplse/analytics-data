@@ -355,4 +355,4 @@ admit.
 autorewrite with upd list in *.
 (simpl in *; lia).
 +
-(simpl in *).
+Search -(_ ++ [_]).
