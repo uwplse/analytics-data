@@ -269,9 +269,4 @@ constructor.
 (apply sem_eq_k_i__sem_sub_k_i in Href).
 tauto.
 *
-(apply SD_Trans with (MkNF( t2))).
-(apply mk_nf__sub_d_r; assumption).
-(apply IHk).
 (apply mk_nf__in_nf).
-(rewrite inv_depth_mk_nf).
-assumption.
