@@ -24,4 +24,7 @@ Proof.
 (apply union_right_2; assumption).
 -
 (apply SD_Trans with (MkNF( t))).
-(apply mk_nf__sub_d2).
+(apply mk_nf__sub_d_r).
+assumption.
+Qed.
+Theorem sub_r__complete : forall t1 t2 : ty, (|- t1 << t2)%btj -> |- t1 << t2.
