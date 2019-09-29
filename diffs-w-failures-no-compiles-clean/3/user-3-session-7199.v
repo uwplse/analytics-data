@@ -344,4 +344,4 @@ Proof.
 (rewrite app_length in *; simpl in *).
 (assert (log_addr (length bs) < diskSize d)).
 {
-lia.
+(unfold log_size_ok in H).
