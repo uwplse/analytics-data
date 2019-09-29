@@ -180,5 +180,4 @@ tauto.
 (destruct (in_nf_pair__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
 (split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
-  subst).
-+
+  subst; try (solve [ constructor; auto ])).
