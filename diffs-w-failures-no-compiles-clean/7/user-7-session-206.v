@@ -51,4 +51,4 @@ Search -IdSet.In.
 (pose proof IdSetFacts.In_m as Hfact).
 (destruct (IdSetFacts.empty_iff X) as [H _]).
 (apply H).
-(apply Hfact).
+solve_proper.
