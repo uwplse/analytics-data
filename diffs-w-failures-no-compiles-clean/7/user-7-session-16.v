@@ -403,6 +403,5 @@ contradiction.
 (right; solve_not_x_sub_r_y_full).
 (apply IHHcontra; try tauto).
 (apply mk_nf_nf__equal).
-(do 2 constructor; assumption).
-(apply sub_r_dec__mk_nf_sub_r_dec; assumption).
 -
+*
