@@ -345,4 +345,5 @@ step_proc.
 (rewrite app_length; simpl; lia).
 +
 (unfold log_size_ok in *; simpl in *).
-(rewrite app_length in *; simpl).
+(rewrite ?app_length in *; simpl).
+lia.
