@@ -69,7 +69,7 @@ Definition denote_unitary_box {W} (c : Box W W) : Square (2 ^ \226\159\166 W \22
 Lemma denote_unitary_box_eq :
   forall W safe (c : Box W W) \207\129,
   Unitary_Box c ->
-  denote_box safe c \207\129 = denote_unitary_box c \195\151 \207\129 \195\151 (denote_unitary_box c) \226\128\160.
+  denote_box safe c \207\129 == denote_unitary_box c \195\151 \207\129 \195\151 (denote_unitary_box c) \226\128\160.
 Proof.
 (intros W safe [c] \207\129 pf).
 (simpl in pf).
@@ -82,9 +82,5 @@ gen \207\129.
 (induction (c p)).
 -
 (unfold denote_u_db_box).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq7ET26j"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
 (simpl).
 (rewrite pad_nothing).
