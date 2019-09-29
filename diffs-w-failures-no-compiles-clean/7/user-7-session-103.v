@@ -14,7 +14,7 @@ Lemma match_ty_pair : forall (v1 v2 t1 t2 : ty) (k w : nat), |-[ k, w] v1 <$ t1 
 Proof.
 (intros v1 v2 t1 t2 k w Hm1 Hm2).
 (destruct k, w; split; assumption).
-Qed.
 Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t1 -> |-[ k, w] v <$ TUnion t1 t2.
 Proof.
-(destruct k, w, v; left; assumption).
+(intros v t1 t2 k w Hm).
+(destruct v, k, w; left; assumption).
