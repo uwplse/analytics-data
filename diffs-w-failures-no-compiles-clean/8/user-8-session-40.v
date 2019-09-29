@@ -136,7 +136,6 @@ reflexivity.
 Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRyItMx"
 Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Lemma SWAP_GEN_spec_same_sep :
   forall W (\207\1291 \207\1292 : Density (2 ^ \226\159\166 W \226\159\167)) safe,
   denote_box safe (@SWAP_GEN W W) (\207\1291 \226\138\151 \207\1292) == \207\1292 \226\138\151 \207\1291.
@@ -170,3 +169,7 @@ Search -length -add_fresh_state.
 (erewrite length_fresh_state by reflexivity).
 (simpl).
 Abort.
+Lemma CNOT_spec :
+  forall b1 b2 safe : bool,
+  denote_box safe CNOT (bool_to_matrix b1 \226\138\151 bool_to_matrix b2) =
+  bool_to_matrix b1 \226\138\151 bool_to_matrix (b1 \226\138\149 b2).
