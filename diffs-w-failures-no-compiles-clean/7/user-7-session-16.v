@@ -382,5 +382,5 @@ right.
         subst
  end).
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
  end).
