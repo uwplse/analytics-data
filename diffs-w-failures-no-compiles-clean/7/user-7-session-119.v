@@ -20,4 +20,3 @@ Proof.
 (apply sem_sub__refl).
 -
 (apply sem_sub__trans with t2).
--
