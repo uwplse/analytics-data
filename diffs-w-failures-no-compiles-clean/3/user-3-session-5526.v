@@ -189,4 +189,3 @@ Timeout 1 Print LoadPath.
 invert_abstraction.
 (step_proc; intuition idtac).
 {
-(step_proc; intuition idtac).
