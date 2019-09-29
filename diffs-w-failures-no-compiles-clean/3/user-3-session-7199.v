@@ -503,4 +503,7 @@ intuition.
 {
 (exists bs; intuition eauto).
 (unfold log_abstraction; intuition eauto).
+}
 {
+(exists (bs ++ v); intuition).
+(apply log_abstraction_commit).
