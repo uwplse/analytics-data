@@ -39,7 +39,4 @@ Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
 End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
-Check [Nil (Ident "a") Nil].
-Redirect "/tmp/coqEk3t2K" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
+Check [Nil (Ident "a") {"myfun" "somArg"}].
