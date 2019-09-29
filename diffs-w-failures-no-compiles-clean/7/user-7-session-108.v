@@ -119,6 +119,8 @@ exists tx.
 (apply match_ty_union_2).
 assumption.
 Qed.
+Definition ty_not_empty_k (t : ty) (k : nat) : Prop := exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Hint Unfold ty_not_empty_k: DBBetaJulia.
 Reserved Notation "'|' t '|'" (at level 20).
 Fixpoint inv_depth (t : ty) :=
   match t with
@@ -241,6 +243,7 @@ assumption.
 -
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
+Qed.
 Lemma ty_empty__subs_ty_empty :
   forall (w : nat) (t : ty) (k : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
 Proof.
@@ -392,16 +395,16 @@ right.
 (destruct Hcontra as [v Hcontra]).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
-Check ty_empty__subs_ty_empty.
 (apply (ty_empty__subs_ty_empty _ _ _ Hnotm i tx)).
 eauto.
 -
 (left; exists (TEV i); apply match_ty_var).
 -
 (left; exists (TEV i); apply match_ty_ev).
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
+Admitted.
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t k -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
-(induction t; intros k Hdep Hcontra).
+(induction t; intros k Ht Hcontra).
 -
 specialize (Hcontra 0).
 (destruct Hcontra as [w Hcontra]).
@@ -411,6 +414,3 @@ clear Hm.
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
--
-specialize (Hcontra 0).
-(destruct Hcontra as [w Hcontra]).
