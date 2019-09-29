@@ -140,4 +140,4 @@ Proof.
 -
 (right; simpl; apply Nat.le_0_l).
 -
-(inversion Hv; subst).
+(specialize (IHHv1 k H1); specialize (IHHv2 k H2)).
