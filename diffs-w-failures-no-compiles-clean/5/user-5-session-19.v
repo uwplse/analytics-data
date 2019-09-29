@@ -149,7 +149,12 @@ intro x.
 {
 (intros).
 (assert
-  (eval L (extendEnv env x (eval L env (Int 3)))
+  (eval L
+     (extendEnv env x
+        (eval L env (Choose x (Eq (Int 6) (Times (Var x) (Int 2))))))
      (Eq (Int 6) (Times (Var x) (Int 2))) = L.(vTrue))).
 {
 (apply evalChoose).
+exists (eval L env (Int 3)).
+(apply evalEqTrue).
+(rewrite evalTimes).
