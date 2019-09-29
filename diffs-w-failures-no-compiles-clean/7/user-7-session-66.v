@@ -229,4 +229,7 @@ Proof.
 -
 (exists (TCName c); split).
 exists (TCName c).
-reflexivity.
+(destruct k; reflexivity).
+-
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(destruct (IHt1 k Hdep1) as [v1 [Hv1 Hm1]]).
