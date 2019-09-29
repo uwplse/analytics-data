@@ -198,4 +198,7 @@ Search -IdSet.In.
 (destruct (IdSetFacts.empty_iff Y) as [H _]).
 (apply H).
 Search -IdSet.In.
-Search -m.
+Search -IdSet.Empty.
+(apply IdSetProps.empty_is_empty_1 in Hs1).
+Search -IdSet.Equal.
+Search -IdSet.empty.
