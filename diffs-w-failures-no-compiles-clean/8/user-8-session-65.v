@@ -1253,4 +1253,3 @@ constructor.
 (unfold compose_super).
 (apply source_symmetric_WT in H).
 (unfold valid_ancillae_box in IHsource_symmetric).
-(rewrite H0).
