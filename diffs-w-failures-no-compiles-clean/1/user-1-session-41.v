@@ -323,7 +323,7 @@ Fixpoint size_gt (G : GT) : nat :=
   end.
 Module GTeq.
 Function
- eq (G_1 G_2 : GT) : Prop {measure size_gt G_1} :=
+ eq (G_1 G_2 : GT) {measure size_gt G_1} : Prop :=
    match G_1, G_2 with
    | GInt, GInt => True
    | GBool, GBool => True
@@ -333,3 +333,4 @@ Function
        fst hd1 = fst hd2 /\ eq (GRec tl1) (GRec tl2)
    | _, _ => False
    end.
+all: (intros; subst; eauto with math).
