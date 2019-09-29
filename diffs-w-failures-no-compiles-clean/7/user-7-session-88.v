@@ -452,4 +452,4 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 (inversion Hnft; subst).
 (inversion H; subst).
 (simpl in Hdep).
-(apply le_S_n in Hdep).
+(apply IHk; try assumption).
