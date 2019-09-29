@@ -88,4 +88,5 @@ contradiction.
 +
 (simpl).
 (rewrite <- beq_id_refl).
+symmetry.
 (apply subs_fresh_in_ty).
