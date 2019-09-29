@@ -90,7 +90,7 @@ Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Fixpoint subst (x : id) (s t : ty) {measure size t :=
   match t with
   | TCName _ => t
-  | TPair t1 t2 => TPair ([x := s] t1) ([x := s] t2)
+  | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
   | TUnion t1 t2 => TUnion ([x := s] t1) ([x := s] t2)
   | TExist y t' =>
       if IdSet.mem y (FV s)
