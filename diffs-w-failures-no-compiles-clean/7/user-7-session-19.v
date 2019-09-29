@@ -84,4 +84,3 @@ specialize (Href v Hv).
 (split; tauto).
 +
 (simpl).
-(intros v Hv).
