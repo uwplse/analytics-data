@@ -128,4 +128,3 @@ Proof.
 (intros).
 (destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2))).
 -
-apply -> L.(evalEqTrue).
