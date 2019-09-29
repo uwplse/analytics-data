@@ -40,4 +40,4 @@ matrix_denote.
 setoid_rewrite denote_unitary_transpose.
 (repeat rewrite Mmult_assoc).
 restore_dims.
-(simpl_rewrite unitary_gate_unitary).
+setoid_rewrite unitary_gate_unitary.
