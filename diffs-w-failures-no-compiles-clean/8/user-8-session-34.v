@@ -28,4 +28,3 @@ Fact denote_compose :
 Proof.
 (intros safe w c \206\147 TP).
 dependent induction TP.
--
