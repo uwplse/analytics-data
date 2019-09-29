@@ -44,4 +44,5 @@ exists (TEV X').
 reflexivity.
 +
 exists v.
-assumption.
+(simpl).
+Search -beq_id.
