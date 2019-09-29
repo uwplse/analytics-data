@@ -337,4 +337,3 @@ step_proc.
 {
 (apply log_contents_ok_unchanged; eauto).
 }
-(simpl).
