@@ -315,4 +315,5 @@ Proof.
 (exfalso; lia).
 -
 (destruct d; simpl in *).
-(assert (a = 0) by lia).
+(assert (a = 0) by lia; subst).
+(simpl).
