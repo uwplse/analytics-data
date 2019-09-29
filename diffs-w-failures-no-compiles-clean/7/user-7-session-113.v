@@ -37,3 +37,5 @@ reflexivity.
 (rewrite IHt).
 reflexivity.
 -
+(simpl).
+(destruct (beq_idP X i); destruct (beq_idP Y i); try reflexivity).
