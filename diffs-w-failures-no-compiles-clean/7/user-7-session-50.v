@@ -96,4 +96,3 @@ Proof.
 (split; simpl; constructor).
 -
 (destruct IHt1; destruct IHt2).
-(split; simpl; apply unite_pairs__preserves_sub_d_l; assumption).
