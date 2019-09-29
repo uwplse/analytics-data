@@ -132,5 +132,5 @@ Omega.omega.
 -
 Check well_founded_lt_compat.
 (apply (well_founded_lt_compat ty size)).
-(intros).
-trivial.
+tauto.
+Defined.
