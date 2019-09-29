@@ -696,4 +696,6 @@ lia.
 {
 (destruct r; step).
 intuition.
+*
 (exists d,(OutOfSync a0 b); simplify; finish).
+lia.
