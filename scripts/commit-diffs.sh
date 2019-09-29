@@ -40,7 +40,7 @@ do
     sed -i -re '/Set Printing Width [0-9]+\./d' ${topath}
     sed -i -re '/Show\./d' ${topath}
     sed -i -re '/Locate .*\./d' ${topath}
-    sed -i -re '/Timeout [0-9]+ Check .*\.' ${topath}
+    sed -i -re '/Timeout [0-9]+ Check .*\./d' ${topath}
     git add ${topath}
     git commit -m "user ${userid}, session ${sessionid}, part ${i}"
 done
