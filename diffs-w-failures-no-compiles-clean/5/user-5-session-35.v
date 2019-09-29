@@ -234,4 +234,4 @@ exists (eval L env (Int 3)).
 (eapply eq_trans).
 -
 (apply evalIfTrue).
-(apply evalInInts).
+(apply evalInInts; auto).
