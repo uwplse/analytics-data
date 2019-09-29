@@ -55,19 +55,8 @@ Inductive ty : Type :=
   | Map : forall V : Type, _
   | Lock : _.
 End Ptr.
-Class GoModel : Type :={byte : Type;
-                        byte0 : byte;
-                        uint64_to_string : uint64 -> string;
-                        ascii_to_byte : Ascii.ascii -> byte;
-                        byte_to_ascii : byte -> Ascii.ascii;
-                        uint64_to_le : uint64 -> list byte;
-                        uint64_from_le : list byte -> option uint64;
-                        File : Type;
-                        nilFile : File;
-                        Ptr : Ptr.ty -> Type;
-                        nullptr : forall ty, Ptr ty}.
-Search -"endian".
 Opaque Nat.modulo Nat.div.
+#[local]Obligation Tactic := (intros; simpl; subst).
 #[program]
 Fixpoint nat_to_le base (x : nat) {measure x lt} :
 list {x : nat | x < S (S base)} :=
@@ -81,15 +70,6 @@ Next Obligation of nat_to_le_func.
 Proof.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqrgUG1T"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZulPN0"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Next Obligation of nat_to_le_func.
 Proof.
 subst digit.
@@ -99,23 +79,19 @@ Next Obligation of nat_to_le_func.
 Proof.
 lia.
 Qed.
+Next Obligation of nat_to_le_func.
 Proof.
 (unfold MR).
 (apply (wf_projected lt projT2); auto).
 (apply lt_wf).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbnk38u"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjwtoRz"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtKFEKU"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLVJAo3"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4gF8CO"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Print projT1.
