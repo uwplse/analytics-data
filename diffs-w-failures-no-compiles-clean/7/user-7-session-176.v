@@ -150,4 +150,5 @@ Proof.
 (destruct (IHt1 _ Hm1) as [v1' Hm1']).
 (destruct (IHt2 _ Hm2) as [v2' Hm2']).
 exists (TPair v1' v2').
+(rewrite subst_pair).
 (apply match_ty_pair).
