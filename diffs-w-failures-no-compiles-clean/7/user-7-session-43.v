@@ -53,5 +53,6 @@ auto using match_ty_pair.
 (destruct Hm as [tx [Heq [[Hdept Hdeptx] Href]]]; subst).
 (simpl).
 split.
-(assert (Heq : | t' | = | t |)).
-(apply sub_d_eq__inv_depth_eq).
+(assert (Heq : | t' | = | t |) by (apply sub_d_eq__inv_depth_eq; assumption)).
+(rewrite Heq).
+tauto.
