@@ -198,4 +198,11 @@ reflexivity.
 }
 {
 (apply match_ty_union_2).
-(rewrite f_subst_not_b_free_in_ty; assumption).
+(rewrite f_subst_not_b_free_in_ty; auto).
+}
+}
+*
+(destruct (beq_idP X' i0)).
+{
+subst.
+(split; intros HX).
