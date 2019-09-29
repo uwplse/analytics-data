@@ -59,4 +59,3 @@ specialize (Hdec _ Hnf2).
 -
 (right; intros Hcontra).
 (apply sub_r__mk_nf_sub_r in Hcontra).
-contradiction.
