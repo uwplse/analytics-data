@@ -76,4 +76,5 @@ Proof.
 (intros k w1).
 specialize (Hsem k w1).
 (destruct Hsem as [w2 Hsem]).
-(exist w2).
+exists w2.
+(intros v Hm).
