@@ -84,6 +84,7 @@ Proof.
 (rewrite (unite_pairs_union_t t1 t0 t2)).
 (destruct (sub_r_union_l__inv _ _ _ Hsub1) as [Hsub11 Hsub12]).
 (constructor; tauto).
+Qed.
 Lemma unite_pairs_of_nf__preserves_sub_r_l :
   forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Proof.
@@ -353,6 +354,7 @@ Proof.
 (intros t t' Hsub).
 (apply sub_r__transitive with t; try assumption).
 (apply mk_nf__sub_r_l).
+Qed.
 Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
 (intros t t' Hsub).
