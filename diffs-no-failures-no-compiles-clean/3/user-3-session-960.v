@@ -120,4 +120,5 @@ auto.
 (assert (base_m2 = S (S base_m2) - 2) by lia).
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
-(generalize dependent S n; clear n; intros n).
+(generalize dependent S n; clear n; intros n **).
+(rewrite IHn).
