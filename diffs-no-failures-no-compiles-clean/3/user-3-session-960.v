@@ -248,4 +248,9 @@ econstructor.
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
 Check Ascii.nat_ascii_embedding.
 (apply subset_eq_compat).
-(rewrite Ascii.nat_ascii_embedding).
+(rewrite Ascii.nat_ascii_embedding; auto).
+Print subset_eq_compat.
+-
+admit.
+-
+(hnf).
