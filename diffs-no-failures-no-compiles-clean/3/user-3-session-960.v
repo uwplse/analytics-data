@@ -257,4 +257,4 @@ admit.
 typeclasses eauto.
 -
 (simpl).
-typeclasses eauto.
+decide equality.
