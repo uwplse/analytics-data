@@ -378,4 +378,4 @@ generalize dependent G'.
 (induction H).
 -
 (intros; inversion H0; subst; eauto).
-all: (try rewrite singleton_eq in H1; congruence).
+all: (try apply singleton_eq in H1).
