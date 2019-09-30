@@ -142,4 +142,3 @@ Fixpoint multistep (n : nat) : term -> term :=
   end.
 Redirect "/tmp/coq1McSmJ" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Example t1 : term := {"if" ({"pair?" <<[] []> <[] []>>} {"fst" <<[] []> []>} [])}.
