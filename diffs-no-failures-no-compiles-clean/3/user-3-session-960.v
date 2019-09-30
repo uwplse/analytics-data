@@ -67,14 +67,4 @@ Class GoModel : Type :={byte : Type;
                         Ptr : Ptr.ty -> Type;
                         nullptr : forall ty, Ptr ty}.
 Search -"endian".
-Definition byte_nat := {x : nat | x < 256}.
-#[program]
-Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
-  match x with
-  | 0 => nil
-  | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
-  end.
-Next Obligation.
-Proof.
-(intros).
-(simpl).
+Opaque Nat.modulo.
