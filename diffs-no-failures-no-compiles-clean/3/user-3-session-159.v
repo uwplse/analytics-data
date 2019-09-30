@@ -19,4 +19,4 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Instance absr_non_error : (NonError absr).
 Proof.
-(compute).
+(unfold NonError).
