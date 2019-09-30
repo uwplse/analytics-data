@@ -80,6 +80,18 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Search -"endian".
-Search -"digit".
-Definition uint64_to_le (x : uint64) : list byte :=
-  if lt_dec x (pow 2 64) then nil else nil.
+Definition byte_nat := {x : nat | x < 256}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlC6Bto"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhhWJJV"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Fixpoint nat_to_le (x : nat) : list byte_nat.
+refine match x with
+       | 0 => nil
+       | _ => x mod 256 :: nat_to_le x / 256
+       end.
