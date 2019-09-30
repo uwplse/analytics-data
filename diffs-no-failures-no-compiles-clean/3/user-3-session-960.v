@@ -234,4 +234,3 @@ econstructor.
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
 admit.
-admit.
