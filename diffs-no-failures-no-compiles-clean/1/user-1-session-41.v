@@ -357,6 +357,4 @@ all: (intros; subst; simpl; eauto with math).
 all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
 Defined.
 Definition eq (G_1 G_2 : GT) := eq_fn (G_1, G_2).
-Theorem eq_refl : reflexive GT eq.
-Proof.
-(unfold reflexive).
+Notation "G_1 === G_2" := (eq G_1 G_2).
