@@ -232,4 +232,4 @@ typeclasses eauto.
 Print EqualDec.
 Print EqualDec.
 Print EqDecision.
-(destruct (decide (x = x1))).
+(destruct (decide (x0 = x1)); auto).
