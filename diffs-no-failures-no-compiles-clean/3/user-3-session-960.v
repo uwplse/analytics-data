@@ -7,17 +7,7 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
-From Coq Require Import Program.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqIMcfaF"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJDHgkK"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
+From Coq Require Import FunInd.
 From Classes Require Import EqualDec.
 From RecordUpdate Require Import RecordUpdate.
 From stdpp Require Import decidable countable.
@@ -55,4 +45,24 @@ Inductive ty : Type :=
   | Map : forall V : Type, _
   | Lock : _.
 End Ptr.
+Class GoModel : Type :={byte : Type;
+                        byte0 : byte;
+                        uint64_to_string : uint64 -> string;
+                        ascii_to_byte : Ascii.ascii -> byte;
+                        byte_to_ascii : byte -> Ascii.ascii;
+                        uint64_to_le : uint64 -> list byte;
+                        uint64_from_le : list byte -> option uint64;
+                        File : Type;
+                        nilFile : File;
+                        Ptr : Ptr.ty -> Type;
+                        nullptr : forall ty, Ptr ty}.
 Opaque Nat.modulo Nat.div.
+#[local]Obligation Tactic := (intros; simpl; subst).
+Function
+ nat_to_le base (x : nat) {measure x lt} : list {x : nat | x < S (S base)} :=
+   match x with
+   | 0 => nil
+   | _ =>
+       let digit := x mod S (S base) in
+       exist _ digit _ :: nat_to_le base (x / S (S base))
+   end.
