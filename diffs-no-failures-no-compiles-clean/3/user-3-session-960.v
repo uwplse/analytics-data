@@ -110,4 +110,4 @@ Print FixedLengthEncoder.
 Theorem nat_le_inverse base : forall x, le_to_nat (nat_to_le base x) = x.
 Proof.
 (intros).
-Search -nat -div -"ind".
+Search -nat -"ind".
