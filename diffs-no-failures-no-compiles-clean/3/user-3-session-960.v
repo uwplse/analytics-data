@@ -122,4 +122,3 @@ auto.
 (assert (0 < S n) by lia).
 (rewrite IHn).
 {
-(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
