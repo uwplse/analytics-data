@@ -262,4 +262,4 @@ typeclasses eauto.
 (destruct x, y; simpl).
 (destruct (nat_eq_dec n n0); subst).
 left.
-Search -(existT _ _ = existT _ _).
+Search -_ -(existT _ _ = existT _ _).
