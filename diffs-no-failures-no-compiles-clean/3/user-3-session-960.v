@@ -259,4 +259,4 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-Check sig2.
+Search -"{_ : _ & _}" -Check -sigT_eq_dec.
