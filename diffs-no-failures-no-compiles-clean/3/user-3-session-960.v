@@ -259,4 +259,5 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-Search -sigT -"dec".
+(destruct x, y; simpl).
+(destruct (nat_eq_dec n n0); subst).
