@@ -286,4 +286,4 @@ End AGT_Spec.
 Module AGT_Bounded_Rows_Details.
 Search -unique.
 Search -uniqueness.
-Definition label := num.
+Definition label := number.
