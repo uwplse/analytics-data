@@ -96,5 +96,4 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Next Obligation.
 Proof.
-(intros; simpl).
-subst.
+(intros; simpl; subst).
