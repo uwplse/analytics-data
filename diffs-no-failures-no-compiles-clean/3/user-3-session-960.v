@@ -102,4 +102,4 @@ Proof.
 lia.
 Qed.
 Proof.
-auto.
+Search -wf.
