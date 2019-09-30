@@ -152,4 +152,5 @@ econstructor.
    |- _ => destruct (nat_le_dec n m); try congruence
  end).
 (inversion H; subst).
-(rewrite app_lenegth).
+(rewrite app_length, repeat_length).
+lia.
