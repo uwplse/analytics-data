@@ -261,4 +261,3 @@ typeclasses eauto.
 (intros; simpl).
 (decide equality; subst).
 (decide equality; subst).
-(decide equality; subst).
