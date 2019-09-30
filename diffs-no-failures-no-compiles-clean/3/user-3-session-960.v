@@ -121,4 +121,3 @@ auto.
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
 (rewrite IHn).
-{
