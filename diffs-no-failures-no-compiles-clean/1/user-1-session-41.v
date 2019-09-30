@@ -423,4 +423,3 @@ specialize (H2 _ H5).
 congruence.
 -
 (inversion H1).
-specialize (H _ H5).
