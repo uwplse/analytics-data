@@ -365,4 +365,7 @@ Check relation.
 Print relation.
 Print eq.
 Check eq.
-Theorem eq_refl : forall A, reflexive GT eq.
+Theorem eq_refl : reflexive GT eq.
+Proof.
+(unfold reflexive).
+(induction x; eauto).
