@@ -122,4 +122,7 @@ auto.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
 Check PeanoNat.Nat.mod_small.
-(rewrite IHn by (apply PeanoNat.Nat.mod_le; lia)).
+Check PeanoNat.Nat.mod_le.
+(rewrite IHn).
+Search -"mod" -div.
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3).
