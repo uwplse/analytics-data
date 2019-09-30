@@ -90,3 +90,5 @@ Proof with (simpl; eauto with sf).
 Qed.
 Unset Printing Universes.
 Check Sorted.
+Print length.
+Print Sorted Universes.
