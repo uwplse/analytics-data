@@ -329,4 +329,3 @@ Fixpoint size_gt (G : GT) : nat :=
   end.
 Module GTeq.
 all: (intros; subst; simpl; eauto with math).
-(destruct hd1; simpl; eauto with math).
