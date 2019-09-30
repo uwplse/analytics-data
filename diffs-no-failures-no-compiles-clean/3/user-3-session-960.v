@@ -229,4 +229,7 @@ typeclasses eauto.
 (intros; simpl).
 (decide equality; subst).
 (decide equality; subst).
-typeclasses eauto.
+Print EqualDec.
+Print EqualDec.
+Print EqDecision.
+(destruct (dec (x = x1))).
