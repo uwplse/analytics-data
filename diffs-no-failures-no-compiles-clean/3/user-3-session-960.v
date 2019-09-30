@@ -102,4 +102,4 @@ Qed.
 Proof.
 (unfold MR).
 Search -wf.
-(apply wf_projected).
+(apply (wf_projected projT2)).
