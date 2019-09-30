@@ -83,4 +83,4 @@ Instance aModel : GoModel.
 Proof.
 Print uint64.
 Print Ascii.Ascii.
-refine {| byte := Ascii.ascii; byte0 := "a" |}.
+refine {| byte := Ascii.ascii; byte0 := "a"%string |}.
