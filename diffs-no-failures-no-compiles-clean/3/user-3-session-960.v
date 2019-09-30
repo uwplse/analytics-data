@@ -67,7 +67,29 @@ Function
    | 0 => nil
    | _ =>
        let base := S (S base_m2) in
-       let digit := x `mod` S S in
-       exist (fun x => x < S (S base_m2)) (x `mod` S (S base_m2)) _
-       :: nat_to_le base_m2 (x / S (S base_m2))
+       let digit := x `mod` base in
+       exist (fun x => x < base) digit _ :: nat_to_le base_m2 (x / base)
    end.
+Proof.
+-
+(intros; subst).
+(apply PeanoNat.Nat.div_lt; auto; try lia).
+-
+(apply lt_wf).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1B53nb"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1F4h2B"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1tRDll"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Check nat_to_le_equation.
