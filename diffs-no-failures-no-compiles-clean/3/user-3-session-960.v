@@ -108,4 +108,24 @@ lia.
 (apply Nat.div_lt; lia).
 Qed.
 Definition bounded0 : {x | x < 256}.
-refine 0.
+exists 0.
+(apply Nat.lt_0_succ).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOGprCQ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBCZxql"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpJJRBT"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition nat64_to_le (x : nat) : list byte :=
+  let digits := nat_to_le 254 x in
+  digits ++ repeat (8 - length digits) bounded0.
