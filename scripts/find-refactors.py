@@ -119,6 +119,12 @@ for i in range(len(group_ends) - 1):
                 if new_cumulative[curr_index] != "":
                     new = new_cumulative[curr_index]
                     f.write(new + "\n")
+    else: # remove when we want failures
+        with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:
+            for curr_index in range(len(old_cumulative)):
+                if old_cumulative[curr_index] != "":
+                    old = old_cumulative[curr_index]
+                    f.write(old + "\n")
 
     # Now switch to use the new cumulative file
     old_cumulative = new_cumulative
@@ -135,10 +141,16 @@ if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
         curr_index = curr_index + 1
 
     # Dump new version to file
-    if group_failures[i] is False: # uncomment when we want failures, or add comment
+    if group_failures[-1] is False: # uncomment when we want failures, or add comment
         with open(outdir + "/" + fname + "-" + str(j + 1) + fext, 'w') as f:
             for curr_index in range(len(new_cumulative)):
                 if new_cumulative[curr_index] != "":
                     new = new_cumulative[curr_index]
                     f.write(new + "\n")
+    else: # remove when we want failures
+        with open(outdir + "/" + fname + "-" + str(j + 1) + fext, 'w') as f:
+            for curr_index in range(len(old_cumulative)):
+                if old_cumulative[curr_index] != "":
+                    old = old_cumulative[curr_index]
+                    f.write(old + "\n")
 
