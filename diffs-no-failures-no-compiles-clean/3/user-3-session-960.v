@@ -143,3 +143,4 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Search -Ascii.ascii.
 Print Ascii.ascii_of_byte.
+Print Byte.byte.
