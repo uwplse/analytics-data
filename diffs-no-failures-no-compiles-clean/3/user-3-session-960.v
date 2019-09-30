@@ -257,4 +257,6 @@ admit.
 typeclasses eauto.
 -
 (simpl).
-decide equality.
+(unfold EqualDec).
+(intros; simpl).
+(destruct x, y).
