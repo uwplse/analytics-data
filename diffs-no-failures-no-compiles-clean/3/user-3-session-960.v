@@ -260,4 +260,7 @@ typeclasses eauto.
 (unfold EqualDec).
 (intros; simpl).
 (destruct x, y; simpl).
-(destruct (nat_eq_dec n n0); subst; auto).
+(destruct (nat_eq_dec n n0); subst).
+left.
+Search -(existT _ _ = existT _ _).
+(apply subsetT_eq_compat).
