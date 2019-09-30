@@ -145,5 +145,8 @@ econstructor.
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
 (apply ProofIrrelevanceTheory.subset_eq_compat).
 (rewrite Ascii.nat_ascii_embedding; auto).
--
-constructor.
+(simpl; constructor).
+(unfold nat64_to_le; intros).
+(match goal with
+ | H:context [ nat_le_dec ?n ?m ] |- _ => destruct (nat_le_dec n m)
+ end).
