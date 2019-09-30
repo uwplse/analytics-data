@@ -17,5 +17,5 @@ Inductive term :=
   | Ident : string -> term
   | Cons : term -> term -> term
   | App : term -> term -> term.
-Redirect "/tmp/coqXt9OWv" Print Ltac Signatures.
+Redirect "/tmp/coqJpJYaV" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
