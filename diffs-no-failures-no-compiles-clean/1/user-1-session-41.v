@@ -310,4 +310,4 @@ Inductive GT : Type :=
   | GRow : list (option (option (Ann * GT))) -> GT.
 Theorem size_gt_g0 : forall x, 0 < size_gt x.
 Proof.
-(induction x; intros; eauto with math).
+(induction x; intros; simpl; eauto with math).
