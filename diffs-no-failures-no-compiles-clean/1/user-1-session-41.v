@@ -281,6 +281,8 @@ Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
 Import Coq.Lists.List.ListNotations.
+Require Export Setoid.
+Require Export Relation_Definitions.
 Module AGT_Bounded_Rows_Details.
 Definition label := nat.
 Inductive ST : Type :=
@@ -298,3 +300,4 @@ Inductive GT : Type :=
   | GFun : GT -> GT -> GT
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
+Module asdf.
