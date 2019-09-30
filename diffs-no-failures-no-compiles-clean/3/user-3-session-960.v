@@ -55,5 +55,6 @@ Inductive ty : Type :=
   | Heap : forall T : Type, _
   | Map : forall V : Type, _
   | Lock : _.
-Theorem mod_lt : forall n m, n `mod` S m < S m.
+Theorem mod_S_lt : forall n m, n `mod` S m < S m.
 Proof.
+(apply PeanoNat.Nat.mod_upper_bound).
