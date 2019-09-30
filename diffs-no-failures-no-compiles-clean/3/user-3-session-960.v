@@ -235,5 +235,9 @@ Proof.
 econstructor.
 -
 (simpl).
-Check pretty.pretty_nat_inj.
 (apply pretty.pretty_nat_inj).
+-
+(simpl).
+(unfold bounded_to_ascii, ascii_to_bounded).
+(intros).
+(destruct c; simplo).
