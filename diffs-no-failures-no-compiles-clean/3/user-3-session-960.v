@@ -263,4 +263,4 @@ typeclasses eauto.
 (destruct (nat_eq_dec n n0); subst).
 left.
 Search -(existT _ _ = existT _ _).
-(apply eq_existT_curried).
+unshelve (eapply eq_existT_curried).
