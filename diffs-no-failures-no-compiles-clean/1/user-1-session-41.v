@@ -450,4 +450,3 @@ congruence.
 -
 (inversion H1).
 specialize (H _ H4).
-specialize (H2 _ H4).
