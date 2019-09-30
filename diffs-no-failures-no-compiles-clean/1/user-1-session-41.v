@@ -579,4 +579,3 @@ subst.
 -
 (intros; inversion H0; subst; eauto).
 all: (try (apply singleton_eq in H1; congruence)).
-all: (try specialize (H1 _ (In_singleton _ _))).
