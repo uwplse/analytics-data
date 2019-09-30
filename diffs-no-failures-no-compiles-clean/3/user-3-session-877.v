@@ -1358,4 +1358,3 @@ iExists _.
 (simpl open).
 rewrite Hopen.
 iFrame.
-iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hstatus)".
