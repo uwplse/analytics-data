@@ -553,4 +553,4 @@ generalize dependent G'.
 (induction H).
 -
 (intros; inversion H0; subst; eauto).
-intuition.
+congruence.
