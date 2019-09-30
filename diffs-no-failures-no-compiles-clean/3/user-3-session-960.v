@@ -143,4 +143,6 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Search -Ascii.ascii.
 Print Ascii.ascii_of_byte.
-Print Byte.byte.
+Search -Byte.byte.
+Definition ascii0 :=
+  Ascii.Ascii false false false false false false false fals.
