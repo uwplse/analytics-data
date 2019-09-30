@@ -53,3 +53,6 @@ Check
 Redirect "/tmp/coqLRo0nb" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
+Fixpoint subst (x : string) (u : term) (t : term) : term := t.
+Redirect "/tmp/coqaK2I4e" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
