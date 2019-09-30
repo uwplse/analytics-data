@@ -144,6 +144,12 @@ Redirect "/tmp/coq1McSmJ" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Fixpoint trace (n : nat) : term -> list term :=
   match n with
-  | O => @nil term
+  | O => fun _ => nil
   | S m => fun t => cons t (trace m (step t))
   end.
+Redirect "/tmp/coqRDe2r5" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Example t1 := {"if" [{"cons?" <<[] []> <[] []>>} {"fst" <<[] []> []>} []]}.
+Redirect "/tmp/coqf2YyLr" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Eval vm_compute in trace 10 t1.
