@@ -393,6 +393,18 @@ Inductive Alpha : SetST -> GT -> Prop :=
             | _ => None
             end)) G_2 -> Alpha S (GFun G_1 G_2)
   | alpha_rec_mt : Alpha (Singleton _ (SRec [])) (GRec [])
+  | alpha_rec_cons_none :
+      forall S hd tl,
+      Inhabited _ S ->
+      (forall X,
+       Ensembles.In _ S X -> exists tl, X = SRec (None :: tl)) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => Some (SRec tl)
+            | _ => None
+            end)) (GRec tl) -> Alpha S (GRec (None :: tl))
   | alpha_rec_cons_req :
       forall S hd tl,
       Inhabited _ S ->
@@ -411,7 +423,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
             match S with
             | SRec (hd :: tl) => hd
             | _ => None
-            end)) hd -> Alpha S (GRec ((R, hd) :: tl))
+            end)) hd -> Alpha S (GRec (Some (R, hd) :: tl))
   | alpha_row_mt :
       forall S,
       Inhabited _ S ->
