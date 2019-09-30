@@ -259,4 +259,3 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-decide equality.
