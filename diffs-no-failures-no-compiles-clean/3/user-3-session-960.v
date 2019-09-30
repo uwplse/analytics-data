@@ -123,4 +123,3 @@ auto.
 (generalize dependent S n; clear n; intros n **).
 (rewrite IHn).
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
-lia.
