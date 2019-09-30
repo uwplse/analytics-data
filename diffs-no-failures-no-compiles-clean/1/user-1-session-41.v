@@ -320,4 +320,3 @@ Fixpoint size_gt (G : GT) : nat :=
          end + acc) 1 l
   | _ => 0
   end.
-Module GTeq.
