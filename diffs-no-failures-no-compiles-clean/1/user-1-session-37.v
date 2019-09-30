@@ -324,7 +324,7 @@ Fixpoint Gamma (G : GT) : SetST :=
            =>
            match S', G' with
            | None, None => True
-           | S, Some G' => Ensembles.In _ G' S
+           | S', Some G' => Ensembles.In _ G' S'
            | _, _ => False
            end) l'
           (map
