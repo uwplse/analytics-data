@@ -240,4 +240,6 @@ econstructor.
 (simpl).
 (unfold bounded_to_ascii, ascii_to_bounded).
 (intros).
-(destruct c; simplo).
+(destruct c; simpl).
+Search -Ascii.ascii_of_nat.
+(rewrite Ascii.ascii_nat_embedding; auto).
