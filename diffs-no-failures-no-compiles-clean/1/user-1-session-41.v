@@ -303,7 +303,7 @@ Inductive GT : Type :=
 Check fold_right.
 Fixpoint size_gt (G : GT) : nat :=
   match G with
-  | GFun G_1 G_2 => 1 + size_gt G_1 + size_ G_2
+  | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
   | GRec l =>
       fold_right
         (fun x acc =>
