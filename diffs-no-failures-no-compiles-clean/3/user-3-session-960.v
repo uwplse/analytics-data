@@ -259,4 +259,4 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-Check sig.
+Check sig2.
