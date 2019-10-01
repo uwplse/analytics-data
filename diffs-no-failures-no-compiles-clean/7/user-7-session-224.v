@@ -90,12 +90,12 @@ exists 0.
 (destruct (beq_idP X' i0)).
 {
 subst.
-(split; intros Hi0).
+(split; intros HX').
 {
-(unfold not_f_free_in_ty, not_free in Hi0).
-(simpl in Hi0).
+(unfold not_f_free_in_ty, not_free in HX').
+(simpl in HX').
 exfalso.
-(apply Hi0).
+(apply HX').
 (apply IdSetFacts.singleton_2).
 reflexivity.
 }
@@ -105,4 +105,6 @@ exists 0.
 assumption.
 }
 }
+{
+(split; intros HX').
 {
