@@ -203,3 +203,4 @@ subst.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 +
 (apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
