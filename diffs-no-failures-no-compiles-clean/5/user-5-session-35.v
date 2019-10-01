@@ -218,4 +218,4 @@ intro x.
      eval L env (Int i))).
 {
 (intros).
-apply -> evalInInts.
+(apply -> evalInInts; try reflexivity).
