@@ -205,4 +205,4 @@ reflexivity.
 (destruct (beq_idP X' i0)).
 {
 subst.
-(split; intros HX).
+(split; intros i0).
