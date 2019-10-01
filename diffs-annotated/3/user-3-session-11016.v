@@ -239,9 +239,55 @@ Example test_oddmembers : oddmembers [0; 1; 0; 2; 3; 0; 0] = [1; 3].
 Proof.
 reflexivity.
 Qed.
-Definition countoddmembers (l : natlist) : nat :=
-  match l with
-  | [ ] => 0
-  | h :: t => (if oddb h then 1 else 0) + countoddmembers t
+Definition countoddmembers (l : natlist) : nat := length (oddmembers l).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq04MTFC"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSz8SI9"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_countoddmembers1 : countoddmembers [1; 0; 3; 1; 4; 5] = 4.
+Proof.
+reflexivity.
+Qed.
+Example test_countoddmembers2 : countoddmembers [0; 2; 4] = 0.
+Proof.
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq5V3PVz"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Example test_countoddmembers3 : countoddmembers nil = 0.
+Proof.
+reflexivity.
+Qed.
+Fixpoint alternate (l1 l2 : natlist) : natlist :=
+  match l1, l2 with
+  | l1, [ ] => l1
+  | [ ], l2 => l2
+  | x :: xs, y :: ys => x :: y :: alternate xs ys
   end.
-(* Failed. *)
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8zaKPL"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYTDp6B"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_alternate1 : alternate [1; 2; 3] [4; 5; 6] = [1; 4; 2; 5; 3; 6].
+Proof.
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbUz5DE"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
