@@ -16,4 +16,6 @@ list {x : nat | x < S (S base)} :=
       let digit := x mod S (S base) in
       exist _ digit _ :: nat_to_le base (x / S (S base))
   end.
-(apply (wf_projected lt projT2)).
+(apply (wf_projected lt projT2); auto).
+(apply wf_lt).
+(* Failed. *)
