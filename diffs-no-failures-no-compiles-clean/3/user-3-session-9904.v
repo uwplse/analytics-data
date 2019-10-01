@@ -117,4 +117,5 @@ intuition.
 (simpl in *).
 lia.
 -
-(step_proc; intuition).
+(step_proc; intros).
+(exists tt; simpl; intuition idtac).
