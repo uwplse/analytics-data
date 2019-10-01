@@ -16,6 +16,7 @@ Lemma sem_sub_k_exist_fresh_l : forall (k : nat) (X : id) (t : ty), fresh_in_ty 
 Proof.
 (intros k X t Hfresh).
 (intros w1).
+exists w1.
 (intros v Hm).
 (destruct w1).
 -
@@ -29,3 +30,11 @@ Proof.
 eassumption.
 (repeat constructor).
 Qed.
+Lemma sem_sub_k_exist_fresh_r : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][t]<= [TExist X t].
+Proof.
+(intros k X t Hfresh).
+(intros w1).
+exists w1.
+(intros v Hm).
+(destruct w1).
+-
