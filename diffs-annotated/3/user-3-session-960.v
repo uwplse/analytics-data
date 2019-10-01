@@ -8,14 +8,5 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-(destruct (lt_dec n base)).
-+
-admit.
-+
-(rewrite IHn).
-{
-(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
-lia.
-}
-lia.
-(* Failed. *)
+Search -"div" -"lt".
+(apply Nat.div_lt; lia).
