@@ -342,7 +342,6 @@ Proof.
   assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem; 
   intros v' Hm'; specialize (Hsem v'); tauto).
 Qed.
-Open Scope btj_scope.
 Lemma match_ty_i__inv_depth_stable :
   forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
 Proof.
@@ -363,6 +362,9 @@ clear IHk' IHt.
 (intros Htk Htk' v).
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
+(apply le_S_n in Htk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
 *
 (assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Href)).
 (pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k'; pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
