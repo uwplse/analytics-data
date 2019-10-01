@@ -381,4 +381,5 @@ Theorem log_contents_ok_prefix d bs bs' :
 Proof.
 (unfold log_contents_ok; intros).
 specialize (H a).
-(assert (a < length (bs ++ bs'))).
+(rewrite app_nth1 in H by lia).
+(apply H; lia).
