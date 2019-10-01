@@ -156,4 +156,3 @@ step.
 step.
 step.
 step.
-(exists nil; simpl).
