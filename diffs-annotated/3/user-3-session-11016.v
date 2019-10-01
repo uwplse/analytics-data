@@ -297,17 +297,5 @@ Proof.
 reflexivity.
 -
 reflexivity.
-(intros).
-(rewrite app_assoc).
-(rewrite app_assoc).
-reflexivity.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqhKm3r"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Lemma nonzeros_app :
-  forall l1 l2 : natlist, nonzeros (l1 ++ l2) = nonzeros l1 ++ nonzeros l2.
 Proof.
+(unfold nonzeros).
