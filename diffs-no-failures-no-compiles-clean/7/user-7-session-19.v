@@ -114,6 +114,5 @@ Lemma match_ty_i_eq__inv_depth_eq :
 (assert (IH1 : forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ TCName c <-> |-[ k] v <$ t'1)).
 {
 (intros k v Hv).
-specialize (H k v Hv).
-(destruct H as [H1 H2]).
 (split; intros Hm).
++
