@@ -35,6 +35,8 @@ exists t'.
 (split; intros w; exists w; tauto).
 Qed.
 Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
-Proof.
-(intros k).
-(destruct k; intros w1; exists w1; intros v Hm).
+(intros k; intros w1; exists w1; intros v Hm).
+(destruct w1).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
