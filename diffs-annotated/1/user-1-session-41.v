@@ -549,13 +549,6 @@ Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
 Hint Resolve singleton_eq: agt.
 (eapply alpha_fun_inversion in H0; eauto).
-all:
- (repeat
-   match goal with
-   | H:exists _, _ |- _ => destruct H
-   | H:_ \/ _ |- _ => inversion H; clear H
-   end).
-subst.
-(inversion H3).
-subst.
-f_equal.
+(f_equal; eauto).
+-
+(intros; eauto).
