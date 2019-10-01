@@ -141,5 +141,4 @@ step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
-(simpl).
-step_proc.
+Check d.read_ok.
