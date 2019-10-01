@@ -99,33 +99,5 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-(rewrite rename__size).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(apply (well_founded_lt_compat ty size)).
-(intros).
-tauto.
-Defined.
+Proof.
+(try (solve [ intros; simpl; Omega.omega ])).
