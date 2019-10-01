@@ -130,7 +130,7 @@ for i in range(len(group_ends) - 1):
             if new_cumulative[curr_index] != "":
                 new = new_cumulative[curr_index]
                 f.write(new + "\n")
-        if group_failures[j] is True:
+        if len(group_failures) > j && group_failures[j] is True:
             f.write("(* Failed. *)\n")
 
     # Now switch to use the new cumulative file
@@ -153,6 +153,4 @@ if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
             if new_cumulative[curr_index] != "":
                 new = new_cumulative[curr_index]
                 f.write(new + "\n")
-        if group_failures[-1] is True:
-            f.write("(* Auto-generated comment: Failed. *)\n")
 
