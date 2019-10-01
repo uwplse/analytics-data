@@ -143,4 +143,5 @@ Proof.
 (unfold rec_wipe).
 (intros).
 (apply spec_abstraction_compose; simpl).
-(step_proc; intuition).
+step_proc.
+(destruct a; simpl in *).
