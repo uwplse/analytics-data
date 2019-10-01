@@ -314,9 +314,9 @@ Proof.
                  try (solve [ apply match_ty_i_union_1; assumption | apply match_ty_i_union_2; assumption ])
           end
    end).
-Qed.
-Lemma match_ty_i_nf' : forall k : nat, forall v t : ty, |-[ k] v <$ t <-> |-[ k] v <$ MkNF( t).
-(induction k; intros v t; generalize dependent v; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ]);
+Lemma match_ty_i_nf' : forall k : nat, forall t v : ty, |-[ k] v <$ t <-> |-[ k] v <$ MkNF( t).
+Proof.
+(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ]);
   try
    match goal with
    | Hm:|-[ _] ?v <$ TPair ?t1 ?t2
@@ -346,18 +346,4 @@ clear IHt.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 (intros v; specialize (IHk v t); specialize (Href v)).
-tauto.
--
-clear IHt.
-(rewrite mk_nf_ref in Hm).
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(simpl).
-(intros v; specialize (IHk v t); specialize (Href v)).
-tauto.
-Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
-Proof.
-(intros t k).
-(pose proof (match_ty_i_nf' k t) as H).
-(intros v).
-specialize (H v).
+(split; tauto).
