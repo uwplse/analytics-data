@@ -19,5 +19,8 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Theorem log_length_ok_nil d : diskGet d 0 = Some 0 -> log_length_ok d [].
-(* Failed. *)
+Theorem log_length_ok_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d [].
+Proof.
+(unfold log_length_ok; intros).
+(rewrite H).
