@@ -53,5 +53,3 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-intuition.
-(step_proc; intros).
