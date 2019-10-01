@@ -458,6 +458,8 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem log_length_ok_unchanged d bs :
+Theorem log_length_ok_unchanged d bs d' :
   log_length_ok d bs ->
   diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
+Proof.
+(unfold log_length_ok; intros; congruence).
