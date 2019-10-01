@@ -59,4 +59,4 @@ Print Morphisms.respectful.
 Print Morphisms.Proper.
 Search -Morphisms.Proper.
 Search -Morphisms.Proper.
-specialize (Hfact _ _ _ _ Ht).
+specialize (Hfact _ _ _ _ _ Ht).
