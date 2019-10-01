@@ -377,3 +377,10 @@ tauto.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
+Proof.
+(induction k; induction v).
+4: {
+idtac.
+(intros Hm k' Hle).
+(inversion Hle; subst).
+asumption.
