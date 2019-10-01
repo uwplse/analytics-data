@@ -16,5 +16,7 @@ Function
    | _ =>
        let base := S (S base_m2) in
        let digit := x `mod` base in
-       exist (fun x => x < base) digit _ :: nat_to_le base_m2 (x / base)
+       exist (fun x => x < base) digit mod_S_lt
+       :: nat_to_le base_m2 (x / base)
    end.
+(* Failed. *)
