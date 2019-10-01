@@ -971,4 +971,3 @@ gen \207\129.
 (intros \207\129).
 remember_differences.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-(repeat rewrite Mmult_assoc).
