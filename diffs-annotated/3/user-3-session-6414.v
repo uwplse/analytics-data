@@ -19,6 +19,4 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-(eapply log_abstraction_nil; eauto).
-autorewrite with disk.
-(* Failed. *)
+autorewrite with core.
