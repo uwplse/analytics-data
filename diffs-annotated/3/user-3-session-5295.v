@@ -179,7 +179,9 @@ Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
 {
 step.
-(destruct r; intuition eauto; simplify).
-}
-(destruct (lt_dec a (diskSize a'))).
 -
+eauto.
+-
+simplify.
+(destruct r; step).
+(* Failed. *)
