@@ -212,4 +212,4 @@ assumption.
 -
 exfalso.
 refine (_ _).
-(apply evalIntInj).
+(apply evalIntInj; eauto).
