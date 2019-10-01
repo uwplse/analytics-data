@@ -252,5 +252,4 @@ Lemma add_cok n :
   proc_hspec Var.dynamics (impl.(compile_op) (DB.Add n)) (add_hspec n).
 Proof.
 (repeat newstep; auto).
-(destruct state0; simpl; auto).
-(simpl).
+step_ret.
