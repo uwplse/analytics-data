@@ -135,4 +135,16 @@ Proof.
 (simpl).
 reflexivity.
 Qed.
-Definition nandb (b1 : bool) (b2 : bool) : bool.
+Definition nandb (b1 : bool) (b2 : bool) : bool := negb (andb b1 b2).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqEGZdnC"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOPvcFz"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_nandb1 : nandb true false = true.
+reflexivity.
+Qed.
