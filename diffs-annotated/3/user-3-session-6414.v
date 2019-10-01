@@ -24,4 +24,8 @@ Fixpoint get_upto (a : addr) : proc (list block) :=
   | 0 => Ret []
   | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [b])
   end.
+Definition append (bs : list block) : proc bool :=
+  size <- d.size;
+  len <- get_len;
+  (if le_dec (1 + len + length bs) size then append_at len bs else Ret false).
 (* Failed. *)
