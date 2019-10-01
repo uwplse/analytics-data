@@ -287,4 +287,4 @@ Proof.
 (unfold log_contents_ok; intros).
 (specialize (H a); intuition).
 (unfold log_addr in *).
-lia.
+(rewrite diskUpd_oob_eq).
