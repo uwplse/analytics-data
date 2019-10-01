@@ -154,4 +154,20 @@ Lemma fair_toss : (\226\159\166 coin_flip \226\159\167) (I 1) == fair_coin.
 Proof.
 matrix_denote.
 Msimpl.
-lma.
+solve_matrix.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqi1digG"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Hint Unfold super_Zero: den_db.
+Proposition flips_lift_correct :
+  forall n, (\226\159\166 coin_flips_lift n \226\159\167) (I 1) == biased_coin (1 / 2 ^ n).
+Proof.
+(induction n).
++
+matrix_denote.
+Msimpl.
+solve_matrix.
++
+(simpl).
+matrix_denote.
