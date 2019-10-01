@@ -23,10 +23,6 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
-Theorem log_contents_ok_unchanged d bs a0 b :
-  log_size_ok d bs ->
-  log_contents_ok d bs ->
-  a0 >= length bs -> log_contents_ok (diskUpd d (log_addr a0) b) bs.
-Proof.
-(unfold log_size_ok, log_contents_ok; intros).
-(destruct (log_addr a == a0); subst; autorewrite with upd; auto).
+(destruct (a == a0); subst; autorewrite with upd; auto).
+(rewrite diskUpd_oob_eq; simpl; auto).
+(* Failed. *)
