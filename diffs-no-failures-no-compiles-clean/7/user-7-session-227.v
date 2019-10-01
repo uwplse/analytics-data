@@ -100,4 +100,4 @@ Search -IdSet.singleton.
 subst.
 exfalso.
 (apply Hin).
-(apply IdSet.Facts.singleton_1).
+(apply IdSetFacts.singleton_1).
