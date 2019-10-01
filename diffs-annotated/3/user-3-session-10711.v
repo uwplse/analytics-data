@@ -422,33 +422,28 @@ Proof.
 -
 (unfold log_length_ok in *; intros; autorewrite with upd list in *).
 (simpl in *; intuition).
--
-(unfold log_size_ok in *; autorewrite with upd list in *).
-lia.
--
-(apply log_contents_ok_len_change; auto).
-Qed.
-Hint Resolve log_abstraction_commit: core.
-Theorem log_length_ok_unchanged d bs d' :
-  log_length_ok d bs ->
-  diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
-Proof.
-(unfold log_length_ok; intros).
-(rewrite H0 in *).
-eauto.
-Qed.
-Hint Resolve log_length_ok_unchanged: core.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step.
 (exists bs; intuition eauto).
-destruct matches.
--
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto using log_abstraction_preserved).
+}
 step.
+intuition.
+{
+(exists bs; eauto using log_abstraction_preserved).
+}
+step.
+intuition.
+{
 (exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+}
+{
+(exists (bs ++ v); intuition).
+}
+step.
+intuition.
+{
+(exists (bs ++ v); intuition eauto).
