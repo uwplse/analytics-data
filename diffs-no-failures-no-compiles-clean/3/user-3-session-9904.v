@@ -126,3 +126,4 @@ exfalso.
 intuition.
 +
 (exists (n0 :: s); intuition).
+(lia right; intuition congruence).
