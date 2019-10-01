@@ -39,5 +39,4 @@ Lemma X_spec :
   forall b safe : bool,
   denote_box safe (boxed_gate _X) (bool_to_matrix b) == bool_to_matrix (\194\172 b).
 Proof.
-(intros).
 vector_denote.
