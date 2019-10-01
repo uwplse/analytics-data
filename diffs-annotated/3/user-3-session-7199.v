@@ -23,6 +23,4 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
-(exists (a' ++ [a]); intuition eauto; autorewrite with upd in *; eauto).
-+
-(rewrite app_length; simpl; lia).
+Hint Rewrite app_length : length.
