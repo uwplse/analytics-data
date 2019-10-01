@@ -161,5 +161,3 @@ Theorem ret_spec :
     wipe state state' -> forall r, recovered (spec a state) r state')) ->
   proc_spec spec (Ret v) rec abs.
 Proof.
-(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
-intuition eauto.
