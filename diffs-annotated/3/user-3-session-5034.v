@@ -114,7 +114,31 @@ Proof.
 step_proc.
 (destruct a'; simpl in *; intuition; subst; eauto).
 {
-(step_proc; intuition; subst; eauto).
 +
+(exists (S (length blocks)); simpl).
+(rewrite firstn_all).
 (autorewrite with upd; auto).
-+
+}
+(destruct H).
+(exists (S n); simpl).
+(autorewrite with upd; auto).
+}
+{
+(exists 0; simpl; auto).
+}
+{
+(exists 1; simpl; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTKl2We"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquJ5xfY"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
