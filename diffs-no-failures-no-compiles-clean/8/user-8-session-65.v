@@ -1253,3 +1253,4 @@ Proof.
 (rewrite add_fresh_split).
 (simpl).
 (unfold denote_db_circuit).
+(simpl).
