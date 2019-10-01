@@ -20,4 +20,5 @@ Proof.
 exists (TCName c).
 (apply match_ty_cname).
 -
-(simpl in *).
+(simpl in Hm).
+(simpl).
