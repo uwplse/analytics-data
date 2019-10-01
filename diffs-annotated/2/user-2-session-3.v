@@ -14,6 +14,8 @@ Redirect "/tmp/coqBL0Wgk" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Require Import Analytical.Analytics.
-Redirect "/tmp/coqP4bYp5" Print Ltac Signatures.
+Require Import Analytical.Analytics.
+Redirect "/tmp/coq6eiIGi" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
+Test Debug Analytics.
