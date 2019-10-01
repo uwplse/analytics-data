@@ -39,6 +39,7 @@ with open(fpath, 'r') as f:
         if cancel_match is None:
             _, *lines = re.split("\s*\(\*", group)
             line_num = 0
+            lines_buff = []
             for _, line in enumerate(lines):
                 line = "(*" + line.strip()
                 state_num = int(re.search("\(\*(\d+):\*\)", line).group(1))
@@ -47,17 +48,17 @@ with open(fpath, 'r') as f:
                 if line_num == len(lines) - 1:
                     group_ends.append(state_num)
                 line = re.sub("\(\*(\d+):\*\)\s+", "", line)
-                lines[line_num] = line
+                lines_buff.append(line)
                 # Deal with missing states
                 if line_num > 0 and state_num > max_state:
                     diff = state_num - max_state
                     for i in range(diff):
                         line_num = line_num + 1
-                        lines[line_num] = "(* Auto-generated comment: Missing state. *)"
+                        lines_buff.append("(* Auto-generated comment: Missing state. *)")
                     max_state = state_num
                 line_num = line_num + 1
             if (len(lines) > 0):
-                group_lines.append(lines)
+                group_lines.append(lines_buff)
         else:
             state_num = int(re.search("([0-9]+)\*\)", group).group(1))
             if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
