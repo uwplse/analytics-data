@@ -11,6 +11,7 @@ From Coq Require Export String.
 Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   match x with
   | 0 => nil
-  | _ => exist _ (x mod S base) _ :: nat_to_le base x / S base
+  | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
   end.
-(* Failed. *)
+Next Obligation.
+(simpl).
