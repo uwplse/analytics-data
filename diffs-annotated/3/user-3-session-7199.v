@@ -142,3 +142,4 @@ step_proc.
 step_proc.
 intuition eauto.
 (unfold log_abstraction in H0; intuition).
+(apply H1 in H).
