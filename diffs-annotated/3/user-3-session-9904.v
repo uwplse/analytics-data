@@ -54,3 +54,39 @@ Proof.
 lia.
 Qed.
 step_proc.
+(destruct a'; simpl in *; intuition).
+(step_proc; intuition).
+(step_proc; intuition).
+(step_proc; intuition).
+(step_proc; intuition).
+{
+(exists (v :: s); intuition auto).
+(unfold statdb_abstraction in *; simpl in *).
+intuition lia.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNjwiwf"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDsSWTC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem mean_ok : proc_spec mean_spec mean recover abstr.
+Proof.
+(unfold mean).
+(intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
+(destruct a'; simpl in *; intuition idtac).
+(destruct (r == 0)).
+-
+(step_proc; intuition).
+{
+eauto.
+}
