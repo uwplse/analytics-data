@@ -379,5 +379,6 @@ Hint Resolve append_at_ok: core.
 Theorem log_abstraction_preserved d bs d' :
   log_abstraction d bs ->
   diskGet d' len_addr = diskGet d len_addr ->
-  diskSize d' = diskSize d ->
-  log_contents_ok d' bs -> log_abstraction d' bs Proof.
+  diskSize d' = diskSize d -> log_contents_ok d' bs -> log_abstraction d' bs.
+Proof.
+(unfold log_abstraction, log_length_ok, log_size_ok; intros).
