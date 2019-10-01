@@ -53,5 +53,4 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-congruence.
-(* Failed. *)
+(unfold statdb_abstraction in *).
