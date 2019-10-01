@@ -25,8 +25,8 @@ symmetry in e.
 contradiction.
 -
 assumption.
-Qed.
 Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fresh_in_ty X t -> |-[ w] v <$ t -> |-[ w] v <$ [X := s] t.
+Proof.
 (intros X s; induction w; induction t; intros v HX Hm;
   try (solve
    [ rewrite subst_cname in *; assumption
@@ -74,3 +74,13 @@ assumption.
 *
 (destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
 (apply match_ty_union_1; auto).
+(apply match_ty_union_1).
+admit.
+*
+admit.
+*
+admit.
++
+admit.
++
+(apply match_ty_exist__iv in Hm').
