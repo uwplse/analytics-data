@@ -20,4 +20,4 @@ Proof.
 exists (TCName c).
 (apply match_ty_cname).
 -
-(simpl).
+Check subs.
