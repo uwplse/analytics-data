@@ -969,5 +969,6 @@ gen \207\129.
 (simpl).
 (rewrite Nat.mul_1_r).
 (rewrite Lt).
-(rewrite Nat.pow_add_r, <- (Nat.mul_1_r i)).
-(intros \207\129 intros \207\129).
+(rewrite Nat.pow_add_r, <- (Nat.mul_1_r (2 ^ i))).
+(intros \207\129).
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
