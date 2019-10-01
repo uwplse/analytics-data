@@ -48,7 +48,12 @@ Ltac
 Search -IdSet.empty.
 Search -IdSet.Equal.
 Search -IdSet.In.
-(pose proof IdSetFacts.In_m).
-Search -Morphisms.Proper.
-Search -Morphisms.respectful.
+(pose proof IdSetFacts.In_m as Hfact).
 (destruct (IdSetFacts.empty_iff X) as [H _]).
+(apply H).
+auto.
+Search -Morphisms.respectful.
+Print iff.
+Print Morphisms.respectful.
+Search -IdSet.Equal.
+Print Morphisms.Proper.
