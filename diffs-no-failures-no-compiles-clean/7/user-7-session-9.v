@@ -51,4 +51,4 @@ Proof.
 *
 (intros Hnf2'; intros Hsub1 Hsub2).
 (rewrite unite_pairs_atom_union; try assumption).
-(apply sub_r_union_l__inv in Hsub2; try assumption).
+(apply sub_r_union_l__inv in Hsub2; assumption).
