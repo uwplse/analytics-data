@@ -453,4 +453,35 @@ Theorem log_length_ok_unchanged d bs d' :
 Proof.
 (unfold log_length_ok; intros).
 (rewrite H0 in *).
-(descend; intuition eauto).
+destruct matches.
+-
+step.
+(exists bs; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto using log_abstraction_preserved).
+}
+step.
+intuition.
+{
+(exists bs; eauto using log_abstraction_preserved).
+}
+step.
+intuition.
+{
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+}
+{
+(exists (bs ++ v); intuition).
+}
+step.
+intuition.
+{
+(exists (bs ++ v); intuition eauto).
+}
+{
+(exists bs; intuition eauto).
+}
