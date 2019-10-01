@@ -113,32 +113,15 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 step_proc.
 (destruct a'; simpl in *; intuition; subst; eauto).
-{
-+
-(exists (S (length blocks)); simpl).
-(rewrite firstn_all).
-(autorewrite with upd; auto).
-}
-(destruct H).
-(exists (S n); simpl).
-(autorewrite with upd; auto).
-}
-{
-(exists 0; simpl; auto).
-}
-{
-(exists 1; simpl; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTKl2We"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-}
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquJ5xfY"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+Theorem append_helper_ok :
+  forall blocks start,
+  proc_spec (append_helper_spec start blocks) (append_helper start blocks)
+    d.recover d.abstr.
+Proof.
+(induction blocks; simpl; intros).
+-
+(step_proc; intuition; subst; eauto).
+(exists 0; simpl).
+reflexivity.
+-
+(step_proc; intuition).
