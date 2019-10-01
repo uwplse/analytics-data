@@ -244,5 +244,5 @@ Abort.
 Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
 (match goal with
- | Hsem:||-[ ?k][?t]<= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
+ | Hsem:||-[ ?k][?t]= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
  end).
