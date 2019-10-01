@@ -1107,11 +1107,4 @@ omega.
 -
 (apply H_c2; auto).
 Qed.
-Lemma denote_box_id_circ : forall b w \207\129, denote_box b (id_circ : Box w w) \207\129 = \207\129.
-Proof.
-(intros b w \207\129).
-(simpl).
-autounfold with den_db.
-(simpl).
-(rewrite add_fresh_split; simpl).
-(rewrite subst_pat_fresh_empty).
+Lemma denote_box_id_circ : forall b w \207\129, denote_box b (id_circ : Box w w) \207\129 == \207\129.
