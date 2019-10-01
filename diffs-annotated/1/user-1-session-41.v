@@ -281,5 +281,3 @@ Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
 Import Coq.Lists.List.ListNotations.
-all: (induction l; simpl; eauto with math).
-Qed.
