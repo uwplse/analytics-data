@@ -416,3 +416,5 @@ eauto using log_abstraction_preserved.
 step_proc.
 intuition.
 {
+eauto using log_abstraction_preserved.
+}
