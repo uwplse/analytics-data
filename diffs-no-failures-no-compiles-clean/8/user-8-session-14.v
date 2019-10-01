@@ -186,4 +186,3 @@ Proof.
 (intros).
 (induction g).
 +
-(rewrite Nat.mul_1_r).
