@@ -53,4 +53,8 @@ Proof.
 (intros t' X' Hfresh Hsem).
 (simpl in *).
 (apply sem_sub__trans with (TCName c); try assumption).
-(apply sem_sub_k_exist_fresh_l).
+(apply sem_sub_exist_fresh_l).
+(unfold fresh_in_ty, fresh).
+(simpl).
+Search -IdSet.empty.
+(apply IdSetFacts.empty_iff).
