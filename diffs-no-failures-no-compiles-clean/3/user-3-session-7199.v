@@ -339,4 +339,4 @@ step_proc.
 (apply log_contents_ok_unchanged; eauto).
 }
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl).
+(unfold spec_impl; intros).
