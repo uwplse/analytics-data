@@ -22,6 +22,15 @@ Timeout 1 Print LoadPath.
 Fixpoint get_upto (a : addr) : proc (list block) :=
   match a with
   | 0 => Ret []
-  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [a])
+  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [b])
   end.
-(* Failed. *)
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQAqVu1"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmIHFZM"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition get : proc (list block).
