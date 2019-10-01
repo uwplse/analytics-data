@@ -283,15 +283,9 @@ econstructor.
 Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
-Inductive GT : Type :=
-  | GDyn : GT
-  | GInt : GT
-  | GBool : GT
-  | GRec : list (option (Ann * GT)) -> GT
-  | GRow : list (option (option (Ann * GT))) -> GT.
-Definition SetST := Ensemble ST.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
+  | GInt => Singleton _ SInt
   | _ => Empty_set _
   end.
