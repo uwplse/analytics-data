@@ -214,3 +214,6 @@ Definition equal_after a (d_0 d_1 : disk) :=
   (forall a', a <= a' -> diskGet d_0 a' = diskGet d_1 a').
 Theorem le_eq_or_S_le : forall n m, n <= m -> n = m \/ S n <= m /\ n <> m.
 Proof.
+(destruct r).
+-
+step.
