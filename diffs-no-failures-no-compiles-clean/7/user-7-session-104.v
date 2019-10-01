@@ -121,5 +121,7 @@ Proof.
 (intros X t1 t2 k).
 (intros w1).
 exists w1.
-(intros v Hm).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]).
+-
 (destruct w1).
