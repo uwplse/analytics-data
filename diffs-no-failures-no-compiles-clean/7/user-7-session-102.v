@@ -69,7 +69,7 @@ Fixpoint match_ty (k : nat) :=
         | S k, _, TRef t', TRef t =>
             (forall w1, exists w2, forall v, |-[ k, w1] v <$ t' -> |-[ k, w2] v <$ t) /\
             (forall w1, exists w2, forall v, |-[ k, w1] v <$ t -> |-[ k, w2] v <$ t')
-        | _, S w', v, TExist X t' => exists tx, mtyw w' v ([X := tx] t')
+        | _, S w, v, TExist X t' => exists tx, mtyw w v ([X := tx] t')
         | _, _, TEV X, TVar X' => X = X'
         | _, _, TEV X, TEV X' => X = X'
         | _, _, _, _ => False
