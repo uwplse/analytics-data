@@ -99,4 +99,5 @@ exists w1.
 (destruct w1; simpl; tauto).
 -
 (apply match_ty_ref__inv in Hm).
-(apply match_ty_ref; assumption).
+(apply match_ty_ref).
+(apply sem_eq_k__trans with t').
