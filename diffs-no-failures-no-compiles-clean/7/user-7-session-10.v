@@ -190,8 +190,8 @@ tauto.
 (destruct (in_nf_union__inv _ _ Hnfm1) as [Hnfm11 Hnfm12]).
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
 (destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
-+
 (remember (TUnion t1 t2) as ty eqn:Heqy ).
 (induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
 +
 (constructor; auto).
+-
