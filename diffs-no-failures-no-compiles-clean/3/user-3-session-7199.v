@@ -359,5 +359,3 @@ Proof.
 (unfold get; intros).
 step_proc.
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intuition).
-(descend; intuition eauto).
