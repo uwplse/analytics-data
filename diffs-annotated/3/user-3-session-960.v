@@ -8,4 +8,5 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii.
+Search -Ascii.ascii.
+Print Ascii.byte_of_ascii.
