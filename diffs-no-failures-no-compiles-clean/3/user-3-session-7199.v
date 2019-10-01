@@ -357,4 +357,6 @@ reflexivity.
 -
 (assert (a < length bs)).
 {
-(rewrite length_app in *).
+(rewrite app_length in *; simpl in *; lia).
+}
+(rewrite diskUpd_neq).
