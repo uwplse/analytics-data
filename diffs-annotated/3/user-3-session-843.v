@@ -1465,3 +1465,5 @@ rewrite Heq.
 eauto.
 -
 (simpl).
+(do 2 eexists; split; econstructor).
+(* Failed. *)
