@@ -142,5 +142,4 @@ step_proc.
 step_proc.
 intuition eauto.
 Check proc_spec_weaken.
-(unfold spec_impl; intros).
-(destruct a0 as [_ bs]).
+(destruct a0 as [_ bs]; simpl in *).
