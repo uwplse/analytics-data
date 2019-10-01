@@ -553,4 +553,4 @@ generalize dependent G'.
 (induction H).
 -
 -
-(intros).
+(intros; inversion H0; eauto).
