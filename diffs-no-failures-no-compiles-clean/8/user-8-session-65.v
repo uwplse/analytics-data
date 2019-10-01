@@ -1248,4 +1248,4 @@ Lemma denote_box_compat :
 Proof.
 (intros).
 (induction c).
-(simpl).
+-
