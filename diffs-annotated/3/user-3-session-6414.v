@@ -19,5 +19,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Module Log (d: OneDiskAPI)<: LogAPI.
 Definition init : proc InitResult.
+Print OneDiskAPI.
+Timeout 1 Locate Ltac OneDiskAPI.
+(* Failed. *)
