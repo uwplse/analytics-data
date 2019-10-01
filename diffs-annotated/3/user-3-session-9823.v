@@ -8,3 +8,4 @@ Add Search Blacklist "Private_" "_subproof".
 Require Import POCS.
 Require Import OneDiskAPI.
 Require Import BadBlockAPI.
+(destruct a'; simpl in *; intuition).
