@@ -297,73 +297,22 @@ Proof.
 reflexivity.
 -
 reflexivity.
+(induction l).
+-
+(simpl).
+reflexivity.
+-
+(simpl).
+(rewrite IHl).
+reflexivity.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLdE67B"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLlCnnf"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem app_assoc :
-  forall l1 l2 l3 : natlist, (l1 ++ l2) ++ l3 = l1 ++ l2 ++ l3.
+Theorem rev_app_distr :
+  forall l1 l2 : natlist, rev (l1 ++ l2) = rev l2 ++ rev l1.
 Proof.
-(intros l1 l2 l3).
-(induction l1 as [| n l1' IHl1']).
--
-reflexivity.
--
-(simpl).
-(rewrite IHl1').
-reflexivity.
-Qed.
-Fixpoint rev (l : natlist) : natlist :=
-  match l with
-  | nil => nil
-  | h :: t => rev t ++ [h]
-  end.
-Example test_rev1 : rev [1; 2; 3] = [3; 2; 1].
-Proof.
-reflexivity.
-Qed.
-Example test_rev2 : rev nil = nil.
-Proof.
-reflexivity.
-Qed.
-Theorem rev_length_firsttry : forall l : natlist, length (rev l) = length l.
-Proof.
-(intros l).
-(induction l as [| n l' IHl']).
--
-reflexivity.
--
-(simpl).
-(rewrite <- IHl').
-Abort.
-Theorem app_length :
-  forall l1 l2 : natlist, length (l1 ++ l2) = length l1 + length l2.
-Proof.
-(intros l1 l2).
-(induction l1 as [| n l1' IHl1']).
--
-reflexivity.
--
-(simpl).
-(rewrite IHl1').
-reflexivity.
-Qed.
-Theorem rev_length : forall l : natlist, length (rev l) = length l.
-Proof.
-(intros l).
-(induction l as [| n l' IHl']).
--
-reflexivity.
--
-(simpl).
-(rewrite app_length, plus_comm).
-(simpl).
-(rewrite IHl').
-reflexivity.
-Qed.
-Theorem app_nil_r : forall l : natlist, l ++ [ ] = l.
-Proof.
-(simpl).
+(induction l1).
