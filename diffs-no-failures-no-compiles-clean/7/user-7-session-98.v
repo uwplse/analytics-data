@@ -140,4 +140,5 @@ specialize (Hcontra 2).
 specialize (Hcontra _ Hm).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hmx]).
-(simpl in Hmx).
+(assert (Heq : [vY := tx] TRef (TRef tY) = TRef (TRef tx))).
+reflexivity.
