@@ -239,40 +239,14 @@ Example test_oddmembers : oddmembers [0; 1; 0; 2; 3; 0; 0] = [1; 3].
 Proof.
 reflexivity.
 Qed.
-Fixpoint count (v : nat) (s : bag) : nat :=
-  match s with
-  | [ ] => 0
-  | x :: s => (if beq_nat x v then 1 else 0) + count v s
-  end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZJhIxJ"
+Qed.
+Definition add (v : nat) (s : bag) : bag := v :: s.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3379k5"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmV969N"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdjcOCO"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Example test_count1 : count 1 [1; 2; 3; 1; 4; 1] = 3.
-Proof.
-reflexivity.
-Qed.
-Example test_count2 : count 6 [1; 2; 3; 1; 4; 1] = 0.
-Proof.
-reflexivity.
-Qed.
-Definition sum : bag -> bag -> bag := app.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJaAeme"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxgre7c"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Example test_sum1 : count 1 (sum [1; 2; 3] [1; 4; 1]) = 3.
-Proof.
-reflexivity.
-QEd.
-(* Failed. *)
