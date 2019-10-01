@@ -235,4 +235,7 @@ dependent destruction WT.
 (destruct g).
 -
 (simpl).
+(unfold compose_super).
 (erewrite VA).
+reflexivity.
+(eapply t0; [ apply pf1 | apply t ]).
