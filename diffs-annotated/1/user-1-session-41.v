@@ -549,5 +549,8 @@ Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
 Hint Resolve singleton_eq: agt.
 all: (try (apply singleton_eq in H1; congruence)).
-destruct_pairs.
+all: (repeat match goal with
+             | H:exists _, _ |- _ => destruct H
+             end).
+all: congruence.
 (* Failed. *)
