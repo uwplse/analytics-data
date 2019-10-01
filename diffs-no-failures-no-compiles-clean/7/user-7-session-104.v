@@ -179,4 +179,7 @@ specialize (Hcontra 0).
 (assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hcontra _ Hm).
 clear Hm.
-(apply match_ty_ref__inv in hcontra).
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Hcontra _]]).
+(inversion Hcontra).
+-
