@@ -316,4 +316,3 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Anomaly "No printing rule found for "If _ _ else _"." Please report at http://coq.inria.fr/bugs/.
