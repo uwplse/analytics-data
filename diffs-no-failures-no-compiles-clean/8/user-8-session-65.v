@@ -1254,5 +1254,3 @@ Proof.
 (induction (c p)).
 -
 (simpl).
-autounfold with den_db.
-(rewrite H).
