@@ -40,5 +40,14 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Module Log (d: OneDiskAPI)<: LogAPI.
-End Log.
-(* Auto-generated comment: Failed. *)
+Print InitResult.
+Definition init : proc InitResult := Ret Initialized.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquZco2Z"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqK90UZB"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
