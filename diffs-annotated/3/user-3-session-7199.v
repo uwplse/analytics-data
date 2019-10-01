@@ -77,4 +77,8 @@ Theorem get_len_ok :
      {|
      pre := log_length_ok state bs;
      post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len recover abstr.
+     recovered := fun _ state' => state' = state |}) get_len recover d.abstr.
+Proof.
+(unfold get_len; intros).
+(apply spec_abstraction_compose).
+(* Failed. *)
