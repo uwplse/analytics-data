@@ -39,7 +39,7 @@ with open(fpath, 'r') as f:
         if cancel_match is None:
             _, *lines = re.split("\s*\(\*", group)
             line_num = 0
-            for line in enumerate(lines):
+            for _, line in enumerate(lines):
                 line = "(*" + line.strip()
                 state_num = int(re.search("\(\*(\d+):\*\)", line).group(1))
                 if line_num == 0:
