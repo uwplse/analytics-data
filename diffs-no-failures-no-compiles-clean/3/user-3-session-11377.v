@@ -195,4 +195,8 @@ Proof.
 (induction n as [| n' IHn']).
 -
 (simpl).
-(rewrite <- plus_n_O).
+reflexivity.
+-
+(simpl).
+(rewrite IHn').
+reflexivity.
