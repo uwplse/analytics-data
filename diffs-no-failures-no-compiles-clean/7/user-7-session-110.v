@@ -199,5 +199,5 @@ auto using match_ty_pair.
 auto using match_ty_pair.
 +
 (apply match_ty_union__inv in Hm2).
-(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
+(destruct w).
