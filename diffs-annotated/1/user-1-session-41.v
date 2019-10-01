@@ -281,5 +281,13 @@ Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
 Import Coq.Lists.List.ListNotations.
-Module GTeq.
-Fixpoint eq (G_1 G_2 : GT) : Prop := True.
+Fixpoint eq (G_1 G_2 : GT) : Prop :=
+  match G_1, G_2 with
+  | GInt, GInt => True
+  | GBool, GBool => True
+  | GFun G_11 G_12, GFun G_21 G22 => eq G_11 G_21 /\ eq G_12 G22
+  | GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2) =>
+      eq hd1 hd2 /\ eq (GRec tl1) (GRec tl2)
+  | _, _ => False
+  end.
+(* Failed. *)
