@@ -115,7 +115,7 @@ exists w2.
 (induction w1).
 Abort.
 Lemma xxx :
-  forall (X : id) (t : ty) (w1 k w2 : nat) (t' : ty) (X' : id),
+  forall (X : id) (w1 : nat) (t : ty) (k w2 : nat) (t' : ty) (X' : id),
   IdSet.In X (FV t) ->
   fresh_in_ty X' t' ->
   (forall v, |-[ k, w1] v <$ [X := TVar X'] t -> |-[ k, w2] v <$ t') -> forall tx : ty, forall v, |-[ k, w1] v <$ [X := tx] t -> |-[ k, w2] v <$ t'.
@@ -123,3 +123,11 @@ Proof.
 (intros X w1).
 (induction w1).
 admit.
+(intros t).
+(induction t).
+admit.
+admit.
+admit.
+admit.
+-
+(intros k w2 t' X' HX HX').
