@@ -8,8 +8,5 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-(destruct n; rewrite nat_to_le_equation; simpl).
--
-auto.
--
-generalize dependent S (S base).
+(assert (1 < S (S base)) by lia).
+(generalize dependent S (S base); intros base).
