@@ -1254,4 +1254,4 @@ Proof.
 (induction (c p)).
 -
 matrix_denote.
-(rewrite H).
+restore_dims.
