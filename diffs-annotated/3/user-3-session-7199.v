@@ -141,5 +141,6 @@ step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
-(proc_spec_weaken d.read_ok).
+Check proc_spec_weaken.
+(apply proc_spec_weaken).
 (* Failed. *)
