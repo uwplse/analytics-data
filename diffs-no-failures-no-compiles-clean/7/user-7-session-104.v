@@ -84,4 +84,14 @@ constructor.
 (apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; assumption).
 -
 (destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
-(eapply Nat.le_max_l).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+admit.
+-
+(destruct w).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
+(apply match_ty_exist in Hm).
