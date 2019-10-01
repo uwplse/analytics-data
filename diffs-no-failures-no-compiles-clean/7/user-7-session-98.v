@@ -148,4 +148,4 @@ clear Heq.
 (inversion Heq'; subst).
 clear Heq'.
 clear Hm.
-(assert (Hm : |-[ 1] TRef tx <$ TRef tx)).
+(assert (Hm : |-[ 1] TRef tx <$ TRef tx) by (apply match_ty_value_type__reflexive; constructor)).
