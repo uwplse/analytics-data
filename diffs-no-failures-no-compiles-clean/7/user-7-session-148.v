@@ -80,4 +80,16 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(apply sem_sub__trans).
+(apply sem_sub__trans; try assumption).
+(apply sem_sub_exist_fresh_l).
+(unfold fresh_in_ty, fresh).
+(simpl).
+(pose proof (IdSetFacts.empty_iff X) as H).
+tauto.
+-
+(intros t' X' Hfresh Hsem).
+(simpl in *).
+(induction t').
++
+(intros k).
+Check match_ty__exists_w_v.
