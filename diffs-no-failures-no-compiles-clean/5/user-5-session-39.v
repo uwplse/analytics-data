@@ -290,27 +290,3 @@ clear H.
 (apply six_div_two_unique).
 (eapply evalIntEq).
 -
-(erewrite evalTimes in H0; auto).
-+
-exact H0.
-+
-(rewrite evalVar).
-(rewrite extendEnv_eq).
-assumption.
-}
-subst.
-(rewrite H).
-(apply evalIntConst).
--
-exfalso.
-(rewrite evalIfFalse in H0).
-+
-refine (_ _).
-(apply evalBoolInj).
-(rewrite H0).
-(apply evalBoolConst).
-+
-assumption.
-}
-(erewrite <- H; reflexivity).
-Qed.
