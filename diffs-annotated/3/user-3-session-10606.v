@@ -378,3 +378,4 @@ intuition eauto.
 step.
 (intuition eauto; autorewrite with upd; auto).
 step.
+(exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
