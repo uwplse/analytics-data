@@ -24,3 +24,4 @@ Axiom
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
 (rewrite H; eauto).
+(unfold log_size_ok).
