@@ -54,6 +54,3 @@ eassumption.
 eassumption.
 (repeat constructor).
 -
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
-(simpl in Hm).
