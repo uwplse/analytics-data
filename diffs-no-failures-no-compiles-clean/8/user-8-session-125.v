@@ -105,5 +105,3 @@ specialize (denote_ctrls_unitary W _ U _ L) as inv.
 replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by (subst; easy).
 (unfold apply_U, apply_unitary, super).
 (destruct W; try (solve [ inversion HeqW ])).
-(rewrite denote_ctrls_transpose).
-(remember (denote_ctrls (\226\159\166 W3 \226\138\151 W4 \226\159\167) U li) as A).
