@@ -969,4 +969,5 @@ gen \207\129.
 (simpl).
 (rewrite Nat.mul_1_r).
 (rewrite Lt).
-(rewrite Nat.add_pow).
+Search -(_ ^ (_ + _)).
+(rewrite Nat.pow_add_r).
