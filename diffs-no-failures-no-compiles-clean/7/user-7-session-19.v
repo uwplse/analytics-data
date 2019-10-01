@@ -99,4 +99,4 @@ clear IHt'.
 (apply IHt).
 (intros k v).
 (assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
-(assert (Hmt' : |-[ S k] TRef t' <$ TRef t') by (simpl; tauto)).
+specialize (H (S k) (TRef t)).
