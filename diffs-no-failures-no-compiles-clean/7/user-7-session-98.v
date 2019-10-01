@@ -84,4 +84,5 @@ Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> v
 Proof.
 -
 (apply match_ty_exist__0_inv in Hm).
-tauto.
+auto.
+-
