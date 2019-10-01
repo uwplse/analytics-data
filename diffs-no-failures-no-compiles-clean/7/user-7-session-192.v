@@ -19,5 +19,4 @@ Proof.
 (simpl in H).
 (destruct (beq_idP X Y)).
 -
-subst.
-Search -IdSet.singleton.
+(pose proof (IdSetFacts.singleton_2 _ _ e)).
