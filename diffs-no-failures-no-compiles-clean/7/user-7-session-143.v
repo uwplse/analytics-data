@@ -102,3 +102,7 @@ specialize (IHt2 _ _ Hfresh2 Hsem2).
 (apply sem_sub_pair; assumption).
 +
 (intros k w1).
+admit.
++
+admit.
++
