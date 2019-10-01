@@ -95,8 +95,38 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TExist y t' =>
       if IdSet.mem y (FV s)
       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
-      else TExist y (if beq_id x y then t' else [x := s] t')
+      else TExist y (if beq_id x y then t' else subst x s t')
   | TVar y => if beq_id x y then s else t
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+Qed.
+Inductive value_type : ty -> Prop :=
+  | VT_CName : forall cn, value_type (TCName cn)
+  | VT_Pair : forall v1 v2, value_type v1 -> value_type v2 -> value_type (TPair v1 v2)
+  | VT_EV : forall X : id, value_type (TEV X).
+Hint Constructors value_type: DBBetaJulia.
+Declare Scope btjm_scope.
+Delimit Scope btjm_scope with btjm.
+Open Scope btjm.
+Reserved Notation "'|-[' w ']' v '<$' t" (at level 40).
