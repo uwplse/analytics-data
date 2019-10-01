@@ -19,17 +19,5 @@ Inductive term :=
   | App : term -> term -> term.
 Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Module TermNotations.
-Declare Scope coucou_scope.
-Notation "{ f a }" := (App f a) (f  at level 0, a  at level 0) : coucou_scope.
-Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
-Notation "[ x ]" := (Cons x Nil) : coucou_scope.
-Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
-  (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
-End TermNotations.
-Import TermNotations.
-Open Scope coucou_scope.
-Check [Nil (Ident "a") Nil].
-Redirect "/tmp/coqEk3t2K" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
+Check [Nil (Ident "a") {"myfun" "somArg"}].
+(* Failed. *)
