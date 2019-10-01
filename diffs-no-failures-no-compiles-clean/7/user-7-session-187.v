@@ -47,4 +47,17 @@ Qed.
 Lemma free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TUnion t1 t2) -> free_in_ty X t1 \/ free_in_ty X t2.
 Proof.
 (intros X t1 t2 HX).
-(unfold freee_in_ty in *).
+(unfold free_in_ty in *).
+(simpl in HX).
+Search -IdSet.union.
+(apply IdSetFacts.union_1).
+assumption.
+Qed.
+Lemma free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TPair t1 t2) -> free_in_ty X t1 \/ free_in_ty X t2.
+Proof.
+(intros X t1 t2 HX).
+(unfold free_in_ty in *).
+(simpl in HX).
+(apply IdSetFacts.union_1).
+assumption.
+Qed.
