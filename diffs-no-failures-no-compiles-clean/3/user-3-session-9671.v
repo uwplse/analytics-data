@@ -206,6 +206,6 @@ Theorem get_len_abstr_ok :
      recovered := fun _ state' => state' = state |}) get_len
     recover abstr.
 Proof.
-(apply spec_abstraction_compose).
 step.
-(destruct a as [[] bs]; simpl in *; intuition eauto).
+(destruct a' as [[] bs]; simpl in *; intuition eauto).
+(exists bs; intuition eauto).
