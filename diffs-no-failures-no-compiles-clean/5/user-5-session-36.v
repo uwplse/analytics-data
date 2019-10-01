@@ -265,5 +265,3 @@ clear H.
 (apply evalInInts in H; auto).
 (destruct H).
 (erewrite evalBoolConst in H0).
-+
-(rewrite <- evalEqTrue in H0).
