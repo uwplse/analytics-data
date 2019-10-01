@@ -422,4 +422,4 @@ Proof.
 (right; solve_not_x_sub_r_y_full).
 (rewrite mk_nf_nf__equal).
 reflexivity.
-(do 2 constructor).
+(do 2 constructor; assumption).
