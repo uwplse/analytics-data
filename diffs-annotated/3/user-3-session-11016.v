@@ -241,12 +241,21 @@ reflexivity.
 Qed.
 Qed.
 Definition add (v : nat) (s : bag) : bag := v :: s.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3379k5"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq89QAr9"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdjcOCO"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqydWFWT"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Example test_add1 : count 1 (add 1 [1; 4; 1]) = 3.
+Proof.
+reflexivity.
+Qed.
+Example test_add2 : count 5 (add 1 [1; 4; 1]) = 0.
+Proof.
+reflexivity.
+Qed.
+(* Failed. *)
