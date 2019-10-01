@@ -297,4 +297,6 @@ Proof.
 reflexivity.
 -
 reflexivity.
-(induction l1; simpl).
+(induction l1; simpl; intros).
+-
+(rewrite app_nil_r).
