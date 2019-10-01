@@ -73,4 +73,4 @@ Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
 step_proc.
 step_proc.
-intuition eauto.
+eauto.
