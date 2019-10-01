@@ -8,4 +8,5 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-(rewrite IHn).
+(rewrite IHn by (apply PeanoNat.Nat.mod_small; lia)).
+(* Failed. *)
