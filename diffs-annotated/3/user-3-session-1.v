@@ -439,5 +439,4 @@ Split.
 (destruct ret; firstorder).
 (destruct t; auto).
 Qed.
-(intros).
-(apply impl_spec_exec).
+(apply impl_spec_exec; auto).
