@@ -520,4 +520,7 @@ intuition.
 (exists bs; intuition eauto).
 }
 step.
-intuition eauto.
+intuition.
+{
+eauto.
+}
