@@ -95,27 +95,3 @@ inv_exec.
  end).
 (eapply H0 in H2; repeat deex).
 (eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
-(match goal with
- | Hexec:exec (rx _) _ _
-   |- _ =>
-       eapply RExecCrash in Hexec; eauto; eapply H4 in Hexec; simpl; eauto
- end).
-+
-(assert (Hexec : exec p w' (Crashed w')) by (constructor; eauto)).
-(eapply RExecCrash in Hexec; eauto).
-(eapply H0 in H2; repeat deex).
-(eapply H in Hexec; simpl in *; safe_intuition repeat deex; eauto).
-+
-inv_exec.
-(match goal with
- | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
- end).
-(eapply H0 in H2; repeat deex).
-(eapply H in H10; simpl in *; safe_intuition repeat deex; eauto).
-(match goal with
- | Hexec:exec (rx _) _ _
-   |- _ =>
-       apply ExecCrashEnd in Hexec; eapply RExecCrash in Hexec; eauto;
-        eapply H4 in Hexec; eauto
- end).
-+
