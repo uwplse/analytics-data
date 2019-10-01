@@ -23,8 +23,14 @@ Qed.
 (induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh; simpl).
 -
 (apply fresh_union__inv in Hfresh).
-(destruct Hfresh as [Hfresh1 Hfresh2]).
-(simpl).
 (rewrite IHt1; try assumption).
 (rewrite IHt2; try assumption).
 reflexivity.
+-
+(apply fresh_union__inv in Hfresh).
+(destruct Hfresh as [Hfresh1 Hfresh2]).
+(rewrite IHt1; try assumption).
+(rewrite IHt2; try assumption).
+reflexivity.
+-
+(rewrite Iht; try assumption).
