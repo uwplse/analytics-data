@@ -468,4 +468,9 @@ Proof.
 (unfold reset; intros).
 (apply spec_abstraction_compose).
 step_proc.
-(destruct a' as [[] bs]).
+(destruct a' as [[] bs]; simpl in *).
+intuition.
+{
+(descend; intuition eauto).
+}
+step_proc.
