@@ -19,9 +19,4 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-split.
--
-eauto using log_length_ok_nil.
--
 (exfalso; simpl in *; lia).
-(* Failed. *)
