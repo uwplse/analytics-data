@@ -1216,4 +1216,4 @@ Proof.
 (unfold apply_new0, super).
 Set Printing All.
 gen \207\129.
-(rewrite Nat.mul_1_r).
+(rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
