@@ -77,4 +77,5 @@ Msimpl.
 (rewrite Mmult_assoc).
 (unfold super).
 (simpl).
-specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li ?a ?b) as inv.
+specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
+(assert (inv : WF_Unitary (denote_ctrls (\226\159\166 W \226\159\167) U li))).
