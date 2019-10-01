@@ -100,6 +100,7 @@ constructor.
 (apply match_ty_i_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
 constructor.
+Qed.
 Lemma match_ty_i__transitive_on_value_type :
   forall v1 v2 t3 : ty, value_type v2 -> forall k : nat, |-[ k] v1 <$ v2 -> |-[ k] v2 <$ t3 -> |-[ k] v1 <$ t3.
 Proof.
@@ -124,6 +125,7 @@ auto using match_ty_i_pair.
 +
 (apply match_ty_i_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
+-
 (intros v1 t3 k Hm1 Hm2).
 (induction t3; try (solve [ destruct k; simpl in Hm2; contradiction ])).
 +
@@ -131,6 +133,7 @@ auto using match_ty_i_pair.
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
 +
 clear IHt3.
+(destruct k).
 (destruct v1; contradiction || constructor).
 (apply match_ty_i_ref__inv in Hm1).
 (destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
@@ -138,23 +141,12 @@ clear IHt3.
 (destruct Hm2 as [ty [Heqy Hrefy]]; inversion Heqy; subst).
 (simpl).
 (intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v); tauto).
+Qed.
 Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
 (assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem _ Hv Hm).
+specialize (Hsem _ Hm).
 (apply match_ty_i_union__inv in Hsem).
 (destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
-Qed.
-Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
-(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | |- | ?t1 | <= | ?t2 | =>
-           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-             (H _ Hm); contradiction) ||
-             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-               (H _ Hm); contradiction)
-     end ])).
-(assert (Hv : value_type (TCName c)) by constructor).
