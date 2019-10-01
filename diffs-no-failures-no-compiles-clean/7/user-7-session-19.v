@@ -79,4 +79,4 @@ Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> foral
           [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto; apply Max.le_max_l || apply Max.le_max_r
    end).
 -
-(destruct v; try contradiction).
+(destruct v; contradiction || constructor).
