@@ -119,4 +119,5 @@ lia.
 -
 (step_proc; intuition).
 (step_proc; intuition).
-(destruct s).
+(exists s; intuition).
+right.
