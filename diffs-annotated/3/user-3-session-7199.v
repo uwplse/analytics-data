@@ -24,6 +24,5 @@ Axiom
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
 (rewrite disk_oob_eq; simpl; auto).
-autorewrite with upd.
+intro.
 lia.
-(* Failed. *)
