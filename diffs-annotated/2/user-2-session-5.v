@@ -21,4 +21,5 @@ Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Notation "< a b >" := (Cons a b) (format "< a  b >", a  at level 0, b  at level 0) : coucou_scope.
 Check
-  [<Nil <Nil Nil>> (Cons (Ident "1") (Ident "2")) (Ident "a") {(Ident "myfun") (Ident "somArg")}].
+  [<Nil <Nil (Ident "hi")>> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  {(Ident "myfun") (Ident "somArg")}].
