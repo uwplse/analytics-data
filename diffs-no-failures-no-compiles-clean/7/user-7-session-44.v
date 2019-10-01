@@ -206,4 +206,4 @@ Proof.
 (intros k t1 t2 Hsem).
 (intros k t1 t2 Hsem1 Hsem2).
 (unfold sem_sub_k in *).
-(split; tauto).
+(split; auto).
