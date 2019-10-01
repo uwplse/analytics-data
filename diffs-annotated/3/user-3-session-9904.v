@@ -53,3 +53,6 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
+(step_proc; intros).
+(exists tt; simpl; intuition idtac).
+(* Failed. *)
