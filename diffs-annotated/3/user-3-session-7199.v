@@ -141,7 +141,6 @@ step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
-Proof.
-(apply rec_wipe_compose).
+(unfold recover).
+(apply d.recover_wipe).
 (* Failed. *)
