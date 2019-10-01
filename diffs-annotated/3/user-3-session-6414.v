@@ -20,7 +20,4 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 step_proc.
-step_proc.
-step_proc.
-step_proc.
-exists nil.
+(exists nil; eauto).
