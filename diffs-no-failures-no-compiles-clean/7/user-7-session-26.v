@@ -170,7 +170,12 @@ Qed.
 Lemma sem_sub_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
 auto with DBBetaJulia.
-Qed.
 Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
-(intros; split; auto).
+Proof.
+(intros; split; tauto).
 Qed.
+Lemma sem_eq_k__comm : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
+Proof.
+auto with DBBetaJulia.
+(intros k t1 t2 Hsem).
+auto with DBBetaJulia.
