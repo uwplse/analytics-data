@@ -392,4 +392,4 @@ Proof.
 specialize (H v).
 tauto.
 Qed.
-Search -sem_sub_nf.
+Search -sem_eq_nf.
