@@ -450,5 +450,4 @@ Proof.
 (unfold log_length_ok in *; intros; autorewrite with upd list in *).
 (simpl in *; intuition).
 -
-(unfold log_size_ok; autorewrite with upd list in *).
-lia.
+(unfold log_size_ok in *; autorewrite with upd list in *).
