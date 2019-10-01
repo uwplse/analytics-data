@@ -87,8 +87,6 @@ clear IHt.
 (apply le_S_n in Htk).
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
-Abort.
-Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t' -> | t | = | t' |.
+Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, (forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
 Proof.
-(induction t; induction t'; intros k v Hsemeq).
-reflexivity.
+(induction t; induction t'; H).
