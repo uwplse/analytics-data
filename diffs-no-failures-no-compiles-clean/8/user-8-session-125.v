@@ -139,4 +139,3 @@ Definition uniform (n : nat) : Matrix n n :=
 Lemma bias1 : biased_coin 1 = \226\136\1631\226\159\169\226\159\1681\226\136\163.
 Proof.
 (unfold biased_coin).
-(prep_matrix_equality; simpl).
