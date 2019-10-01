@@ -265,4 +265,3 @@ reflexivity.
 -
 (destruct (IHt k) as [v Hm]).
 exists v.
-(apply match_ty_exist).
