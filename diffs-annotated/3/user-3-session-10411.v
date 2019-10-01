@@ -95,4 +95,3 @@ inv_exec.
  end).
 (eapply H0 in H2; repeat deex).
 (eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
-(simpl; eauto).
