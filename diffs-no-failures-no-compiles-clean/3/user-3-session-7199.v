@@ -305,5 +305,3 @@ intuition eauto.
 -
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
