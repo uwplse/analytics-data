@@ -130,4 +130,6 @@ Proof.
 (unfold compose_super).
 (unfold HOAS_Equiv in *).
 (rewrite E2).
-(rewrite E1 by easy).
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq6o2iWY" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
