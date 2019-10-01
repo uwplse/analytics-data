@@ -122,5 +122,3 @@ econstructor.
 (apply ProofIrrelevanceTheory.subset_eq_compat).
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
-constructor.
-(intros).
