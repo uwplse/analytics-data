@@ -553,3 +553,5 @@ generalize dependent G'.
 (induction H).
 -
 -
+congruence.
+(* Failed. *)
