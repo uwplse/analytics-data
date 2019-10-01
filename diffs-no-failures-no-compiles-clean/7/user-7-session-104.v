@@ -124,6 +124,13 @@ exists w1.
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]).
 -
-(destruct w1).
++
 (apply match_ty_exist__0_inv in Hm).
 contradiction.
++
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl in Hmx).
+(apply match_ty_exist).
+exists tx.
+(apply match_ty_union_1).
