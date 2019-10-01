@@ -312,5 +312,7 @@ Proof.
 (intros).
 (induction d; simpl in *).
 -
-lia.
+(exfalso; lia).
 -
+(destruct d; simpl in *).
+lia.
