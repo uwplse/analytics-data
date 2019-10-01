@@ -7,4 +7,4 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
-Search -nat_to_le_func.
+Search -nat_to_le.
