@@ -455,4 +455,8 @@ Proof.
 (apply mk_nf__sub_d2; assumption).
 (apply nf_sem_sub__sub_d).
 (apply mk_nf__in_nf).
-(eapply sem_sub_i__trans; try eassumption).
+Admitted.
+Theorem sub_d__sem_sub_i : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
+Proof.
+(intros t1 t2 Hsub).
+(unfold sem_sub).
