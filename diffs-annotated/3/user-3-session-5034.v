@@ -114,4 +114,5 @@ Proof.
 step_proc.
 (destruct a'; simpl in *; intuition; subst; eauto).
 (step_proc; intuition; subst; eauto).
+{
 (step_proc; intuition; subst; eauto).
