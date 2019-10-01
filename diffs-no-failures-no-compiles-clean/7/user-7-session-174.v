@@ -129,4 +129,5 @@ Omega.omega.
 (unfold lt_size).
 (simpl).
 Omega.omega.
-Defined.
+-
+(simpl).
