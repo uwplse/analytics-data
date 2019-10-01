@@ -287,8 +287,6 @@ Print Forall.
 Print Forall2.
 Print map.
 Print option_map.
-Search -Ensemble.
-Check Ensembles.In.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
@@ -308,10 +306,9 @@ Fixpoint Gamma (G : GT) : SetST :=
                      fun OS =>
                      match OS with
                      | None => False
-                     | Some T => Ensembles.In (Gamma G) T
+                     | Some T => Ensembles.In _ (Gamma G) T
                      end
                  | (O, G) => Empty_set _
                  end)) l)
   | _ => Empty_set _
   end.
-(* Failed. *)
