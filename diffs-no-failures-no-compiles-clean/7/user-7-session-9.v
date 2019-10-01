@@ -26,3 +26,4 @@ Proof.
 (right; assumption).
 -
 (inversion Heq; subst).
+(inversion Heq; subst).
