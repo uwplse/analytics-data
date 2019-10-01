@@ -548,26 +548,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
 Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
 Hint Resolve singleton_eq: agt.
-specialize (H _ H7).
-specialize (H2 _ H7).
-2: specialize (H _ H4).
-all:
- (repeat
-   match goal with
-   | H:exists _, _ |- _ => destruct H
-   | H:_ \/ _ |- _ => inversion H; clear H
-   end).
-all: congruence.
--
-congruence.
-Qed.
-Lemma alpha_rec_inversion :
-  forall S,
-  (forall X, Ensembles.In _ S X -> exists l, X = SRec l) ->
-  forall G, Alpha S G -> (exists l, G = GRec l) \/ (exists l, G = GRow l).
-Proof.
-(intros).
-(inversion H0; subst).
+(inversion H0; subst; eauto).
 -
 specialize (H _ (In_singleton _ _)).
 (repeat
@@ -595,4 +576,37 @@ specialize (H2 _ H5).
   end).
 congruence.
 -
-eauto.
+congruence.
+Qed.
+Theorem alpha_is_partial_function : forall S G G', Alpha S G -> Alpha S G' -> G = G'.
+Proof.
+(intros).
+generalize dependent G'.
+(induction H).
+-
+(intros; inversion H0; subst; eauto).
+all: (try (apply singleton_eq in H1; congruence)).
+all: (try specialize (H1 _ (In_singleton _ _))).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+all: (try congruence).
+-
+(intros; inversion H0; subst; eauto).
+all: (try (apply singleton_eq in H1; congruence)).
+all: (try specialize (H1 _ (In_singleton _ _ _))).
+all: (try specialize (H1 _ (In_singleton _ _))).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+all: (try congruence).
+-
+(intros).
+(apply alpha_rec_inversion in H0; eauto).
+(* Failed. *)
