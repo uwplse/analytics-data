@@ -23,4 +23,4 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
-(destruct (a0 == S a); try lia).
+(destruct (a0 == S a); subst; try lia).
