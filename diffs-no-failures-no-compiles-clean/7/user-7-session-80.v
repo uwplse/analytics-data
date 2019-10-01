@@ -441,8 +441,112 @@ reflexivity.
 (destruct k; reflexivity).
 -
 (simpl in Heqdep).
+(assert (Hledep : Nat.max (| t1 |) (| t2 |) <= 0)).
+{
+(rewrite Heqdep).
+constructor.
+}
+(destruct (max_inv_depth_le__inv _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(split; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hvq Hv2]]]]; subst).
++
+(rewrite H0).
+(apply match_ty_pair; [ apply IHt1 | apply IHt2 ]; assumption).
++
+(rewrite H0 in *).
+(apply match_ty_pair; [ apply IHt1 | apply IHt2 ]; assumption).
+-
+(simpl in Heqdep).
 (assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
 {
 (rewrite Heqdep).
 constructor.
 }
+(destruct (max_inv_depth_le__inv _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(rewrite H0 in *).
+(split; intros Hm; apply match_ty_union__inv in Hm; destruct Hm; (solve
+  [ apply match_ty_union_1; apply IHt1; assumption | apply match_ty_union_2; apply IHt2; assumption ])).
+-
+(inversion Heqdep).
+Qed.
+Lemma match_ty__inv_depth_stable :
+  forall (t : ty) (k k' : nat), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Proof.
+(intros t k k').
+generalize dependent t.
+generalize dependent k'.
+(induction k; induction k').
+tauto.
+(intros).
+symmetry.
+(apply match_ty__inv_depth_0_stable).
+(inversion H).
+reflexivity.
+(intros).
+(apply match_ty__inv_depth_0_stable).
+(inversion H0).
+reflexivity.
+(induction t).
+-
+(intros; split; intros Hm; apply match_ty_cname__inv in Hm; subst; reflexivity).
+-
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k').
+specialize (IHt2 Ht2k Ht2k').
+(split; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hv1 Hv2]]]]; subst; specialize (IHt1 v1); specialize (IHt2 v2);
+  apply match_ty_pair; tauto).
+-
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k' v).
+specialize (IHt2 Ht2k Ht2k' v).
+(split; intros Hm; apply match_ty_union__inv in Hm; destruct Hm; (apply match_ty_union_1; tauto) || (apply match_ty_union_2; tauto)).
+-
+(intros Hk Hk' v).
+(split; intros Hm; apply match_ty_ref__inv in Hm; destruct Hm as [t' [Heq [[Hdept Hdept'] Href]]]; subst; simpl in Hk, Hk'; apply le_S_n in Hk;
+  apply le_S_n in Hk'; assert (Ht'k : | t' | <= k) by (rewrite Hdept'; assumption); assert (Ht'k' : | t' | <= k') by (rewrite Hdept'; assumption);
+  simpl; split; try tauto; clear IHt IHk'; intros v; specialize (IHk k'); pose proof IHk as IHk0; specialize (IHk t Hk Hk' v); specialize
+  (IHk0 t' Ht'k Ht'k' v); unfold sem_eq_k in Href; specialize (Href v); tauto).
+Qed.
+Lemma match_ty_k__match_ty_ge_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k', k' >= k -> |-[ k'] v <$ t.
+Proof.
+(intros k; induction k; intros v t; generalize dependent v; induction t; intros v Hm;
+  try (solve
+   [ apply match_ty_cname__inv in Hm; subst; intros; destruct k'; reflexivity
+   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heqp [Hv1 Hv2]]]]; subst; intros; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ];
+      eauto
+   | apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; intros k' Hk'; [ apply match_ty_union_1 | apply match_ty_union_2 ];
+      [ eapply IHt1 | eapply IHt2 ]; eassumption ])).
+-
+(destruct v; contradiction).
+-
+(pose proof Hm as Hmref).
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq [[Hdept Hdept'] Href]]]).
+subst.
+(intros k' Hk').
+(destruct k'; inversion Hk'; subst).
++
+assumption.
++
+(assert (Hk : k <= k') by (apply le_Sn_le; assumption)).
+(assert (Hdeptk' : | t | <= k') by (apply Nat.le_trans with k; assumption)).
+split.
+tauto.
+(pose proof (match_ty__inv_depth_stable t k k' Hdept Hdeptk') as Ht).
+(assert (Hdept'k : | t' | <= k) by (rewrite Hdept'; assumption)).
+(assert (Hdept'k' : | t' | <= k') by (rewrite Hdept'; assumption)).
+(pose proof (match_ty__inv_depth_stable t' k k' Hdept'k Hdept'k') as Ht').
+(intros v Hv; specialize (Href v Hv); split; intros Hm).
