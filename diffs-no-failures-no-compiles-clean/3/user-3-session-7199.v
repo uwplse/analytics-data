@@ -302,7 +302,7 @@ Theorem append_at_ok a bs' :
              diskGet state' len_addr = diskGet state len_addr /\
              diskSize state' = diskSize state /\
              log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state (bs ++ bs');
+             log_contents_ok state' (bs ++ bs');
      recovered := fun _ state' =>
                   diskGet state' len_addr = diskGet state len_addr /\
                   diskSize state' = diskSize state /\
