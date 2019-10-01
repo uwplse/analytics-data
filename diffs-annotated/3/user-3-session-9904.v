@@ -53,9 +53,5 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-(destruct s; intuition).
-+
-(unfold statdb_abstraction in *; simpl in *).
-intuition.
-+
 (exists (n0 :: s); intuition).
+(* Failed. *)
