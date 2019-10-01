@@ -53,4 +53,5 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-exists s.
+(exists s; intuition).
+(left; auto).
