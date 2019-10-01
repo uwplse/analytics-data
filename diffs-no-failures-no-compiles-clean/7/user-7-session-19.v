@@ -137,4 +137,4 @@ clear IHt3.
 (apply match_ty_i_ref__inv in Hm2).
 (destruct Hm2 as [ty [Heqy Hrefy]]; inversion Heqy; subst).
 (simpl).
-(intros v; auto).
+(intros v; split; intros Hm; auto).
