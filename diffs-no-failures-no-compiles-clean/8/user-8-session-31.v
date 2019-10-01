@@ -3228,4 +3228,3 @@ Proof.
 (intros).
 (intros \207\129 b).
 (unfold denote_box).
-(unfold hoas_to_db_box).
