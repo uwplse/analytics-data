@@ -382,8 +382,3 @@ Proof.
 (unfold log_contents_ok; intros).
 specialize (H a).
 (assert (a < length (bs ++ bs'))).
-{
-(rewrite app_length; lia).
-}
-intuition.
-Search -nth -"++".
