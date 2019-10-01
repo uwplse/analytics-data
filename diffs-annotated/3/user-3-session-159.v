@@ -6,6 +6,4 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Require Import Examples.StatDb.Impl.
-Instance absr_non_error : (NonError absr).
-Proof.
-(compute).
+(unfold NonError).
