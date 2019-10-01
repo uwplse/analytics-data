@@ -281,6 +281,26 @@ Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
 Import Coq.Lists.List.ListNotations.
+Fixpoint size_gt (G : GT) : nat :=
+  match G with
+  | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
+  | GRec l =>
+      fold_right
+        (fun x acc =>
+         match x with
+         | Some (_, G) => 1 + size_gt G
+         | _ => 1
+         end + acc) 1 l
+  | GRow l =>
+      fold_right
+        (fun x acc =>
+         match x with
+         | Some (Some (_, G)) => 1 + size_gt G
+         | _ => 1
+         end + acc) 1 l
+  | _ => 0
+  end.
+Module GTeq.
 Function
  eq (G : GT * GT) {measure
  fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
@@ -296,4 +316,5 @@ Function
        eq (GRec tl1, GRec tl2)
    | _ => False
    end.
+all: (intros; subst; simpl; eauto with math).
 all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
