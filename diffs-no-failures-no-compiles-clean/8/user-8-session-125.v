@@ -145,4 +145,3 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma even_bias : biased_coin (1 / 2) = fair_coin.
 Proof.
-lma.
