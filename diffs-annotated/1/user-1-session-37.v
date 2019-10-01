@@ -286,6 +286,7 @@ Require Import Coq.Lists.List.
 Print Forall.
 Print Forall2.
 Print map.
+Print option_map.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
@@ -297,12 +298,12 @@ Fixpoint Gamma (G : GT) : SetST :=
       exists l',
         X = SRec l' /\
         Forall2 (fun (S' : option ST) G' => True) l'
-          (option_map
-             (fun pair =>
-              match pair with
-              | (R, G) => Gamma G
-              | (O, G) => Empty_set _
-              end) l)
+          (map
+             (option_map
+                (fun pair =>
+                 match pair with
+                 | (R, G) => Gamma G
+                 | (O, G) => Empty_set _
+                 end)) l)
   | _ => Empty_set _
   end.
-(* Failed. *)
