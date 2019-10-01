@@ -368,4 +368,3 @@ clear IHk' IHt.
 (pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k').
 (pose proof (IHk k' t Htk Htk' v) as Ht).
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
-tauto.
