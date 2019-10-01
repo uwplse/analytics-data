@@ -110,4 +110,3 @@ Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> (
 (inversion Hsem').
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair__inv in Hsem').
