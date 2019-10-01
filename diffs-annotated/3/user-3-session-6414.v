@@ -19,24 +19,5 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Definition init : proc InitResult.
-Admitted.
-Definition get : proc (list block).
-Admitted.
-Definition append : list block -> proc bool.
-Admitted.
-Definition reset : proc unit.
-Admitted.
-Definition recover : proc unit.
-Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqX06zjQ"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1ktiSB"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Definition abstr : Abstraction State := True.
+Definition abstr : Abstraction State := fun _ _ => True.
 (* Failed. *)
