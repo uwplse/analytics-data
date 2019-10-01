@@ -411,7 +411,7 @@ specialize (Hsem v').
 tauto.
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k \/ | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-(induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
+(induction k; induction t; induction t'; intros Hnft Hdep Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
      | Hsem:||-[ ?k][?t]<= [?t']
@@ -423,3 +423,6 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 (assert (Hv : value_type (TCName c)) by constructor).
 specialize (IHt'1 Hnft).
 specialize (IHt'2 Hnft).
+(destruct Hdep as [Hdept| Hdept']).
++
+(destruct IHt'1).
