@@ -53,7 +53,4 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-left.
-intuition.
-(unfold statdb_abstraction in *).
-(destruct s; intuition; simpl in *; try congruence).
+(destruct s; intuition; try congruence).
