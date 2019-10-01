@@ -412,3 +412,7 @@ step_proc.
 (unfold log_size_ok; autorewrite with list; auto).
 {
 eauto using log_abstraction_preserved.
+}
+step_proc.
+intuition.
+{
