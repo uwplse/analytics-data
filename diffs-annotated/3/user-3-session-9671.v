@@ -453,29 +453,5 @@ Theorem log_length_ok_unchanged d bs d' :
 Proof.
 (unfold log_length_ok; intros).
 (rewrite H0 in *).
-(exists (bs ++ v); intuition eauto).
-}
--
-step.
-intuition eauto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqONgM8Z"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Theorem reset_ok : proc_spec reset_spec reset recover abstr.
-Proof.
-(unfold reset; intros).
-(apply spec_abstraction_compose).
-step.
-(destruct a' as [[] bs]; simpl in *).
-intuition.
+(exists []; intuition eauto).
 {
-(exists bs; intuition eauto).
-}
-step.
-(unfold spec_impl; simpl; intuition).
-(descend; intuition eauto).
