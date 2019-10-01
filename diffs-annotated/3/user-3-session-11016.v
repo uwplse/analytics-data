@@ -297,5 +297,4 @@ Proof.
 reflexivity.
 -
 reflexivity.
-Proof.
-(unfold nonzeros).
+(induction l1; simpl; auto).
