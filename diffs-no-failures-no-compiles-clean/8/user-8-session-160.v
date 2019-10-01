@@ -31,3 +31,4 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 solve_matrix.
+Qed.
