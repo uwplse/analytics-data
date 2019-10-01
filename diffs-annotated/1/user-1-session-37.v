@@ -283,18 +283,15 @@ econstructor.
 Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
-Module AGT_Bounded_Rows_Details.
-Definition label := nat.
-Inductive ST : Type :=
-  | SInt : ST
-  | SBool : ST
-  | SFun : ST -> ST -> ST
-  | SRec : list (option ST) -> ST.
-Inductive Ann : Type :=
-  | R : Ann
-  | O : Ann.
 Inductive GT : Type :=
   | GDyn : GT
   | GInt : GT
   | GBool : GT
-  | GRec : list (option (Ann * GT)) -> GT.
+  | GRec : list (option (Ann * GT)) -> GT
+  | GRow : list (option (option (Ann * GT))) -> GT.
+Definition SetST := Ensemble ST.
+Fixpoint Gamma (G : GT) : SetST :=
+  match G with
+  | GDyn => Full_set _
+  | _ => Empty_set _
+  end.
