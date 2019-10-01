@@ -389,4 +389,3 @@ step_proc.
 destruct matches.
 -
 step_proc.
-(descend; intuition eauto).
