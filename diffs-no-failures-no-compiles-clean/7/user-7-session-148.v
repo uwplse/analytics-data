@@ -89,6 +89,3 @@ tauto.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(induction t').
-+
-Check match_ty__exists_w_v.
