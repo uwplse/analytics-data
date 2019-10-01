@@ -9,4 +9,3 @@ From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
 (destruct c; simpl).
-(rewrite Ascii.ascii_nat_embedding; auto).
