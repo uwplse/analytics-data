@@ -84,4 +84,5 @@ Proof.
 specialize (Href v Hv).
 (split; tauto).
 +
+(destruct k').
 (simpl).
