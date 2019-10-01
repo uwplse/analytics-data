@@ -296,6 +296,4 @@ Function
        eq (GRec tl1, GRec tl2)
    | _ => False
    end.
-all: (intros; subst; simpl; eauto with math).
-all: (destruct hd1; simpl; eauto with math).
-(* Failed. *)
+all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
