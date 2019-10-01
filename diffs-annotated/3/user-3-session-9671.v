@@ -453,9 +453,6 @@ Theorem log_length_ok_unchanged d bs d' :
 Proof.
 (unfold log_length_ok; intros).
 (rewrite H0 in *).
-eauto.
-Qed.
-Hint Resolve log_length_ok_unchanged: core.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
@@ -465,58 +462,4 @@ step.
 (destruct a' as [[] bs]; simpl in *).
 intuition eauto.
 step.
-(descend; intuition eauto).
-destruct matches.
--
-step.
-(descend; intuition eauto).
-{
-(unfold log_size_ok; autorewrite with list; auto).
-}
-{
-(exists bs; intuition eauto using log_abstraction_preserved).
-}
-step.
-intuition.
-{
-(exists bs; eauto using log_abstraction_preserved).
-}
-step.
-intuition.
-{
-(exists bs; intuition eauto).
-(unfold log_abstraction; intuition eauto).
-}
-{
-(exists (bs ++ v); intuition).
-}
-step.
-intuition.
-{
-(descend; intuition eauto).
-}
-{
-(descend; intuition eauto).
-}
--
-step.
-intuition eauto.
-Qed.
-Theorem reset_ok : proc_spec reset_spec reset recover abstr.
-Proof.
-(unfold reset; intros).
-(apply spec_abstraction_compose).
-step.
-(destruct a' as [[] bs]; simpl in *).
-intuition.
-{
-(descend; intuition eauto).
-}
-step.
-(unfold spec_impl; simpl; intuition).
-(descend; intuition eauto).
-{
-(descend; intuition eauto).
-(eapply log_abstraction_nil; eauto).
-(rewrite diskUpd_eq; eauto).
-}
+(exists bs; intuition).
