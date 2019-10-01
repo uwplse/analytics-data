@@ -130,4 +130,8 @@ reflexivity.
 (unfold not_b_free_in_ty in *).
 (unfold not_b_free_in_ty, not_free in *).
 (simpl in HX).
-(intros Hcontra admit).
+(intros Hcontra).
+(apply HX).
+Search -IdSet.remove.
+(apply IdSetFacts.remove_iff).
+tauto.
