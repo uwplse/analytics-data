@@ -101,3 +101,5 @@ easy.
 (rewrite add_fresh_split).
 easy.
 subst.
+(rewrite size_wtype_length).
+easy.
