@@ -19,4 +19,6 @@ Inductive term :=
   | App : term -> term -> term.
 Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Print List.find.
+Print List.contains.
 (* Failed. *)
