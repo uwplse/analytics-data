@@ -376,10 +376,3 @@ autorewrite with upd list in *.
 admit.
 Admitted.
 Hint Resolve append_at_ok: core.
-Theorem log_contents_ok_prefix d bs bs' :
-  log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
-Proof.
-(unfold log_contents_ok; intros).
-specialize (H a).
-(rewrite app_nth1 in H by lia).
-(apply H; lia).
