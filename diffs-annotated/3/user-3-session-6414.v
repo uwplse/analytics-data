@@ -21,30 +21,3 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Module Log (d: OneDiskAPI)<: LogAPI.
 Definition init : proc InitResult.
-Admitted.
-Definition get : proc (list block).
-Admitted.
-Definition append : list block -> proc bool.
-Admitted.
-Definition reset : proc unit.
-Admitted.
-Definition recover : proc unit.
-Admitted.
-Definition abstr : Abstraction State := {| abstraction := fun _ _ => True |}.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
-Proof.
-Admitted.
-Theorem get_ok : proc_spec get_spec get recover abstr.
-Proof.
-Admitted.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-Admitted.
-Theorem reset_ok : proc_spec reset_spec reset recover abstr.
-Proof.
-Admitted.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
-Proof.
-Admitted.
-End Log.
