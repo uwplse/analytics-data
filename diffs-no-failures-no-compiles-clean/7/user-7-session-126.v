@@ -108,4 +108,4 @@ Lemma subs_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
 (intros X t; induction t; try reflexivity).
 -
-(rewrite IHt1).
+(simpl).
