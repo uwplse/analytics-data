@@ -482,4 +482,4 @@ Proof.
 -
 (intros ta1 ta2 Hat1 IH1 Hat2 IH2 Hdep).
 (destruct (max_inv_depth_le__components_le _ _ _ Hdep) as [Hdep1 Hdep2]).
-(apply pair_sem_sub_k_i__sub_d; try assumption).
+(apply pair_sem_sub_k_i__sub_d; tauto).
