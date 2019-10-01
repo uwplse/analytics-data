@@ -297,4 +297,5 @@ Proof.
 reflexivity.
 -
 reflexivity.
-(rewrite IHl1; auto).
+(rewrite IHl1; simpl).
+(rewrite app_assoc).
