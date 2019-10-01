@@ -422,28 +422,36 @@ Proof.
 -
 (unfold log_length_ok in *; intros; autorewrite with upd list in *).
 (simpl in *; intuition).
-(exists bs; intuition eauto).
-{
-(unfold log_size_ok; autorewrite with list; auto).
+(exists (bs ++ v); intuition eauto).
 }
-{
-(exists bs; intuition eauto using log_abstraction_preserved).
-}
-step.
-intuition.
-{
-(exists bs; eauto using log_abstraction_preserved).
-}
-step.
-intuition.
-{
-(exists bs; intuition eauto).
-(unfold log_abstraction; intuition eauto).
-}
-{
-(exists (bs ++ v); intuition).
-}
-step.
-intuition.
 {
 (exists (bs ++ v); intuition eauto).
+}
+-
+step.
+intuition eauto.
+Qed.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+(unfold reset; intros).
+(apply spec_abstraction_compose).
+step.
+(destruct a' as [[] bs]; simpl in *).
+intuition.
+{
+(exists bs; intuition eauto).
+}
+step.
+intuition eauto.
+{
+(exists []; intuition eauto).
+(apply log_abstraction_nil with (b := r); auto).
+(rewrite diskUpd_eq; eauto).
+}
+{
+(exists []; intuition eauto).
+(apply log_abstraction_nil with (b := r); auto).
+(rewrite diskUpd_eq; eauto).
+}
+Qed.
+End Log.
