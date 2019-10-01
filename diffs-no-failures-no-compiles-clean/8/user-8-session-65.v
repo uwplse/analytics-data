@@ -968,4 +968,5 @@ gen \207\129.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-(intros \207\129 M).
+(intros \207\129).
+(repeat rewrite Mmult_assoc).
