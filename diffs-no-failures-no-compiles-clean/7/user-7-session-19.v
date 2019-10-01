@@ -199,4 +199,6 @@ Proof.
             tauto || apply Max.le_max_l || apply Max.le_max_r
      end ])).
 -
-(inversion Hnft; subst).
+(assert (Hvp : value_type (TPair t1 t2))).
+constructor.
+solve_by_inverts.
