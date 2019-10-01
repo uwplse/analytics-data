@@ -74,5 +74,23 @@ Definition log_length_ok (d : disk) (log : list block) :=
 Definition log_abstraction (d : disk) (log : list block) : Prop :=
   log_length_ok d log /\
   (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0).
+Theorem get_at_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := log_addr a < length state;
+     post := fun r state' => state' = state /\ nth a state block0 = r;
+     recovered := fun _ state' => state' = state |}) 
+    (get_at a) recover abstr.
+Proof.
+(unfold get_at; intros).
+(apply spec_abstraction_compose).
+(simpl).
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; intros).
+(destruct a0 as [_ bs]; simpl in *; intuition eauto).
+(descend; intuition eauto).
+(descend; intuition eauto).
+(unfold log_abstraction in H0; intuition).
 (pose proof (H1 a); intuition).
 eq_values.
