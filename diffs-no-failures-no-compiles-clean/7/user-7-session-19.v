@@ -131,5 +131,5 @@ auto using match_ty_i_pair.
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
 +
 clear IHt3.
-(destruct k).
-(destruct v1; try contradiction).
+(destruct v1; contradiction || constructor).
+(apply match_ty_ref__inv in Hm2).
