@@ -180,11 +180,3 @@ Fixpoint unite_pairs (t1 : ty) :=
     | _, TUnion t21 t22 => TUnion (unprs t21) (unprs t22)
     | _, _ => TPair t1 t2
     end.
-Fixpoint mk_nf (t : ty) :=
-  match t with
-  | TCName n => t
-  | TPair t1 t2 => let t1' := mk_nf t1 in let t2' := mk_nf t2 in unite_pairs t1' t2'
-  | TUnion t1 t2 => TUnion (mk_nf t1) (mk_nf t2)
-  | TRef t' => TRef (mk_nf t')
-  | TExist X t' => TExist X (mk_nf t')
-  end.
