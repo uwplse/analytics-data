@@ -112,3 +112,8 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
+(intros).
+(simpl).
+Omega.omega.
+-
+(simpl).
