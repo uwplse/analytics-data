@@ -305,7 +305,8 @@ with GammaPair (x : option (Ann * GT)) : SetST :=
   | Some P =>
       fun H =>
       match P with
-      | (R, G) => Empty_set _
+      | (R, G) => Gamma G
       | (O, G) => Empty_set _
       end
   end eq_refl.
+(* Failed. *)
