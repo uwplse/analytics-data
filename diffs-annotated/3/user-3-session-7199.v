@@ -23,3 +23,22 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+step_proc.
+(descend; intuition eauto).
+destruct matches.
+-
+step_proc.
+(descend; intuition eauto).
+(unfold log_size_ok; autorewrite with list; auto).
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+(unfold log_length_ok).
+(rewrite H).
