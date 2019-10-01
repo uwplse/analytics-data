@@ -383,4 +383,4 @@ destruct matches.
 -
 step_proc.
 (descend; intuition eauto).
-(unfold log_size_ok; lia).
+(unfold log_size_ok; autorewrite with app).
