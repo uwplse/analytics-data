@@ -370,4 +370,4 @@ clear IHk' IHt.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 *
-(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Href)).
+(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_1 _ _ _ Htk Href)).
