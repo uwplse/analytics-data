@@ -157,4 +157,4 @@ Proof.
 (intros X Y t HXY HX).
 (simpl).
 Search -IdSet.remove.
-(apply IdSetFacts.remove_2).
+(apply IdSetFacts.remove_2; assumption).
