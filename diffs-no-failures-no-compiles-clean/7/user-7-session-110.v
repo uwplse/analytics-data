@@ -182,4 +182,4 @@ assumption.
 (intros v0 t3 k w Hm1 Hm2).
 (apply match_ty_pair__inv in Hm1).
 (destruct Hm1 as [pv11 [pv12 [Heq [Hm11 Hmpv12]]]]; subst).
-(induction t3; try (solve [ destruct k; contradiction ])).
+(induction t3; try (solve [ destruct k, w; contradiction ])).
