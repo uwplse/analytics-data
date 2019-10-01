@@ -71,9 +71,4 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
-Lemma firstn_one_more :
-  forall (a : nat) (d : list block),
-  S a <= length d -> firstn a d ++ [nth a d block0] = firstn (S a) d.
-Proof.
-(intros).
-Print firstn.
+(induction a).
