@@ -50,4 +50,4 @@ proc unit :=
   | [] => Ret tt
   | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
   end.
-autorewrite with upd.
+(intuition eauto; autorewrite with upd).
