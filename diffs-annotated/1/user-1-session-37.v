@@ -324,5 +324,3 @@ Fixpoint Gamma (G : GT) : SetST :=
                  end)) l)
   | _ => Empty_set _
   end.
-Inductive Alpha : SetST -> GT -> Prop :=
-    alpha_int : Alpha (Singleton _ SInt) GInt.
