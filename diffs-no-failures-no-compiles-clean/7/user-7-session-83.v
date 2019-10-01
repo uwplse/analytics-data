@@ -166,6 +166,13 @@ Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -
 Proof.
 (intros k t t' H).
 (split; intros v Hm; specialize (H v); tauto).
+Lemma sem_eq_k_i__comm : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
+Proof.
+(intros k t1 t2 Hsem).
+(unfold sem_eq_k in *).
+(intros v).
+specialize (Hsem v).
+tauto.
 Qed.
 Lemma sem_sub_k_i_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
@@ -264,3 +271,7 @@ constructor.
 (apply IHk; try assumption).
 (apply sem_eq_k_i__sem_sub_k_i).
 (apply sem_eq_k_i__comm).
+assumption.
+*
+(apply SD_Trans with (MkNF( t2))).
+(apply mk_nf__sub_d_r; assumption).
