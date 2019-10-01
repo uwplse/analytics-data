@@ -18,4 +18,3 @@ Require Import Analytical.Analytics.
 Redirect "/tmp/coq6eiIGi" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Test Debug Analytics.
