@@ -7,8 +7,4 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
-Print FixedLengthEncoder.
-Theorem nat_le_inverse base : forall x, le_to_nat (nat_to_le base x) = x.
-Proof.
-(intros).
-Search -nat -div.
+Search -nat -div -"ind".
