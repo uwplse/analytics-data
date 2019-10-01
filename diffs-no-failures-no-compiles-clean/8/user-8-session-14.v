@@ -185,4 +185,4 @@ Proof.
 (unfold WF_Superoperator).
 (intros).
 (induction g).
-+
+(simpl).
