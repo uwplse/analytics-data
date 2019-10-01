@@ -79,12 +79,10 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Print sigT.
-Print sig.
 #[program]
 Fixpoint nat_to_le (x : nat) : list byte_nat :=
   match x with
   | 0 => nil
-  | _ => exist (x mod 256) _ :: nat_to_le (x / 256)
+  | _ => exist _ (x mod 256) _ :: nat_to_le (x / 256)
   end.
 (* Failed. *)
