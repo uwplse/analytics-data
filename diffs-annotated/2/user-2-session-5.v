@@ -19,6 +19,3 @@ Inductive term :=
   | App : term -> term -> term.
 Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Module TermNotations.
-Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
-  (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
