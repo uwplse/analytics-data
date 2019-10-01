@@ -87,3 +87,7 @@ Proof.
 (intros v X w Hm).
 (destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
 Qed.
+Lemma match_ty_fbar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
+Proof.
+(intros v X w Hm).
+(destruct w, v; simpl in Hm).
