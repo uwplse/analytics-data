@@ -34,10 +34,4 @@ autorewrite with proof_db.
 Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqcAMjSv"
 Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Lemma X_spec :
-  forall b safe : bool,
-  denote_box safe (boxed_gate _X) (bool_to_matrix b) == bool_to_matrix (\194\172 b).
-Proof.
-vector_denote.
-(destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
+Hint Rewrite kron_1_r'.
