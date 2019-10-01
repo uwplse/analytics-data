@@ -506,4 +506,3 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
