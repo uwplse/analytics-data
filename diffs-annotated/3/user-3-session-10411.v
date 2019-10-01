@@ -164,4 +164,5 @@ Proof.
 (intros).
 (unfold proc_spec; intros).
 (eapply H in H3; simpl in *; eauto).
-(eapply H0 in H2).
+(descend; intuition eauto).
+intuition eauto.
