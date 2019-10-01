@@ -19,6 +19,4 @@ Inductive term :=
   | App : term -> term -> term.
 Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Check
-  [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
-  {(Ident "myfun") (Ident "somArg")}].
+(* Failed. *)
