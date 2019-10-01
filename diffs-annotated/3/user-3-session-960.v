@@ -8,36 +8,23 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-Function
- nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
- :=
-   match x with
-   | 0 => nil
-   | _ =>
-       let base := S (S base_m2) in
-       let digit := x `mod` base in
-       exist (fun x => x < base) digit _ :: nat_to_le base_m2 (x / base)
-   end.
-Proof.
--
-(intros; subst).
-(apply PeanoNat.Nat.div_lt; auto; try lia).
--
-(apply lt_wf).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1B53nb"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1F4h2B"
+Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
+  match digits with
+  | nil => 0
+  | digit :: digits' => proj1_sig digit * base + le_to_nat digits'
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8Bga3l"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1tRDll"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq7lPKp"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Check nat_to_le_equation.
+Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
+Proof.
+(intros).
+(induction n as [n IHn] using lt_wf_ind).
+(destruct n; simpl).
+(rewrite nat_to_le_equation; simpl).
