@@ -173,10 +173,8 @@ auto with DBBetaJulia.
 Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
 Proof.
 (intros; split; tauto).
-Qed.
 Lemma sem_eq_k__comm : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
 Proof.
-auto with DBBetaJulia.
 (intros k t1 t2 Hsem).
 (unfold sem_eq_k in *).
 (intros v).
@@ -184,6 +182,7 @@ specialize (Hsem v).
 tauto.
 Qed.
 Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
 (intros k t1 t2 t3 Hsem1 Hsem2).
 (unfold sem_eq_k in *).
 (intros v).
@@ -191,7 +190,6 @@ specialize (Hsem1 v).
 specialize (Hsem2 v).
 tauto.
 Qed.
-Search -and.
 Lemma sem_eq_k__sem_sub_k : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t1]<= [t2] /\ ||-[ k][t2]<= [t1].
 Proof.
 (intros k t1 t2 Hsem).
@@ -220,4 +218,7 @@ Proof.
 Qed.
 Lemma sem_eq__comm : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t2]= [t1].
 Proof.
-auto with DBBetaJulia.
+(intros k t1 t2 Hsem).
+(unfold sem_eq in *).
+(intros v).
+specialize (Hsem v).
