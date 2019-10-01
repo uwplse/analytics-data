@@ -22,24 +22,19 @@ Please report at http://coq.inria.fr/bugs/.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqJ4AsTz"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Definition valid_ancillae {W} (c : Circuit W) : Prop :=
-  forall (\206\147 \206\1470 : Ctx) \207\129, \206\147 \226\138\162 c :Circ -> (\226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169) \207\129 == (\226\159\168! \206\1470 | \206\147 \226\138\169 c !\226\159\169) \207\129.
-Definition valid_ancillae_box {W1} {W2} (c : Box W1 W2) 
-  \207\129 := Typed_Box c -> denote_box true c \207\129 == denote_box false c \207\129.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqL4MsFn"
+Definition valid_ancillae_box {W1} {W2} (c : Box W1 W2) :=
+  forall \207\129, Typed_Box c -> denote_box true c \207\129 == denote_box false c \207\129.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqjMNFPS"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Definition valid_ancillae' {W} (c : Circuit W) :=
   forall (\206\147 \206\1470 : Ctx) \207\129,
   \206\147 \226\138\162 c :Circ -> Mixed_State \207\129 -> trace ((\226\159\168! \206\1470 | \206\147 \226\138\169 c !\226\159\169) \207\129) = 1.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqkof24o"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRFmcai"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Definition valid_ancillae_box' {W1} {W2} (c : Box W1 W2) : Prop :=
   forall \207\129, Typed_Box c -> Mixed_State \207\129 -> trace (denote_box false c \207\129) = 1.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqYDUbNe"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Proposition valid_ancillae_equal :
   forall W (c : Circuit W), valid_ancillae c <-> valid_ancillae' c.
 Proof.
@@ -53,6 +48,7 @@ split.
 admit.
 -
 (induction c as [| W' W0 g p c IH| IH]).
++
 reflexivity.
 +
 (intros H \206\147 \206\1470 \207\129 H').
@@ -68,4 +64,4 @@ subst.
 (apply (t0 \206\1473); trivial).
 Abort.
 Fact valid_ancillae_box_equal :
-  forall W1 W2 (c : Box W1 W2) \207\129, valid_ancillae_box c \207\129 <-> valid_ancillae_box' c \207\129.
+  forall W1 W2 (c : Box W1 W2) \207\129, valid_ancillae_box c \207\129 <-> valid_ancillae_box' c.
