@@ -50,24 +50,4 @@ proc unit :=
   | [] => Ret tt
   | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
   end.
-Definition append (bs : list block) : proc bool :=
-  size <- d.size;
-  len <- get_len;
-  (if le_dec (1 + len + length bs) size
-   then _ <- append_at len bs; Ret true
-   else Ret false).
-Definition reset : proc unit :=
-  len0 <- addr_to_block 0; d.write len_addr len0.
-Definition recover : proc unit := d.recover.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1a4Cth"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqntNJJ6"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Definition log_length_ok (d : disk) (log : list block) :=
-  forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
+(* Failed. *)
