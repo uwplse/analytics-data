@@ -217,17 +217,20 @@ Ltac
         monad_simpl; eapply proc_spec_rx; [ solve [ eauto ] |  ]
   | H:proc_spec _ ?p _ _
     |- proc_spec _ ?p _ _ =>
-        let L := fresh "L" in
-        pose proof (mark "using spec for" p) as L; eapply proc_spec_weaken;
-         [ eapply H | unfold spec_impl ]
+        eapply proc_spec_weaken;
+         [ eapply H
+         | unfold spec_impl;
+            (let L := fresh "L" in
+             pose proof (mark "using spec for" p) as L) ]
   | |- proc_spec _ _ _ _ =>
         eapply proc_spec_weaken; [ solve [ eauto ] | unfold spec_impl ]
   end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjEfwtu"
+Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqowPvt6"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsN6Kan"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
