@@ -338,4 +338,3 @@ Timeout 1 Print LoadPath.
 econstructor.
 3: eauto.
 3: eauto.
-2: monoid.
