@@ -195,4 +195,4 @@ reflexivity.
 (unfold not_b_free_in_ty, not_free).
 (intros Hcontra).
 Search -IdSet.In.
-(apply IdSetFacts.empty_iff).
+(destruct IdSetFacts.empty_iff as [H _]).
