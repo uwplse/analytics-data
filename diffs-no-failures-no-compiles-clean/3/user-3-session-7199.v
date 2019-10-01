@@ -382,4 +382,4 @@ Theorem log_abstraction_preserved d bs d' :
   diskSize d' = diskSize d -> log_contents_ok d' bs -> log_abstraction d' bs.
 Proof.
 (unfold log_abstraction, log_length_ok, log_size_ok; intuition).
-congruence.
+auto.
