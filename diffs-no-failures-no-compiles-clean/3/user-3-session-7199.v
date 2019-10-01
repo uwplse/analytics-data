@@ -388,6 +388,7 @@ step_proc.
 (descend; intuition eauto).
 destruct matches.
 -
+step_proc.
 (descend; intuition eauto).
 {
 (unfold log_size_ok; autorewrite with list; auto).
@@ -400,4 +401,10 @@ destruct matches.
 (rewrite H; eauto).
 }
 {
-(unfold log_abstraction, log_size in *; intuition).
+(unfold log_abstraction, log_size_ok in *; intuition).
+(rewrite H1).
+congruence.
+}
+}
+step_proc.
+intuition.
