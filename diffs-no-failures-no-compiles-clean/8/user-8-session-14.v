@@ -1217,3 +1217,4 @@ Proof.
 Set Printing All.
 gen \207\129.
 (rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
+(repeat rewrite Nat.pow_add_r).
