@@ -264,4 +264,6 @@ Proof.
 Qed.
 Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
 Proof.
-(pose proof (sub_r__trans2 _ _ Hsub1) as H).
+(destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
+auto.
+Qed.
