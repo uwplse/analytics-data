@@ -32,3 +32,4 @@ Proof.
 (rewrite IHt1; try assumption).
 (rewrite IHt2; try assumption).
 reflexivity.
+-
