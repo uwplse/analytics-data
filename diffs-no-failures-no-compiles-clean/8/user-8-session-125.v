@@ -78,5 +78,3 @@ Msimpl.
 (unfold super).
 (simpl).
 specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
-(intros).
-(rewrite Heqli in H).
