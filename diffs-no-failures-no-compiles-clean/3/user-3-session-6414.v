@@ -133,11 +133,4 @@ Theorem log_abstraction_nil d b :
 Proof.
 (unfold log_abstraction; intros).
 split.
--
-(intuition; exfalso; simpl in *; lia).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqu9prmS"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+(simpl; lia).
