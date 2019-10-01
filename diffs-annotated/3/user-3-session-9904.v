@@ -53,7 +53,5 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-(step_proc; intuition).
-(step_proc; intuition).
-(exists (n0 :: s); intuition auto).
-(* Failed. *)
+(exists s; intuition).
+(right; intuition congruence).
