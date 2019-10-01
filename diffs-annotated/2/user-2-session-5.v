@@ -19,22 +19,16 @@ Inductive term :=
   | App : term -> term -> term.
 Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Fixpoint value (t : term) : bool :=
-  match t with
-  | Nil => true
-  | Ident _ => true
-  | Cons a b => value a && value b
-  | App f a => false
-  end.
-Redirect "/tmp/coqhYSoRC" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Module TermNotations.
 Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
 Notation "[ x ]" := (Cons x Nil) : coucou_scope.
-Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..)) : coucou_scope.
+Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
+  (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
 End TermNotations.
-Redirect "/tmp/coqY0pFmz" Print Ltac Signatures.
+Redirect "/tmp/coqyo3tbP" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Import TermNotations.
+Redirect "/tmp/coq8SULGo" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 Open Scope coucou_scope.
-Check [Nil].
