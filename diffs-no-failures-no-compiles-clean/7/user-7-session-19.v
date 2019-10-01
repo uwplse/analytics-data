@@ -493,6 +493,4 @@ auto using match_ty_i_pair.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [tx [Heq Href]]; subst).
 (simpl).
-(intros v; split; intros Hm; specialize (Href v)).
-specialize (IHHsub2 k _ Hm).
-tauto.
+(intros v; split; intros Hm; specialize (Href v); [ specialize (IHHsub2 k _ Hm) | specialize (IHHsub1 k _ Hm) ]).
