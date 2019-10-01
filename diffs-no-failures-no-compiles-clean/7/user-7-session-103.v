@@ -49,4 +49,4 @@ Lemma match_ty_ref__inv : forall (v t : ty) (k w : nat), |-[ S k, w] v <$ TRef t
 Proof.
 (destruct k, w, v; simpl in Hm; try contradiction).
 -
-(unfold match_ty in Hm).
+(repeat unfold match_ty in Hm).
