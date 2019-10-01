@@ -84,4 +84,4 @@ Proof.
 Print uint64.
 Print Ascii.Ascii.
 refine {| byte := Ascii.ascii; byte0 := "a"%string |}.
-(* Failed. *)
+Search -string -Ascii.ascii.
