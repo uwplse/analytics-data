@@ -361,16 +361,6 @@ intuition eauto.
 -
 step.
 (intuition eauto; autorewrite with upd; auto).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1Qbo9J"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYLsMvk"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 step.
 (exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
 +
@@ -385,12 +375,6 @@ autorewrite with upd list in *.
 (simpl in *; lia).
 +
 (rewrite <- app_assoc in *; simpl in *; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquP3Oxk"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
 Hint Resolve append_at_ok: core.
 Theorem log_abstraction_preserved d bs d' :
@@ -468,59 +452,3 @@ destruct matches.
 -
 step.
 (exists bs; intuition eauto).
-{
-(unfold log_size_ok; autorewrite with list; auto).
-}
-{
-(exists bs; intuition eauto using log_abstraction_preserved).
-}
-step.
-intuition.
-{
-(exists bs; eauto using log_abstraction_preserved).
-}
-step.
-intuition.
-{
-(exists bs; intuition eauto).
-(unfold log_abstraction; intuition eauto).
-}
-{
-(exists (bs ++ v); intuition).
-}
-step.
-intuition.
-{
-(exists (bs ++ v); intuition eauto).
-}
-{
-(exists (bs ++ v); intuition eauto).
-}
--
-step.
-intuition eauto.
-Qed.
-Theorem reset_ok : proc_spec reset_spec reset recover abstr.
-Proof.
-(unfold reset; intros).
-(apply spec_abstraction_compose).
-step.
-(destruct a' as [[] bs]; simpl in *).
-intuition.
-{
-(exists bs; intuition eauto).
-}
-step.
-intuition eauto.
-{
-(exists []; intuition eauto).
-(apply log_abstraction_nil with (b := r); auto).
-(rewrite diskUpd_eq; eauto).
-}
-{
-(exists []; intuition eauto).
-(apply log_abstraction_nil with (b := r); auto).
-(rewrite diskUpd_eq; eauto).
-}
-Qed.
-End Log.
