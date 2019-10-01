@@ -428,6 +428,13 @@ replace (diskGet d' len_addr) in *.
 auto.
 -
 congruence.
+Theorem abstr_length_sz_bound d bs :
+  log_size_ok d bs -> len_addr < diskSize d.
+Proof.
+(unfold log_size_ok, len_addr, diskSize).
+(intros; lia).
+Qed.
+Hint Resolve abstr_length_sz_bound: core.
 Lemma log_abstraction_commit :
   forall bs bs' : list block,
   forall d' : State,
@@ -441,4 +448,5 @@ Proof.
 (intros).
 (unfold log_abstraction; intuition).
 (unfold log_length_ok in *; intros).
-eq_values.
+(assert (len_addr < diskSize d')).
+eauto.
