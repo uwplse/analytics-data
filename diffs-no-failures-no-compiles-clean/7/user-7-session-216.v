@@ -421,4 +421,4 @@ admit.
 (destruct (beq_idP X i)).
 +
 subst.
-(simpl).
+(rewrite f_subst_fvar_eq).
