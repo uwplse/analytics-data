@@ -1496,4 +1496,6 @@ Timeout 1 About qubit.
 Timeout 1 Print qubit.
 Timeout 1 About bit.
 Timeout 1 Print bit.
-Timeout 1 Print Ltac bit.
+Timeout 1 About qubit.
+Timeout 1 Print qubit.
+Timeout 1 Print Ltac qubit.
