@@ -409,4 +409,4 @@ tauto.
 tauto.
 -
 (rewrite f_subst_exist).
-(unfold wf_ty; simpl).
+(unfold wf_ty in *; simpl).
