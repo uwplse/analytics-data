@@ -383,4 +383,8 @@ Proof.
 idtac.
 (intros Hm k' Hle).
 (inversion Hle; subst).
-asumption.
+assumption.
+}
+7: {
+idtac.
+clear IHv.
