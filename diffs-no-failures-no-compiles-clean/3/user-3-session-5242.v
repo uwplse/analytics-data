@@ -115,4 +115,16 @@ Proof.
 (destruct (r == 0)).
 -
 (step_proc_basic; intros).
+{
+eauto.
+}
+(simpl in *; intuition subst).
+2: (autounfold in *; intuition).
+(unfold statdb_abstraction in *).
+(destruct s; intuition; simpl in *; try congruence).
+(exists nil; intuition auto).
+-
+(step_proc_basic; intros).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
 eauto.
