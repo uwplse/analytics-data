@@ -242,6 +242,14 @@ Qed.
 Fixpoint count (v : nat) (s : bag) : nat :=
   match s with
   | [ ] => 0
-  | x :: s' => (if nat_eqb x v then 1 else 0) + count v s'
+  | x :: s' => (if beq_nat x v then 1 else 0) + count v s'
   end.
-(* Failed. *)
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPj8Aul"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjyWfCR"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
