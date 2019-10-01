@@ -548,6 +548,11 @@ Inductive Alpha : SetST -> GT -> Prop :=
 Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
 Hint Resolve singleton_eq: agt.
+specialize (H _ H5).
+specialize (H2 _ H5).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end; congruence).
 -
-(inversion H1).
-specialize (H _ H4).
