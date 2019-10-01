@@ -75,6 +75,4 @@ Definition log_abstraction (d : disk) (log : list block) : Prop :=
   log_length_ok d log /\
   (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0).
 Print eq_values.
-(eapply diskGet_eq_values; eauto).
-lia.
-(* Failed. *)
+(unfold log_addr).
