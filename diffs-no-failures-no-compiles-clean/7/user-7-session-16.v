@@ -368,4 +368,7 @@ Proof.
 -
 (intros c).
 (split; intros t'; induction t').
-+
+(match goal with
+ | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
+       destruct (cname_eq__decidable c1 c2); [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
+ end).
