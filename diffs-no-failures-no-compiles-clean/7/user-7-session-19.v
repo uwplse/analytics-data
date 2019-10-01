@@ -62,8 +62,9 @@ reflexivity.
 (intros v' Hv').
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
-Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, 0 < k' -> k' <= k -> |-[ k'] v <$ t.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hlt Hle;
+Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
+Proof.
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
   try
    match goal with
    | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
@@ -83,11 +84,4 @@ Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> f
 specialize (Href v Hv).
 (split; tauto).
 +
-(destruct k').
-(inversion Hlt).
 (simpl).
-(intros v Hv).
-specialize (Href v Hv).
-split.
-*
-Abort.
