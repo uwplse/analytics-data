@@ -81,6 +81,10 @@ admit.
 admit.
 admit.
 -
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+Search -IdSet.In.
 (destruct (beq_idP X i)).
 +
 subst.
+exists tx.
