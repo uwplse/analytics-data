@@ -359,4 +359,4 @@ reflexivity.
 {
 (rewrite app_length in *; simpl in *; lia).
 }
-(rewrite diskUpd_neq).
+(rewrite diskUpd_neq by auto).
