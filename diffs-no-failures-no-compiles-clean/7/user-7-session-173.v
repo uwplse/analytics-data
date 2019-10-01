@@ -84,8 +84,6 @@ reflexivity.
 +
 assumption.
 -
-(destruct (beq_idP x i); reflexivity).
-Qed.
 Function
  subst (x : id) (s t : ty) {measure size t} : ty :=
    match t with
@@ -124,4 +122,4 @@ Omega.omega.
 (intros).
 (simpl).
 Omega.omega.
-Qed.
+Defined.
