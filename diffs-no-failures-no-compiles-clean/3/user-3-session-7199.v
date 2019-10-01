@@ -393,20 +393,3 @@ step_proc.
 {
 (unfold log_size_ok; autorewrite with list; auto).
 }
-{
-(exists bs; intuition eauto).
-(unfold log_abstraction; intuition eauto).
-{
-(unfold log_length_ok).
-(rewrite H; eauto).
-}
-{
-(unfold log_abstraction, log_size_ok in *; intuition).
-(rewrite H1).
-congruence.
-}
-}
-step_proc.
-intuition.
-{
-(exists bs; intuition eauto).
