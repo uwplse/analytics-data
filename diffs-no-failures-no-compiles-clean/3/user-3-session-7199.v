@@ -399,4 +399,3 @@ Admitted.
 Theorem reset_ok : proc_spec reset_spec reset recover abstr.
 Proof.
 Admitted.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
