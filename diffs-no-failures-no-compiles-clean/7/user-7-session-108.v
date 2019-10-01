@@ -245,4 +245,7 @@ Lemma ty__matching_ty_exists : forall (w : nat) (t : ty) (k : nat), exists v : t
 Proof.
 (induction w; induction t; intros k).
 -
-(TCName c).
+exists (TCName c).
+(apply match_ty_value_type__reflexive; constructor).
+-
+(destruct IHt1 as [v1 Hm1]).
