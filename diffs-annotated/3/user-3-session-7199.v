@@ -141,13 +141,7 @@ step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
-Theorem get_upto_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a <= length state;
-     post := fun r state' => state' = state /\ r = firstn a state;
-     recovered := fun _ state' => state' = state |}) 
-    (get_upto a) recover abstr.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
-(apply d.recover_wipe).
+(apply rec_wipe_compose).
+(* Failed. *)
