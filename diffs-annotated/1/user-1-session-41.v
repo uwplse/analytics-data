@@ -552,4 +552,6 @@ Proof.
 generalize dependent G'.
 (induction H).
 -
-(intros).
+-
+(intros; inversion H; eauto).
+(* Failed. *)
