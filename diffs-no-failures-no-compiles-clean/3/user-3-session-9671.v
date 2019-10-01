@@ -522,4 +522,4 @@ step.
 }
 {
 (descend; intuition eauto).
-(eapply log_abstraction_nil; eauto).
+}
