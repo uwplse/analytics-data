@@ -98,5 +98,29 @@ Qed.
 Theorem surjective_pairing_stuck : forall p : natprod, p = (fst p, snd p).
 Proof.
 (simpl).
+Abort.
+Theorem surjective_pairing : forall p : natprod, p = (fst p, snd p).
+Proof.
+(intros p).
+(destruct p as [n m]).
+(simpl).
 reflexivity.
-(* Auto-generated comment: Failed. *)
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpptAGE"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem snd_fst_is_swap : forall p : natprod, (snd p, fst p) = swap_pair p.
+Proof.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFYkqWF"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgFpkqT"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
