@@ -690,4 +690,10 @@ lia.
 +
 (exists d,(OutOfSync a0 b); simplify; finish).
 intuition eauto.
+{
 lia.
+}
+{
+(destruct r; step).
+intuition.
+(exists d,(OutOfSync a0 b); simplify; finish).
