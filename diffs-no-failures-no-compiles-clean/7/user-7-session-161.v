@@ -105,4 +105,3 @@ subst.
 (rewrite subst_exist_eq).
 (apply match_ty_exist__inv in Hm).
 exists ([X' := tx] ti).
-(apply IHw').
