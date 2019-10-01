@@ -27,4 +27,5 @@ exists w1.
 (simpl in Hm).
 (eapply match_ty__ge_w).
 eassumption.
-constructor.
+(repeat constructor).
+-
