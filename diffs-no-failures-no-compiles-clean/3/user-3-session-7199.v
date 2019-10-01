@@ -400,6 +400,4 @@ destruct matches.
 (rewrite H; eauto).
 }
 {
-(unfold log_size_ok, log_abstraction in *; intuition).
-(rewrite H1).
-lia.
+(unfold log_abstraction, log_size in *; intuition).
