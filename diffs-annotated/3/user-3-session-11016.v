@@ -203,22 +203,22 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkEwuOj"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
+Fixpoint nonzeros (l : natlist) : natlist :=
+  match l with
+  | [ ] => [ ]
+  | h :: t => if beq_nat h 0 then nonzeros t else h :: nonzeros t
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqVB4pW3"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbK4Fkh"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqiALUuH"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Example test_hd1 : hd 0 [1; 2; 3] = 1.
+Example test_nonzeros : nonzeros [0; 1; 0; 2; 3; 0; 0] = [1; 2; 3].
 Proof.
 reflexivity.
 Qed.
-Example test_hd2 : hd 0 [ ] = 0.
-Proof.
-reflexivity.
-Qed.
-Example test_tl : tl [1; 2; 3] = [2; 3].
-Proof.
-reflexivity.
-Qed.
-Fixpoint nonzeros (l : natlist) : natlist.
-Proof.
+(* Failed. *)
