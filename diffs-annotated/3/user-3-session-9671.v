@@ -453,13 +453,4 @@ Theorem log_length_ok_unchanged d bs d' :
 Proof.
 (unfold log_length_ok; intros).
 (rewrite H0 in *).
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step.
-(exists bs; intuition).
+(exists bs; intuition eauto).
