@@ -108,5 +108,8 @@ admit.
 (destruct (IdSet.mem i (FV tx)) eqn:Hmem).
 {
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
-(apply match_ty_exist).
+exists ([X' := tx] ti).
+admit.
+}
+{
 exists ti.
