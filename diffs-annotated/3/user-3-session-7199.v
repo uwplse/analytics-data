@@ -74,5 +74,4 @@ Definition log_length_ok (d : disk) (log : list block) :=
 Definition log_abstraction (d : disk) (log : list block) : Prop :=
   log_length_ok d log /\
   (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0).
-(unfold log_abstraction in H0; intuition).
-(pose proof (H1 (log_addr a)); intuition).
+(pose proof (H1 a); intuition).
