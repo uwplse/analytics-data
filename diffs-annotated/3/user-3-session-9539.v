@@ -394,4 +394,40 @@ Proof.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; intros).
 (destruct a as [[] bs]; simpl in *; intuition eauto).
-(exists bs; intuition).
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfCnpvQ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve get_len_abstr_ok: core.
+Theorem log_size_bound d bs a :
+  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
+Proof.
+(unfold log_size_ok, log_addr; intros; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLORREb"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve log_size_bound: core.
+Theorem get_at_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a < length state;
+     post := fun r state' =>
+             state' = state /\ nth a state block0 = r;
+     recovered := fun _ state' => state' = state |}) 
+    (get_at a) recover abstr.
+Proof.
+(unfold get_at; intros).
+(apply spec_abstraction_compose).
+(simpl).
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; intros).
+(destruct a0 as [_ bs]; simpl in *; intuition eauto).
+simplify.
