@@ -381,4 +381,3 @@ Proof.
 (intros X s t Hwfs).
 generalize dependent t.
 (induction t; intros Hwft; try (solve [ simpl; assumption ])).
--
