@@ -355,14 +355,10 @@ assumption.
 (apply SR_NormalForm in Hcontra; contradiction).
 Qed.
 Ltac
- solve_not_x_sub_r_y_full :=
-  match goal with
-  | |- ~ |- ?t1 << ?t2 =>
-        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra;
-         try (solve [ inversion Heqx | inversion Heqy ]); subst
-  end; match goal with
-       | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
-       end.
+ solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
+  destruct IHt2_1 as [IH1| IH1]; try assumption; destruct IHt2_2 as [IH2| IH2]; try assumption;
+   try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
+   apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
 Lemma nf_sub_r__decidable2 :
   forall t : ty,
   InNF( t) -> (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)).
@@ -374,7 +370,7 @@ Proof.
      (fun (t : ty) (Hnf : in_nf t) =>
       (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t))))).
 -
-Check in_nf_union__inv.
+(intros c).
 (split; intros t'; induction t'; intros Hnf'; try destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2];
   try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 ]);
   try
@@ -383,3 +379,10 @@ Check in_nf_union__inv.
          destruct (cname_eq__decidable c1 c2);
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
++
+right.
+(match goal with
+ | |- ~ |- ?t1 << ?t2 =>
+       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
+        subst
+ end).
