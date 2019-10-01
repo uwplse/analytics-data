@@ -386,4 +386,5 @@ specialize (H a).
 (rewrite app_length; lia).
 }
 intuition.
-(rewrite H).
+Search -nth -"++".
+(rewrite app_nth1 in H by lia).
