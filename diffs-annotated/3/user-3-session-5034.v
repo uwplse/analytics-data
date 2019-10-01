@@ -167,8 +167,13 @@ Proof.
 autorewrite with upd.
 auto.
 Qed.
-Lemma log_abstraction_nop :
-  forall disk s oldlen newlen,
-  diskGet disk 0 =?= oldlen ->
-  block_to_addr oldlen = block_to_addr newlen ->
-  log_abstraction disk s -> log_abstraction disk [0 |-> newlen] s.
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
+*
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
