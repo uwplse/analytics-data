@@ -3229,3 +3229,14 @@ Proof.
 (intros \207\129 b).
 (unfold HOAS_Equiv in H).
 (rewrite H).
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRB43Ni"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma HOAS_Equiv_trans :
+  forall w1 w2 (c1 c2 c3 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c3 -> c1 \226\137\161 c3.
+Proof.
+(intros).
+(intros \207\129 b H\207\129).
+(rewrite H; auto).
