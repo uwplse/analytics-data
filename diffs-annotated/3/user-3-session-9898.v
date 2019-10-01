@@ -202,4 +202,71 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 +
-autorewrite with upd.
+(autorewrite with upd; auto).
++
+(rewrite <- Hgoodsec; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHMJ71w"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkrS0YF"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem remapped_abstraction_diskUpd_remap :
+  forall state s v,
+  remapped_abstraction state s ->
+  remapped_abstraction
+    (mkState (diskUpd (stateDisk state) (diskSize (stateDisk state) - 1) v)
+       (stateBadBlock state)) (diskUpd s (stateBadBlock state) v).
+Proof.
+(intros).
+invert_abstraction.
+(rewrite Hsize).
+replace (diskSize s + 1 - 1) with diskSize s by lia.
+(constructor; simpl).
+all: (autorewrite with upd; intuition).
+{
+(repeat rewrite diskUpd_neq by lia).
+eauto.
+}
+{
+(repeat rewrite diskUpd_eq by lia; auto).
+}
+Qed.
+Theorem remapped_abstraction_diskUpd_noremap :
+  forall state s a v,
+  remapped_abstraction state s ->
+  a <> diskSize (stateDisk state) - 1 ->
+  a <> stateBadBlock state ->
+  remapped_abstraction
+    (mkState (diskUpd (stateDisk state) a v) (stateBadBlock state))
+    (diskUpd s a v).
+Proof.
+(intros).
+invert_abstraction.
+(constructor; simpl).
+all: (autorewrite with upd; intuition).
+{
+(destruct (lt_dec a (diskSize s))).
+-
+(destruct (a == a0); subst).
+{
+(repeat rewrite diskUpd_eq by lia; auto).
+}
+{
+(repeat rewrite diskUpd_neq by lia; auto).
+}
+-
+(repeat rewrite diskUpd_oob_noop by lia).
+auto.
+}
+(repeat rewrite diskUpd_neq by lia).
+eauto.
+Qed.
