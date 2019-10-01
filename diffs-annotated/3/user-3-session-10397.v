@@ -152,3 +152,6 @@ step.
 (destruct (lt_dec r 1)).
 -
 step.
+-
+step.
+step.
