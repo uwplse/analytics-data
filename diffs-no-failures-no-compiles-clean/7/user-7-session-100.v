@@ -107,4 +107,4 @@ Proof.
 -
 (apply match_ty_pair; auto).
 -
-(destruct w, k).
+(destruct w, k; constructor).
