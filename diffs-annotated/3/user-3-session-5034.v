@@ -167,13 +167,3 @@ Proof.
 autorewrite with upd.
 auto.
 Qed.
-(step_proc; intuition; subst; eauto).
-{
-(step_proc; intuition; subst; eauto).
-{
-(step_proc; intuition; subst; eauto).
-{
-(step_proc; intuition; subst; eauto).
-*
-(exists (s ++ v); simpl; intuition).
-(apply log_abstraction_post_commit; auto).
