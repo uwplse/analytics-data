@@ -109,4 +109,3 @@ Theorem write_ok :
 Proof.
 (unshelve prim; eauto; try (solve [ destruct_all ])).
 (destruct (le_dec (S a) (diskSize d0))).
--
