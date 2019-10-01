@@ -71,29 +71,6 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
-Hint Resolve get_at_ok: core.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
-Proof.
-(unfold rec_wipe; simpl; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a as [_ bs]; simpl in *; intuition eauto).
-Qed.
-Hint Resolve recover_wipe: core.
-Theorem get_upto_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a <= length state;
-     post := fun r state' => state' = state /\ r = firstn a state;
-     recovered := fun _ state' => state' = state |}) 
-    (get_upto a) recover abstr.
-Proof.
-(induction a; simpl).
--
-step_proc.
--
-step_proc.
-step_proc.
-intuition eauto.
++
 lia.
++
