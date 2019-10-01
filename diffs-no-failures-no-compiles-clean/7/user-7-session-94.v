@@ -75,4 +75,4 @@ constructor.
 constructor.
 -
 (destruct k).
-contradiction.
+(destruct v; contradiction).
