@@ -51,7 +51,7 @@ with open(fpath, 'r') as f:
                 lines_buff.append(line)
                 # Deal with missing states
                 if line_num > 0 and state_num > max_state:
-                    diff = state_num - max_state
+                    diff = state_num - max_state - 1
                     for i in range(diff):
                         line_num = line_num + 1
                         lines_buff.append("(* Auto-generated comment: Missing state. *)")
