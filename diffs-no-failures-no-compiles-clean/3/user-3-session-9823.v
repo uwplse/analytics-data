@@ -180,4 +180,4 @@ invert_abstraction.
 (exists s; split; eauto).
 (destruct (a == diskSize s); subst).
 +
-autorewrite with upd.
+(autorewrite with upd; auto).
