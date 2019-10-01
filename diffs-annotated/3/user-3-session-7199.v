@@ -25,20 +25,4 @@ Axiom
 Hint Resolve addr_to_block_ok: core.
 (simpl; lia).
 autorewrite with upd list in *.
-Hint Resolve append_at_ok: core.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step_proc.
-(descend; intuition eauto).
-destruct matches.
--
-step_proc.
-(descend; intuition eauto).
-(unfold log_size_ok; lia).
-(* Failed. *)
+(unfold log_size_ok; simpl).
