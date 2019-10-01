@@ -954,4 +954,4 @@ Proof.
 (intros q0 q1 q2 q3).
 (unfold move_to_0, move_to_0_aux).
 (repeat rewrite Mmult_assoc).
-(rewrite kron_assoc).
+(rewrite (kron_assoc q0 q1)).
