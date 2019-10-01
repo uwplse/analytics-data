@@ -113,6 +113,3 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 step_proc.
 (destruct a'; simpl in *; intuition; subst; eauto).
-(step_proc; intuition; subst; eauto).
-{
-(step_proc; intuition; subst; eauto).
