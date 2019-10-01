@@ -382,4 +382,27 @@ autorewrite with upd list in *.
 (simpl in *; lia).
 +
 (rewrite <- app_assoc in *; simpl in *; auto).
-+
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqF2EXhR"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Theorem log_abstraction_preserved d bs d' bs' :
+  log_abstraction d bs ->
+  diskGet d' len_addr = diskGet d len_addr ->
+  diskSize d' = diskSize d ->
+  log_contents_ok d' (bs ++ bs') -> log_abstraction d' bs.
+Proof.
+(unfold log_abstraction, log_length_ok, log_size_ok; intuition eauto).
+-
+replace (diskGet d' len_addr) in *.
+auto.
+-
+congruence.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBiPyjK"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
