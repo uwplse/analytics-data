@@ -13,6 +13,15 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Close Scope btjm.
 Open Scope btjmi.
+Lemma sem_eq_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq_k in *).
+(intros v).
+specialize (Hsem1 v).
+specialize (Hsem2 v).
+tauto.
+Qed.
 Lemma match_ty_i_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
@@ -75,6 +84,15 @@ generalize dependent v.
 (apply match_ty_i_cname__inv in Hm; subst).
 constructor.
 -
+(apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_i_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+constructor.
+Qed.
 Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
 (intros v Hv; induction Hv; intros k).
@@ -86,6 +104,8 @@ Proof.
 (destruct k).
 constructor.
 (simpl).
+tauto.
+Qed.
 Lemma match_ty_i__transitive_on_value_type :
   forall v1 v2 t3 : ty, value_type v2 -> forall k : nat, |-[ k] v1 <$ v2 -> |-[ k] v2 <$ t3 -> |-[ k] v1 <$ t3.
 Proof.
@@ -117,6 +137,8 @@ auto using match_ty_i_pair.
 (apply match_ty_i_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
 +
+clear IHt3.
+(destruct k).
 (destruct v1; contradiction || constructor).
 (apply match_ty_i_ref__inv in Hm1).
 (destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
