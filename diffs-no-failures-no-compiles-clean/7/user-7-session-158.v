@@ -48,7 +48,6 @@ Proof.
 (simpl).
 (rewrite <- beq_id_refl).
 reflexivity.
-Qed.
 Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [X := s] TVar Y = TVar Y.
 Proof.
 (intros X s Y Hneq).
@@ -65,3 +64,4 @@ Proof.
 (rewrite <- beq_id_refl).
 reflexivity.
 Qed.
+Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id) (t : id), X <> Y -> [X := s] TExist Y t = TExist Y ([X := s] t).
