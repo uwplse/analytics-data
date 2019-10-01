@@ -552,5 +552,4 @@ all: (try (apply singleton_eq in H1; congruence)).
 all: (repeat match goal with
              | H:exists _, _ |- _ => destruct H
              end).
-all: congruence.
-(* Failed. *)
+all: (try congruence).
