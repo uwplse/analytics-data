@@ -130,5 +130,5 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
-(unfold well_founded).
-Search -well_founded.
+(unfold lt_size).
+(apply lt_wf).
