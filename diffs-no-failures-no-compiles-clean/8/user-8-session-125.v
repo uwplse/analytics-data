@@ -41,4 +41,3 @@ setoid_rewrite denote_unitary_transpose.
 (repeat rewrite Mmult_assoc).
 restore_dims.
 (simpl).
-(simpl_rewrite (unitary_gate_unitary U)).
