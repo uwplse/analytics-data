@@ -208,4 +208,4 @@ Proof.
 -
 (intros c t2).
 (assert (Hva : value_type (TCName c)) by constructor).
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; constructor || contradiction ])).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
