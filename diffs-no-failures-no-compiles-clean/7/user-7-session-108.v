@@ -261,4 +261,4 @@ assumption.
 exists (TRef t).
 (destruct k).
 reflexivity.
-(split; auto).
+(split; intros; auto).
