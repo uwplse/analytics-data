@@ -392,3 +392,4 @@ right.
 (destruct Hcontra as [v Hcontra]).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
+(apply ty_empty__subs_ty_empty).
