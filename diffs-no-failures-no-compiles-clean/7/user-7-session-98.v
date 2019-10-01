@@ -103,11 +103,11 @@ Proof.
 (destruct k).
 constructor.
 (simpl).
-tauto.
-Qed.
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
 (intros k; destruct k; intros v Hm).
 -
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
+(simpl).
+split.
