@@ -81,6 +81,5 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 refine match x with
        | 0 => nil
-       | _ => x mod 256 :: nat_to_le (x / 256)
+       | _ => _
        end.
-(* Failed. *)
