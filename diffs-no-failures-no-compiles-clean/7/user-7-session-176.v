@@ -161,4 +161,5 @@ Search -IdSet.mem.
 (destruct (IdSet.mem i (FV tint)) eqn:Hmem).
 (simpl in Hmem).
 Search -IdSet.empty.
-(rewrite IdSetFacts.empty_b).
+(rewrite IdSetFacts.empty_b in Hmem).
+contradiction.
