@@ -142,4 +142,5 @@ step_proc.
 step_proc.
 intuition eauto.
 Check proc_spec_weaken.
-(eapply proc_spec_weaken).
+(eapply proc_spec_weaken; eauto).
+(simpl).
