@@ -79,9 +79,4 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Instance aModel : GoModel.
-Proof.
-Print uint64.
-Print Ascii.Ascii.
-refine {| byte := Ascii.ascii; byte0 := "a"%string |}.
-Search -string -Ascii.ascii.
+Print string.
