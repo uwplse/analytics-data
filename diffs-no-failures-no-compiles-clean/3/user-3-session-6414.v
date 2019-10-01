@@ -178,4 +178,9 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxfJz1W"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Hint Resolve get_len: core.
+Hint Resolve get_len_ok: core.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+(unfold get; intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
