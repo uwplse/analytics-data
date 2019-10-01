@@ -65,4 +65,4 @@ admit.
 -
 admit.
 -
-(apply match_ty_exist__0_inv in Hm; contradiction).
+(destruct (beq_idP X i)).
