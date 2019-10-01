@@ -126,4 +126,3 @@ Proof.
 (unfold subst).
 (unfold subst_func).
 (simpl).
-reflexivity.
