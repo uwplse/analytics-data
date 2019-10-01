@@ -80,3 +80,5 @@ Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k
 Proof.
 (intros v; induction v; intros X t k Hm; assumption).
 Lemma match_ty_var__inv : forall (v : ty) (X : id) (k : nat), |-[ k] v <$ TVar X -> value_type v.
+Proof.
+(intros v; induction v; intros X k Hm; assumption).
