@@ -141,23 +141,5 @@ step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
-Theorem get_at_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a < length state;
-     post := fun r state' =>
-             state' = state /\ diskGet state (log_addr a) = Some r;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Proof.
-(unfold get_at; intros).
-(apply spec_abstraction_compose).
-(simpl).
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intros).
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
-(descend; intuition eauto).
-(descend; intuition eauto).
-Search -diskGet -"<".
-(apply disk_inbounds_exists in H).
+(apply disk_inbounds_exists in H; intuition eauto).
+(rewrite H in *).
