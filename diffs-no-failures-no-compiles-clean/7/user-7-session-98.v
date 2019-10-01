@@ -89,10 +89,7 @@ Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> v
 auto.
 -
 (apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(eapply IHk; eassumption).
-Qed.
-Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
+Lemma match_ty_value_type__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
 (intros v Hv; induction Hv; intros k).
 -
@@ -103,10 +100,13 @@ Proof.
 (destruct k).
 constructor.
 (simpl).
+tauto.
+Qed.
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
 (intros k; destruct k; intros v Hm).
 -
+(apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
 (simpl).
 constructor.
@@ -115,7 +115,7 @@ constructor.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 exists t'.
-(apply match_ty__reflexive).
+(apply match_ty_value_type__reflexive).
 constructor.
 Qed.
 Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
@@ -138,3 +138,6 @@ Proof.
 (intros Hcontra).
 specialize (Hcontra 1).
 (assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [tx Hmx]).
