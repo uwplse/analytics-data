@@ -496,4 +496,5 @@ auto using match_ty_i_pair.
 (intros v; split; intros Hm; specialize (Href v)).
 specialize (IHHsub2 k _ Hm).
 tauto.
-(apply IHHsub1; auto).
+(apply IHHsub1; tauto).
+Qed.
