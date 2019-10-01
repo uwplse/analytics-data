@@ -94,3 +94,7 @@ assumption.
 specialize (IHw' _ Hm').
 (destruct IHw' as [_ IHw']).
 (apply f_free_in_ty__f_free_in_b_subst in HX').
+(apply (f_free_in_ty__f_free_in_b_subst i ti) in HX').
+specialize (IHw' HX').
+(rewrite f_subst_exist).
+exists ([FX' := tx] ti).
