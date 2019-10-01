@@ -96,6 +96,7 @@ specialize (IHw'b H).
 exists ti.
 assumption.
 }
+{
 (destruct (beq_idP X' i)).
 {
 subst.
@@ -104,3 +105,6 @@ subst.
 admit.
 }
 {
+(rewrite subst_equation).
+Search -beq_id.
+(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
