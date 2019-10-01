@@ -105,6 +105,11 @@ exists 0.
 assumption.
 }
 }
-{
-(split; intros HX').
+(simpl in Hm').
+contradiction.
+}
+*
+(simpl in Hm').
+subst.
+split.
 {
