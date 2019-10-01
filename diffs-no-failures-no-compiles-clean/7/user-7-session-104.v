@@ -64,3 +64,8 @@ Proof.
 (intros k Hdep w Hcontra).
 (apply match_ty_cname__inv in Hcontra).
 (inversion Hcontra).
+-
+(intros k Hdep w Hcontra).
+(apply match_ty_pair__inv in Hcontra).
+(inversion Hcontra).
+-
