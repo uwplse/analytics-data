@@ -54,5 +54,4 @@ Proof.
 lia.
 Qed.
 step_proc.
-(destruct a'; simpl in *; intuition).
-step_proc.
+intuition.
