@@ -150,7 +150,4 @@ Theorem get_upto_ok a :
      recovered := fun _ state' => state' = state |}) 
     (get_upto a) recover abstr.
 Proof.
-(induction a; simpl).
--
-step_proc.
-eauto.
+(apply d.recover_wipe).
