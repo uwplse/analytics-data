@@ -48,7 +48,6 @@ Proof.
 (destruct Hm as [ti Hm]).
 (apply match_ty_exist).
 exists ti.
-Abort.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   |-[ w] v <$ [X := tx] t ->
@@ -87,28 +86,3 @@ admit.
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
-(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
-*
-specialize (IHw'b H).
-(split; intros HX').
-{
-(apply match_ty_exist).
-exists ti.
-assumption.
-}
-{
-(destruct (beq_idP X' i)).
-{
-subst.
-(unfold free_in_ty in HX').
-(simpl in HX').
-admit.
-}
-{
-(rewrite subst_equation).
-Search -beq_id.
-(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
-(rewrite Hbeq).
-(destruct (IdSet.mem i (FV tx))).
-{
-(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
