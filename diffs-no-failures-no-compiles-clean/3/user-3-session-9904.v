@@ -121,4 +121,6 @@ lia.
 (step_proc; intuition).
 (destruct s; intuition).
 +
-congruence.
+(unfold statdb_abstraction in *; simpl in *).
+intuition.
++
