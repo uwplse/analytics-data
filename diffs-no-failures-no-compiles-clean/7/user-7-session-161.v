@@ -83,4 +83,7 @@ Proof.
 (induction t; intros tx ty; try reflexivity).
 -
 (repeat rewrite subst_pair).
-(rewrite IHt1).
+(rewrite IHt1, IHt2).
+reflexivity.
+-
+(repeat rewrite subst_pair).
