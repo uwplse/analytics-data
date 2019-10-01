@@ -447,4 +447,3 @@ Proof.
 (unfold log_abstraction; intuition).
 -
 (unfold log_length_ok in *; intros).
-(rewrite diskUpd_eq in H2).
