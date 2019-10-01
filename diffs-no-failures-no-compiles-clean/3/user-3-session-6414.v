@@ -34,3 +34,5 @@ Axiom
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Module Log (d: OneDiskAPI)<: LogAPI.
 Definition init : proc InitResult.
+Print OneDiskAPI.
+Timeout 1 Locate Ltac OneDiskAPI.
