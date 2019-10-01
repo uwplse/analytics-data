@@ -129,6 +129,8 @@ Proof.
 (apply match_ty_exist__0_inv in Hm).
 (destruct Hm as [Hv [tx Heqx]]; subst).
 (simpl in *).
-split.
-assumption.
-(exists tx; reflexivity).
+(split; eauto).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl).
