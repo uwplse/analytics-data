@@ -32,5 +32,5 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoPhort"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition change_marker {T'} (p' : proc T') `{!ProcMarker p} :
+Definition change_marker {T'} (p' : proc T') `{ProcMarker p} :
   ProcMarker p' := AProc p'.
