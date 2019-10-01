@@ -75,4 +75,7 @@ Proof.
 -
 (induction t').
 +
+admit.
++
+admit.
 +
