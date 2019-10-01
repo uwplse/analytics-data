@@ -152,4 +152,5 @@ specialize (Hsem _ Hm).
 (destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
 Lemma sem_sub_k_i_pair__inv :
   forall (t1 t2 t1' t2' : ty) (k : nat), ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
-(intros t1 t2 t1' t2' k H).
+(intros t1 t2 t1' t2' k Hsem).
+(unfold sem_sub_k_i in Hsem).
