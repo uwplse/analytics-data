@@ -161,6 +161,11 @@ Qed.
 Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
 auto with DBBetaJulia.
+Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Proof.
+(intros k t t' H).
+(split; intros v Hm; specialize (H v); tauto).
+Qed.
 Lemma sem_sub_k_i_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
 (intros k t1 t2 t' Hsem).
@@ -244,6 +249,8 @@ Proof.
 +
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
++
+clear IHt2.
 (simpl in Hdep).
 (pose proof (le_S_n _ _ Hdep) as Hdep').
 (unfold sem_sub_k in Hsem).
@@ -256,3 +263,7 @@ constructor.
 *
 (apply IHk; try assumption).
 (apply sem_eq_k_i__sem_sub_k_i in Href).
+tauto.
+*
+(apply SD_Trans with (MkNF( t2))).
+(apply mk_nf__sub_d_r; assumption).
