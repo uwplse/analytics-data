@@ -36,5 +36,6 @@ End TermNotations.
 Redirect "/tmp/coqY0pFmz" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Import TermNotations.
-Check [Nil Nil Nil]%coucou_scope.
+Open Scope coucou_scope.
+Check [Nil Nil Nil].
 (* Failed. *)
