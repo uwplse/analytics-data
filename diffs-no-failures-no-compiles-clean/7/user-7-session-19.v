@@ -73,4 +73,5 @@ Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> f
    | |- |-[ ?k'] ?v <$ TRef _ _ => idtac
    end).
 -
-(apply match_ty_i_pair__union in Hm).
+(apply match_ty_i_union__inv in Hm).
+(destruct Hm as [Hm1| Hm2]).
