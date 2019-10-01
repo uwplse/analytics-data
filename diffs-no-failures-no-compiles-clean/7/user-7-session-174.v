@@ -101,3 +101,6 @@ Function
    end.
 Proof.
 all: (try (intros; simpl; Omega.omega)).
+-
+(intros).
+(simpl).
