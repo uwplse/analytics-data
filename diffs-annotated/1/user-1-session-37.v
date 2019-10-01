@@ -298,8 +298,8 @@ Fixpoint Gamma (G : GT) : SetST :=
       exists l',
         X = SRec l' /\
         Forall2
-          (fun (S' : option ST) (G' : option Ensemble (option ST)) =>
-           True) l'
+          (fun (S' : option ST) (G' : option (Ensemble (option ST)))
+           => True) l'
           (map
              (option_map
                 (fun pair =>
@@ -319,4 +319,3 @@ Fixpoint Gamma (G : GT) : SetST :=
                  end)) l)
   | _ => Empty_set _
   end.
-(* Failed. *)
