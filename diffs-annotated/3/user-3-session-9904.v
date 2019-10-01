@@ -53,6 +53,4 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-(right; intuition).
-congruence.
-(* Failed. *)
+(destruct state).
