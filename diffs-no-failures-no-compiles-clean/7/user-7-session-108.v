@@ -398,7 +398,7 @@ right.
 (apply (ty_empty__subs_ty_empty _ _ _ Hnotm i tx)).
 eauto.
 -
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t (S k) -> ~ ||-[ S k][t]<= [TRef t].
+Lemma not_sem_sub__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t (S k) -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
 (induction t; intros k Ht Hcontra).
 -
@@ -420,3 +420,19 @@ specialize (Hcontra v Hm).
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Heq _]]; inversion Heq).
 -
+Abort.
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]= [TRef t].
+Proof.
+(induction t; intros k Hdep Hcontra).
+-
+(destruct Hcontra as [Hcontra _]).
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+clear Hm.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Hcontra _]]).
+(inversion Hcontra).
+-
+(destruct Hcontra as [Hcontra _]).
