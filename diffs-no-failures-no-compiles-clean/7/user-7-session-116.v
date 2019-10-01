@@ -20,9 +20,13 @@ Proof.
 (unfold fresh in *).
 (split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
 Qed.
+Lemma subs_fresh_in_ty : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
+Proof.
+(intros X t).
 (induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh; simpl).
 -
 (apply fresh_union__inv in Hfresh).
+(destruct Hfresh as [Hfresh1 Hfresh2]).
 (rewrite IHt1; try assumption).
 (rewrite IHt2; try assumption).
 reflexivity.
@@ -47,11 +51,19 @@ reflexivity.
 subst.
 contradiction.
 -
+(unfold fresh in Hfresh).
 (destruct (beq_idP X i); try reflexivity).
 subst.
 exfalso.
 (apply Hfresh).
-Search -IdSet.singleton.
 (apply IdSetFacts.singleton_2).
 reflexivity.
 Qed.
+Lemma subs_neq__permute :
+  forall X Y : id, X <> Y -> forall t s1 s2 : ty, fresh_in_ty X s2 -> fresh_in_ty X s1 -> [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
+Proof.
+(intros X Y Hneq t).
+(induction t; intros s1 s2 HXs2 HYs1; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
+-
+(simpl).
+(rewrite IHtt1).
