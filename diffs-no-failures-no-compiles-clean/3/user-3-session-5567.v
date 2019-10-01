@@ -173,4 +173,3 @@ step.
 {
 (descend; intuition eauto).
 {
-step.
