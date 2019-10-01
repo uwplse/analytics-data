@@ -72,5 +72,5 @@ Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
 step_proc.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
-(* Failed. *)
+step_proc.
+intuition eauto.
