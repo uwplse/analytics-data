@@ -40,3 +40,4 @@ Lemma X_spec :
   denote_box safe (boxed_gate _X) (bool_to_matrix b) == bool_to_matrix (\194\172 b).
 Proof.
 vector_denote.
+(destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
