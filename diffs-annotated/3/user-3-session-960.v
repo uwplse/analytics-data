@@ -7,10 +7,4 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
-Next Obligation.
-Proof.
-subst digit.
-(apply PeanoNat.Nat.div_lt; auto; try lia).
-Qed.
-Next Obligation.
-Proof.
+Next Obligation of nat_to_le.
