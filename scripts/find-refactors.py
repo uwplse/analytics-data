@@ -50,11 +50,12 @@ with open(fpath, 'r') as f:
                 line = re.sub("\(\*(\d+):\*\)\s+", "", line)
                 lines_buff.append(line)
                 # Deal with missing states
-                if line_num > 0 and state_num > max_state:
-                    diff = state_num - max_state - 1
-                    for i in range(diff):
-                        line_num = line_num + 1
-                        lines_buff.append("(* Auto-generated comment: Missing state. *)")
+                if state_num > max_state:
+                    if line_num > 0:
+                        diff = state_num - max_state - 1
+                        for i in range(diff):
+                            line_num = line_num + 1
+                            lines_buff.append("(* Auto-generated comment: Missing state. *)")
                     max_state = state_num
                 line_num = line_num + 1
             if (len(lines) > 0):
