@@ -278,4 +278,3 @@ clear H.
 (eapply evalIntEq).
 (erewrite evalTimes in H0).
 exact H0.
-}
