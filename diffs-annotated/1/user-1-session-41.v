@@ -281,23 +281,5 @@ Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
 Import Coq.Lists.List.ListNotations.
-Require Export Setoid.
-Require Export Relation_Definitions.
-Module AGT_Bounded_Rows_Details.
-Definition label := nat.
-Inductive ST : Type :=
-  | SInt : ST
-  | SBool : ST
-  | SFun : ST -> ST -> ST
-  | SRec : list (option ST) -> ST.
-Inductive Ann : Type :=
-  | R : Ann
-  | O : Ann.
-Inductive GT : Type :=
-  | GDyn : GT
-  | GInt : GT
-  | GBool : GT
-  | GFun : GT -> GT -> GT
-  | GRec : list (option (Ann * GT)) -> GT
-  | GRow : list (option (option (Ann * GT))) -> GT.
-Module asdf.
+Module GTeq.
+Fixpoint eq (G_1 G_2 : GT) : Prop := True.
