@@ -119,4 +119,4 @@ econstructor.
 (simpl).
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
-(unfold nat64_to_le, nat64_from_le).
+(unfold nat64_to_le, nat64_from_le; intros).
