@@ -91,4 +91,4 @@ assumption.
 (destruct Hm' as [ti [Hwf Hm']]).
 (split; intros HX').
 *
-exists ti'.
+exists ti.
