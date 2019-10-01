@@ -174,4 +174,4 @@ matrix_denote.
 restore_dims.
 (repeat rewrite Mmult_1_l).
 restore_dims.
-(repeat rewrite kron_1_l).
+(rewrite kron_1_l).
