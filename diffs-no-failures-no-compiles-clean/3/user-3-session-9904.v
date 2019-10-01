@@ -113,4 +113,4 @@ step_proc.
 left.
 intuition.
 (unfold statdb_abstraction in *).
-(destruct s; intuition; try congruence).
+(destruct s; simpl in *).
