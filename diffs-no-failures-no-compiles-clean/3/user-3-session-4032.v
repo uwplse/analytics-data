@@ -318,4 +318,4 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Check file_truncate.
 Check file_set_sz.
-Search -addr -word.
+Anomaly "No printing rule found for "If _ _ else _"." Please report at http://coq.inria.fr/bugs/.
