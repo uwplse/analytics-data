@@ -63,4 +63,3 @@ Msimpl.
 -
 (simpl).
 (unfold denote_pat; simpl).
-(unfold swap_list; simpl).
