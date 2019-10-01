@@ -430,4 +430,5 @@ specialize (IHt'2 Hnft).
 *
 Check left.
 Print "\/".
-specialize (IHt'1 (or_introl Hdept)).
+(apply Nat.le_trans with (| t'1 |)).
+tauto.
