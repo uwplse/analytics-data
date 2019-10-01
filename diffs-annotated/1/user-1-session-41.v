@@ -548,7 +548,12 @@ Inductive Alpha : SetST -> GT -> Prop :=
 Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
 Hint Resolve singleton_eq: agt.
+(induction H).
+-
+(intros; inversion H0; subst; eauto).
 all: (try (apply singleton_eq in H1; congruence)).
+all: (try specialize (H1 _ (In_singleton _ _ _))).
+all: (try specialize (H1 _ (In_singleton _ _))).
 all:
  (repeat
    match goal with
@@ -556,3 +561,17 @@ all:
    | H:_ \/ _ |- _ => inversion H; clear H
    end).
 all: (try congruence).
+-
+(intros; inversion H0; subst; eauto).
+all: (try (apply singleton_eq in H1; congruence)).
+all: (try specialize (H1 _ (In_singleton _ _ _))).
+all: (try specialize (H1 _ (In_singleton _ _))).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+all: (try congruence).
+-
+(intros; inversion H0; subst; eauto).
