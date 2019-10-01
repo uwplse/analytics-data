@@ -71,8 +71,6 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
-intuition.
--
-eauto using log_length_ok_nil.
--
-(simpl).
+(unfold log_size_ok).
+lia.
+(* Failed. *)
