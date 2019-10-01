@@ -10,6 +10,10 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjt.
+Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
+Proof.
+(intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
+Qed.
 Lemma f_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (f_free_in_ty X t).
 Proof.
 (intros X t).
@@ -48,3 +52,5 @@ Proof.
 (intros X t1 t2 Hfresh).
 (unfold not_b_free_in_ty in *; simpl in Hfresh; simpl).
 (apply not_free_union__inv in Hfresh).
+assumption.
+Qed.
