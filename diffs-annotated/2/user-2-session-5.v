@@ -20,5 +20,6 @@ Inductive term :=
 Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Print List.find.
-Print List.contains.
-(* Failed. *)
+Definition primitive (name : string) : bool :=
+  List.find (String.eq name)
+    ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil).
