@@ -383,5 +383,4 @@ Theorem log_abstraction_preserved d bs d' :
 Proof.
 (unfold log_abstraction, log_length_ok, log_size_ok; intuition).
 -
-(rewrite H0 in *).
-auto.
+replace (diskGet d' len addr) in *.
