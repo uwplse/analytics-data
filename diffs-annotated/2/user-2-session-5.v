@@ -19,4 +19,11 @@ Inductive term :=
   | App : term -> term -> term.
 Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Check [Nil Nil].
+Module TermNotations.
+Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
+  (x  at level 200, y  at level 200, z  at level 200) : coucou_scope.
+End TermNotations.
+Import TermNotations.
+Open Scope coucou_scope.
+Redirect "/tmp/coq7rV0je" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
