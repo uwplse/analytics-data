@@ -548,10 +548,4 @@ Inductive Alpha : SetST -> GT -> Prop :=
 Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
 Hint Resolve singleton_eq: agt.
-Lemma alpha_fun_inversion :
-  forall S,
-  (forall X, Ensembles.In _ S X -> exists S_1 S_2, X = SFun S_1 S_2) ->
-  forall G, Alpha S G -> exists G_1 G_2, G = GFun G_1 G_2.
-Proof.
-(intros).
 (inversion H0).
