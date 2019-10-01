@@ -68,6 +68,7 @@ with open(fpath, 'r') as f:
                 group_failures.append(False)
             else:
                 group_failures.append(True)
+            max_state = max_state + 1
 
 # Now go through the cancellations and find diffs
 if len(group_lines) > 0:
