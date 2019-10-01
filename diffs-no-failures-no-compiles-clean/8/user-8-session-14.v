@@ -1346,4 +1346,3 @@ generalize dependent m.
 (unfold swap_two).
 (rewrite <- beq_nat_refl).
 Msimpl.
-reflexivity.
