@@ -100,14 +100,3 @@ admit.
 (destruct Heq as [Z [tz Heq]]).
 (rewrite Heq in Hm).
 (apply match_ty_exist__0_inv in Hm; contradiction).
-(destruct (beq_idP X i) as [HXi| HXi]).
-+
-subst.
-(rewrite subst_var_eq in *).
-exists (TEV X').
-split.
-reflexivity.
-(induction w'; induction t'; intros Hm'; try contradiction).
-*
-(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-*
