@@ -119,5 +119,4 @@ lia.
 -
 (step_proc; intros).
 intuition.
-(step_proc; intros).
-autounfold in *.
+(unfold statdb_abstraction in *).
