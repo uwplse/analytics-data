@@ -41,6 +41,7 @@ do
     sed -i -re '/^Show\./d' ${topath}
     sed -i -re '/^Locate .*\./d' ${topath}
     sed -i -re '/^Timeout [0-9]+ Check .*\./d' ${topath}
+    sed -i -re '/^\(\* Auto-generated comment: Missing state\. \*\)/d' ${topath}
     # Add and commit
     git add ${topath}
     git commit -m "user ${userid}, session ${sessionid}, part ${i}"
