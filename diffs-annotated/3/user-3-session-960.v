@@ -10,7 +10,7 @@ From Coq Require Export String.
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqPxOPl"
 Print Ltac Signatures.
 Function
- nat_to_le base (x : nat) {wf lt x} : list {y : nat | x < S (S base)} :=
+ nat_to_le base (x : nat) {wf lt x} : list {x : nat | x < S (S base)} :=
    match x with
    | 0 => nil
    | _ =>
