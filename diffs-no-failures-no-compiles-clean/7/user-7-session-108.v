@@ -258,4 +258,3 @@ Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t 
 -
 admit.
 -
-(destruct Hsem as [_ Hsem]).
