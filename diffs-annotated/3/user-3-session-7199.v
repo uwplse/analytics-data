@@ -71,14 +71,6 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
-Theorem get_len_ok :
-  proc_spec
-    (fun bs state =>
-     {|
-     pre := log_length_ok state bs;
-     post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len recover d.abstr.
-Proof.
-(unfold get_len; intros).
-(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [_ bs]; simpl in *; intuition eauto).
 (* Failed. *)
