@@ -361,4 +361,3 @@ intuition eauto.
 -
 step.
 (intuition eauto; autorewrite with upd; auto).
-step.
