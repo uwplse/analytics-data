@@ -63,18 +63,6 @@ Proof.
 (destruct r; simpl in *; repeat deex; intuition eauto).
 Qed.
 Hint Resolve tt: core.
-Inductive Marker (s : string) {T} (p : proc T) : Type :=
-    mark : _.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqEIgS8G"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqImLfN4"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Hint Resolve mark: core.
 Theorem proc_spec_rx :
   forall `(spec : Specification A T R State) `(p : proc T) 
     `(rec : proc R) `(rx : T -> proc T')
@@ -86,7 +74,7 @@ Theorem proc_spec_rx :
      pre (spec a state) /\
      (forall r state',
       recovered (spec a state) r state' ->
-      forall L : Marker "recovered condition" (rx r),
+      forall L : Marker "recovered condition" p,
       recovered (spec' a' state) r state') /\
      (forall r,
       proc_spec
@@ -97,4 +85,18 @@ Theorem proc_spec_rx :
          post := fun r state'' => post (spec' a' state) r state'';
          recovered := fun r state'' => recovered (spec' a' state) r state'' |})
         (rx r) rec abs)) -> proc_spec spec' (Bind p rx) rec abs.
-(* Failed. *)
+Proof.
+(unfold proc_spec at 3; intros).
+inv_rexec.
+-
+inv_exec.
+(match goal with
+ | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
+ end).
+(eapply H0 in H2; repeat deex).
+(eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
+(match goal with
+ | Hexec:exec (rx _) _ _
+   |- _ => eapply RExec in Hexec; eapply H4 in Hexec; eauto
+ end).
+-
