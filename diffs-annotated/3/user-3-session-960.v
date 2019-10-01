@@ -8,6 +8,8 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
+Instance aModel : GoModel.
+Proof.
 refine
  {|
  byte := {x | x < 256};
@@ -21,21 +23,5 @@ refine
  nilFile := (0 - 1)%Z;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-lia.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxLjDKh"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Defined.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzGychP"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfgqcXX"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Print aModel.
+constructor.
+constructor.
