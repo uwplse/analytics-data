@@ -130,4 +130,5 @@ admit.
 admit.
 admit.
 -
-(intros k w2 t' X' HX HX').
+(intros k w2 t' X' HX HX' Hsem).
+(intros tx v Hm).
