@@ -49,8 +49,8 @@ with open(fpath, 'r') as f:
                 line = re.sub("\(\*(\d+):\*\)\s+", "", line)
                 lines[line_num] = line
                 # Deal with missing states
-                if state_num > max_state:
-                    diff = max_state - state_num
+                if line_num > 0 and state_num > max_state:
+                    diff = state_num - max_state
                     for i in range(diff):
                         line_num = line_num + 1
                         lines[line_num] = "(* Auto-generated comment: Missing state. *)"
