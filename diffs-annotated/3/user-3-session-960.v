@@ -9,3 +9,4 @@ From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
 Print Ascii.ascii_of_byte.
+Print Byte.byte.
