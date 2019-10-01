@@ -19,4 +19,9 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
+Fixpoint get_upto (a : addr) : proc (list block) :=
+  match a with
+  | 0 => Ret []
+  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [a])
+  end.
 (* Failed. *)
