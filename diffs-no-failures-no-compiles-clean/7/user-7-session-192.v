@@ -134,10 +134,21 @@ subst.
 (rewrite subst_exist_eq).
 (apply match_ty_exist).
 exists ti.
-assumption.
+admit.
 }
-(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
-(rewrite Hbeq).
-(destruct (IdSet.mem i (FV tx)) eqn:Hmem).
-{
-(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
