@@ -200,4 +200,4 @@ subst.
 -
 (destruct w).
 +
-(apply mtch_ty_exist__0_inv in Hm).
+(apply mactch_ty_exist__0_inv in Hm).
