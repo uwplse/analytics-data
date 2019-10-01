@@ -80,4 +80,4 @@ Proof.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 (intros v Hv).
-(aplit; tauto).
+(split; tauto).
