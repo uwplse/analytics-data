@@ -73,7 +73,6 @@ Proof.
 (destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
 Qed.
 Theorem match_ty__value_type_l : forall (k w : nat) (v t : ty), |-[ k, w] v <$ t -> value_type v.
-Proof.
 (induction k, w; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
@@ -82,5 +81,6 @@ Proof.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | apply match_ty_var__inv in Hm; subst; constructor
    | apply match_ty_ev__inv in Hm; subst; constructor
-   | apply match_ty_exist__0_inv in Hm; auto
+   | apply match_ty_exist__0_inv in Hm; contradiction
    | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
+(apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]).
