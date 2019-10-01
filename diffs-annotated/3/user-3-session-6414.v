@@ -21,5 +21,4 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Timeout 1 Locate OneDiskAPI.
 Timeout 1 Locate OneDiskAPI.
-Timeout 1 Locate Ltac OneDiskAPI.
-(* Failed. *)
+Timeout 1 Locate OneDiskAPI.
