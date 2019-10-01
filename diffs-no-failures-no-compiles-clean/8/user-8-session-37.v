@@ -250,4 +250,4 @@ easy.
 (unfold compose_super).
 (erewrite VA).
 easy.
-2: (constructor; apply singleton_singleton).
+(eapply t0).
