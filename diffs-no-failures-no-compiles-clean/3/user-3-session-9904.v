@@ -120,4 +120,5 @@ lia.
 (step_proc; intuition).
 (step_proc; intuition).
 (exists s; intuition).
-right.
+(right; intuition).
+congruence.
