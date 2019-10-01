@@ -69,4 +69,3 @@ Proof.
 -
 matrix_denote.
 Msimpl.
-lma.
