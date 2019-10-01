@@ -444,4 +444,13 @@ step_proc.
 intuition.
 {
 (descend; intuition eauto).
+admit.
 }
+{
+(descend; intuition eauto).
+admit.
+}
+-
+step_proc.
+{
+(descend; intuition euuto).
