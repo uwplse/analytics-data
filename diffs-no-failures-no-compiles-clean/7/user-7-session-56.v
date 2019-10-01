@@ -133,6 +133,11 @@ Lemma match_ty__inv_depth_l_le_r : forall (v t : ty) (k : nat), |-[ k] v <$ t ->
 Proof.
 (apply match_ty__inv_depth_l).
 Qed.
-Lemma match_ty_value_type_k : forall (v : ty) (k : nat), value_type v -> ~ (exists v' : ty, |-[ k] v' <$ v) \/ | v | <= k.
+Lemma match_ty_value_type_k : forall v : ty, value_type v -> forall k : nat, ~ (exists v' : ty, |-[ k] v' <$ v) \/ | v | <= k.
 Proof.
-(induction v; intros k Hv).
+(intros v Hv).
+(induction Hv; intros k).
+-
+(right; simpl; apply Nat.le_0_l).
+-
+(specialize (IHHv1 k H1); specialize (IHHv2 k H2)).
