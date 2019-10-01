@@ -71,6 +71,6 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
-(pose proof (H3 a); intuition).
-(assert (v = nth a bs block0)).
-(eapply diskGet_eq_values; eauto).
+Theorem log_size_bound d bs :
+  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
+(* Failed. *)
