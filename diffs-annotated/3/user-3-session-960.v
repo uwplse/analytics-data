@@ -85,7 +85,3 @@ Print uint64.
 Print Ascii.Ascii.
 refine {| byte := Ascii.ascii; byte0 := "a"%string |}.
 Search -string -Ascii.ascii.
-refine
- {|
- byte := Ascii.ascii;
- byte0 := Ascii.Ascii false false false false false false false false |}.
