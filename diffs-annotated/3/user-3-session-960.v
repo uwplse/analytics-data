@@ -8,4 +8,4 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Print sig.
-Search -(sig _ _ -> _).
+Search -(sig _ -> _).
