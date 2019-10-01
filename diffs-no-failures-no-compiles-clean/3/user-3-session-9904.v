@@ -78,4 +78,3 @@ Proof.
 step_proc.
 (destruct a'; simpl in *; intuition).
 step_proc.
-intuition.
