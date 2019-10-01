@@ -43,20 +43,4 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtKERBA"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Theorem swapXY_ok :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := True;
-     post := fun r state' =>
-             state' = mkState (StateY state) (StateX state) (StateZ state);
-     recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
-Proof.
-(match goal with
- | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
- end).
-(unfold swapXY).
-monad_simpl.
-(match goal with
- | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
- end).
+Notation "'proc:' p" := (ProcMarker p) (only printing).
