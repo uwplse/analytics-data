@@ -82,5 +82,4 @@ Theorem get_at_ok a :
      post := fun r state' => state' = state /\ nth a state block0 = r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
-(pose proof H).
 (apply H1 in H).
