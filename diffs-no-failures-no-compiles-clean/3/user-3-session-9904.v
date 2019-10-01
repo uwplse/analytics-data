@@ -144,4 +144,4 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 step_proc.
-(destruct a; intuition).
+(destruct a; simpl in *).
