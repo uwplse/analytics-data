@@ -215,12 +215,8 @@ Definition equal_after a (d_0 d_1 : disk) :=
 Theorem le_eq_or_S_le : forall n m, n <= m -> n = m \/ S n <= m /\ n <> m.
 Proof.
 (intros).
-lia.
-Qed.
-Theorem equal_after_diskUpd :
-  forall a d_0 d_1 b,
-  equal_after (S a) d_0 d_1 ->
-  equal_after a (diskUpd d_0 a b) (diskUpd d_1 a b).
-Proof.
-(unfold equal_after; intuition).
+-
 (autorewrite with upd; eauto).
+-
+(apply le_eq_or_S_le in H1; intuition subst).
+(destruct (lt_dec a' (diskSize d_0)); autorewrite with upd).
