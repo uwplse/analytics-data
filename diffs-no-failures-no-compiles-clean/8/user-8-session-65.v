@@ -1249,3 +1249,5 @@ Proof.
 (intros).
 (induction c).
 -
+(unfold denote_box; simpl).
+Search -add_fresh -[].
