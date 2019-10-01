@@ -205,4 +205,5 @@ Lemma sem_sub_k__sem_eq_k : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]<= [t2] ->
 Proof.
 (intros k t1 t2 Hsem).
 (intros k t1 t2 Hsem1 Hsem2).
-auto with DBBetaJulia.
+(unfold sem_sub_k in *).
+split.
