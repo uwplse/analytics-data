@@ -141,5 +141,4 @@ step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
-(unfold abstr).
-(apply rec_wipe_compose).
+(unfold rec_wipe; simpl).
