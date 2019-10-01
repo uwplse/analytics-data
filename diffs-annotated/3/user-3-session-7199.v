@@ -142,4 +142,4 @@ step_proc.
 step_proc.
 intuition eauto.
 Check proc_spec_weaken.
-autorewrite with upd.
+autorewrite with upd in *.
