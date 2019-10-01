@@ -7,4 +7,12 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
-Search -wf.
+#[program]
+Fixpoint nat_to_le base (x : nat) {measure x lt} :
+list {x : nat | x < S (S base)} :=
+  match x with
+  | 0 => nil
+  | _ =>
+      let digit := x mod S (S base) in
+      exist _ digit _ :: nat_to_le base (x / S (S base))
+  end.
