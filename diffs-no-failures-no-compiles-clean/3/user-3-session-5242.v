@@ -87,4 +87,8 @@ Proof.
 (step_proc_basic; intros).
 (exists tt; simpl; intuition idtac).
 (step_proc_basic; intros).
+{
 eauto.
+}
+(simpl in *; intuition subst).
+(eexists; intuition auto).
