@@ -1249,4 +1249,4 @@ Proof.
 (intros).
 (destruct c).
 (unfold denote_box; simpl).
-(rewrite add_fresh_split).
+(rewrite add_fresh_split; simpl).
