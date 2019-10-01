@@ -119,14 +119,4 @@ econstructor.
 (simpl).
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
-+
-(unfold nat64_to_le; intros).
-(match goal with
- | H:context [ nat_le_dec ?n ?m ]
-   |- _ => destruct (nat_le_dec n m); try congruence
- end).
-(inversion H; subst).
-(rewrite app_length, repeat_length).
-lia.
-+
-(simpl).
+(unfold nat64_to_le, nat64_from_le).
