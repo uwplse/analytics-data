@@ -107,4 +107,3 @@ Proof.
 idtac.
 (simpl).
 (apply le_n_S).
-(apply IHk).
