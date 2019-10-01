@@ -155,7 +155,6 @@ exists (S w').
 (rewrite f_subst_not_b_free_in_ty; auto).
 }
 }
-*
 (split; intros HX').
 {
 (apply match_ty_exist__inv in Hm').
