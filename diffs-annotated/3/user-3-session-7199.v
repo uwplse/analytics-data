@@ -24,4 +24,4 @@ Axiom
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
 Check diskUpd_oob_eq.
-(destruct (a == a0)).
+(destruct (a == a0); subst; autorewrite with upd; auto).
