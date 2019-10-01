@@ -430,4 +430,6 @@ Theorem log_contents_ok_len_change d bs b :
   log_contents_ok d bs -> log_contents_ok (diskUpd d len_addr b) bs.
 Proof.
 (unfold log_size_ok, log_contents_ok, len_addr; intros).
-(destruct (a == a0); subst; autorewrite with upd; auto).
+(destruct (0 == log_addr a)).
+-
+(unfold log_addr in *; lia).
