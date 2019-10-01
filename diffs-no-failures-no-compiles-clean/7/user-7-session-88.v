@@ -420,4 +420,4 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
             (Hsem _ Hm); contradiction
      end ])).
 (assert (Hv : value_type (TCName c)) by constructor).
-(solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2).
+(destruct IHt'1).
