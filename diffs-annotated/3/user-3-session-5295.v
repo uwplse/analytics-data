@@ -216,4 +216,3 @@ Theorem le_eq_or_S_le : forall n m, n <= m -> n = m \/ S n <= m /\ n <> m.
 Proof.
 +
 (destruct (lt_dec a' (diskSize d_0)); autorewrite with upd).
-(assert (a' < diskSize d_1) by congruence; autorewrite with upd; auto).
