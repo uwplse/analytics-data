@@ -171,4 +171,4 @@ solve_matrix.
 +
 (simpl).
 matrix_denote.
-Msimpl.
+restore_dims.
