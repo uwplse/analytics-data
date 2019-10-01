@@ -51,4 +51,3 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma unitary_transpose_id : forall W (U : Unitary W), unitary_transpose U \226\137\161 id_circ.
 matrix_denote.
-(rewrite add_fresh_split).
