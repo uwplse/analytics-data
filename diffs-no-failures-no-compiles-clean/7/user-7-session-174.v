@@ -135,4 +135,3 @@ Proof.
 (intros X s t1 t2).
 (unfold subst).
 Search -subst_terminate.
-(unfold subst_terminate).
