@@ -524,4 +524,4 @@ step.
 intuition eauto.
 {
 (exists []; intuition eauto).
-(apply log_abstraction_nil; eauto).
+(apply log_abstraction_nil with (b := r)).
