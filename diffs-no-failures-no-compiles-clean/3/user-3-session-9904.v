@@ -58,3 +58,7 @@ Proof.
 (eapply then_init_compose; eauto).
 (unfold init').
 (step_proc; intros).
+step_proc.
+step_proc.
+step_proc.
+step_proc.
