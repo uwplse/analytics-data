@@ -140,3 +140,4 @@ Proof.
 (apply match_ty_exist__inv in Hm).
 (apply match_ty_exist).
 exists tx.
+(simpl).
