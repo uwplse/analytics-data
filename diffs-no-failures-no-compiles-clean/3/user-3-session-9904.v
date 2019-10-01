@@ -118,4 +118,6 @@ intuition.
 lia.
 -
 (step_proc; intros).
-(exists tt; simpl; intuition idtac).
+intuition.
+(step_proc; intros).
+{
