@@ -85,8 +85,7 @@ Lemma match_ty_ref : forall (k w : nat) (t t' : ty), ||-[ k][t]= [t'] -> |-[ S k
 Proof.
 (intros k w t t' Hsem).
 (destruct w; simpl; tauto).
-Qed.
-Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][TRef t]<= [TRef t'].
+Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ S k][TRef t]<= [TRef t'].
 Proof.
 (intros k t t' Hsem).
 (intros w1).
@@ -94,6 +93,3 @@ exists w1.
 (intros v Hm).
 (destruct k).
 -
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [tx Heq]; subst).
-(destruct w1; simpl; tauto).
