@@ -53,5 +53,8 @@ Definition smi : itree smE void :=
      let (conns, st) := cst in
      match conns with
      | [] => conn <- trigger App_Accept;; call ([conn], st)
-     | c0 :: cs => call cst
-     end).
+     | c0 :: cs => or (c <- trigger App_Accept;; call (c :: conns, st)) (call cst)
+     end) ([], []).
+Redirect "/tmp/coq16819lUC" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+End App.
