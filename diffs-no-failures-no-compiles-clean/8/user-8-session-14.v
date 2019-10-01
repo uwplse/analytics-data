@@ -1220,4 +1220,4 @@ gen \207\129.
 (intros).
 (rewrite Nat.mul_1_r).
 Msimpl.
-(apply init0_end_superoperator).
+(apply (init0_end_superoperator n)).
