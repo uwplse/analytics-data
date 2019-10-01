@@ -263,4 +263,4 @@ intuition eauto.
 (eexists; intuition eauto).
 Qed.
 Theorem log_size_bound d bs :
-  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
+  log_size_ok d bs -> forall a, a < length bs -> log_addr a < diskSize d.
