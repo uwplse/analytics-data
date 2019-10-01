@@ -442,4 +442,6 @@ admit.
 }
 step_proc.
 intuition.
+{
 (descend; intuition eauto).
+}
