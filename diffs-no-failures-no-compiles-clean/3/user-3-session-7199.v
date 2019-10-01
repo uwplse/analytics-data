@@ -262,23 +262,5 @@ step_proc.
 intuition eauto.
 (eexists; intuition eauto).
 Qed.
-Hint Resolve get_len_ok: core.
-Theorem get_at_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a < length state;
-     post := fun r state' => state' = state /\ nth a state block0 = r;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Proof.
-(unfold get_at; intros).
-(apply spec_abstraction_compose).
-(simpl).
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intros).
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
-(descend; intuition eauto).
-(descend; intuition eauto).
-(unfold log_abstraction in H0; intuition).
-(pose proof (H1 a); intuition).
+Theorem log_size_bound d bs :
+  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
