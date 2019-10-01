@@ -125,4 +125,6 @@ Proof.
 (unfold subst).
 (unfold subst_func).
 Check fix_sub_eq.
-(rewrite fix_sub_eq).
+(repeat rewrite fix_sub_eq).
+(simpl).
+reflexivity.
