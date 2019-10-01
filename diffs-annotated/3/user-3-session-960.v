@@ -7,5 +7,5 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
-Proof.
-Search -"div" -"smaller".
+Search -"div" -"<".
+(apply PeanoNat.Nat.div_lt).
