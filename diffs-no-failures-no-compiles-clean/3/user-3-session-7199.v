@@ -489,6 +489,5 @@ intuition.
 (unfold spec_impl; simpl; intuition).
 (descend; intuition eauto).
 {
-(descend; intuition eauto).
 (eapply log_abstraction_nil; eauto).
-}
+(rewrite diskUpd_eq).
