@@ -281,3 +281,6 @@ Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
 Import Coq.Lists.List.ListNotations.
+Theorem size_gt_g0 : forall x, 0 < size_gt x.
+Proof.
+(induction x; intros; eauto with math).
