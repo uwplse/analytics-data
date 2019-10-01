@@ -25,4 +25,7 @@ Axiom
 Hint Resolve addr_to_block_ok: core.
 (simpl; lia).
 autorewrite with upd list in *.
-(exists bs; eauto).
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+(unfold log_length_ok).
+(rewrite H).
