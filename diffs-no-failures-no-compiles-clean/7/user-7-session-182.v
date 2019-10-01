@@ -65,4 +65,7 @@ admit.
 -
 admit.
 -
-(destruct (beq_idP X i)).
+(destruct (beq_idP X i) as [HXi| HXi]).
++
+subst.
+(rewrite subst_exist_eq).
