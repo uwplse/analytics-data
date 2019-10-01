@@ -50,26 +50,4 @@ proc unit :=
   | [] => Ret tt
   | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
   end.
-Theorem append_at_ok a bs' :
-  proc_spec
-    (fun (bs : list block) state =>
-     {|
-     pre := a = length bs /\
-            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
-     post := fun r state' =>
-             diskGet state' len_addr = diskGet state len_addr /\
-             diskSize state' = diskSize state /\
-             log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state (bs ++ bs');
-     recovered := fun _ state' =>
-                  diskGet state' len_addr = diskGet state len_addr /\
-                  diskSize state' = diskSize state /\
-                  log_contents_ok state' bs |}) (append_at a bs') recover
-    d.abstr.
-Proof.
-(induction bs'; simpl).
--
-step_proc.
-intuition eauto.
-+
-(rewrite app_nil_r in *).
+(rewrite app_nil_r in *; auto).
