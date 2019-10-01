@@ -8,7 +8,7 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 #[program]
-Fixpoint nat_to_le base (x : nat) {measure lt x} :
+Fixpoint nat_to_le base (x : nat) {measure x :
 list {x : nat | x < S (S base)} :=
   match x with
   | 0 => nil
@@ -16,4 +16,3 @@ list {x : nat | x < S (S base)} :=
       let digit := x mod S (S base) in
       exist _ digit _ :: nat_to_le base (x / S (S base))
   end.
-(* Failed. *)
