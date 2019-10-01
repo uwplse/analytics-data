@@ -10,7 +10,6 @@ From Coq Require Export String.
 Check mod_S_lt.
 Print Byte.of_nat.
 (match Byte.of_nat (proj1_sig x) with
- | Some b => Ascii.ascii_of_byte b
+ | Some x => Ascii.ascii_of_byte b
  | None => ascii0
  end).
-(* Failed. *)
