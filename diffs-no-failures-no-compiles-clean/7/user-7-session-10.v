@@ -202,4 +202,4 @@ tauto.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-(destruct Hsub'; auto).
+(destruct Hsub'; tauto).
