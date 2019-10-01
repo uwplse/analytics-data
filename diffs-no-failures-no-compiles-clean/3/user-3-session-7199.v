@@ -335,6 +335,7 @@ specialize (H a).
 (apply H).
 (rewrite app_length; lia).
 Qed.
+Hint Resolve log_contents_ok_prefix: core.
 Theorem log_contents_ok_append d bs b bs' :
   log_size_ok d (bs ++ b :: bs') ->
   log_contents_ok d bs ->
@@ -360,12 +361,6 @@ reflexivity.
 }
 (rewrite app_nth1 by lia).
 auto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOPXDAN"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
 Hint Resolve log_contents_ok_append: core.
 Theorem append_at_ok a bs' :
@@ -409,12 +404,6 @@ autorewrite with upd list in *.
 (simpl in *; lia).
 +
 (rewrite <- app_assoc in *; simpl in *; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwyXlbA"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
 Hint Resolve append_at_ok: core.
 Theorem log_abstraction_preserved d bs d' :
@@ -428,29 +417,14 @@ replace (diskGet d' len_addr) in *.
 auto.
 -
 congruence.
+Qed.
 Theorem abstr_length_sz_bound d bs :
   log_size_ok d bs -> len_addr < diskSize d.
 Proof.
 (unfold log_size_ok, len_addr, diskSize).
 (intros; lia).
 Qed.
-Lemma log_abstraction_commit :
-  forall bs bs' : list block,
-  forall d' : State,
-  log_size_ok d' (bs ++ bs') ->
-  log_contents_ok d' (bs ++ bs') ->
-  forall len_b : block,
-  block_to_addr len_b = length bs + length bs' ->
-  log_abstraction (diskUpd d' len_addr len_b) (bs ++ bs').
-Proof.
-(intros).
-(assert (len_addr < diskSize d') by eauto).
-(unfold log_abstraction; intuition).
--
-(unfold log_length_ok in *; intros; autorewrite with upd list in *).
-(simpl in *; intuition).
--
-(unfold log_size_ok in *; autorewrite with upd list in *).
-lia.
--
-Search -log_contents_ok.
+Hint Resolve abstr_length_sz_bound: core.
+Theorem log_contents_ok_len_change d bs a0 b :
+  log_size_ok d bs ->
+  log_contents_ok d bs -> log_contents_ok (diskUpd d log_len b) bs.
