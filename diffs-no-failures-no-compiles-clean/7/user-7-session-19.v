@@ -71,4 +71,4 @@ reflexivity.
 idtac.
 clear IHt'.
 (simpl).
-constructor.
+(apply f_apply).
