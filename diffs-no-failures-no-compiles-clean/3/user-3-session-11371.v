@@ -220,8 +220,3 @@ reflexivity.
 (simpl).
 reflexivity.
 -
-(simpl).
-(rewrite IHm').
-(rewrite plus_swap).
-reflexivity.
-}
