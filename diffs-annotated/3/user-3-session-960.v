@@ -13,5 +13,4 @@ Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   | 0 => nil
   | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
   end.
-Next Obligation.
-(simpl).
+(intros).
