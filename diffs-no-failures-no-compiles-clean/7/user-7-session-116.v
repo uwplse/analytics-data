@@ -79,4 +79,4 @@ subst.
 subst.
 reflexivity.
 *
-(rewrite IHt).
+(rewrite IHt; try assumption).
