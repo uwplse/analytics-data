@@ -53,4 +53,4 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-autounfold in *.
+(unfold statdb_abstraction in *).
