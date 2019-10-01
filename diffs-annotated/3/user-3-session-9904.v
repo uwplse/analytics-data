@@ -53,4 +53,4 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-(destruct s; intuition; try congruence).
+(destruct s; simpl in *).
