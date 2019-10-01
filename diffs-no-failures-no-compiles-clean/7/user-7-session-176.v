@@ -145,4 +145,4 @@ Proof.
 (intros X; induction w; induction t; intros v).
 (intros Hm).
 (apply match_ty_cname__inv in Hm).
-(exists v; assumption).
+exists v.
