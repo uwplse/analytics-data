@@ -8,5 +8,10 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-Check pretty.pretty_nat_inj.
 (apply pretty.pretty_nat_inj).
+-
+(simpl).
+(unfold bounded_to_ascii, ascii_to_bounded).
+(intros).
+(destruct c; simplo).
+(* Failed. *)
