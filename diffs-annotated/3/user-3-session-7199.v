@@ -141,5 +141,26 @@ step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
+(destruct a as [_ bs]; simpl in *; intuition eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYQenis"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve recover_wipe: core.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
+Proof.
+(induction a; simpl).
+-
 step_proc.
-(destruct a as [_ bs]).
+-
+step_proc.
