@@ -53,8 +53,9 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
+intuition.
 step_proc.
-(destruct a'; simpl in *; intuition).
+intuition.
 step_proc.
-(split; [ solve [ auto ] |  ]).
-step_proc.
+intuition.
+(simpl).
