@@ -74,91 +74,12 @@ Definition log_length_ok (d : disk) (log : list block) :=
 Definition log_abstraction (d : disk) (log : list block) : Prop :=
   log_length_ok d log /\
   (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqeZIfbW"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKJ2ah1"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Definition abstr : Abstraction State :=
-  abstraction_compose d.abstr {| abstraction := log_abstraction |}.
-Theorem log_length_ok_nil d b :
-  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
-Proof.
-(unfold log_length_ok; intros).
-(rewrite H in *; simpl in *; subst).
-auto.
-Qed.
-Theorem log_abstraction_nil d b :
-  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
-Proof.
-(unfold log_abstraction; intros).
-split.
--
-eauto using log_length_ok_nil.
--
-(simpl; intuition).
-(exfalso; lia).
-Qed.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
-Proof.
-(eapply then_init_compose; eauto).
-step_proc.
-(destruct (lt_dec r 1)).
--
-step_proc.
--
-step_proc.
-step_proc.
-step_proc.
-(exists nil; simpl).
-(split; auto).
-(eapply log_abstraction_nil; eauto).
-(autorewrite with upd; auto).
-Qed.
-Theorem log_abstraction_length d bs :
-  log_abstraction d bs -> log_length_ok d bs.
-Proof.
-(unfold log_abstraction; intuition).
-Qed.
-Hint Resolve log_abstraction_length: core.
-Lemma abstr_get_len :
-  forall (bs : list block) (state : State),
-  log_length_ok state bs ->
-  forall r : block,
-  diskGet state len_addr =?= r -> block_to_addr r = length bs.
-Proof.
-(intros).
-(unfold log_length_ok in H).
-auto.
-Qed.
-Hint Resolve abstr_get_len: core.
-Theorem get_len_ok :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := True;
-     post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len recover abstr.
-Proof.
-(unfold get_len; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
-step_proc.
-intuition eauto.
-(eexists; intuition eauto).
-Qed.
-Hint Resolve get_len_ok: core.
 Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' => state' = state /\ nth state a block0 = Some r;
+     post := fun r state' => state' = state /\ nth a state block0 = Some r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
 (* Failed. *)
