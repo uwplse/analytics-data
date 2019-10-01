@@ -228,4 +228,5 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 specialize (Hsem _ Hm).
 (simpl in Hsem).
 (intros v' Hv').
-auto.
+specialize (Hsem v').
+tauto.
