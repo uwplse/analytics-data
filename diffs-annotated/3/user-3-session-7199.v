@@ -71,8 +71,117 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
+Definition log_size_ok (d : disk) (log : list block) :=
+  diskSize d >= 1 + length log.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZIyDu2"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFam0Pk"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition log_contents_ok (d : disk) (log : list block) :=
+  forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqCfEuGO"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtTL5Ao"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Definition log_abstraction (d : disk) (log : list block) : Prop :=
-  log_length_ok d log /\
-  (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0).
-Print eq_values.
-(unfold log_addr).
+  log_length_ok d log /\ log_size_ok d log /\ log_contents_ok d log.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6dWtdM"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqP8jZBW"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Theorem abstr_length_proj d log :
+  log_abstraction d log -> log_length_ok d log.
+Proof.
+(unfold log_abstraction; intuition).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAKvZc6"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem abstr_size_proj d log : log_abstraction d log -> log_size_ok d log.
+Proof.
+(unfold log_abstraction; intuition).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlD3ueZ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem abstr_contents_proj d log :
+  log_abstraction d log -> log_contents_ok d log.
+Proof.
+(unfold log_abstraction; intuition).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsf4cme"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve abstr_length_proj abstr_size_proj abstr_contents_proj: core.
+Definition abstr : Abstraction State :=
+  abstraction_compose d.abstr {| abstraction := log_abstraction |}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzdr0VX"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqg1GM8y"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Lemma diskGet_eq_values :
+  forall d a b b',
+  diskGet d a =?= b -> diskGet d a =?= b' -> a < diskSize d -> b = b'.
+Proof.
+(intros).
+(destruct (diskGet d a) eqn:?; simpl in *).
+-
+congruence.
+-
+exfalso.
+(apply disk_inbounds_not_none in Heqo; eauto).
+Qed.
+Ltac
+ eq_values :=
+  match goal with
+  | H:diskGet ?d ?a =?= ?b, H':diskGet ?d ?a =?= ?b'
+    |- _ =>
+        assert (b = b') by
+         (apply (@diskGet_eq_values d a b b'); try lia; auto); subst
+  end.
+Theorem log_length_ok_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
+Proof.
+(unfold log_length_ok; intros).
+(rewrite H in *; simpl in *; subst).
+auto.
+Qed.
+Theorem log_abstraction_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
+Proof.
+(unfold log_abstraction; intros).
+split.
+-
+eauto using log_length_ok_nil.
+-
+(simpl; intuition).
+(exfalso; lia).
