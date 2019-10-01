@@ -310,4 +310,8 @@ Definition Gamma2 (e : evidence) : SetST2 :=
   fun pair =>
   let (T1, T2) := pair in
   In _ (Gamma (fst e)) T1 /\ In _ (Gamma (snd e)) T2.
+Definition Gamma2 (e : evidence) : SetST2 :=
+  fun pair =>
+  let (T1, T2) := pair in
+  Ensembles.In _ (Gamma (fst e)) T1 /\ In _ (Gamma (snd e)) T2.
 (* Failed. *)
