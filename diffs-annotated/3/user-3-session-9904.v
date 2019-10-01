@@ -53,5 +53,6 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-intuition congruence.
+intuition.
 +
+(exists (n0 :: s); intuition auto).
