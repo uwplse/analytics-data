@@ -78,3 +78,5 @@ Proof.
 step_proc.
 (destruct a'; simpl in *; intuition).
 step_proc.
+(split; [ solve [ auto ] |  ]).
+step_proc.
