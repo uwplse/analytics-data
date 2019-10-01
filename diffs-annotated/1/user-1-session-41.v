@@ -281,47 +281,8 @@ Qed.
 End AGT_Spec.
 Require Import Coq.Lists.List.
 Import Coq.Lists.List.ListNotations.
-Require Import FunInd.
-Require Import Recdef.
-Module AGT_Bounded_Rows_Details.
-Definition label := nat.
-Inductive ST : Type :=
-  | SInt : ST
-  | SBool : ST
-  | SFun : ST -> ST -> ST
-  | SRec : list (option ST) -> ST.
-Inductive Ann : Type :=
-  | R : Ann
-  | O : Ann.
-Inductive GT : Type :=
-  | GDyn : GT
-  | GInt : GT
-  | GBool : GT
-  | GFun : GT -> GT -> GT
-  | GRec : list (option (Ann * GT)) -> GT
-  | GRow : list (option (option (Ann * GT))) -> GT.
-Fixpoint size_gt (G : GT) : nat :=
-  match G with
-  | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
-  | GRec l =>
-      fold_right
-        (fun x acc =>
-         match x with
-         | Some (_, G) => size_gt G
-         | _ => 0
-         end + acc) 1 l
-  | GRow l =>
-      fold_right
-        (fun x acc =>
-         match x with
-         | Some (Some (_, G)) => size_gt G
-         | _ => 0
-         end + acc) 1 l
-  | _ => 0
-  end.
-Module GTeq.
 Function
- eq (G_1 G_2 : GT) : Prop {measure size_gt G_1} :=
+ eq (G_1 G_2 : GT) {measure size_gt G_1} : Prop :=
    match G_1, G_2 with
    | GInt, GInt => True
    | GBool, GBool => True
@@ -331,4 +292,4 @@ Function
        fst hd1 = fst hd2 /\ eq (GRec tl1) (GRec tl2)
    | _, _ => False
    end.
-(* Failed. *)
+all: (intros; subst; eauto with math).
