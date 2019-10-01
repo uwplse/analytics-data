@@ -8,5 +8,7 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-Print Ascii.ascii_of_byte.
-Print Byte.byte.
+Search -Byte.byte.
+Definition ascii0 :=
+  Ascii.Ascii false false false false false false false fals.
+(* Failed. *)
