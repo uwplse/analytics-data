@@ -142,8 +142,4 @@ step_proc.
 step_proc.
 intuition eauto.
 Check proc_spec_weaken.
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
-(descend; intuition eauto).
-(descend; intuition eauto).
-autorewrite with disk.
-(* Failed. *)
+autorewrite with upd.
