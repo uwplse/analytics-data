@@ -8,5 +8,5 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-refine (exist _ (Ascii.nat_of_ascii a) _).
+Check Ascii.ascii_of_nat.
+Print Ascii.ascii_of_nat.
