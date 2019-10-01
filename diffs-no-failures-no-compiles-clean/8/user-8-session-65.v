@@ -1115,4 +1115,3 @@ autounfold with den_db.
 (simpl).
 (rewrite add_fresh_split; simpl).
 (rewrite subst_pat_fresh_empty).
-(rewrite denote_pat_fresh_id).
