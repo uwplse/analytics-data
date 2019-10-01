@@ -51,8 +51,4 @@ proc unit :=
   | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
   end.
 (induction bs'; simpl).
--
-step_proc.
-intuition eauto.
-+
-(rewrite app_nil_r).
+(rewrite app_nil_r in *).
