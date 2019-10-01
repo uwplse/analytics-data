@@ -23,19 +23,5 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
-Theorem log_abstraction_nil d b :
-  diskGet d len_addr = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
-Proof.
-(unfold log_abstraction; intros).
-intuition.
--
-eauto using log_length_ok_nil.
--
-(unfold log_size_ok).
-(destruct d; simpl in *; [  | lia ]).
-(assert (diskGet nil 0 = None)).
-{
-(apply disk_oob_eq).
-(simpl; lia).
-}
 congruence.
+(* Failed. *)
