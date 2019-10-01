@@ -553,5 +553,5 @@ generalize dependent G'.
 (induction H).
 -
 -
-congruence.
-(* Failed. *)
+Search -Singleton.
+Search -(Singleton _ _ = Singleton _ _).
