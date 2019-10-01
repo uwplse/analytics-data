@@ -8,6 +8,7 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
+Require Import Coq.Program.Wf.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -71,6 +72,7 @@ Fixpoint size (t : ty) :=
   end.
 Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
 Proof.
+(intros x y).
 (induction t; simpl; try (solve [ reflexivity | rewrite IHt1; rewrite IHt2; reflexivity ])).
 -
 (apply f_equal).
