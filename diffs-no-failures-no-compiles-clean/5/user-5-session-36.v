@@ -210,4 +210,4 @@ Proof.
 -
 assumption.
 -
-H.
+contradiction  H.
