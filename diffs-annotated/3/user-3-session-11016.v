@@ -240,22 +240,130 @@ Proof.
 reflexivity.
 Qed.
 Qed.
-Definition add (v : nat) (s : bag) : bag := v :: s.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq89QAr9"
+Definition member (v : nat) (s : bag) : bool := blt_nat 0 (count v s).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgtU38m"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqydWFWT"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqUzqehC"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Example test_add1 : count 1 (add 1 [1; 4; 1]) = 3.
+Example test_member1 : member 1 [1; 4; 1] = true.
 Proof.
 reflexivity.
 Qed.
-Example test_add2 : count 5 (add 1 [1; 4; 1]) = 0.
+Example test_member2 : member 2 [1; 4; 1] = false.
 Proof.
 reflexivity.
 Qed.
-(* Failed. *)
+Fixpoint remove_one (v : nat) (s : bag) : bag.
+Admitted.
+Example test_remove_one1 : count 5 (remove_one 5 [2; 1; 5; 4; 1]) = 0.
+Admitted.
+Example test_remove_one2 : count 5 (remove_one 5 [2; 1; 4; 1]) = 0.
+Admitted.
+Example test_remove_one3 : count 4 (remove_one 5 [2; 1; 4; 5; 1; 4]) = 2.
+Admitted.
+Example test_remove_one4 : count 5 (remove_one 5 [2; 1; 5; 4; 5; 1; 4]) = 1.
+Admitted.
+Fixpoint remove_all (v : nat) (s : bag) : bag.
+Admitted.
+Example test_remove_all1 : count 5 (remove_all 5 [2; 1; 5; 4; 1]) = 0.
+Admitted.
+Example test_remove_all2 : count 5 (remove_all 5 [2; 1; 4; 1]) = 0.
+Admitted.
+Example test_remove_all3 : count 4 (remove_all 5 [2; 1; 4; 5; 1; 4]) = 2.
+Admitted.
+Example test_remove_all4 :
+  count 5 (remove_all 5 [2; 1; 5; 4; 5; 1; 4; 5; 1; 4]) = 0.
+Admitted.
+Fixpoint subset (s1 : bag) (s2 : bag) : bool.
+Admitted.
+Example test_subset1 : subset [1; 2] [2; 1; 4; 1] = true.
+Admitted.
+Example test_subset2 : subset [1; 2; 2] [2; 1; 4; 1] = false.
+Admitted.
+Theorem nil_app : forall l : natlist, [ ] ++ l = l.
+Proof.
+reflexivity.
+Qed.
+Theorem tl_length_pred : forall l : natlist, pred (length l) = length (tl l).
+Proof.
+(intros l).
+(destruct l as [| n l']).
+-
+reflexivity.
+-
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLdE67B"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem app_assoc :
+  forall l1 l2 l3 : natlist, (l1 ++ l2) ++ l3 = l1 ++ l2 ++ l3.
+Proof.
+(intros l1 l2 l3).
+(induction l1 as [| n l1' IHl1']).
+-
+reflexivity.
+-
+(simpl).
+(rewrite IHl1').
+reflexivity.
+Qed.
+Fixpoint rev (l : natlist) : natlist :=
+  match l with
+  | nil => nil
+  | h :: t => rev t ++ [h]
+  end.
+Example test_rev1 : rev [1; 2; 3] = [3; 2; 1].
+Proof.
+reflexivity.
+Qed.
+Example test_rev2 : rev nil = nil.
+Proof.
+reflexivity.
+Qed.
+Theorem rev_length_firsttry : forall l : natlist, length (rev l) = length l.
+Proof.
+(intros l).
+(induction l as [| n l' IHl']).
+-
+reflexivity.
+-
+(simpl).
+(rewrite <- IHl').
+Abort.
+Theorem app_length :
+  forall l1 l2 : natlist, length (l1 ++ l2) = length l1 + length l2.
+Proof.
+(intros l1 l2).
+(induction l1 as [| n l1' IHl1']).
+-
+reflexivity.
+-
+(simpl).
+(rewrite IHl1').
+reflexivity.
+Qed.
+Theorem rev_length : forall l : natlist, length (rev l) = length l.
+Proof.
+(intros l).
+(induction l as [| n l' IHl']).
+-
+reflexivity.
+-
+(simpl).
+(rewrite app_length, plus_comm).
+(simpl).
+(rewrite IHl').
+reflexivity.
+Qed.
+Theorem app_nil_r : forall l : natlist, l ++ [ ] = l.
+Proof.
+(simpl).
