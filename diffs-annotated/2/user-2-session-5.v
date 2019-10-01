@@ -18,6 +18,4 @@ Definition primitive (name : string) : bool :=
      ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil)
   then true
   else false.
-Fixpoint subst (x : string) (u : term) (t : term) : term := t.
-Redirect "/tmp/coqVl2ZnQ" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+(* Failed. *)
