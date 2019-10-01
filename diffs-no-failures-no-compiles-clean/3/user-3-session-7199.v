@@ -335,6 +335,10 @@ specialize (H a).
 (apply H).
 (rewrite app_length; lia).
 Qed.
-Theorem log_contents_ok_append d bs b :
+Theorem log_contents_ok_append d bs b bs' :
+  log_size_ok d (bs ++ b :: bs') ->
   log_contents_ok d bs ->
-  log_contents_ok (diskUpd (log_addr (length bs)) b) (bs ++ [b]).
+  log_contents_ok (diskUpd d (log_addr (length bs)) b) (bs ++ [b]).
+Proof.
+(unfold log_contents_ok; intros).
+(rewrite app_nil in *).
