@@ -242,8 +242,9 @@ assumption.
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
 Lemma ty_empty__subs_ty_empty :
-  forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
-(induction t; intros k w Hnotm X s Hcontra).
+  forall (w : nat) (t : ty) (k : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
+Proof.
+(induction w; induction t; intros k Hnotm X s Hcontra).
 -
 (apply Hnotm; assumption).
 -
@@ -252,6 +253,7 @@ Lemma ty_empty__subs_ty_empty :
 (apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 subst.
+(remember 0 as w).
 (assert (Hcontra : ~ (exists v1 : ty, |-[ k, w] v1 <$ t1) \/ ~ (exists v2 : ty, |-[ k, w] v2 <$ t2))).
 {
 (assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
@@ -262,12 +264,6 @@ exists (TPair v'1 v'2).
 (apply match_ty_pair; assumption).
 }
 admit.
+}
 (destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]; [ apply IHt1 | apply IHt2 ];
   eauto).
--
-admit.
--
-(apply Hnotm).
-exists (TRef t).
-(apply match_ty_value_type__reflexive; constructor).
--
