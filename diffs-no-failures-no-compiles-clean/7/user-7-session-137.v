@@ -25,4 +25,6 @@ exists w1.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
-(apply match_ty__ge_w).
+(eapply match_ty__ge_w).
+eassumption.
+constructor.
