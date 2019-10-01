@@ -156,4 +156,4 @@ exists (S w').
 (apply match_ty_exist__inv in Hm').
 (destruct Hm' as [ti [Hwfti Hm']]).
 specialize (IHw' _ Hm').
-(destruct IHw' as [IHw' _]).
+(destruct (f_free_in_ty__dec X' ([Bi0 := ti] t))).
