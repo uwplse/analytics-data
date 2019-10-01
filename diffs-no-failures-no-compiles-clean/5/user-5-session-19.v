@@ -197,4 +197,4 @@ intro x.
 {
 (apply evalChoose).
 exists (eval L env (Int 3)).
-(apply evalEqTrue).
+apply -> evalEqTrue.
