@@ -109,4 +109,4 @@ step_proc.
 (destruct (r == 0)).
 -
 (step_proc; intuition).
-(simpl in *; intuition subst).
+2: (autounfold in *; intuition).
