@@ -7,9 +7,5 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
-Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
-  match digits with
-  | nil => 0
-  | digit :: digits' => proj1 digit * base + le_to_nat base digits'
-  end.
-(* Failed. *)
+Print sig.
+Search -(sig _ _ -> _).
