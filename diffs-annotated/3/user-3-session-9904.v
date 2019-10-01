@@ -53,4 +53,6 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
+(destruct s; intuition).
++
 (exists []; intuition).
