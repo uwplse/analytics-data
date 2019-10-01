@@ -456,4 +456,8 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
 (assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
 (simpl in Hsem).
 (apply IHk; try assumption).
+(destruct Hdep as [Hdep| Hdep]; [ left | right ]; apply le_S_n; assumption).
+(intros v').
+specialize (Hsem v').
 tauto.
+Qed.
