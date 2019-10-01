@@ -45,4 +45,4 @@ Search -IdSet.remove.
 Check IdSetFacts.remove_2.
 Check IdSetFacts.remove_2.
 (assert (Hneq' : X' <> X) by auto).
-(apply (IdSetFacts.remove_2 _ _ Hneq') in Hcontra).
+(apply (IdSetFacts.remove_2 _ Hneq') in Hcontra).
