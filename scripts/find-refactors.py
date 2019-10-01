@@ -53,7 +53,7 @@ with open(fpath, 'r') as f:
                     diff = max_state - state_num
                     for i in range(diff):
                         line_num = line_num + 1
-                        lines[line_num] = ""
+                        lines[line_num] = "(* Auto-generated comment: Missing state. *)"
                     max_state = state_num
                 line_num = line_num + 1
             if (len(lines) > 0):
@@ -90,7 +90,7 @@ with open(outdir + "/" + fname + "-" + str(0) + fext, 'w') as f:
             old = old_cumulative[curr_index]
             f.write(old + "\n")
     if group_failures[0] is True:
-        f.write("(* Failed. *)\n")
+        f.write("(* Auto-generated comment: Failed. *)\n")
 
 for i in range(len(group_ends) - 1):
     j = i + 1
@@ -154,5 +154,5 @@ if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
                 new = new_cumulative[curr_index]
                 f.write(new + "\n")
         if group_failures[-1] is True:
-            f.write("(* Failed. *)\n")
+            f.write("(* Auto-generated comment: Failed. *)\n")
 
