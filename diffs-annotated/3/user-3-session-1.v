@@ -441,7 +441,11 @@ Split.
 Qed.
 Theorem spec_exec_impl `(p_hspec : Specification T unit State)
   `(p_rspec : Specification T R State) :
-  forall s,
-  (p_rspec s).(pre) ->
-  (p_hspec s).(pre) /\
-  (forall s' v, (p_hspec s).(post) s' v -> (p_rspec s).(post) s' v).
+  (forall s,
+   (p_rspec s).(pre) ->
+   (p_hspec s).(pre) /\
+   (forall s' v, (p_hspec s).(post) s' v -> (p_rspec s).(post) s' v)) ->
+  spec_exec p_rspec ---> spec_exec p_hspec.
+Proof.
+firstorder.
+(* Failed. *)
