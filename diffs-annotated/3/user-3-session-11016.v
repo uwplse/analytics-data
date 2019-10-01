@@ -297,7 +297,4 @@ Proof.
 reflexivity.
 -
 reflexivity.
-(induction l; simpl; auto).
 (rewrite rev_app_distr).
-(rewrite IHl).
-(simpl).
