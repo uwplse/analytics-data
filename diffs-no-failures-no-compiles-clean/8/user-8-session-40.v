@@ -98,3 +98,4 @@ Proof.
 (intros).
 matrix_denote.
 Msimpl.
+setoid_rewrite swap_sa.
