@@ -310,4 +310,126 @@ Definition step T (op : Op T) : relation State State T :=
         slice.length := String.length s |}
   | RandomUint64 => such_that (fun _ (r : uint64) => True)
   end.
+Definition step T (op : Op T) : relation State State T :=
+  match op in (Op T) return (relation State State T) with
+  | NewAlloc v len => allocPtr (Ptr.Heap _) (List.repeat v len)
+  | PtrDeref p off =>
+      let! (s, alloc) <- readSome (getAlloc p);
+      _ <- readSome (fun _ => lock_available Reader s);
+      x <- readSome (fun _ => List.nth_error alloc off); pure x
+  | PtrStore p off x ph =>
+      let! (s, alloc) <- readSome (getAlloc p);
+      match ph with
+      | Begin =>
+          s' <- readSome (fun _ => lock_acquire Writer s);
+          updAllocs p (s', alloc)
+      | FinishArgs _ =>
+          s' <- readSome (fun _ => lock_release Writer s);
+          alloc' <- readSome (fun _ => list_nth_upd alloc off x);
+          updAllocs p (s', alloc')
+      end
+  | SliceAppend p x =>
+      let! (s, alloc) <- readSome (getAlloc p.(slice.ptr));
+      val <- readSome (fun _ => getSliceModel p alloc);
+      _ <- readSome (fun _ => lock_available Writer s);
+      _ <- delAllocs p.(slice.ptr);
+      r <- allocPtr (Ptr.Heap _) (val ++ [x]);
+      pure
+        {|
+        slice.ptr := r;
+        slice.offset := 0;
+        slice.length := (p.(slice.length) + 1)%nat |}
+  | NewMap V => allocPtr (Ptr.Map _) \226\136\133
+  | MapLookup r k =>
+      let! (s, m) <- readSome (fun s => getDyn s.(allocs) r);
+      _ <- readSome (fun _ => lock_available Reader s); pure (m !! k)
+  | MapAlter r k f ph =>
+      let! (s, m) <- readSome (fun s => getDyn s.(allocs) r);
+      match ph with
+      | Begin =>
+          s' <- readSome (fun _ => lock_acquire Writer s);
+          updAllocs r (s', m)
+      | FinishArgs _ =>
+          s' <- readSome (fun _ => lock_release Writer s);
+          updAllocs r (s', partial_alter f k m)
+      end
+  | MapStartIter r =>
+      let! (s, m) <- readSome (fun s => getDyn s.(allocs) r);
+      s' <- readSome (fun _ => lock_acquire Reader s);
+      _ <- updAllocs r (s', m);
+      such_that
+        (fun _ l => Permutation.Permutation l (fin_maps.map_to_list m))
+  | MapEndIter r =>
+      let! (s, m) <- readSome (fun s => getDyn s.(allocs) r);
+      s' <- readSome (fun _ => lock_release Reader s);
+      _ <- updAllocs r (s', m); pure tt
+  | NewLock => allocPtr Ptr.Lock tt
+  | LockAcquire r m =>
+      let! (v, _) <- readSome (fun s => getDyn s.(allocs) r);
+      match lock_acquire m v with
+      | Some s' => updAllocs r (s', tt)
+      | None => none
+      end
+  | LockRelease r m =>
+      let! (v, _) <- readSome (fun s => getDyn s.(allocs) r);
+      match lock_release m v with
+      | Some s' => updAllocs r (s', tt)
+      | None => error
+      end
+  | Uint64Get p ph =>
+      let! (s, alloc) <- readSome (getAlloc p.(slice.ptr));
+      val <- readSome (fun _ => getSliceModel p alloc);
+      match ph return (relation _ _ (retT ph uint64)) with
+      | Begin =>
+          s' <- readSome (fun _ => lock_acquire Reader s);
+          updAllocs p.(slice.ptr) (s', alloc)
+      | FinishArgs _ =>
+          s' <- readSome (fun _ => lock_release Reader s);
+          _ <- updAllocs p.(slice.ptr) (s', alloc);
+          pure (uint64_from_le (list.take 8 val))
+      end
+  | Uint64Put p x ph =>
+      let! (s, alloc) <- readSome (getAlloc p.(slice.ptr));
+      val <- readSome (fun _ => getSliceModel p alloc);
+      if numbers.nat_lt_dec (length val) 8
+      then error
+      else
+       match ph with
+       | Begin =>
+           s' <- readSome (fun _ => lock_acquire Writer s);
+           updAllocs p.(slice.ptr) (s', alloc)
+       | FinishArgs _ =>
+           s' <- readSome (fun _ => lock_release Writer s);
+           enc <- readSome (fun _ => uint64_to_le x);
+           updAllocs p.(slice.ptr) (s', enc ++ list.drop 8 alloc)
+       end
+  | BytesToString p =>
+      let! (s, alloc) <- readSome (getAlloc p.(slice.ptr));
+      val <- readSome (fun _ => getSliceModel p alloc);
+      _ <- readSome (fun _ => lock_available Reader s);
+      pure (bytes_to_string val)
+  | StringToBytes s =>
+      r <- allocPtr (Ptr.Heap _) (string_to_bytes s);
+      pure
+        {|
+        slice.ptr := r;
+        slice.offset := 0;
+        slice.length := String.length s |}
+  | RandomUint64 => such_that (fun _ (r : uint64) => True)
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqieOCWA"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoQsEX1"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+#[global]Instance empty_heap : (Empty State) := {| allocs := \226\136\133 |}.
+End GoModel.
+End Data.
+Arguments Data.newPtr {model} {Op'} {i} T {GoZero}.
+Arguments Data.newSlice {model} {Op'} {i} T {GoZero} len.
 (* Failed. *)
