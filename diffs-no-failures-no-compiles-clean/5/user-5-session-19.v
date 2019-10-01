@@ -34,7 +34,7 @@ Record EpsilonLogic :=
           evalChoose :
            forall env x P,
            (exists value, eval (extendEnv env x value) P = vTrue) ->
-           exists out, eval env (Eq (Choose x P) out) = vTrue;
+           eval (extendEnv env x (eval env (Choose x P))) P = vTrue;
           evalChooseDet :
            forall env x P Q,
            eval env P = vTrue <-> eval env Q = vTrue ->
