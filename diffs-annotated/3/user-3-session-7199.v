@@ -25,4 +25,5 @@ Axiom
 Hint Resolve addr_to_block_ok: core.
 (simpl; lia).
 autorewrite with upd list in *.
-Search -(_ ++ [_]).
+(rewrite app_assoc in *).
+(* Failed. *)
