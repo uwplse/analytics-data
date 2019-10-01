@@ -57,8 +57,13 @@ Theorem init_ok : init_abstraction init recover abstr inited.
 Proof.
 (eapply then_init_compose; eauto).
 (unfold init').
-step_proc.
-step_proc.
-step_proc.
-step_proc.
-(* Failed. *)
+exists nil.
+(unfold statdb_abstraction, inited).
+intuition auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqig39L2"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
