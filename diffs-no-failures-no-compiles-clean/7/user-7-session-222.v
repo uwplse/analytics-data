@@ -354,4 +354,7 @@ assumption.
 (destruct (beq_idP X i)).
 *
 subst.
-(unfold b_free_in_ty_i, free in HX).
+(unfold b_free_in_ty, free in HX).
+(simpl in HX).
+Search -IdSet.remove.
+exfalso.
