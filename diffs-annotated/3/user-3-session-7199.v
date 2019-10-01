@@ -71,5 +71,11 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
-(rewrite firstn_length_le).
-(* Failed. *)
+Search -firstn -length.
+(rewrite firstn_all; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOEG1HC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
