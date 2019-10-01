@@ -384,4 +384,4 @@ destruct matches.
 step_proc.
 (descend; intuition eauto).
 (unfold log_size_ok; autorewrite with list; auto).
-(descend; intuition eauto).
+(exists bs; eauto).
