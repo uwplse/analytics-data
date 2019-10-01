@@ -23,5 +23,16 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
-generalize dependent a.
-(induction bs'; simpl).
+(induction bs'; simpl; intros).
+-
+step_proc.
+intuition eauto.
+(rewrite app_nil_r; auto).
+-
+step_proc.
+(intuition eauto; autorewrite with upd; auto).
+{
+(apply log_contents_ok_unchanged; eauto).
+}
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl).
