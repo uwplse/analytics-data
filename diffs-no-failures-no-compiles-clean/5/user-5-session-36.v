@@ -266,4 +266,4 @@ clear H.
 exfalso.
 (rewrite evalIfFalse in H0).
 +
-(apply evalBoolInj).
+(apply evalBoolInj in H0).
