@@ -405,4 +405,3 @@ injection H as H1 H2.
 reflexivity.
 }
 (apply Hc).
-(* Auto-generated comment: Failed. *)
