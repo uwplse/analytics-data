@@ -76,3 +76,5 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Lemma aaa : forall (k : nat) (t t' v : ty), |-[ k] v <$ t -> |-[ k] v <$ t' -> | t | <= | t' |.
+Proof.
+(induction k).
