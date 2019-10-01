@@ -980,4 +980,4 @@ Timeout 1 Print Ltac restore_dims.
             A'
  end).
 2: {
-unify_matrix_dims.
+(unify_matrix_dims unify_pows_two; lia).
