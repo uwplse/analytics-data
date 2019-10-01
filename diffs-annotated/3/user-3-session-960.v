@@ -9,5 +9,7 @@ From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
 Check PeanoNat.Nat.mod_small.
-(rewrite IHn by (apply PeanoNat.Nat.mod_le; lia)).
-(* Failed. *)
+Check PeanoNat.Nat.mod_le.
+(rewrite IHn).
+Search -"mod" -div.
+(rewrite (PeanoNat.Nat.div_mod n base)).
