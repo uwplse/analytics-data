@@ -71,48 +71,13 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
-Hint Resolve log_size_bound: core.
-Theorem get_at_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a < length state;
-     post := fun r state' => state' = state /\ nth a state block0 = r;
-     recovered := fun _ state' => state' = state |}) 
-    (get_at a) recover abstr.
-Proof.
-(unfold get_at; intros).
-(apply spec_abstraction_compose).
-(simpl).
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intros).
-(destruct a0 as [_ bs]; simpl in *; intuition eauto).
-(descend; intuition eauto).
-(descend; intuition eauto).
-(unfold log_abstraction in H0; intuition).
-(pose proof (H3 a); intuition).
-(assert (v = nth a bs block0)).
-(eapply diskGet_eq_values; eauto).
-auto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqypodZ6"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+Hint Resolve get_at_ok: core.
 Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
 (unfold rec_wipe; simpl; intros).
 (apply spec_abstraction_compose).
 step_proc.
 (destruct a as [_ bs]; simpl in *; intuition eauto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTrrpec"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
 Hint Resolve recover_wipe: core.
 Theorem get_upto_ok a :
@@ -129,3 +94,6 @@ Proof.
 step_proc.
 -
 step_proc.
+step_proc.
+intuition eauto.
+lia.
