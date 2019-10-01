@@ -432,4 +432,3 @@ End GoModel.
 End Data.
 Arguments Data.newPtr {model} {Op'} {i} T {GoZero}.
 Arguments Data.newSlice {model} {Op'} {i} T {GoZero} len.
-(* Failed. *)
