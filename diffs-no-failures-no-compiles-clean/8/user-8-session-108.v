@@ -81,5 +81,3 @@ specialize (pf p).
 gen \207\129.
 (induction (c p)).
 -
-(simpl).
-(rewrite pad_nothing).
