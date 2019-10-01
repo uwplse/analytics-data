@@ -12,13 +12,7 @@ Require Import Coq.Strings.String.
 Redirect "/tmp/coq4iI7Dj" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Open Scope string_scope.
-Inductive term :=
-  | Nil : term
-  | Ident : string -> term
-  | Cons : term -> term -> term
-  | App : term -> term -> term.
 Definition primitive (name : string) : bool :=
-  List.find (String.eq name)
+  List.find (String.eqb name)
     ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil).
 (* Failed. *)
