@@ -59,12 +59,12 @@ Open Scope btjm.
 Reserved Notation "'|-[' k ',' w ']' v '<$' t" (at level 40).
 Fixpoint match_ty (k : nat) :=
   fix mtyw (w : nat) :=
-    fix mty (v : ty) :=
-      fix mty' (t : ty) :=
+    fix mtyv (v : ty) :=
+      fix mtyt (t : ty) :=
         match w, k, v, t with
         | _, _, TCName c, TCName c' => c = c'
-        | _, _, TPair v1 v2, TPair t1 t2 => mty v1 t1 /\ mty v2 t2
-        | _, _, _, TUnion t1 t2 => mty' t1 \/ mty' t2
+        | _, _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
+        | _, _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
         | 0, _, TRef t', TRef t => True
         | S k, _, TRef t', TRef t =>
             (forall w1, exists w2, forall v, |-[ k, w1] v <$ t' -> |-[ k, w2] v <$ t) /\
