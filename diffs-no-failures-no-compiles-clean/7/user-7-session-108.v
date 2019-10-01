@@ -266,4 +266,6 @@ reflexivity.
 (split; intros w1; exists w1; auto).
 -
 (destruct (IHt k) as [w [v Hm]]).
-exists (S w) v.
+exists (S w),v.
+(apply match_ty_exist).
+exists i.
