@@ -223,3 +223,5 @@ tauto.
 (apply mk_nf__in_nf).
 -
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
+(apply sub_r__mk_nf_sub_r; assumption).
+Qed.
