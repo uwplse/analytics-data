@@ -73,7 +73,7 @@ Proof.
 (destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
 Qed.
 Theorem match_ty__value_type_l : forall (k w : nat) (v t : ty), |-[ k, w] v <$ t -> value_type v.
-(induction k, w; intros v t; generalize dependent v; induction t; intros v Hm;
+(intros k w; generalize dependent k; induction w, k; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
    | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
@@ -83,4 +83,13 @@ Theorem match_ty__value_type_l : forall (k w : nat) (v t : ty), |-[ k, w] v <$ t
    | apply match_ty_ev__inv in Hm; subst; constructor
    | apply match_ty_exist__0_inv in Hm; contradiction
    | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
-(apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]).
+Qed.
+Lemma match_ty_value_type__reflexive : forall v : ty, value_type v -> forall k w : nat, |-[ k, w] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros k w).
+-
+(destruct k, w; reflexivity).
+-
+(apply match_ty_pair; auto).
+-
+(destruct k, w; constructor; simpl; tauto).
