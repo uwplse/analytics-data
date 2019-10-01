@@ -368,4 +368,11 @@ iDestruct "Hltmps" as % Hltmps.
 (assert (tmps = tmps \226\136\150 list_to_set (take 0 ltmps)) as ->).
 {
 by rewrite difference_empty_L.
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoI3N8W"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 }
+iDestruct (slice_mapsto_len with "Hs") as % ->.
