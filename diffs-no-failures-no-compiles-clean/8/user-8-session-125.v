@@ -65,5 +65,4 @@ Msimpl.
 matrix_denote.
 Msimpl.
 (rewrite Mmult_assoc).
-specialize (unitary_gate_unitary U) as inv.
-(simpl_rewrite @denote_unitary_transpose).
+(rewrite denote_unitary_transpose).
