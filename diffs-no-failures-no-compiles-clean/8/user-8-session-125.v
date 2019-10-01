@@ -38,4 +38,3 @@ Timeout 1 Print unitary_gate_unitary.
 (simpl in *).
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
-(repeat rewrite Mmult_assoc).
