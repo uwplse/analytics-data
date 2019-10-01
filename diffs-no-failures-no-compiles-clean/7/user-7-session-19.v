@@ -209,6 +209,4 @@ Proof.
   (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
      (fun (t1 : ty) (_ : in_nf t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
 -
-(intros c t2).
 (induction t2; intros Hsem).
-+
