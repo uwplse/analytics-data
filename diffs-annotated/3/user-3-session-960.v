@@ -9,4 +9,6 @@ From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
 (destruct c; simpl).
-(unfold ascii_to_byte, byte_to_ascii; simpl).
+(simpl).
+(destruct b; simpl).
+Search -ascii_to_bounded.
