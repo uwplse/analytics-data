@@ -22,8 +22,8 @@ Timeout 1 Print LoadPath.
 Fixpoint fib' (fuel : nat) (x y : N) : list N :=
   match fuel with
   | O => []
-  | S fuel => y :: fib' fuel y (x + y)
+  | S fuel => y :: fib' fuel (print_id y) (x + y)
   end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqHCmF2C" Print Ltac Signatures.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq9VBKIy" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Check fmap.
+Eval compute in List.map print_id (fib' 10 0 1).
