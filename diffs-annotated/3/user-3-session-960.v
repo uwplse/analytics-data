@@ -8,5 +8,4 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Check mod_S_lt.
-(assert (base_m2 = S (S base_m2) - 2) by lia).
-(generalize dependent S (S base_m2); intros base).
+(generalize dependent S (S base_m2); intros base; intros; subst).
