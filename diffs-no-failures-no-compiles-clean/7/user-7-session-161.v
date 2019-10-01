@@ -99,4 +99,4 @@ subst.
 contradiction.
 *
 (rewrite subst_exist_eq).
-(rewrite subst_exist_neq).
+(rewrite (subst_exist_neq HX)).
