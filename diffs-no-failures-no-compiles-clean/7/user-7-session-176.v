@@ -158,7 +158,3 @@ exists w,v.
 (apply match_ty_union_1; assumption).
 -
 (destruct (IHt) as [w [v Hm]]).
-exists (S w),v.
-(apply match_ty_exist).
-exists (TVar i).
-(rewrite subst_id).
