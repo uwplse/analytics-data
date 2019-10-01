@@ -53,4 +53,3 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-(destruct state).
