@@ -297,17 +297,17 @@ Proof.
 reflexivity.
 -
 reflexivity.
-(rewrite IHl; auto).
+(intros).
+(rewrite app_assoc).
+(rewrite app_assoc).
+reflexivity.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2rsX3F"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqhKm3r"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem app_assoc4 :
-  forall l1 l2 l3 l4 : natlist,
-  l1 ++ l2 ++ l3 ++ l4 = ((l1 ++ l2) ++ l3) ++ l4.
+Lemma nonzeros_app :
+  forall l1 l2 : natlist, nonzeros (l1 ++ l2) = nonzeros l1 ++ nonzeros l2.
 Proof.
-(rewrite app_assoc).
-(* Failed. *)
