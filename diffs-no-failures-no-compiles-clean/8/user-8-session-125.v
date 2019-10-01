@@ -75,7 +75,7 @@ easy.
 (unfold denote_pat; simpl).
 Msimpl.
 (rewrite Mmult_assoc).
-(assert (forall x : nat, List.In x li -> (x < \226\159\166 W \226\159\167)%nat)).
+(assert (L : forall x : nat, List.In x li -> (x < \226\159\166 W \226\159\167)%nat)).
 {
 (intros).
 (rewrite Heqli in H).
@@ -100,3 +100,6 @@ easy.
 (rewrite add_fresh_split).
 easy.
 }
+Timeout 1 About denote_ctrls_unitary.
+Timeout 1 Print denote_ctrls_unitary.
+Timeout 1 Print Ltac denote_ctrls_unitary.
