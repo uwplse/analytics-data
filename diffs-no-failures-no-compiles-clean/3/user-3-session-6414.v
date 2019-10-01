@@ -155,4 +155,6 @@ step_proc.
 step_proc.
 step_proc.
 (exists nil; simpl).
-(eapply log_abstraction_nil).
+(split; auto).
+(eapply log_abstraction_nil; eauto).
+autorewrite with disk.
