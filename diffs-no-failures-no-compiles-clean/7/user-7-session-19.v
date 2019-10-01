@@ -83,4 +83,4 @@ idtac.
 (simpl).
 (apply le_n_S).
 (apply IHk).
-(assert (Hv : value_type (TRef t)) by (apply match_ty_i__reflexive; constructor)).
+(assert (Hv : value_type (TRef t))).
