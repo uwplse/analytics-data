@@ -347,5 +347,6 @@ Proof.
 (rewrite app_length in *; simpl in *).
 lia.
 }
-(destruct (a == length bs)).
+(destruct (a == length bs); subst).
 -
+autorewrite with upd.
