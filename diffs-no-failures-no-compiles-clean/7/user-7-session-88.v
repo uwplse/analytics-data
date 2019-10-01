@@ -440,9 +440,9 @@ Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> |
             simpl; apply Nat.max_le_compat; auto
      | Hsem:||-[ ?k][TUnion _ _]<= [_]
        |- _ =>
-           destruct Hdep as [Hdep| Hdep]; destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2];
+           destruct Hdep as [Hdep| Hdep]; try destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2];
             destruct (sem_sub_k_i_union_l__inv _ _ _ _ Hsem) as [Hsem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
 -
-(destruct Hdep as [Hdep| Hdep]).
+(inversion Hdept; subst).
