@@ -19,8 +19,11 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Theorem log_length_ok_nil d b :
-  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d [].
-Proof.
-(unfold log_length_ok; intros).
-(rewrite H).
+(rewrite H; simpl).
+(eexists; eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8SRjHv"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
