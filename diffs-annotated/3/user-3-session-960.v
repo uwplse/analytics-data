@@ -8,4 +8,9 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Print sig.
-Search -(sig _ -> _).
+Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
+  match digits with
+  | nil => 0
+  | digit :: digits' => proj1_sig digit * base + le_to_nat base digits'
+  end.
+(* Failed. *)
