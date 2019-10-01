@@ -113,15 +113,4 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 step_proc.
 (destruct a'; simpl in *; intuition; subst; eauto).
-Theorem append_helper_ok :
-  forall blocks start,
-  proc_spec (append_helper_spec start blocks) (append_helper start blocks)
-    d.recover d.abstr.
-Proof.
-(induction blocks; simpl; intros).
--
-(step_proc; intuition; subst; eauto).
-(exists 0; simpl).
-reflexivity.
--
-(step_proc; intuition).
+(step_proc; intuition; eauto).
