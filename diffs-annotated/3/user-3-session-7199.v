@@ -71,3 +71,38 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Definition log_length_ok (d : disk) (log : list block) :=
   forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
+Opaque firstn.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
+Proof.
+(induction a; simpl).
+-
+step_proc.
+-
+step_proc.
+step_proc.
+intuition eauto.
+{
+lia.
+}
+step_proc.
+Timeout 1 Show.
+Timeout 1 Show Intros.
+Timeout 1
+(repeat
+  match goal with
+  | company_coq_hyp__:_
+    |- _ => clear dependent company_coq_hyp__; (let dummy := H in
+                                                idtac)
+  end;
+  repeat
+   match goal with
+   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
+   end).
+Timeout 1 Show Intros.
