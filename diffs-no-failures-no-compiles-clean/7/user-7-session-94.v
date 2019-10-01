@@ -66,4 +66,4 @@ Proof.
    | destruct v; contradiction ])).
 -
 (apply match_ty_exist__inv in Hm).
-auto.
+eauto.
