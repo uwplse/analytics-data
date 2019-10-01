@@ -88,4 +88,6 @@ reflexivity.
 reflexivity.
 -
 (destruct (beq_idP X i); try reflexivity).
-(rewrite IHt).
+Search -IdSet.mem.
+(destruct (IdSet.mem i (IdSet.singleton X))).
++
