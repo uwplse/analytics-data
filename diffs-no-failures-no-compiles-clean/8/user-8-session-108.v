@@ -79,4 +79,3 @@ Proof.
 (destruct (add_fresh W []) as [p \206\147]).
 specialize (pf p).
 gen \207\129.
--
