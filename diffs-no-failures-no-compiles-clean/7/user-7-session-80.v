@@ -337,6 +337,27 @@ tauto.
 (eapply sem_eq_k__trans; eauto).
 (apply sem_eq_k__comm; auto).
 Qed.
+Lemma not_le__gt : forall n m : nat, ~ n <= m -> m < n.
+Proof.
+(induction n; induction m; intros Hcontra).
+-
+(assert (0 <= 0) by constructor).
+contradiction.
+-
+(assert (0 <= S m) by apply Nat.le_0_l).
+contradiction.
+-
+(apply Nat.lt_0_succ).
+-
+(assert (~ n <= m)).
+{
+(intros H).
+(apply le_n_S in H).
+contradiction.
+}
+(apply lt_n_S).
+auto.
+Qed.
 Lemma match_ty_value_type__symmetric : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> |-[ k] v' <$ v.
 Proof.
 (intros v v' Hv').
@@ -361,3 +382,24 @@ split.
 tauto.
 (apply sem_eq_k__comm; assumption).
 Qed.
+Lemma value_type_matching_ty__exists' :
+  forall t : ty, exists v : ty, value_type v /\ inv_depth v = inv_depth t /\ (forall k : nat, inv_depth t <= k -> |-[ k] v <$ t).
+Proof.
+(intros t; induction t).
+-
+(exists (TCName c); split).
+constructor.
+split.
+reflexivity.
+(intros k Hk; destruct k; reflexivity).
+-
+(destruct IHt1 as [v1 [Hv1 [Hd1 Hm1]]]).
+(destruct IHt2 as [v2 [Hv2 [Hd2 Hm2]]]).
+(exists (TPair v1 v2); split).
+(constructor; assumption).
+split.
+(simpl; rewrite Hd1; rewrite Hd2).
+reflexivity.
+(intros k Hk).
+(simpl in Hk).
+(destruct (max_inv_depth_le__components_le _ _ _ Hk); auto using match_ty_pair).
