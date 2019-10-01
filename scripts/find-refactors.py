@@ -35,9 +35,11 @@ with open(fpath, 'r') as f:
     for group_num, group in enumerate(groups, start = 0):
         cancel_match = re.match(failure_or_cancellation, group)
         failure_match = re.match(failure, group)
+        max_state = 0
         if cancel_match is None:
             _, *lines = re.split("\s*\(\*", group)
-            for line_num, line in enumerate(lines, start = 0):
+            line_num = 0
+            for line in enumerate(lines):
                 line = "(*" + line.strip()
                 state_num = int(re.search("\(\*(\d+):\*\)", line).group(1))
                 if line_num == 0:
@@ -46,6 +48,14 @@ with open(fpath, 'r') as f:
                     group_ends.append(state_num)
                 line = re.sub("\(\*(\d+):\*\)\s+", "", line)
                 lines[line_num] = line
+                # Deal with missing states
+                if state_num > max_state:
+                    diff = max_state - state_num
+                    for i in range(diff):
+                        line_num = line_num + 1
+                        lines[line_num] = ""
+                    max_state = state_num
+                line_num = line_num + 1
             if (len(lines) > 0):
                 group_lines.append(lines)
         else:
@@ -75,10 +85,12 @@ if len(group_lines) == 1:
 # Dump initial version to file
 (fname, fext) = os.path.splitext(os.path.basename(fpath))
 with open(outdir + "/" + fname + "-" + str(0) + fext, 'w') as f:
-     for curr_index in range(len(old_cumulative)):
+    for curr_index in range(len(old_cumulative)):
         if old_cumulative[curr_index] != "":
             old = old_cumulative[curr_index]
             f.write(old + "\n")
+    if group_failures[0] is True:
+        f.write("(* Failed. *)\n")
 
 for i in range(len(group_ends) - 1):
     j = i + 1
@@ -113,18 +125,13 @@ for i in range(len(group_ends) - 1):
             curr_index = curr_index + 1
 
     # Dump new version to file
-    if group_failures[i] is False: # uncomment when we want failures, or add comment
-        with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:
-            for curr_index in range(len(new_cumulative)):
-                if new_cumulative[curr_index] != "":
-                    new = new_cumulative[curr_index]
-                    f.write(new + "\n")
-    else: # remove when we want failures
-        with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:
-            for curr_index in range(len(old_cumulative)):
-                if old_cumulative[curr_index] != "":
-                    old = old_cumulative[curr_index]
-                    f.write(old + "\n")
+    with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:  
+        for curr_index in range(len(new_cumulative)):
+            if new_cumulative[curr_index] != "":
+                new = new_cumulative[curr_index]
+                f.write(new + "\n")
+        if group_failures[j] is True:
+            f.write("(* Failed. *)\n")
 
     # Now switch to use the new cumulative file
     old_cumulative = new_cumulative
@@ -141,16 +148,11 @@ if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
         curr_index = curr_index + 1
 
     # Dump new version to file
-    if group_failures[-1] is False: # uncomment when we want failures, or add comment
-        with open(outdir + "/" + fname + "-" + str(j + 1) + fext, 'w') as f:
-            for curr_index in range(len(new_cumulative)):
-                if new_cumulative[curr_index] != "":
-                    new = new_cumulative[curr_index]
-                    f.write(new + "\n")
-    else: # remove when we want failures
-        with open(outdir + "/" + fname + "-" + str(j + 1) + fext, 'w') as f:
-            for curr_index in range(len(old_cumulative)):
-                if old_cumulative[curr_index] != "":
-                    old = old_cumulative[curr_index]
-                    f.write(old + "\n")
+    with open(outdir + "/" + fname + "-" + str(j + 1) + fext, 'w') as f:
+        for curr_index in range(len(new_cumulative)):
+            if new_cumulative[curr_index] != "":
+                new = new_cumulative[curr_index]
+                f.write(new + "\n")
+        if group_failures[-1] is True:
+            f.write("(* Failed. *)\n")
 

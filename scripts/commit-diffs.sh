@@ -11,7 +11,7 @@ fi
 script=`realpath $0`
 path=`dirname $script`
 outfile="${path}/user-${userid}-session-${sessionid}.v"
-diffpath="${path}/../diffs-no-failures-no-compiles-clean/${userid}"
+diffpath="${path}/../diffs-annotated/${userid}"
 
 # Spit the replay data to a file
 printf "${userid}\n${sessionid}\n" | python3 replay.py > ${outfile}

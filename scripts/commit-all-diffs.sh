@@ -1,82 +1,72 @@
 #!/bin/bash
 
-# Done:
-# w/ failures, w/ compiles, not filtering unset silents
-
-# In progress:
-# w/ failures, w/o compiles, not filtering unset silents
-
-# Outstanding:
-# w/ failures, w and w/o compiles, filtering unset silents
-# w/o failures for all fo the above (or with failures denoted seperately)
-
-# User 0 (w/ failures version is done forever)
+# User 0
 for i in {0..5}
 do
     ./commit-diffs.sh 0 ${i}
 done
 
-# User 1 (w/ failures version is done; extra unset silents kind of unpleasant though)
+# User 1
 for i in {0..41}
 do
     ./commit-diffs.sh 1 ${i}
 done
 
-# User 2 (w/ failures version is done; extra unset silents kind of unpleasant though)
+# User 2
 for i in {0..6}
 do
     ./commit-diffs.sh 2 ${i}
 done
 
-# User 3 (w/ failures version is done; extra unset silents kind of unpleasant though)
+# User 3
 for i in {0..11494}
 do
     ./commit-diffs.sh 3 ${i}
 done
 
-# User 4 (w/ failures version is done forever)
+# User 4
 for i in {0..0}
 do
     ./commit-diffs.sh 4 ${i}
 done
 
-# User 5 (w/ failures version is done forever)
+# User 5
 for i in {0..40}
 do
     ./commit-diffs.sh 5 ${i}
 done
 
-# User 6 (w/ failures version is done forever)
+# User 6
 for i in {0..0}
 do
     ./commit-diffs.sh 6 ${i}
 done
 
-# User 7 (w/ failures version is done; extra unset silents kind of unpleasant though)
+# User 7
 for i in {0..228}
 do
     ./commit-diffs.sh 7 ${i}
 done
 
-# User 8 (w/ failures version is done; extra unset silents kind of unpleasant though)
+# User 8
 for i in {0..161}
 do
     ./commit-diffs.sh 8 ${i}
 done
 
-# User 9 (w/ failures version is done forever)
+# User 9
 for i in {0..4}
 do
     ./commit-diffs.sh 9 ${i}
 done
 
-# User 10 (w/ failures version is done; extra unset silents kind of unpleasant though)
+# User 10
 for i in {0..22}
 do
     ./commit-diffs.sh 10 ${i}
 done
 
-# User 11 (w/ failures version is done; extra unset silents kind of unpleasant though)
+# User 11
 for i in {0..16}
 do
     ./commit-diffs.sh 11 ${i}
