@@ -19,10 +19,17 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Fixpoint get_upto (a : addr) : proc (list block) :=
-  match a with
-  | 0 => Ret []
-  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [b])
-  end.
-Definition reset : proc unit :=
-  len0 <- addr_to_block 0; d.write len_addr len0.
+Definition init : proc InitResult :=
+  size <- d.size;
+  (if lt_dec size 1
+   then Ret InitFailed
+   else len0 <- addr_to_block 0; _ <- d.write len_addr len0; Ret Initialized).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsUb5xv"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqK4sBjD"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
