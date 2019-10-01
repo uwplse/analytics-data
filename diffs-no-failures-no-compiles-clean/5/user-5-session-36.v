@@ -284,5 +284,3 @@ exact H0.
 (rewrite evalVar).
 (rewrite extendEnv_eq).
 assumption.
--
-reflexivity.
