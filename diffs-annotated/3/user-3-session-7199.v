@@ -141,4 +141,4 @@ step_proc.
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
 step_proc.
 intuition eauto.
-step_proc.
+(unfold proc_spec).
