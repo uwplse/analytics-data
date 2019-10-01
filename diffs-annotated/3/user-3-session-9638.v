@@ -412,5 +412,3 @@ Proof.
 (intros).
 (eapply init_abstraction_any_rec with rec).
 (unfold init_abstraction; intros).
-step_proc_basic.
-(* Failed. *)
