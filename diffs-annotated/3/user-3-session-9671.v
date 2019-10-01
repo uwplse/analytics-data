@@ -453,5 +453,3 @@ Theorem log_length_ok_unchanged d bs d' :
 Proof.
 (unfold log_length_ok; intros).
 (rewrite H0 in *).
-(exists []; intuition eauto).
-{
