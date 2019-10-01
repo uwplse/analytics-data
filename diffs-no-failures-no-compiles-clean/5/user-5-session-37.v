@@ -214,4 +214,6 @@ exfalso.
 refine (_ _).
 (apply evalIntInj).
 +
-assumption.
+eassumption.
++
+eassumption.
