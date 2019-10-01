@@ -90,4 +90,6 @@ exists w1.
 (intros v Hm).
 (destruct k).
 -
-(apply match_ty_ref__weak_inv in Hm; subst).
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [tx Heq]; subst).
+(destruct w1; simpl).
