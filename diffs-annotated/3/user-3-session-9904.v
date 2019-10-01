@@ -53,4 +53,6 @@ Proof.
 (unfold statdb_abstraction; simpl).
 lia.
 Qed.
-(apply spec_abstraction_compose).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+(destruct a'; simpl in *; intuition).
