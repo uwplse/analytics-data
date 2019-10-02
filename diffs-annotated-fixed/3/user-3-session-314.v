@@ -83,13 +83,34 @@ Lemma read_op_ok :
 Proof.
 (intros).
 (eapply op_spec_sound).
+typeclasses eauto.
+typeclasses eauto.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
 Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWDv50N"
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkIbtLI"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
+Qed.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtLGi9O"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgqHz0E"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Lemma write_op_ok :
+  forall i v,
+  proc_hspec Var.dynamics (write i v)
+    (op_spec Var.dynamics (Var.Write i v)).
+Proof.
+(intros).
+(eapply op_spec_sound).
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
