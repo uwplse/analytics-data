@@ -163,6 +163,6 @@ exists (S w').
 specialize (IHw' _ Hm').
 (destruct (f_free_in_ty__dec X' ([Bi0 := ti] t'))).
 {
-(destruct IHw' as [_ IHw']).
+(destruct IHw' as [IHw' _]).
 (* Auto-generated comment: Failed. *)
 
