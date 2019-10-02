@@ -45,21 +45,19 @@ with open(fpath, 'r') as f:
                 state_num = int(re.search("\(\*(\d+):\*\)", line).group(1))
                 if line_num == 0:
                     group_starts.append(state_num)
-                if line_num == len(lines) - 1:
-                    group_ends.append(state_num)
                 line = re.sub("\(\*(\d+):\*\)\s+", "", line)
                 # Deal with missing states
                 if state_num > max_state:
-                    if line_num > 0:
-                        diff = state_num - max_state - 1
+                    if state_num > max_state + 1:
+                        diff = state_num - max_state
                         for i in range(diff):
                             line_num = line_num + 1
                             lines_buff.append("(* Auto-generated comment: Missing state. *)")
                     max_state = state_num
                 lines_buff.append(line)
-               
                 line_num = line_num + 1
-            if (len(lines) > 0):
+            if (len(lines_buff) > 0):
+                group_ends.append(state_num)
                 group_lines.append(lines_buff)
         else:
             state_num = int(re.search("([0-9]+)\*\)", group).group(1))
@@ -71,14 +69,16 @@ with open(fpath, 'r') as f:
                 group_failures.append(False)
             else:
                 group_failures.append(True)
-            max_state = max_state + 1
 
 # Now go through the cancellations and find diffs
 if len(group_lines) > 0:
     old_cumulative = group_lines[0]
 
-    for i in range(group_starts[0]):
-        old_cumulative.insert(0, "")
+    # Write failure or success in place of cancellation
+    if group_failures[0] is True:
+        old_cumulative.append("(* Auto-generated comment: Failed. *)\n")
+    else:
+        old_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
 else:
     exit(0) # Comment below and uncomment this line when we don't include compiles
     #old_cumulative = [] # Comment above and uncomment this line when we include compiles
@@ -93,8 +93,6 @@ with open(outdir + "/" + fname + "-" + str(0) + fext, 'w') as f:
         if old_cumulative[curr_index] != "":
             old = old_cumulative[curr_index]
             f.write(old + "\n")
-    if group_failures[0] is True:
-        f.write("(* Auto-generated comment: Failed. *)\n")
 
 for i in range(len(group_ends) - 1):
     j = i + 1
@@ -128,14 +126,19 @@ for i in range(len(group_ends) - 1):
             new_cumulative.append(group_lines[j][curr_index - next_state])
             curr_index = curr_index + 1
 
+        # Write failure or success in place of cancellation
+        if len(group_failures) > j:
+            if group_failures[j] is True:
+                new_cumulative.append("(* Auto-generated comment: Failed. *)\n")
+            else:
+                new_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
+
     # Dump new version to file
     with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:  
         for curr_index in range(len(new_cumulative)):
             if new_cumulative[curr_index] != "":
                 new = new_cumulative[curr_index]
                 f.write(new + "\n")
-        if len(group_failures) > j and group_failures[j] is True:
-            f.write("(* Auto-generated comment: Failed. *)\n")
 
     # Now switch to use the new cumulative file
     old_cumulative = new_cumulative
@@ -150,6 +153,12 @@ if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
     while (curr_index <= cancel_index):
         new_cumulative.append(old_cumulative[curr_index])
         curr_index = curr_index + 1
+
+    # Write failure or success in place of cancellation
+    if group_failures[-1] is True:
+        new_cumulative.append("(* Auto-generated comment: Failed. *)\n")
+    else:
+        new_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
 
     # Dump new version to file
     with open(outdir + "/" + fname + "-" + str(j + 1) + fext, 'w') as f:
