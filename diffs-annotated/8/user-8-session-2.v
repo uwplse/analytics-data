@@ -45,8 +45,6 @@ Timeout 1 Print LoadPath.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqToWrV3"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
--
-(destruct li as [| k li]).
-(repeat rewrite ctrls_to_list_empty).
+(simpl; Msimpl).
 reflexivity.
-(* Failed. *)
+(simpl).
