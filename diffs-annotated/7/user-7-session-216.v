@@ -361,5 +361,13 @@ Proof.
 Check IdSetProps.empty_union_1.
 Check IdSetProps.empty_union_1.
 (pose proof (IdSetProps.empty_union_1 s1 H) as H1).
-(pose proof (IdSetProps.empty_union_1 s2 H) as H1).
+(pose proof (IdSetProps.empty_union_1 s2 H) as H2).
+Search -IdSet.union.
+Admitted.
+Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
+Proof.
+(intros t1 t2 Hwf).
+(unfold wf_ty in *; simpl in *).
+(apply union_empty__inv).
+assumption.
 (* Failed. *)
