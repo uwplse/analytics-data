@@ -61,7 +61,9 @@ Lemma match_ty_i_ref__inv : forall (v t : ty) (k : nat), |-[ S k] v <$ TRef t ->
 Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
-(intros t k).
-(intros Hm).
+(intros t k Hm).
+(simpl in Hm).
+exists v.
+auto.
 (* Auto-generated comment: Failed. *)
 
