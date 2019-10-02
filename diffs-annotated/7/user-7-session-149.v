@@ -54,5 +54,29 @@ Fixpoint FV (t : ty) : id_set :=
   | TEV _ => IdSet.empty
   end.
 Definition free_in_ty (X : id) (t : ty) := IdSet.In X (FV t).
-Definition not_in (X : id) (fvs : id_set) := ~ IdSet.In X fvs.
-(* Auto-generated comment: Failed. *)
+Definition fresh (X : id) (fvs : id_set) := ~ IdSet.In X fvs.
+Definition fresh_in_ty (X : id) (t : ty) := fresh X (FV t).
+Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
+Inductive value_type : ty -> Prop :=
+  | VT_CName : forall cn, value_type (TCName cn)
+  | VT_Pair : forall v1 v2, value_type v1 -> value_type v2 -> value_type (TPair v1 v2)
+  | VT_EV : forall X : id, value_type (TEV X).
+Hint Constructors value_type: DBBetaJulia.
+Declare Scope btjm_scope.
+Delimit Scope btjm_scope with btjm.
+Open Scope btjm.
+Reserved Notation "'|-[' w ']' v '<$' t" (at level 40).
+Fixpoint match_ty (w : nat) :=
+  fix mtyv (v : ty) :=
+    fix mtyt (t : ty) :=
+      match w, v, t with
+      | _, TCName c, TCName c' => c = c'
+      | _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
+      | _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
+      | S w, v, TExist X t' => exists tx, |-[ w] v <$ [X := tx] t'
+      | _, TEV X, TVar X' => X = X'
+      | _, TEV X, TEV X' => X = X'
+      | _, _, _ => False
+      end
+where "'|-[' w ']' v '<$' t" := (match_ty k w v t) : btjm_scope.
+(* Failed. *)
