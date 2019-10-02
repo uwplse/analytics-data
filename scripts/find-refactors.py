@@ -32,10 +32,10 @@ failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+)\*\)\s+)"
 failure = "(\(\*FAILED.*\*\)\s+)"
 with open(fpath, 'r') as f:
     groups = re.split(failure_or_cancellation, f.read())
+    max_state = 0
     for group_num, group in enumerate(groups, start = 0):
         cancel_match = re.match(failure_or_cancellation, group)
         failure_match = re.match(failure, group)
-        max_state = 0
         if cancel_match is None:
             _, *lines = re.split("\s*\(\*", group)
             line_num = 0
