@@ -20,5 +20,7 @@ assumption.
 -
 (unfold sem_sub_k in *).
 auto.
+-
+(apply match_ty_pair__inv in Hm).
 (* Auto-generated comment: Failed. *)
 
