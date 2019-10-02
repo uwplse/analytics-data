@@ -222,5 +222,5 @@ tauto.
  | Hcontra:|- ?t1 << ?t2
    |- False => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst
  end).
-(inversion Heqx).
+(rewrite mk_nf_pair in Heqx).
 (* Failed. *)
