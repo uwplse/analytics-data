@@ -80,15 +80,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Search -nat -string.
-Eval compute in pretty.pretty_nat 3.
-Instance aModel : GoModel.
-Proof.
-refine
- {|
- byte := Ascii.ascii;
- byte0 := Ascii.Ascii false false false false false false false false;
- uint64_to_string := pretty.pretty_nat;
- ascii_to_byte := id;
- byte_to_ascii := id |}.
+Search -"endian".
+Definition uint64_to_bv (n : uint64) : option (ByteVector.ByteVector 8).
+Print ByteVector.ByteVector.
 (* Auto-generated comment: Succeeded. *)
 
