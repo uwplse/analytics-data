@@ -120,5 +120,5 @@ Theorem sub_d__semantic_i_complete : forall t1 t2 : ty, ||- [t1]<= [t2] -> |- t1
 Proof.
 (intros t1 t2 Hsem).
 (apply SD_Trans with (MkNF( t1))).
-(apply mk_nf__sub_d_l; assumption).
-(* Auto-generated comment: Failed. *)
+(apply mk_nf__sub_d_r; assumption).
+(apply nf_sem_sub_i__sub_d).
