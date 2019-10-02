@@ -231,6 +231,5 @@ subst.
 (destruct w').
 (inversion Hle).
 (assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
-{
-(intros Hcontra).
+(intros Hm).
 (* Failed. *)
