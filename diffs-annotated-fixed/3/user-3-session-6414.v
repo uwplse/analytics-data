@@ -114,6 +114,6 @@ Definition log_abstraction (d : disk) (log : list block) : Prop :=
   exists b,
     diskGet d 0 =?= b /\
     block_to_addr b = length log /\
-    (forall a, a < length log -> diskGet d (log_addr a) =?= nth log a).
+    (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log).
 (* Auto-generated comment: Failed. *)
 
