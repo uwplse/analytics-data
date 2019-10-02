@@ -188,5 +188,6 @@ Proof.
 +
 (simpl).
 (simpl).
-(* Auto-generated comment: Succeeded. *)
+(apply mixed_unitary; trivial).
+(* Auto-generated comment: Failed. *)
 
