@@ -603,6 +603,6 @@ clear.
 specialize (kron_1_l A) as KL.
 symmetry.
 (simpl in KL).
-(apply KL).
+(rewrite Nat.add_0_r).
 (* Auto-generated comment: Failed. *)
 
