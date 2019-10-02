@@ -99,6 +99,10 @@ tauto.
 -
 (assert (Hmp : |-[ k, w1'] TPair v1 v <$ TPair t1 t2)).
 {
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst).
-(* Auto-generated comment: Failed. *)
+}
+specialize (Hsem _ Hmp).
+(apply match_ty_pair_pair__inv in Hsem).
+tauto.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
