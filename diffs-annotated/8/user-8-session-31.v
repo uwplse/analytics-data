@@ -2735,4 +2735,3 @@ rename \206\1473 into \206\1472.
 dependent destruction STAT.
 rename H0 into STAT.
 rename H into IH.
-(unfold denote_circuit; simpl).
