@@ -576,5 +576,10 @@ step_proc.
 *
 intuition eauto.
 {
+(destruct (a == a0); simplify; finish).
+}
+step.
+(destruct r; try step).
++
 (* Auto-generated comment: Succeeded. *)
 
