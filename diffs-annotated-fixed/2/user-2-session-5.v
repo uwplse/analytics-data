@@ -53,5 +53,25 @@ Check
 Redirect "/tmp/coqLRo0nb" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-(* Auto-generated comment: Failed. *)
+Fixpoint subst (x : string) (u : term) (t : term) : term := t.
+Redirect "/tmp/coqaK2I4e" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fixpoint step (t : term) : term :=
+  match t with
+  | Nil => Nil
+  | Ident _ => Nil
+  | <a b> => if value a then <a (step b)> else <(step a) b>
+  | {f a} =>
+      if value f
+      then
+       match f with
+       | [(Ident lam) (Ident x) body] => if value a then subst x a body else {f (step a)}
+       | Ident prim => t
+       | _ => Nil
+       end
+      else {(step f) a}
+  end.
+Redirect "/tmp/coquvVkIH" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Succeeded. *)
 
