@@ -104,5 +104,10 @@ Proof.
 (intros k t w1).
 exists w1.
 tauto.
-auto.
+(intros v).
+tauto.
+Qed.
+Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
+Proof.
+(intros k t w1).
 (* Failed. *)
