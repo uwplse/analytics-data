@@ -1217,8 +1217,5 @@ Proof.
 gen \207\129.
 subst.
 (repeat rewrite Nat.pow_add_r).
-(intros).
-Msimpl.
-Set Printing Implicit.
 (* Auto-generated comment: Succeeded. *)
 
