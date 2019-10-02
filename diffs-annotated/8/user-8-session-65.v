@@ -948,7 +948,5 @@ Fact assert_at_spec_unsafe :
 Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
 Lemma assert_init_at_id :
   forall b m i, i < S m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
