@@ -72,6 +72,8 @@ Theorem inSeq_correct :
 Proof.
 (intros W1 W2 W3 g f safe types_g types_f \207\129).
 (autounfold with den_db; simpl).
+(intros W1 W2 W3 g f safe \207\129 types_g types_f).
+(autounfold with den_db; simpl).
 (destruct f as [f]).
 (destruct g as [g]).
 (autounfold with den_db; simpl).
@@ -95,9 +97,5 @@ replace (size_wtype W2) with \226\159\166 \206\1472 \226\159\167.
 specialize denote_compose as DC.
 (unfold denote_circuit in DC).
 (erewrite DC with (\206\1471 := [])).
-(simpl).
-(unfold compose_super).
-(rewrite H2, H3).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
