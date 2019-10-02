@@ -66,7 +66,35 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqo6mO47"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
+(destruct (lt_dec a 2)).
++
+intuition lia.
++
+(rewrite disk_oob_eq; auto).
+(rewrite disk_oob_eq; auto).
 -
+(simpl; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJL7Ire"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Example abst_2_ok :
+  remapped_abstraction (BadBlockAPI.mkState [block1; block0; block0] 0)
+    [block0; block0].
+Proof.
+(constructor; auto).
+-
+(simpl; intros).
+(destruct (Nat.eq_dec a 1)).
++
+subst.
+(simpl).
+reflexivity.
++
+(destruct (lt_dec a 3)).
+intuition lia.
 (* Auto-generated comment: Succeeded. *)
 
