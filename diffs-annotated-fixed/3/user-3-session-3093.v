@@ -391,5 +391,8 @@ Proof.
 injection H as H1 H2.
 (rewrite <- H1, <- H2).
 reflexivity.
+(assert (Hc : combine x y = l')).
+{
+(apply IHl').
 (* Auto-generated comment: Succeeded. *)
 
