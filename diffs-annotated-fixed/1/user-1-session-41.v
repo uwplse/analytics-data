@@ -575,6 +575,5 @@ specialize (H _ (In_singleton _ _)).
   end).
 congruence.
 -
-specialize (H _ (In_singleton _ _)).
 (* Auto-generated comment: Succeeded. *)
 
