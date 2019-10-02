@@ -362,11 +362,6 @@ Check IdSetProps.empty_union_1.
 Check IdSetProps.empty_union_1.
 (pose proof (IdSetProps.empty_union_1 s1 H) as H1).
 (pose proof (IdSetProps.empty_union_1 s2 H) as H2).
-(intros t1 t2 Hwf).
-(unfold wf_ty in *; simpl in *).
-(apply union_empty__inv).
-assumption.
-Qed.
 Lemma wf_ty_union__inv : forall t1 t2 : ty, wf_ty (TUnion t1 t2) -> wf_ty t1 /\ wf_ty t2.
 Proof.
 (intros t1 t2 Hwf).
@@ -374,4 +369,10 @@ Proof.
 (apply union_empty__inv).
 assumption.
 Qed.
+Lemma wf_ty__wf_ty_f_subst : forall (X : id) (s t : ty), wf_ty s -> wf_ty t -> wf_ty ([FX := s] t).
+Proof.
+(intros X s t Hwfs).
+generalize dependent t.
+(induction t; intros Hwft; try (solve [ simpl; assumption ])).
+-
 (* Failed. *)
