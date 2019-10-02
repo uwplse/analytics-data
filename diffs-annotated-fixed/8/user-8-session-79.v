@@ -1200,5 +1200,5 @@ rewrite_inPar'.
 rewrite_inPar'.
 (rewrite 2!id_circ_spec).
 (rewrite strip_one_l_out_eq).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
