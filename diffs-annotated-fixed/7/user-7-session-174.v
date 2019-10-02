@@ -115,5 +115,9 @@ Function
    end.
 Proof.
 all: (try (intros; simpl; Omega.omega)).
-(* Auto-generated comment: Failed. *)
+-
+(intros).
+(simpl).
+Omega.omega.
+(* Auto-generated comment: Succeeded. *)
 
