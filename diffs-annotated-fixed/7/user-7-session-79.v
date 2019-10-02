@@ -245,10 +245,25 @@ auto.
 (apply match_ty_ref__inv in Hm1).
 (destruct Hm1 as [s [Heq [[Hdept Hdeps] Href]]]; subst).
 (pose proof (sub_d_eq__inv_depth_eq _ _ Hsub1 Hsub2) as Heqdep).
+(simpl).
+(rewrite <- Heqdep).
+split.
+tauto.
+(assert (Href' : ||-[ k][t]= [t'])).
+{
 (intros v).
 (split; auto).
 }
 (apply sem_eq_k__trans with t; assumption).
 Qed.
-(* Auto-generated comment: Failed. *)
+Theorem nf_exists : forall t : ty, exists tn : ty, InNF( tn) /\ |- tn << t /\ |- t << tn.
+Proof.
+(intros t).
+exists (MkNF( t)).
+(pose proof (mk_nf__sub_d_eq t)).
+split.
+(apply mk_nf__in_nf; assumption).
+assumption.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
