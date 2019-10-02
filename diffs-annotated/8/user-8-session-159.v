@@ -24,10 +24,14 @@ Proof.
 (induction (c p)).
 -
 matrix_denote.
-(match goal with
- | |- ?A => let A' := restore_dims_rec tac A in
-            replace
-            A
-            with
-            A'
- end).
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+2: {
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq2ows0w"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
