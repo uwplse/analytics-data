@@ -233,6 +233,15 @@ Theorem get_at_ok a :
              state' = state /\ nth a state block0 = r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
+Theorem get_at_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a < length state;
+     post := fun r state' =>
+             state' = state /\ nth a state block0 = r;
+     recovered := fun _ state' => state' = state |}) 
+    (get_at a) recover abstr.
 Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
@@ -242,19 +251,8 @@ step.
 (exists bs; intuition eauto).
 (unfold log_abstraction in H0; intuition).
 (pose proof (H3 a); intuition).
-(eapply diskGet_eq_values; eauto).
-(unfold log_abstraction in H0; intuition).
-(pose proof (H3 a); intuition).
 (assert (log_addr a < diskSize state)).
 {
-auto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqn7pS5Y"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+eauto using log_size_bounds.
 (* Auto-generated comment: Succeeded. *)
 
