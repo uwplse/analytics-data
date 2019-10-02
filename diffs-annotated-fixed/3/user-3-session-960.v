@@ -74,7 +74,8 @@ Function
    | 0 => nil
    | _ =>
        let digit := x mod S (S base) in
-       exist _ digit _ :: nat_to_le base (x / S (S base))
+       exist (fun x => x < S (S base)) digit _
+       :: nat_to_le base (x / S (S base))
    end.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
