@@ -230,5 +230,9 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(intros [[v1 Hcontra'1] [v2 Hcontra'2]]).
+(intros [[v'1 Hcontra'1] [v'2 Hcontra'2]]).
+(apply Hnotm).
+exists (TPair v'1 v'2).
+(apply match_ty_pair; assumption).
+}
 (* Failed. *)
