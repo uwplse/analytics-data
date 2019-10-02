@@ -162,22 +162,9 @@ constructor.
 (apply Nat.le_max_l).
 (apply Nat.le_max_r).
 -
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-admit.
--
-(destruct w).
-(apply match_ty_exist__0_inv in Hm).
-contradiction.
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-Abort.
-Lemma match_ty__match_ge_world : forall (t : ty) (w k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
-Proof.
-(induction t; intros w k v Hm w' Hle).
--
 (apply match_ty_cname__inv in Hm).
 subst.
 (apply match_ty_cname).
 -
+(des Abort).
 (* Failed. *)
