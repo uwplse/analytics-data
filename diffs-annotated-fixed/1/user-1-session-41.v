@@ -547,13 +547,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
       Alpha S GDyn.
 Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
-Proof.
-(intros).
-generalize dependent G'.
-(induction H).
--
-(intros; inversion H0; subst; eauto).
-Search -Singleton.
-Search -(Singleton _ _ = Singleton _ _).
-(* Auto-generated comment: Succeeded. *)
+Create HintDb agt discriminated.
+Hint Resolve Singleton_eq: agt.
+(* Auto-generated comment: Failed. *)
 
