@@ -125,22 +125,12 @@ step_proc.
 (eapply log_abstraction_nil; eauto).
 (autorewrite with upd; auto).
 Qed.
-Theorem get_len_ok :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := True;
-     post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len d.recover abstr.
+Lemma abstr_get_len :
+  forall (bs : list block) (state : State),
+  log_abstraction state bs ->
+  forall r : block,
+  diskGet state len_addr =?= r -> block_to_addr r = length bs.
 Proof.
-(unfold get_len; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
-step_proc.
-intuition eauto.
-(eexists; intuition eauto).
-Timeout 1 Show.
-Timeout 1 Show.
+(intros bs state H0 r H1).
 (* Auto-generated comment: Succeeded. *)
 
