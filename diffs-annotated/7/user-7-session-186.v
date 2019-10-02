@@ -26,4 +26,7 @@ Proof.
 exists v.
 split.
 asumption.
-(* Auto-generated comment: Failed. *)
+assumption.
+(induction w'; induction t'; intros Hm').
++
+(* Failed. *)
