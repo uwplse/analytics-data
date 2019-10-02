@@ -73,6 +73,7 @@ reflexivity.
 idtac.
 clear IHt'.
 (simpl).
-(apply f_apply).
+(apply f_equal).
+(apply IHt).
 (* Auto-generated comment: Failed. *)
 
