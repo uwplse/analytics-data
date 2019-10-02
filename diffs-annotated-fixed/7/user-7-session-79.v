@@ -245,12 +245,10 @@ auto.
 (apply match_ty_ref__inv in Hm1).
 (destruct Hm1 as [s [Heq [[Hdept Hdeps] Href]]]; subst).
 (pose proof (sub_d_eq__inv_depth_eq _ _ Hsub1 Hsub2) as Heqdep).
-(simpl).
-(rewrite <- Heqdep).
-split.
-tauto.
-(assert (Href' : ||-[ k][t]= [t'])).
-{
-(intros v Hv).
+(intros v).
+(split; auto).
+}
+(apply sem_eq_k__trans with t; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
