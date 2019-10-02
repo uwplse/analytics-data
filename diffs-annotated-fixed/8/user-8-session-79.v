@@ -594,6 +594,6 @@ Proof.
 (intros).
 (rewrite kron_1_l).
 (rewrite kron_1_l).
-setoid_rewrite kron_1_r.
+(rewrite kron_1_r).
 (* Auto-generated comment: Failed. *)
 
