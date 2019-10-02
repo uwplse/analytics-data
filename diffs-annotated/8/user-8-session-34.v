@@ -25,3 +25,8 @@ Fact denote_compose :
   \206\14701 \226\169\181 \206\1470 \226\136\153 \206\1471 ->
   denote_circuit safe (compose c f) \206\1470 \206\1471' \207\129 =
   compose_super (denote_circuit safe (f (add_fresh_pat w \206\1471)) \206\1470 (add_fresh_state w \206\1471)) (denote_circuit safe c \206\14701 \206\147) \207\129.
+(intros safe w c \206\147 TP w' f \206\1470 \206\1471 \206\1471' \206\14701 \207\129).
+dependent induction TP.
+-
+(intros w' f \206\1470 \206\1471 \206\1471' \206\14701 WT pf_merge1 pf_merge2).
+(* Failed. *)
