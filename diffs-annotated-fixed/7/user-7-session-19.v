@@ -155,8 +155,8 @@ specialize (Hsem _ Hm).
 Qed.
 Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Lemma sem_sub_k_i_pair__inv :
-  forall (t1 t2 t1' t2' : ty) (k : nat),
-  | TPair t1 t2 | <= k -> ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
+  forall (t1 t2 t1' t2' : ty) (k : nat), ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
 Proof.
+(intros t1 t2 t1' t2' k).
 (* Auto-generated comment: Failed. *)
 
