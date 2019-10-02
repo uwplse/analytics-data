@@ -375,6 +375,6 @@ Proof.
 (unfold append; intros).
 (apply spec_abstraction_compose).
 step_proc.
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+(destruct a' as [_ bs]).
+(* Auto-generated comment: Failed. *)
 
