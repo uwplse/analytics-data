@@ -2779,5 +2779,9 @@ reflexivity.
 (unfold subst_pat).
 replace (size_wtype W) with \226\159\166 W \226\159\167 by easy.
 (rewrite <- size_octx_merge by easy).
+(intros x IN).
+(apply Nat.lt_lt_add_l).
+(rewrite <- pf_merge in *).
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
 (* Auto-generated comment: Succeeded. *)
 
