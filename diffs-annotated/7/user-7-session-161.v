@@ -78,5 +78,11 @@ assumption.
 assumption.
 Abort.
 Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
-(rewrite IHt1, IHt2; try assumption reflexivity).
+(rewrite IHt1, IHt2; try assumption).
+reflexivity.
+-
+(repeat rewrite subst_union).
+(rewrite IHt1, IHt2; try assumption).
+reflexivity.
+-
 (* Failed. *)
