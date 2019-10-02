@@ -2821,6 +2821,5 @@ specialize (apply_U_correct Qubit) as AUC.
 (simpl in AUC).
 (unfold process_gate_state).
 (simpl).
-unify_pows_two.
 (* Auto-generated comment: Succeeded. *)
 
