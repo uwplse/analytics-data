@@ -18,5 +18,5 @@ Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
 (induction Hsub12; inversion Heqx; inversion Heqy; subst; try clear Heqx Heqy).
 (inversion Hsub22; subst).
-specialize (IHHsub11_1 _ t1'0 _ _).
+specialize (IHHsub11_1 Hsub12_1 t1'0 _ _).
 (* Failed. *)
