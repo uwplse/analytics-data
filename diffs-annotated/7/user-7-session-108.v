@@ -194,5 +194,5 @@ subst.
 -
 (destruct w).
 +
-(apply mactch_ty_exist__0_inv in Hm).
+(apply match_ty_exist__0_inv in Hm).
 (* Failed. *)
