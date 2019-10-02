@@ -47,6 +47,15 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
-Timeout 1 About denote_ctrls.
-Timeout 1 Print denote_ctrls.
-Timeout 1 Print Ltac denote_ctrls.
+Lemma denote_ctrls_transpose :
+  forall W (n : nat) (u : Unitary W) li,
+  denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
+Proof.
+(intros).
+(unfold denote_ctrls).
+Search -fst -snd.
+(rewrite (surjective_pairing (ctrls_to_list (repeat false n) li (trans u)))).
+(rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
+(rewrite <- ctrls_to_list_transpose_fst).
+(rewrite <- ctrls_to_list_transpose_snd).
+(* Failed. *)
