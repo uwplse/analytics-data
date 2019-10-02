@@ -22,12 +22,5 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm).
 -
-(rewrite subst_cname in *).
-exists v.
-split.
-assumption.
-(induction w'; induction t'; intros Hm').
-+
-split.
-*
+(induction w'; induction t'; intros Hm'; try contradiction).
 (* Failed. *)
