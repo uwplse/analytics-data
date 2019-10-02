@@ -189,5 +189,7 @@ subst.
 -
 (destruct k).
 +
-(apply match_ty_ref__weak_inv in Hm; subst).
-(* Auto-generated comment: Failed. *)
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(simpl).
+(* Failed. *)
