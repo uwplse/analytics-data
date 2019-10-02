@@ -68,7 +68,7 @@ Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
 Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
-(inversion Heqx).
-Qed.
 Lemma sem_sub__eunion__union_e : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
+Proof.
+(intros X t1 t2 k).
 (* Failed. *)
