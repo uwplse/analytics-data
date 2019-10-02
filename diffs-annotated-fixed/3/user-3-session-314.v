@@ -161,6 +161,6 @@ Proof.
 (eapply ret_hspec).
 typeclasses eauto.
 firstorder.
-(hnf).
+(inversion H0).
 (* Auto-generated comment: Succeeded. *)
 
