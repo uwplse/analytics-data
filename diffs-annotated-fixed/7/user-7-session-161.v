@@ -94,6 +94,9 @@ Proof.
 (intros X Y tX tY Hneq HY t).
 (induction t; try reflexivity).
 -
+(intros X Y tX tY Hneq HYfresh t).
+(induction t; try reflexivity).
+-
 (repeat rewrite subst_pair).
 (rewrite IHt1, IHt2).
 reflexivity.
@@ -102,5 +105,24 @@ reflexivity.
 (rewrite IHt1, IHt2).
 reflexivity.
 -
+(destruct (beq_idP Y i) as [HY| HY]).
++
+subst.
+(destruct (beq_idP X i) as [HX| HX]).
+*
+subst.
+contradiction.
+*
+(rewrite subst_exist_eq).
+(rewrite (subst_exist_neq _ _ _ _ HX)).
+(rewrite subst_exist_eq).
+reflexivity.
++
+(destruct (beq_idP X i) as [HX| HX]).
+*
+subst.
+(rewrite (subst_exist_neq _ _ _ _ HY)).
+(repeat rewrite subst_exist_eq).
+(rewrite (subst_exist_neq _ _ _ _ HY)).
 (* Auto-generated comment: Failed. *)
 
