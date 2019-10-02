@@ -106,6 +106,5 @@ reflexivity.
 Qed.
 Lemma subs_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
--
-(rewrite IHt1).
+(simpl).
 (* Failed. *)
