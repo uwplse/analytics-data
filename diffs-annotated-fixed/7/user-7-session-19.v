@@ -66,5 +66,12 @@ specialize (Href v' Hv').
 Qed.
 Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
 Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t' -> | t | = | t' |.
+Proof.
+(induction t; induction t'; intros k v Hsemeq).
+reflexivity.
+admit.
+admit.
+admit.
+admit.
 (* Auto-generated comment: Failed. *)
 
