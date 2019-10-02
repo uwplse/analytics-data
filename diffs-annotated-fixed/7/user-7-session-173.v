@@ -119,6 +119,5 @@ Next Obligation.
 (rewrite rename__size).
 Omega.omega.
 Qed.
-Defined.
 (* Auto-generated comment: Failed. *)
 
