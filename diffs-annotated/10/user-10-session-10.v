@@ -266,54 +266,31 @@ Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
-Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE}
-  (k : shared_key) T (ae : appE id T) : itree nE T :=
-  match ae with
-  | App_Recv =>
-      msg <- trigger Network_Recv;;
-      match msg with
-      | Message_Plain _ => throw Error_UnexpectedMessage
-      | Message_Cipher msg =>
-          match decipher k msg with
-          | Some msg =>
-              match msg with
-              | PlainMessage_AppData data => ret data
-              | _ => throw Error_UnexpectedMessage
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqiFtR30"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Definition network_of_app {E} {nE} `{networkE -< nE} `{exceptE error -< nE} (k : shared_key) 
+  T (e : (appE id +' E) T) : itree nE T :=
+  match e with
+  | (ae|) =>
+      match ae with
+      | App_Recv =>
+          msg <- trigger Network_Recv;;
+          match msg with
+          | Message_Plain _ => throw Error_UnexpectedMessage
+          | Message_Cipher msg =>
+              match decipher k msg with
+              | Some msg =>
+                  match msg with
+                  | PlainMessage_AppData data => ret data
+                  | _ => throw Error_UnexpectedMessage
+                  end
+              | None => throw Error_UnexpectedMessage
               end
-          | None => throw Error_UnexpectedMessage
           end
+      | App_Send data => embed Network_Send (Message_Cipher (cipher k (PlainMessage_AppData data)))
       end
-  | App_Send data =>
-      embed Network_Send
-        (Message_Cipher (cipher k (PlainMessage_AppData data)))
+  | (|e) => trigger e
   end.
-Notation sE := (networkE +' exceptE error +' hsgenE +' randomE).
-Notation tE := (nondetE +' sE).
-CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) 
-(t : itree tE unit) : itree tE unit :=
-  match t.(observe) with
-  | RetF r => Ret r
-  | TauF t => Tau (match_event e0 x0 t)
-  | VisF e k =>
-      match e with
-      | (|(ne|)) =>
-          match
-            e0 in (networkE X), ne in (networkE Y)
-            return ((Y -> _) -> X -> _)
-          with
-          | Network_Recv, Network_Recv => id
-          | Network_Send m1, Network_Send m2 =>
-              if m1 = m2 ?
-              then id
-              else fun _ _ => throw Error_UnexpectedMessage
-          | _, _ => fun _ _ => throw Error_UnexpectedBehavior
-          end k x0
-      | (e|) | (||e|) | (|||e|) | (||||e) => vis e (match_event e0 x0 \226\136\152 k)
-      end
-  end.
-Definition match_event_list {X} :
-  networkE X -> X -> list (itree tE unit) -> list (itree tE unit) :=
-  compose pfmap \226\136\152 match_event.
-Definition server : itree sE void :=
-  sk <- translate subevent serverHandshake;;
-  interp (network_of_app sk) (nmi_of_smi kvs).
+(* Failed. *)
