@@ -320,11 +320,46 @@ Proof.
 +
 (step_proc; intuition subst; eauto).
 (step_proc; intuition subst; eauto).
++
+(step_proc; intuition subst; eauto).
+(step_proc; intuition subst; eauto).
+Qed.
+Theorem size_ok : proc_spec OneDiskAPI.size_spec size recover abstr.
+Proof.
+(unfold diskSize).
+(intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
+(destruct a'; simpl in *; intuition subst; eauto).
+step_proc.
+intuition subst; eauto.
+(exists s; split; auto).
+(split; auto).
+(invert_abstraction; lia).
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+eauto.
+(destruct a; simpl in *).
+(autounfold in *; intuition eauto).
+Qed.
+End RemappedDisk.
+Require Import BadBlockImpl.
+Module x:=  RemappedDisk BadBlockDisk.
+Print Assumptions x.write_ok.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBdz0Bl"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqCF39In"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPCTQjr"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
