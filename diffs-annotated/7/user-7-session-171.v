@@ -60,18 +60,14 @@ Fixpoint rename (x y : id) (t : ty) :=
   | TEV z => t
   end
 where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
-Reserved Notation "'[' x ':=' s ']' t" (at level 30).
-Fixpoint subst (x : id) (s t : ty) :=
+Fixpoint size (t : ty) :=
   match t with
-  | TCName _ => t
-  | TPair t1 t2 => TPair ([x := s] t1) ([x := s] t2)
-  | TUnion t1 t2 => TUnion ([x := s] t1) ([x := s] t2)
-  | TExist y t' =>
-      if IdSet.mem y (FV s)
-      then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else [x := s] tz)
-      else TExist y (if beq_id x y then t' else [x := s] t')
-  | TVar y => if beq_id x y then s else t
-  | TEV y => t
-  end
-where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
+  | TCName _ => 1
+  | TPair t1 t2 => 1 + size t1 + size t2
+  | TUnion t1 t2 => 1 + size t1 + size t2
+  | TExist z t' => 1 + size t'
+  | TVar z => 1
+  | TEV z => 1
+  end.
+Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = t.
 (* Failed. *)
