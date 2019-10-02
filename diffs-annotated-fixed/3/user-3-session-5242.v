@@ -89,6 +89,28 @@ eauto.
 (simpl in *; intuition subst).
 {
 (eexists; intuition auto).
+(unfold statdb_abstraction in *; simpl in *).
+intuition lia.
 }
+(autounfold in *; intuition).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpWCbC1"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem mean_ok : proc_spec mean_spec mean recover abstr.
+Proof.
+(unfold mean).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc_basic; intros).
+(destruct a'; simpl in *; intuition idtac).
+(exists tt; simpl; intuition idtac).
+(destruct (r == 0)).
+-
+(step_proc_basic; intros).
+eauto.
 (* Auto-generated comment: Succeeded. *)
 
