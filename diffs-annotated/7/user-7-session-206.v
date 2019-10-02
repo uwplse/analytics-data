@@ -37,5 +37,12 @@ Qed.
 (unfold wf_ty, not_b_free_in_ty, not_free).
 (pose proof IdSetFacts.In_m as Hfact).
 (apply hfact).
-Morphisms.solve_proper.
+Print Morphisms.respectful.
+Print Morphisms.Proper.
+Search -(IdSet.Equal _ _ -> IdSet.In _ _ -> IdSet.In _ _).
+Print eq.
+Print Morphisms.respectful.
+Print Morphisms.Proper.
+Search -Morphisms.Proper.
+(apply Morphisms_Prop.not_iff_morphism).
 (* Failed. *)
