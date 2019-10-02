@@ -174,6 +174,7 @@ Proof.
 -
 exists 0,(TCName c).
 (apply match_ty_value_type__reflexive; constructor).
+(apply match_ty_cname).
 -
 (destruct (IHt1 k) as [w1 [v1 Hm1]]).
 (destruct (IHt2 k) as [w2 [v2 Hm2]]).
@@ -199,5 +200,8 @@ assumption.
 exists 0,(TEV i).
 (apply match_ty_var).
 -
-(* Auto-generated comment: Failed. *)
+exists 0,(TEV i).
+(apply match_ty_ev).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
