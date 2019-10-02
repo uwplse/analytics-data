@@ -3194,7 +3194,5 @@ Proof.
 (destruct c).
 (unfold inSeq).
 (simpl).
-(intros \207\129 b).
-(remember (c p) as c0).
 (* Auto-generated comment: Succeeded. *)
 
