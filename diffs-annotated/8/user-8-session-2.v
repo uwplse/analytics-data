@@ -47,6 +47,6 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
-(rewrite <- ctrls_to_list_transpose_fst).
-(rewrite <- ctrls_to_list_transpose_snd).
-(* Failed. *)
+Timeout 1 About denote_ctrls.
+Timeout 1 Print denote_ctrls.
+Timeout 1 Print Ltac denote_ctrls.
