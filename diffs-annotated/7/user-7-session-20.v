@@ -20,4 +20,9 @@ Proof.
 (inversion Hnf; subst).
 (inversion H; subst).
 (split; constructor; assumption).
-(* Auto-generated comment: Failed. *)
+Qed.
+Lemma in_nf_union__inv : forall t1 t2 : ty, InNF( TUnion t1 t2) -> InNF( t1) /\ InNF( t2).
+Proof.
+(intros t1 t2 Hnf).
+(inversion Hnf; subst).
+(* Failed. *)
