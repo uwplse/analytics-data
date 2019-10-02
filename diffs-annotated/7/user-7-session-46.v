@@ -53,5 +53,3 @@ clear IHv.
 exists v.
 reflexivity.
 Qed.
-(intros Hm).
-(* Failed. *)
