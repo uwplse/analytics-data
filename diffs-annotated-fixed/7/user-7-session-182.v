@@ -35,6 +35,14 @@ subst.
 contradiction.
 *
 (rewrite subst_exist_eq).
-(rewrite subst_exist_neq).
+(rewrite subst_exist_neq; try assumption).
+(rewrite subst_exist_eq).
+reflexivity.
++
+(destruct (beq_idP X i) as [HX| HX]).
+*
+subst.
+(repeat rewrite subst_exist_eq).
+Search -idSet.mem.
 (* Auto-generated comment: Failed. *)
 
