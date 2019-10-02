@@ -300,6 +300,6 @@ Check repeat_length.
  end).
 (rewrite nat_from_le_zeros; auto).
 Search -nat_from_le.
-(rewrite nat_le_inverse).
+(rewrite nat_le_inverse; auto).
 (* Auto-generated comment: Succeeded. *)
 
