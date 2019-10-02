@@ -359,6 +359,7 @@ Lemma wf_ty__wf_ty_f_subst : forall (X : id) (s t : ty), wf_ty s -> wf_ty t -> w
 Proof.
 (intros X s t Hwfs).
 generalize dependent t.
-(induction t; intros Hwft).
+(induction t; intros Hwft; try (solve [ simpl; assumption ])).
+-
 (* Auto-generated comment: Failed. *)
 
