@@ -1039,15 +1039,16 @@ Set Printing All.
 Timeout 1 About restore_dims.
 Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
-(match type of IP with
- | ?A =>
-     let A' := restore_dims_rec tac A in
-     replace
-     A
-     with
-     A'
-     in IP
-     by unify_matrix_dims tac
- end).
-(* Auto-generated comment: Succeeded. *)
+(progress
+  match type of IP with
+  | ?A =>
+      let A' := restore_dims_rec tac A in
+      replace
+      A
+      with
+      A'
+      in IP
+      by unify_matrix_dims tac
+  end).
+(* Auto-generated comment: Failed. *)
 
