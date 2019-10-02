@@ -13,4 +13,6 @@ Require Import Coq.Bool.Bool.
 Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
+constructor.
+assumption.
 (* Failed. *)
