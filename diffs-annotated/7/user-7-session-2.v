@@ -65,7 +65,5 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma sub_r__mk_nf_sub_r : forall t t' : ty, |- t << t' -> |- MkNF( t) << MkNF( t').
-Proof.
-(intros t t' Hsub; induction Hsub; try (solve [ simpl; do 4 constructor ])).
+(intros t t' Hsub; induction Hsub).
 (* Failed. *)
