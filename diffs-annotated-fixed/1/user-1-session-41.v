@@ -416,8 +416,5 @@ Definition eq (G_1 G_2 : GT) := eq_fn (G_1, G_2).
 Theorem eq_refl : reflexive GT eq.
 Proof.
 (unfold reflexive).
-(induction x; unfold eq; rewrite eq_fn_equation; simpl; eauto).
-all: (destruct l; eauto).
-all: (destruct o; eauto).
 (* Auto-generated comment: Succeeded. *)
 
