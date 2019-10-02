@@ -57,5 +57,6 @@ split.
 (assert (Heq : | t' | = | t |) by (apply sub_d_eq__inv_depth_eq; assumption)).
 (rewrite Heq).
 tauto.
-(* Auto-generated comment: Failed. *)
++
+(* Auto-generated comment: Succeeded. *)
 
