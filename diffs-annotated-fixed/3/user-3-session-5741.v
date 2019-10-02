@@ -157,5 +157,109 @@ Example test_nandb4 : nandb true true = false.
 Proof.
 reflexivity.
 Qed.
+Definition andb3 (b1 : bool) (b2 : bool) (b3 : bool) : bool :=
+  andb b1 (andb b2 b3).
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnizFJz"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_andb31 : andb3 true true true = true.
+Proof.
+reflexivity.
+Qed.
+Example test_andb32 : andb3 false true true = false.
+Proof.
+reflexivity.
+Qed.
+Example test_andb33 : andb3 true false true = false.
+Proof.
+reflexivity.
+Qed.
+Example test_andb34 : andb3 true true false = false.
+Proof.
+reflexivity.
+Qed.
+Check true.
+Check negb true.
+Check negb.
+Module NatPlayground.
+Inductive nat : Type :=
+  | O : nat
+  | S : nat -> nat.
+Inductive nat' : Type :=
+  | stop : nat'
+  | tick : nat' -> nat'.
+Definition pred (n : nat) : nat := match n with
+                                   | O => O
+                                   | S n' => n'
+                                   end.
+End NatPlayground.
+Definition minustwo (n : nat) : nat :=
+  match n with
+  | O => O
+  | S O => O
+  | S (S n') => n'
+  end.
+Check S (S (S (S O))).
+Eval vm_compute in minustwo 4.
+Check S.
+Check pred.
+Check minustwo.
+Fixpoint evenb (n : nat) : bool :=
+  match n with
+  | O => true
+  | S O => false
+  | S (S n') => evenb n'
+  end.
+Definition oddb (n : nat) : bool := negb (evenb n).
+Example test_oddb1 : oddb 1 = true.
+Proof.
+(simpl).
+reflexivity.
+Qed.
+Example test_oddb2 : oddb 4 = false.
+Proof.
+(simpl).
+reflexivity.
+Qed.
+Module NatPlayground2.
+Fixpoint plus (n : nat) (m : nat) : nat :=
+  match n with
+  | O => m
+  | S n' => S (plus n' m)
+  end.
+Eval vm_compute in plus 3 2.
+Fixpoint mult (n m : nat) : nat :=
+  match n with
+  | O => O
+  | S n' => plus m (mult n' m)
+  end.
+Example test_mult1 : mult 3 3 = 9.
+Proof.
+(simpl).
+reflexivity.
+Qed.
+Fixpoint minus (n m : nat) : nat :=
+  match n, m with
+  | O, _ => O
+  | S _, O => n
+  | S n', S m' => minus n' m'
+  end.
+End NatPlayground2.
+Fixpoint exp (base power : nat) : nat :=
+  match power with
+  | O => S O
+  | S p => mult base (exp base p)
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq45TQne"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPuN122"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Failed. *)
 
