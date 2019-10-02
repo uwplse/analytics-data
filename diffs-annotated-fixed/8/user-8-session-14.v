@@ -1345,6 +1345,5 @@ generalize dependent m.
 (rewrite IHl).
 (unfold swap_two).
 (rewrite <- beq_nat_refl).
-Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
