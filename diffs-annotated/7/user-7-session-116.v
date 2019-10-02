@@ -22,11 +22,8 @@ Proof.
 Qed.
 (induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh).
 (rewrite IHt; try assumption).
-reflexivity.
--
-(destruct (beq_idP X i)).
-reflexivity.
-(rewrite IHt).
-reflexivity.
-(unfold fresh).
+(unfold fresh in *).
+(intros Hcontra).
+Search -IdSet.remove.
+(apply (IdSetFacts.remove_2 _ _ _ n) in Hcontra).
 (* Failed. *)
