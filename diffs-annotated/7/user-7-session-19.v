@@ -17,6 +17,7 @@ Add Search Blacklist "Private_" "_subproof".
      |- _ =>
          assert (Hvv : value_type (TPair v1 v2)) by (constructor; assumption);
           assert (Hmv : |-[ k] TPair v1 v2 <$ TPair v1 v2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hvv Hmv);
-          apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm'
+          apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm';
+          apply match_ty__transitive_on_value_type with (TPair v1 v2)
    end).
 (* Failed. *)
