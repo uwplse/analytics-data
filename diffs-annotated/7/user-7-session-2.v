@@ -14,5 +14,7 @@ Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
-(destruct (unite_pairs_union_t t1 t0 t2')).
+Check unite_pairs_union_t.
+(rewrite (unite_pairs_union_t t1 t0 t2')).
+(apply sub_r_nf_union_l__inv in Hsub1; try assumption).
 (* Failed. *)
