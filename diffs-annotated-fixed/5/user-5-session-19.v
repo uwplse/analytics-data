@@ -93,11 +93,27 @@ Fixpoint identity (t : Term) : Term :=
   | And a b => And (identity a) (identity b)
   | Or a b => Or (identity a) (identity b)
   | Not a => Not (identity a)
+  | If a b c => If (identity a) (identity b) (identity c)
   | Int i => Int i
   | Plus a b => Plus (identity a) (identity b)
   | Times a b => Times (identity a) (identity b)
   | Minus a b => Minus (identity a) (identity b)
   | Choose x P => Choose x (identity P)
   end.
+Theorem eval_eq_true_or_false :
+  forall (L : EpsilonLogic) env (t1 t2 : Term),
+  L.(eval) env (Eq t1 t2) = L.(vTrue) \/ L.(eval) env (Eq t1 t2) = L.(vFalse).
+Proof.
+(intros).
+(destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2)) eqn:E).
+-
+left.
+(apply L.(evalEqTrue)).
+assumption.
+-
+right.
+(apply L.(evalEqFalse)).
+assumption.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
