@@ -133,7 +133,8 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq7lPKp"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
+Theorem nat_le_inverse base_m2 :
+  forall n, le_to_nat (nat_to_le base_m2 n) = n.
 Proof.
 (intros).
 (induction n as [n IHn] using lt_wf_ind).
@@ -141,7 +142,7 @@ Proof.
 -
 auto.
 -
-(assert (1 < S (S base)) by lia).
-(generalize dependent S (S base); intros base).
+(assert (1 < S (S base_m2)) by lia).
+(generalize dependent S (S base_m2); intros base).
 (* Auto-generated comment: Succeeded. *)
 
