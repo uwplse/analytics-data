@@ -42,15 +42,49 @@ Lemma proc_rspec_refine_rec T R (p : proc C_Op T)
 Proof.
 (intros Hprspec Habstr_pre).
 Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqheJlbx"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqRwhwTy"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 Lemma proc_rspec_crash_refines T (p : proc C_Op T) 
   (rec : proc C_Op unit) spec op :
   (forall t, proc_rspec c_sem p rec (refine_spec spec t)) ->
-  (forall sO sT, absr sO sT tt -> (spec sO).(pre)) ->
+  (forall sO sT, absr sO (Val sT tt) -> (spec sO).(pre)) ->
   spec_exec spec ---> exec a_sem (Call op) ->
   spec_aexec spec
   --->
    a_sem.(crash_step) + (a_sem.(step) op;; a_sem.(crash_step)) ->
   crash_refines absr c_sem p rec (a_sem.(step) op)
     (a_sem.(crash_step) + (a_sem.(step) op;; a_sem.(crash_step))).
-(* Auto-generated comment: Succeeded. *)
+Proof.
+(intros ? ? He Ha).
+(unfold crash_refines, refines).
+split.
+-
+setoid_rewrite  <- He.
+(eapply proc_rspec_refine_exec; eauto).
+-
+setoid_rewrite  <- Ha.
+(eapply proc_rspec_refine_rec; eauto).
+Qed.
+Lemma proc_rspec_crash_refines_op T (p : proc C_Op T) 
+  (rec : proc C_Op unit) spec (op : A_Op T) :
+  (forall sA sC,
+   absr sA sC tt -> proc_rspec c_sem p rec (refine_spec spec sA)) ->
+  (forall sA sC, absr sA sC tt -> (spec sA).(pre)) ->
+  (forall sA sC sA' v,
+   absr sA' sC tt ->
+   (spec sA).(post) sA' v -> (op_spec a_sem op sA).(post) sA' v) ->
+  (forall sA sC sA' v,
+   absr sA sC tt ->
+   (spec sA).(alternate) sA' v -> (op_spec a_sem op sA).(alternate) sA' v) ->
+  crash_refines absr c_sem p rec (a_sem.(step) op)
+    (a_sem.(crash_step) + (a_sem.(step) op;; a_sem.(crash_step))).
+(* Auto-generated comment: Failed. *)
 
