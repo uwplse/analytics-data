@@ -278,6 +278,6 @@ Proof.
 SearchPattern (_ <= _ -> _ <= _ -> _ = _).
 Check le_unique.
 SearchPattern (_ <= _ -> _ = _).
-(apply Nat.le_antisymm).
+(apply Nat.le_antisymm; assumption).
 (* Auto-generated comment: Failed. *)
 
