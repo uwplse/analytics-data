@@ -24,7 +24,6 @@ exists (TCName c).
 (apply match_ty_cname).
 -
 (simpl in Hm).
-(simpl).
-(simpl).
+Check subs.
 (* Auto-generated comment: Failed. *)
 
