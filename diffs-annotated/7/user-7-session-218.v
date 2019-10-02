@@ -444,5 +444,5 @@ reflexivity.
 -
 admit.
 -
-(simpl).
+(rewrite b_subst_bvar_eq).
 (* Failed. *)
