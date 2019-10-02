@@ -312,5 +312,10 @@ Proof.
 }
 (eexists; split; eauto).
 (rewrite diskUpd_oob_noop; auto).
-(* Auto-generated comment: Succeeded. *)
+(invert_abstraction; lia).
+-
+(step_proc; intuition subst; eauto).
+(destruct (a == r); subst; eauto).
+(step_proc; intuition subst; eauto).
+(* Auto-generated comment: Failed. *)
 
