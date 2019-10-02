@@ -330,6 +330,6 @@ Fixpoint size_gt (G : GT) : nat :=
 Module GTeq.
 Theorem size_gt_g0 : forall x, 0 < size_gt x.
 Proof.
-(induction x; intros; eauto with math).
+(induction x; intros; simpl; eauto with math).
 (* Auto-generated comment: Succeeded. *)
 
