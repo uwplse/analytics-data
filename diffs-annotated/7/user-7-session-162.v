@@ -43,9 +43,18 @@ Fixpoint FV (t : ty) : id_set :=
   | TEV _ => IdSet.empty
   end.
 Definition fresh (X : id) (fvs : id_set) := ~ IdSet.In X fvs.
-Definition fresh_in_ty (X : id) (t : ty) := fresh X (FV t).
-Definition free_in_ty (X : id) (t : ty) := IdSet.In X (FV t).
-Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
-Axiom (gen_fresh : id_set -> id).
-Axiom (gen_fresh__fresh : forall fvs : id_set, fresh (gen_fresh Z) fvs).
+Axiom (gen_fresh__fresh : forall fvs : id_set, fresh (gen_fresh fvs) fvs).
+Definition get_fresh_in_ty (t : ty) := gen_fresh (FV t).
+Reserved Notation "'[' x ':=' s ']' t" (at level 30).
+Fixpoint subst (x : id) (s t : ty) :=
+  match t with
+  | TCName _ => t
+  | TPair t1 t2 => TPair ([x := s] t1) ([x := s] t2)
+  | TUnion t1 t2 => TUnion ([x := s] t1) ([x := s] t2)
+  | TExist y t' =>
+      let s' := if IdSet.mem y (FV s) then [y := TVar (gen_fresh (FV s))] s else s in TExist y (if beq_id x y then t' else [x := s'] t')
+  | TVar y => if beq_id x y then s else t
+  | TEV y => t
+  end
+where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 (* Failed. *)
