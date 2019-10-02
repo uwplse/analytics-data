@@ -337,5 +337,5 @@ Definition network_of_app_ta sk : taE ~> itree tE :=
   | (|(e|)) => trigger (map_exceptE Error_App _ e)
   | (||tae) => trigger tae
   end.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
