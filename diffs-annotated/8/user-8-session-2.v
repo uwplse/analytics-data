@@ -52,5 +52,6 @@ Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
 (simpl_rewrite @denote_unitary_transpose).
 autorewrite with M_db_light M_db in WFS.
-revert M.
-(progress restore_dims).
+(rewrite <- Nat.mul_assoc, (Nat.mul_comm 2%nat), Nat.mul_assoc).
+(rewrite E).
+(apply M).
