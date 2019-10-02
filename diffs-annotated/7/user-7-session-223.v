@@ -380,5 +380,7 @@ subst.
 (simpl in HX).
 Search -IdSet.singleton.
 (apply IdSetFacts.singleton_1 in HX).
-contradiction.
-(* Auto-generated comment: Failed. *)
+subst.
++
+(rewrite b_subst_bvar_neq).
+(* Failed. *)
