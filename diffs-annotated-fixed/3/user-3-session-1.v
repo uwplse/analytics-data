@@ -465,6 +465,55 @@ Proof.
 (unfold spec_exec in H1).
 (destruct ret; simpl in *; firstorder).
 Add Search Blacklist "Raw" "Proofs".
-(destruct ret; firstoder).
+(apply impl_spec_exec).
+(destruct ret; firstorder).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqi7mBFI"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqw8jmHL"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqouVULq"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Theorem proc_hspec_to_rspec A' T R
+  (p_hspec : Specification T unit State)
+  `(rec_hspec : A' -> Specification R unit State)
+  `(p_rspec : Specification T R State) `(p : proc T) 
+  `(rec : proc R) :
+  proc_hspec p p_hspec ->
+  (forall a, proc_hspec rec (rec_hspec a)) ->
+  idempotent rec_hspec ->
+  (forall s,
+   (p_rspec s).(pre) ->
+   (p_hspec s).(pre) /\
+   (forall s' v, (p_hspec s).(post) s' v -> (p_rspec s).(post) s' v)) ->
+  (forall state state' v,
+   pre (p_hspec state) ->
+   alternate (p_hspec state) state' v ->
+   exists a, pre (rec_hspec a state')) ->
+  (forall a s sc,
+   (p_rspec s).(pre) ->
+   forall sfin rv,
+   (rec_hspec a sc).(post) sfin rv ->
+   (p_rspec s).(alternate) sfin rv) -> proc_rspec p rec p_rspec.
+Proof.
+(intros (Hpe, Hpc) Hc).
+(unfold idempotent).
+(intros Hidemp).
+(intros Himpl1 Hc_crash_r Hr_alt).
+split.
+-
+(rew Hpe; auto).
 (* Auto-generated comment: Succeeded. *)
 
