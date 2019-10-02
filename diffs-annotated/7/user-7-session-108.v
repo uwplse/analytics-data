@@ -230,7 +230,9 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-exists (S w),v.
-exists (TVar i).
-Admitted.
+Lemma ty__matching_ty_exists : forall (w : nat) (t : ty) (k : nat), exists v : ty, |-[ k, w] v <$ t.
+Proof.
+(induction w; induction t; intros k).
+-
+(TCName c).
 (* Failed. *)
