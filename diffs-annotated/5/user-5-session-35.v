@@ -147,75 +147,11 @@ reflexivity.
 -
 apply -> evalEqTrue.
 reflexivity.
--
-apply -> evalEqTrue.
-specialize IHt1 with env.
-specialize IHt2 with env.
-apply <- evalEqTrue in IHt1.
-apply <- evalEqTrue in IHt2.
-(destruct (eval_eq_true_or_false L env t1 t2)).
-+
-(rewrite H).
-(apply evalEqTrue in H).
-(rewrite H in IHt1).
-(rewrite IHt1 in IHt2).
-symmetry.
-apply -> evalEqTrue.
-assumption.
-+
-(rewrite H).
-(apply evalEqFalse in H).
-(assert (eval L env (identity t1) <> eval L env (identity t2)) by congruence).
-symmetry.
-apply -> evalEqFalse.
-assumption.
-Admitted.
-Fixpoint free_vars (t : Term) : list Identifier :=
-  match t with
-  | Var x => [x]
-  | Int _ => []
-  | Bool _ => []
-  | Bools => []
-  | Ints => []
-  | In a b => free_vars a ++ free_vars b
-  | Eq a b => free_vars a ++ free_vars b
-  | And a b => free_vars a ++ free_vars b
-  | Or a b => free_vars a ++ free_vars b
-  | Not a => free_vars a
-  | If a b c => free_vars a ++ free_vars b ++ free_vars c
-  | Plus a b => free_vars a ++ free_vars b
-  | Times a b => free_vars a ++ free_vars b
-  | Minus a b => free_vars a ++ free_vars b
-  | Choose x P =>
-      filter (fun y => if id_eq_dec x y then false else true) (free_vars P)
-  end.
-Axiom (fresh_var : list Identifier -> Identifier).
-Axiom
-  (fresh_var_unique : forall exclude, ~ List.In (fresh_var exclude) exclude).
-Definition Divide (t1 : Term) (t2 : Term) :=
-  let x := fresh_var (free_vars t1 ++ free_vars t2) in
-  Choose x (And (In (Var x) Ints) (Eq t1 (Times (Var x) t2))).
-Lemma extendEnv_eq :
-  forall Value env x (val : Value), (extendEnv env x val) x = val.
-Proof.
-(intros).
-(unfold extendEnv).
-(destruct (id_eq_dec x x); congruence).
-Qed.
-Lemma divide_test :
-  forall L env, L.(eval) env (Divide (Int 6) (Int 2)) = L.(eval) env (Int 3).
-Proof.
-(intros).
-(unfold Divide).
-(match goal with
- | |- context [ Choose ?x _ ] => generalize x
- end).
-intro x.
 (assert
-  (forall res,
-   eval L env
-     (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
-   res -> exists i, res = eval L env (Int i))).
+  (exists i,
+     eval L env
+       (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
+     eval L env (Int i))).
 {
 (intros).
 apply -> evalInInts.
