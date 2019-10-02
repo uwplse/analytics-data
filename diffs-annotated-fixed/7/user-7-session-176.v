@@ -160,7 +160,5 @@ exists w,v.
 (destruct (IHt) as [w [v Hm]]).
 exists (S w),v.
 (apply match_ty_exist).
-exists (TVar i).
-(rewrite subst_id).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
