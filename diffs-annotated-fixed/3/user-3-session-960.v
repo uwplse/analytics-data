@@ -148,6 +148,6 @@ auto.
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
-(rewrite IHn by apply mod_S_lt).
+(rewrite IHn by (apply PeanoNat.Nat.mod_upper_bound; lia)).
 (* Auto-generated comment: Failed. *)
 
