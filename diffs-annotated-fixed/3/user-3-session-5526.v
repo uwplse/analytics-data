@@ -228,6 +228,125 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQZcj60"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Theorem remapped_abstraction_diskUpd_remap :
+  forall state s v,
+  remapped_abstraction state s ->
+  remapped_abstraction
+    (mkState (diskUpd (stateDisk state) (diskSize (stateDisk state) - 1) v)
+       (stateBadBlock state)) (diskUpd s (stateBadBlock state) v).
+Proof.
+(intros).
+invert_abstraction.
+(rewrite Hsize).
+replace (diskSize s + 1 - 1) with diskSize s by lia.
+(constructor; simpl).
+all: (autorewrite with upd; intuition idtac).
+{
+(repeat rewrite diskUpd_neq by lia).
+eauto.
 }
-(* Auto-generated comment: Failed. *)
+{
+(repeat rewrite diskUpd_eq by lia; auto).
+}
+Qed.
+Theorem remapped_abstraction_diskUpd_noremap :
+  forall state s a v,
+  remapped_abstraction state s ->
+  a <> diskSize (stateDisk state) - 1 ->
+  a <> stateBadBlock state ->
+  remapped_abstraction
+    (mkState (diskUpd (stateDisk state) a v) (stateBadBlock state))
+    (diskUpd s a v).
+Proof.
+(intros).
+invert_abstraction.
+(constructor; simpl).
+all: (autorewrite with upd; intuition idtac).
+{
+(destruct (lt_dec a (diskSize s))).
+-
+(destruct (a == a0); subst).
+{
+(repeat rewrite diskUpd_eq by lia; auto).
+}
+{
+(repeat rewrite diskUpd_neq by lia; auto).
+}
+-
+(repeat rewrite diskUpd_oob_noop by lia).
+auto.
+}
+(repeat rewrite diskUpd_neq by lia).
+eauto.
+Qed.
+Hint Resolve remapped_abstraction_diskUpd_remap: core.
+Hint Resolve remapped_abstraction_diskUpd_noremap: core.
+Theorem write_ok :
+  forall a v, proc_spec (OneDiskAPI.write_spec a v) (write a v) recover abstr.
+Proof.
+(unfold write).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+(destruct a'; simpl in *; intuition subst; eauto).
+(destruct (a == r - 1); subst).
+-
+(step_proc; intuition subst).
+{
+(eexists; split; eauto).
+(rewrite diskUpd_oob_noop; auto).
+(invert_abstraction; lia).
+}
+(eexists; split; eauto).
+(rewrite diskUpd_oob_noop; auto).
+(invert_abstraction; lia).
+-
+(step_proc; intuition subst; eauto).
+(destruct (a == r); subst; eauto).
++
+(step_proc; intuition subst; eauto).
+(step_proc; intuition subst; eauto).
++
+(step_proc; intuition subst; eauto).
+(step_proc; intuition subst; eauto).
+Qed.
+Theorem size_ok : proc_spec OneDiskAPI.size_spec size recover abstr.
+Proof.
+(unfold diskSize).
+(intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
+(destruct a'; simpl in *; intuition subst; eauto).
+step_proc.
+intuition subst; eauto.
+(exists s; split; auto).
+(split; auto).
+(invert_abstraction; lia).
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+eauto.
+(destruct a; simpl in *).
+(autounfold in *; intuition eauto).
+Qed.
+End RemappedDisk.
+Require Import BadBlockImpl.
+Module x:=  RemappedDisk BadBlockDisk.
+Print Assumptions x.write_ok.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYkL5aI"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmjsXNh"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+(* Auto-generated comment: Succeeded. *)
 
