@@ -61,19 +61,6 @@ Fixpoint rename (x y : id) (t : ty) :=
   end
 where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
 Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
-(induction t; simpl; try (solve [ reflexivity | rewrite IHt1; rewrite IHt2; reflexivity ])).
--
-(apply f_equal).
-(destruct (beq_idP x i)).
-+
-subst.
-reflexivity.
-+
-assumption.
--
-(destruct (beq_idP x i); reflexivity).
-Qed.
-Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 #[program]
 Fixpoint subst (x : id) (s t : ty) {measure size t :=
   match t with
