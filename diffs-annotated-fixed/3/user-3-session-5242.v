@@ -90,5 +90,5 @@ eauto.
 {
 (eexists; intuition auto).
 }
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
