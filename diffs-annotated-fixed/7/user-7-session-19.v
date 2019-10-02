@@ -87,6 +87,5 @@ specialize (Href v Hv).
 (split; tauto).
 +
 (simpl).
-(intros v Hv).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
