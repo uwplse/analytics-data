@@ -373,10 +373,5 @@ Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
 (unfold append; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
