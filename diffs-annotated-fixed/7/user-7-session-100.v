@@ -112,10 +112,26 @@ Proof.
    | apply match_ty_var__inv in Hm; subst; constructor
    | apply match_ty_ev__inv in Hm; subst; constructor
    | apply match_ty_exist__0_inv in Hm; auto ])).
+(induction w; induction k; intros v t; generalize dependent v; induction t; intros v Hm;
+  try (solve
+   [ apply match_ty_cname__inv in Hm; subst; constructor
+   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
+   | apply match_ty_var__inv in Hm; subst; constructor
+   | apply match_ty_ev__inv in Hm; subst; constructor
+   | apply match_ty_exist__0_inv in Hm; auto
+   | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
+Qed.
+Lemma match_ty_value_type__reflexive : forall v : ty, value_type v -> forall w k : nat, |-[ w, k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros w k).
 -
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(eapply IHw; eassumption).
+(destruct w, k; reflexivity).
 -
+(apply match_ty_pair; auto).
+-
+(destruct k).
+constructor.
 (* Auto-generated comment: Failed. *)
 
