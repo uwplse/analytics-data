@@ -1012,6 +1012,6 @@ Msimpl.
 (destruct b; simpl; Msimpl).
 +
 mat_replace \226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169 with I 1 by lma.
-Msimpl.
+(rewrite id_kron).
 (* Auto-generated comment: Succeeded. *)
 
