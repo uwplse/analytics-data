@@ -94,4 +94,41 @@ Fixpoint match_ty (w : nat) :=
 where "'|-[' w ']' v '<$' t" := (match_ty w v t) : btjm_scope.
 Definition sem_sub_w (w1 w2 : nat) (t1 t2 : ty) := forall v : ty, |-[ w1] v <$ t1 -> |-[ w2] v <$ t2.
 Notation "'||-['w1 ',' w2 ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w w1 w2 t1 t2) (at level 45) : btjm_scope.
+Notation "'||-[' w1 ',' w2 ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w w1 w2 t1 t2) (at level 45) : btjm_scope.
+Definition sem_sub (t1 t2 : ty) := forall w1 : nat, exists w2 : nat, ||-[ w1, w2][t1]<= [t2].
+Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : btjm_scope.
+Definition sem_eq (t1 t2 : ty) := ||- [t1]<= [t2] /\ ||- [t2]<= [t1].
+Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
+Hint Unfold sem_sub_w sem_sub sem_eq: DBBetaJulia.
+Lemma sem_sub__refl : forall t : ty, ||- [t]<= [t].
+Proof.
+(intros t w1).
+exists w1.
+(intros v).
+tauto.
+Qed.
+Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
+Proof.
+(intros t; split; apply sem_sub__refl).
+Qed.
+Lemma sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] -> ||- [t1]<= [t3].
+Proof.
+(intros t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_sub in *).
+(intros w1).
+specialize (Hsem1 w1).
+(destruct Hsem1 as [w2 Hsem1]).
+specialize (Hsem2 w2).
+(destruct Hsem2 as [w3 Hsem2]).
+exists w3.
+(intros v).
+auto.
+Qed.
+Lemma sem_eq__trans : forall t1 t2 t3 : ty, ||- [t1]= [t2] -> ||- [t2]= [t3] -> ||- [t1]= [t3].
+Proof.
+(intros t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq in *).
+(destruct Hsem1 as [Hsem11 Hsem12]).
+(destruct Hsem2 as [Hsem21 Hsem22]).
+(split; eapply sem_sub_k__trans; eauto).
 (* Failed. *)
