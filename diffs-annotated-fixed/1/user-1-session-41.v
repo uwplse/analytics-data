@@ -424,6 +424,6 @@ Check eq.
 Theorem eq_refl : reflexive GT eq.
 Proof.
 (unfold reflexive).
-(induction x; unfold eq; simpl; eauto).
+(induction x; unfold eq; rewrite eq_fn_equation; simpl; eauto).
 (* Auto-generated comment: Succeeded. *)
 
