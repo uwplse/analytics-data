@@ -2,9 +2,5 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
-clear IHt.
-(simpl in Htk).
-(apply le_S_n in Htk).
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
+Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ k] v <$ t' -> | t | = | t' |.
 (* Failed. *)
