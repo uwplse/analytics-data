@@ -1233,6 +1233,5 @@ Theorem source_symmetric_valid :
   source_symmetric n t c -> valid_ancillae_box c.
 Proof.
 (intros n t c H).
-(induction H).
 (* Auto-generated comment: Succeeded. *)
 
