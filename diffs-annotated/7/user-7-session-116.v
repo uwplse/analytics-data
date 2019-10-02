@@ -22,8 +22,7 @@ Proof.
 Qed.
 (induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh).
 (rewrite IHt; try assumption).
-(unfold fresh in *).
-(intros Hcontra).
-Search -IdSet.remove.
-(apply (IdSetFacts.remove_2 _ _ _ n) in Hcontra).
+Check IdSetFacts.remove_2.
+(apply Hfresh).
+(apply IdSetFacts.remove_2).
 (* Failed. *)
