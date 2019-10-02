@@ -92,7 +92,7 @@ Proof.
 Qed.
 Theorem match_ty__value_type_l : forall (w : nat) (v t : ty), |-[ w] v <$ t -> value_type v.
 Proof.
-(intros w; generalize dependent k; induction w; intros v t; generalize dependent v; induction t; intros v Hm;
+(intros w; induction w; intros v t; generalize dependent v; induction t; intros v Hm;
   try (solve
    [ apply match_ty_cname__inv in Hm; subst; constructor
    | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
@@ -102,4 +102,41 @@ Proof.
    | apply match_ty_ev__inv in Hm; subst; constructor
    | apply match_ty_exist__0_inv in Hm; contradiction
    | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
-(* Auto-generated comment: Failed. *)
+-
+(destruct w; reflexivity).
+-
+(apply match_ty_pair; auto).
+-
+(destruct w; reflexivity).
+Qed.
+Lemma match_ty__ge_w : forall (w : nat) (t : ty) (v : ty), |-[ w] v <$ t -> forall w' : nat, w <= w' -> |-[ w'] v <$ t.
+Proof.
+(induction w; induction t; intros v Hm w' Hle;
+  try
+   match goal with
+   | |- |-[ _] _ <$ TCName _ => apply match_ty_cname__inv in Hm; subst; apply match_ty_cname
+   | |- |-[ _] _ <$ TPair _ _ =>
+         apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | |- |-[ _] _ <$ TUnion _ _ =>
+         apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto
+   | |- |-[ _] _ <$ TVar _ => apply match_ty_var__inv in Hm; subst; apply match_ty_var
+   | |- |-[ _] _ <$ TEV _ => apply match_ty_ev__inv in Hm; subst; apply match_ty_ev
+   end).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(destruct w').
+(inversion Hle).
+(apply match_ty_exist).
+exists tx.
+(apply IHw).
+assumption.
+(apply le_S_n; assumption).
+Qed.
+Lemma match_ty__exists_w_v : forall t : ty, exists (w : nat) (v : ty), |-[ w] v <$ t.
+Proof.
+(induction t).
+-
+exists (TCName c).
