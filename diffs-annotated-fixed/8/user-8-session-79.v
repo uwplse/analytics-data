@@ -998,6 +998,8 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-Set Printing All.
+restore_dims tensor_tac.
+Search -ctx_to_matrix.
+(unfold ctx_to_matrix).
 (* Auto-generated comment: Succeeded. *)
 
