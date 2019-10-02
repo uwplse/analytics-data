@@ -38,8 +38,8 @@ exists (TPair v1' v2').
 subst.
 exists (TEV X').
 (simpl).
-(rewrite <- beq_id_refl).
-reflexivity.
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
++
 subst.
 exists (TEV X').
 (simpl).
@@ -49,7 +49,7 @@ reflexivity.
 exists v.
 (simpl in *).
 (destruct (beq_id_false_iff X i) as [_ Hid]).
-specialize (Hid n).
+specialize (Hid Hbeq).
 (rewrite Hid in *).
 assumption.
 -
@@ -66,7 +66,6 @@ exists (TPair v1' v2').
 (destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
 -
-(destruct (beq_idP X i)).
 (destruct (beq_idP X i) as [Hbeq| Hbeq]).
 +
 subst.
@@ -74,5 +73,7 @@ subst.
 (rewrite <- beq_id_refl in *).
 (exists v; assumption).
 +
-(* Auto-generated comment: Failed. *)
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+specialize (Hid Hbeq).
+(* Auto-generated comment: Succeeded. *)
 
