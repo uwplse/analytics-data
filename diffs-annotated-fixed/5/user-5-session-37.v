@@ -212,7 +212,82 @@ assumption.
 -
 exfalso.
 refine (_ _).
-(apply evalIntInj).
+(apply evalIntInj; eassumption).
+Admitted.
+Lemma six_div_two_unique : (forall z, 6 = z * 2 -> z = 3)%Z.
+Proof.
+(intros).
+omega.
+Qed.
+Lemma divide_test :
+  forall L env, L.(eval) env (Divide (Int 6) (Int 2)) = L.(eval) env (Int 3).
+Proof.
+(intros).
+(unfold Divide).
+(match goal with
+ | |- context [ Choose ?x _ ] => generalize x
+ end).
+intro x.
+(assert
+  (forall res,
+   eval L env
+     (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
+   res -> res = eval L env (Int 3))).
+{
+(intros).
+(assert
+  (eval L
+     (extendEnv env x
+        (eval L env
+           (Choose x
+              (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2)))))))
+     (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2)))) =
+   L.(eval) env (Bool true))).
+{
+(apply evalChoose).
+exists (eval L env (Int 3)).
+(erewrite evalBoolConst).
+(rewrite evalAnd).
+(eapply eq_trans).
+-
+(apply evalIfTrue).
+(apply evalInInts).
 +
+reflexivity.
++
+eexists.
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+(apply evalIntConst).
+-
+apply -> evalEqTrue.
+(rewrite evalTimes with (i := 3%Z) (j := 2%Z)).
++
+reflexivity.
++
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+(apply evalIntConst).
++
+reflexivity.
+}
+(rewrite H in H0).
+clear H.
+(rewrite evalAnd in H0).
+(match goal with
+ | H:eval ?L ?env (If (In ?x ?S) _ _) = _ |- _ => destruct (evalIn L env x S)
+ end).
+-
+(rewrite evalIfTrue in H0; auto).
+(apply evalInInts in H; auto).
+(destruct H).
+(erewrite evalBoolConst in H0).
+(rewrite <- evalEqTrue in H0).
+(rewrite evalVar in H).
+(rewrite extendEnv_eq in H).
+(assert (x0 = 3%Z)).
+{
+(apply six_div_two_unique).
+(eapply evalIntEq).
 (* Auto-generated comment: Succeeded. *)
 
