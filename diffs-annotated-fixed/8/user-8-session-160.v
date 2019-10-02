@@ -54,5 +54,77 @@ lma.
 Qed.
 Lemma Hplus_spec : hadamard \195\151 \226\136\163 + \226\159\169 == \226\136\163 0 \226\159\169.
 Proof.
+solve_matrix.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqzgMAmi"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma Hminus_spec : hadamard \195\151 \226\136\163 - \226\159\169 == \226\136\163 1 \226\159\169.
+Proof.
+solve_matrix.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqr6af0U"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma X0_spec : \207\131x \195\151 \226\136\163 0 \226\159\169 == \226\136\163 1 \226\159\169.
+Proof.
+lma.
+Qed.
+Lemma X1_spec : \207\131x \195\151 \226\136\163 1 \226\159\169 == \226\136\163 0 \226\159\169.
+Proof.
+lma.
+Qed.
+Lemma Y0_spec : \207\131y \195\151 \226\136\163 0 \226\159\169 == Ci .* \226\136\163 1 \226\159\169.
+Proof.
+lma.
+Qed.
+Lemma Y1_spec : \207\131y \195\151 \226\136\163 1 \226\159\169 == - Ci .* \226\136\163 0 \226\159\169.
+Proof.
+lma.
+Qed.
+Lemma Z0_spec : \207\131z \195\151 \226\136\163 0 \226\159\169 == \226\136\163 0 \226\159\169.
+Proof.
+lma.
+Qed.
+Lemma Z1_spec : \207\131z \195\151 \226\136\163 1 \226\159\169 == - 1 .* \226\136\163 1 \226\159\169.
+Proof.
+lma.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqO8xaVB"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma CNOT_spec :
+  forall x y : nat,
+  (x < 2)%nat -> (y < 2)%nat -> cnot \195\151 \226\136\163 x, y \226\159\169 == \226\136\163 x, (x + y) mod 2 \226\159\169.
+Proof.
+(intros; destruct x as [| [| x]], y as [| [| y]]; try lia; lma).
+Qed.
+Lemma CNOT00_spec : cnot \195\151 \226\136\163 0, 0 \226\159\169 == \226\136\163 0, 0 \226\159\169.
+Proof.
+lma.
+Qed.
+Lemma CNOT01_spec : cnot \195\151 \226\136\163 0, 1 \226\159\169 == \226\136\163 0, 1 \226\159\169.
+Proof.
+crunch_matrix.
+Qed.
+Lemma CNOT10_spec : cnot \195\151 \226\136\163 1, 0 \226\159\169 == \226\136\163 1, 1 \226\159\169.
+Proof.
+lma.
+Qed.
+Lemma CNOT11_spec : cnot \195\151 \226\136\163 1, 1 \226\159\169 == \226\136\163 1, 0 \226\159\169.
+Proof.
+lma.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqrNTc4T"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma SWAP_spec : forall x y, swap \195\151 \226\136\163 x, y \226\159\169 == \226\136\163 y, x \226\159\169.
+Proof.
+(intros).
+(destruct x, y; lma).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRp6m05"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
