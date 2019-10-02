@@ -229,6 +229,15 @@ Proof.
 exists (TCName c).
 -
 (destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
-(destruct (IHt1 k Hdep1) as [v1 [Hv1 Hm1]]).
-(* Auto-generated comment: Failed. *)
+(destruct (IHt1 k Hdep1) as [v1 Hm1]).
+-
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(destruct (IHt1 k Hdep1) as [v Hm]).
+exists v.
+(apply match_ty_union_1; assumption).
+-
+exists (TRef t).
+(apply match_ty_value_type__reflexive; constructor || assumption).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
