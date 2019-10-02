@@ -954,4 +954,3 @@ Proof.
 (simpl_rewrite id_circ_spec).
 (simpl_rewrite inSeq_correct; [  | apply assert_at_WT | apply init_at_WT ]).
 (unfold compose_super).
-(rewrite size_ntensor, Nat.mul_1_r in M).
