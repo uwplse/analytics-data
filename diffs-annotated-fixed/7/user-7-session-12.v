@@ -298,6 +298,6 @@ generalize dependent t21.
 (apply sub_r__rflxv).
 -
 (repeat rewrite unite_pairs_union_t).
-(constructor; eapply sub_r__transitive; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
+(apply SR_UnionL; eapply sub_r__transitive; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
 (* Auto-generated comment: Failed. *)
 
