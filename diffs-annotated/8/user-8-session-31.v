@@ -2733,4 +2733,3 @@ rename \206\1471 into \206\1473.
 rename \206\1472 into \206\1471.
 rename \206\1473 into \206\1472.
 dependent destruction STAT.
-(unfold process_gate_state).
