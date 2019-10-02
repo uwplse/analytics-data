@@ -265,6 +265,5 @@ clear H.
 (apply evalInInts in H).
 (apply evalInInts in H; auto).
 (erewrite evalBoolConst in H0).
-(rewrite evalVar in H).
-(rewrite extendEnv_eq in H).
-(rewrite H).
+(rewrite <- evalEqTrue in H0).
+(assert (x0 = 3) by admit).
