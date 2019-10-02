@@ -1231,5 +1231,7 @@ restore_dims tensor_tac.
 (rewrite kron_1_l).
 (rewrite xorb_comm).
 (unfold ctx_to_matrix).
+show_dimensions.
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
