@@ -308,6 +308,6 @@ typeclasses eauto.
 (unfold EqualDec).
 (intros; simpl).
 (destruct x, y; simpl).
-(destruct (nat_eq_dec n n0)).
+(destruct (nat_eq_dec n n0); subst).
 (* Auto-generated comment: Succeeded. *)
 
