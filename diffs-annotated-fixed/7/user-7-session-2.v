@@ -233,6 +233,6 @@ Proof.
 (induction Hsub21; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
 -
 (intros Hsub12).
-(remember (TPair t1' t2') as tx eqn:Heqx ).
+(intros Hsub12 intros t3 Hsub21).
 (* Auto-generated comment: Failed. *)
 
