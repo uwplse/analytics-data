@@ -369,6 +369,6 @@ Theorem append_at_ok a bs' :
     d.abstr.
 Proof.
 generalize dependent a.
-(induction bs'; simpl; intros).
+step.
 (* Auto-generated comment: Succeeded. *)
 
