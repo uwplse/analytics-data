@@ -25,7 +25,5 @@ autorewrite with proof_db.
 (simpl).
 (unfold pad).
 (simpl).
-(rewrite Nat.sub_diag).
-(rewrite kron_1_r).
 (* Auto-generated comment: Succeeded. *)
 
