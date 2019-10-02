@@ -50,3 +50,5 @@ Variable (gen_fresh : (fvs : id_set) -> id).
 Variable (gen_fresh : id_set -> id).
 Variable (gen_fresh : id_set -> id).
 Variable (gen_fresh : id_set -> id).
+Axiom (gen_fresh : id_set -> id).
+(* Failed. *)
