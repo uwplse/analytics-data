@@ -19,6 +19,10 @@ Lemma sub_d__inv_depth_le : forall t t' : ty, |- t << t' -> | t | <= | t' |.
 Proof.
 (intros t t' Hsub).
 (induction Hsub).
+Lemma sub_d__inv_depth_le : forall t t' : ty, |- t << t' -> | t | <= | t' |.
+Proof.
+(intros t t' Hsub).
+(induction Hsub).
 -
 constructor.
 -
@@ -27,5 +31,30 @@ constructor.
 (simpl).
 (apply Nat.max_le_compat; assumption).
 -
+(simpl).
+(apply Nat.max_lub; assumption).
+-
+(simpl).
+(apply Nat.le_max_l).
+-
+(simpl).
+(apply Nat.le_max_r).
+-
+(simpl).
+(rewrite max_baca_eq_bca).
+constructor.
+-
+(simpl).
+(rewrite max_abac_eq_abc).
+constructor.
+-
+(simpl).
+(apply le_n_S).
+assumption.
+Qed.
+Lemma sub_d_eq__inv_depth_eq : forall t t' : ty, |- t << t' -> |- t' << t -> | t | = | t' |.
+Proof.
+(intros t t' Hsub1 Hsub2).
+(apply Nat.le_antisymm).
 (* Auto-generated comment: Failed. *)
 
