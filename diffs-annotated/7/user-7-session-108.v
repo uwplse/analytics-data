@@ -232,4 +232,13 @@ subst.
 (inversion Hle).
 (assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
 (intros [v [tx Hm]]).
+(assert (Hme : |-[ k, S w] v <$ TExist i t)).
+{
+(apply match_ty_exist).
+exists tx.
+assumption.
+}
+(apply Hnotm).
+exists v.
+assuption.
 (* Failed. *)
