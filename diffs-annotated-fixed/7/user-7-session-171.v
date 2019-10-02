@@ -103,6 +103,22 @@ where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 Next Obligation.
 (simpl).
 Omega.omega.
+Qed.
+(simpl).
+Omega.omega.
+Qed.
 Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+Qed.
 (* Auto-generated comment: Failed. *)
 
