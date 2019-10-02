@@ -269,6 +269,7 @@ step_proc.
 step_proc.
 eauto.
 Qed.
+Hint Resolve get_len_ok: core.
 Theorem get_len_abstr_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -278,5 +279,7 @@ Theorem get_len_abstr_ok :
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
 Proof.
 (apply spec_abstraction_compose).
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl).
 (* Auto-generated comment: Succeeded. *)
 
