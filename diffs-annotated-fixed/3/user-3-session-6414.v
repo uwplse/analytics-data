@@ -127,6 +127,6 @@ Theorem log_length_ok_nil d b :
 Proof.
 (unfold log_length_ok; intros).
 (rewrite H in H1; simpl in H1).
-auto.
+congruence.
 (* Auto-generated comment: Succeeded. *)
 
