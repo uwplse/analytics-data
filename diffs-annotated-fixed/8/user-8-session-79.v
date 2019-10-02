@@ -1152,6 +1152,5 @@ restore_dims tensor_tac.
 all: reflexivity.
 }
 7: {
-(rewrite id_circ_spec).
 (* Auto-generated comment: Failed. *)
 
