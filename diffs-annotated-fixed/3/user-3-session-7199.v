@@ -362,6 +362,9 @@ Proof.
 (assert (log_addr (length bs) < diskSize d)).
 {
 (unfold log_size_ok, log_addr, diskSize in *).
+(rewrite app_length in *; simpl in *).
 lia.
-(* Auto-generated comment: Succeeded. *)
+}
+(destruct (a == bs)).
+(* Auto-generated comment: Failed. *)
 
