@@ -193,7 +193,7 @@ intro x.
   (eval L
      (extendEnv env x
         (eval L env (Choose x (Eq (Int 6) (Times (Var x) (Int 2))))))
-     (Eq (Int 6) (Times (Var x) (Int 2))) = L.(vTrue))).
+     (Eq (Int 6) (Times (Var x) (Int 2))) = L.(eval) env (Bool true))).
 {
 (apply evalChoose).
 exists (eval L env (Int 3)).
@@ -207,7 +207,5 @@ reflexivity.
 (apply evalIntConst).
 -
 reflexivity.
-}
-admit.
 (* Auto-generated comment: Succeeded. *)
 
