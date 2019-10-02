@@ -75,6 +75,5 @@ Qed.
 Lemma not_f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), not_f_free_in_ty X (TExist Y t) -> not_f_free_in_ty t.
 Lemma not_f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), not_f_free_in_ty X (TExist Y t) -> not_f_free_in_ty X t.
 (intros X Y t).
-(unfold not_f_free_in_ty, not_free).
-(intros X Y t).
+(intros X Y t Ht).
 (* Failed. *)
