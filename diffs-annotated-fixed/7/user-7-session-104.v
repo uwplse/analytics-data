@@ -70,6 +70,9 @@ Proof.
 -
 (intros k Hdep w Hcontra).
 (apply match_ty_pair__inv in Hcontra).
-(inversion Hcontra).
+(apply match_ty_pair__inv in Hcontra).
+(destruct Hcontra as [v1 [v2 [Heq _]]]).
+(inversion Heq).
+-
 (* Auto-generated comment: Failed. *)
 
