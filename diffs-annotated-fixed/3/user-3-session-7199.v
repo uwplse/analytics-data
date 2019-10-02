@@ -302,6 +302,7 @@ Theorem get_upto_ok a :
      recovered := fun _ state' => state' = state |}) 
     (get_upto a) recover abstr.
 Opaque firstn.
+Opaque firstn.
 Theorem get_upto_ok a :
   proc_spec
     (fun (_ : unit) state =>
@@ -323,5 +324,18 @@ lia.
 }
 step_proc.
 Timeout 1 Show.
+Timeout 1 Show Intros.
+Timeout 1
+(repeat
+  match goal with
+  | company_coq_hyp__:_
+    |- _ => clear dependent company_coq_hyp__; (let dummy := H in
+                                                idtac)
+  end;
+  repeat
+   match goal with
+   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
+   end).
+Timeout 1 Show Intros.
 (* Auto-generated comment: Succeeded. *)
 
