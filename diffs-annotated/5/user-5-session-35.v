@@ -196,6 +196,3 @@ Axiom
    eval L env
      (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
    res -> exists i, res = eval L env (Int i))).
-{
-(intros).
-(eapply evalInInts).
