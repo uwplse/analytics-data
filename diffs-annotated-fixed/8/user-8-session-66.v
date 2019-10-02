@@ -171,8 +171,7 @@ Proof.
 (simpl_rewrite inSeq_correct; trivial).
 (unfold compose_super).
 (unfold HOAS_Equiv in *).
-(rewrite E2).
-(rewrite E1 by easy).
+(rewrite E1).
 reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
