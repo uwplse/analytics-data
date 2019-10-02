@@ -215,6 +215,26 @@ Proof.
 (unfold atomic_pair_abstraction).
 (intros).
 (autorewrite with upd; intuition; eq_values; auto).
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFsgANG"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+-
 (specialize (H3 _ _); intuition).
-(* Auto-generated comment: Succeeded. *)
+-
+(specialize (H3 _ _); intuition).
+Qed.
+Lemma abstraction_partial_update1_b :
+  forall state p b v,
+  atomic_pair_abstraction state p ->
+  diskGet state ptr_a ?|= eq b ->
+  b <> block0 -> atomic_pair_abstraction state [data0a |-> v] p.
+Proof.
+(unfold atomic_pair_abstraction).
+(intros).
+(autorewrite with upd; intuition; eq_values; auto).
+(specialize (H3 _ _); intuition).
+(* Auto-generated comment: Failed. *)
 
