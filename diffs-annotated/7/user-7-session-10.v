@@ -69,5 +69,12 @@ Lemma unite_pairs_of_nf__preserves_sub_r1 :
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros ta' tb' Hnf1 Hsub1 Hnf2 Hsub2; try (solve [ simpl; constructor; assumption ])).
 (rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
-  apply sub_r_union_l__inv in Hsub).
+  apply sub_r_union_l__inv in Hsub; destruct Hsub as [Hsub1 Hsub2]).
+(specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22)).
+(split; tauto || constructor; tauto).
+-
+(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
+  apply sub_r_union_l__inv in Hsub; destruct Hsub as [Hsub1 Hsub2]).
+(specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22)).
+(split; tauto || constructor; tauto).
 (* Failed. *)
