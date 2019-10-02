@@ -283,6 +283,7 @@ Proof.
 econstructor.
 -
 (simpl).
-Search -pretty.pretty_nat_inj.
+Check pretty.pretty_nat_inj.
+(apply pretty.pretty_nat_inj).
 (* Auto-generated comment: Succeeded. *)
 
