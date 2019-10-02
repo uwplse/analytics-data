@@ -144,6 +144,6 @@ auto.
 -
 (assert (1 < S (S base_m2)) by lia).
 (assert (base_m2 = S (S base_m2) - 2) by lia).
-(generalize dependent S (S base_m2); intros base; intros; subst).
+(generalize dependent S (S base_m2); intros base *; subst).
 (* Auto-generated comment: Succeeded. *)
 
