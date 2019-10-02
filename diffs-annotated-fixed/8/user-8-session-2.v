@@ -136,6 +136,5 @@ Search -fst -snd.
 (rewrite <- ctrls_to_list_transpose_fst).
 (rewrite <- ctrls_to_list_transpose_fst).
 (simpl).
-(rewrite <- ctrls_to_list_transpose_snd).
 (* Auto-generated comment: Succeeded. *)
 
