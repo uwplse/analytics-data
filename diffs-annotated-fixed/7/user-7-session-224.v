@@ -96,6 +96,21 @@ exists 0.
 subst.
 (split; intros HX').
 {
-(unfold not_f_free_in_ty, not_free in Hi0).
-(* Auto-generated comment: Succeeded. *)
+(unfold not_f_free_in_ty, not_free in HX').
+(simpl in HX').
+exfalso.
+(apply HX').
+(apply IdSetFacts.singleton_2).
+reflexivity.
+}
+{
+exists 0.
+(rewrite f_subst_fvar_eq).
+assumption.
+}
+}
+{
+(split; intros HX').
+{
+(* Auto-generated comment: Failed. *)
 
