@@ -257,3 +257,5 @@ reflexivity.
 (rewrite H in H0).
 clear H.
 (rewrite evalIfTrue in H0).
+-
+(rewrite evalEqTrue in H0).
