@@ -5,12 +5,21 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
+Require Import Reals.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqVTRooU"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 Require Import Datatypes.
 Require Export TypeChecking.
 Require Export HOASLib.
 Import ListNotations.
 Open Scope list_scope.
 Open Scope circ_scope.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqMddq3L"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 Definition new_discard : Box One One :=
   box_ () \226\135\146 (let_ b \226\134\144 new0 $ (); discard_ b; ()).
 Lemma new_discard_WT : Typed_Box new_discard.
@@ -222,6 +231,177 @@ Lemma superdense_distant_WT : forall b1 b2, Typed_Box (superdense_distant b1 b2)
 Proof.
 type_check.
 Qed.
-Timeout 1 Print LoadPath.
+Definition _R'_ (m : nat) := _R_ (2 * PI / INR (2 ^ m)).
+Fixpoint rotations (n m : nat) {struct n} : Box (S (S n) \226\168\130 Qubit) (S (S n) \226\168\130 Qubit)
+:=
+  match n with
+  | 0 => id_circ
+  | S n' =>
+      match n' with
+      | 0 => id_circ
+      | S _ =>
+          box_ (c, (q, qs))
+          \226\135\146 (let_ (c, qs)\226\134\144 rotations n' m $ (c, qs);
+             let_ (c, q)\226\134\144 ctrl (_R'_ (m + 2 - n')) $ (c, q); (c, (q, qs)))
+      end
+  end.
+Lemma rotations_WT : forall n m, Typed_Box (rotations n m).
+Proof.
+(induction n as [| [| n]]; type_check).
+(apply IHn).
+type_check.
+Qed.
+Opaque rotations.
+Program
+Fixpoint qft (n : nat) : Box (n \226\168\130 Qubit) (n \226\168\130 Qubit) :=
+  match n with
+  | 0 => id_circ
+  | S n' =>
+      match n' with
+      | 0 => box_ (q, u)\226\135\146 (_H $ q, u)
+      | S n'' =>
+          box_ (q, qs)
+          \226\135\146 (let_ qs \226\134\144 qft n' $ output qs;
+             let_ (q, qs)\226\134\144 rotations n'' n' $ (q, qs); (_H $ q, qs))
+      end
+  end.
+Lemma qft_WT : forall n, Typed_Box (qft n).
+Proof.
+(induction n as [| [| n]]; type_check).
+(apply rotations_WT; type_check).
+Qed.
+Definition coin_flip : Box One Bit := box_ () \226\135\146 meas $ _H $ init0 $ ().
+Lemma coin_flip_WT : Typed_Box coin_flip.
+Proof.
+type_check.
+Qed.
+Fixpoint coin_flips (n : nat) : Box One Bit :=
+  box_ () \226\135\146 match n with
+            | 0 => new1 $ ()
+            | S n' =>
+                let_ c \226\134\144 coin_flips n' $ ();
+                let_ q \226\134\144 init0 $ ();
+                let_ (c, q)\226\134\144 bit_ctrl _H $ (c, q); let_ () \226\134\144 discard $ c; meas $ q
+            end.
+Lemma coin_flips_WT : forall n, Typed_Box (coin_flips n).
+Proof.
+(intros).
+(induction n; type_check).
+Qed.
+Fixpoint coin_flips_lift (n : nat) : Box One Bit :=
+  box_ () \226\135\146 match n with
+            | 0 => new1 $ ()
+            | S n' =>
+                lift_ x \226\134\144 coin_flip $ ();
+                (if x then coin_flips_lift n' $ () else new0 $ ())
+            end.
+Lemma coin_flips_lift_WT : forall n, Typed_Box (coin_flips_lift n).
+Proof.
+(intros).
+(induction n; type_check).
+Qed.
+Definition n_coins (n : nat) : Box (n \226\168\130 One) (n \226\168\130 Bit) := coin_flip # n.
+Lemma n_coins_WT : forall n, Typed_Box (n_coins n).
+Proof.
+(intros).
+(apply inParMany_WT).
+(apply coin_flip_WT).
+Qed.
+Definition n_coins' (n : nat) : Box One (n \226\168\130 Bit) := box_ () \226\135\146 coin_flip # n $ (()).
+Lemma n_coins_WT' : forall n, Typed_Box (n_coins' n).
+Proof.
+(intros).
+(type_check; try apply types_units; type_check).
+(rewrite merge_nil_r).
+(apply inParMany_WT).
+(apply coin_flip_WT).
+easy.
+Qed.
+Definition unitary_transpose {W} (U : Unitary W) : Box W W :=
+  box_ p \226\135\146 trans U $ U $ p.
+Lemma unitary_transpose_WT :
+  forall W (U : Unitary W), Typed_Box (unitary_transpose U).
+Proof.
+type_check.
+Qed.
+Fixpoint prepare_basis (li : list bool) : Box One (length li \226\168\130 Qubit) :=
+  match li with
+  | [] => id_circ
+  | b :: bs =>
+      box_ () \226\135\146 (let_ p1 \226\134\144 init b $ (); let_ p2 \226\134\144 prepare_basis bs $ (); (p1, p2))
+  end.
+Lemma prepare_basis_WT : forall li, Typed_Box (prepare_basis li).
+Proof.
+(induction li; type_check).
+Qed.
+Fixpoint share n : Box Qubit (S n \226\168\130 Qubit) :=
+  match n with
+  | 0 => box (fun q => (q, ()))
+  | S n' =>
+      box_ q
+      \226\135\146 (let_ q' \226\134\144 init0 $ ();
+         let_ (q, q')\226\134\144 CNOT $ (q, q'); let_ qs \226\134\144 share n' $ q'; (q, qs))
+  end.
+Lemma share_WT : forall n, Typed_Box (share n).
+Proof.
+(induction n; type_check).
+Qed.
+Definition lift_eta : Box Bit Qubit := box_ q \226\135\146 (lift_ x \226\134\144 q; unbox (init x) ()).
+Lemma lift_eta_bit_WT : Typed_Box lift_eta.
+Proof.
+type_check.
+Qed.
+Definition lift_meas : Box Bit Bit :=
+  box_ q \226\135\146 (lift_ x \226\134\144 q; (if x then new1 $ () else new0 $ ())).
+Lemma lift_meas_WT : Typed_Box lift_meas.
+Proof.
+type_check.
+Qed.
+Definition AND : Box (Qubit \226\138\151 Qubit) Qubit :=
+  box_ (a, b)
+  \226\135\146 (let_ z \226\134\144 init0 $ ();
+     let_ (a, (b, z))\226\134\144 CCNOT $ (a, (b, z));
+     let_ a \226\134\144 meas $ a;
+     let_ b \226\134\144 meas $ b; let_ () \226\134\144 discard $ a; let_ () \226\134\144 discard $ b; z).
+Lemma AND_WT : Typed_Box AND.
+Proof.
+type_check.
+Qed.
+Definition XOR : Box (Qubit \226\138\151 Qubit) Qubit :=
+  box_ (a, b)
+  \226\135\146 (let_ (a, b)\226\134\144 CNOT $ (a, b); let_ a \226\134\144 meas $ a; let_ () \226\134\144 discard $ a; b).
+Lemma XOR_WT : Typed_Box XOR.
+Proof.
+type_check.
+Qed.
+Definition OR : Box (Qubit \226\138\151 Qubit) Qubit :=
+  box_ (a, b)\226\135\146 _X $ AND $ (_X $ a, _X $ b).
+Lemma OR_WT : Typed_Box OR.
+Proof.
+type_check.
+Qed.
+Definition absurd_circ : Box Qubit (Bit \226\138\151 Qubit) :=
+  box_ w \226\135\146 (let_ x \226\134\144 meas $ w; let_ w' \226\134\144 _H $ w; (x, w')).
+Proposition absurd_fail : Typed_Box absurd_circ.
+Proof.
+type_check.
+Abort.
+Definition unmeasure : Box Qubit Qubit :=
+  box_ q \226\135\146 (let_ q \226\134\144 _H $ q; let_ b \226\134\144 meas $ q; q).
+Proposition unmeasure_fail : Typed_Box unmeasure.
+Proof.
+type_check.
+Abort.
+Definition unused_qubit : Box Qubit One := box_ w \226\135\146 (let_ w \226\134\144 _H $ w; ()).
+Proposition unused_qubit_fail : Typed_Box unused_qubit.
+Proof.
+type_check.
+Abort.
+Definition clone : Box Qubit (Qubit \226\138\151 Qubit) := box_ p \226\135\146 (p, p).
+Proposition clone_WT : Typed_Box clone.
+Proof.
+type_check.
+Abort.
+Close Scope circ_scope.
 (* Auto-generated comment: Succeeded. *)
 
