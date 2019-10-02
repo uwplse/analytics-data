@@ -1070,6 +1070,5 @@ restore_dims tensor_tac.
 specialize (IHb \206\147 f true).
 (simpl in *).
 (rewrite size_ntensor).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
