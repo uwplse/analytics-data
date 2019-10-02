@@ -62,6 +62,5 @@ dependent destruction u.
 (assert (E' : fst (ctrls_to_list lb li (trans u)) = (j, l))).
 {
 (rewrite <- IHW2, E; easy).
-}
 (* Auto-generated comment: Succeeded. *)
 
