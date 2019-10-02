@@ -103,9 +103,15 @@ clear IHt'.
 (simpl).
 (apply f_equal).
 (apply IHt).
-(intros k v).
+(intros k v Hv).
 (assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
 specialize (H (S k) (TRef t)).
 (destruct H as [H _]).
+constructor.
+specialize (H Hmt).
+(apply match_ty_i_ref__inv in H).
+(destruct H as [tx [Heq Href]]).
+(inversion Heq; subst).
+auto.
 (* Auto-generated comment: Failed. *)
 
