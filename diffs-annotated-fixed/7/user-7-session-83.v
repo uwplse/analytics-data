@@ -174,6 +174,13 @@ auto with DBBetaJulia.
 Qed.
 Lemma sem_sub_k_i_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
+Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Proof.
+(intros k t t' H).
+(split; intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_sub_k_i_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
+Proof.
 (intros k t1 t2 t' Hsem).
 (unfold sem_sub_k_i in Hsem).
 (split; intros v Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_i_union_1; assumption) || (apply match_ty_i_union_2; assumption);
@@ -268,5 +275,6 @@ constructor.
 *
 (apply IHk; try assumption).
 (apply sem_eq_k_i__sem_sub_k_i).
+assumption.
 (* Auto-generated comment: Failed. *)
 
