@@ -13,6 +13,7 @@ Inductive cname : Type :=
   | NInt : _
   | NFlt : _
   | NStr : _.
+Definition varid : Type := nat.
 Inductive ty : Type :=
   | TCName : cname -> ty
   | TPair : ty -> ty -> ty
@@ -28,4 +29,5 @@ Definition vx := 1.
 Definition vy := 2.
 Definition vz := 3.
 Definition tx := TVar vx.
+Definition ty := TVar vy.
 (* Failed. *)
