@@ -407,6 +407,6 @@ congruence.
 }
 }
 step_proc.
-intuition.
+intuition eauto.
 (* Auto-generated comment: Succeeded. *)
 
