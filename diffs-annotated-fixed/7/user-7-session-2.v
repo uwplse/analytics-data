@@ -85,7 +85,7 @@ assumption.
 +
 (apply SR_UnionR1; tauto).
 +
-(apply SR_UnionR2; tauto).
-+
+subst.
+clear IHHsub2.
 (* Auto-generated comment: Failed. *)
 
