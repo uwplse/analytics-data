@@ -95,5 +95,65 @@ subst.
 reflexivity.
 +
 (destruct (lt_dec a 3)).
+*
+intuition lia.
+*
+(rewrite ?disk_oob_eq by auto).
+reflexivity.
+-
+(simpl).
+lia.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBAMcUJ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Example abst_3_ok :
+  remapped_abstraction (BadBlockAPI.mkState [block0; block0] 1) [block0].
+Proof.
+(constructor; auto).
+(simpl).
+(intros).
+-
+(destruct (Nat.eq_dec a 1)).
++
+(subst; intuition).
++
+(destruct a; simpl; intuition).
+(destruct a; simpl; intuition).
+(rewrite disk_oob_eq; auto).
+(simpl; lia).
+Qed.
+Example abst_4_nok :
+  ~ remapped_abstraction (BadBlockAPI.mkState [block0; block0] 5) [block0].
+Proof.
+intro.
+(inversion H; simpl in *).
+subst_var.
+lia.
+Qed.
+Example abst_5_nok :
+  ~ remapped_abstraction (BadBlockAPI.mkState [block1; block1] 0) [block0].
+Proof.
+intro.
+(inversion H; simpl in *).
+subst_var.
+(unshelve (especialize Hremap); eauto).
+(inversion Hremap).
+(unshelve (apply block0_block1_differ); eauto).
+Qed.
+Ltac
+ invert_abstraction :=
+  match goal with
+  | H:remapped_abstraction _ _ |- _ => inversion H; clear H; subst; subst_var
+  end.
+Theorem init_ok : init_abstraction init recover abstr inited_any.
+Proof.
+(eapply then_init_compose; eauto).
+step_proc.
+(destruct (r == 0)).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
