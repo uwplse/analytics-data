@@ -82,5 +82,13 @@ split.
 (apply match_ty_union__inv in Hm').
 (destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
+(apply match_ty_pair_pair__inv in Hm').
+(destruct Hm' as [Hm'1 Hm'2]).
+(apply match_ty_pair; auto).
++
+(apply match_ty_union__inv in Hm').
+(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+admit.
 (* Auto-generated comment: Failed. *)
 
