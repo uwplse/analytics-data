@@ -394,7 +394,7 @@ right.
         subst
  end).
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra
  end).
 (* Auto-generated comment: Failed. *)
 
