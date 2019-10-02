@@ -390,6 +390,18 @@ destruct matches.
 -
 step_proc.
 (descend; intuition eauto).
+(descend; intuition eauto).
+{
 (unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+{
+(unfold log_length_ok).
+(rewrite H; eauto).
+}
+{
+(unfold log_size_ok, log_abstraction in *; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
