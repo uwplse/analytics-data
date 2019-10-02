@@ -612,5 +612,6 @@ Timeout 1 About Morphisms.Proper.
 Timeout 1 Print Morphisms.Proper.
 (unfold Morphisms.respectful).
 (unfold flip).
+(unfold impl).
 (* Auto-generated comment: Succeeded. *)
 
