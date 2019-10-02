@@ -13,6 +13,6 @@ Require Import Coq.Bool.Bool.
 Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
-(assert (Hnf : InNF( t)) by (constructor; assumption)).
-(rewrite (mk_nf_nf__equal t Hnf) in Hsub).
+(rewrite (mk_nf_nf__equal t Hnf) in IHHsub).
+auto.
 (* Failed. *)
