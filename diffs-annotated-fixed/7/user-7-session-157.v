@@ -16,6 +16,7 @@ Lemma build_v : forall (X X' : id) (tx : ty) (w : nat) (t v : ty), |-[ w] v <$ [
 Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm; try (solve [ exists v; assumption ])).
+(induction w; induction t; intros v Hm; try (solve [ exists v; assumption ])).
 -
 (* Auto-generated comment: Failed. *)
 
