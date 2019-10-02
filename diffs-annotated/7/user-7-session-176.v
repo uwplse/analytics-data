@@ -140,23 +140,9 @@ assumption.
 (apply le_S_n; assumption).
 Qed.
 Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [X := tint] t.
-(intros X; induction w; induction t; intros v).
-(intros X; induction w; induction t; intros v;
-  try (solve
-   [ intros Hm; exists v; assumption
-   | intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; destruct (IHt1 _ Hm1) as [v1' Hm1'];
-      destruct (IHt2 _ Hm2) as [v2' Hm2']; exists (TPair v1' v2'); rewrite subst_pair; apply match_ty_pair; assumption
-   | intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ];
-      exists v'; rewrite subst_union; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption
-   | intros Hm; destruct (beq_idP X i);
-      [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
-(rewrite IdSetFacts.empty_b in Hmem).
-(inversion Hmem).
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
-specialize (IHw _ _ Hm).
-(destruct IHw as [v' IHw]).
-exists v'.
-(apply match_ty_exist).
-exists tx.
+Lemma match_ty__subst_neq_permute :
+  forall (X Y : id) (sx sy : ty) (w : nat) (v t : ty), X <> Y -> |-[ w] v <$ [Y := sy] ([X := sx] t) <-> |-[ w] v <$ [X := sx] ([Y := sy] t).
+Proof.
+(intros X Y sx sy w).
+(induction w; intros v t; induction t).
 (* Failed. *)
