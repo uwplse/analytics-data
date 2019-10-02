@@ -14,7 +14,5 @@ Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
-(inversion Hsub2).
-(constructor; [ apply IHHnf2_1 | apply IHHnf2_2 ]; assumption).
 +
 (* Failed. *)
