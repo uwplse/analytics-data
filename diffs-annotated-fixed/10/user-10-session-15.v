@@ -29,6 +29,6 @@ Fixpoint fib (fuel : nat) (a b : N) : list N :=
   end.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqz3Zsi1" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Eval compute in fib 10 0 1.
+Eval simpl in fib 10 0 1.
 (* Auto-generated comment: Succeeded. *)
 
