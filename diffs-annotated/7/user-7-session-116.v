@@ -24,6 +24,5 @@ Lemma subs_fresh : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [
 Proof.
 (intros X t).
 (induction t; intros Hfresh s; try (solve [ reflexivity ])).
-(rewrite IHt1).
-(rewrite IHt2).
+tauto.
 (* Failed. *)
