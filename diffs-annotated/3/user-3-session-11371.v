@@ -211,25 +211,8 @@ Proof.
 (simpl).
 (rewrite mult_0_r).
 reflexivity.
-clear IHn'.
-(induction m as [| m' IHm']).
 -
 (simpl).
-reflexivity.
--
+(assert (H1 : m * S n' = m + m * n')).
+{
 (simpl).
-(rewrite IHm').
-(rewrite plus_swap).
-reflexivity.
-}
-(rewrite H1).
-(rewrite IHn').
-reflexivity.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqRZ2ypa"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
