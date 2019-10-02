@@ -265,5 +265,4 @@ clear H.
 (apply evalInInts in H).
 (apply evalInInts in H; auto).
 (erewrite evalBoolConst in H0).
-(rewrite <- evalEqTrue in H0).
-(rewrite evalVar in H).
+(rewrite <- evalVar in H).
