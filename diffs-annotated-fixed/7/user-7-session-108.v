@@ -178,6 +178,12 @@ Proof.
 -
 (apply match_ty_cname__inv in Hm).
 subst.
+Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Proof.
+(induction w; induction t; intros k v Hm w' Hle).
+-
+(apply match_ty_cname__inv in Hm).
+subst.
 (apply match_ty_cname).
 -
 (apply match_ty_pair__inv in Hm).
@@ -228,6 +234,8 @@ subst.
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
+(destruct w').
+(inversion Hle).
 (apply match_ty_exist).
 exists tx.
 (apply IHw).
@@ -250,5 +258,6 @@ exists 0,(TCName c).
 (destruct (IHt1 k) as [w1 [v1 Hm1]]).
 (destruct (IHt2 k) as [w2 [v2 Hm2]]).
 exists (Nat.max w1 w2),(TPair v1 v2).
+(apply match_ty_pair; apply match_ty__ge_w).
 (* Auto-generated comment: Failed. *)
 
