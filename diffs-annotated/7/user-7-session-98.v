@@ -67,6 +67,10 @@ clear IHv.
 exists v.
 auto.
 Qed.
+Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty), |-[ 0] v <$ TExist X t -> value_type v /\ (exists tx, v = [X := tx] t).
+Proof.
+(intros v; induction v; intros X t Hm; assumption).
+Qed.
 Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k] v <$ TExist X t -> exists tx : ty, |-[ k] v <$ [X := tx] t.
 Proof.
 (intros v; induction v; intros X t k Hm; assumption).
@@ -81,5 +85,6 @@ Proof.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | destruct v; contradiction ])).
 -
-(destruct v; tauto).
-(* Auto-generated comment: Failed. *)
+(apply match_ty_exist__0_inv in Hm).
+auto.
+(* Failed. *)
