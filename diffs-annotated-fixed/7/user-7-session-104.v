@@ -63,6 +63,7 @@ where "'|' t '|'" := (inv_depth t) : btjt_scope.
 Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
 Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
-(intros w).
+(intros w k).
+(induction k).
 (* Auto-generated comment: Failed. *)
 
