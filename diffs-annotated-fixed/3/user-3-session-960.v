@@ -302,6 +302,6 @@ Check repeat_length.
 (rewrite nat_le_inverse; auto).
 (generalize dependent Datatypes.length (nat_to_le 254 x); intros).
 (exfalso; apply n1).
-lia.
-(* Auto-generated comment: Failed. *)
+nia.
+(* Auto-generated comment: Succeeded. *)
 
