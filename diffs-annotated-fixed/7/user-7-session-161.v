@@ -102,6 +102,5 @@ reflexivity.
 (rewrite IHt1, IHt2).
 reflexivity.
 -
-(destruct (beq_idP Y i) as [HY| HY]).
 (* Auto-generated comment: Failed. *)
 
