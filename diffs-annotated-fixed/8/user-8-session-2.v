@@ -139,6 +139,5 @@ Search -fst -snd.
 Opaque firstn.
 Opaque rev.
 (simpl).
-(rewrite <- ctrl_list_to_unitary_transpose).
 (* Auto-generated comment: Succeeded. *)
 
