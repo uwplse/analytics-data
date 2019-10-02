@@ -106,5 +106,20 @@ Definition CrashInner : iProp \206\163 :=
         \226\136\151 MsgsInv_crash \206\147 \206\179 \207\131 \226\136\151 HeapInv_crash \207\131 \226\136\151 TmpInv_crash \206\179tmp)
      \226\136\151 CrashStarter \206\179tmp)%I.
 End refinement_recovery_defs.
+Module mRT<: goose_refinement_type.
+Definition init_base `{@GoModelWf gm} (s : GoLayer.Go.State) :=
+  s.(fs).(FS.heap) = \226\136\133
+  \226\136\167 (forall uid : uint64,
+     (uid < 100 -> s.(fs).(dirents) !! UserDir uid = Some \226\136\133)
+     \226\136\167 (uid >= 100 -> s.(fs).(dirents) !! UserDir uid = None))
+    \226\136\167 s.(fs).(FS.dirents) !! SpoolDir = Some \226\136\133
+      \226\136\167 (\226\136\128 d,
+           is_Some (s.(fs).(FS.dirents) !! d)
+           \226\134\146 d = SpoolDir \226\136\168 (\226\136\131 uid, d = UserDir uid))
+        \226\136\167 dom (gset string) s.(fs).(FS.dirents) =
+          dom (gset string) s.(fs).(FS.dirlocks)
+          \226\136\167 (\226\136\128 dir l, s.(fs).(FS.dirlocks) !! dir = Some l \226\134\146 fst l = Unlocked)
+            \226\136\167 s.(maillocks) = None.
+Context {gm} {gmWf : GoModelWf gm}.
 (* Auto-generated comment: Failed. *)
 
