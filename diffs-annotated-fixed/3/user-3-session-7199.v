@@ -485,6 +485,6 @@ Proof.
 (unfold log_size_ok in *; autorewrite with upd list in *).
 lia.
 -
-(unfold log_contents_ok; eauto).
+eauto.
 (* Auto-generated comment: Succeeded. *)
 
