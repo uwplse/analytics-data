@@ -23,5 +23,7 @@ Qed.
 (induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh).
 (rewrite IHt; try assumption).
 Check IdSetFacts.remove_2.
-symmetry in n.
+(apply Hfresh).
+(apply IdSetFacts.remove_2; try assumption).
+(intros Heq; contradiction).
 (* Failed. *)
