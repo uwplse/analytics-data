@@ -533,6 +533,18 @@ Proof.
 (rewrite rev_app_distr; simpl).
 (rewrite IHl; auto).
 Add Search Blacklist "Raw" "Proofs".
-auto.
-(* Auto-generated comment: Succeeded. *)
+(rewrite IHl; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2rsX3F"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem app_assoc4 :
+  forall l1 l2 l3 l4 : natlist,
+  l1 ++ l2 ++ l3 ++ l4 = ((l1 ++ l2) ++ l3) ++ l4.
+Proof.
+(rewrite app_assoc).
+(* Auto-generated comment: Failed. *)
 
