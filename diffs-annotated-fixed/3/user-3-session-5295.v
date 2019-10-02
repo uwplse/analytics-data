@@ -695,10 +695,13 @@ lia.
 (exists (diskUpd d a0 b),FullySynced; simplify; finish).
 lia.
 Add Search Blacklist "Raw" "Proofs".
+lia.
+Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqXSCN0n"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxD1xWt"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-(* Auto-generated comment: Succeeded. *)
+Qed.
+(* Auto-generated comment: Failed. *)
 
