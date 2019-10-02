@@ -1034,9 +1034,9 @@ restore_dims tensor_tac.
 Set Printing All.
 Set Printing All.
 Set Printing All.
-revert IP.
-restore_dims tensor_tac.
-(intros IP).
-(rewrite IP).
-(* Auto-generated comment: Succeeded. *)
+(match goal with
+ | H:_ -> _ -> denote_box true ?c ?A = _
+   |- context [ denote_box true ?c' ?A' ] => idtac A; idtac A'
+ end).
+(* Auto-generated comment: Failed. *)
 
