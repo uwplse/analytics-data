@@ -320,3 +320,4 @@ Proof.
 -
 (rewrite b_subst_pair).
 (apply b_free_in_ty_pair).
+(* Failed. *)
