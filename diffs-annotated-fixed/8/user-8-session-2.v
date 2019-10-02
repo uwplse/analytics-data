@@ -52,6 +52,5 @@ Proof.
 (destruct li as [| k li]).
 (repeat rewrite ctrls_to_list_empty).
 reflexivity.
-(inversion u; subst).
 (* Auto-generated comment: Succeeded. *)
 
