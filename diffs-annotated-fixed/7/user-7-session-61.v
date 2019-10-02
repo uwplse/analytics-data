@@ -139,5 +139,10 @@ specialize (Hsem _ Hma).
 (destruct Hsem as [v1 [v2 [Heq _]]]; inversion Heq).
 -
 (apply value_sem_sub_k_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
+-
+specialize (Hsem _ Hma).
+(destruct k; contradiction).
+Qed.
 (* Auto-generated comment: Failed. *)
 
