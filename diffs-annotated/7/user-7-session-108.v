@@ -232,5 +232,9 @@ subst.
 (inversion Hle).
 exists (TCName c).
 (destruct (IHt1 k) as [v1 Hm1]).
-(split; intros; auto).
+(split; intros w1; exists w1; auto).
+-
+(destruct (IHt k) as [v Hm]).
+exists v.
+(apply match_ty_exist).
 (* Failed. *)
