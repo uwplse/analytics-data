@@ -143,5 +143,7 @@ Proof.
 (induction Hsub21).
 +
 (intros; split; constructor).
++
+(intros).
 (* Auto-generated comment: Failed. *)
 
