@@ -136,6 +136,5 @@ Print lt_wf.
 +
 constructor.
 (intros y Hy).
-constructor.
 (* Auto-generated comment: Failed. *)
 
