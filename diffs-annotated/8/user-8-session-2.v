@@ -48,5 +48,5 @@ Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
 Timeout 1 About restore_dims.
-(rewrite <- ctrls_to_list_transpose_snd).
+(rewrite ctrls_to_list_transpose_snd).
 (* Failed. *)
