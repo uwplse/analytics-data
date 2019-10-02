@@ -210,6 +210,6 @@ Proof.
 -
 assumption.
 -
-H.
+contradiction  H.
 (* Auto-generated comment: Succeeded. *)
 
