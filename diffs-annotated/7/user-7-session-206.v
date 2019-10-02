@@ -36,12 +36,5 @@ Proof.
 Qed.
 (unfold wf_ty, not_b_free_in_ty, not_free).
 (intros t X Ht Hcontra).
-(apply IdSetProps.empty_is_empty_1 in Ht).
-Search -IdSet.empty.
-Search -IdSet.Equal.
-Search -IdSet.In.
-(pose proof IdSetFacts.In_m).
-Search -Morphisms.Proper.
-Search -Morphisms.respectful.
-(destruct (IdSetFacts.empty_iff Y) as [H _]).
+(destruct (IdSetFacts.empty_iff X) as [H _]).
 (* Failed. *)
