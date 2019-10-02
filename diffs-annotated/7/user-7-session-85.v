@@ -113,4 +113,14 @@ auto using match_ty_i_pair.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [tx [Heq Href]]; subst).
 (simpl).
-(* Failed. *)
+(assert (Heq : ||-[ k][t]= [t']) by (apply sem_sub_k_i__sem_eq_k_i; auto)).
+(eapply sem_eq_k_i__trans; eassumption).
+Qed.
+Theorem sub_d__semantic_i_complete : forall t1 t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
+Proof.
+(intros t1 t2 Hsem).
+(apply SD_Trans with (MkNF( t1))).
+(apply mk_nf__sub_d_r; assumption).
+(apply nf_sem_sub_i__sub_d).
+(apply mk_nf__in_nf).
+(apply sem_sub_i__trans with t1).
