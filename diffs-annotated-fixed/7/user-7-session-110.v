@@ -186,8 +186,13 @@ generalize dependent v0.
   try (solve [ destruct k; contradiction ])).
 +
 (apply match_ty_pair__inv in Hm2).
+(apply match_ty_pair__inv in Hm2).
 (destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
 (inversion Heq; subst).
 auto using match_ty_pair.
++
+(apply match_ty_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
 (* Auto-generated comment: Failed. *)
 
