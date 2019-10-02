@@ -41,10 +41,15 @@ Record EpsilonLogic :=
            eval env (In x S) = eval env (Bool true) \/
            eval env (In x S) = eval env (Bool false);
           evalInBools :
-           forall env b S,
+           forall env x S,
            eval env S = eval env Bools ->
-           eval env (In b S) = eval env (Bool true) <->
-           (exists b, eval env b = eval env (Bool b));
+           eval env (In x S) = eval env (Bool true) <->
+           (exists b, eval env x = eval env (Bool b));
+          evalInInts :
+           forall env x S,
+           eval env S = eval env Ints ->
+           eval env (In x S) = eval env (Bool true) <->
+           (exists i, eval env x = eval env (Int i));
           evalEqTrue :
            forall env a b,
            eval env a = eval env b <->
@@ -95,5 +100,6 @@ Record EpsilonLogic :=
            eval env P = eval env (Bool true) <->
            eval env Q = eval env (Bool true) ->
            eval env (Choose x P) = eval env (Choose x Q)}.
+Definition isTheorem (L : EpsilonLogic) (t : Term) := forall env, L.
 (* Auto-generated comment: Succeeded. *)
 
