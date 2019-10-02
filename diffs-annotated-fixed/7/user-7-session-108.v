@@ -249,28 +249,26 @@ assumption.
 (apply match_ty_ev).
 Qed.
 Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
-Lemma ty__matching_ty_exists : forall (w : nat) (t : ty) (k : nat), exists v : ty, |-[ k, w] v <$ t.
+Lemma ty__empty_or_matching_ty_exists :
+  forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
 Proof.
 (induction w; induction t; intros k).
 -
-exists (TCName c).
+(left; exists (TCName c)).
 (apply match_ty_value_type__reflexive; constructor).
 -
-(destruct (IHt1 k) as [v1 Hm1]).
-exists (TPair v1 v2).
-(apply match_ty_pair; assumption).
+admit.
 -
-(destruct (IHt1 k) as [v Hm]).
-exists v.
-(apply match_ty_union_1).
-assumption.
+admit.
 -
-exists (TRef t).
+(left; exists (TRef t)).
 (destruct k).
 reflexivity.
 (split; intros w1; exists w1; auto).
 -
-(destruct (IHt k) as [v Hm]).
-exists v.
+right.
+(intros Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_exist__0_inv; assumption).
 (* Auto-generated comment: Failed. *)
 
