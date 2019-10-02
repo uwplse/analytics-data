@@ -143,6 +143,17 @@ step_proc.
 {
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqVPbCeu"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqu1n37z"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
-(* Auto-generated comment: Succeeded. *)
+(rewrite diskShrink_preserves; auto).
+(* Auto-generated comment: Failed. *)
 
