@@ -595,5 +595,6 @@ Proof.
 (rewrite kron_1_l).
 (rewrite kron_1_l).
 Msimpl.
-(* Auto-generated comment: Succeeded. *)
+(apply H).
+(* Auto-generated comment: Failed. *)
 
