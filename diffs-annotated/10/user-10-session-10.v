@@ -271,6 +271,7 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Check nmi_of_smi.
+Print taE.
 Definition network_of_app_ta sk : taE ~> itree tE :=
   fun _ tae =>
   match tae with
