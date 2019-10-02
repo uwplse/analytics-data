@@ -949,4 +949,6 @@ Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
 +
-Timeout 1 About id_kron.
+Msimpl.
+(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
+(* Failed. *)
