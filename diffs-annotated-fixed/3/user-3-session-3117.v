@@ -92,6 +92,30 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-(rewrite H, IHn; simpl).
+(rewrite H, IHn; simpl; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4x1vYk"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Definition nat64_from_le (digits : list {x | x < 256}) : nat :=
+  nat_from_le digits.
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
+  Ascii.ascii_of_nat (proj1_sig x).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTZvLgo"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYMIykl"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Check Ascii.nat_ascii_bounded.
+Theorem nat_ascii_bounded : forall a, Ascii.nat_of_ascii a < 256.
+Proof.
+(destruct a; simpl).
 (* Auto-generated comment: Succeeded. *)
 
