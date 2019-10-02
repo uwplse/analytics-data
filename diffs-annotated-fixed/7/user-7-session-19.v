@@ -112,6 +112,6 @@ idtac.
 (assert (Hmref : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
 (pose proof (Hsem _ Hvref Hmref) as Hm).
 (apply match_ty_i_union__inv in Hm).
-(destruct Hm as [Hm1| Hm2]; [ left | right ]; intros v Hv).
+(destruct Hmu as [Hmu1| Hmu2]; [ left | right ]; intros v Hv Hm).
 (* Auto-generated comment: Failed. *)
 
