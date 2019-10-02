@@ -190,6 +190,6 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Search -Ascii.ascii.
-Print Ascii.byte_of_ascii.
+Print Ascii.ascii_of_byte.
 (* Auto-generated comment: Succeeded. *)
 
