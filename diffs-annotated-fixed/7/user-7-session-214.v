@@ -247,6 +247,6 @@ Proof.
 (intros Y s X t HX).
 (induction t; try (solve [ simpl; assumption ])).
 -
-(unfold f_free_in_ty).
+(unfold f_free_in_ty, free).
 (* Auto-generated comment: Failed. *)
 
