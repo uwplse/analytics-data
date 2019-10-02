@@ -193,6 +193,7 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 (step_proc; intros).
 (destruct a'; simpl in *; intuition idtac).
+(destruct a'; simpl in *; intuition idtac).
 {
 (destruct (a == r)).
 -
@@ -222,6 +223,8 @@ invert_abstraction.
 {
 (step_proc; intuition idtac).
 +
+(exists s; split; eauto).
+(destruct (a == diskSize s); subst).
 *
 (rewrite disk_oob_eq by lia; simpl; auto).
 *
@@ -232,6 +235,20 @@ invert_abstraction.
 (subst; eexists; eauto).
 }
 (subst; eauto).
-Add Search Blacklist "Raw" "Proofs".
+Qed.
+Theorem remapped_abstraction_diskUpd_remap :
+  forall state s v,
+  remapped_abstraction state s ->
+  remapped_abstraction
+    (mkState (diskUpd (stateDisk state) (diskSize (stateDisk state) - 1) v)
+       (stateBadBlock state)) (diskUpd s (stateBadBlock state) v).
+Proof.
+(intros).
+invert_abstraction.
+(rewrite Hsize).
+replace (diskSize s + 1 - 1) with diskSize s by lia.
+(constructor; simpl).
+all: (autorewrite with upd; intuition idtac).
+(repeat rewrite diskUpd_neq by lia).
 (* Auto-generated comment: Succeeded. *)
 
