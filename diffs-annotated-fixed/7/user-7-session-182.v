@@ -48,6 +48,6 @@ Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FV tY)) eqn:Hin).
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
-(pose proof (IdSetFacts.mem_1 _ _ Hin)).
+(pose proof (IdSetFacts.mem_1 Hin)).
 (* Auto-generated comment: Failed. *)
 
