@@ -68,6 +68,9 @@ Lemma unite_pairs_of_nf__preserves_sub_r1 :
   forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros ta' tb' Hnf1 Hsub1 Hnf2 Hsub2; try (solve [ simpl; constructor; assumption ])).
+Lemma sub_r_unite_pairs_nf_l__inv :
+  forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
+Proof.
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
   try (solve
    [ match goal with
@@ -87,5 +90,18 @@ Proof.
             destruct Hsub as [Hsub1 Hsub2]; specialize (IHt1_1 _ _ _ Hsub1 Hnf11 Hnf2); specialize (IHt1_2 _ _ _ Hsub2 Hnf12 Hnf2); split;
             tauto || constructor; tauto
      end ])).
+Qed.
+Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
+Proof.
+(intros t1 t2 t1' t2' Hsub).
+(remember (TPair t1 t2) as tx eqn:Heqx ).
+(remember (TPair t1' t2') as ty eqn:Heqy ).
+(induction Hsub; inversion Heqx; inversion Heqy; subst).
+-
+(split; assumption).
+-
+(simpl in Hsub).
+(apply sub_r_unite_pairs_nf_l__inv in Hsub; try apply mk_nf__in_nf).
+(destruct Hsub; split; apply SR_NormalForm; assumption).
 Qed.
 (* Failed. *)
