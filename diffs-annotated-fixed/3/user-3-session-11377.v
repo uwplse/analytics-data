@@ -195,6 +195,6 @@ Proof.
 (induction n as [| n' IHn']).
 -
 (simpl).
-(rewrite plus_n_O).
+(rewrite <- plus_n_O).
 (* Auto-generated comment: Succeeded. *)
 
