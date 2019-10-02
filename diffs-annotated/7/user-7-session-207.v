@@ -30,4 +30,9 @@ assumption.
 (apply match_ty_cname__inv in Hm; subst).
 (induction w'; induction t'; intros Hm'; try (solve [ contradiction || tauto ])).
 +
-(* Auto-generated comment: Failed. *)
+(rewrite f_subst_union).
+(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
+  destruct IHt' as [IHt'a IHt'b]; split; intros HX').
+*
+(destruct (not_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(* Failed. *)
