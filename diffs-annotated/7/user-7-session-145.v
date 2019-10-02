@@ -67,13 +67,9 @@ Proof.
 (intros X t1 t2 k).
 (apply sem_sub_k_exist_pair).
 Qed.
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
--
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]).
-(inversion Heq).
--
-(destruct w).
+(apply match_ty_exist__0_inv in Hm; contradiction).
 +
-(apply match_ty_ref__0_inv in Hm; contradiction).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(unfold fresh_in_ty in HX).
 (* Failed. *)
