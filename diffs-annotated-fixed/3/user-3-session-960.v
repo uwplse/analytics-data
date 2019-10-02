@@ -144,7 +144,6 @@ lia.
 }
 (apply Nat.div_lt; lia).
 Qed.
-Definition nat64_to_le (x : nat) : list byte :=
-  let digits := nat_to_le 254 x in digits ++ repeat (8 - length digits) 0.
+Definition byte0 : {x | x < 256}.
 (* Auto-generated comment: Failed. *)
 
