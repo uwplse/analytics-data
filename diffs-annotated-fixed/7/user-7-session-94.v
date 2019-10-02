@@ -70,5 +70,8 @@ Proof.
 (destruct Hm as [tx Hmx]).
 (eapply IHk; eassumption).
 Qed.
+Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
+Proof.
+(intros k v).
 (* Auto-generated comment: Failed. *)
 
