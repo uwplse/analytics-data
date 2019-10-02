@@ -330,6 +330,18 @@ Proof.
 (intros X s Y Hneq).
 (simpl).
 (destruct (beq_id_false_iff X Y) as [_ Hid]).
+Lemma f_subst_fvar_eq : forall (X : id) (s : ty), [FX := s] TFVar X = s.
+Proof.
+(intros).
+(simpl).
+(rewrite <- beq_id_refl).
+reflexivity.
+Qed.
+Lemma f_subst_fvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [FX := s] TFVar Y = TFVar Y.
+Proof.
+(intros X s Y Hneq).
+(simpl).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
 specialize (Hid Hneq).
 (simpl).
 (rewrite Hid).
@@ -410,10 +422,6 @@ tauto.
 -
 (rewrite f_subst_exist).
 (unfold wf_ty in *; simpl in *).
-Search -IdSet.Empty.
-Search -IdSet.Empty.
-Search -IdSet.remove.
-Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FBV t))).
 admit.
 admit.
@@ -422,5 +430,8 @@ admit.
 +
 subst.
 (rewrite f_subst_fvar_eq).
+assumption.
++
+(rewrite f_subst_fvar_neq).
 (* Auto-generated comment: Failed. *)
 
