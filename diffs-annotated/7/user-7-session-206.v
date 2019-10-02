@@ -189,4 +189,5 @@ reflexivity.
 (unfold wf_ty in *).
 (unfold not_b_free_in_ty, not_free).
 (apply IdSetFacts.empty_iff).
+(destruct IdSetFacts.empty_iff as [H _]).
 (* Failed. *)
