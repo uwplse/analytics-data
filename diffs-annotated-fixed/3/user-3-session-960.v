@@ -97,7 +97,7 @@ Print sig.
 Fixpoint nat_to_le (x : nat) : list byte_nat :=
   match x with
   | 0 => nil
-  | _ => exist (x mod 256) _ :: nat_to_le (x / 256)
+  | _ => exist _ (x mod 256) _ :: nat_to_le (x / 256)
   end.
 (* Auto-generated comment: Failed. *)
 
