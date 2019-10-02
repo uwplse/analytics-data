@@ -433,7 +433,8 @@ Lemma f_b_subst__spec_permute :
   forall (X Y : id) (sx sy t : ty), wf_ty sx -> wf_ty sy -> [FX := sx] ([BY := sy] t) = [BY := [FX := sx] sy] ([FX := sx] t).
 Proof.
 (intros X Y sx sy t Hwfx Hwfy).
-generalize dependent t.
-(induction t).
+(induction t; try (solve [ simpl; reflexivity ])).
+-
+(repeat rewrite f_subst_pair).
 (* Auto-generated comment: Failed. *)
 
