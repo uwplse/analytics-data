@@ -253,27 +253,3 @@ dependent destruction TP.
 subst.
 easy.
 Qed.
-Lemma fresh_wtype :
-  forall (w : WType) (\206\147 : Ctx), add_fresh_state w \206\147 = \206\147 ++ add_fresh_state w [].
-Proof.
-(intros).
-generalize dependent \206\147.
-(induction w; unfold add_fresh_state; simpl; try reflexivity; intros).
--
-(induction \206\147; simpl; try reflexivity).
-(rewrite <- IH\206\147).
-reflexivity.
--
-(repeat rewrite add_fresh_split).
-(simpl).
-replace (add_fresh_state w2 (add_fresh_state w1 [])) with
- add_fresh_state w1 [] ++ add_fresh_state w2 [] by (rewrite <- IHw2; reflexivity).
-(rewrite IHw2).
-(rewrite IHw1).
-(rewrite app_assoc).
-reflexivity.
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqTRDGmZ"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
