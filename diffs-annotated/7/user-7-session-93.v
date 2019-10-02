@@ -13,6 +13,19 @@ Inductive cname : Type :=
   | NInt : _
   | NFlt : _
   | NStr : _.
-Inductive tvar : Type :=
-    nat : _.
-(* Auto-generated comment: Failed. *)
+Inductive ty : Type :=
+  | TCName : cname -> ty
+  | TPair : ty -> ty -> ty
+  | TUnion : ty -> ty -> ty
+  | TRef : ty -> ty
+  | TVar : varid -> ty
+  | TExist : varid -> ty -> ty.
+Definition tint := TCName NInt.
+Definition tflt := TCName NFlt.
+Definition tstr := TCName NStr.
+Definition tIntInt := TPair tint tint.
+Definition vx := 1.
+Definition vy := 2.
+Definition vz := 3.
+Definition tx := TVar vx.
+(* Failed. *)
