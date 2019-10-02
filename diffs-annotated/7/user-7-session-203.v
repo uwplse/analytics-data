@@ -190,8 +190,12 @@ Search -IdSet.Empty.
 (apply IdSetProps.empty_is_empty_2).
 Search -IdSet.Equal.
 Definition ty_empty (t : ty) := forall (w : nat) (v : ty), |-[ w] v <$ t -> False.
-Definition ty_not_empty (t : ty) := exists (w : nat) (v : ty), |-[ w] v <$ t.
-Lemma match_ty__prop : forall t : ty, ty_empty t \/ ty_not_empty t.
-Proof.
+(unfold ty_empty, ty_not_empty).
 (induction t).
+-
+right.
+exists 0,(TCName c).
+(apply match_ty_cname).
+-
+(destruct (IHt1) as [IHt1| [w1 [v1 Hm1]]]; destruct (IHt2) as [IHt2| [w2 [v2 Hm2]]]).
 (* Failed. *)
