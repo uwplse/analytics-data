@@ -32,6 +32,7 @@ Lemma unitary_transpose_id_qubit :
   forall U : Unitary Qubit, unitary_transpose U \226\137\161 id_circ.
 Proof.
 (unfold HOAS_Equiv).
-(intros U \207\129 safe pf_\207\129).
+(intros U \207\129 safe).
+(destruct (unitary_gate_unitary U) as [WF inv]).
 (* Auto-generated comment: Succeeded. *)
 
