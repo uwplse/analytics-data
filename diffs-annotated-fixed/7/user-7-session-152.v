@@ -57,10 +57,5 @@ exists w2.
 (apply match_ty_union_1).
 (apply Hsem; assumption).
 Qed.
-Lemma sem_sub_k_union_2 : forall t t1' t2' : ty, ||- [t]<= [t2'] -> ||- [t]<= [TUnion t1' t2'].
-Proof.
-(intros t1' t2' Hsem).
-(intros w1).
-specialize (Hsem w1).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
