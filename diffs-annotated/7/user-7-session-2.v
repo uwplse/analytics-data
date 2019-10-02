@@ -13,21 +13,17 @@ Require Import Coq.Bool.Bool.
 Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
-Lemma unite_pairs_of_nf__preserves_sub_r :
-  forall t1 t1' t2 t2' : ty,
-  InNF( t1) -> InNF( t1') -> InNF( t2) -> InNF( t2') -> |- t1 << t1' -> |- t2 << t2' -> |- unite_pairs t1 t2 << unite_pairs t1' t2'.
+Lemma atom_sub_r_union__sub_r_component : forall t t1' t2' : ty, |- t << TUnion t1' t2' -> atom_type t -> |- t << t1' \/ |- t << t2'.
 Proof.
-(intros t1 t1' t2 t2' Hnf1).
-(induction Hnf1).
+(intros t t1' t2' Hsub).
+(remember (TUnion t1' t2') as t' eqn:Heq ).
+(induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ])).
 -
-(intros Hnf1'; induction Hnf1').
-+
-(intros Hnf2; induction Hnf2).
-*
-(intros Hnf2'; induction Hnf2'; intros Hsub1 Hsub2).
-{
-(rewrite (unite_pairs_of_atomtys _ _ H H1)).
-(rewrite (unite_pairs_of_atomtys _ _ H0 H2)).
-(constructor; assumption).
-}
-(* Failed. *)
+(inversion Heq; subst).
+(left; assumption).
+-
+(inversion Heq; subst).
+(right; assumption).
+-
+(inversion Heq; subst).
+(rewrite (mk_nf_atomty__equal _ Hat) in *).
