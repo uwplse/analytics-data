@@ -114,5 +114,8 @@ Proof.
 (induction l).
 (simpl).
 -
+(induction r; try reflexivity).
+(simpl).
+(destruct a).
 (* Auto-generated comment: Succeeded. *)
 
