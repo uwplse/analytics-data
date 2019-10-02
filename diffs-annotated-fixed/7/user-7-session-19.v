@@ -70,11 +70,7 @@ clear IHv.
 (intros Hm).
 (pose proof Hm as Href).
 (simpl in Href).
-exists v.
-split.
-reflexivity.
-(intros v').
-specialize (Href v').
-(destruct Href; split; assumption).
+(pose proof Hm as Href).
+(simpl in Href).
 (* Auto-generated comment: Failed. *)
 
