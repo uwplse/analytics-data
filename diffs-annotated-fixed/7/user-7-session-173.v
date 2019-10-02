@@ -99,5 +99,6 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
+Next Obligation.
 (* Auto-generated comment: Failed. *)
 
