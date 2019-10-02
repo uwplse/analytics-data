@@ -16,15 +16,6 @@ Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
-(inversion Hnf1; subst).
-(inversion Hnf2; subst).
-(inversion H; subst).
-(inversion H0; subst).
-(remember (TRef t') as tx eqn:Heqx ).
-(induction Hsub2; inversion Heqx; subst).
-+
-(apply SR_UnionR1; tauto).
-+
-(apply SR_UnionR2; tauto).
-+
+Lemma eq_r_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t1 -> |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
+Proof.
 (* Failed. *)
