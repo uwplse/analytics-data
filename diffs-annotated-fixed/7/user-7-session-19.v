@@ -80,6 +80,6 @@ Proof.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 (intros v Hv).
-(split; auto).
+(split; intros Hm; auto).
 (* Auto-generated comment: Failed. *)
 
