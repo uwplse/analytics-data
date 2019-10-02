@@ -952,5 +952,3 @@ Print Ltac Signatures.
 Timeout 1 About id_kron.
 restore_dims.
 mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1630\226\159\169 with I 1 by lma.
-Msimpl.
-restore_dims.
