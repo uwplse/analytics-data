@@ -312,7 +312,5 @@ Proof.
 (exfalso; lia).
 -
 (destruct d; simpl in *).
-(assert (a = 0) by lia; subst).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
