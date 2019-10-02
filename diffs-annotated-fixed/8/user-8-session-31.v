@@ -2817,5 +2817,7 @@ dependent destruction t.
 (rewrite Nat.add_succ_r).
 specialize (apply_U_correct Qubit) as AUC.
 (simpl in AUC).
-(* Auto-generated comment: Succeeded. *)
+unify_pows_two.
+(rewrite Nat.add_1_r).
+(* Auto-generated comment: Failed. *)
 
