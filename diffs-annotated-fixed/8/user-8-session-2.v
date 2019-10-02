@@ -140,6 +140,6 @@ Opaque firstn.
 Opaque rev.
 Opaque skipn.
 (simpl).
-(rewrite ctrl_list_to_unitary_transpose).
+restore_dims.
 (* Auto-generated comment: Failed. *)
 
