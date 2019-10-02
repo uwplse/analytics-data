@@ -46,4 +46,5 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqToWrV3"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
-(simpl).
+(dependent destruction u; simpl; reflexivity).
+(* Failed. *)
