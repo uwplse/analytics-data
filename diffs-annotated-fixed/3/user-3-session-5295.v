@@ -231,5 +231,10 @@ Theorem equal_after_diskUpd :
   equal_after a (diskUpd d_0 a b) (diskUpd d_1 a b).
 Proof.
 (unfold equal_after; intuition).
-(* Auto-generated comment: Succeeded. *)
+-
+(autorewrite with upd; eauto).
+-
+(apply le_eq_or_S_le in H1; intuition subst).
+(destruct (lt_dec a' (diskSize d_0)); autorewrite with upd).
+(* Auto-generated comment: Failed. *)
 
