@@ -423,6 +423,6 @@ clear IHt.
 (inversion Hle; subst).
 +
 (simpl).
-auto.
+(intros v Hv).
 (* Auto-generated comment: Failed. *)
 
