@@ -40,6 +40,5 @@ matrix_denote.
 setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
 (repeat rewrite Mmult_assoc).
-restore_dims.
 (* Auto-generated comment: Succeeded. *)
 
