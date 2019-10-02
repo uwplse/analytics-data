@@ -15,6 +15,5 @@ Open Scope btjnf_scope.
 Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 Check unite_pairs_union_t.
-(rewrite (unite_pairs_union_t t1 t0 t2)).
-(destruct (atom_sub_r_union__sub_r_component _ _ _ Hsub1 H) as [Hsub11| Hsub12]; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
+(apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 (* Failed. *)
