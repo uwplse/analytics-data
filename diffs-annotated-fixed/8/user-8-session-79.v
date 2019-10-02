@@ -1033,5 +1033,8 @@ restore_dims tensor_tac.
  end; try (solve [ type_check ])).
 Set Printing All.
 restore_dims tensor_tac.
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(simpl).
+(rewrite IP).
+(* Auto-generated comment: Succeeded. *)
 
