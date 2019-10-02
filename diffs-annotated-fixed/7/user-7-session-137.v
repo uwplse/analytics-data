@@ -15,11 +15,14 @@ Require Import Coq.Bool.Bool.
 Lemma sem_sub_fresh_var__sem_sub_exist :
   forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
 Proof.
-Lemma sem_eq_k_exist_fresh : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]= [t].
+Lemma sem_sub_k_exist_fresh_l : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]<= [t].
 Proof.
 (intros k X t).
 (induction t; intros Hfresh).
 -
-split.
+(intros w1).
+exists w1.
+(intros v Hm).
+(destruct w1).
 (* Auto-generated comment: Failed. *)
 
