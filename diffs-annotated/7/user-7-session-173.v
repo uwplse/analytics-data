@@ -85,4 +85,17 @@ assumption.
 -
 (destruct (beq_idP x i); reflexivity).
 Qed.
+Function
+ subst (x : id) (s t : ty) {measure size t} : ty :=
+   match t with
+   | TCName _ => t
+   | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
+   | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
+   | TExist y t' =>
+       if IdSet.mem y (FV s)
+       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
+       else TExist y (if beq_id x y then t' else subst x s t')
+   | TVar y => if beq_id x y then s else t
+   | TEV y => t
+   end.
 (* Failed. *)
