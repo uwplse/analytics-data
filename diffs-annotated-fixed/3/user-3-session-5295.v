@@ -768,6 +768,105 @@ step.
 +
 step.
 intuition eauto.
+{
 simplify.
-(* Auto-generated comment: Failed. *)
+}
+step.
+(exists d,(OutOfSync a b); simplify; finish).
+step.
+Qed.
+Theorem Recover_spec_idempotent : idempotent Recover_spec.
+Proof.
+(unfold idempotent).
+(destruct a as [d st]).
+(intuition; simplify).
+(destruct st; intuition eauto).
+-
+(exists d,FullySynced; finish).
+-
+(exists d,FullySynced; finish).
+-
+(exists d,(OutOfSync a b); finish).
+-
+(exists (diskUpd d a b),FullySynced; finish).
+Qed.
+Theorem Recover_ok : proc_loopspec Recover_spec Recover td.recover td.abstr.
+Proof.
+(eapply idempotent_loopspec; simpl).
+-
+(apply Recover_rok).
+-
+(apply Recover_spec_idempotent).
+Qed.
+Hint Resolve Recover_ok: core.
+Definition recover : proc unit := _ <- td.recover; Recover.
+Definition rd_abstraction (state : TwoDiskBaseAPI.State)
+  (d : OneDiskAPI.State) : Prop :=
+  disk0 state ?|= eq d /\ disk1 state ?|= eq d.
+Definition abstr : Abstraction OneDiskAPI.State :=
+  abstraction_compose td.abstr {| abstraction := rd_abstraction |}.
+Theorem init_ok : init_abstraction init recover abstr inited_any.
+Proof.
+(intros).
+(eapply then_init_compose; eauto).
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; intros).
+(destruct state; simpl in *).
+-
+(exists (d_0, d_1); simpl; intuition eauto).
+(unfold rd_abstraction).
+(destruct v; repeat deex; eauto).
+-
+(exists (d_0, d_0); simpl; intuition eauto).
+(unfold rd_abstraction).
+(destruct v; repeat deex; eauto).
+-
+(exists (d_1, d_1); simpl; intuition eauto).
+(unfold rd_abstraction).
+(destruct v; repeat deex; eauto).
+Qed.
+Theorem read_ok : forall a, proc_spec (read_spec a) (read a) recover abstr.
+Proof.
+(intros).
+(apply spec_abstraction_compose; simpl).
+(eapply compose_recovery; eauto; simplify).
+(unfold rd_abstraction in *; descend; intuition eauto).
+(exists (state2, FullySynced); simplify; finish).
+Qed.
+Theorem write_ok :
+  forall a v, proc_spec (write_spec a v) (write a v) recover abstr.
+Proof.
+(intros).
+(apply spec_abstraction_compose; simpl).
+(eapply compose_recovery; eauto; simplify).
+rename state2 into d.
+(unfold rd_abstraction in *; descend; intuition eauto).
+-
+(exists (d, FullySynced); simplify; intuition eauto).
+-
+(exists (d, OutOfSync a v); simplify; intuition eauto).
+-
+(exists (diskUpd d a v, FullySynced); simplify; intuition eauto).
+Qed.
+Theorem size_ok : proc_spec size_spec size recover abstr.
+Proof.
+(intros).
+(apply spec_abstraction_compose; simpl).
+(eapply compose_recovery; eauto).
+(intros; apply exists_tuple2).
+(destruct a; simpl in *).
+rename s into d.
+(unfold rd_abstraction in *; simplify).
+(exists d,d; intuition eauto).
+simplify.
+(exists d,FullySynced; simplify; finish).
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(eapply rec_wipe_compose; eauto; simpl).
+(autounfold; unfold rd_abstraction, Recover_spec; simplify).
+(exists state0',FullySynced; intuition eauto).
+Qed.
+End ReplicatedDisk.
+(* Auto-generated comment: Succeeded. *)
 
