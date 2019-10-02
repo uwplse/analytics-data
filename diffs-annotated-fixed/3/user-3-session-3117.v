@@ -92,6 +92,6 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-replace (`zero_v).
+(rewrite H, IHn).
 (* Auto-generated comment: Succeeded. *)
 
