@@ -51,5 +51,5 @@ Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
 (simpl_rewrite @denote_unitary_transpose).
-autorewrite with M_light_db M_db in WFS.
-(* Failed. *)
+autorewrite with M_db_light M_db in WFS.
+(apply WFS).
