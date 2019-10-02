@@ -28,14 +28,6 @@ Inductive value_type : ty -> Prop :=
   | VT_Ref : forall t, value_type (TRef t).
 Hint Constructors value_type: DBBetaJulia.
 Declare Scope btjm_scope.
-Reserved Notation "'|' t '|'" (at level 20).
-Fixpoint inv_depth (t : ty) :=
-  match t with
-  | TCName _ => 0
-  | TPair t1 t2 => Nat.max (| t1 |) (| t2 |)
-  | TUnion t1 t2 => Nat.max (| t1 |) (| t2 |)
-  | TRef t' => 1 + | t' |
-  end
-where "'|'t'|'" := (inv_depth t) : btjm_scope.
+Reserved Notation "'|'t'|'" (at level 20).
 (* Auto-generated comment: Failed. *)
 
