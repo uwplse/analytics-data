@@ -648,9 +648,11 @@ reflexivity.
 Qed.
 Lemma big_kron_append :
   forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
+Lemma big_kron_append :
+  forall m n (l1 l2 : list (Matrix m n)),
+  m <> 0 -> n <> 0 -> \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
 Proof.
 (induction l1).
--
 -
 (intros).
 (simpl).
@@ -660,10 +662,6 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
-Timeout 1 About restore_dims.
-Timeout 1 Print restore_dims.
-Timeout 1 Print Ltac restore_dims.
-Timeout 1 About length_app.
 restore_dims try rewrite app_length; try rewrite Nat.pow_add_r; lia.
 (rewrite kron_assoc').
 (* Auto-generated comment: Succeeded. *)
