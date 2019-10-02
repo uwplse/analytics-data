@@ -227,6 +227,10 @@ Ltac
   | _ => idtac
   end.
 Lemma crash_step_simp s s' r :
-  Var.dynamics.(crash_step) s s' r -> s' = (0, 0).
-(* Auto-generated comment: Failed. *)
+  Var.dynamics.(crash_step) s (Val s' r) ->
+  s' = (0, 0).
+Proof.
+(compute; auto).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
