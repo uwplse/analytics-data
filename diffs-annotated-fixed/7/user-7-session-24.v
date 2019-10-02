@@ -137,17 +137,10 @@ Inductive sub_d : ty -> ty -> Prop :=
   | SD_Distr1 : forall t11 t12 t2, |- TPair (TUnion t11 t12) t2 << TUnion (TPair t11 t2) (TPair t12 t2)
   | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
   | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
- where "|- t1 '<<' t2" := (sub_d t1 t2) : btj_scope.
-Inductive sub_d : ty -> ty -> Prop :=
-  | SD_Refl : forall t, |- t << t
-  | SD_Trans : forall t1 t2 t3, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3
-  | SD_Pair : forall t1 t2 t1' t2', |- t1 << t1' -> |- t2 << t2' -> |- TPair t1 t2 << TPair t1' t2'
-  | SD_UnionL : forall t1 t2 t, |- t1 << t -> |- t2 << t -> |- TUnion t1 t2 << t
-  | SD_UnionR1 : forall t1 t2, |- t1 << TUnion t1 t2
-  | SD_UnionR2 : forall t1 t2, |- t2 << TUnion t1 t2
-  | SD_Distr1 : forall t11 t12 t2, |- TPair (TUnion t11 t12) t2 << TUnion (TPair t11 t2) (TPair t12 t2)
-  | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
-  | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
  where "|- t1 '<<' t2" := (sub_d t1 t2) : btjd_scope.
+Hint Constructors sub_d: DBBetaJulia.
+Lemma union_right_1 : forall t t1 t2 : ty, |- t << t1 -> |- t << TUnion t1 t2.
+Proof.
+auto with DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
