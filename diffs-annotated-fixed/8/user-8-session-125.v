@@ -33,6 +33,6 @@ Lemma unitary_transpose_id_qubit :
 Proof.
 (unfold HOAS_Equiv).
 (intros U \207\129 safe).
-(destruct (unitary_gate_unitary U) as [WF inv]).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
