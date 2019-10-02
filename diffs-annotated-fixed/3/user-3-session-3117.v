@@ -117,6 +117,7 @@ Check Ascii.nat_ascii_bounded.
 Theorem nat_ascii_bounded : forall a, Ascii.nat_of_ascii a < 256.
 Proof.
 (destruct a; simpl; intros).
-(unfold Ascii.nat_of_ascii; simpl).
+Search -"-" -"<".
+(apply Nat.sub_lt).
 (* Auto-generated comment: Succeeded. *)
 
