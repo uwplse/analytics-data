@@ -67,12 +67,12 @@ exists (TPair v1' v2').
   [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
 -
 (destruct (beq_idP X i)).
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
 +
 subst.
 (simpl in *).
+(rewrite <- beq_id_refl in *).
 (exists v; assumption).
 +
-(destruct (beq_id_false_iff X i) as [_ Hid]).
-specialize (Hid n).
 (* Auto-generated comment: Failed. *)
 
