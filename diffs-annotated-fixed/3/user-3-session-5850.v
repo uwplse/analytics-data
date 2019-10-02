@@ -276,6 +276,21 @@ Unset Search Output Name Only.
 Qed.
 Theorem andb_false_r : forall b : bool, andb b false = false.
 Proof.
+-
 reflexivity.
-(* Auto-generated comment: Failed. *)
+-
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqg1BaVA"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem plus_ble_compat_l :
+  forall n m p : nat, leb n m = true -> leb (p + n) (p + m) = true.
+Proof.
+(intros).
+(induction n as [| n' IHn']).
+(* Auto-generated comment: Succeeded. *)
 
