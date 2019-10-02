@@ -283,14 +283,13 @@ econstructor.
 (econstructor; eauto).
 Qed.
 End AGT_Spec.
+Require Import Coq.Lists.List.
 Module AGT_Bounded_Rows_Details.
-Search -unique.
-Search -uniqueness.
 Definition label := nat.
 Inductive ST : Type :=
   | SInt : ST
   | SBool : ST
   | SFun : ST -> ST -> ST
   | SRec : forall l : list (label * ST)%type, NoDup (map fst l) -> ST.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
