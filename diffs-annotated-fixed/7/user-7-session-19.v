@@ -415,6 +415,7 @@ Proof.
    end).
 -
 Lemma nf_sem_sub_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
+Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
 (induction k;
   match goal with
@@ -446,6 +447,7 @@ admit.
 admit.
 -
 (intros t Hnft _ Hdep t2).
+(assert (Hva : value_type (TRef t)) by constructor).
 (assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
 +
@@ -453,9 +455,11 @@ admit.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
 +
 (simpl in Hdep).
+(pose proof (le_S_n _ _ Hdep) as Hdep').
 (pose proof Hsem as Hsem').
 (unfold sem_sub_k_i in Hsem).
 specialize (Hsem _ Hma).
+(apply match_ty_i_ref__inv in Hsem).
 (destruct Hsem as [t' [Heqt' Href]]).
 (inversion Heqt'; subst).
 clear Heqt'.
@@ -470,11 +474,26 @@ constructor.
 (apply IHk).
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf).
-Check sem_eq_k_i__inv_depth_eq_1.
 (pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href) as Hdepeq).
 (rewrite <- Hdepeq; assumption).
 admit.
 }
 Admitted.
+Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+Proof.
+(intros t Hnf t' Hsem).
+(apply nf_sem_sub_k_i__sub_d with (| t |)).
+assumption.
+constructor.
+(apply Hsem).
+Qed.
+Theorem sub_d__semantic_complete : forall t1 t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
+Proof.
+(intros t1 t2 Hsem).
+(apply SD_Trans with (MkNF( t1))).
+(apply mk_nf__sub_d2; assumption).
+(apply nf_sem_sub__sub_d).
+(apply mk_nf__in_nf).
+(eapply sem_sub_i__trans; try eassumption).
 (* Auto-generated comment: Failed. *)
 
