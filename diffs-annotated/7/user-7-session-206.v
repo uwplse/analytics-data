@@ -46,5 +46,5 @@ Search -Morphisms.Proper.
 setoid_rewrite Hfact.
 Check Hfact.
 Print Morphisms.Proper.
-specialize (Hfact _ _ _ (FBV t) Ht).
+specialize (Hfact _ _ _ (FBV t) IdSet.empty Ht).
 (* Failed. *)
