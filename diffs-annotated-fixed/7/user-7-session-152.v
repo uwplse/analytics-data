@@ -56,6 +56,7 @@ exists w2.
 (intros v Hm).
 (apply match_ty_union_1).
 (apply Hsem; assumption).
-Qed.
-(* Auto-generated comment: Failed. *)
+(intros w1 t1' t2' Hsem).
+(intros w1).
+(* Auto-generated comment: Succeeded. *)
 
