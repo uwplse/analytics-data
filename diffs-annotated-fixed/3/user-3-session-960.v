@@ -246,10 +246,6 @@ typeclasses eauto.
 (intros; simpl).
 (decide equality; subst).
 (decide equality; subst).
-(decide equality; subst).
-(destruct x, y; simpl).
-(destruct (nat_eq_dec n n0); subst).
-left.
-Search -(existT _ _ = existT _ _) -projT2.
-(* Auto-generated comment: Succeeded. *)
+typeclasses eauto.
+(* Auto-generated comment: Failed. *)
 
