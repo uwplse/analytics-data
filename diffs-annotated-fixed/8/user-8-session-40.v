@@ -71,5 +71,6 @@ Proof.
 (destruct safe).
 -
 matrix_denote.
+Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
