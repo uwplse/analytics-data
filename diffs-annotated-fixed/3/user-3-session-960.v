@@ -283,7 +283,11 @@ Proof.
 econstructor.
 -
 (simpl).
-Check pretty.pretty_nat_inj.
 (apply pretty.pretty_nat_inj).
-(* Auto-generated comment: Succeeded. *)
+-
+(simpl).
+(unfold bounded_to_ascii, ascii_to_bounded).
+(intros).
+(destruct c; simplo).
+(* Auto-generated comment: Failed. *)
 
