@@ -167,6 +167,13 @@ exists tx.
 (apply IHw).
 assumption.
 (apply le_S_n; assumption).
+Qed.
+Proof.
+(intros v1 v2 t3 Hv2).
+generalize dependent t3.
+generalize dependent v1.
+(induction Hv2).
 -
+(intros v1 t3 k Hm1 Hm2).
 (* Auto-generated comment: Failed. *)
 
