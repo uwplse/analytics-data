@@ -51,9 +51,6 @@ Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
 (simpl_rewrite @denote_unitary_transpose).
-reflexivity.
-Qed.
-Transparent rev skipn.
 Lemma apply_unitary_unitary :
   forall W n (u : Unitary W) l, length l = \226\159\166 W \226\159\167 -> (forall x, In x l -> x < n)%nat -> WF_Unitary (apply_unitary n u l).
 Proof.
@@ -63,7 +60,6 @@ Proof.
 (simpl).
 (destruct l; try (solve [ inversion L ])).
 (simpl).
-Search -WF_Unitary.
 specialize (LT n0 (or_introl eq_refl)).
 replace (2 ^ n)%nat with (2 ^ n0 * 2 * 2 ^ (n - n0 - 1))%nat by unify_pows_two.
 (repeat apply kron_unitary; try apply id_unitary; try apply unitary_gate_unitary).
@@ -72,5 +68,5 @@ specialize (unitary_gate_unitary u) as UU.
 -
 (dependent destruction u; apply denote_ctrls_unitary; auto).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqF87eaj" Print Ltac Signatures.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqU73lTe" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
