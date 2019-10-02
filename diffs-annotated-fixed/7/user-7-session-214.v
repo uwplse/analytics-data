@@ -247,6 +247,6 @@ Proof.
 (intros Y s X t HX).
 (induction t; try (solve [ simpl; assumption ])).
 -
-(destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
+(unfold f_free_in_ty).
 (* Auto-generated comment: Failed. *)
 
