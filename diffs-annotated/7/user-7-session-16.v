@@ -332,5 +332,9 @@ Lemma nf_sub_r__decidable : forall t1 t2 : ty, InNF( t1) -> Decidable.decidable 
 Proof.
 (intros t1 t2 Hnf1).
 generalize dependent t2.
-(induction Hnf1).
-(* Auto-generated comment: Failed. *)
+Check in_nf.
+(apply
+  (in_nf_mut (fun (t1 : ty) (Hat : atom_type t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2))
+     (fun (t1 : ty) (Hnf : in_nf t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2)))).
+-
+(* Failed. *)
