@@ -133,7 +133,9 @@ Lemma sub_r_nf__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> InNF( t1) -> I
 Proof.
 (intros t1 t2 t3 Hsub1).
 generalize dependent t3.
-Lemma eq_r_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t1 -> |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
+Lemma eq_r_trans :
+  forall t1 t2 : ty, |- t1 << t2 -> |- t2 << t1 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
 Proof.
+(intros t1 t2 Hsub1).
 (* Auto-generated comment: Failed. *)
 
