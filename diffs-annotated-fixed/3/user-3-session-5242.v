@@ -139,6 +139,28 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 (step_proc_basic; intros).
+{
 eauto.
-(* Auto-generated comment: Failed. *)
+}
+(destruct a; simpl in *).
+intuition eauto.
+Qed.
+End StatDB.
+Require Import VariablesImpl.
+Module StatDBImpl:=  StatDB Vars.
+Print Assumptions StatDBImpl.abstr_2_nok.
+Print Assumptions StatDBImpl.abstr_3_ok.
+Print Assumptions StatDBImpl.add_ok.
+Print Assumptions StatDBImpl.mean_ok.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmVeOrX"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZVZcDg"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+(* Auto-generated comment: Succeeded. *)
 
