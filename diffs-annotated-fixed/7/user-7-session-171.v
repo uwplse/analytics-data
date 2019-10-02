@@ -8,6 +8,7 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
+Require Import Coq.Program.Wf.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -70,8 +71,8 @@ Fixpoint size (t : ty) :=
   | TEV z => 1
   end.
 Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
+Proof.
 (intros x y).
-(induction t; simpl; try reflexivity).
 (induction t; simpl; try (solve [ reflexivity | rewrite IHt1; rewrite IHt2; reflexivity ])).
 -
 (apply f_equal).
@@ -99,5 +100,5 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
