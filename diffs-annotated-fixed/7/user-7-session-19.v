@@ -149,7 +149,7 @@ Proof.
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem).
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem).
 (try match goal with
-     | Hsem:forall v, value_type v -> |-[ ?k] v <$ TCName ?c -> _ |- _ => idtac
+     | Hsem:forall v, value_type v -> |-[ ?k] v <$ TCName ?c -> _ |- _ => assert (Hvv : value_type (TCName c)) by constructor
      end).
 (* Auto-generated comment: Failed. *)
 
