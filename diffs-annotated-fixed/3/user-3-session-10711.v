@@ -476,5 +476,37 @@ step.
 intuition.
 {
 (exists (bs ++ v); intuition eauto).
+}
+{
+(exists (bs ++ v); intuition eauto).
+}
+-
+step.
+intuition eauto.
+Qed.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+(unfold reset; intros).
+(apply spec_abstraction_compose).
+step.
+(destruct a' as [[] bs]; simpl in *).
+intuition.
+{
+(exists bs; intuition eauto).
+}
+step.
+intuition eauto.
+{
+(exists []; intuition eauto).
+(apply log_abstraction_nil with (b := r); auto).
+(rewrite diskUpd_eq; eauto).
+}
+{
+(exists []; intuition eauto).
+(apply log_abstraction_nil with (b := r); auto).
+(rewrite diskUpd_eq; eauto).
+}
+Qed.
+End Log.
 (* Auto-generated comment: Succeeded. *)
 
