@@ -53,4 +53,16 @@ Timeout 1 About ctrls_to_list.
 Lemma denote_ctrls_transpose :
   forall W (n : nat) (u : Unitary W) li,
   (forall x, In x li -> x < n)%nat -> (length li = \226\159\166 W \226\159\167)%nat -> denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
-specialize (ctrls_to_list_spec _ _ _ _ _ _ _ H0 E) as S.
+specialize (ctrls_to_list_spec _ _ _ _ _ _ _ H0 E) as [L I].
+specialize (H _ I).
+(match goal with
+ | |- ?A => let A' := restore_dims_rec idtac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+(unify_matrix_dims idtac).
+(rewrite rev_length).
+(rewrite skipn_length, firstn_length).
