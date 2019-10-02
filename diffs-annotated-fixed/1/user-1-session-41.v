@@ -670,6 +670,53 @@ all: congruence.
   | H:exists _, _ |- _ => destruct H
   | H:_ \/ _ |- _ => inversion H; clear H
   end).
-specialize (H _ H8).
+specialize (H _ H7).
+specialize (H2 _ H7).
+2: specialize (H _ H4).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+all: congruence.
+-
+congruence.
+Qed.
+Lemma alpha_rec_inversion :
+  forall S,
+  (forall X, Ensembles.In _ S X -> exists l, X = SRec l) ->
+  forall G, Alpha S G -> (exists l, G = GRec l) \/ (exists l, G = GRow l).
+Proof.
+(intros).
+(inversion H0; subst).
+-
+specialize (H _ (In_singleton _ _)).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+congruence.
+-
+specialize (H _ (In_singleton _ _)).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+congruence.
+-
+(inversion H1).
+specialize (H _ H5).
+specialize (H2 _ H5).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+congruence.
+-
+eauto.
 (* Auto-generated comment: Succeeded. *)
 
