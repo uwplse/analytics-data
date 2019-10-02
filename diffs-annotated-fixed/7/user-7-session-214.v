@@ -248,5 +248,6 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 (unfold f_free_in_ty, free).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
