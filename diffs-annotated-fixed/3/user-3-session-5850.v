@@ -357,6 +357,7 @@ reflexivity.
 -
 (simpl).
 (rewrite IHn').
-(rewrite mul_assoc).
+(rewrite plus_assoc).
+reflxivity.
 (* Auto-generated comment: Failed. *)
 
