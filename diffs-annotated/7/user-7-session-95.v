@@ -75,7 +75,7 @@ Fixpoint match_ty (k : nat) :=
       | 0, TRef t', TRef t => True
       | S k, TRef t', TRef t => forall v, |-[ k] v <$ t' <-> |-[ k] v <$ t
       | _, _, TVar _ => False
-      | 0, v, TExist _ t' => mty v t'
+      | 0, v, TExist _ t' => mty' v t'
       | S k, v, TExist X t' => exists tx, |-[ k] v <$ [X := tx] t'
       | _, _, _ => False
       end
