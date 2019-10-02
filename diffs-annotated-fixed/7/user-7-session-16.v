@@ -39,6 +39,8 @@ Qed.
 Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Lemma sub_r_nf_ref__inv : forall t t' : ty, InNF( t') -> InNF( t') -> |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
+Lemma sub_r_nf_ref__inv : forall t t' : ty, InNF( t) -> InNF( t') -> |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
+Proof.
 (intros t t' Hnf Hnf' Hsub).
 (remember (TRef t) as t1 eqn:Heq1 ).
 (remember (TRef t') as t2 eqn:Heq2 ).
@@ -46,5 +48,6 @@ Proof.
 tauto.
 (apply IHHsub; try tauto).
 (apply mk_nf_nf__equal).
+constructor.
 (* Auto-generated comment: Failed. *)
 
