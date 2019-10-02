@@ -165,6 +165,6 @@ Proof.
 (apply spec_abstraction_compose).
 (simpl).
 (unfold recover).
-Check d.read_ok.
-(* Auto-generated comment: Succeeded. *)
+proc_spec_weaken.
+(* Auto-generated comment: Failed. *)
 
