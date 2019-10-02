@@ -178,8 +178,14 @@ Proof.
 auto with DBBetaJulia.
 Qed.
 Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
+Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
 Proof.
-(intros; split; auto).
+(intros; split; tauto).
 Qed.
+Lemma sem_eq_k__comm : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
+Proof.
+auto with DBBetaJulia.
+(intros k t1 t2 Hsem).
+auto with DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
