@@ -68,5 +68,6 @@ Msimpl.
 (unfold swap_list; simpl).
 (unfold swap_two; simpl).
 Msimpl.
-(* Auto-generated comment: Succeeded. *)
+(rewrite Mmult_assoc).
+(* Auto-generated comment: Failed. *)
 
