@@ -416,4 +416,72 @@ CoFixpoint match_app_event {X} (e0 : appE id X) (x0 : X) (t : itree taE unit) : 
       | (|(e|)) | (||e|) | (|||e) => vis e (match_event e0 x0 \226\136\152 k)
       end
   end.
+CoFixpoint match_app_event {X} (e0 : appE id X) (x0 : X) (t : itree taE unit) : itree taE unit :=
+  match t.(observe) with
+  | RetF r => Ret r
+  | TauF t => Tau (match_app_event e0 x0 t)
+  | VisF e k =>
+      match e with
+      | (te|) =>
+          match e0 in (appE _ X), te in (appE _ Y) return ((Y -> _) -> X -> _) with
+          | App_Recv, App_Recv => id
+          | App_Send m1, App_Send m2 => if m1 = m2 ? then id else fun _ _ => throw (Err_Mismatch e0 te)
+          | _, _ => fun _ _ => throw (Err_Mismatch e0 te)
+          end k x0
+      | (|(e|)) | (||e|) | (|||e) => vis e (match_app_event e0 x0 \226\136\152 k)
+      end
+  end.
+Timeout 1 Print Grammar tactic.
+End App.
+Module Network.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Instance showPlainMessage : (Show plain_message) :=
+ {|
+ show := fun pm =>
+         match pm with
+         | PlainMessage_Hello messageRandom messagePublic =>
+             "Hello! random: " ++ show messageRandom ++ ", public key: " ++ show messagePublic
+         | PlainMessage_Finished verifyData => "Finished! verify data: " ++ show verifyData
+         | PlainMessage_AppData kvsData => "Application Data! " ++ show kvsData
+         | PlainMessage_BadRequest => "Bad Request!"
+         end |}.
+Inductive message :=
+  | Message_Plain : forall plainMessage : plain_message, _
+  | Message_Cipher : forall cipherMessage : cipher_text plain_message, _.
+Derive Show for message.
+Definition Message_Finished (k : shared_key) (verifyData : N) : message :=
+  Message_Cipher (cipher k (PlainMessage_Finished verifyData)).
+Definition Message_Hello (messageRandom : random) (messagePublic : public_key) : message :=
+  Message_Plain (PlainMessage_Hello messageRandom messagePublic).
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Import App.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Derive Show for error.
+Notation hsE := (networkE +' exceptE error +' hsgenE).
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} (k : shared_key) 
+  T (ae : appE id T) : itree nE T :=
+  match ae with
+  | App_Recv =>
+      msg <- trigger Network_Recv;;
+      match msg with
+      | Message_Plain _ => throw Error_UnexpectedMessage
+      | Message_Cipher msg =>
+          match decipher k msg with
+          | Some msg =>
+              match msg with
+              | PlainMessage_AppData data => ret data
+              | _ => throw Error_UnexpectedMessage
+              end
+          | None => throw Error_UnexpectedMessage
+          end
+      end
+  | App_Send data => embed Network_Send (Message_Cipher (cipher k (PlainMessage_AppData data)))
+  end.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqpfIkPc" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Print taE.
 (* Failed. *)
