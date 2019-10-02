@@ -30,5 +30,7 @@ Proof.
 (right; assumption).
 -
 subst.
+Search -mk_nf.
+(rewrite (mk_nf_nf__equal t) in Hsub).
 (* Auto-generated comment: Failed. *)
 
