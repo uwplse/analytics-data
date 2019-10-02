@@ -1033,5 +1033,7 @@ Ltac
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
+(simpl).
+(rewrite ctx_to_mat_list_length).
 (* Auto-generated comment: Succeeded. *)
 
