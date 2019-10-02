@@ -33,6 +33,9 @@ Lemma sem_sub_k_pair__inv :
 Proof.
 (intros t1 t2 t1' t2' k Hdep Hsem).
 Check value_type_matching_ty__exists.
-(destruct (value_type_matching_ty__exists t1 k Hdep) as [pv1 [Hpval1 Hpv1]]).
-(* Auto-generated comment: Failed. *)
+Check value_type_matching_ty__exists.
+(destruct (value_type_matching_ty__exists t1 k Hdep1) as [pv1 [Hpval1 Hpv1]]).
+(destruct (value_type_matching_ty__exists t2 k Hdep2) as [pv2 [Hpval2 Hpv2]]).
+(split; intros v Hv Hm).
+(* Auto-generated comment: Succeeded. *)
 
