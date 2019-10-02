@@ -85,7 +85,6 @@ Lemma sem_sub_k_pair__inv :
   forall (k : nat) (t1 t2 t1' t2' : ty), ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
 Proof.
 (intros k t1 t2 t1' t2' Hsem).
-(split; intros w1; specialize (Hsem w1); destruct Hsem as [w2 Hsem]).
--
-(destruct (match_ty__exists_w_v t2 k) as [w22 [v2 Hm2]]).
-(* Auto-generated comment: Failed. *)
+(split; intros w1; specialize (Hsem w1); destruct Hsem as [w2 Hsem]; destruct (match_ty__exists_w_v t1 k) as [w21 [v1 Hm1]];
+  destruct (match_ty__exists_w_v t2 k) as [w22 [v2 Hm2]]).
+(* Failed. *)
