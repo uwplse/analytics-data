@@ -83,6 +83,5 @@ Search -nat -string.
 Search -"endian".
 Search -"digit".
 Print strings.ascii_of_digits.
-Print Ascii.shift.
 (* Auto-generated comment: Succeeded. *)
 
