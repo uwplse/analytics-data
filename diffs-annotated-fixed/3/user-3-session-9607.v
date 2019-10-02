@@ -304,5 +304,5 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 (eapply proc_spec_weaken;
   [ solve [ eauto ] | unfold spec_impl; cbn[pre post recovered] ]).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
