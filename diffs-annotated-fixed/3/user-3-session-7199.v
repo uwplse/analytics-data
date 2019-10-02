@@ -186,6 +186,6 @@ eauto using log_length_ok_nil.
 (unfold log_size_ok).
 (destruct d; simpl in *; [  | lia ]).
 (assert (diskGet nil 0 = None)).
-Check diskGet_oob_eq.
+(apply diskGet_oob).
 (* Auto-generated comment: Failed. *)
 
