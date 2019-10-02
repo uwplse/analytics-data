@@ -134,7 +134,5 @@ Msimpl.
 (rewrite (Mmult_assoc \207\129 _ A)).
 (rewrite inv).
 (rewrite inv by (subst; rewrite size_wtype_length; easy)).
-Msimpl.
-(rewrite Mmult_assoc).
 (* Auto-generated comment: Succeeded. *)
 
