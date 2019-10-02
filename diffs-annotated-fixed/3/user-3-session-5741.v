@@ -428,6 +428,12 @@ Theorem mult_S_1 : forall n m : nat, m = S n -> m * (1 + n) = m * m.
 Proof.
 (intros n m H).
 (rewrite H).
-(simpl).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqUBWrf3"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
