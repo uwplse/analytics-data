@@ -613,6 +613,14 @@ Theorem negation_fn_applied_twice :
 Proof.
 (intros f Hneg b).
 (rewrite Hneg).
-(rewrite Hfix).
-(* Auto-generated comment: Failed. *)
+(rewrite Hneg).
+(rewrite negb_involutive).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1EQeci"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
