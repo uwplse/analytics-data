@@ -195,5 +195,9 @@ Proof.
 (destruct a'; simpl in *; intuition idtac).
 {
 (destruct (a == r)).
+-
+invert_abstraction.
+(step_proc; intuition idtac).
+(step_proc; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
