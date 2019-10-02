@@ -39,6 +39,6 @@ Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
 End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
-Check [Nil (Ident "a") {(Ident "myfun") (Ident "somArg")}].
+Check [Nil (Cons (Ident "1") (Ident "2")) (Ident "a") {(Ident "myfun") (Ident "somArg")}].
 (* Auto-generated comment: Succeeded. *)
 
