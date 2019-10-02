@@ -18,6 +18,5 @@ Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
 (induction Hsub12; inversion Heqx; inversion Heqy; subst; try clear Heqx Heqy).
 (inversion Hsub22; subst).
-{
-(split; constructor; tauto).
+(split; constructor; auto).
 (* Failed. *)
