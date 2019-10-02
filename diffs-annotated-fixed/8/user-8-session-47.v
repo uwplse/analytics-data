@@ -1138,6 +1138,6 @@ Proof.
 (rewrite <- (kron_1_r \207\129)).
 (repeat rewrite kron_mixed_product).
 Msimpl.
-(apply (mixed_state_kron _ _ \207\129 \226\136\1630\226\159\169\226\159\1680\226\136\163)).
+(apply mixed_state_kron).
 (* Auto-generated comment: Succeeded. *)
 
