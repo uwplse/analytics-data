@@ -113,5 +113,5 @@ assumption.
 (destruct Hm as [ti Hm]).
 Check fresh_in_ty_exist_neq__inv.
 (pose proof (fresh_in_ty_exist_neq__inv _ _ _ Hbeq HX') as HX't').
-specialize (IHw' _ HX't' Hm).
-(* Auto-generated comment: Failed. *)
+exists ti.
+(* Failed. *)
