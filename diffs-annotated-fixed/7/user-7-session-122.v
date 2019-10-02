@@ -37,6 +37,7 @@ Proof.
 (intros w1).
 (specialize (Hsem1 w1); specialize (Hsem2 w1)).
 (destruct Hsem1 as [w21 Hsem1]; destruct Hsem2 as [w22 Hsem2]).
-(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]).
+(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; [ apply Hsem1 | apply Hsem2 ]; eapply match_ty__ge_w;
+  try eassumption).
 (* Auto-generated comment: Failed. *)
 
