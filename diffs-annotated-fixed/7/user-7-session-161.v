@@ -111,6 +111,5 @@ assumption.
 (destruct Hm as [ti Hm]).
 specialize (IHw' _ Hm).
 exists ([X' := tx] ti).
-(apply IHw').
 (* Auto-generated comment: Failed. *)
 
