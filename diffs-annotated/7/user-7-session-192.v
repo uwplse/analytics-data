@@ -13,13 +13,5 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fresh_in_ty X t -> |-[ w] v <$ t -> |-[ w] v <$ [X := s] t.
-Lemma fresh_in_ty_var__neq : forall X Y : id, fresh_in_ty X (TVar Y) -> X <> Y.
-Proof.
-(intros X Y H).
-(unfold fresh_in_ty, fresh in H).
-(simpl in H).
-(destruct (beq_idP X Y)).
--
-subst.
-Search -IdSet.singleton.
+(pose proof (IdSetFacts.singleton_2 _ _ e)).
 (* Failed. *)
