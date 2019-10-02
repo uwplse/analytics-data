@@ -724,4 +724,6 @@ Proof.
 (rewrite (kron_1_r A)).
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq7AcHMp"
 Print Ltac Signatures.
-(simpl).
+(repeat rewrite Nat.mul_1_l).
+(rewrite (kron_1_r A)).
+(rewrite (kron_1_r B)).
