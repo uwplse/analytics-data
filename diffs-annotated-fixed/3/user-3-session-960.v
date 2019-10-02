@@ -309,6 +309,5 @@ typeclasses eauto.
 (intros; simpl).
 (decide equality; subst).
 (decide equality; subst).
-(decide equality; subst).
 (* Auto-generated comment: Succeeded. *)
 
