@@ -970,9 +970,6 @@ gen \207\129.
 (rewrite Lt).
 (rewrite Nat.pow_add_r, <- (Nat.mul_1_r (2 ^ i))).
 (intros \207\129).
-restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-(destruct b; simpl; Msimpl).
-(repeat rewrite Mmult_assoc).
-Msimpl.
+(repeat rewrite Nat.mul_1_r).
 (* Auto-generated comment: Succeeded. *)
 
