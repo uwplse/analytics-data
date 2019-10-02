@@ -439,6 +439,6 @@ step_proc.
 }
 {
 (exists bs; intuition).
-(apply (log_abstraction_preserved state' nil)).
-(* Auto-generated comment: Failed. *)
+(pose proof (log_abstraction_preserved state' nil)).
+(* Auto-generated comment: Succeeded. *)
 
