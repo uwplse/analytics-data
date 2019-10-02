@@ -134,5 +134,6 @@ Proof.
 (simpl).
 (intros X Y t HXY Hin).
 Search -IdSet.remove.
-(apply IdSetFacts.remove_3).
-(* Auto-generated comment: Failed. *)
+Check IdSetFacts.remove_3.
+assumption.
+Qed.
