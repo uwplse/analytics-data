@@ -408,6 +408,5 @@ Proof.
 idtac.
 (intros Hm k' Hle).
 (inversion Hle; subst).
-assumption.
 (* Auto-generated comment: Failed. *)
 
