@@ -102,6 +102,11 @@ Hint Unfold sem_sub_k_w sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
 Lemma sem_sub_k__refl : forall (k : nat) (t : ty), ||-[ k][t]<= [t].
 Proof.
 (intros k t w1).
-auto.
+(intros v).
+tauto.
+Qed.
+Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
+Proof.
+(intros k t w1).
 (* Auto-generated comment: Failed. *)
 
