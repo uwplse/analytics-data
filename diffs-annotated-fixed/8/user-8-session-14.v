@@ -1223,6 +1223,7 @@ gen \207\129.
 (intros).
 (rewrite Nat.mul_1_r).
 Msimpl.
-(apply init0_end_superoperator).
+(eapply init0_end_superoperator; trivial).
+easy.
 (* Auto-generated comment: Failed. *)
 
