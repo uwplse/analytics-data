@@ -451,6 +451,8 @@ admit.
 }
 step_proc.
 intuition.
+{
 (descend; intuition eauto).
-(* Auto-generated comment: Succeeded. *)
+}
+(* Auto-generated comment: Failed. *)
 
