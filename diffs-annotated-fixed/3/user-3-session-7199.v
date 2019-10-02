@@ -144,18 +144,8 @@ intuition eauto.
 (eexists; intuition eauto).
 Qed.
 Hint Resolve get_len_ok: core.
-Theorem get_upto_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a <= length state;
-     post := fun r state' => state' = state /\ r = firstn a state;
-     recovered := fun _ state' => state' = state |}) 
-    (get_upto a) recover abstr.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
-(induction a; simpl).
--
-step_proc.
-(apply d.recover_wipe).
-(* Auto-generated comment: Succeeded. *)
+(apply rec_wipe_compose).
+(* Auto-generated comment: Failed. *)
 
