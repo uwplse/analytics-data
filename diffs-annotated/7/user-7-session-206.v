@@ -44,5 +44,5 @@ Print eq.
 Print Morphisms.respectful.
 Search -Morphisms.Proper.
 setoid_rewrite Hfact.
-specialize (Hfact _ _ _ _ _ Ht).
+specialize (Hfact X _ _ _ _ Ht).
 (* Failed. *)
