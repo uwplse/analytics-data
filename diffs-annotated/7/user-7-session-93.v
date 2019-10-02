@@ -13,4 +13,8 @@ Inductive cname : Type :=
   | NInt : _
   | NFlt : _
   | NStr : _.
-(* Failed. *)
+Definition vX := Id 1.
+Definition vY := 2.
+Definition vZ := 3.
+Definition tX := TVar vX.
+Definition tY := TVar vY.
