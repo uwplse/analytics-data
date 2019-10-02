@@ -36,8 +36,20 @@ Fixpoint value (t : term) : bool :=
   match t with
   | Nil => true
   | Ident name => primitive name
+  | Symb _ => true
   | Cons a b => value a && value b
   | App f a => false
   end.
+Redirect "/tmp/coqxazZMH" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Module TermNotations.
+Declare Scope coucou_scope.
+Notation "{ f a }" := (App f a) (f  at level 0, a  at level 0) : coucou_scope.
+Notation "< a b >" := (Cons a b) (format "< a  b >", a  at level 0, b  at level 0) : coucou_scope.
+Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
+Notation "[ x ]" := (Cons x Nil) : coucou_scope.
+Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
+  (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
+Notation "# s" := (Symb s) : coucou_scope.
 (* Auto-generated comment: Failed. *)
 
