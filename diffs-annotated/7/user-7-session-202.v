@@ -114,13 +114,23 @@ specialize (Hid Hneq).
 (rewrite Hid).
 reflexivity.
 Qed.
-Lemma b_subst_neq__permute :
-  forall X Y : id, X <> Y -> forall s1 s2 t : ty, wf_ty s1 -> wf_ty s2 -> [BX := s1] ([BY := s2] t) = [BY := s2] ([BX := s1] t).
-Proof.
-(intros X Y Hneq s1 s2 t Hs1 Hs2).
-generalize dependent t.
-(induction t; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
--
 (simpl).
+(destruct (beq_idP Y i)).
++
+subst.
 (destruct (beq_idP X i)).
+*
+subst.
+(repeat rewrite b_subst_exist_eq).
+reflexivity.
+*
+(rewrite b_subst_exist_neq; try assumption).
+(rewrite b_subst_exist_eq).
+reflexivity.
++
+(destruct (beq_idP X i)).
+*
+subst.
+(rewrite b_subst_exist_eq).
+reflexivity.
 (* Failed. *)
