@@ -344,7 +344,7 @@ Fixpoint size_gt (G : GT) : nat :=
          | Some (Some (_, G)) => 1 + size_gt G
          | _ => 0
          end + acc) 1 l
-  | _ => 1
+  | _ => 0
   end.
 Module GTeq.
 Function
@@ -360,5 +360,6 @@ Function
    end.
 all: (intros; subst; simpl; eauto with math).
 all: (destruct hd1; simpl; eauto with math).
+Defined.
 (* Auto-generated comment: Succeeded. *)
 
