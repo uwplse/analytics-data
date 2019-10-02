@@ -336,6 +336,6 @@ admit.
 autorewrite with upd list in *.
 (simpl in *; lia).
 +
-(simpl in *).
+Search -(_ ++ [_]).
 (* Auto-generated comment: Succeeded. *)
 
