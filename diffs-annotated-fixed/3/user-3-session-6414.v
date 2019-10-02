@@ -88,63 +88,44 @@ Definition abstr : Abstraction State :=
   abstraction_compose d.abstr {| abstraction := log_abstraction |}.
 Theorem log_length_ok_nil d b :
   diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
+Definition log_length_ok (d : disk) (log : list block) :=
+  forall b, diskGet d 0 =?= b -> block_to_addr b = length log.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq8pd99"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKfpcXP"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition log_abstraction (d : disk) (log : list block) : Prop :=
+  log_length_ok d log /\
+  (forall a, a < length log -> diskGet d (log_addr a) =?= nth a log block0).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6pmLBV"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqT7hpH0"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition abstr : Abstraction State :=
+  abstraction_compose d.abstr {| abstraction := log_abstraction |}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMEyfIB"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzysxCz"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Theorem log_length_ok_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
 Proof.
 (unfold log_length_ok; intros).
 (rewrite H; simpl; eauto).
-Qed.
-Theorem log_abstraction_nil d b :
-  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
-Proof.
-(unfold log_abstraction; intros).
-split.
--
-eauto using log_length_ok_nil.
--
-(simpl; intuition).
-(exfalso; lia).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqeWX6KU"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
-Proof.
-(eapply then_init_compose; eauto).
-step_proc.
-(destruct (lt_dec r 1)).
--
-step_proc.
--
-step_proc.
-step_proc.
-step_proc.
-(exists nil; simpl).
-(split; auto).
-(eapply log_abstraction_nil; eauto).
-(autorewrite with upd; auto).
-Qed.
-Theorem log_abstraction_length d bs :
-  log_abstraction d bs -> log_length_ok d bs.
-Proof.
-(unfold log_abstraction; intuition).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqefh0CJ"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Hint Resolve log_abstraction_length: core.
-Lemma abstr_get_len :
-  forall (bs : list block) (state : State),
-  log_length_ok state bs ->
-  forall r : block,
-  diskGet state len_addr =?= r -> block_to_addr r = length bs.
-Proof.
-(intros).
-Print log_length_ok.
-(unfold log_length_ok in H).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
