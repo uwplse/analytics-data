@@ -60,4 +60,5 @@ tauto.
 +
 (assert (Heq : ||-[ k][t]= [t'])).
 (apply sem_sub_k__sem_eq_k; assumption).
+(apply sem_sub_k__sem_eq_k; auto).
 (* Failed. *)
