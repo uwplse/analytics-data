@@ -55,6 +55,5 @@ reflexivity.
 (dependent destruction u; simpl; reflexivity).
 -
 dependent destruction u.
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
