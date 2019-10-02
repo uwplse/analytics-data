@@ -361,9 +361,8 @@ Function
    | (GRec (None :: tl1), GRec (None :: tl2)) =>
        eq (GRec tl1, GRec tl2)
    | (GRec (None :: tl1), GRec []) => eq (GRec tl1, GRec [])
+   | (GRec [], GRec (None :: tl1)) => eq (GRec [], GRec tl1)
    | _ => False
    end.
-all: (intros; subst; simpl; eauto with math).
-all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
 (* Auto-generated comment: Succeeded. *)
 
