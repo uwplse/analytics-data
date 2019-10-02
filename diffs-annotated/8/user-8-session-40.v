@@ -27,5 +27,11 @@ autorewrite with proof_db.
 (simpl).
 (rewrite Nat.sub_diag).
 (rewrite super_I; easy).
-Hint Rewrite kron_1_r'.
-(* Failed. *)
+Hint Rewrite @kron_1_r'.
+Lemma X_spec :
+  forall b safe : bool,
+  denote_box safe (boxed_gate _X) (bool_to_matrix b) == bool_to_matrix (\194\172 b).
+Proof.
+(intros).
+vector_denote.
+(destruct b; unfold bool_to_ket; simpl; Msimpl).
