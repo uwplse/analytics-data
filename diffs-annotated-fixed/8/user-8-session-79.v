@@ -600,6 +600,6 @@ Proof.
 (remember (m ^ length l2) as m').
 (remember (n ^ length l2) as n').
 clear.
-(apply kron_1_l).
+(rewrite kron_1_l).
 (* Auto-generated comment: Failed. *)
 
