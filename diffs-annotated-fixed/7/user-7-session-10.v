@@ -170,16 +170,6 @@ Proof.
 (rewrite <- mk_nf__idempotent).
 assumption.
 Qed.
-Lemma sub_r_nf__trans :
-  forall tm1 tm2 : ty,
-  |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
-Proof.
-Lemma sub_r_nf__trans :
-  forall tm1 tm2 : ty,
-  |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
-Lemma sub_r_nf__trans2 :
-  forall tm1 tm2 : ty,
-  |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
 Lemma sub_r_nf__trans2 :
   forall tm1 tm2 : ty,
   |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
@@ -211,6 +201,12 @@ tauto.
 (destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
 (destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
++
+(apply sub_r_union_l__inv in Hsub').
+(destruct Hsub'; auto).
+-
+(destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
+(destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
@@ -230,21 +226,6 @@ tauto.
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
 (apply sub_r__mk_nf_sub_r; assumption).
 Qed.
-Lemma sub_r__trans2 :
-  forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
-Proof.
-(intros tm1 tm2 Hsub).
-(induction Hsub).
--
-tauto.
--
-(destruct IHHsub1 as [IHHsub11 IHHsub12]).
-(destruct IHHsub2 as [IHHsub21 IHHsub22]).
-(split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
-  subst; try (solve [ constructor; auto ])).
-+
-(assert (Hsub : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
-(apply SR_NormalForm).
 Lemma sub_r__trans2 :
   forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
 Proof.
@@ -305,5 +286,5 @@ Proof.
 (destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
 auto.
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
