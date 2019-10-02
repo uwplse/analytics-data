@@ -254,6 +254,8 @@ Lemma ty__empty_or_matching_ty_exists :
 Proof.
 Lemma not_match_ty_var__not_match_ty_subs :
   forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
+Lemma not_match_ty_var__not_match_ty_subs :
+  forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
 Proof.
 (induction t; intros k w Hnotm X S Hcontra).
 -
@@ -264,8 +266,10 @@ Proof.
 (apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 subst.
-(assert (Hcontra : ~ (exists v : ty, |-[ k, w] v <$ t1))).
+(assert (Hcontra : ~ (exists v1 : ty, |-[ k, w] v1 <$ t1) \/ ~ (exists v2 : ty, |-[ k, w] v2 <$ t2))).
 {
-(intros Hcontra).
+(assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
+{
+(intros [Hcontra'1 hcontra'2]).
 (* Auto-generated comment: Failed. *)
 
