@@ -1233,6 +1233,4 @@ constructor.
 (apply source_symmetric_WT in H).
 Timeout 1 About ancilla_free_box_valid.
 specialize @ancilla_free_box_valid as AV.
-(unfold valid_ancillae_box in AV).
-(rewrite ancilla_free_box_valid; [  | apply ancilla_free_X_at | type_check ]).
-(* Failed. *)
+(rewrite AV; [  | apply ancilla_free_X_at | type_check ]).
