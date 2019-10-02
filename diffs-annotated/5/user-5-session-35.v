@@ -148,8 +148,29 @@ reflexivity.
 apply -> evalEqTrue.
 reflexivity.
 (assert
-  (exists i,
-     eval L env
-       (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
-     eval L env (Int i))).
-(apply -> evalInInts; try reflexivity).
+  (forall res,
+   eval L env
+     (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
+   res -> res = eval L env (Int 3))).
+{
+(intros).
+(assert
+  (eval L
+     (extendEnv env x
+        (eval L env (Choose x (Eq (Int 6) (Times (Var x) (Int 2))))))
+     (Eq (Int 6) (Times (Var x) (Int 2))) = L.(eval) env (Bool true))).
+{
+(apply evalChoose).
+exists (eval L env (Int 3)).
+(erewrite evalBoolConst).
+apply -> evalEqTrue.
+(rewrite evalTimes with (i := 3%Z) (j := 2%Z)).
+-
+reflexivity.
+-
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+(apply evalIntConst).
+-
+reflexivity.
+}
