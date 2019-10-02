@@ -257,6 +257,13 @@ Proof.
 -
 (rewrite f_subst_exist).
 (apply not_f_free_in_ty_exist__inv in HX).
-(rewrite Iht).
+(rewrite IHt).
+assumption.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(unfold not_f_free_in_ty in HX).
+(simpl in HX).
 (* Auto-generated comment: Failed. *)
 
