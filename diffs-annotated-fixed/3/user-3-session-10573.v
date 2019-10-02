@@ -202,11 +202,6 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Proof.
-(intros).
-(unfold proc_spec; intros).
-(eapply H in H3; simpl in *; eauto).
-(eapply H0 in H2).
-(destruct r; intuition repeat deex; eauto).
+(destruct r; intuition).
 (* Auto-generated comment: Succeeded. *)
 
