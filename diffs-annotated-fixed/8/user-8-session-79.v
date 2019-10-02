@@ -1012,6 +1012,5 @@ Timeout 1 Print Ltac rewrite_inPar.
  end; try (solve [ type_check ])).
 show_dimensions.
 (simpl in *; rewrite size_ntensor in *; try rewrite Nat.mul_1_r in *).
-(rewrite IP).
 (* Auto-generated comment: Succeeded. *)
 
