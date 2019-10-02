@@ -119,6 +119,7 @@ contradiction.
 reflexivity.
 +
 (destruct (beq_idP X i) as [HX| HX]).
+(destruct (beq_idP X i) as [HX| HX]).
 *
 subst.
 (rewrite (subst_exist_neq _ _ _ _ HY)).
