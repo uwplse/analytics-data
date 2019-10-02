@@ -39,5 +39,6 @@ Lemma X_spec :
 Proof.
 (intros).
 vector_denote.
+vector_denote.
 (* Auto-generated comment: Succeeded. *)
 
