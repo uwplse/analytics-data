@@ -86,9 +86,5 @@ constructor.
 (simpl).
 tauto.
 Qed.
-Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
-Proof.
-(intros k; destruct k; intros v Hm).
--
-(simpl).
+(destruct v; simpl).
 (* Failed. *)
