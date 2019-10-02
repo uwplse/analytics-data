@@ -51,5 +51,4 @@ exists w1.
 (apply sem_sub_ref; assumption).
 (apply sem_sub_ref).
 (constructor; assumption).
-(simpl).
-(* Failed. *)
+(unfold sem_eq).
