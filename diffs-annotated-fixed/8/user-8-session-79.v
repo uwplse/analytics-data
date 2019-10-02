@@ -1000,12 +1000,5 @@ Theorem compile_correct :
   get_context b \226\138\130 \206\147 ->
   (\226\159\166 compile b \206\147 \226\159\167) (bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f) ==
   bool_to_matrix (t \226\138\149 \226\140\136 b | f \226\140\137) \226\138\151 ctx_to_matrix \206\147 f.
-Ltac
- tensor_tac :=
-  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-   lia.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOec1AO"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
