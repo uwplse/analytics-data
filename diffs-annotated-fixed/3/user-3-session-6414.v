@@ -111,7 +111,9 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Definition log_abstraction (d : disk) (log : list block) : Prop :=
-  diskGet d 0 =?= length log /\
-  (forall a, a < length log -> diskGet d (log_addr a) =?= nth log a).
+  exists b,
+    diskGet d 0 =?= b /\
+    block_to_addr b = length log /\
+    (forall a, a < length log -> diskGet d (log_addr a) =?= nth log a).
 (* Auto-generated comment: Failed. *)
 
