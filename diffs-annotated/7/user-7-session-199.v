@@ -166,4 +166,4 @@ Proof.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
 (intros Hm).
-(rewrite subst_equation).
+(* Failed. *)
