@@ -61,10 +61,14 @@ Fixpoint inv_depth (t : ty) :=
   end
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
 Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
+Lemma max_inv_depth_le__inv : forall (t1 t2 : ty) (k : nat), Nat.max (| t1 |) (| t2 |) <= k -> | t1 | <= k /\ | t2 | <= k.
+Proof.
+(intros t1 t2 k Hle).
+(split; [ eapply Nat.max_lub_l | eapply Nat.max_lub_r ]; eassumption).
+Qed.
 Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
 (intros w k).
-(induction k; induction t; intros Hdep Hm; try (solve [ apply match_ty_cname__inv in Hm; subst; constructor ])).
 (induction k).
 (intros v t Hdep Hm).
 (inversion Hdep; subst).
@@ -80,7 +84,6 @@ constructor.
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (simpl).
-SearchPattern (Nat.max _ _ <= Nat.max _ _).
-(apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; try assumption).
+(destruct (max_inv_depth_le__inv v1 v2 (S k)) as [Hdep1 hdep2]).
 (* Auto-generated comment: Failed. *)
 
