@@ -570,6 +570,7 @@ Proof.
 -
 reflexivity.
 -
-reflexivity.
-(* Auto-generated comment: Failed. *)
+(destruct H).
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
