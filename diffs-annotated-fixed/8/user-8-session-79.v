@@ -1182,6 +1182,7 @@ reflexivity.
 }
 6: {
 listify_kron.
+restore_dims tensor_dims.
 (rewrite CNOT_at_spec).
 (* Auto-generated comment: Failed. *)
 
