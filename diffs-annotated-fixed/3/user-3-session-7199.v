@@ -281,13 +281,11 @@ step_proc.
 (rewrite firstn_all; auto).
 Qed.
 Theorem log_contents_ok_unchanged d bs a0 b :
+  log_size_ok d bs ->
   log_contents_ok d bs ->
   log_addr a0 >= length bs -> log_contents_ok (diskUpd d a0 b) bs.
 Proof.
 (unfold log_contents_ok; intros).
 (specialize (H a); intuition).
-(unfold log_addr in *).
-(rewrite disk_oob_eq; simpl; auto).
-autorewrite with upd.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
