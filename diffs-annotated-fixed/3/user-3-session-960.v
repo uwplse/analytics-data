@@ -105,6 +105,10 @@ Proof.
 (unfold MR).
 Search -wf.
 (apply (wf_projected lt projT2); auto).
-(apply wf_lt).
-(* Auto-generated comment: Failed. *)
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqSYm8P"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
