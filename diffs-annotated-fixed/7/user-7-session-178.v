@@ -111,6 +111,6 @@ reflexivity.
 (apply IdSetFacts.singleton_1 in Heq).
 contradiction.
 +
-(rewrite IHt).
+(rewrite Heq).
 (* Auto-generated comment: Failed. *)
 
