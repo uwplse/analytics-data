@@ -384,5 +384,18 @@ Proof.
 -
 reflexivity.
 -
+(simpl).
+(rewrite <- IHn').
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQBguBo"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem plus_swap' : forall n m p : nat, n + (m + p) = m + (n + p).
+Proof.
+(intros n m p).
 (* Auto-generated comment: Succeeded. *)
 
