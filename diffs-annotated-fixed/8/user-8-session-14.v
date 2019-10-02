@@ -189,7 +189,6 @@ Proof.
 (simpl).
 (rewrite Nat.mul_1_r).
 (apply mixed_unitary; trivial).
-Set Printing Implicit.
-Set Printing Implicit.
+(apply mixed_unitary; trivial).
 (* Auto-generated comment: Succeeded. *)
 
