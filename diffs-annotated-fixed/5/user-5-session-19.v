@@ -10,7 +10,7 @@ Inductive Term : Set :=
   | Eq : Term -> Term -> Term
   | And : Term -> Term -> Term
   | Or : Term -> Term -> Term
-  | Not : Term -> Term -> Term
+  | Not : Term -> Term
   | If : Term -> Term -> Term -> Term
   | Int : Z -> Term
   | Plus : Term -> Term -> Term
@@ -83,5 +83,17 @@ Record EpsilonLogic :=
            eval env P = eval env (Bool true) <->
            eval env Q = eval env (Bool true) ->
            eval env (Choose x P) = eval env (Choose x Q)}.
+Definition isTheorem (L : EpsilonLogic) (t : Term) :=
+  forall env, L.(eval) env t = L.(eval) env (Bool true).
+Fixpoint identity (t : Term) : Term :=
+  match t with
+  | Var x => Var x
+  | Int i => Int i
+  | Eq a b => Eq (identity a) (identity b)
+  | Plus a b => Plus (identity a) (identity b)
+  | Times a b => Times (identity a) (identity b)
+  | Minus a b => Minus (identity a) (identity b)
+  | Choose x P => Choose x (identity P)
+  end.
 (* Auto-generated comment: Succeeded. *)
 
