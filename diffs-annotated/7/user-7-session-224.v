@@ -21,8 +21,5 @@ Lemma build_v_full :
     |-[ w] v' <$ [BX := TFVar X'] t /\
     (forall (w' : nat) (t' : ty),
      |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> exists w2, |-[ w2] v <$ [FX' := tx] t')).
-(simpl in HX).
-Search -IdSet.empty.
-(rewrite IdSetFacts.empty_iff in HX).
 contradiction.
 (* Failed. *)
