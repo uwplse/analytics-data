@@ -74,42 +74,5 @@ Lemma union_empty : forall s1 s2, IdSet.Empty s1 /\ IdSet.Empty s2 -> IdSet.Empt
 Proof.
 Admitted.
 Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
-Lemma b_free_in_ty_exist_neq__inv : forall (X Y : id) (t : ty), X <> Y -> b_free_in_ty X (TExist Y t) -> b_free_in_ty X t.
-Proof.
-(unfold b_free_in_ty, free).
-(simpl).
-(intros X Y t HXY Hin).
-(apply IdSetFacts.remove_3 with Y).
-assumption.
-Qed.
-Lemma f_free_in_ty_pair : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_free_in_ty X t2 -> f_free_in_ty X (TPair t1 t2).
-Proof.
-(solve_free_union f_free_in_ty).
-Qed.
-Lemma f_free_in_ty_union : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_free_in_ty X t2 -> f_free_in_ty X (TUnion t1 t2).
-Proof.
-(solve_free_union f_free_in_ty).
-Qed.
-Lemma f_free_in_ty_exist : forall (X Y : id) (t : ty), f_free_in_ty X t -> f_free_in_ty X (TExist Y t).
-Proof.
-(unfold f_free_in_ty, free).
-(intros X Y t HX).
-(simpl).
-assumption.
-Qed.
-Lemma b_free_in_ty_pair : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TPair t1 t2).
-Proof.
-(solve_free_union b_free_in_ty).
-Qed.
-Lemma b_free_in_ty_union : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TUnion t1 t2).
-Proof.
-(solve_free_union b_free_in_ty).
-Qed.
-Lemma b_free_in_ty_exist_neq : forall (X Y : id) (t : ty), X <> Y -> b_free_in_ty X t -> b_free_in_ty X (TExist Y t).
-Proof.
-(unfold b_free_in_ty, free).
-(intros X Y t HXY HX).
-(simpl).
-Search -IdSet.remove.
-(apply IdSetFacts.remove_2).
+(apply IdSetFacts.remove_2; assumption).
 (* Failed. *)
