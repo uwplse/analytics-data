@@ -258,6 +258,24 @@ Proof.
 reflexivity.
 -
 (simpl).
-(rewrite IHn').
-(* Auto-generated comment: Succeeded. *)
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdb5JF6"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem zero_nbeq_S : forall n : nat, beq_nat 0 (S n) = false.
+Proof.
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqm5EvLm"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem andb_false_r : forall b : bool, andb b false = false.
+Proof.
+reflexivity.
+(* Auto-generated comment: Failed. *)
 
