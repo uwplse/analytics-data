@@ -305,6 +305,7 @@ admit.
 admit.
 -
 (destruct Hcontra as [v Hcontra]).
-(destruct (dec_id X i)).
+Search -id.
+Print ec_id.
 (* Auto-generated comment: Failed. *)
 
