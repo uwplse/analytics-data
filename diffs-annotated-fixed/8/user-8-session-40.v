@@ -24,6 +24,7 @@ autorewrite with proof_db.
 (rewrite add_fresh_split).
 (simpl).
 (unfold pad).
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+(rewrite Nat.sub_diag).
+(rewrite kron_1_r).
+(* Auto-generated comment: Failed. *)
 
