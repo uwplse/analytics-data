@@ -294,11 +294,12 @@ admit.
 (rewrite app_length).
 (rewrite repeat_length).
 Check repeat_length.
-(destruct (le_dec (Datatypes.length (nat_to_le 254 x)) 8)).
-(match goal with
- | |- context [ nat_eq_dec ?n ?m ] => destruct (nat_eq_dec n m); try lia
- end).
+(destruct (le_dec (Datatypes.length (nat_to_le 254 x)) 8);
+  match goal with
+  | |- context [ nat_eq_dec ?n ?m ] => destruct (nat_eq_dec n m); try lia
+  end).
 (rewrite nat_from_le_zeros; auto).
 (rewrite nat_le_inverse; auto).
-(* Auto-generated comment: Succeeded. *)
+lia.
+(* Auto-generated comment: Failed. *)
 
