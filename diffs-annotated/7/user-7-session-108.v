@@ -231,6 +231,5 @@ subst.
 (destruct w').
 (inversion Hle).
 exists (TCName c).
-(apply match_ty_value_type__reflexive; constructor).
--
-(destruct (IHt1 k) as [w1 [v1 Hm1]]).
+(destruct IHt1 as [v1 Hm1]).
+(* Failed. *)
