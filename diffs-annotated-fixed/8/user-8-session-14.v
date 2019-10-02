@@ -191,6 +191,5 @@ Proof.
 (apply mixed_unitary; trivial).
 Set Printing Implicit.
 Set Printing Implicit.
-restore_dims.
 (* Auto-generated comment: Succeeded. *)
 
