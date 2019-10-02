@@ -1034,6 +1034,8 @@ restore_dims tensor_tac.
 Set Printing All.
 Set Printing All.
 Set Printing All.
-(rewrite IP).
-(* Auto-generated comment: Failed. *)
+Set Printing All.
+revert IP.
+restore_dims.
+(* Auto-generated comment: Succeeded. *)
 
