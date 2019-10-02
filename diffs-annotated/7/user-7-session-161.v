@@ -78,5 +78,8 @@ assumption.
 assumption.
 Abort.
 Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
+Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
 Proof.
+(intros X Y t).
+(induction t).
 (* Failed. *)
