@@ -54,6 +54,6 @@ specialize (Hsem w1).
 exists w2.
 (intros v Hm).
 (apply match_ty_union_1).
-(apply Hsem).
+(apply Hsem; assumption).
 (* Auto-generated comment: Failed. *)
 
