@@ -22,10 +22,10 @@ Inductive ty : Type :=
   | TVar : varid -> ty
   | TExist : varid -> ty -> ty.
 Definition tint := TCName NInt.
-Definition tflt := TCName NFlt.
-Definition tstr := TCName NStr.
-Definition tIntInt := TPair tint tint.
-Definition vx := 1.
-Definition tX := TVar vx.
-Definition tY := TVar vy.
+Definition vX := 1.
+Definition vY := 2.
+Definition vZ := 3.
+Definition tX := TVar vX.
+Definition tY := TVar vY.
+Definition teXX := TExist vX vX.
 (* Failed. *)
