@@ -397,5 +397,17 @@ Qed.
 Theorem plus_swap' : forall n m p : nat, n + (m + p) = m + (n + p).
 Proof.
 (intros n m p).
+(rewrite plus_assoc).
+replace (n + m) with m + n.
+(rewrite plus_assoc).
+reflexivity.
+(rewrite plus_comm).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqhJgA5"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
