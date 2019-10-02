@@ -107,23 +107,5 @@ reflexivity.
 -
 (destruct (beq_idP Y i) as [HY| HY]).
 +
-subst.
-(destruct (beq_idP X i) as [HX| HX]).
-*
-subst.
-contradiction.
-*
-(rewrite subst_exist_eq).
-(rewrite (subst_exist_neq _ _ _ _ HX)).
-(rewrite subst_exist_eq).
-reflexivity.
-+
-(destruct (beq_idP X i) as [HX| HX]).
-(destruct (beq_idP X i) as [HX| HX]).
-*
-subst.
-(rewrite (subst_exist_neq _ _ _ _ HY)).
-(repeat rewrite subst_exist_eq).
-(rewrite (subst_exist_neq _ _ _ _ HY)).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
