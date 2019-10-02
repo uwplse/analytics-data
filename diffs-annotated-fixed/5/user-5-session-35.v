@@ -224,8 +224,12 @@ intro x.
         (eval L env
            (Choose x
               (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2)))))))
-     (Eq (Int 6) (Times (Var x) (Int 2))) = L.(eval) env (Bool true))).
+     (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2)))) =
+   L.(eval) env (Bool true))).
 {
 (apply evalChoose).
+exists (eval L env (Int 3)).
+(erewrite evalBoolConst).
+apply -> evalEqTrue.
 (* Auto-generated comment: Succeeded. *)
 
