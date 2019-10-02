@@ -147,6 +147,5 @@ econstructor.
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
 constructor.
-(intros).
 (* Auto-generated comment: Succeeded. *)
 
