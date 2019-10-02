@@ -236,6 +236,7 @@ refine
  uint64_to_string := pretty.pretty_nat;
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii |}.
-lia.
+Search -(0 < _).
+constructor.
 (* Auto-generated comment: Succeeded. *)
 
