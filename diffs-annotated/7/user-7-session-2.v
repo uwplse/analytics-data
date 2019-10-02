@@ -13,5 +13,8 @@ Require Import Coq.Bool.Bool.
 Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
+-
 subst.
+Search -mk_nf.
+(rewrite (mk_nf_nf__equal t) in Hsub).
 (* Failed. *)
