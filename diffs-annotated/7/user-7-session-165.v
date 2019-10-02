@@ -78,8 +78,6 @@ Qed.
 Lemma subst_fresh_in_ty : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
 Proof.
 (intros X t).
-(induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh; simpl;
-  try (solve
-   [ apply fresh_union__inv in Hfresh; destruct Hfresh as [Hfresh1 Hfresh2]; rewrite IHt1; try assumption; rewrite IHt2; try assumption;
-      reflexivity ])).
+(destruct (IdSet.mem i (FV s))).
++
 (* Failed. *)
