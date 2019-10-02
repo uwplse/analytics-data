@@ -63,9 +63,9 @@ Lemma match_ty_ref__inv : forall (v t : ty) (w k : nat), |-[ w, S k] v <$ TRef t
 Proof.
 clear IHv.
 (intros t w k Hm).
+(intros t w k Hm).
 (simpl in Hm).
 exists v.
-auto.
-Qed.
+(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
