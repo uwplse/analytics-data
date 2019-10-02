@@ -171,6 +171,11 @@ Proof.
 -
 split.
 +
-(destruct (beq_idP X i) eqn:Heq).
+(destruct (beq_idP X i)).
+*
+subst.
+(rewrite subst_var_eq).
+(destruct (beq_idP Y i)).
+subst.
 (* Auto-generated comment: Failed. *)
 
