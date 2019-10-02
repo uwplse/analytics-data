@@ -27,6 +27,9 @@ exists v.
 split.
 assumption.
 (induction w'; induction t'; intros Hm').
-(induction w'; induction t'; intros Hm'; try contradiction).
+(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction ])).
++
+split.
+*
 (* Auto-generated comment: Failed. *)
 
