@@ -16,5 +16,10 @@ Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
-(inversion Hsub12; subst).
-(* Failed. *)
+(intros Hsub12).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
+(remember (TPair t1 t2) as ty eqn:Heqy ).
+(induction Hsub12; inversion Heqx; inversion Heqy; subst).
++
+(intros t3 Hsub21).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
