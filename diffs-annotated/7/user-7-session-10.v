@@ -13,5 +13,5 @@ Require Import Coq.Bool.Bool.
 Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
-(destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
+(destruct IHHsub1 as [IHHsub11 IHHsub12]; assumption).
 (* Failed. *)
