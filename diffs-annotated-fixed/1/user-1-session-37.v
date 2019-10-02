@@ -304,25 +304,6 @@ Inductive GT : Type :=
 Definition SetST := Ensemble ST.
 Print Forall.
 Print Forall2.
-Fixpoint Gamma (G : GT) : SetST :=
-  match G with
-  | GDyn => Full_set _
-  | GInt => Singleton _ SInt
-  | GBool => Singleton _ SBool
-  | GFun G_1 G_2 => zipWith_ensembles SFun (Gamma G_1) (Gamma G_2)
-  | GRec l =>
-      fun X =>
-      exists l',
-        X = SRec l' /\
-        Forall2 (fun (S' : option ST) G' => True) l'
-          (map GammaPair l)
-  | _ => Empty_set _
-  end
-with GammaPair (x : option (Ann * GT)) : SetST :=
-  match x with
-  | None => Empty_set _
-  | Some (R, G) => Gamma G
-  | Some (O, G) => Empty_set _
-  end.
-(* Auto-generated comment: Failed. *)
+Fixpoint Gamma (G : GT) : SetST.
+(* Auto-generated comment: Succeeded. *)
 
