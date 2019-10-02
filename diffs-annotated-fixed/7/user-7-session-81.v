@@ -67,6 +67,9 @@ Proof.
 (intros t1 t2 t1' t2').
 (unfold sem_sub).
 (intros Hsub1 Hsub2).
-(intros k v Hv Hm).
-(* Auto-generated comment: Succeeded. *)
+(intros k v Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(inversion Hv; subst).
+(* Auto-generated comment: Failed. *)
 
