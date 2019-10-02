@@ -15,4 +15,5 @@ Require Import Coq.Bool.Bool.
 Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fresh_in_ty X t -> |-[ w] v <$ t -> |-[ w] v <$ [X := s] t.
 Check IdSetFacts.singleton_2.
 (pose proof (IdSetFacts.singleton_2 e)).
+contradiction.
 (* Failed. *)
