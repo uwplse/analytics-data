@@ -256,6 +256,7 @@ Proof.
 -
 (left; exists (TCName c)).
 (apply match_ty_value_type__reflexive; constructor).
+(left; exists (TCName c); apply match_ty_cname).
 -
 admit.
 -
@@ -276,5 +277,16 @@ right.
 (left; exists (TEV i); apply match_ty_ev).
 -
 (left; exists (TCName c); apply match_ty_cname).
-(* Auto-generated comment: Failed. *)
+-
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+(destruct k).
+reflexivity.
+(split; intros w1; exists w1; auto).
+-
+(destruct (IHt k) as [v Hm]).
+(* Auto-generated comment: Succeeded. *)
 
