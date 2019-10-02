@@ -2733,4 +2733,12 @@ rename \206\1471 into \206\1473.
 rename \206\1472 into \206\1471.
 rename \206\1473 into \206\1472.
 dependent destruction STAT.
-rename H0 into STAT.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(simpl).
+(rewrite singleton_size).
+(simpl).
+(rewrite Nat.add_succ_r).
+specialize (apply_U_correct Qubit) as AUC.
+(simpl in AUC).
+(unfold process_gate_state).
