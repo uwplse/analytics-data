@@ -288,6 +288,8 @@ econstructor.
 (simpl).
 (unfold bounded_to_ascii, ascii_to_bounded).
 (intros).
-(destruct c; simplo).
-(* Auto-generated comment: Failed. *)
+(destruct c; simpl).
+Search -Ascii.ascii_of_nat.
+(rewrite Ascii.ascii_nat_embedding).
+(* Auto-generated comment: Succeeded. *)
 
