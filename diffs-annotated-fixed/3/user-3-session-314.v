@@ -159,29 +159,13 @@ Lemma recover_cok :
 Proof.
 (simpl).
 (eapply ret_hspec).
+-
 typeclasses eauto.
+-
 firstorder.
 (inversion H0; subst).
 (simpl; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqs8rUcZ"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhu1lE7"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3xggWz"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Lemma recover_idempotent :
   idempotent (fun t : unit => recover_spec).
 Proof.
@@ -201,6 +185,10 @@ Lemma init_cok :
   proc_hspec Var.dynamics impl.(init) init_hspec.
 Proof.
 (eapply ret_hspec).
+-
 typeclasses eauto.
+-
+firstorder.
+(inversion H0; subst).
 (* Auto-generated comment: Succeeded. *)
 
