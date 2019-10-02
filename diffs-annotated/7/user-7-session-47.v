@@ -15,16 +15,6 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjm.
-Theorem sub_d__semantic_sound : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
-Proof.
-(intros t1 t2 Hsub).
-(unfold sem_sub).
-(induction Hsub; intros k v Hm).
--
-assumption.
--
-(unfold sem_sub_k in *).
-auto.
 -
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
@@ -73,4 +63,30 @@ Proof.
 assumption.
 -
 (unfold sem_sub_k_i in *).
-(* Auto-generated comment: Failed. *)
+auto.
+-
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(unfold sem_sub_k_i in *).
+auto using match_ty_i_pair.
+-
+(apply match_ty_i_union__inv in Hm).
+(destruct Hm; [ apply IHHsub1 | apply IHHsub2 ]; assumption).
+-
+(apply match_ty_i_union_1; assumption).
+-
+(apply match_ty_i_union_2; assumption).
+-
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_i_union__inv in Hm1).
+(destruct Hm1; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_i_pair).
+-
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_i_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_i_pair).
+-
+(destruct k).
+(destruct v; contradiction).
+(* Failed. *)
