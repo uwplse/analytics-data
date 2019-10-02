@@ -946,4 +946,3 @@ Lemma assert_init_at_id :
   forall b m i, i < S m -> (assert_at b m i \194\183 init_at b m i \226\137\161 id_circ)%qc.
 Proof.
 (intros b m i Lt \207\129 safe M).
-(simpl).
