@@ -17,10 +17,6 @@ Qed.
 Lemma f_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (f_free_in_ty X t).
 Proof.
 (intros X t).
-(unfold f_free_in_ty).
-Lemma f_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (f_free_in_ty X t).
-Proof.
-(intros X t).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
 Qed.
 Lemma b_free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (b_free_in_ty X t).
@@ -56,5 +52,7 @@ Proof.
 (intros X t1 t2 Hfresh).
 (unfold not_b_free_in_ty in *; simpl in Hfresh; simpl).
 (apply not_free_union__inv in Hfresh).
+assumption.
+Qed.
 (* Auto-generated comment: Failed. *)
 
