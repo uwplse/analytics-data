@@ -242,5 +242,5 @@ assumption.
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
 Qed.
-(apply Nat.max_le_l).
+(apply Nat.max_ge_l).
 (* Failed. *)
