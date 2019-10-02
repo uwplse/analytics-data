@@ -80,6 +80,48 @@ intuition eauto.
 specialize (IHblocks (off + 1)).
 step_proc.
 intuition subst; eauto.
-*
++
+(f_equal; lia).
++
+(repeat deex).
+(exists (S nwritten); simpl).
+(f_equal; lia).
+Qed.
+CoFixpoint handle  : proc unit :=
+  req <- nbd.getRequest;
+  match req with
+  | Read h off blocks =>
+      data <- read off blocks;
+      _ <-
+      nbd.sendResponse {| rhandle := h; error := ESuccess; data := data |};
+      handle
+  | Write h off _ dat =>
+      _ <- write off (bsplit_list dat);
+      _ <-
+      nbd.sendResponse {| rhandle := h; error := ESuccess; data := bnull |};
+      handle
+  | Flush h =>
+      _ <-
+      nbd.sendResponse {| rhandle := h; error := ESuccess; data := bnull |};
+      handle
+  | UnknownOp h =>
+      _ <-
+      nbd.sendResponse {| rhandle := h; error := EInvalid; data := bnull |};
+      handle
+  | Disconnect => Ret tt
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqF6UYZV"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnQRDZ2"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition serverLoop : proc unit := _ <- nbd.recover; _ <- d.recover; handle.
+Definition size : proc nat := d.size.
+Definition init := then_init nbd.init d.init.
+End NBDServer.
 (* Auto-generated comment: Succeeded. *)
 
