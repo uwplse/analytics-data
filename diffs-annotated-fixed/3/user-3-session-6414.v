@@ -127,5 +127,8 @@ step_proc.
 step_proc.
 -
 step_proc.
+step_proc.
+step_proc.
+exists nil.
 (* Auto-generated comment: Succeeded. *)
 
