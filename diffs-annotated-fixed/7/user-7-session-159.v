@@ -141,11 +141,5 @@ exists v.
 (destruct Hm as [ti Hm]).
 specialize (IHw _ _ _ Hm).
 (destruct IHw as [v' [Hm' Hprop]]).
-exists v'.
-split.
-*
-(apply match_ty_exist).
-(eexists; eassumption).
-*
 (* Auto-generated comment: Failed. *)
 
