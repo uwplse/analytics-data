@@ -975,6 +975,5 @@ gen \207\129.
  end).
 2: {
 (do 4 (apply f_equal_gen; trivial)).
-(rewrite size_ntensor).
 (* Auto-generated comment: Succeeded. *)
 
