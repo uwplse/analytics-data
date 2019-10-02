@@ -15,4 +15,8 @@ Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
 Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k] v <$ TExist X t -> exists tx : ty, |-[ k] v <$ [X := tx] t.
+(intros v; induction v).
+-
+(intros X t k Hm).
+(simpl in Hm).
 (* Failed. *)
