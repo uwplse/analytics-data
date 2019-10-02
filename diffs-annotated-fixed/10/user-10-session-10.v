@@ -334,9 +334,11 @@ Print taE.
 Definition network_of_app_ta sk : taE ~> itree tE :=
   fun _ tae =>
   match tae with
-  | (ae|) => network_of_app sk _ ae
+  | (ae|) => network_of_app sk _ (ae|)
   | (|(e|)) => trigger (map_exceptE Error_App _ e)
   | (||tae) => trigger tae
   end.
-(* Auto-generated comment: Failed. *)
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqeEIa21" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Succeeded. *)
 
