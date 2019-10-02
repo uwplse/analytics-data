@@ -58,6 +58,5 @@ dependent destruction u.
 +
 (simpl).
 (destruct li as [| k li]; trivial).
-(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
 (* Auto-generated comment: Succeeded. *)
 
