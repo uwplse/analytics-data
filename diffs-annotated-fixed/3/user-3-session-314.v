@@ -189,6 +189,5 @@ Proof.
 typeclasses eauto.
 -
 firstorder.
-(inversion H0; subst).
 (* Auto-generated comment: Succeeded. *)
 
