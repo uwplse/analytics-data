@@ -1462,6 +1462,7 @@ split.
 -
 (simpl).
 (do 2 eexists; split).
-2: constructor.
+{
+(hnf).
 (* Auto-generated comment: Succeeded. *)
 
