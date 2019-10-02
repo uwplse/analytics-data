@@ -305,6 +305,5 @@ Proof.
 (destruct (a == r - 1); subst).
 -
 (step_proc; intuition subst).
-(eexists; split; eauto).
 (* Auto-generated comment: Succeeded. *)
 
