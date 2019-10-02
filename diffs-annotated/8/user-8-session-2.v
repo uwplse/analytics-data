@@ -50,5 +50,13 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
-Lemma ctrl_list_to_unitary_compat : A == A' -> ctrl_list_to_unitary l r A == ctrl_list_to_unitary l r A'.
+Lemma ctrl_list_to_unitary_compat : forall l r A A', A == A' -> ctrl_list_to_unitary l r A == ctrl_list_to_unitary l r A'.
+Proof.
+(intros).
+(induction l).
+(simpl).
+-
+(induction r; try reflexivity).
+(simpl).
+(destruct a; Msimpl; rewrite IHr; reflexivity).
 (* Failed. *)
