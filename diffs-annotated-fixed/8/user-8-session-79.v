@@ -1032,10 +1032,9 @@ Transparent init_at.
 Set Printing All.
 Transparent init_at.
 (simpl).
+(simpl in *).
 Transparent assert_at.
-Timeout 1 About assert_at.
-Timeout 1 Print assert_at.
-(simpl).
+(simpl in *).
 (match goal with
  | |-
    context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
@@ -1047,5 +1046,5 @@ Timeout 1 Print assert_at.
  end; try (solve [ type_check ])).
 Set Printing All.
 (simpl_rewrite IP).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
