@@ -280,6 +280,6 @@ Theorem get_len_abstr_ok :
 Proof.
 (apply spec_abstraction_compose).
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intuition).
+(unfold spec_impl).
 (* Auto-generated comment: Succeeded. *)
 
