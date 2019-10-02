@@ -290,6 +290,7 @@ Proof.
 (unfold log_addr in *).
 (rewrite disk_oob_eq; simpl; auto).
 autorewrite with upd.
+intro.
 lia.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
