@@ -37,8 +37,7 @@ contradiction.
 (rewrite subst_exist_eq).
 (rewrite subst_id).
 Search -IdSet.mem.
-Search -IdSet.In.
-(destruct (IdSetProps.In_dec i (FV tY))).
+(destruct (IdSetProps.In_dec i (FV tY)) eqn:Hin).
 {
-Search -IdSet.mem.
+(apply IdSetFacts.mem_1 in Hin).
 (* Failed. *)
