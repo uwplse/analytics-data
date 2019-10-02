@@ -66,6 +66,17 @@ Theorem plus_n_Sm : forall n m : nat, S (n + m) = n + S m.
 Proof.
 (intros n m).
 (induction n as [| n' IHn']).
-Theorem plus_comm : forall n m : nat, n + m = m + n.
-(* Auto-generated comment: Failed. *)
+-
+reflexivity.
+-
+(simpl).
+(rewrite IHn').
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSsZtsw"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
