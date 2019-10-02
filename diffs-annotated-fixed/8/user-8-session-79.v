@@ -596,6 +596,6 @@ Proof.
 -
 (intros).
 (simpl).
-(repeat rewrite Nat.add_0_r in KL).
+(repeat rewrite Nat.add_0_r).
 (* Auto-generated comment: Succeeded. *)
 
