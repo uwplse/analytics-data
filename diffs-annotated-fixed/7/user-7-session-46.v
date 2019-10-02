@@ -71,5 +71,18 @@ Proof.
 (intros v t).
 generalize dependent v.
 (induction t; intros k v Hm).
-(* Auto-generated comment: Failed. *)
+-
+(apply match_ty_i_cname__inv in Hm; subst).
+constructor.
+-
+(apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_i_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+constructor.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
