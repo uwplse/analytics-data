@@ -152,15 +152,9 @@ specialize (IHw _ _ Hwftx HX Hm).
 (rewrite f_subst_not_b_free_in_ty; auto).
 }
 }
+*
+(destruct (beq_idP X' i0)).
 {
-(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
-(apply match_ty_union_2; auto).
-}
-{
-(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
-{
-(apply match_ty_union_2; auto).
-}
-{
-(apply match_ty_union_2).
-(rewrite f_subst_not_b_free_in_ty; assumption).
+subst.
+(split; intros HX).
+(* Failed. *)
