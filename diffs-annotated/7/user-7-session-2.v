@@ -14,8 +14,5 @@ Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
-(constructor; assumption).
-+
-(intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
-(destruct (unite_pairs_union_t t1 t0 t2') as [Heq'| [Heq1 Heq2]]).
+(destruct (unite_pairs_union_t t1 t0 t2')).
 (* Failed. *)
