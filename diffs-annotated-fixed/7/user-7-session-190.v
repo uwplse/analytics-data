@@ -34,8 +34,6 @@ assumption.
 (destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
 (apply match_ty_union_1; auto).
 *
-(rewrite subst_union).
-(destruct (free_in_ty_union__inv _ _ _ HX') as [HX''| HX'']).
-(apply match_ty_union_1; auto).
+(destruct (free_in_ty__decidable X t'1)).
 (* Auto-generated comment: Failed. *)
 
