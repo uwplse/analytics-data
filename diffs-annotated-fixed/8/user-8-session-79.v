@@ -1239,6 +1239,7 @@ Msimpl.
 (rewrite xorb_comm).
 (rewrite (xorb_comm _ t)).
 (rewrite xorb_assoc).
+(simpl).
 reflexivity.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
