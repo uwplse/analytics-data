@@ -50,3 +50,5 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
+(induction r; try reflexivity).
+(simpl).
