@@ -1146,5 +1146,8 @@ Timeout 1 About denote_box_compat.
 Timeout 1 Print denote_box_compat.
 show_dimensions.
 Set Printing Implicit.
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
 (* Auto-generated comment: Succeeded. *)
 
