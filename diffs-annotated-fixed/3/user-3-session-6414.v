@@ -54,6 +54,36 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1ktiSB"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition abstr : Abstraction State := fun _ _ => True.
-(* Auto-generated comment: Failed. *)
+Print Abstraction.
+Print LayerAbstraction.
+Definition abstr : Abstraction State := {| abstraction := fun _ _ => True |}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqznJnVn"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKnKN0c"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Theorem init_ok : init_abstraction init recover abstr inited_any.
+Proof.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJzPZdC"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqE7OdLW"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+Admitted.
+Axiom
+  (append_ok : forall v, proc_spec (append_spec v) (append v) recover abstr).
+Proof.
+Admitted.
+(* Auto-generated comment: Succeeded. *)
 
