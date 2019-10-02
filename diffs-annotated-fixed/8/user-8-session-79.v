@@ -1029,6 +1029,10 @@ specialize inSeq_correct as IS.
 (unfold compose_super).
 restore_dims tensor_tac.
 Transparent init_at.
+Set Printing All.
+Transparent init_at.
+(simpl).
+Transparent assert_at.
 (simpl).
 (* Auto-generated comment: Succeeded. *)
 
