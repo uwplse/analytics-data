@@ -186,8 +186,13 @@ eauto using log_length_ok_nil.
 (unfold log_size_ok).
 (destruct d; simpl in *; [  | lia ]).
 (assert (diskGet nil 0 = None)).
+{
 (apply disk_oob_eq).
 (simpl; lia).
+}
 congruence.
+-
+(simpl; intuition).
+(exfalso; lia).
 (* Auto-generated comment: Succeeded. *)
 
