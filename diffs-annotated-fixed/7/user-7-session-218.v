@@ -446,6 +446,6 @@ admit.
 (destruct (beq_idP Y i)).
 +
 subst.
-(simpl).
+(rewrite b_subst_bvar_eq).
 (* Auto-generated comment: Failed. *)
 
