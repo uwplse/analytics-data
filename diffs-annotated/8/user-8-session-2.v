@@ -48,12 +48,4 @@ Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
 Timeout 1 About restore_dims.
-(match goal with
- | |- ?A => let A' := restore_dims_rec idtac A in
-            replace
-            A
-            with
-            A'
- end).
-2: {
 (unify_matrix_dims idtac).
