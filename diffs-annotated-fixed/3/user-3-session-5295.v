@@ -435,6 +435,79 @@ step.
 (destruct r; try step).
 (destruct (v == v0); subst; try step).
 Unshelve.
-all: auto.
+{
+auto.
+}
+exact (fun _ => True).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdTAYHX"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem fixup_correct_addr_ok :
+  forall a,
+  proc_spec
+    (fun '(d, b) state =>
+     {|
+     pre := a < diskSize d /\
+            disk0 state ?|= eq (diskUpd d a b) /\ disk1 state ?|= eq d;
+     post := fun r state' =>
+             match r with
+             | Continue =>
+                 disk0 state' ?|= eq (diskUpd d a b) /\
+                 disk1 state' ?|= eq (diskUpd d a b)
+             | RepairDoneOrFailed =>
+                 disk0 state' ?|= eq (diskUpd d a b) /\
+                 disk1 state' ?|= eq (diskUpd d a b) \/
+                 disk0 state' ?|= eq d /\ disk1 state' ?|= eq d
+             end;
+     recovered := fun _ state' =>
+                  disk0 state' ?|= eq (diskUpd d a b) /\
+                  disk1 state' ?|= eq (diskUpd d a b) \/
+                  disk0 state' ?|= eq (diskUpd d a b) /\
+                  disk1 state' ?|= eq d \/
+                  disk0 state' ?|= eq d /\ disk1 state' ?|= eq d |})
+    (fixup a) td.recover td.abstr.
+Proof.
+(unfold fixup; intros).
+step.
+(destruct r; try step).
+(destruct r; try step).
+(destruct (b == v); subst; try step).
+step.
+(destruct r; simplify; finish).
+Qed.
+Theorem fixup_wrong_addr_ok :
+  forall a,
+  proc_spec
+    (fun '(d, b, a') state =>
+     {|
+     pre := a < diskSize d /\
+            a' < a /\
+            disk0 state ?|= eq (diskUpd d a' b) /\ disk1 state ?|= eq d;
+     post := fun r state' =>
+             match r with
+             | Continue =>
+                 disk0 state' ?|= eq (diskUpd d a' b) /\
+                 disk1 state' ?|= eq d
+             | RepairDoneOrFailed =>
+                 disk0 state' ?|= eq d /\ disk1 state' ?|= eq d \/
+                 disk0 state' ?|= eq (diskUpd d a' b) /\
+                 disk1 state' ?|= eq (diskUpd d a' b)
+             end;
+     recovered := fun _ state' =>
+                  disk0 state' ?|= eq (diskUpd d a' b) /\
+                  disk1 state' ?|= eq d \/
+                  disk0 state' ?|= eq d /\ disk1 state' ?|= eq d |})
+    (fixup a) td.recover td.abstr.
+Proof.
+(unfold fixup; intros).
+step.
+(destruct r; try step).
+(destruct r; try step).
+(destruct (v == v0); subst).
+step.
 (* Auto-generated comment: Succeeded. *)
 
