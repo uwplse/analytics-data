@@ -327,6 +327,8 @@ Fixpoint size_gt (G : GT) : nat :=
          end + acc) 1 l
   | _ => 0
   end.
+Definition FromRow : option (option (Ann * GT)) := None.
+Definition AbsentLabel : option (option (Ann * GT)) := Some None.
 Fixpoint size_gt (G : GT) : nat :=
   match G with
   | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
@@ -346,5 +348,28 @@ Fixpoint size_gt (G : GT) : nat :=
          end + acc) 1 l
   | _ => 0
   end.
+Module GTeq.
+Function
+ eq (G : GT * GT) {measure
+ fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
+   match G with
+   | (GInt, GInt) => True
+   | (GBool, GBool) => True
+   | (GFun G_11 G_12, GFun G_21 G22) =>
+       eq (G_11, G_21) /\ eq (G_12, G22)
+   | (GRec [], GRec []) => True
+   | (GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2)) =>
+       eq (snd hd1, snd hd2) /\
+       fst hd1 = fst hd2 /\ eq (GRec tl1, GRec tl2)
+   | (GRec (None :: tl1), GRec (None :: tl2)) =>
+       eq (GRec tl1, GRec tl2)
+   | (GRec (None :: tl1), GRec []) => eq (GRec tl1, GRec [])
+   | (GRec [], GRec (None :: tl1)) => eq (GRec [], GRec tl1)
+   | (GRow (Some (Some hd1) :: tl1), GRow
+     (Some (Some hd2) :: tl2)) =>
+       eq (snd hd1, snd hd2) /\
+       fst hd1 = fst hd2 /\ eq (GRow tl1, GRow tl2)
+   | _ => False
+   end.
 (* Auto-generated comment: Succeeded. *)
 
