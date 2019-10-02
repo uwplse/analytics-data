@@ -64,6 +64,6 @@ clear IHv.
 (intros t k Hm).
 (simpl in Hm).
 exists v.
-auto.
+(split; auto).
 (* Auto-generated comment: Failed. *)
 
