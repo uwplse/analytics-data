@@ -58,7 +58,14 @@ Proof.
 (intros n).
 (induction n as [| n' IHn']).
 -
+(simpl).
+(rewrite IHn').
 reflexivity.
--
-(* Auto-generated comment: Succeeded. *)
+Qed.
+Theorem plus_n_Sm : forall n m : nat, S (n + m) = n + S m.
+Proof.
+(intros n m).
+(induction n as [| n' IHn']).
+Theorem plus_comm : forall n m : nat, n + m = m + n.
+(* Auto-generated comment: Failed. *)
 
