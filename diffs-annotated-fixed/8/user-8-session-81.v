@@ -726,6 +726,8 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Set Printing All.
 (repeat rewrite Nat.mul_1_l).
-(rewrite kron_1_r).
+(rewrite (kron_1_r A)).
+(rewrite (kron_1_r B)).
+restore_dims.
 (* Auto-generated comment: Failed. *)
 
