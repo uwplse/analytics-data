@@ -100,6 +100,13 @@ specialize (IHw' HX').
 exists ([FX' := tx] ti).
 split.
 (apply wf_ty__wf_ty_f_subst; assumption).
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_exist_eq in *).
+exists v.
+split.
+assumption.
 (intros w' t' Hm').
 (split; intros HX').
 assumption.
