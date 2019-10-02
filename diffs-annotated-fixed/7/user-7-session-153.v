@@ -17,6 +17,8 @@ Proof.
 (intros X X' w tx v t).
 (induction t; intros Hm).
 -
-(apply match_ty_cname__inv in Hm; subst).
+exists (TCName c).
+(apply match_ty_cname).
+-
 (* Auto-generated comment: Failed. *)
 
