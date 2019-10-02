@@ -67,16 +67,5 @@ Proof.
 (intros X t1 t2 k).
 (apply sem_sub_k_exist_pair).
 Qed.
-(induction t).
--
-(apply match_ty_cname__inv in Hm).
-(inversion Hm).
--
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq _]]]).
-(inversion Heq).
--
-(apply match_ty_union__inv in Hm).
-(destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto).
 (* Failed. *)
