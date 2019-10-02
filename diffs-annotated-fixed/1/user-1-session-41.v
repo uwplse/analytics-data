@@ -327,9 +327,28 @@ Fixpoint size_gt (G : GT) : nat :=
          end + acc) 1 l
   | _ => 0
   end.
-Module GTeq.
+Fixpoint size_gt (G : GT) : nat :=
+  match G with
+  | GFun G_1 G_2 => 1 + size_gt G_1 + size_gt G_2
+  | GRec l =>
+      fold_right
+        (fun x acc =>
+         match x with
+         | Some (_, G) => size_gt G
+         | _ => 0
+         end + acc) 1 l
+  | GRow l =>
+      fold_right
+        (fun x acc =>
+         match x with
+         | Some (Some (_, G)) => size_gt G
+         | _ => 0
+         end + acc) 1 l
+  | _ => 1
+  end.
 Theorem size_gt_g0 : forall x, 0 < size_gt x.
 Proof.
 (induction x; intros; simpl; eauto with math).
+all: (induction l; eauto with math).
 (* Auto-generated comment: Succeeded. *)
 
