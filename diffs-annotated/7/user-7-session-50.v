@@ -53,7 +53,7 @@ Proof.
 (intros t t' Hsub1 Hsub2).
 (apply Nat.le_antisymm; apply sub_d__inv_depth_le; assumption).
 Qed.
-Lemma unite_pairs__preserves_sub_d1 : forall t1 t2 t1' t2' : ty, |- t1 << t1' -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
+Lemma unite_pairs__preserves_sub_d_l : forall t1 t2 t1' t2' : ty, |- t1 << t1' -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Proof.
 (intros ta; induction ta; intros tb;
   try (solve
@@ -67,7 +67,7 @@ Proof.
 (rewrite unite_pairs_union_t).
 (constructor; [ apply IHta1 | apply IHta2 ]; assumption).
 Qed.
-Lemma unite_pairs__preserves_sub_d2 : forall t1' t2' t1 t2 : ty, |- t1 << t1' -> |- t2 << t2' -> |- TPair t1 t2 << unite_pairs t1' t2'.
+Lemma unite_pairs__preserves_sub_d_r : forall t1' t2' t1 t2 : ty, |- t1 << t1' -> |- t2 << t2' -> |- TPair t1 t2 << unite_pairs t1' t2'.
 Proof.
 (intros ta'; induction ta'; intros tb';
   try (solve
@@ -89,4 +89,11 @@ Proof.
 (apply union_right_1; apply IHta'1; assumption || constructor).
 (apply union_right_2; apply IHta'2; assumption || constructor).
 Qed.
-(* Auto-generated comment: Failed. *)
+Theorem mk_nf__sub_d_eq : forall t : ty, |- MkNF( t) << t /\ |- t << MkNF( t).
+Proof.
+(induction t).
+-
+(split; simpl; constructor).
+-
+(destruct IHt1; destruct IHt2).
+(split; simpl; apply unite_pairs__preserves_sub_d_l; assumption).
