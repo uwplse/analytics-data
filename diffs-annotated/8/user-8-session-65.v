@@ -948,6 +948,4 @@ Fact assert_at_spec_unsafe :
 Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
-restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-revert \207\129.
 (rewrite Lt).
