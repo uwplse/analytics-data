@@ -55,3 +55,5 @@ Timeout 1 About restore_dims.
             with
             A'
  end).
+2: {
+(unify_matrix_dims idtac).
