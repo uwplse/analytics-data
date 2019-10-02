@@ -205,6 +205,6 @@ Qed.
 Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
 Proof.
 (intros t t' Hsem).
-Abort.
+(split; intros k).
 (* Auto-generated comment: Failed. *)
 
