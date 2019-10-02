@@ -66,18 +66,5 @@ tauto.
 (destruct Hm' as [Hm'1 Hm'2]).
 (apply match_ty_pair; auto).
 (destruct Hm' as [ti Hm']).
-exists ti.
-auto.
--
-admit.
--
-(pose proof (subst_exist X tx i t) as Heq).
-(destruct Heq as [Z [tz Heq]]).
-(rewrite Heq in Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
--
-(destruct (beq_idP X i) as [HXi| HXi]).
-+
-subst.
-(rewrite subst_var_eq).
+(rewrite subst_var_eq in *).
 (* Failed. *)
