@@ -75,10 +75,14 @@ Proof.
 (rewrite <- beq_id_refl).
 reflexivity.
 Qed.
-Lemma subst_exist_neq : forall (X : id) (s : ty) (Y : id) (t : ty), X <> Y -> [X := s] TExist Y t = TExist Y ([X := s] t).
+Lemma subst_fresh_in_ty : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
 Proof.
-(intros X s Y t Hneq).
-(destruct (beq_id_false_iff X Y) as [_ Hid]).
-specialize (Hid Hneq).
-(simpl).
-(* Auto-generated comment: Failed. *)
+(intros X t).
+(induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh; simpl;
+  try (solve
+   [ apply fresh_union__inv in Hfresh; destruct Hfresh as [Hfresh1 Hfresh2]; rewrite IHt1; try assumption; rewrite IHt2; try assumption;
+      reflexivity ])).
+-
+(destruct (beq_idP X i); try reflexivity).
+(rewrite IHt).
+reflexivity.
