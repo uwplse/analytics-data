@@ -54,6 +54,35 @@ exists tt.
 exists tt.
 (simpl; intuition idtac).
 (step_proc_basic; intros).
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0DzuHt"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+{
 eauto.
-(* Auto-generated comment: Succeeded. *)
+}
+(simpl in *; intuition subst).
+exists nil.
+(unfold statdb_abstraction, inited).
+intuition auto.
+Qed.
+Theorem add_ok : forall v, proc_spec (add_spec v) (add v) recover abstr.
+Proof.
+(unfold add).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc_basic; intros).
+(destruct a'; simpl in *; intuition idtac).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+(exists tt; simpl; intuition idtac).
+(step_proc_basic; intros).
+eauto.
+(* Auto-generated comment: Failed. *)
 
