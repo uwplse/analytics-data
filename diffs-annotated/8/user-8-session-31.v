@@ -2736,4 +2736,3 @@ dependent destruction STAT.
 rename H0 into STAT.
 rename H into IH.
 (unfold denote_circuit; simpl).
-(destruct g).
