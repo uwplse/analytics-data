@@ -280,6 +280,7 @@ Definition map_exceptE {e1} {e2} (f : e1 -> e2) : exceptE e1 ~> exceptE e2 :=
   fun _ e => match e with
              | Throw e => Throw (f e)
              end.
+Check map_exceptE.
 Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} {E} `{E -< nE} 
   (k : shared_key) T (e : (appE id +' exceptE err +' E) T) : itree nE T :=
   match e with
@@ -301,7 +302,7 @@ Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} {E} `{E 
           end
       | App_Send data => embed Network_Send (Message_Cipher (cipher k (PlainMessage_AppData data)))
       end
-  | (|(ee|)) => map_exceptE Error_App _ ee
+  | (|(ee|)) => map_exceptE _ Error_App ee
   | (||e) => trigger e
   end.
 (* Auto-generated comment: Failed. *)
