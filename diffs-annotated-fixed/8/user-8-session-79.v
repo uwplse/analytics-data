@@ -1176,5 +1176,7 @@ reflexivity.
 8: {
 (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb1 \206\147 f false); trivial).
 }
+7: {
+(rewrite xorb_false_l).
 (* Auto-generated comment: Succeeded. *)
 
