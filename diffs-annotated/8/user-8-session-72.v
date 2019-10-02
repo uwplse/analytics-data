@@ -1232,3 +1232,5 @@ constructor.
 +
 (apply source_symmetric_WT in H).
 (rewrite IHsource_symmetric; trivial).
+(rewrite ancilla_free_box_valid; [  | apply ancilla_free_X_at | type_check ]).
+(* Failed. *)
