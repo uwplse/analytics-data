@@ -500,6 +500,7 @@ intuition.
 {
 (descend; intuition eauto).
 (eapply log_abstraction_nil; eauto).
-}
+(eapply log_abstraction_nil; eauto).
+(rewrite diskUpd_eq).
 (* Auto-generated comment: Succeeded. *)
 
