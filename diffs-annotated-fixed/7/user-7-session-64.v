@@ -32,7 +32,8 @@ Lemma sem_sub_k_pair__inv :
   | TPair t1 t2 | <= k -> ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
 Proof.
 (intros t1 t2 t1' t2' k Hdep Hsem).
-(unfold sem_sub_k in Hsem).
-(destruct (value_type_matching_ty__exists t1) as [pv1 [Hpval1 Hpv1]]).
+Check value_type_matching_ty__exists.
+(destruct (value_type_matching_ty__exists t1 k) as [pv1 [Hpval1 Hpv1]]).
+(destruct (value_type_matching_ty__exists t2 k) as [pv2 [Hpval2 Hpv2]]).
 (* Auto-generated comment: Failed. *)
 
