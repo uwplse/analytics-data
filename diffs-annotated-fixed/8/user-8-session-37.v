@@ -339,6 +339,5 @@ validate.
 (simpl).
 (unfold compose_super).
 (erewrite VA).
-easy.
 (* Auto-generated comment: Succeeded. *)
 
