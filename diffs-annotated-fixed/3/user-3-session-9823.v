@@ -197,5 +197,8 @@ invert_abstraction.
 {
 (exists s; split; eauto).
 (destruct (a == diskSize s); subst).
++
+(rewrite disk_oob_eq by lia; simpl; auto).
++
 (* Auto-generated comment: Succeeded. *)
 
