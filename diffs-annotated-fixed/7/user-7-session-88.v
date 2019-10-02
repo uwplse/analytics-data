@@ -427,6 +427,6 @@ Proof.
      end ])).
 -
 (assert (Hv : value_type (TCName c)) by constructor).
-(solve__value_sem_sub_i_union__inv_depth_le Hv Hdep Hsem t'1 t'2).
+(solve__value_sem_sub_i_union__inv_depth_le Hv Hsem Hdep t'1 t'2).
 (* Auto-generated comment: Failed. *)
 
