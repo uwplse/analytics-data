@@ -56,7 +56,7 @@ End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
 Check
-  [<# hello <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  [<# "hello" <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
