@@ -84,6 +84,6 @@ Proof.
 (repeat rewrite ctrls_to_list_empty).
 (simpl; Msimpl).
 reflexivity.
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+(dependent destruction u; simpl; reflexivity).
+(* Auto-generated comment: Failed. *)
 
