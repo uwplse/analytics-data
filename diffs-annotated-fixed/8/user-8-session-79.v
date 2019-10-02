@@ -1228,6 +1228,6 @@ restore_dims tensor_tac.
 (rewrite id_circ_spec).
 (rewrite assert0_spec).
 restore_dims tensor_tac.
-Msimpl.
+(rewrite kron_1_l).
 (* Auto-generated comment: Succeeded. *)
 
