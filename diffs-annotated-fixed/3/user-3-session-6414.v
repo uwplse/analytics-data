@@ -131,6 +131,6 @@ Lemma abstr_get_len :
   forall r : block,
   diskGet state len_addr =?= r -> block_to_addr r = length bs.
 Proof.
-(unfold log_abstraction; intuition).
+(unfold log_abstraction, log_length_ok; intuition).
 (* Auto-generated comment: Succeeded. *)
 
