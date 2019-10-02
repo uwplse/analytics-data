@@ -43,6 +43,7 @@ Proof.
 (intros; reflexivity).
 Qed.
 Lemma subst_var_eq : forall (X : id) (s : ty), [X := s] TVar X = s.
+Proof.
 (intros).
 (simpl).
 (rewrite <- beq_id_refl).
@@ -55,6 +56,13 @@ Proof.
 specialize (Hid Hneq).
 (simpl).
 (rewrite Hid).
+reflexivity.
+Qed.
+Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
+Proof.
+(intros).
+(simpl).
+(rewrite <- beq_id_refl).
 reflexivity.
 Qed.
 (* Auto-generated comment: Failed. *)
