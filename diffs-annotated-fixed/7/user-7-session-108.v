@@ -283,6 +283,7 @@ admit.
 -
 admit.
 -
-(simpl in Hcontra).
+(apply Hnotm).
+(exists (TRef t); apply match_ty__reflexive; constructor).
 (* Auto-generated comment: Failed. *)
 
