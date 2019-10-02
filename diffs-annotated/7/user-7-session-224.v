@@ -148,5 +148,5 @@ reflexivity.
 (apply b_free_in_ty_exist_neq__inv in HX; try assumption).
 Check b_free_in_ty__b_free_in_b_subst_neq.
 (apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
-specialize (IHw _ _ HX Hm).
+specialize (IHw _ HX Hm).
 (* Failed. *)
