@@ -30,16 +30,7 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Definition anotherLongName := 10.
 Check 3 === 3.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHn7OBC"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxKlg3n"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Check 1 + 2 + aReallyBigIdentifier + 4 + anotherLongName
+  === 6 + anotherLongName + 8 + 9.
 (* Auto-generated comment: Succeeded. *)
 
