@@ -263,3 +263,6 @@ clear H.
  end).
 (rewrite evalIfTrue in H0; auto).
 (apply evalInInts in H).
+(apply evalInInts in H; auto).
+(destruct H).
+(erewrite evalBoolConst in H0).
