@@ -43,5 +43,5 @@ itree E A :=
   | x :: l' => b <- trigger Or;; (if b : bool then ret x else choose x l')
   end.
 Redirect "/tmp/coq16819yXU" Print Ltac Signatures.
-Definition kvs_state exp_ : Set := list connection * list (N * exp_ N).
+Definition kvs_state exp_ : Set := list connection * list (N * exp_ N)%type.
 (* Failed. *)
