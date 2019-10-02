@@ -109,9 +109,8 @@ subst.
 assumption.
 *
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+(pose proof (fresh_in_ty_exist_neq__inv _ _ _ Hbeq HX') as HX't').
+(pose proof Hm as Hme).
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
-Check fresh_in_ty_exist_neq__inv.
-(pose proof (fresh_in_ty_exist_neq__inv _ _ _ Hbeq HX') as HX't').
-exists ti.
 (* Failed. *)
