@@ -21,18 +21,5 @@ From Coq Require Import List NArith Streams.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqsaA1a1" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Import ListNotations.
-Fixpoint fib (fuel : nat) (a b : N) : list N :=
-  match fuel with
-  | O => []
-  | S fuel => a :: print_id (fib fuel b (a + b))
-  end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqz3Zsi1" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Eval compute in fib 10 0 1.
-CoFixpoint fib' (a b : N) : Stream N := Cons a (print_id (fib' b (a + b))).
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqOya5lg" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Eval compute in Str_nth 10 (fib' 0 1).
 (* Auto-generated comment: Succeeded. *)
 
