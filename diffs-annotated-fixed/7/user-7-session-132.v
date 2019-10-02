@@ -84,6 +84,7 @@ Qed.
 Lemma match_ty_ref : forall (k w : nat) (t t' : ty), ||-[ k][t]= [t'] -> |-[ S k, w] TRef t <$ TRef t'.
 Proof.
 (intros k w t t' Hsem).
+(destruct Hsem as [Hsem1 Hsem2]).
 (destruct w; simpl).
 tauto.
 (* Auto-generated comment: Failed. *)
