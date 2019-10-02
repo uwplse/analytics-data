@@ -46,5 +46,26 @@ Proof.
 }
 {
 (rewrite unite_pairs_atom_union; try assumption).
-(destruct (atom_sub_r_union__inv _ _ _ Hsub2 H1) as [Hsub21| Hsub22]; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
-(* Auto-generated comment: Failed. *)
+}
+*
+(intros Hnf2'; intros Hsub1 Hsub2).
+(rewrite unite_pairs_atom_union; try assumption).
+(apply sub_r_union_l__inv in Hsub2; try assumption).
+(inversion Hsub2).
+(constructor; [ apply IHHnf2_1 | apply IHHnf2_2 ]; assumption).
++
+(intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
+(rewrite (unite_pairs_union_t t1 t0 t2')).
+(destruct (atom_sub_r_union__inv _ _ _ Hsub1 H) as [Hsub11| Hsub12]; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
+-
+(intros Hnf1' Hnf2 Hn2' Hsub1 Hsub2).
+(rewrite (unite_pairs_union_t t1 t0 t2)).
+Check sub_r_union_l__inv.
+(destruct (sub_r_union_l__inv _ _ _ Hsub1) as [Hsub11 Hsub12]).
+(constructor; tauto).
+Qed.
+Lemma unite_pairs_of_nf__preserves_sub_r1 :
+  forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
+Proof.
+(intros ta; induction ta; intros tb; induction tb; intros ta' tb' Hnf1 Hsub1 Hnf2 Hsub2; try (solve [ simpl; constructor; assumption ])).
+(* Failed. *)
