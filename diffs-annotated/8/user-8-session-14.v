@@ -1215,3 +1215,5 @@ Proof.
 (intros n \207\129 M\207\129).
 (unfold apply_new0, super).
 (repeat rewrite Nat.pow_add_r).
+(intros).
+Msimpl.
