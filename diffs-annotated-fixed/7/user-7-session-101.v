@@ -65,6 +65,6 @@ contradiction.
 Abort.
 Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
 Proof.
-Lemma not_sem_sub__eXrefX_reft : forall (w k : nat) (t : ty), ~ ||-[ w, k][TExist vX (TRef tX)]<= [TRef t].
+Lemma not_sem_sub__eXrefX_reft : forall (w k : nat) (t : ty), ~ ||-[ S w, k][TExist vX (TRef tX)]<= [TRef t].
 (* Auto-generated comment: Failed. *)
 
