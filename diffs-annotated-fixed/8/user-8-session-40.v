@@ -101,5 +101,6 @@ Proof.
 (intros).
 matrix_denote.
 Msimpl.
-(* Auto-generated comment: Succeeded. *)
+setoid_rewrite swap_sa.
+(* Auto-generated comment: Failed. *)
 
