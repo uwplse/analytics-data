@@ -170,6 +170,6 @@ Proof.
 (descend; intuition eauto).
 (descend; intuition eauto).
 (apply disk_inbounds_exists in H; intuition eauto).
-(unfold log_abstraction in H0).
+(unfold log_abstraction in H0; intuition).
 (* Auto-generated comment: Succeeded. *)
 
