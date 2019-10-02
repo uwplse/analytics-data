@@ -135,6 +135,5 @@ Proof.
 Qed.
 Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
 (intros t1 t2 t3 Hsem1 Hsem2).
-(intros k).
-(apply sem_sub_k__trans).
+(apply sem_sub_k__trans with t2).
 (* Failed. *)
