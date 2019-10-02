@@ -94,5 +94,10 @@ reflexivity.
 (rewrite IHt2).
 reflexivity.
 -
+(simpl).
 (rewrite Heq).
+(rewrite IHt).
+reflexivity.
+-
+(destruct (beq_idP X i); try reflexivity).
 (* Failed. *)
