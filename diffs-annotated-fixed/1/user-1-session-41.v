@@ -565,6 +565,6 @@ all: (try specialize (H1 _ (In_singleton _ _))).
 all: (repeat match goal with
              | H:exists _, _ |- _ => destruct H
              end).
-all: congruence.
-(* Auto-generated comment: Failed. *)
+all: (try congruence).
+(* Auto-generated comment: Succeeded. *)
 
