@@ -24,6 +24,6 @@ Proof.
 (unfold sem_sub_k in Hsem).
 (assert (Hm : |-[ k] v <$ v) by (apply match_ty_value_type__reflexive; assumption)).
 specialize (Hsem _ Hm).
-(apply match_ty_i_union__inv in Hsem).
-(* Auto-generated comment: Failed. *)
+(apply match_ty_union__inv in Hsem).
+(* Auto-generated comment: Succeeded. *)
 
