@@ -87,5 +87,5 @@ constructor.
 tauto.
 Qed.
 (apply match_ty_ref__weak_inv in Hm).
-tauto.
+(split; tauto).
 (* Failed. *)
