@@ -1461,6 +1461,7 @@ eexists.
 split.
 -
 (simpl).
-(do 2 eexists; split; eauto).
+(do 2 eexists; split).
+2: constructor.
 (* Auto-generated comment: Succeeded. *)
 
