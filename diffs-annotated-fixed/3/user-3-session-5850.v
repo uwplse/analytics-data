@@ -319,5 +319,6 @@ Unset Search Output Name Only.
 Qed.
 Theorem mult_1_l : forall n : nat, 1 * n = n.
 Proof.
-(* Auto-generated comment: Succeeded. *)
+reflexivity.
+(* Auto-generated comment: Failed. *)
 
