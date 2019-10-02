@@ -50,6 +50,4 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
-(rewrite rev_length).
-Search -length -skipn.
-(rewrite skipn_length).
+(rewrite skipn_length, firstn_length).
