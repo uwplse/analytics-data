@@ -114,6 +114,6 @@ Function
    | TEV y => t
    end.
 Proof.
-(try (solve [ intros; simpl; Omega.omega ])).
+all: (try (solve [ intros; simpl; Omega.omega ])).
 (* Auto-generated comment: Failed. *)
 
