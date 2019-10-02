@@ -948,8 +948,4 @@ Fact assert_at_spec_unsafe :
 Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
-(match goal with
- | |- @Mmult ?a ?b ?c ?A (@Mmult ?d ?e ?f ?B ?C) .+ _ = _ => setoid_rewrite  <-
-   (Mmult_assoc A B C)
- end).
-(* Failed. *)
+(rewrite kron_mixed_product).
