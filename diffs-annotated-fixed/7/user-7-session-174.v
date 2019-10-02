@@ -114,6 +114,15 @@ Function
    | TEV y => t
    end.
 Proof.
-all: (try (intros; simpl; Omega.omega)).
-(* Auto-generated comment: Failed. *)
+-
+(intros).
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+tauto.
+Defined.
+(* Auto-generated comment: Succeeded. *)
 
