@@ -188,5 +188,6 @@ Proof.
 +
 (simpl).
 (simpl).
+(rewrite Nat.mul_1_r).
 (* Auto-generated comment: Succeeded. *)
 
