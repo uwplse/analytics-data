@@ -230,7 +230,16 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-exists (TRef t).
-(apply match_ty_value_type__reflexive; constructor).
+Lemma ty_empty__subs_ty_empty :
+  forall (w : nat) (t : ty) (k : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
+Proof.
+(induction w; induction t; intros k Hnotm X s Hcontra).
 -
-(* Failed. *)
+(apply Hnotm; assumption).
+-
+(simpl in Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_pair__inv in Hcontra).
+(destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+subst.
+(assert (Hcontra : ~ (exists v1 : ty, |-[ k, w] v1 <$ t1) \/ ~ (exists v2 : ty, |-[ k, w] v2 <$ t2))).
