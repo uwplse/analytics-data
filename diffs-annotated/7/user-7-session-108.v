@@ -230,21 +230,6 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-exists (TEV i).
-(destruct k; reflexivity).
--
-(apply Hnotm).
-exists (TEV i).
-(destruct k; reflexivity).
--
-admit.
--
-admit.
--
-admit.
--
-admit.
--
-(destruct Hcontra as [v Hcontra]).
-(destruct (dec_id X i)).
+Search -id.
+Print ec_id.
 (* Failed. *)
