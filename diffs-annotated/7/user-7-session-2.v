@@ -16,6 +16,8 @@ Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
-Lemma eq_r_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t1 -> |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
+Lemma eq_r_trans :
+  forall t1 t2 : ty, |- t1 << t2 -> |- t2 << t1 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
 Proof.
+(intros t1 t2 Hsub1).
 (* Failed. *)
