@@ -19,4 +19,30 @@ Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
 Arguments appE : clear implicits.
 Timeout 1 Print Grammar tactic.
-(* Failed. *)
+Instance showAppE  {T}: (Show (appE id T)) :=
+ {|
+ show := fun ae =>
+         match ae with
+         | App_Accept => "Application Accept"
+         | App_Recv c => "Application Receive " ++ show c
+         | App_Send c msg =>
+             "Application Send " ++ show c ++ " \226\159\185 " ++ show msg
+         end |}.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Redirect "/tmp/coq16819lNO" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition smE := appE exp +' evalE +' nondetE.
+Definition kvs_state exp_ := list (N * exp_ N).
+Fixpoint choose {A E} `{nondetE -< E} (a : A) (l : list A) : 
+itree E A :=
+  match l with
+  | [] => ret a
+  | x :: l' => b <- trigger Or;; (if b : bool then ret x else choose x l')
+  end.
+Redirect "/tmp/coq16819yXU" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Check Or.
+Check or.
