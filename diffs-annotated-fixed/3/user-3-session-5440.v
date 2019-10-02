@@ -426,6 +426,5 @@ lia.
 {
 (step_proc; intuition; subst; eauto).
 +
-(exists (s ++ v); simpl; intuition).
 (* Auto-generated comment: Succeeded. *)
 
