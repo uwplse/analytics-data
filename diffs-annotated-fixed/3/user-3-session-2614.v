@@ -143,6 +143,5 @@ admit.
 typeclasses eauto.
 -
 (simpl).
-(unfold EqualDec).
 (* Auto-generated comment: Succeeded. *)
 
