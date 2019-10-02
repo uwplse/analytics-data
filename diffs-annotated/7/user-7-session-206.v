@@ -44,5 +44,5 @@ Print eq.
 Print Morphisms.respectful.
 Search -Morphisms.Proper.
 setoid_rewrite Hfact.
-setoid_rewrite Ht.
+(apply f_equiv).
 (* Failed. *)
