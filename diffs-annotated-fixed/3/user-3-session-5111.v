@@ -176,5 +176,23 @@ lia.
 {
 (exfalso; eapply disk_inbounds_not_none; [  | eauto ]; lia).
 }
++
+step_proc.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq5xLyuL"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem read_ok :
+  forall a, proc_spec (OneDiskAPI.read_spec a) (read a) recover abstr.
+Proof.
+(unfold read).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+(destruct a'; simpl in *; intuition idtac).
+(destruct (a == r)).
 (* Auto-generated comment: Succeeded. *)
 
