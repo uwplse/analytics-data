@@ -230,5 +230,5 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(intros [Hcontra'1 Hcontra'2]).
+(intros [[v1 Hcontra'1] [v2 Hcontra'2]]).
 (* Failed. *)
