@@ -218,19 +218,8 @@ tauto.
 +
 (apply sub_r_union_l__inv in Hsub').
 Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
-Lemma nf_sub_r__decidable2 :
-  forall t : ty,
-  InNF( t) -> (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)).
-Proof.
-(apply
-  (in_nf_mut
-     (fun (t : ty) (Hat : atom_type t) =>
-      (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)))
-     (fun (t : ty) (Hnf : in_nf t) =>
-      (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t))))).
--
-(intros c).
-(split; intros t'; induction t'; intros Hnf'; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 ]);
+(split; intros t'; induction t'; intros Hnf'; inversion Hnf'; subst;
+  try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 ]);
   try
    match goal with
    | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
