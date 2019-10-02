@@ -1010,5 +1010,6 @@ Timeout 1 Print Ltac rewrite_inPar.
        as
        IP
  end; try (solve [ type_check ])).
+rewrite_inPar''.
 (* Auto-generated comment: Failed. *)
 
