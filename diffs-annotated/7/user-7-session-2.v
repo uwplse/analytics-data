@@ -16,6 +16,6 @@ Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
-Lemma weird_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- MkNF( t2) << t3 -> |- t1 << t3.
+Lemma weird_trans : forall t1 t2 t3 : ty, InNF( t1) -> InNF( t2) -> InNF( t3) -> |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
 Proof.
 (* Failed. *)
