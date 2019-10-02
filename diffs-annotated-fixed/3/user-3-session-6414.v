@@ -55,6 +55,6 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7wi6k6"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition init : proc InitResult.
-(* Auto-generated comment: Succeeded. *)
+Definition init : proc InitResult := _ <- d.write len_addr 0; Ret Initialized.
+(* Auto-generated comment: Failed. *)
 
