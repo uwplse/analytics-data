@@ -268,10 +268,17 @@ Fixpoint factorial (n : nat) : nat :=
   end.
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgAprxE"
 Print Ltac Signatures.
+Fixpoint factorial (n : nat) : nat :=
+  match n with
+  | 0 => 1
+  | S n => S n * factorial n
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhcOYTV"
+Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqr2GqAC"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnF37o3"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
@@ -279,5 +286,123 @@ Example test_factorial1 : factorial 3 = 6.
 Proof.
 reflexivity.
 Qed.
+Example test_factorial2 : factorial 5 = mult 10 12.
+Proof.
+reflexivity.
+Qed.
+Notation "x + y" := (plus x y) (at level 50, left associativity) : nat_scope.
+Notation "x - y" := (minus x y) (at level 50, left associativity) : nat_scope.
+Notation "x * y" := (mult x y) (at level 40, left associativity) : nat_scope.
+Check 0 + 1 + 1.
+Fixpoint beq_nat (n m : nat) : bool :=
+  match n with
+  | O => match m with
+         | O => true
+         | S m' => false
+         end
+  | S n' => match m with
+            | O => false
+            | S m' => beq_nat n' m'
+            end
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPsRcAC"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNrIR18"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Fixpoint leb (n m : nat) : bool :=
+  match n with
+  | O => true
+  | S n' => match m with
+            | O => false
+            | S m' => leb n' m'
+            end
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPaKGLc"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8K97sB"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_leb1 : leb 2 2 = true.
+Proof.
+(simpl).
+reflexivity.
+Qed.
+Example test_leb2 : leb 2 4 = true.
+Proof.
+(simpl).
+reflexivity.
+Qed.
+Example test_leb3 : leb 4 2 = false.
+Proof.
+(simpl).
+reflexivity.
+Qed.
+Definition blt_nat (n m : nat) : bool := andb (leb n m) (negb (beq_nat n m)).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTZCIKX"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqXV1VEx"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_blt_nat1 : blt_nat 2 2 = false.
+Proof.
+reflexivity.
+Qed.
+Example test_blt_nat2 : blt_nat 2 4 = true.
+Proof.
+reflexivity.
+Qed.
+Example test_blt_nat3 : blt_nat 4 2 = false.
+Proof.
+reflexivity.
+Qed.
+Theorem plus_O_n : forall n : nat, 0 + n = n.
+Proof.
+(intros n).
+(simpl).
+reflexivity.
+Qed.
+Theorem plus_O_n' : forall n : nat, 0 + n = n.
+Proof.
+(intros n).
+reflexivity.
+Qed.
+Theorem plus_1_l : forall n : nat, 1 + n = S n.
+Proof.
+(intros n).
+reflexivity.
+Qed.
+Theorem mult_0_l : forall n : nat, 0 * n = 0.
+Proof.
+(intros n).
+reflexivity.
+Qed.
+Theorem plus_n_O : forall n, n = n + 0.
+Proof.
+(intros n).
+(simpl).
+Abort.
+Theorem plus_id_example : forall n m : nat, n = m -> n + n = m + m.
+Proof.
+(intros n m).
+(intros H).
+(rewrite H).
+reflexivity.
+Qed.
+Theorem plus_id_exercise :
+  forall n m o : nat, n = m -> m = o -> n + m = m + o.
+Proof.
 (* Auto-generated comment: Succeeded. *)
 
