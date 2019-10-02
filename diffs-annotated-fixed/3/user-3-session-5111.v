@@ -202,6 +202,10 @@ invert_abstraction.
 (step_proc; intuition idtac).
 {
 (step_proc; intuition idtac).
-*
-(* Auto-generated comment: Succeeded. *)
++
+replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
+(exists s; repeat split; auto).
+(destruct (stateBadBlock state == diskSize s)).
+(rewrite disk_oob_eq by lia; simpl; auto).
+(* Auto-generated comment: Failed. *)
 
