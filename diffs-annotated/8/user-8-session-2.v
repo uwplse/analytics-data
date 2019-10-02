@@ -51,9 +51,8 @@ Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
 (simpl_rewrite @denote_unitary_transpose).
-{
-(unfold outer_sum).
-(simpl).
-restore_dims.
-Msimpl.
+Timeout 1 About Msimpl.
+Timeout 1 Print Msimpl.
+Timeout 1 Print Ltac Msimpl.
+autorewrite with M_db_light M_db.
 (* Failed. *)
