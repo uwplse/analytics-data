@@ -230,8 +230,5 @@ Ltac
   destruct IHt2_1 as [IH1| IH1]; destruct IHt2_2 as [IH2| IH2];
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
-(solve_atom_sub_r_union__decidable IHt2_1 IHt2_2; assumption).
-+
-(right; solve_not_x_sub_r_y_full).
-(apply IHHcontra; try tauto).
+(apply IHHcontra; try auto).
 (* Failed. *)
