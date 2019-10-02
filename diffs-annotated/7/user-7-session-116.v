@@ -25,5 +25,5 @@ Proof.
 (intros X t).
 (induction t; intros Hfresh s; try (solve [ reflexivity ])).
 tauto.
-reflexivity.
+ereflexivity.
 (* Failed. *)
