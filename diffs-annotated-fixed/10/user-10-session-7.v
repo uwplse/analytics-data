@@ -264,7 +264,70 @@ CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itre
   end.
 Definition match_event_list {X} : networkE X -> X -> list (itree tE unit) -> list (itree tE unit) :=
   compose pfmap \226\136\152 match_event.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqBOZR0N" Print Ltac Signatures.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqEdZpOI" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition server : itree sE void :=
+  sk <- translate subevent serverHandshake;; interp (network_of_app sk) (nmi_of_smi kvs).
+Definition map_exceptE {e1} {e2} (f : e1 -> e2) : exceptE e1 ~> exceptE e2 :=
+  fun _ e => match e with
+             | Throw e => Throw (f e)
+             end.
+Definition network_of_app_ta sk : taE ~> itree tE :=
+  fun _ tae =>
+  match tae with
+  | (ae|) => network_of_app sk _ ae
+  | (|(e|)) => trigger (map_exceptE Error_App _ e)
+  | (||tae) => trigger tae
+  end.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Definition showSE (se : sigT (fun X => sE X * X)%type) : string :=
+  match se with
+  | existT _ _ er =>
+      let (e, r) := er in
+      match e with
+      | (ne|) =>
+          match ne in (networkE X) return (X -> _) with
+          | Network_Recv => fun m => "Network     Recv to   server: " ++ show m
+          | Network_Send m => fun _ => "Network     Send from server: " ++ show m
+          end r
+      | (|(Throw _|)) => "This message should never be printed."
+      | (||hge|) =>
+          match hge in (hsgenE X) return (X -> _) with
+          | HsGen_Key => fun k => "Handshake   Generate Key    : " ++ show k
+          | HsGen_Random => fun r => "Handshake   Generate Random : " ++ show r
+          end r
+      | (|||re) =>
+          match re in (randomE X) return (X -> _) with
+          | Random_Value => fun n => "Server      Generate Value  : " ++ show n
+          | Random_Requst => fun r => "Tester      Generate Request: " ++ show r
+          end r
+      end
+  end.
+Definition showTE (te : sigT (fun X => tE X * X)%type) : string :=
+  match te with
+  | existT _ _ er =>
+      let (e, r) := er in
+      match e with
+      | (ne|) =>
+          match ne in (nondetE X) return (X -> _) with
+          | Or => fun b => "Flip coin and get           : " ++ show b
+          end r
+      | (|se) => showSE (existT _ _ (se, r))
+      end
+  end.
+Instance showEvent : (Show event) :=
+ {|
+ show := fun e =>
+         match e with
+         | Event_Tester te => showTE te
+         | Event_Server se => showSE se
+         | Event_Retry e => "Retry upon exception        : " ++ show e
+         end |}.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Notation zE := (exceptE error +' traceE +' hsgenE +' randomE +' nondetE).
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqzrtx8c" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
