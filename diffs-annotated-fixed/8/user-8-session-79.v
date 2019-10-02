@@ -1152,7 +1152,5 @@ clear IS.
 (repeat rewrite id_circ_spec).
 restore_dims tensor_dims.
 (repeat rewrite id_circ_spec).
-restore_dims tensor_dims.
-rewrite_inPar.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
