@@ -344,10 +344,18 @@ lia.
 step_proc.
 (apply firstn_one_more; auto).
 Add Search Blacklist "Raw" "Proofs".
+auto using firstn_one_more.
+Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFLf0mY"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFJUO3u"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+(unfold get; intros).
+step_proc.
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
