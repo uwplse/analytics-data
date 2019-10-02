@@ -81,6 +81,5 @@ Proof.
 -
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair; auto).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
