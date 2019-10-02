@@ -23,16 +23,5 @@ Qed.
 (induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh).
 (rewrite IHt; try assumption).
 (destruct (beq_idP X i); try reflexivity).
-(rewrite IHt).
-reflexivity.
-(unfold fresh in *).
-(intros Hcontra).
-(apply Hfresh).
-(apply IdSetFacts.remove_2; try assumption).
-(intros Heq).
 subst.
-contradiction.
--
-(unfold fresh in Hfresh).
-(destruct (beq_idP X i); try reflexivity).
 (* Failed. *)
