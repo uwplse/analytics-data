@@ -29,6 +29,6 @@ Proof.
 (simpl in Hfresh).
 (apply fresh_union__inv in Hfresh).
 (destruct Hfresh as [Hfresh1 Hfresh2]).
-reflexivity.
+ereflexivity.
 (* Auto-generated comment: Failed. *)
 
