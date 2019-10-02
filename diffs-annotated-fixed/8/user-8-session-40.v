@@ -112,5 +112,6 @@ Lemma SWAP_spec_sep :
 Proof.
 (intros).
 (rewrite SWAP_spec).
+lma.
 (* Auto-generated comment: Succeeded. *)
 
