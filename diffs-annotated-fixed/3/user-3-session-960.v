@@ -108,6 +108,10 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Print projT1.
 Print sig.
-Search -(sig _ -> _).
-(* Auto-generated comment: Succeeded. *)
+Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
+  match digits with
+  | nil => 0
+  | digit :: digits' => proj1_sig digit * base + le_to_nat base digits'
+  end.
+(* Auto-generated comment: Failed. *)
 
