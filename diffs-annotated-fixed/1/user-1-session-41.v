@@ -363,6 +363,6 @@ Function
    | _ => False
    end.
 all: (intros; subst; simpl; eauto with math).
-all: (destruct hd1; simpl; eauto with math).
-(* Auto-generated comment: Failed. *)
+all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
+(* Auto-generated comment: Succeeded. *)
 
