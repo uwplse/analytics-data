@@ -42,7 +42,6 @@ Print Morphisms.Proper.
 Search -(IdSet.Equal _ _ -> IdSet.In _ _ -> IdSet.In _ _).
 Print eq.
 Print Morphisms.respectful.
-Print Morphisms.Proper.
 Search -Morphisms.Proper.
-(apply Morphisms_Prop.not_iff_morphism).
+setoid_rewrite Hfact.
 (* Failed. *)
