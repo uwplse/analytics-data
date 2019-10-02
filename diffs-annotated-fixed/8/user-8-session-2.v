@@ -138,5 +138,6 @@ Search -fst -snd.
 (destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
 Opaque firstn.
 Opaque rev.
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
