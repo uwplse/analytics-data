@@ -300,6 +300,7 @@ Inductive GT : Type :=
   | GFun : GT -> GT -> GT
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
-Module asdf.
+Module GTeq.
+Fixpoint eq (G_1 G_2 : GT) : Prop := True.
 (* Auto-generated comment: Succeeded. *)
 
