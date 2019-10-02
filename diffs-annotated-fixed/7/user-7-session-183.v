@@ -94,6 +94,10 @@ Qed.
 Lemma subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), exists (Z : id) (tz : ty), [X := s] TExist Y t = TExist Z tz.
 Proof.
 (intros X s Y t).
-(destruct (beq_idPX Y)).
+(destruct (beq_idP X Y)).
+-
+subst.
+exists Y,t.
+(rewrite subst_eq_id).
 (* Auto-generated comment: Failed. *)
 
