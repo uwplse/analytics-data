@@ -20,6 +20,17 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 From Armada Require Import Goose.Machine.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coql9ZLuT"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoHi6Qd"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+Set Implicit Arguments.
 Opaque Nat.modulo Nat.div.
 #[local]Obligation Tactic := (intros; simpl; subst).
 Theorem mod_S_lt n m : n `mod` S m < S m.
@@ -43,5 +54,39 @@ Proof.
 -
 (apply lt_wf).
 Qed.
+Fixpoint nat_from_le base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
+nat :=
+  match digits with
+  | nil => 0
+  | digit :: digits' => proj1_sig digit + nat_from_le digits' * S (S base_m2)
+  end.
+Theorem nat_le_inverse base_m2 :
+  forall n, nat_from_le (nat_to_le base_m2 n) = n.
+Proof.
+(intros).
+(induction n as [n IHn] using lt_wf_ind).
+(destruct n; rewrite nat_to_le_equation; simpl).
+-
+auto.
+-
+(assert (1 < S (S base_m2)) by lia).
+(assert (base_m2 = S (S base_m2) - 2) by lia).
+(generalize dependent S (S base_m2); intros base **; subst).
+(assert (0 < S n) by lia).
+(generalize dependent S n; clear n; intros n **).
+(rewrite IHn).
+{
+(rewrite (Nat.div_mod n base)  at 3 by lia).
+lia.
+}
+(apply Nat.div_lt; lia).
+Qed.
+Definition bounded0 : {x | x < 256}.
+exists 0.
+(apply Nat.lt_0_succ).
+Defined.
+Definition nat64_to_le (x : nat) : list {x | x < 256} :=
+  let digits := nat_to_le 254 x in
+  digits ++ repeat bounded0 (8 - length digits).
 (* Auto-generated comment: Succeeded. *)
 
