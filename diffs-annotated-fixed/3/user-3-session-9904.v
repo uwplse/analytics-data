@@ -122,6 +122,6 @@ lia.
 +
 (unfold statdb_abstraction in *; simpl in *).
 intuition.
-(exists (n0 :: s); intuition).
-(* Auto-generated comment: Failed. *)
++
+(* Auto-generated comment: Succeeded. *)
 
