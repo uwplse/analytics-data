@@ -211,6 +211,7 @@ Proof.
 (pose proof (H1 a); intuition).
 Print eq_values.
 (assert (v = nth a bs block0)).
-(eapply diskGet_eq_values).
-(* Auto-generated comment: Succeeded. *)
+(eapply diskGet_eq_values; eauto).
+lia.
+(* Auto-generated comment: Failed. *)
 
