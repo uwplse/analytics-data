@@ -1232,13 +1232,3 @@ constructor.
 +
 (unfold valid_ancillae_box).
 (intros \207\129 TB).
-(repeat rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
-  try apply source_symmetric_WT; trivial).
-(unfold compose_super).
-(simpl_rewrite inSeq_correct).
-(try apply inSeq_WT; try apply unitary_at1_WT; try apply source_symmetric_WT;
-  trivial).
-(apply source_symmetric_WT in H).
-(unfold valid_ancillae_box in IHsource_symmetric).
-(rewrite H0).
-(rewrite IHsource_symmetric; trivial).
