@@ -376,18 +376,10 @@ autorewrite with upd list in *.
 admit.
 Admitted.
 Hint Resolve append_at_ok: core.
-Theorem log_abstraction_preserved d bs d' bs' :
-  log_abstraction d bs ->
-  diskGet d' len_addr = diskGet d len_addr ->
-  diskSize d' = diskSize d ->
-  log_contents_ok d' (bs ++ bs') -> log_abstraction d' bs.
+Theorem log_contents_ok_prefix d bs bs' :
+  log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
 Proof.
-(unfold log_abstraction, log_length_ok, log_size_ok; intuition).
--
-replace (diskGet d' len_addr) in *.
-auto.
--
-congruence.
--
+(unfold log_contents_ok; intros).
+specialize (H a).
 (* Auto-generated comment: Succeeded. *)
 
