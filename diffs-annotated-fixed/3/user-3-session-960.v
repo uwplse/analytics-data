@@ -85,6 +85,32 @@ Timeout 1 Print Grammar tactic.
 Theorem mod_S_lt : forall n m, n `mod` S m < S m.
 Proof.
 (intros).
-(apply PeanoNat.Nat.mod_upper_bound).
+(apply PeanoNat.Nat.mod_upper_bound; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7X4jRQ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZkBrPc"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKa1nVA"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Function
+ nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
+ :=
+   match x with
+   | 0 => nil
+   | _ =>
+       let base := base_m2 in
+       let digit := x mod base in
+       exist (fun x => x < base) digit _ :: nat_to_le base (x / base)
+   end.
 (* Auto-generated comment: Succeeded. *)
 
