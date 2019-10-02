@@ -262,7 +262,36 @@ Unset Search Output Name Only.
 }
 {
 (step_proc; intuition; subst; eauto).
+(exists (S n); simpl).
+(autorewrite with upd; auto).
+}
 {
 (step_proc; intuition; subst; eauto).
++
+(autorewrite with upd; auto).
++
+(exists (S (length blocks)); simpl).
+(rewrite firstn_all).
+(autorewrite with upd; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDpM9cU"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAQmfp5"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxRf1o9"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
