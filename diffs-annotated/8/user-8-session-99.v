@@ -653,4 +653,51 @@ Proof.
 (simpl).
 (apply pure_state_kron).
 (apply H).
-(* Failed. *)
+(apply (H O)).
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+(apply (IHl A)).
+(intros i).
+(apply (H (S i))).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqK0E6Q8"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma mixed_big_kron :
+  forall (n : nat) (l : list (Square n)) (A : Square n),
+  (forall i : nat, Mixed_State (nth i l A)) -> Mixed_State (\226\168\130 l).
+Proof.
+(induction l; intros A H).
+-
+(simpl).
+constructor.
+(apply pure_id1).
+-
+(simpl).
+(apply mixed_state_kron).
+(apply (H O)).
+(eapply IHl).
+(intros i).
+(apply (H (S i))).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq0T5gcb"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma pure_state_trace_1 : forall {n} (\207\129 : Density n), Pure_State \207\129 -> trace \207\129 = 1.
+Proof.
+(intros n \207\129 [u [Uu E]]).
+(unfold Pure_State_Vector in Uu).
+subst.
+(rewrite E).
+clear - Uu.
+(unfold trace).
+(unfold Mmult, adjoint in *).
+(simpl in *).
+(erewrite Csum_eq_bounded; intros).
+(rewrite (Uu O O) by lia).
+easy.
+(simpl; lca).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqD1nWBM"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
