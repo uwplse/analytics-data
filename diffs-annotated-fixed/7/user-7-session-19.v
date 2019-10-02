@@ -28,6 +28,20 @@ Proof.
 (destruct k; destruct v; right; assumption).
 Qed.
 Lemma match_ty_i_cname__inv : forall (v : ty) (c : cname), forall k : nat, |-[ k] v <$ TCName c -> v = TCName c.
+Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros k).
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_i_pair; auto).
+-
+(destruct k).
+constructor.
+(simpl).
+tauto.
+Qed.
+Lemma match_ty_i_cname__inv : forall (v : ty) (c : cname), forall k : nat, |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; simpl in Hm; contradiction ])).
 (intros c0 k Hm).
@@ -64,9 +78,6 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
-Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
-Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
-Proof.
 Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
 Proof.
 (induction k; induction t; intros Htk v Hm;
