@@ -59,4 +59,11 @@ Definition free (X : id) (fvs : id_set) := IdSet.In X fvs.
 Definition not_free (X : id) (fvs : id_set) := ~ IdSet.In X fvs.
 Definition ffree_in_ty (X : id) (t : ty) := free X (FFV t).
 Definition not_ffree_in_ty (X : id) (t : ty) := not_free X (FFV t).
+Definition f_free_in_ty (X : id) (t : ty) := free X (FFV t).
+Definition not_f_free_in_ty (X : id) (t : ty) := not_free X (FFV t).
+Definition b_free_in_ty (X : id) (t : ty) := free X (FBV t).
+Definition not_b_free_in_ty (X : id) (t : ty) := not_free X (FBV t).
+Hint Unfold free not_free f_free_in_ty not_f_free_in_ty b_free_in_ty not_b_free_in_ty: DBBetaJulia.
+Print IdSet.
+Definition wf_ty (t : ty) := IdSet.Equal (FBV t) IdSet.empty.
 (* Failed. *)
