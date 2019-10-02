@@ -951,4 +951,5 @@ Print Ltac Signatures.
 +
 Timeout 1 About id_kron.
 restore_dims.
-(rewrite id_kron').
+(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
+(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
