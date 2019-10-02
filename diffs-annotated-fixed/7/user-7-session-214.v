@@ -107,6 +107,6 @@ Proof.
 (simpl).
 (intros X t1 t2 H).
 Search -IdSet.In.
-(destruct H as [H| H]; [ apply IdSetFacts.union_2 | apply IdSetFacts.union_3 ]).
+(destruct H as [H| H]; [ apply IdSetFacts.union_2 | apply IdSetFacts.union_3 ]; assumption).
 (* Auto-generated comment: Failed. *)
 
