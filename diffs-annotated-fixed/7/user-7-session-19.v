@@ -414,18 +414,6 @@ Proof.
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
 -
-(inversion Hle; subst).
-assumption.
--
-clear IHt.
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(destruct k').
-constructor.
-(apply le_S_n in Hle).
-(simpl).
-Abort.
-Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
 Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
 (apply
@@ -437,5 +425,6 @@ Proof.
 (assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
 +
+(apply value_sem_sub_k_i_union__inv in Hsem).
 (* Auto-generated comment: Failed. *)
 
