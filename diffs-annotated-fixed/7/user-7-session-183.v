@@ -116,6 +116,12 @@ reflexivity.
 Search -IdSet.mem.
 (assert (Hmem : IdSet.mem Y (FV s) = false)).
 {
-(aply IdSetFacts.not_mem_iff).
-(* Auto-generated comment: Failed. *)
+(apply IdSetFacts.not_mem_iff).
+}
+(rewrite Hmem).
+eexists.
+eexists.
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
