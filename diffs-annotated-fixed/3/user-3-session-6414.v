@@ -35,26 +35,25 @@ Axiom
 Hint Resolve addr_to_block_ok: core.
 Module Log (d: OneDiskAPI)<: LogAPI.
 Definition init : proc InitResult.
+Definition init : proc InitResult.
 Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsDhzFq"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmkseDM"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Definition get : proc (list block).
 Admitted.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAhArPI"
+Definition append : list block -> proc bool.
+Admitted.
+Definition reset : proc unit.
+Admitted.
+Definition recover : proc unit.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqX06zjQ"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxmYXnB"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1ktiSB"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-(* Auto-generated comment: Succeeded. *)
+Definition abstr : Abstraction State := True.
+(* Auto-generated comment: Failed. *)
 
