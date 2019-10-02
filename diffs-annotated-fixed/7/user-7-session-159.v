@@ -138,8 +138,5 @@ subst.
 (rewrite subst_exist_eq in *).
 exists v.
 (apply match_ty_exist__inv in Hm).
-(destruct Hm as [ti Hm]).
-specialize (IHw _ _ _ Hm).
-(destruct IHw as [v' [Hm' Hprop]]).
 (* Auto-generated comment: Failed. *)
 
