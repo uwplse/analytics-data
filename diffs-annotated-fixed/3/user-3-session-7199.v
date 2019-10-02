@@ -266,7 +266,50 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem log_size_bound d bs a :
-  log_size_ok d bs -> log_addr a < diskSize d -> a < length bs.
-(* Auto-generated comment: Failed. *)
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; intros).
+(destruct a0 as [_ bs]; simpl in *; intuition eauto).
+(descend; intuition eauto).
+(descend; intuition eauto).
+(unfold log_abstraction in H0; intuition).
+(pose proof (H3 a); intuition).
+(assert (v = nth a bs block0)).
+(eapply diskGet_eq_values; eauto).
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqypodZ6"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe; simpl; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a as [_ bs]; simpl in *; intuition eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTrrpec"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve recover_wipe: core.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
+Proof.
+(induction a; simpl).
+-
+step_proc.
+-
+step_proc.
+(* Auto-generated comment: Succeeded. *)
 
