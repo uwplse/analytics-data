@@ -21,8 +21,6 @@ Proof.
 (induction t; intros s1 s2; try (solve [ simpl; reflexivity ]); try (specialize (IHt1 s1 s2); specialize (IHt2 s1 s2)); try specialize (IHt s1 s2)).
 (induction t; intros s1 s2;
   try (solve [ simpl; reflexivity | specialize (IHt1 s1 s2); specialize (IHt2 s1 s2); simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
--
-(simpl).
-(rewrite IHt).
+(induction t; intros s1 s2; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
 (* Auto-generated comment: Failed. *)
 
