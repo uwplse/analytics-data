@@ -189,8 +189,10 @@ subst.
 -
 (destruct k).
 +
-(destruct w'; constructor).
+(destruct Hm as [t' [Heq Href]]; subst).
+(destruct w'; assumption).
+-
+(destruct w).
 +
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]).
+(apply mtch_ty_exist__0_inv in Hm).
 (* Failed. *)
