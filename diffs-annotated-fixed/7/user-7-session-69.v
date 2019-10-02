@@ -292,6 +292,6 @@ Proof.
    end).
 Qed.
 Proof.
-(induction k; induction t; intros v; split; intros Hm).
+(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ])).
 (* Auto-generated comment: Failed. *)
 
