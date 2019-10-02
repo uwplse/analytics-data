@@ -950,11 +950,3 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
 +
 restore_dims.
-(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
-Msimpl.
-reflexivity.
-+
-mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169 with @Zero 1 1 by lma.
-mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1630\226\159\169 with I 1 by lma.
-Msimpl.
-(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
