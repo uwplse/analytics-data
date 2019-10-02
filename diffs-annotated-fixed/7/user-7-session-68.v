@@ -185,6 +185,7 @@ clear IHt2.
 (pose proof (le_S_n _ _ Hdt) as Hdt').
 (pose proof Hsem as Hsem').
 (unfold sem_sub_k in Hsem).
-Check sem_eq_k__sem_sub_k.
+(apply sem_eq_k__sem_sub_k in Href).
+assumption.
 (* Auto-generated comment: Failed. *)
 
