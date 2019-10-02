@@ -66,5 +66,35 @@ Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   |-[ w] v <$ [X := tx] t ->
   exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
-specialize (IHw' _ _ Hm).
+specialize (IHw' _ Hm).
+(rewrite subst_neq__permute in IHw').
+exists ti.
+assumption.
+assumption.
+admit.
+admit.
+-
+admit.
+-
+admit.
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
++
+subst.
+(rewrite subst_exist_eq in *).
+exists v.
+split.
+*
 (* Failed. *)
