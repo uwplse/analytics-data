@@ -53,10 +53,5 @@ clear IHv.
 exists v.
 reflexivity.
 Qed.
-Lemma match_ty_i_ref__inv : forall (v t : ty) (k : nat), |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ ||-[ k][t']= [t].
-Proof.
-(intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
-clear IHv.
-(intros t k).
-(intros Hm).
+(simpl).
 (* Failed. *)
