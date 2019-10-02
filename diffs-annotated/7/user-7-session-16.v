@@ -330,12 +330,6 @@ assumption.
 Qed.
 Lemma nf_sub_r__decidable : forall t1 t2 : ty, InNF( t1) -> Decidable.decidable (|- t1 << t2).
 Proof.
-(induction t2).
-+
-(destruct (cname_eq__decidable c c0)).
-*
-(subst; left; constructor).
-*
-right.
-(intros Hcontra; inversion Hcontra).
+(intros Hcontra; inversion Hcontra; subst).
+contradiction.
 (* Failed. *)
