@@ -309,7 +309,9 @@ Proof.
 (intros).
 (induction d; simpl in *).
 -
-lia.
+(exfalso; lia).
 -
-(* Auto-generated comment: Succeeded. *)
+(destruct d; simpl in *).
+lia.
+(* Auto-generated comment: Failed. *)
 
