@@ -203,6 +203,6 @@ reflexivity.
 (destruct (beq_idP X' i0)).
 {
 subst.
-(split; intros HX).
+(split; intros i0).
 (* Auto-generated comment: Failed. *)
 
