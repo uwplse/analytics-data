@@ -721,6 +721,6 @@ Proof.
 (intros).
 (rewrite kron_1_l).
 (rewrite kron_1_l).
-restore_dims.
-(* Auto-generated comment: Succeeded. *)
+(rewrite (kron_1_r A)).
+(* Auto-generated comment: Failed. *)
 
