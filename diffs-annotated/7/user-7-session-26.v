@@ -114,47 +114,6 @@ Proof.
 Qed.
 Lemma inv_depth_mk_nf : forall t : ty, | MkNF( t) | = | t |.
 Proof.
-(induction t; simpl; auto).
-(rewrite inv_depth_unite_pairs).
-auto.
+(intros; split; auto).
 Qed.
-Lemma atom_type__value_type : forall t : ty, atom_type t -> value_type t.
-Proof.
-(apply (atom_type_mut (fun (t : ty) (Hat : atom_type t) => value_type t) (fun (t : ty) (_ : in_nf t) => True));
-  try (solve [ auto with DBBetaJulia ])).
-Qed.
-Lemma pair_in_nf__value_type : forall t1 t2 : ty, InNF( TPair t1 t2) -> value_type (TPair t1 t2).
-Proof.
-(intros t1 t2 Hnf).
-(inversion Hnf; subst).
-(apply atom_type__value_type; assumption).
-Qed.
-Lemma match_ty_pair : forall v1 v2 t1 t2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
-Proof.
-(intros v1 v2 t1 t2 k Hm1 Hm2).
-(destruct k; split; assumption).
-Qed.
-Lemma match_ty_union_1 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t1 -> |-[ k] v <$ TUnion t1 t2.
-Proof.
-(intros v t1 t2 k Hm).
-(destruct k; destruct v; left; assumption).
-Qed.
-Lemma match_ty_union_2 : forall v t1 t2 : ty, forall k : nat, |-[ k] v <$ t2 -> |-[ k] v <$ TUnion t1 t2.
-Proof.
-(intros v t1 t2 k Hm).
-(destruct k; destruct v; right; assumption).
-Qed.
-Hint Resolve match_ty_pair: DBBetaJulia.
-Hint Resolve match_ty_union_1 match_ty_union_2: DBBetaJulia.
-Lemma sem_sub_k__refl : forall (k : nat) (t : ty), ||-[ k][t]<= [t].
-Proof.
-auto with DBBetaJulia.
-Qed.
-Lemma sem_sub_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
-Proof.
-auto with DBBetaJulia.
-Qed.
-Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
-Proof.
-auto with DBBetaJulia.
 (* Failed. *)
