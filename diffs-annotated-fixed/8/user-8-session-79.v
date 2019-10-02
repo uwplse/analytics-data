@@ -1028,6 +1028,6 @@ restore_dims tensor_tac.
  end; try (solve [ type_check ])).
 Set Printing All rewrite IP.
 Set Printing All.
-(rewrite IP).
-(* Auto-generated comment: Failed. *)
+(simpl_rewrite IP).
+(* Auto-generated comment: Succeeded. *)
 
