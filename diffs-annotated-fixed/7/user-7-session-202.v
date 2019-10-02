@@ -129,15 +129,6 @@ Admitted.
 Lemma b_subst_wf_ty : forall (X : id) (t : ty), forall s : ty, [BX := s] t = t.
 Proof.
 (intros X t).
-(induction t; intros s; try (solve [ reflexivity | simpl; rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
--
-(destruct (beq_idP X i); try (subst; rewrite b_subst_exist_eq; reflexivity)).
-(rewrite b_subst_exist_neq; try assumption).
-(rewrite IHt).
-reflexivity.
--
-(destruct (beq_idP X i)).
-+
-subst.
+Lemma b_subst_wf_ty : forall (X : id) (t : ty), not_b_free_in_t X t -> forall s : ty, [BX := s] t = t.
 (* Auto-generated comment: Failed. *)
 
