@@ -47,6 +47,8 @@ Qed.
 Lemma subst_pair : forall (X : id) (s t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
 Proof.
 (intros).
+(unfold subst).
 (simpl).
-(* Auto-generated comment: Failed. *)
+(unfold subst_func).
+(* Auto-generated comment: Succeeded. *)
 
