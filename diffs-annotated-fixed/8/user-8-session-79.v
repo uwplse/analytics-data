@@ -1027,5 +1027,6 @@ restore_dims tensor_tac.
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
 Set Printing All.
+Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
