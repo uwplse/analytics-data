@@ -223,6 +223,6 @@ Proof.
 (assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
 (induction t2; intros Hsem).
 (induction t2; intros Hsem; specialize (Hsem _ _ Hma)).
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; constructor || contradiction ])).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
 (* Auto-generated comment: Failed. *)
 
