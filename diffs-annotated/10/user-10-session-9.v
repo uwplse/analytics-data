@@ -170,20 +170,7 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqUgNmVr"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Definition nmi_of_smi {T} (m : itree smE T) :
-  itree (appE id +' exceptE err +' randomE) T :=
-  interp
-    (fun T e =>
-     match e with
-     | (ae|) => translate subevent (embed_exp ae)
-     | (|ee) =>
-         match ee in (evalE T) return (_ T) with
-         | Eval_Var => n <- trigger Random_Value;; ret (exp_int n)
-         | Eval_Decide bx =>
-             match unwrap' bx with
-             | Some b => ret b
-             | None => ret false
-             end
-         end
-     end) m.
-(* Auto-generated comment: Failed. *)
+Check interp.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqLOeELx"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
