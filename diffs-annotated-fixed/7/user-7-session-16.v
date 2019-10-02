@@ -366,10 +366,15 @@ Ltac
        | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
        end.
 Ltac
- solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
-  destruct IHt2_1 as [IH1| IH1]; destruct IHt2_2 as [IH2| IH2];
-   try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
-   apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
+ solve_not_x_sub_r_y_full :=
+  match goal with
+  | |- ~ |- ?t1 << ?t2 =>
+        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra;
+         try (solve [ inversion Heqx | inversion Heqy ]); subst
+  end;
+   match goal with
+   | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || (apply mk_nf_nf__equal; assumption) || apply mk_nf__in_nf
+   end.
 Ltac
  solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
   destruct IHt2_1 as [IH1| IH1]; try assumption; destruct IHt2_2 as [IH2| IH2]; try assumption;
@@ -400,14 +405,6 @@ Proof.
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
 +
-right.
-(match goal with
- | |- ~ |- ?t1 << ?t2 =>
-       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
-        subst
- end).
-(match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || (apply mk_nf_nf__equal; assumption) || apply mk_nf__in_nf
- end).
+(destruct IHt'1 as [IH1| IH1]; try assumption).
 (* Auto-generated comment: Failed. *)
 
