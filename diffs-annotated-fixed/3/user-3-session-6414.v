@@ -41,5 +41,7 @@ Timeout 1 Locate Ltac OneDiskAPI.
 Timeout 1 Locate OneDiskAPI.
 Timeout 1 Locate OneDiskAPI.
 Timeout 1 Locate Ltac OneDiskAPI.
-(* Auto-generated comment: Failed. *)
+Timeout 1 Locate OneDiskAPI.
+Timeout 1 Locate OneDiskAPI.
+(* Auto-generated comment: Succeeded. *)
 
