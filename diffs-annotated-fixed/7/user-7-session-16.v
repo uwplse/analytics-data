@@ -415,6 +415,6 @@ Proof.
 (intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
 (assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
 +
-(destruct IHta1 as [IH1| IH1]; destruct IHta2 as [IH2| IH2]).
+(destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
 (* Auto-generated comment: Failed. *)
 
