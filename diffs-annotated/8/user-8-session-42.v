@@ -684,22 +684,3 @@ Lemma kron_0_r : forall {m n o p : nat} (A : Matrix m n), A \226\138\151 @Zero o
 Proof.
 lma.
 Qed.
-Lemma kron_1_r : forall {m n : nat} (A : Matrix m n), A \226\138\151 I 1 == A.
-Proof.
-(intros m n A i j Hi Hj).
-(unfold I, kron).
-(rewrite 2!Nat.div_1_r).
-(rewrite 2!Nat.mod_1_r).
-(simpl; lca).
-Qed.
-Lemma kron_1_l : forall {m n : nat} (A : Matrix m n), I 1 \226\138\151 A == A.
-Proof.
-(intros m n A i j Hi Hj).
-(unfold I, kron).
-(rewrite 2!Nat.mod_small by lia).
-(rewrite 2!Nat.div_small by lia).
-(simpl; lca).
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqMwSMS6"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
