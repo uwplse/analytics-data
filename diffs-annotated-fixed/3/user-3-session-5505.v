@@ -70,14 +70,5 @@ intuition eauto.
 (simpl write).
 step_proc.
 intuition eauto.
-+
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqEM7AbS"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqyjemv2"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
 (* Auto-generated comment: Succeeded. *)
 
