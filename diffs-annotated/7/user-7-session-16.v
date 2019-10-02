@@ -232,6 +232,6 @@ Ltac
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
 right.
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra
  end).
 (* Failed. *)
