@@ -150,15 +150,6 @@ Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w
       exists v'; rewrite subst_union; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption
    | intros Hm; destruct (beq_idP X i);
       [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
--
-(intros Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
--
-(intros Hm).
-(rewrite subst_equation).
-Search -IdSet.mem.
-(destruct (IdSet.mem i (FV tint)) eqn:Hmem).
-(simpl in Hmem).
-Search -IdSet.empty.
-(rewrite IdSetFacts.empty_b).
+(rewrite IdSetFacts.empty_b in Hmem).
+contradiction.
 (* Failed. *)
