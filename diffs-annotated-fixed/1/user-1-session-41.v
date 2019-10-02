@@ -413,6 +413,6 @@ all: (intros; subst; simpl; eauto with math).
 all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
 Defined.
 Definition eq (G_1 G_2 : GT) := eq_fn (G_1, G_2).
-Notation "G_1 === G_2" := (eq G_1 G_2).
-(* Auto-generated comment: Failed. *)
+Notation "G_1 === G_2" := (eq G_1 G_2) (at level 100).
+(* Auto-generated comment: Succeeded. *)
 
