@@ -205,24 +205,14 @@ Proof.
            assert (Hv : value_type t) by constructor; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
             destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
             tauto || apply Max.le_max_l || apply Max.le_max_r
-     end ])).
-(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | Hsem:||-[ ?k][?t]<= [?t']
-       |- | ?t | <= | ?t' | =>
-           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
-            (Hsem _ Hm); contradiction
-     | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
-       |- | ?t | <= _ =>
-           assert (Hv : value_type t) by constructor; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
-            destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
-            tauto || apply Max.le_max_l || apply Max.le_max_r
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
        |- _ <= | ?t' | =>
            assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
             assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
      end ])).
-Search -in_nf.
+-
+(destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+(apply Nat.max_le_compat).
 (* Auto-generated comment: Failed. *)
 
