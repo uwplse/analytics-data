@@ -25,6 +25,7 @@ Proof.
 (right; assumption).
 -
 (assert (Hnf : InNF( t)) by (constructor; assumption)).
+(rewrite (mk_nf_nf t Hnf) in IHHsub).
 tauto.
 Qed.
 Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
@@ -84,8 +85,6 @@ Proof.
 (destruct (sub_r_union_l__inv _ _ _ Hsub1) as [Hsub11 Hsub12]).
 (constructor; tauto).
 Qed.
-Lemma unite_pairs_of_nf__preserves_sub_r1 :
-  forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Lemma unite_pairs_of_nf__preserves_sub_r_l :
   forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Proof.
@@ -214,6 +213,7 @@ tauto.
 +
 (apply IHHsub').
 (apply mk_nf_nf; assumption).
+(apply mk_nf__in_nf).
 -
 (destruct (in_nf_union__inv _ _ Hnfm1) as [Hnfm11 Hnfm12]).
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
@@ -245,6 +245,7 @@ tauto.
   try (solve [ constructor; auto ])).
 +
 (apply IHHsub').
+(apply mk_nf_nf; assumption).
 (apply mk_nf__in_nf).
 -
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
@@ -462,5 +463,5 @@ tauto.
   (IH21 _ Hnf'); specialize (IH22 _ Hnf');
   try (solve [ solve_union_sub_r__decidable IH11 IH21 | solve_atom_sub_r_union__decidable IH12 IH22 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
