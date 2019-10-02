@@ -45,4 +45,5 @@ exists (Nat.max w21 w22).
 (destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; [ apply Hsem1 | apply Hsem2 ]; eapply match_ty__ge_w;
   try eassumption).
 (destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; eapply match_ty__ge_w).
+(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; eapply match_ty__ge_w; [ eapply Hsem1 | eapply Hsem2 ]).
 (* Failed. *)
