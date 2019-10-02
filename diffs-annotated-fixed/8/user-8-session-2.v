@@ -127,6 +127,6 @@ Msimpl.
 reflexivity.
 -
 (simpl).
-(destruct a; Msimpl).
+(destruct a; Msimpl; rewrite IHl; reflexivity).
 (* Auto-generated comment: Succeeded. *)
 
