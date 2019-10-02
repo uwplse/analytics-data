@@ -225,8 +225,8 @@ Qed.
 Require Import Reals.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq8FnGtt"
 Print Ltac Signatures.
+Require Import Reals.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqPVFYHN"
+Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Definition _R'_ (m : nat) := _R_ (2 * PI / INR (2 ^ m)).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqLDAawB"
-Print Ltac Signatures.
