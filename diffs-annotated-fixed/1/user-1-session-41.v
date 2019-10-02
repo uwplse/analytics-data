@@ -557,6 +557,13 @@ Lemma alpha_fun_inversion :
   forall G, Alpha S G -> exists G_1 G_2, G = GFun G_1 G_2.
 Proof.
 (intros).
-(inversion H0).
+(inversion H0; subst).
+-
+specialize (H _ (In_singleton _ _)).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
 (* Auto-generated comment: Succeeded. *)
 
