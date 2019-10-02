@@ -340,4 +340,3 @@ econstructor.
 3: eauto.
 2: monoid.
 validate.
-}
