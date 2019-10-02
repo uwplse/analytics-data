@@ -231,5 +231,5 @@ subst.
 (destruct w').
 (inversion Hle).
 Search -id.
-Print ec_id.
+(destruct (eq_id X i)).
 (* Failed. *)
