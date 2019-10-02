@@ -271,27 +271,138 @@ Unset Search Output Name Only.
 (autorewrite with upd; auto).
 +
 (exists (S (length blocks)); simpl).
+(exists (S n); simpl).
+(autorewrite with upd; auto).
+}
+{
+(step_proc; intuition; subst; eauto).
++
+(autorewrite with upd; auto).
++
+(exists (S (length blocks)); simpl).
 (rewrite firstn_all).
 (autorewrite with upd; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDpM9cU"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 }
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAQmfp5"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 }
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxRf1o9"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Qed.
+Hint Resolve append_helper_ok: core.
+Lemma disk_matches_list_update_blocks :
+  forall blocks disk s base start,
+  disk_matches_list disk base s ->
+  start >= base + length s ->
+  disk_matches_list (diskUpds disk start blocks) base s.
+Proof.
+(unfold disk_matches_list; intros).
+autorewrite with upd.
+auto.
+Qed.
+Lemma log_abstraction_pre_commit :
+  forall disk s lenblk blocks,
+  diskGet disk 0 =?= lenblk ->
+  log_abstraction disk s ->
+  log_abstraction (diskUpds disk (block_to_addr lenblk + 1) blocks) s.
+Proof.
+(unfold log_abstraction; intros).
+(autorewrite with upd; intuition eauto).
+eq_values.
+(apply disk_matches_list_update_blocks; auto).
+lia.
+Qed.
+Lemma disk_matches_list_oob :
+  forall disk b l,
+  disk_matches_list disk 1 l -> disk_matches_list disk [0 |-> b] 1 l.
+Proof.
+(unfold disk_matches_list; intros).
+autorewrite with upd.
+auto.
+Qed.
+Lemma log_abstraction_nop :
+  forall disk s oldlen newlen,
+  diskGet disk 0 =?= oldlen ->
+  block_to_addr oldlen = block_to_addr newlen ->
+  log_abstraction disk s -> log_abstraction disk [0 |-> newlen] s.
+Proof.
+(unfold log_abstraction; intuition).
+-
+autorewrite with upd.
+auto.
+-
+autorewrite with upd.
+eq_values.
+exists newlen.
+(simpl; intuition).
+congruence.
+-
+(apply disk_matches_list_oob; auto).
+Qed.
+Lemma log_abstraction_post_commit :
+  forall blocks disk s lenblk newlenblk,
+  diskSize disk > length (s ++ blocks) ->
+  diskGet disk 0 =?= lenblk ->
+  block_to_addr newlenblk = block_to_addr lenblk + length blocks ->
+  log_abstraction disk s ->
+  log_abstraction
+    (diskUpds disk (block_to_addr lenblk + 1) blocks) [0 |-> newlenblk]
+    (s ++ blocks).
+Proof.
+(induction blocks; simpl; intuition).
+-
+(rewrite app_nil_r in *).
+(eapply log_abstraction_nop; eauto).
+lia.
+-
+(unfold log_abstraction in *; intuition).
++
+autorewrite with upd.
+lia.
++
+eq_values.
+exists newlenblk.
+autorewrite with upd.
+(rewrite app_length; simpl).
+intuition.
+lia.
++
+autorewrite with upd.
+(rewrite <- diskUpds_diskUpd_comm by lia).
+(rewrite <- diskUpds_diskUpd_comm by lia).
+(rewrite diskUpds_diskUpd_before).
+(unfold disk_matches_list).
+autorewrite with upd.
+(rewrite app_length in *).
+(rewrite diskGets_app).
+eq_values.
+replace (1 + length s) with block_to_addr lblk + 1 by lia.
+autorewrite with upd.
+(apply maybe_eq_list_app).
+*
+assumption.
+*
+(apply maybe_eq_list_map_some).
+Qed.
+Lemma log_abstraction_len :
+  forall state s r,
+  log_abstraction state s ->
+  diskGet state 0 =?= r -> block_to_addr r = length s.
+Proof.
+(unfold log_abstraction; intuition).
+eq_values.
+auto.
+Qed.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
+(destruct a'; simpl in *; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
+(destruct (gt_dec (block_to_addr r + length v + 1) (diskSize state))).
+-
+(step_proc; intuition; subst; eauto).
+-
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
