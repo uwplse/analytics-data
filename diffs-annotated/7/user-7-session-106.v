@@ -163,5 +163,5 @@ constructor.
 (apply Nat.le_max_r).
 -
 (apply match_ty_cname__inv in Hm).
-(apply match_ty_pair; auto).
+(apply match_ty_pair; [ apply IHt1 | apply IHt2 ]).
 (* Failed. *)
