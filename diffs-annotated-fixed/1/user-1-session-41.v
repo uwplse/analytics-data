@@ -620,6 +620,5 @@ all:
    end).
 all: congruence.
 -
-(destruct H3).
 (* Auto-generated comment: Succeeded. *)
 
