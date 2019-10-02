@@ -230,6 +230,8 @@ Ltac
   destruct IHt2_1 as [IH1| IH1]; destruct IHt2_2 as [IH2| IH2];
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
-(split; intros t'; induction t').
-+
+(match goal with
+ | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
+       destruct (cname_eq__decidable c1 c2); [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
+ end).
 (* Failed. *)
