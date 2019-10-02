@@ -111,5 +111,6 @@ Proof.
 (destruct (r == 0)).
 -
 (step_proc_basic; intros).
-(* Auto-generated comment: Succeeded. *)
+eauto.
+(* Auto-generated comment: Failed. *)
 
