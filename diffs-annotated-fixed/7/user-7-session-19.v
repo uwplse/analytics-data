@@ -425,6 +425,7 @@ subst.
 (apply Nat.le_max_r).
 }
 (unfold sem_sub_i in Hsem).
+(unfold sem_sub_i in Hsem).
 (assert (Hm : |-[ kmax] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem _ _ Hm).
 (apply match_ty_i_union__inv in Hsem).
