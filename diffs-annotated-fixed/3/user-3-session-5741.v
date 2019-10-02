@@ -612,6 +612,7 @@ Theorem negation_fn_applied_twice :
   (forall x : bool, f x = negb x) -> forall b : bool, f (f b) = b.
 Proof.
 (intros f Hneg b).
+(rewrite Hneg).
 (rewrite Hfix).
 (* Auto-generated comment: Failed. *)
 
