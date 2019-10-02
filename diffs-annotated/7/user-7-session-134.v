@@ -103,5 +103,9 @@ Proof.
 (intros t t' Hsem k).
 (destruct k).
 -
-(intros w1; exists w1; intros v Hm; simpl).
-(* Auto-generated comment: Failed. *)
+exists w1.
+(intros v Hm).
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [tx Heq]; subst).
+(destruct w1; tauto).
+(* Failed. *)
