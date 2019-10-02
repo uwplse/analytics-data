@@ -58,6 +58,9 @@ Lemma build_v_full :
   forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
   |-[ w] v <$ [X := tx] t ->
   exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
+Lemma build_v_full :
+  forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
+  |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ t').
 Proof.
 (intros X X').
 (induction w; induction t; intros v tx Hm).
@@ -65,26 +68,12 @@ Proof.
 exists v.
 split.
 assumption.
-(apply match_ty_cname__inv in Hm; subst).
-(induction w'; induction t'; intros Hm; try assumption || contradiction).
-+
-(rewrite subst_union).
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(rewrite subst_union).
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(destruct (beq_idP X' i) as [Hbeq| Hbeq]).
-*
-subst.
-(rewrite subst_exist_eq).
-assumption.
-*
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [ti Hm]).
-(destruct (IdSetProps.In_dec i (FV tx)) as [Hin| Hin]).
-specialize (IHw' _ Hm).
+tauto.
+-
+admit.
+-
+admit.
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
 (* Auto-generated comment: Failed. *)
 
