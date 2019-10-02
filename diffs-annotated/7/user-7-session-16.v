@@ -219,14 +219,8 @@ tauto.
 (apply sub_r_union_l__inv in Hsub').
 (apply SR_NormalForm in Hcontra; contradiction).
 (match goal with
- | |- ~ |- ?t1 << ?t2 =>
-       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
-        subst
- end).
-(match goal with
  | Hcontra:|- ?t1 << ?t2
-   |- False =>
-       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
-        subst
+   |- False => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst
  end).
+(inversion Heqx).
 (* Failed. *)
