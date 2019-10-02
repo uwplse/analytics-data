@@ -117,10 +117,4 @@ Proof.
         apply match_ty_deq_cname__inv in Hm1; subst; assert (Hm : (|-[ k] TCName c <$ TCName c)%btjmi) by (destruct k; reflexivity); specialize
          (Hsem' _ _ Hv Hm)
   end).
--
-(apply match_ty_i_cname__inv in Hsem').
-(inversion Hsem').
-(destruct k; reflexivity).
--
-(apply match_ty_i_pair__inv in Hsem').
 (* Failed. *)
