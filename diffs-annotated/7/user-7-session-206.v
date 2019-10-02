@@ -37,5 +37,5 @@ Qed.
 (unfold wf_ty, not_b_free_in_ty, not_free).
 (pose proof IdSetFacts.In_m as Hfact).
 (apply hfact).
-(apply Hfact).
+solve_proper.
 (* Failed. *)
