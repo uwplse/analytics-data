@@ -183,6 +183,7 @@ intuition.
 -
 eauto using log_length_ok_nil.
 -
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+(unfold log_size_ok).
+lia.
+(* Auto-generated comment: Failed. *)
 
