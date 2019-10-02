@@ -956,6 +956,6 @@ reflexivity.
 (destruct n; [ omega |  ]).
 (destruct l1; inversion L1).
 (simpl).
-(rewrite H0, L2).
+(rewrite H0).
 (* Auto-generated comment: Succeeded. *)
 
