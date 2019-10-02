@@ -339,6 +339,7 @@ Function
        fst hd1 = fst hd2 /\ eq (GRec tl1) (GRec tl2)
    | _, _ => False
    end.
-all: (intros; subst; eauto with math).
+all: (intros; subst; simpl; eauto with math).
+(destruct hd1; simpl; eauto with math).
 (* Auto-generated comment: Succeeded. *)
 
