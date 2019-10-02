@@ -47,22 +47,3 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
-specialize (IHW2 lb li u).
-(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
-(destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
-(simpl in *).
-(apply IHW2).
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqVILhGU"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Lemma ctrl_list_to_unitary_transpose :
-  forall l r u, ctrl_list_to_unitary l r (u) \226\128\160 == (ctrl_list_to_unitary l r u) \226\128\160.
-Proof.
-(intros l r u).
-(induction l).
-(simpl).
--
-(induction r; trivial).
-(simpl).
-(destruct a).
