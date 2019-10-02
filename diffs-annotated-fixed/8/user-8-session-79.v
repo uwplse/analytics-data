@@ -596,6 +596,6 @@ Proof.
 (intros).
 (simpl).
 restore_dims.
-show_dimensions.
+Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
