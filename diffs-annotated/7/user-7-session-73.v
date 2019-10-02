@@ -201,11 +201,11 @@ tauto.
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf).
 assumption.
+(apply sem_sub_k__trans with t2).
 (apply mk_nf__sem_sub_k_l).
-(apply sem_eq_k__trans with t2).
-Check sem_eq_k__trans.
-(apply mk_nf__sem_sub_k_l).
-(apply sem_eq_k__sem_sub_k).
 (apply sem_eq_k__sem_sub_k; assumption).
 Qed.
-(* Failed. *)
+Theorem nf_sem_sub__sub_d : forall t t' : ty, InNF( t) -> ||- [t]<= [t'] -> |- t << t'.
+Proof.
+(intros t t' Hsem).
+(apply nf_sem_sub_k__sub_d with (| t |)).
