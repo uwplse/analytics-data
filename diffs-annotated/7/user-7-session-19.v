@@ -6,5 +6,9 @@ Lemma match_ty_i__value_type : forall (t : ty) (k : nat) (v : ty), |-[ k] v <$ t
 Proof.
 (induction t; intros k v Hm).
 -
-Abort.
+(apply match_ty_i_cname__inv in Hm; subst).
+constructor.
+-
+(apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(constructor; auto).
 (* Failed. *)
