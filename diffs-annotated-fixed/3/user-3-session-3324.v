@@ -50,6 +50,135 @@ Inductive remapped_abstraction (bs_state : BadBlockAPI.State)
         (Hbsok : bs_addr < diskSize bs_disk)
         (Hsize : diskSize bs_disk = diskSize rd_disk + 1),
       remapped_abstraction bs_state rd_disk.
-Hint Constructors remapped_abstraction.
+Hint Constructors remapped_abstraction: core.
+Definition abstr : Abstraction OneDiskAPI.State :=
+  abstraction_compose bd.abstr {| abstraction := remapped_abstraction |}.
+Example abst_1_ok :
+  remapped_abstraction (BadBlockAPI.mkState [block1; block0] 0) [block0].
+Proof.
+(constructor; auto).
+(simpl).
+(intros).
+-
+(destruct (lt_dec a 2)).
+omega.
+(rewrite disk_oob_eq; auto).
+(rewrite disk_oob_eq; auto).
+-
+(simpl; omega).
+Qed.
+Example abst_2_ok :
+  remapped_abstraction (BadBlockAPI.mkState [block1; block0; block0] 0)
+    [block0; block0].
+Proof.
+(constructor; auto).
+(simpl).
+(intros).
+-
+(destruct (Nat.eq_dec a 1)).
++
+subst.
+(simpl).
+reflexivity.
++
+(destruct (lt_dec a 3)).
+omega.
+(rewrite disk_oob_eq; auto).
+(rewrite disk_oob_eq; auto).
+-
+(simpl).
+omega.
+Qed.
+Example abst_3_ok :
+  remapped_abstraction (BadBlockAPI.mkState [block0; block0] 1) [block0].
+Proof.
+(constructor; auto).
+(simpl).
+(intros).
+-
+(destruct (Nat.eq_dec a 1)).
++
+(subst; intuition).
++
+(destruct a; simpl; intuition).
+(destruct a; simpl; intuition).
+(rewrite disk_oob_eq; auto).
+(simpl; omega).
+-
+(simpl).
+omega.
+Qed.
+Example abst_4_nok :
+  ~ remapped_abstraction (BadBlockAPI.mkState [block0; block0] 5) [block0].
+Proof.
+intro.
+(inversion H; simpl in *).
+subst_var.
+omega.
+Qed.
+Example abst_5_nok :
+  ~ remapped_abstraction (BadBlockAPI.mkState [block1; block1] 0) [block0].
+Proof.
+intro.
+(inversion H; simpl in *).
+subst_var.
+(unshelve (especialize Hremap); eauto).
+(inversion Hremap).
+(unshelve (apply block0_block1_differ); eauto).
+Qed.
+Ltac
+ invert_abstraction :=
+  match goal with
+  | H:remapped_abstraction _ _ |- _ => inversion H; clear H; subst; subst_var
+  end.
+Theorem init_ok : init_abstraction init recover abstr inited_any.
+Proof.
+(eapply then_init_compose; eauto).
+step_proc.
+(destruct (r == 0)).
+step_proc.
+step_proc.
+(destruct (lt_dec r0 (diskSize (stateDisk state)))).
+step_proc.
+(case_eq (diskGet (stateDisk state) (diskSize (stateDisk state) - 1)); intros).
+{
+exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
+(unfold inited_any; intuition idtac).
+(constructor; intuition idtac; autorewrite with upd in *; intuition idtac).
+-
+(rewrite diskShrink_preserves; auto).
+(rewrite diskShrink_size; omega).
+-
+(rewrite diskUpd_eq; auto).
+(rewrite diskShrink_size; omega).
+-
+omega.
+}
+{
+(exfalso; eapply disk_inbounds_not_none; [  | eauto ]; omega).
+}
+step_proc.
+Qed.
+Theorem read_ok :
+  forall a, proc_spec (OneDiskAPI.read_spec a) (read a) recover abstr.
+Proof.
+(unfold read).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+(destruct a'; simpl in *; intuition idtac).
+(destruct (a == r)).
+-
+invert_abstraction.
+(step_proc; intuition idtac).
+(step_proc; intuition idtac).
+(step_proc; intuition idtac).
+*
+replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
+(exists s; intuition eauto).
+(destruct (stateBadBlock state == diskSize s)).
+(rewrite disk_oob_eq by omega; auto).
+(rewrite <- Hremap by omega; auto).
+(constructor; eauto).
 (* Auto-generated comment: Succeeded. *)
 
