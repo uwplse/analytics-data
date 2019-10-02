@@ -580,6 +580,6 @@ all:
    end).
 all: (try congruence).
 -
-(intros; inversion H0; subst; eauto).
+specialize (IHAlpha1 _ H1).
 (* Auto-generated comment: Succeeded. *)
 
