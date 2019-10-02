@@ -40,5 +40,6 @@ Proof.
 (intros).
 vector_denote.
 vector_denote.
-(* Auto-generated comment: Succeeded. *)
+(destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
+(* Auto-generated comment: Failed. *)
 
