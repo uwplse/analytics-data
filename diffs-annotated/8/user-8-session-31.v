@@ -2738,4 +2738,3 @@ rename H into IH.
 (unfold denote_circuit; simpl).
 (destruct g).
 +
-(simpl).
