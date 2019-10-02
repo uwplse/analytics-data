@@ -434,6 +434,6 @@ Proof.
 -
 admit.
 -
-(intros).
+(intros t Hnft Hdep t2).
 (* Auto-generated comment: Failed. *)
 
