@@ -34,6 +34,7 @@ assumption.
 (destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
 (apply match_ty_union_1; auto).
 *
+(rewrite subst_union).
 (destruct (free_in_ty__decidable X t'1) as [HXt'1| HXt'1]).
 (apply match_ty_union_1; auto).
 (exfalso; apply not__free_and_fresh_in_ty).
