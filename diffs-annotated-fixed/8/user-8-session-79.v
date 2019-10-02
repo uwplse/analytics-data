@@ -1187,5 +1187,7 @@ listify_kron.
 reflexivity.
 }
 5: {
-(* Auto-generated comment: Failed. *)
+rewrite_inPar.
+(rewrite id_circ_spec).
+(* Auto-generated comment: Succeeded. *)
 
