@@ -17,6 +17,5 @@ Proof.
 (intros w1).
 (specialize (Hsem1 w1); specialize (Hsem2 w1)).
 exists (Nat.max w21 w22).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_pair).
+specialize (Hsem1 _ Hm1).
 (* Failed. *)
