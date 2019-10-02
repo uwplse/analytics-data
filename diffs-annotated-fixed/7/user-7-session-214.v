@@ -275,6 +275,6 @@ subst.
 (rewrite b_subst_exist_eq).
 assumption.
 +
-(rewrite b_subst_exist_neq).
+(rewrite b_subst_exist_neq; try assumption).
 (* Auto-generated comment: Failed. *)
 
