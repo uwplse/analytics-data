@@ -67,19 +67,6 @@ Proof.
 (intros X t1 t2 k).
 (apply sem_sub_k_exist_pair).
 Qed.
-(intros k w).
-generalize dependent k.
-(induction w).
-admit.
-(intros k X t HX Hm v Hv).
-(induction t).
-admit.
-admit.
-admit.
-admit.
--
-(destruct (beq_idP X i)).
++
 subst.
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
 (* Failed. *)
