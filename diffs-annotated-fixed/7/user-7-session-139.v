@@ -52,6 +52,5 @@ eassumption.
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
-(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
