@@ -131,6 +131,8 @@ Proof.
 (intros).
 (unfold denote_ctrls).
 Search -fst -snd.
-(rewrite surjective_pairing).
-(* Auto-generated comment: Failed. *)
+Timeout 1 About surjective_pairing.
+Timeout 1 Print surjective_pairing.
+Timeout 1 Print Ltac surjective_pairing.
+(* Auto-generated comment: Succeeded. *)
 
