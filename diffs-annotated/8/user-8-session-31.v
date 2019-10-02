@@ -2666,15 +2666,3 @@ specialize (t0 \206\1471' (\206\1471' \226\139\147 \206\1470) p2 M'' t').
 (apply types_pat_no_trail in t').
 (rewrite <- t').
 (simpl_rewrite (trim_merge_dist \206\1471' \206\1470)).
-+
-(simpl).
-(destruct pf1).
-replace (size_ctx \206\147) with size_octx \206\147 by easy.
-(rewrite pf_merge in *).
-(rewrite size_octx_merge by easy).
-(simpl_rewrite (octx_wtype_size W p1 \206\1471 t)).
-(apply compose_super_correct).
-*
-(unfold denote_circuit in IH).
-(unfold process_gate_state).
-(simpl).
