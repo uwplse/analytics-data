@@ -82,7 +82,8 @@ Function
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzFl6bk"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Theorem mod_lt : forall n m, n `mod` S m < S m.
+Theorem mod_S_lt : forall n m, n `mod` S m < S m.
 Proof.
-(* Auto-generated comment: Succeeded. *)
+(apply PeanoNat.Nat.mod_upper_bound).
+(* Auto-generated comment: Failed. *)
 
