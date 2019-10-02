@@ -101,6 +101,6 @@ assumption.
 +
 (simpl).
 (rewrite <- beq_id_refl).
-(apply subs_fresh_in_ty).
-(* Auto-generated comment: Succeeded. *)
+(apply subst_fresh_in_ty).
+(* Auto-generated comment: Failed. *)
 
