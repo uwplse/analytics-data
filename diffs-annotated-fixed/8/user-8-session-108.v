@@ -73,13 +73,5 @@ Lemma denote_unitary_box_eq :
 Proof.
 (intros W safe [c] \207\129 pf).
 (simpl in pf).
-(unfold denote_unitary_box, denote_box).
-(unfold denote_db_box).
-(unfold hoas_to_db_box).
-(destruct (add_fresh W []) as [p \206\147]).
-specialize (pf p).
-gen \207\129.
-(induction (c p)).
--
 (* Auto-generated comment: Succeeded. *)
 
