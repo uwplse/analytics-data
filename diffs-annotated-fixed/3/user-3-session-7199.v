@@ -314,6 +314,12 @@ generalize dependent a.
 -
 (destruct a0; simpl in *; auto).
 f_equal.
-(rewrite IHd by lia).
+(rewrite IHd by lia; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOAvt48"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
