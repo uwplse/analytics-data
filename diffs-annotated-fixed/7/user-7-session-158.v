@@ -45,6 +45,11 @@ Qed.
 Lemma subst_var_eq : forall (X : id) (s : ty), [X := s] TVar X = s.
 (intros).
 (simpl).
-(rewrite beq_id_refl).
+(rewrite <- beq_id_refl).
+reflexivity.
+Qed.
+Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [X := s] TVar Y = TVar Y.
+Proof.
+(intros X s Y).
 (* Auto-generated comment: Failed. *)
 
