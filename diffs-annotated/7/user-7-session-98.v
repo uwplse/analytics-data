@@ -88,7 +88,9 @@ tauto.
 Qed.
 (apply match_ty_ref__weak_inv in Hm).
 split.
-split.
-assumption.
-(exists tx; reflexivity).
+(split; eauto).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl).
 (* Failed. *)
