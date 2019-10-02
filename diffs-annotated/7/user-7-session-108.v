@@ -230,21 +230,5 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(apply match_ty_exist).
-exists tx.
-(apply IHw).
-assumption.
-(apply le_S_n; assumption).
--
-(apply match_ty_var__inv in Hm; subst).
-(apply match_ty_var).
--
-(apply match_ty_ev__inv in Hm; subst).
-(apply match_ty_ev).
-Qed.
-SearchPattern (_ <= Nat.max _ _).
-exists w,v.
-exists 0,(TRef t).
-(split; intros w1; exists w1; auto).
--
+Lemma ty__matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
 (* Failed. *)
