@@ -93,8 +93,9 @@ Function
    match x with
    | 0 => nil
    | _ =>
-       exist (fun x => x < S (S base_m2)) (x `mod` S (S base_m2)) _
-       :: nat_to_le base_m2 (x / S (S base_m2))
+       let base := S (S base_m2) in
+       let digit := x `mod` base in
+       exist (fun x => x < base) digit _ :: nat_to_le base_m2 (x / base)
    end.
 Proof.
 -
@@ -102,16 +103,22 @@ Proof.
 (apply PeanoNat.Nat.div_lt; auto; try lia).
 -
 (apply lt_wf).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1B53nb"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqRRZyKL"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1F4h2B"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFvbJgJ"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1tRDll"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Print nat_to_le_tcc.
+Check nat_to_le_equation.
 (* Auto-generated comment: Succeeded. *)
 
