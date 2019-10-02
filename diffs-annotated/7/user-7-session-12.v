@@ -297,6 +297,6 @@ generalize dependent t21.
 (rewrite unite_pairs_atom_union; try assumption).
 (apply sub_r__reflexive).
 -
-(repeat rewrite mk_nf_pair).
-(repeat rewrite mk_nf_union).
+(repeat rewrite mk_nf_union, mk_nf_pair).
+(rewrite mk_nf_pair).
 (* Failed. *)
