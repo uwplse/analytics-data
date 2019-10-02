@@ -123,5 +123,9 @@ reflexivity.
 (rewrite IHt).
 reflexivity.
 -
-(* Auto-generated comment: Failed. *)
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
