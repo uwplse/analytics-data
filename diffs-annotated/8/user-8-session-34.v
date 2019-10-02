@@ -26,4 +26,4 @@ Fact denote_compose :
   denote_circuit safe (compose c f) \206\1470 \206\1471' \207\129 =
   compose_super (denote_circuit safe (f (add_fresh_pat w \206\1471)) \206\1470 (add_fresh_state w \206\1471)) (denote_circuit safe c \206\14701 \206\147) \207\129.
 replace (compose (gate g p1 f0) f) with gate g p1 (fun p2 => compose (f0 p2) f) by auto.
-(simpl).
+(* Failed. *)
