@@ -79,6 +79,7 @@ Set Search Output Name Only.
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqyjemv2"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+specialize (IHblocks (off + 1)).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
