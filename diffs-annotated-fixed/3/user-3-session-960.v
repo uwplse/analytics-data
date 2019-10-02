@@ -311,6 +311,6 @@ typeclasses eauto.
 (destruct (nat_eq_dec n n0); subst).
 left.
 Search -(existT _ _ = existT _ _).
-(rewrite eq_existT_curried).
+(apply eq_existT_curried).
 (* Auto-generated comment: Failed. *)
 
