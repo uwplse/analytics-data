@@ -124,6 +124,6 @@ replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by 
 (unfold apply_U, apply_unitary, super).
 (destruct W; try (solve [ inversion HeqW ])).
 (destruct W; inversion HeqW).
-subst.
-(* Auto-generated comment: Succeeded. *)
+subst H0 H1.
+(* Auto-generated comment: Failed. *)
 
