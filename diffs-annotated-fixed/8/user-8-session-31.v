@@ -2818,6 +2818,5 @@ dependent destruction t.
 (simpl).
 (rewrite Nat.add_succ_r).
 specialize (apply_U_correct Qubit) as AUC.
-(simpl in AUC).
 (* Auto-generated comment: Succeeded. *)
 
