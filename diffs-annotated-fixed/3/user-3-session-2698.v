@@ -147,6 +147,7 @@ econstructor.
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
 (simpl; constructor).
++
 (unfold nat64_to_le; intros).
 (match goal with
  | H:context [ nat_le_dec ?n ?m ]
@@ -155,5 +156,7 @@ econstructor.
 (inversion H; subst).
 (rewrite app_length, repeat_length).
 lia.
++
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
