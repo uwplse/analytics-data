@@ -82,7 +82,6 @@ Timeout 1 Print LoadPath.
 Search -nat -string.
 Search -"endian".
 Search -"digit".
-Definition uint64_to_le (x : uint64) : list byte :=
-  if lt_dec x (pow 2 64) then nil else nil.
-(* Auto-generated comment: Failed. *)
+Fixpoint nat_to_le (x : nat) : list {x : nat | x < 256}.
+(* Auto-generated comment: Succeeded. *)
 
