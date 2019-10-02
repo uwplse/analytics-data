@@ -107,6 +107,10 @@ Proof.
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem).
 6: {
 idtac.
-(unfold sem_sub_k_i in *).
+(unfold sem_sub_k_i in Hsem).
+(assert (Hv : value_type (TRef t)) by constructor).
+Search -match_ty_i.
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
+(pose proof (Hse _ Hv Hm) as Hmu).
 (* Auto-generated comment: Failed. *)
 
