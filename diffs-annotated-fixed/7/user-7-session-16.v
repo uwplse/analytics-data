@@ -379,7 +379,12 @@ Proof.
          destruct (cname_eq__decidable c1 c2);
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
-+
-(right; solve_not_x_sub_r_y_full).
+(split; intros t'; induction t'; try (solve [ right; solve_not_x_sub_r_y_full ]);
+  try
+   match goal with
+   | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
+         destruct (cname_eq__decidable c1 c2);
+          [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
+   end).
 (* Auto-generated comment: Failed. *)
 
