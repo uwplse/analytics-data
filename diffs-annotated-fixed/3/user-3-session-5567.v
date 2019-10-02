@@ -190,6 +190,5 @@ eauto.
 simplify.
 }
 {
-step.
 (* Auto-generated comment: Succeeded. *)
 
