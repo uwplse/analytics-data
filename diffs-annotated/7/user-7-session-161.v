@@ -104,6 +104,4 @@ assumption.
 subst.
 (rewrite subst_exist_eq).
 assumption.
-exists ([X' := tx] ti).
-(apply IHw').
 (* Failed. *)
