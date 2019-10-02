@@ -86,7 +86,7 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 #[program]
-Fixpoint subst (x : id) (s t : ty) {measure size t} : ty :=
+Fixpoint subst (x : id) (s t : ty) {measure size t : ty :=
   match t with
   | TCName _ => t
   | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
@@ -98,4 +98,26 @@ Fixpoint subst (x : id) (s t : ty) {measure size t} : ty :=
   | TVar y => if beq_id x y then s else t
   | TEV y => t
   end.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+Qed.
+Defined.
 (* Failed. *)
