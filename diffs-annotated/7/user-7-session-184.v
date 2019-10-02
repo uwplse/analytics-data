@@ -68,17 +68,8 @@ admit.
 admit.
 -
 (destruct Heq as [Z [tz Heq]]).
-(rewrite Heq in Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
--
-admit.
--
-admit.
--
-admit.
--
-admit.
--
-admit.
--
+exists v.
+split.
+assumption.
+tauto.
 (* Failed. *)
