@@ -575,5 +575,36 @@ specialize (H _ (In_singleton _ _)).
   end).
 congruence.
 -
+eauto.
+-
+specialize (H _ (In_singleton _ _)).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+congruence.
+-
+(destruct H3).
+(apply H in H3).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+congruence.
+-
+(inversion H1).
+specialize (H _ H5).
+specialize (H2 _ H5).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+congruence.
+-
+(inversion H1).
+specialize (H _ H5).
 (* Auto-generated comment: Succeeded. *)
 
