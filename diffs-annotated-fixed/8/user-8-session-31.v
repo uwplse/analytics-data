@@ -2819,6 +2819,5 @@ dependent destruction t.
 (rewrite Nat.add_succ_r).
 specialize (apply_U_correct Qubit) as AUC.
 (simpl in AUC).
-(unfold process_gate_state).
 (* Auto-generated comment: Succeeded. *)
 
