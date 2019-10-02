@@ -168,11 +168,7 @@ Proof.
 (destruct Hm as [tx Hmx]).
 (simpl in Hmx).
 (apply match_ty_union__inv in Hmx).
-(destruct Hmx as [Hmx| Hmx]).
-+
-(apply match_ty_union_1).
-(apply match_ty_exist).
-exists tx.
-assumption.
+(destruct Hmx as [Hmx| Hmx]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; apply match_ty_exist; exists tx; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
