@@ -154,5 +154,8 @@ Proof.
 (eapply then_init_compose; eauto).
 step_proc.
 (destruct (r == 0)).
-(* Auto-generated comment: Succeeded. *)
+-
+step_proc.
+step_proc.
+(* Auto-generated comment: Failed. *)
 
