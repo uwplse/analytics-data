@@ -11,6 +11,11 @@ Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
+Require Import BetaJulia.Sub0250a.DeclSubProps.
+Require Import BetaJulia.BasicTactics.
+Require Import Coq.Lists.List.
+Import ListNotations.
+Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Close Scope btjm.
 Open Scope btjmi.
@@ -146,10 +151,6 @@ clear IHt3.
 (simpl in Hm2).
 (apply sem_eq_k_i__trans with t; assumption).
 Qed.
-Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
-Proof.
-auto with DBBetaJulia.
-Qed.
 Lemma match_ty_i_exists : forall (t : ty) (k : nat), exists v : ty, |-[ k] v <$ t.
 Proof.
 (induction t; intros k).
@@ -170,8 +171,6 @@ Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] 
 Proof.
 auto with DBBetaJulia.
 Qed.
-Lemma value_sem_sub_k_i_union__inv :
-  forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
 Proof.
 (intros k t t' H).
@@ -278,5 +277,9 @@ tauto.
 *
 (apply SD_Trans with (MkNF( t2))).
 (apply mk_nf__sub_d_r; assumption).
+(apply IHk).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf).
+assumption.
 (* Auto-generated comment: Failed. *)
 
