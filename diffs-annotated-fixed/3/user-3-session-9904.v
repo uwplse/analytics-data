@@ -119,6 +119,7 @@ lia.
 -
 (step_proc; intuition).
 (step_proc; intuition).
-(exists (n0 :: s); intuition auto).
-(* Auto-generated comment: Failed. *)
+(exists s; intuition).
+(right; intuition congruence).
+(* Auto-generated comment: Succeeded. *)
 
