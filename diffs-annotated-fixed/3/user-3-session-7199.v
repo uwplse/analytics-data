@@ -258,6 +258,6 @@ Proof.
 (unfold get_len; intros).
 step_proc.
 step_proc.
-(eapply abstr_get_len).
+(eapply abstr_get_len; eauto).
 (* Auto-generated comment: Succeeded. *)
 
