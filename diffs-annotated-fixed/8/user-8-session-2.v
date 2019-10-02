@@ -56,5 +56,6 @@ reflexivity.
 -
 dependent destruction u.
 (simpl).
+(destruct li as [| k li]).
 (* Auto-generated comment: Succeeded. *)
 
