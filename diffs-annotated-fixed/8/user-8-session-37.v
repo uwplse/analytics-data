@@ -94,6 +94,5 @@ specialize (H (add_fresh_pat W []) (add_fresh_state W []) []).
 (unfold add_fresh_state, add_fresh_pat in *).
 (destruct (add_fresh W []) as [p \206\147] eqn:E).
 (simpl in *).
-(rewrite H).
 (* Auto-generated comment: Succeeded. *)
 
