@@ -119,5 +119,6 @@ admit.
 (destruct (beq_idP X i)).
 +
 subst.
+(rewrite b_subst_exist_eq in Hm).
 (* Auto-generated comment: Failed. *)
 
