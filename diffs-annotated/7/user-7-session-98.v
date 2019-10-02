@@ -88,6 +88,6 @@ tauto.
 Qed.
 (apply match_ty_ref__weak_inv in Hm).
 split.
-(destruct Hm as [Hv [tx Heqx]]; subst).
-(simpl).
+(simpl in *).
+(split; auto).
 (* Failed. *)
