@@ -1082,6 +1082,6 @@ listify_kron.
   try omega).
 (simpl).
 rewrite_inPar'.
-all: tensor_tac.
-(* Auto-generated comment: Failed. *)
+all: (try tensor_tac).
+(* Auto-generated comment: Succeeded. *)
 
