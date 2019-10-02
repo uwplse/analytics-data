@@ -104,5 +104,17 @@ exists w1.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
-(rewrite subs_fresh_in_ty in Hm; try assumption).
-(* Auto-generated comment: Failed. *)
+(rewrite subst_fresh_in_ty in Hm; try assumption).
+eassumption.
+(repeat constructor).
+Qed.
+Lemma sem_sub_exist_fresh_r : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [t]<= [TExist X t].
+Proof.
+(intros X t Hfresh).
+(intros w1).
+exists (S w1).
+(intros v Hm).
+(apply match_ty_exist).
+exists (TEV X).
+(rewrite subs_fresh_in_ty; assumption).
+(* Failed. *)
