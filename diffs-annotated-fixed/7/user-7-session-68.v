@@ -187,6 +187,12 @@ clear IHt2.
 (unfold sem_sub_k in Hsem).
 (apply sem_eq_k__sem_sub_k in Href).
 tauto.
-}
-(* Auto-generated comment: Failed. *)
+*
+(apply SD_Trans with (MkNF( t2))).
+(apply mk_nf__sub_d_r; assumption).
+(apply IHk).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf).
+assumption.
+(* Auto-generated comment: Succeeded. *)
 
