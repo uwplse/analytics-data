@@ -147,6 +147,5 @@ split.
 (apply match_ty_exist).
 (eexists; eassumption).
 *
-assumption.
 (* Auto-generated comment: Failed. *)
 
