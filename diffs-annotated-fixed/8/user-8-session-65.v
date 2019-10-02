@@ -1244,5 +1244,7 @@ Proof.
 (intros).
 (induction c).
 -
-(* Auto-generated comment: Failed. *)
+(unfold denote_box; simpl).
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
