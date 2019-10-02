@@ -69,6 +69,6 @@ Msimpl.
 (rewrite Mmult_assoc).
 specialize (unitary_gate_unitary U) as inv.
 (unfold WF_Unitary in inv).
-(simpl_rewrite denote_unitary_transpose).
-(* Auto-generated comment: Failed. *)
+(simpl_rewrite @denote_unitary_transpose).
+(* Auto-generated comment: Succeeded. *)
 
