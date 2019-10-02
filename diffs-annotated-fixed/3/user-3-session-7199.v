@@ -360,6 +360,6 @@ step_proc.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
 (descend; intuition eauto).
-(rewrite length_firstn).
+(rewrite firstn_length_le).
 (* Auto-generated comment: Failed. *)
 
