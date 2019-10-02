@@ -6,13 +6,13 @@ Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
+Require Import BetaJulia.BasicTactics.
+Require Import Coq.Lists.List.
+Import ListNotations.
+Require Import Coq.Arith.Arith.
+Require Import Coq.Bool.Bool.
+Close Scope btjm.
 Open Scope btjmi.
-Lemma match_ty_i_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
-Proof.
-(intros v1 v2 t1 t2 k Hm1 Hm2).
-(destruct k; split; assumption).
-Qed.
-Lemma match_ty_i_union_1 : forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ t1 -> |-[ k] v <$ TUnion t1 t2.
 Lemma match_ty_i_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
@@ -64,6 +64,12 @@ clear IHv.
 (intros t k Hm).
 (simpl in Hm).
 exists v.
-(split; auto).
+auto.
+Qed.
+Theorem match_ty_i__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
+Proof.
+(intros v t).
+generalize dependent v.
+(induction t; intros k v Hm).
 (* Auto-generated comment: Failed. *)
 
