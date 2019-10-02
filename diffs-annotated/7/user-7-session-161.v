@@ -104,4 +104,5 @@ assumption.
 subst.
 (rewrite subst_exist_eq).
 assumption.
+specialize (IHw' _ Hm).
 (* Failed. *)
