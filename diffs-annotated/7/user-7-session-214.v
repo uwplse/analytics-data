@@ -61,5 +61,6 @@ Proof.
 (apply IdSetFacts.union_1).
 Qed.
 Ltac solve_free_union_inv fvname := intros X t1 t2; unfold fvname; simpl; apply free_union__inv.
-(destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
+(apply f_free_in_ty_pair).
+(apply f_free_in_ty_pair__inv).
 (* Failed. *)
