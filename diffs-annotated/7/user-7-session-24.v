@@ -36,4 +36,4 @@ Fixpoint inv_depth (t : ty) :=
   | TRef t' => 1 + | t' |
   end
 where "'|' t '|'" := (inv_depth t) : btjm_scope.
-(* Auto-generated comment: Failed. *)
+(* Failed. *)
