@@ -103,7 +103,7 @@ specialize (IHt2 _ _ Hfresh2 Hsem2).
 +
 (intros k w1).
 admit.
-+
-admit.
-+
+Lemma sem_sub_k_fresh_var__sem_sub_k_any :
+  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
+Proof.
 (* Failed. *)
