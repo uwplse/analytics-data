@@ -132,6 +132,5 @@ Proof.
 (apply match_ty_pair; auto).
 -
 (destruct k).
-constructor.
 (* Auto-generated comment: Failed. *)
 
