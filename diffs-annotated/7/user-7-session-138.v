@@ -22,6 +22,17 @@ Proof.
 Qed.
 Lemma fresh_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), fresh_in_ty X (TPair t1 t2) -> fresh_in_ty X t1 /\ fresh_in_ty X t2.
 Proof.
-(intros X t1 t2 H).
+Qed.
+Lemma fresh_in_ty_union__inv : forall (X : id) (t1 t2 : ty), fresh_in_ty X (TUnion t1 t2) -> fresh_in_ty X t1 /\ fresh_in_ty X t2.
+Proof.
+(intros X t1 t2 Hfresh).
 (unfold fresh_in_ty in *; simpl in Hfresh; simpl).
-(* Auto-generated comment: Failed. *)
+(apply fresh_union__inv in Hfresh).
+assumption.
+Qed.
+Lemma fresh_in_ty_ref__inv : forall (X : id) (t : ty), fresh_in_ty X (TRef t) -> fresh_in_ty X t.
+Proof.
+(intros X t Hfresh).
+(unfold fresh_in_ty in *; simpl in Hfresh; simpl).
+assumption.
+Qed.
