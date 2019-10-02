@@ -174,6 +174,7 @@ generalize dependent t3.
 (apply SR_UnionR2; tauto).
 +
 constructor.
+constructor.
 auto.
 (* Auto-generated comment: Failed. *)
 
