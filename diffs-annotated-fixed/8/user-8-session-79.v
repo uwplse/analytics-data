@@ -590,9 +590,6 @@ Qed.
 Lemma big_kron_append :
   forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
 Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
-Proof.
-(intros).
-Set Printing All.
-show_dimensions.
-(* Auto-generated comment: Succeeded. *)
+Definition mat_equiv' := mat_equiv.
+(* Auto-generated comment: Failed. *)
 
