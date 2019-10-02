@@ -17,5 +17,6 @@ Proof.
 (intros w1).
 (specialize (Hsem1 w1); specialize (Hsem2 w1)).
 exists (Nat.max w21 w22).
-specialize (Hsem1 _ Hm1).
+(specialize (Hsem1 _ Hm1); specialize (Hsem2 _ Hm2)).
+(apply match_ty_pair).
 (* Failed. *)
