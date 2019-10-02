@@ -63,18 +63,6 @@ split.
 assumption.
 tauto.
 -
-(rewrite subst_pair in *).
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-specialize (IHt1 _ _ Hm1).
-specialize (IHt2 _ _ Hm2).
-(destruct IHt1 as [v1' [Hm1' IHt1]]).
-(destruct IHt2 as [v2' [Hm2' IHt2]]).
-exists (TPair v1' v2').
-split.
-(apply match_ty_pair; assumption).
-(induction w'; induction t'; intros Hm'; try contradiction).
-+
-(apply match_ty_pair_pair__inv in Hm').
+(destruct Hm' as [Hm'1 Hm'2]).
 (apply match_ty_pair; tauto).
 (* Failed. *)
