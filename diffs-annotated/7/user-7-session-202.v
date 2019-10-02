@@ -125,12 +125,17 @@ subst.
 reflexivity.
 *
 (rewrite b_subst_exist_neq; try assumption).
-(rewrite b_subst_exist_eq).
+(rewrite b_subst_exist_neq; try assumption).
 reflexivity.
-+
-(destruct (beq_idP X i)).
 *
-subst.
-(rewrite b_subst_exist_eq).
+(repeat rewrite b_subst_exist_neq; try assumption).
+(rewrite IHt).
 reflexivity.
+-
+(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
++
+contradiction.
++
+(simpl).
+(rewrite <- beq_id_refl).
 (* Failed. *)
