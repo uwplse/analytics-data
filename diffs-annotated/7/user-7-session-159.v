@@ -67,10 +67,8 @@ Lemma build_v_full :
   |-[ w] v <$ [X := tx] t ->
   exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
 Proof.
-(intros X X' tx).
-(induction w; induction t; intros v Hm).
--
-exists v.
-split.
++
 assumption.
++
+(apply match_ty_cname_inv in Hm; subst).
 (* Failed. *)
