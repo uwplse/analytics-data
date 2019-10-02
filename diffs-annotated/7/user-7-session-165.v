@@ -77,7 +77,4 @@ reflexivity.
 Qed.
 Lemma subst_fresh_in_ty : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
 Proof.
-(intros X t).
-(destruct (IdSet.mem i (FV s))).
-+
 (* Failed. *)
