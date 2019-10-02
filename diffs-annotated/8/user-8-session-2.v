@@ -50,6 +50,12 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
+Lemma ctrl_list_to_unitary_compat : forall l r A A', A == A' -> ctrl_list_to_unitary l r A == ctrl_list_to_unitary l r A'.
+Proof.
+(intros).
+(induction l).
+(simpl).
+-
 (induction r; try assumption).
 (simpl).
 (destruct a; Msimpl; rewrite IHr; reflexivity).
@@ -57,5 +63,8 @@ Timeout 1 About ctrls_to_list.
 (simpl).
 (destruct a; Msimpl; rewrite IHl; reflexivity).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqs7kE9k" Print Ltac Signatures.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq1A4cHn" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Lemma denote_ctrls_transpose :
+  forall W (n : nat) (u : Unitary W) li,
+  (forall x, In x li -> x < n)%nat -> (length li = \226\159\166 W \226\159\167)%nat -> denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
