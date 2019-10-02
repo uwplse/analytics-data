@@ -217,120 +217,13 @@ tauto.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-(destruct Hsub'; auto).
--
-(pose proof (in_nf_ref__inv _ Hnfm1) as Hnf1).
-(pose proof (in_nf_ref__inv _ Hnfm2) as Hnf2).
-(destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
-(destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
-(split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst;
-  try (solve [ constructor; auto ])).
-+
-(apply IHHsub').
-(apply mk_nf_nf__equal; assumption).
-(apply mk_nf__in_nf).
--
-(split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
-(apply sub_r__mk_nf_sub_r; assumption).
-Qed.
-Lemma sub_r__trans2 :
-  forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
-Proof.
-(intros tm1 tm2 Hsub).
-(induction Hsub).
--
-tauto.
--
-(destruct IHHsub1 as [IHHsub11 IHHsub12]).
-(destruct IHHsub2 as [IHHsub21 IHHsub22]).
-(split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
-  subst; try (solve [ constructor; auto ])).
-+
-(apply SR_NormalForm).
-(assert (Hsub : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
-(apply sub_r__mk_nf_sub_r in Hsub).
-(apply sub_r_nf__trans2 with (MkNF( TPair t1' t2')); assumption || apply mk_nf__in_nf).
--
-(destruct IHHsub1 as [IHHsub11 IHHsub12]).
-(destruct IHHsub2 as [IHHsub21 IHHsub22]).
-(split; intros tx Hsub'; try (solve [ constructor; auto ])).
-+
-(remember (TUnion t1 t2) as ty eqn:Heqy ).
-(induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
--
-(destruct IHHsub as [IHHsub1 IHHsub2]).
-(split; intros tx Hsub'; try (solve [ constructor; auto ])).
-+
-(apply sub_r_union_l__inv in Hsub').
-(destruct Hsub'; auto).
--
-(destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
-(split; intros tx Hsub'; try (solve [ constructor; auto ])).
-+
-(apply sub_r_union_l__inv in Hsub').
-(destruct Hsub'; auto).
--
-(destruct IHHsub1 as [IHHsub11 IHHsub12]).
-(destruct IHHsub2 as [IHHsub21 IHHsub22]).
-(split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst;
-  try (solve [ constructor; auto ])).
-+
-(apply SR_NormalForm).
-(assert (Hsub : |- TRef t << TRef t') by (constructor; assumption)).
-(apply sub_r__mk_nf_sub_r in Hsub).
-(apply sub_r_nf__trans2 with (MkNF( TRef t')); assumption || apply mk_nf__in_nf).
--
-(split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
-(apply sub_r__mk_nf_sub_r; assumption).
-Qed.
-Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
-Proof.
-(intros t1 t2 t3 Hsub1 Hsub2).
-(destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
-auto.
-Qed.
-Lemma unite_pairs__distr21 :
-  forall t1 t21 t22 : ty, InNF( t1) -> |- unite_pairs t1 (TUnion t21 t22) << TUnion (unite_pairs t1 t21) (unite_pairs t1 t22).
-Proof.
-(intros t1 t21 t22 Hnf1).
-generalize dependent t22.
-generalize dependent t21.
-(induction Hnf1; intros t21 t22).
--
-(rewrite unite_pairs_atom_union; try assumption).
-(apply sub_r__reflexive).
--
-(repeat rewrite unite_pairs_union_t).
-(apply SR_UnionL; eapply sub_r__transitive; try apply IHHnf1_1 || apply IHHnf1_2; constructor).
-(apply SR_UnionR1; apply SR_UnionR1; apply sub_r__reflexive).
-(apply SR_UnionR2; apply SR_UnionR1; apply sub_r__reflexive).
-(apply SR_UnionR1; apply SR_UnionR2; apply sub_r__reflexive).
-(apply SR_UnionR2; apply SR_UnionR2; apply sub_r__reflexive).
-Qed.
-Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t2) << MkNF( TUnion (TPair t11 t2) (TPair t12 t2)).
-Proof.
-(intros t11 t12 t2).
-(repeat rewrite mk_nf_union, mk_nf_pair).
-(rewrite mk_nf_pair).
-(rewrite unite_pairs_union_t).
-(apply sub_r__reflexive).
-Qed.
-Lemma mk_nf__distr21 : forall t1 t21 t22 : ty, |- MkNF( TPair t1 (TUnion t21 t22)) << MkNF( TUnion (TPair t1 t21) (TPair t1 t22)).
-Proof.
-(intros t1 t21 t22).
-(repeat rewrite mk_nf_union, mk_nf_pair).
-(rewrite mk_nf_pair).
-(apply unite_pairs__distr21).
-(apply mk_nf__in_nf).
-Qed.
-Lemma mk_nf_sub_r__sub_r : forall t t' : ty, |- MkNF( t) << MkNF( t') -> |- t << t'.
-Proof.
-(intros t t' Hsub).
-(apply SR_NormalForm).
-(apply sub_r__transitive with (MkNF( t'))).
-assumption.
-(apply mk_nf__sub_r1).
-Qed.
+Ltac
+ solve_not_x_sub_r_y_full :=
+  match goal with
+  | |- ~ |- ?tx << ?ty =>
+        remember tx as t eqn:Heq1 ; remember ty as t' eqn:Heq2 ; intros Hcontra; induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ]);
+         subst; try tauto
+  end.
 Lemma nf_sub_r__decidable : forall t1 t2 : ty, InNF( t1) -> Decidable.decidable (|- t1 << t2).
 Proof.
 (intros t1 t2 Hnf1).
@@ -342,15 +235,5 @@ generalize dependent t1.
      (fun (t1 : ty) (Hnf : in_nf t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2)))).
 -
 (intros c t2).
-(induction t2).
-+
-(destruct (cname_eq__decidable c c0)).
-*
-(subst; left; constructor).
-*
-right.
-(intros Hcontra).
-(apply sub_r_cname__inv in Hcontra).
-contradiction.
-+
+(induction t2; try solve_not_x_sub_r_y_full).
 (* Failed. *)
