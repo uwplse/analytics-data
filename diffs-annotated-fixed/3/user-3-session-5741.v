@@ -617,10 +617,10 @@ Proof.
 (rewrite negb_involutive).
 reflexivity.
 Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1EQeci"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-(* Auto-generated comment: Succeeded. *)
+reflexivity.
+Qed.
+Theorem andb_eq_orb : forall b c : bool, andb b c = orb b c -> b = c.
+Proof.
+(intros [] []; reflexivity).
+(* Auto-generated comment: Failed. *)
 
