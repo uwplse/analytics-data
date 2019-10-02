@@ -68,5 +68,6 @@ Lemma unite_pairs_of_nf__preserves_sub_r1 :
   forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros ta' tb' Hnf1 Hsub1 Hnf2 Hsub2; try (solve [ simpl; constructor; assumption ])).
-(rewrite unite_pairs_atom_union).
+(rewrite unite_pairs_atom_union; try (solve [ constructor ])).
+(constructor; [ apply IHtb1 | apply IHtb2 ]; assumption).
 (* Failed. *)
