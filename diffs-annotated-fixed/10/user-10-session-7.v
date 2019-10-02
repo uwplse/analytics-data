@@ -262,5 +262,7 @@ CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itre
       | (e|) | (||e|) | (|||e|) | (||||e) => vis e (match_event e0 x0 \226\136\152 k)
       end
   end.
+Definition match_event_list {X} : networkE X -> X -> list (itree tE unit) -> list (itree tE unit) :=
+  combine fmap \226\136\152 match_event.
 (* Auto-generated comment: Failed. *)
 
