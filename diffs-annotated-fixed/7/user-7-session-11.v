@@ -25,6 +25,6 @@ Proof.
 -
 (apply union_right_1; assumption).
 -
-(apply union_right_2; assumption).
+(constructor; assumption).
 (* Auto-generated comment: Failed. *)
 
