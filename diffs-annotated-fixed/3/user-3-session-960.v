@@ -69,7 +69,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Function
- nat_to_le base (x : nat) {measure x lt} : list {x : nat | x < S (S base)} :=
+ nat_to_le base (x : nat) {wf lt x} : list {x : nat | x < S (S base)} :=
    match x with
    | 0 => nil
    | _ =>
