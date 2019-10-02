@@ -189,6 +189,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlBjurg"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii.
+Search -Ascii.ascii.
+Print Ascii.byte_of_ascii.
 (* Auto-generated comment: Succeeded. *)
 
