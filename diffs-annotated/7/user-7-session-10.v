@@ -13,5 +13,8 @@ Require Import Coq.Bool.Bool.
 Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
-(destruct IHHsub1 as [IHHsub11 IHHsub12]; assumption).
+(destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
+(split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
+  subst).
++
 (* Failed. *)
