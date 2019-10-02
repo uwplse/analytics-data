@@ -220,26 +220,5 @@ Proof.
 iIntros.
 non_err.
 -
-(destruct p as ([], ?); try by iFrame; eauto; solve_err).
--
-solve_err.
-Qed.
-Lemma delete_step_inv {T} j K `{LanguageCtx _ _ T Mail.l K} 
-  uid msg (\207\131 : l.(OpState)) E :
-  nclose sourceN \226\138\134 E
-  \226\134\146 j \226\164\135 K (Call (Delete uid msg))
-    -\226\136\151 source_ctx
-       -\226\136\151 source_state \207\131
-          ={E}=\226\136\151 \226\136\131 v body,
-                   \226\140\156\207\131.(messages) !! uid = Some (MLocked, v)
-                    \226\136\167 v !! msg = Some body\226\140\157
-                   \226\136\151 j \226\164\135 K (Call (Delete uid msg)) \226\136\151 source_state \207\131.
-Proof.
-iIntros.
-non_err.
--
-(destruct p as ([], msgs); try by iFrame; eauto; try solve_err).
-iExists _.
-non_err.
 (* Auto-generated comment: Succeeded. *)
 
