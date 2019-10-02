@@ -230,5 +230,25 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
+(induction t; intros k w Hnotm X s Hcontra).
+-
+(apply Hnotm; assumption).
+-
+(simpl in Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_pair__inv in Hcontra).
+(destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+subst.
+(assert (Hcontra : ~ (exists v1 : ty, |-[ k, w] v1 <$ t1) \/ ~ (exists v2 : ty, |-[ k, w] v2 <$ t2))).
+{
+(assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
+{
+(intros [[v'1 Hcontra'1] [v'2 Hcontra'2]]).
+(apply Hnotm).
+exists (TPair v'1 v'2).
+(apply match_ty_pair; assumption).
+}
+admit.
+}
 (destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]).
 (* Failed. *)
