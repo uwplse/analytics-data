@@ -137,7 +137,10 @@ Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
 Proof.
 (intros).
 (induction n as [n IHn] using lt_wf_ind).
-(destruct n; simpl).
-(rewrite nat_to_le_equation; simpl).
+(destruct n; rewrite nat_to_le_equation; simpl).
+-
+auto.
+-
+generalize dependent S (S base).
 (* Auto-generated comment: Succeeded. *)
 
