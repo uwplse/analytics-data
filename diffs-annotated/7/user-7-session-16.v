@@ -232,6 +232,6 @@ Ltac
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
 right.
 (match goal with
- | |- ~ |- ?tx << ?ty => remember tx as tx eqn:Heq1 ; remember ty as ty eqn:Heq2 
+ | |- ~ |- ?t1 << ?t2 => remember t1 as tx eqn:Heq1 ; remember t2 as ty eqn:Heq2 
  end).
 (* Failed. *)
