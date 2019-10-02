@@ -427,6 +427,145 @@ Qed.
 Theorem mult_S_1 : forall n m : nat, m = S n -> m * (1 + n) = m * m.
 Proof.
 (intros n m H).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWodqr2"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem plus_1_neq_0_firsttry : forall n : nat, beq_nat (n + 1) 0 = false.
+Proof.
+(intros n).
 (simpl).
+Abort.
+Theorem plus_1_neq_0 : forall n : nat, beq_nat (n + 1) 0 = false.
+Proof.
+(intros n).
+(destruct n as [| n']).
+-
+reflexivity.
+-
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAYo8fW"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem negb_involutive : forall b : bool, negb (negb b) = b.
+Proof.
+(intros b).
+(destruct b).
+-
+reflexivity.
+-
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqyDcTts"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem andb_commutative : forall b c, andb b c = andb c b.
+Proof.
+(intros b c).
+(destruct b).
+-
+(destruct c).
++
+reflexivity.
++
+reflexivity.
+-
+(destruct c).
++
+reflexivity.
++
+reflexivity.
+Qed.
+Theorem andb_commutative' : forall b c, andb b c = andb c b.
+Proof.
+(intros b c).
+(destruct b).
+{
+(destruct c).
+{
+reflexivity.
+}
+{
+reflexivity.
+}
+}
+{
+(destruct c).
+{
+reflexivity.
+}
+{
+reflexivity.
+}
+}
+Qed.
+Theorem andb3_exchange : forall b c d, andb (andb b c) d = andb (andb b d) c.
+Proof.
+(intros b c d).
+(destruct b).
+-
+(destruct c).
+{
+(destruct d).
+-
+reflexivity.
+-
+reflexivity.
+}
+{
+(destruct d).
+-
+reflexivity.
+-
+reflexivity.
+}
+-
+(destruct c).
+{
+(destruct d).
+-
+reflexivity.
+-
+reflexivity.
+}
+{
+(destruct d).
+-
+reflexivity.
+-
+reflexivity.
+}
+Qed.
+Theorem plus_1_neq_0' : forall n : nat, beq_nat (n + 1) 0 = false.
+Proof.
+(intros [| n]).
+-
+reflexivity.
+-
+reflexivity.
+Qed.
+Theorem andb_commutative'' : forall b c, andb b c = andb c b.
+Proof.
+(intros [] []).
+-
+reflexivity.
+-
+reflexivity.
+-
+reflexivity.
+-
+reflexivity.
+Qed.
+Theorem andb_true_elim2 : forall b c : bool, andb b c = true -> c = true.
+Proof.
+(intros [] []).
 (* Auto-generated comment: Succeeded. *)
 
