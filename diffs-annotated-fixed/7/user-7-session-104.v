@@ -141,5 +141,6 @@ contradiction.
 (apply match_ty_exist).
 exists tx.
 (apply match_ty_union_1).
+assumption.
 (* Auto-generated comment: Failed. *)
 
