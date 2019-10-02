@@ -48,6 +48,7 @@ Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FV tY)) eqn:Hin).
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
-(pose proof (IdSetFacts.mem_1 Hin)).
+(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
+(rewrite (subst_exist_neq _ _ _ _ HY)).
 (* Auto-generated comment: Failed. *)
 
