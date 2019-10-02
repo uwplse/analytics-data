@@ -133,7 +133,7 @@ Lemma b_free_in_ty_bvar__inv : forall X Y : id, b_free_in_ty X (TBVar Y) -> X = 
 Proof.
 (unfold b_free_in_ty, free).
 (simpl).
-(intros X Y).
-(apply IdSetFacts.singleton_1).
+(intros X Y Hin).
+(apply IdSetFacts.singleton_1 in Hin).
 (* Auto-generated comment: Failed. *)
 
