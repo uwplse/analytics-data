@@ -33,7 +33,8 @@ Lemma unitary_transpose_id_qubit :
 Proof.
 (unfold HOAS_Equiv).
 (intros U \207\129 safe).
-(simpl).
-(destruct (unitary_gate_unitary U) as [WF inv]).
-(* Auto-generated comment: Succeeded. *)
+Timeout 1 About unitary_gate_unitary.
+Timeout 1 Print unitary_gate_unitary.
+Timeout 1 Print Ltac unitary_gate_unitary.
+(* Auto-generated comment: Failed. *)
 
