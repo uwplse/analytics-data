@@ -147,5 +147,6 @@ reflexivity.
 (rewrite b_subst_neq__permute in Hm; try assumption || auto).
 (apply b_free_in_ty_exist_neq__inv in HX; try assumption).
 Check b_free_in_ty__b_free_in_b_subst_neq.
-(apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX).
+(apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
+specialize (IHw _ _ _ HX Hm).
 (* Failed. *)
