@@ -94,13 +94,5 @@ reflexivity.
 (rewrite IHt2).
 reflexivity.
 -
-(rewrite subst_equation).
-(destruct (beq_idP X i); try reflexivity).
-(destruct (IdSet.mem i (IdSet.singleton X)) eqn:Heq).
-+
-(apply IdSetFacts.mem_2 in Heq).
-(apply IdSetFacts.singleton_1 in Heq).
-contradiction.
-+
-(rewrite IHt).
+(rewrite Heq).
 (* Failed. *)
