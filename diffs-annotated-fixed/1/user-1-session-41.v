@@ -383,6 +383,7 @@ Function
  eq_fn (G : GT * GT) {measure
  fun x => size_gt (fst x) + size_gt (snd x) G} : Prop :=
    match G with
+   | (GDyn, GDyn) => True
    | (GInt, GInt) => True
    | (GBool, GBool) => True
    | (GFun G_11 G_12, GFun G_21 G22) =>
@@ -412,18 +413,11 @@ all: (intros; subst; simpl; eauto with math).
 all: (try destruct hd1; try destruct hd2; simpl; eauto with math).
 Defined.
 Definition eq (G_1 G_2 : GT) := eq_fn (G_1, G_2).
-Check reflexive.
-Check reflexive _.
-Check reflexive GT.
-Check relation GT.
-Check relation GT.
-Check relation.
-Print relation.
-Print eq.
-Check eq.
 Theorem eq_refl : reflexive GT eq.
 Proof.
 (unfold reflexive).
 (induction x; unfold eq; rewrite eq_fn_equation; simpl; eauto).
+all: (destruct l; eauto).
+all: (destruct o; eauto).
 (* Auto-generated comment: Succeeded. *)
 
