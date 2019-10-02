@@ -31,6 +31,11 @@ Record EpsilonLogic :=
           evalEqFalse :
            forall env a b,
            eval env a <> eval env b <-> eval env (Eq a b) = vFalse;
+          evalPlus :
+           forall env iE jE i j,
+           eval env iE = eval env (Int i) ->
+           eval env jE = eval env (Int j) ->
+           eval env (Plus iE jE) = eval env (Int (i + j));
           evalChoose :
            forall env x P,
            (exists value, eval (extendEnv env x value) P = vTrue) ->
@@ -39,22 +44,3 @@ Record EpsilonLogic :=
            forall env x P Q,
            eval env P = vTrue <-> eval env Q = vTrue ->
            eval env (Choose x P) = eval env (Choose x Q)}.
-(apply evalEqTrue in IHt1).
-(apply evalEqTrue in IHt2).
-(destruct (eval_eq_true_or_false L env t1 t2)).
-+
-(rewrite H).
-(apply evalEqTrue in H).
-(rewrite H in IHt1).
-(rewrite IHt1 in IHt2).
-symmetry.
-(apply evalEqTrue).
-assumption.
-+
-(rewrite H).
-(apply evalEqFalse in H).
-(assert (eval L env (identity t1) <> eval L env (identity t2)) by congruence).
-symmetry.
-(apply evalEqFalse).
-assumption.
-Admitted.
