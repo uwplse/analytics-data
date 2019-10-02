@@ -309,8 +309,6 @@ Proof.
 -
 clear H.
 (unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
-(eapply H0 in H2; eauto).
-(destruct matches in *; safe_intuition repeat deex; eauto).
-(descend; intuition eauto).
+intuition eauto.
 (* Auto-generated comment: Succeeded. *)
 
