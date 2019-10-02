@@ -109,6 +109,17 @@ Theorem write_ok :
 Proof.
 (unshelve prim; eauto; try (solve [ destruct_all ])).
 (destruct (le_dec (S a) (diskSize d0))).
-destruct_all.
-(* Auto-generated comment: Failed. *)
+{
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZyhLyQ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqiyA32g"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+(rewrite diskUpd_oob_noop by lia).
+(* Auto-generated comment: Succeeded. *)
 
