@@ -88,20 +88,6 @@ tauto.
 Qed.
 (apply match_ty_ref__weak_inv in Hm).
 split.
-constructor.
-(exists t'; reflexivity).
--
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
+(destruct Hm as [Hv [tx Heqx]]; subst).
 (simpl).
-exists t'.
-(apply match_ty__reflexive).
-constructor.
-Qed.
-Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
-Proof.
-(intros k; destruct k; intros v Hm).
--
-(apply match_ty_exist__0_inv in Hm).
-(destruct Hm as [Hv [tx Heqx]]).
 (* Failed. *)
