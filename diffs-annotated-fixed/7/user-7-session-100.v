@@ -66,6 +66,7 @@ clear IHv.
 (intros t w k Hm).
 (simpl in Hm).
 exists v.
-(simpl in Hm).
+split.
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
