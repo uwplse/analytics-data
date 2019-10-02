@@ -258,4 +258,4 @@ reflexivity.
 clear H.
 (rewrite evalIfTrue in H0).
 -
-(apply evalEqTrue in H0).
+apply -> evalEqTrue in H0.
