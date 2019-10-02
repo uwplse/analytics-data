@@ -151,6 +151,7 @@ exfalso.
 reflexivity.
 +
 subst.
-(rewrite b_subst_bvar_neq).
+(rewrite b_subst_bvar_neq; try assumption).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
