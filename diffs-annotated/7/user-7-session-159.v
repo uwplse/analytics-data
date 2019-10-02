@@ -53,6 +53,6 @@ assumption.
 +
 (rewrite (subst_exist_neq _ _ _ _ Hbeq) in Hm).
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
+(destruct Hm as [ti Hm]).
+(rewrite subst_neq_permute in Hm).
 (* Failed. *)
