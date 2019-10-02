@@ -209,7 +209,13 @@ exists (Nat.max w1 w2),(TPair v1 v2).
 exists w,v.
 (apply match_ty_union_1; assumption).
 -
-exists (S w).
-Check match_ty__match_ty_f_subst_int.
 (apply (match_ty__match_ty_f_subst_int i) in Hm).
+(destruct Hm as [v' Hm]).
+exists (S w),v'.
+(apply match_ty_exist).
+exists tint.
+split.
+admit.
+assumption.
+-
 (* Failed. *)
