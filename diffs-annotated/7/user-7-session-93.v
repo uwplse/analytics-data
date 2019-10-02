@@ -13,4 +13,10 @@ Inductive cname : Type :=
   | NInt : _
   | NFlt : _
   | NStr : _.
+Definition vY := Id 2.
+Definition vZ := Id 3.
+Definition tX := TVar vX.
+Definition tY := TVar vY.
+Definition teXX := TExist vX tX.
+Definition tyXRefX := TExist vX (TRef tX).
 (* Failed. *)
