@@ -349,6 +349,7 @@ Fixpoint size_gt (G : GT) : nat :=
 Theorem size_gt_g0 : forall x, 0 < size_gt x.
 Proof.
 (induction x; intros; simpl; eauto with math).
-all: (induction l; eauto with math).
+all: (induction l; simpl; eauto with math).
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
