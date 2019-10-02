@@ -49,6 +49,6 @@ Timeout 1 Print Grammar tactic.
 (dependent destruction u; simpl; Msimpl; reflexivity).
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
-Timeout 1 Print trans.
-Timeout 1 Print Ltac trans.
-(* Failed. *)
+Timeout 1 About ctrls_to_list.
+Timeout 1 Print ctrls_to_list.
+Timeout 1 Print Ltac ctrls_to_list.
