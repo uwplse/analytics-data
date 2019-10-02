@@ -165,6 +165,6 @@ Proof.
 (apply spec_abstraction_compose).
 (simpl).
 Check proc_spec_weaken.
-(apply proc_spec_weaken).
-(* Auto-generated comment: Failed. *)
+(eapply proc_spec_weaken).
+(* Auto-generated comment: Succeeded. *)
 
