@@ -83,6 +83,9 @@ Instance aModel : GoModel.
 Proof.
 Print uint64.
 Print Ascii.Ascii.
-Search -string -Ascii.ascii.
-(* Auto-generated comment: Succeeded. *)
+refine
+ {|
+ byte := Ascii.ascii;
+ byte0 := Ascii.ascii false false false false false false false false |}.
+(* Auto-generated comment: Failed. *)
 
