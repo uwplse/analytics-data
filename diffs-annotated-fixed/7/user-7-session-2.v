@@ -233,6 +233,12 @@ Proof.
 (induction Hsub21; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
 -
 (intros Hsub12).
-(intros Hsub12 intros t3 Hsub21).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
+(induction Hsub21; inversion Heqx; subst).
+*
+clear Heqx IHHsub21_1 IHHsub21_2.
+(intros Hsub22).
+(apply sub_r_pair__inv in Hsub22).
+(split; constructor; tauto).
 (* Auto-generated comment: Failed. *)
 
