@@ -247,6 +247,6 @@ Proof.
 (exists 0; simpl).
 reflexivity.
 -
-(step_proc; intuition).
+(step_proc; intuition; eauto).
 (* Auto-generated comment: Succeeded. *)
 
