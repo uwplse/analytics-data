@@ -67,6 +67,6 @@ Proof.
    | destruct v; contradiction ])).
 -
 (apply match_ty_exist__inv in Hm).
-eauto.
+(apply IHk).
 (* Auto-generated comment: Failed. *)
 
