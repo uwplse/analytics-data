@@ -218,5 +218,11 @@ tauto.
 +
 (apply sub_r_union_l__inv in Hsub').
 (apply SR_NormalForm in Hcontra; contradiction).
-(apply IHHcontra; try tauto).
+Ltac
+ solve_not_x_sub_r_y_full :=
+  match goal with
+  | |- ~ |- ?tx << ?ty =>
+        remember tx as t eqn:Heq1 ; remember ty as t' eqn:Heq2 ; intros Hcontra; induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ]);
+         subst; apply IHHcontra; try tauto
+  end.
 (* Failed. *)
