@@ -1031,14 +1031,5 @@ restore_dims tensor_tac.
          specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
-Set Printing All.
-Set Printing All.
-Set Printing All.
-Set Printing All.
-Set Printing All.
-Timeout 1 About restore_dims.
-Timeout 1 Print restore_dims.
-Timeout 1 Print Ltac restore_dims.
-(rewrite IP).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
