@@ -203,4 +203,7 @@ tauto.
 assumption.
 (apply mk_nf__sem_sub_k_l).
 (apply sem_eq_k__trans with t2).
+Check sem_eq_k__trans.
+(apply mk_nf__sem_sub_k_l).
+(apply sem_eq_k__sem_sub_k).
 (* Failed. *)
