@@ -10,6 +10,7 @@ Add Search Blacklist "Private_" "_subproof".
     |- _ =>
         assert (Hvv : value_type (TCName c)) by constructor;
          assert (Hmv : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hvv Hmv);
-         apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]
+         apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm';
+         apply match_ty_i_cname__inv in Hm'; subst; assumption
   end).
 (* Failed. *)
