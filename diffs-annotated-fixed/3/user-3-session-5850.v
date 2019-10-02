@@ -96,18 +96,44 @@ Qed.
 Theorem plus_assoc : forall n m p : nat, n + (m + p) = n + m + p.
 Proof.
 (intros n).
+(intros n m p).
 (induction n as [| n' IHn']).
 -
-(intros m p).
 reflexivity.
 -
-(intros m p).
+(simpl).
+(rewrite IHn').
 reflexivity.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqp3hnjw"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq9Gqob8"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-(* Auto-generated comment: Succeeded. *)
+Qed.
+Fixpoint double (n : nat) :=
+  match n with
+  | O => O
+  | S n' => S (S (double n'))
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJu1qaR"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqVPJVRS"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Lemma double_plus : forall n, double n = n + n.
+Proof.
+(intros n).
+(induction n as [| n' IHn']).
+-
+reflexivity.
+-
+(simpl).
+(rewrite IHn').
+reflexivity.
+(* Auto-generated comment: Failed. *)
 
