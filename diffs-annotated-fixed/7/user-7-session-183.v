@@ -91,7 +91,9 @@ specialize (Hmem HY).
 (rewrite Hmem).
 reflexivity.
 Qed.
-Lemma subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), exists (Z : id) (tz : ty), [X := s] TExist X t = TExist Z tz.
+Lemma subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), exists (Z : id) (tz : ty), [X := s] TExist Y t = TExist Z tz.
 Proof.
+(intros X s Y t).
+(destruct (beq_idPX Y)).
 (* Auto-generated comment: Failed. *)
 
