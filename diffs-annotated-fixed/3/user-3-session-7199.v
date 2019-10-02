@@ -250,6 +250,7 @@ Theorem get_len_ok :
 Proof.
 (unfold get_len; intros).
 step_proc.
-(destruct a' as [_ bs]; simpl in *; intuition eauto).
-(* Auto-generated comment: Failed. *)
+step_proc.
+intuition eauto.
+(* Auto-generated comment: Succeeded. *)
 
