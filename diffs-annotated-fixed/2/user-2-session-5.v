@@ -33,6 +33,5 @@ Module TermNotations.
 Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
   (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
 End TermNotations.
-Import TermNotations.
 (* Auto-generated comment: Succeeded. *)
 
