@@ -271,6 +271,6 @@ Proof.
 (unfold init_abstraction; intros).
 (eapply proc_spec_rx; [ solve [ eauto ] |  ]; cbn[pre post recovered]; intros).
 (exists tt; intuition; simpl in *).
-(descend; intuition eauto).
+(destruct r).
 (* Auto-generated comment: Succeeded. *)
 
