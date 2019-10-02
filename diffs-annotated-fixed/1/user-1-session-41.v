@@ -558,9 +558,7 @@ generalize dependent G'.
 -
 (intros; inversion H0; subst; eauto).
 all: (try (apply singleton_eq in H1; congruence)).
-Search -(Ensembles.In _ (Singleton _ _) _).
 all: (try specialize (H1 _ (In_singleton _ _ _))).
-Show Intros.
 all: (try specialize (H1 _ (In_singleton _ _))).
 all:
  (repeat
@@ -569,5 +567,19 @@ all:
    | H:_ \/ _ |- _ => inversion H; clear H
    end).
 all: (try congruence).
+-
+(intros; inversion H0; subst; eauto).
+all: (try (apply singleton_eq in H1; congruence)).
+all: (try specialize (H1 _ (In_singleton _ _ _))).
+all: (try specialize (H1 _ (In_singleton _ _))).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+all: (try congruence).
+-
+(intros; inversion H0; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
