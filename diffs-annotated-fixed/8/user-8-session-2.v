@@ -114,19 +114,5 @@ Proof.
 (induction l).
 (simpl).
 -
-(induction r; try reflexivity).
-(simpl).
-(destruct a).
-+
-Msimpl.
-(rewrite IHr).
-reflexivity.
-+
-Msimpl.
-(rewrite IHr).
-reflexivity.
--
-(simpl).
-(destruct a; Msimpl; rewrite IHl; reflexivity).
 (* Auto-generated comment: Succeeded. *)
 
