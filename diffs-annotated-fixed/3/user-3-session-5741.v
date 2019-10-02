@@ -576,17 +576,31 @@ reflexivity.
 reflexivity.
 +
 reflexivity.
+Qed.
+Theorem zero_nbeq_plus_1 : forall n : nat, beq_nat 0 (n + 1) = false.
+Proof.
+(intros []).
+-
+reflexivity.
+-
+reflexivity.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3k1HEd"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKqgkZf"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsSVemf"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Qed.
+Notation "x + y" := (plus x y) (at level 50, left associativity) : nat_scope.
+Notation "x * y" := (mult x y) (at level 40, left associativity) : nat_scope.
+Fixpoint plus' (n : nat) (m : nat) : nat :=
+  match n with
+  | O => m
+  | S n' => S (plus' n' m)
+  end.
+Theorem identity_fn_applied_twice :
+  forall f : bool -> bool,
+  (forall x : bool, f x = x) -> forall b : bool, f (f b) = b.
+Proof.
 (* Auto-generated comment: Succeeded. *)
 
