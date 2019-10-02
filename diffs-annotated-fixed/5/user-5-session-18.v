@@ -11,7 +11,7 @@ Inductive Term : Set :=
   | Minus : Term -> Term -> Term
   | Choose : Identifier -> Term -> Term.
 Definition extendEnv {Value} (env : Identifier -> Value) 
-  (var : Identifier) (newValue : Value) : Environment :=
+  (var : Identifier) (newValue : Value) : Identifier -> Value :=
   fun id => if id_eq_dec id var then newValue else env id.
 (* Auto-generated comment: Succeeded. *)
 
