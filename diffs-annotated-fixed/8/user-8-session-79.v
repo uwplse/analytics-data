@@ -1012,6 +1012,5 @@ reflexivity.
 -
 (simpl in *).
 Opaque NTensor.
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
