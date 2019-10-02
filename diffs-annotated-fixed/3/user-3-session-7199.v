@@ -314,6 +314,6 @@ Print append_at.
 step_proc.
 intuition eauto.
 +
-(rewrite app_nil_r).
+(rewrite app_nil_r in *).
 (* Auto-generated comment: Succeeded. *)
 
