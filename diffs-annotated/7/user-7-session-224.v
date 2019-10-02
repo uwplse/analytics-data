@@ -21,18 +21,21 @@ Lemma build_v_full :
     |-[ w] v' <$ [BX := TFVar X'] t /\
     (forall (w' : nat) (t' : ty),
      |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> exists w2, |-[ w2] v <$ [FX' := tx] t')).
-(rewrite f_subst_union).
-(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
-  destruct IHt' as [IHt'a IHt'b]; split; intros HX').
-{
-(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
-(apply match_ty_union_1; auto).
+(apply match_ty_union_1; assumption).
 }
 {
-(destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
+exists 0.
+(apply match_ty_union_1).
+(rewrite f_subst_not_b_free_in_ty; auto).
+}
+}
 {
-specialize (IHt'b HXt'1).
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_2; auto).
+}
+{
+(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
+{
+specialize (IHt'b HXt'2).
 (destruct IHt'b as [w2 IHt'b]).
-exists w2.
-(apply match_ty_union_1; auto).
-(* Failed. *)
+(apply match_ty_union_2; auto).
