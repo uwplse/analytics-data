@@ -118,6 +118,5 @@ Omega.omega.
 Omega.omega.
 -
 (simpl).
-(rewrite rename__size).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
