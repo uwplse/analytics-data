@@ -78,13 +78,24 @@ Next Obligation.
 Proof.
 (intros).
 (simpl).
-Search -Nat.modulo -"<".
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPcKfTK"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOAXaVK"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTnp0Ow"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFG4mXY"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Next Obligation.
+(intros; simpl).
 (* Auto-generated comment: Succeeded. *)
 
