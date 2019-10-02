@@ -88,27 +88,7 @@ Proof.
 exists v.
 split.
 assumption.
-(apply match_ty_cname__inv in Hm; subst).
-(induction w'; induction t'; intros Hm; try assumption || contradiction).
-+
-(rewrite subst_union).
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(rewrite subst_union).
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(destruct (beq_idP X' i) as [Hbeq| Hbeq]).
-*
-subst.
-(rewrite subst_exist_eq).
-assumption.
-*
-(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [ti Hm]).
-(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
-exists ([X' := tx] ti).
+Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
+Proof.
 (* Auto-generated comment: Failed. *)
 
