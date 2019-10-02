@@ -80,6 +80,53 @@ Theorem rexec_equiv :
 Proof.
 (intros).
 inv_rexec.
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlkiVkL"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+-
 (apply H in H1; eauto).
+-
+(apply H in H1; eauto).
+Qed.
+Theorem rexec_finish_any_rec :
+  forall `(p : proc T) `(rec : proc R) `(rec' : proc R') w v w',
+  rexec p rec w (RFinished v w') -> rexec p rec' w (RFinished v w').
+Proof.
+(intros).
+(inversion H; subst; eauto).
+Qed.
+#[local]Hint Constructors exec_recover: core.
+Arguments clos_refl_trans_1n {A} R _ _.
+Theorem exec_recover_bind_inv :
+  forall `(p : proc R) `(p' : R -> proc R') w rv' w'',
+  exec_recover (Bind p p') w rv' w'' ->
+  exists rv1 w1,
+    exec_recover p w rv1 w1 /\
+    (exists rv2 w2,
+       clos_refl_trans_1n
+         (fun '(rv, w) '(rv', w') => rexec (p' rv) p w (Recovered rv' w'))
+         (rv1, w1) (rv2, w2) /\ exec (p' rv2) w2 (Finished rv' w'')).
+Proof.
+(induction 1).
+-
+(inv_exec; eauto  10 using rt1n_refl).
+-
+(repeat deex).
+(inv_exec; eauto  10).
++
+(descend; intuition eauto).
+(descend; intuition eauto).
+(eapply rt1n_trans; eauto).
+(simpl; eauto).
++
+(inv_exec; eauto  10).
+(descend; intuition eauto).
+(descend; intuition eauto).
+(eapply rt1n_trans; eauto).
+(simpl; eauto).
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
