@@ -219,4 +219,5 @@ tauto.
 (apply sub_r_union_l__inv in Hsub').
 Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
 (induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst).
+Show 2.
 (* Failed. *)
