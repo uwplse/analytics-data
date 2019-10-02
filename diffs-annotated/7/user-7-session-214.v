@@ -248,6 +248,4 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 (rewrite b_subst_pair).
-(destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
-(simpl).
 (* Failed. *)
