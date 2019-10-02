@@ -487,6 +487,5 @@ Proof.
 (unfold get, get_spec; intros).
 step.
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intuition).
 (* Auto-generated comment: Succeeded. *)
 
