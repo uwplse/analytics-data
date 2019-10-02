@@ -40,16 +40,6 @@ Record EpsilonLogic :=
            forall env x S,
            eval env (In x S) = eval env (Bool true) \/
            eval env (In x S) = eval env (Bool false);
-          evalInBools :
-           forall env b S,
-           eval env S = eval env Bools ->
-           eval env (In b S) = eval env (Bool true) <->
-           (exists b, eval env b = eval env (Bool b));
-          evalInInts :
-           forall env b S,
-           eval env S = eval env Ints ->
-           eval env (In b S) = eval env (Bool true) <->
-           (exists i, eval env b = eval env (Int i));
           evalEqTrue :
            forall env a b,
            eval env a = eval env b <->
