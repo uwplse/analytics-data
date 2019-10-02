@@ -287,6 +287,5 @@ econstructor.
 constructor.
 +
 admit.
-admit.
 (* Auto-generated comment: Succeeded. *)
 
