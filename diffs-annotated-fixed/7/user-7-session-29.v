@@ -225,6 +225,6 @@ Lemma sem_eq_k__comm :
   forall (t1 t2 : ty) (k : nat), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
 (intros t1 t2 k Hsem).
 (unfold sem_eq_k in *).
-auto.
+tauto.
 (* Auto-generated comment: Failed. *)
 
