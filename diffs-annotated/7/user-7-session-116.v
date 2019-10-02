@@ -21,15 +21,12 @@ Proof.
 (split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]).
 Qed.
 (induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh).
-(rewrite IHt1; try assumption).
-(rewrite IHt2; try assumption).
+(rewrite IHt; try assumption).
 reflexivity.
 -
-(apply fresh_union__inv in Hfresh).
-(destruct Hfresh as [Hfresh1 Hfresh2]).
-(rewrite IHt1; try assumption).
-(rewrite IHt2; try assumption).
+(destruct (beq_idP X i)).
 reflexivity.
--
-(rewrite Iht; try assumption).
+(rewrite IHt).
+reflexivity.
+(unfold fresh).
 (* Failed. *)
