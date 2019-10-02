@@ -67,4 +67,17 @@ Lemma build_v_full :
   |-[ w] v <$ [X := tx] t ->
   exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
 (induction w'; induction t'; intros Hm; try assumption || contradiction).
++
+(rewrite subst_union).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(rewrite subst_union).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
+*
+subst.
+(rewrite subst_exist_eq in *).
 (* Failed. *)
