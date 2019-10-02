@@ -150,7 +150,8 @@ Proof.
 -
 reflexivity.
 -
-(simpl).
 (rewrite IHn').
+(rewrite negb_involutive).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
