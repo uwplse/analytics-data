@@ -218,6 +218,5 @@ tauto.
 +
 (apply sub_r_union_l__inv in Hsub').
 (apply SR_NormalForm in Hcontra; contradiction).
-subst.
-(apply IHHcontra).
+(apply IHHcontra; try tauto).
 (* Failed. *)
