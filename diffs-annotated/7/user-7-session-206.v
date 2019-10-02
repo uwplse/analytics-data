@@ -191,6 +191,5 @@ reflexivity.
 (apply IdSetFacts.empty_iff).
 (destruct (IdSetFacts.empty_iff Y) as [H _]).
 (apply H).
-Search -IdSet.In.
-Search -m.
+Search -IdSet.Empty.
 (* Failed. *)
