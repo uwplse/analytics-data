@@ -315,9 +315,10 @@ contradiction.
 Qed.
 Lemma b_free_in_ty__b_free_in_b_subst_neq : forall (Y : id) (s : ty) (X : id) (t : ty), X <> Y -> b_free_in_ty X t -> b_free_in_ty X ([BY := s] t).
 Proof.
-(intros Y s X t HX).
+(intros Y s X t HXY HX).
 (induction t; try (solve [ simpl; assumption ])).
 -
-(simpl).
-(* Auto-generated comment: Failed. *)
+(rewrite b_subst_pair).
+(apply b_free_in_ty_pair).
+(* Auto-generated comment: Succeeded. *)
 
