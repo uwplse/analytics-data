@@ -1018,8 +1018,14 @@ Ltac
              with
              A'
   end.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq1x1tH3"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+(match goal with
+ | |- ?A => let A' := restore_dims_rec tac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+(apply f_equal_gen).
 (* Auto-generated comment: Succeeded. *)
 
