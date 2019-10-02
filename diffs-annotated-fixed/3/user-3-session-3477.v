@@ -256,6 +256,6 @@ Set Search Output Name Only.
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqigzExV"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
-(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
+(eapply proc_spec_rx; [ solve [ eauto ] |  ]; cbn[pre post recovered] in *).
 (* Auto-generated comment: Succeeded. *)
 
