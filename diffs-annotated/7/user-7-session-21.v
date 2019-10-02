@@ -10,4 +10,4 @@ Require Import BetaJulia.Sub0250a.MatchProps.
 Require Import BetaJulia.Sub0250a.SemSubProps.
 Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.Sub0250a.AltmatchProps.
-(* Failed. *)
+Require Import BetaJulia.Sub0250a.AltMatchProps.
