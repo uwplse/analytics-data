@@ -43,7 +43,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtKERBA"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Notation "p" := (ProcMarker p) (at level 0, only printing).
+Notation "p" := (ProcMarker p) (at level 100, only printing).
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -61,5 +61,11 @@ monad_simpl.
 (match goal with
  | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
  end).
+(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
+(cbn[pre post recovered]).
+(let state := fresh "state" in
+ intros ? state Hpre).
+exists tt.
+split.
 (* Auto-generated comment: Succeeded. *)
 
