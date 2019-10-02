@@ -330,7 +330,14 @@ assumption.
 Qed.
 Lemma nf_sub_r__decidable : forall t1 t2 : ty, InNF( t1) -> Decidable.decidable (|- t1 << t2).
 Proof.
-(intros t1 t2).
+(intros t1 t2 Hnf1).
 generalize dependent t2.
+generalize dependent Hnf1.
 generalize dependent t1.
+(apply
+  (in_nf_mut (fun (t1 : ty) (Hat : atom_type t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2))
+     (fun (t1 : ty) (Hnf : in_nf t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2)))).
+-
+(intros c t2).
+(induction t2).
 (* Failed. *)
