@@ -183,5 +183,5 @@ exists v'.
 exists tx.
 split.
 assumption.
-(rewrite b_subst_neq__permute).
-(* Auto-generated comment: Failed. *)
+(rewrite b_subst_neq__permute in IHw).
+(* Failed. *)
