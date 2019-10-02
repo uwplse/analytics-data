@@ -242,5 +242,6 @@ assumption.
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
 Qed.
-(apply match_ty_pair; eapply match_ty__ge_w; eassumption).
+(apply match_ty_pair).
+(eapply match_ty__ge_w).
 (* Failed. *)
