@@ -47,4 +47,6 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
+Opaque rev.
 (simpl).
+(rewrite <- ctrl_list_to_unitary_transpose).
