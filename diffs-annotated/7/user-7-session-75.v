@@ -55,4 +55,4 @@ Lemma mk_nf__sem_sub_k_r : forall (k : nat) (t : ty), ||-[ k][t]<= [MkNF( t)].
 Proof.
 (intros k t).
 (apply sem_eq_k__sem_sub_k).
-(apply mk_nf__sem_eq_k).
+(* Failed. *)
