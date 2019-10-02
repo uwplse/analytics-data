@@ -178,5 +178,7 @@ Proof.
 (induction t; intros w k v Hm w' Hle).
 -
 (apply match_ty_cname__inv in Hm).
+subst.
+(apply match_ty_cname).
 (* Auto-generated comment: Failed. *)
 
