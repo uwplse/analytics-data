@@ -260,6 +260,7 @@ Proof.
 -
 (rewrite b_subst_pair).
 (unfold f_free_in_ty, free).
-(destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
+(apply f_free_in_ty_pair).
+(apply f_free_in_ty_pair__inv).
 (* Auto-generated comment: Failed. *)
 
