@@ -1234,4 +1234,3 @@ constructor.
 Timeout 1 About ancilla_free_box_valid.
 specialize @ancilla_free_box_valid as AV.
 (rewrite AV; [  | apply ancilla_free_X_at | type_check ]).
-reflexivity.
