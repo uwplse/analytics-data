@@ -18,6 +18,6 @@ Proof.
 -
 (rewrite subst_pair).
 (destruct (fresh_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]).
-(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; tauto).
+(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; auto).
 (* Auto-generated comment: Failed. *)
 
