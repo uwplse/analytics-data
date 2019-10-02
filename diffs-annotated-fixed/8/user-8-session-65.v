@@ -962,6 +962,5 @@ Proof.
 -
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
-gen \207\129.
 (* Auto-generated comment: Succeeded. *)
 
