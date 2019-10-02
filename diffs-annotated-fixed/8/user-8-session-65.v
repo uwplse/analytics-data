@@ -983,6 +983,5 @@ mat_replace \226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169 with I 
 Msimpl.
 Timeout 1 About id_kron.
 Timeout 1 Print id_kron.
-(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
 (* Auto-generated comment: Succeeded. *)
 
