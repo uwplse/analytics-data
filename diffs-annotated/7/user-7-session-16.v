@@ -106,9 +106,6 @@ Proof.
      end ])).
 Qed.
 Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
-Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
-Proof.
-(intros c1 c2 Hsub).
-(remember (TCName c1) as t1 eqn:Heq1 ).
-(remember (TCName c1) as t2 eqn:Heq2 ).
+(remember (TCName c2) as t2 eqn:Heq2 ).
+(induction Hsub; try (solve [ inversion Heq1; inversion Heq2 ])).
 (* Failed. *)
