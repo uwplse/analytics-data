@@ -1115,6 +1115,7 @@ Msimpl.
  end).
 reflexivity.
 -
+(simpl in *).
 (erewrite denote_box_compat).
 (* Auto-generated comment: Failed. *)
 
