@@ -94,15 +94,14 @@ Theorem mk_nf__sub_d_eq : forall t : ty, |- MkNF( t) << t /\ |- t << MkNF( t).
 Proof.
 (induction t).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
--
-(apply value_sem_sub_k_union__inv in Hsem; try assumption).
-(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
-Qed.
+Search -atom_type.
 Lemma pair_sem_sub_k__sub_d :
   forall (k : nat) (ta1 ta2 : ty),
   atom_type (TPair ta1 ta2) ->
+  | TPair ta1 ta2 | <= k ->
   (forall tb1 : ty, ||-[ k][ta1]<= [tb1] -> |- ta1 << tb1) ->
   (forall tb2 : ty, ||-[ k][ta2]<= [tb2] -> |- ta2 << tb2) -> forall t2 : ty, ||-[ k][TPair ta1 ta2]<= [t2] -> |- TPair ta1 ta2 << t2.
 Proof.
-(intros k ta1 ta2 Hat IH1 IH2).
+(intros k ta1 ta2 Hat Hdep IH1 IH2).
+(assert (Hva : value_type (TPair ta1 ta2)) by (apply atom_type__value_type; assumption)).
 (* Failed. *)
