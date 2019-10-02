@@ -69,15 +69,6 @@ Proof.
 clear IHv.
 Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
 (inversion Hv).
--
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(simpl in Hmx).
-(apply match_ty_union__inv in Hmx).
-(destruct Hmx as [Hmx| Hmx]).
-+
-(apply match_ty_union_1).
-(apply match_ty_exist).
-exists tx.
-assumption.
+(destruct Hmx as [Hmx| Hmx]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; apply match_ty_exist; exists tx; assumption).
+Qed.
 (* Failed. *)
