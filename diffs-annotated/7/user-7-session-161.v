@@ -80,9 +80,8 @@ Abort.
 Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
 Lemma subst_nested : forall (X Y : id) (tX tY : ty), X <> Y -> forall t : ty, [X := tX] ([Y := tY] t) = [Y := [X := tX] tY] ([X := tX] t).
 (destruct (beq_idP Y i) as [HY| HY]).
-+
 subst.
-(destruct (beq_idP X i) as [HX| HX]).
+contradiction.
 *
-subst.
+(rewrite subst_exist_neq).
 (* Failed. *)
