@@ -138,6 +138,5 @@ Lemma diskGet_eq_values :
 Proof.
 (intros).
 (destruct (diskGet d a) eqn:?; simpl in *).
-congruence.
 (* Auto-generated comment: Succeeded. *)
 
