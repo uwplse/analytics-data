@@ -994,6 +994,7 @@ rewrite_inPar''.
 (simpl_rewrite FALSE_spec).
 restore_dims tensor_tac.
 (rewrite id_circ_spec).
+(rewrite id_circ_spec).
 restore_dims tensor_tac.
 (destruct t; reflexivity).
 -
@@ -1010,8 +1011,7 @@ reflexivity.
 (apply ctx_lookup_exists; easy).
 -
 (simpl in *).
+restore_dims tensor_tac.
 specialize inSeq_correct as IS.
-(simpl in IS).
-(rewrite IS).
 (* Auto-generated comment: Succeeded. *)
 
