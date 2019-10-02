@@ -173,6 +173,5 @@ step.
 {
 (descend; intuition eauto).
 {
-step.
 (* Auto-generated comment: Succeeded. *)
 
