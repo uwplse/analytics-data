@@ -102,31 +102,6 @@ Next Obligation.
 Proof.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSI1pCO"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFMLQWE"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqN13qLI"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Next Obligation.
-Next Obligation.
-Proof.
-subst digit.
-Next Obligation.
-Proof.
-subst digit.
-(apply PeanoNat.Nat.div_lt; auto; try lia).
-Qed.
-Next Obligation.
-Proof.
+Next Obligation of nat_to_le.
 (* Auto-generated comment: Succeeded. *)
 
