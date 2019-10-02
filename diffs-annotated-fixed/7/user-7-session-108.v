@@ -306,6 +306,6 @@ admit.
 -
 (destruct Hcontra as [v Hcontra]).
 Search -id.
-(destruct (eq_id X i)).
+(destruct (beq_id X i)).
 (* Auto-generated comment: Failed. *)
 
