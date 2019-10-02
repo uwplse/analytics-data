@@ -167,6 +167,5 @@ auto.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
 (rewrite IHn).
-{
 (* Auto-generated comment: Succeeded. *)
 
