@@ -652,6 +652,5 @@ Proof.
 (induction l1).
 -
 -
-(intros).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
