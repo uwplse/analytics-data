@@ -144,5 +144,7 @@ lia.
 }
 (apply Nat.div_lt; lia).
 Qed.
+Definition bounded0 : {x | x < 256}.
+refine 0.
 (* Auto-generated comment: Failed. *)
 
