@@ -23,5 +23,8 @@ Qed.
 Lemma subs_fresh : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
 Proof.
 (intros X t).
+(simpl).
 (rewrite IHt1; try assumption).
+(rewrite IHt2; try assumption).
+reflexivity.
 (* Failed. *)
