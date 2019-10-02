@@ -14,5 +14,5 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0iIh4K"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
