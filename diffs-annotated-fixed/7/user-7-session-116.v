@@ -23,6 +23,6 @@ SearchPattern (IdSet.In (IdSet.union _ _)).
 Search -IdSet.union.
 Check IdSetFacts.union_2.
 Check IdSetFacts.union_2.
-(apply (IdSetFacts.union_2 fvs1 fvs2) in Hcontra).
+(apply (IdSetFacts.union_2 fvs2) in Hcontra).
 (* Auto-generated comment: Failed. *)
 
