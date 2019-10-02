@@ -89,5 +89,6 @@ Proof with (simpl; eauto with sf).
 (induction l) ...
 Qed.
 Unset Printing Universes.
+Check Sorted.
 (* Auto-generated comment: Succeeded. *)
 
