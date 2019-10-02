@@ -149,8 +149,4 @@ Proof.
 (intros).
 reflexivity.
 Qed.
-Lemma b_subst_fvar : forall (X : id) (s : ty) (Y : id), [BX := s] TFVar Y = TBVar Y.
-Proof.
-(intros).
-(simpl).
-reflexivity.
+(* Failed. *)
