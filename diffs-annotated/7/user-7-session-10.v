@@ -68,16 +68,6 @@ Lemma unite_pairs_of_nf__preserves_sub_r1 :
   forall t1 t2 t1' t2' : ty, InNF( t1) -> |- t1 << t1' -> InNF( t2) -> |- t2 << t2' -> |- unite_pairs t1 t2 << TPair t1' t2'.
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros ta' tb' Hnf1 Hsub1 Hnf2 Hsub2; try (solve [ simpl; constructor; assumption ])).
-(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
-  try (solve
-   [ match goal with
-     | Hsub:|- ?t1 << ?t2
-       |- _ =>
-           remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ;
-            assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; inversion Heqx; 
-            inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
-     end ])).
--
-(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22];
+(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
   apply sub_r_nf_union_l__inv in Hsub).
 (* Failed. *)
