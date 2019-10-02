@@ -28,4 +28,4 @@ Proof.
 -
 (apply sem_sub_pair; assumption).
 -
-(apply sem_sub_union; assumption).
+(* Failed. *)
