@@ -2816,6 +2816,5 @@ dependent destruction t.
 (simpl).
 (rewrite singleton_size).
 (simpl).
-(rewrite Nat.add_succ_r).
 (* Auto-generated comment: Succeeded. *)
 
