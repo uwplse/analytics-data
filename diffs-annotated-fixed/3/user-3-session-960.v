@@ -166,6 +166,15 @@ auto.
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
+(destruct (lt_dec n base)).
++
+admit.
++
 (rewrite IHn).
-(* Auto-generated comment: Succeeded. *)
+{
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
+lia.
+}
+lia.
+(* Auto-generated comment: Failed. *)
 
