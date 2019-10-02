@@ -128,6 +128,23 @@ Qed.
 Theorem log_abstraction_length d bs :
   log_abstraction d bs -> log_length_ok d bs.
 Proof.
-intuition.
+(unfold log_abstraction; intuition).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqefh0CJ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve log_abstraction_length: core.
+Lemma abstr_get_len :
+  forall (bs : list block) (state : State),
+  log_length_ok state bs ->
+  forall r : block,
+  diskGet state len_addr =?= r -> block_to_addr r = length bs.
+Proof.
+(intros).
+Print log_length_ok.
+(unfold log_length_ok in H).
 (* Auto-generated comment: Succeeded. *)
 
