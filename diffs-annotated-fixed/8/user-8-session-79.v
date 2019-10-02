@@ -1182,6 +1182,5 @@ listify_kron.
 }
 4: {
 rewrite_inPar'.
-rewrite_inPar'.
 (* Auto-generated comment: Succeeded. *)
 
