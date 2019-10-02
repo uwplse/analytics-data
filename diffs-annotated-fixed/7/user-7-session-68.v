@@ -185,15 +185,6 @@ clear IHt2.
 (pose proof (le_S_n _ _ Hdt) as Hdt').
 (pose proof Hsem as Hsem').
 (unfold sem_sub_k in Hsem).
-specialize (Hsem _ Hma).
-(apply match_ty_ref__inv in Hsem).
-(destruct Hsem as [t' [Heqt' [[Hk Hdt't2] Href]]]).
-(inversion Heqt'; subst).
-clear Heqt'.
-constructor.
-*
-(apply IHk; try assumption).
-(apply sem_eq_k__sem_sub_k).
-assumption.
+Check sem_eq_k__sem_sub_k.
 (* Auto-generated comment: Failed. *)
 
