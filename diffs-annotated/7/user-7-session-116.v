@@ -24,10 +24,5 @@ Qed.
 (rewrite IHt; try assumption).
 Check IdSetFacts.remove_2.
 (intros Heq).
-subst.
-contradiction.
--
-(unfold fresh in Hfresh).
-(destruct (beq_idP X i)).
-+
+(destruct (beq_idP X i); try reflexivity).
 (* Failed. *)
