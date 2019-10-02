@@ -170,5 +170,5 @@ exists 0,(TEV i).
 exists 0,(TEV i).
 (apply match_ty_ev).
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
