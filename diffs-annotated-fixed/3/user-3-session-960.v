@@ -203,11 +203,23 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqcc1tDj"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii.
-Print Byte.of_nat.
-(match Byte.of_nat (proj1_sig x) with
- | Some x => Ascii.ascii_of_byte b
- | None => ascii0
- end).
-(* Auto-generated comment: Succeeded. *)
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
+  match Byte.of_nat (proj1_sig x) with
+  | Some b => Ascii.ascii_of_byte b
+  | None => ascii0
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhtsIcj"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTyMpHa"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Check Ascii.byte_of_ascii.
+Check Ascii.nat_of_ascii.
+Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256} :=
+  Instance aModel : GoModel.
+(* Auto-generated comment: Failed. *)
 
