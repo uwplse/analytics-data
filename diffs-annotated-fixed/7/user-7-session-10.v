@@ -174,9 +174,15 @@ Lemma sub_r_nf__trans :
   forall tm1 tm2 : ty,
   |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
 Proof.
+Lemma sub_r_nf__trans :
+  forall tm1 tm2 : ty,
+  |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
+Proof.
 (intros tm1 tm2 Hsub).
 (induction Hsub; intros Hnfm1 Hnfm2).
 -
 tauto.
+-
+(destruct (in_nf_pair__inv _ _ Hnfm1) as [Hnfmx Hnfmy]).
 (* Auto-generated comment: Failed. *)
 
