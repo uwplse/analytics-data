@@ -435,6 +435,18 @@ Proof.
 (intros X Y sx sy t Hwfx Hwfy).
 (induction t; try (solve [ simpl; reflexivity ])).
 -
-(repeat rewrite f_subst_pair).
+reflexivity.
+-
+(repeat rewrite f_subst_union, b_subst_union).
+(rewrite IHt1, IHt2).
+reflexivity.
+-
+admit.
+-
+(destruct (beq_idP Y i)).
++
+subst.
+(rewrite b_subst_bvar_eq).
+(rewrite f_subst_bvar).
 (* Auto-generated comment: Failed. *)
 
