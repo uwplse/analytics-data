@@ -36,7 +36,7 @@ Timeout 1 Print Grammar tactic.
 Lemma X_spec :
   forall b safe : bool,
   denote_box safe (boxed_gate _X) (bool_to_matrix b) == bool_to_matrix (\194\172 b).
-Hint Rewrite @kron_1_r'.
+Hint Rewrite @kron_1_r' : M_db.
 Lemma X_spec :
   forall b safe : bool,
   denote_box safe (boxed_gate _X) (bool_to_matrix b) == bool_to_matrix (\194\172 b).
