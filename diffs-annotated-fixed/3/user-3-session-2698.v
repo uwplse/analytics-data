@@ -69,9 +69,20 @@ Definition bounded0 : {x | x < 256}.
 exists 0.
 (apply Nat.lt_0_succ).
 Defined.
-Definition nat64_to_le (x : nat) : list {x | x < 256} :=
+Definition nat64_to_le (x : nat) : option (list {x | x < 256}) :=
   let digits := nat_to_le 254 x in
-  digits ++ repeat bounded0 (8 - length digits).
+  if nat_le_dec (length digits) 8
+  then Some (digits ++ repeat bounded0 (8 - length digits))
+  else None.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3PKT1A"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmyolBc"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Theorem nat_from_le_zeros base_m2 digits zero_v n :
   proj1_sig zero_v = 0 ->
   @nat_from_le base_m2 (digits ++ repeat zero_v n) =
@@ -85,33 +96,25 @@ Qed.
 Definition nat64_from_le (digits : list {x | x < 256}) : 
   option nat :=
   if nat_eq_dec (length digits) 8 then Some (nat_from_le digits) else None.
-Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
-  Ascii.ascii_of_nat (proj1_sig x).
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-refine (exist _ (Ascii.nat_of_ascii a) _).
-(apply Ascii.nat_ascii_bounded).
-Defined.
-Instance aModel : GoModel.
-Proof.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2AL3Dg"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoLzvEp"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWpS2bI"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-refine
- {|
- byte := {x | x < 256};
- byte0 := exist _ 0 _;
- uint64_to_string := pretty.pretty_nat;
- ascii_to_byte := ascii_to_bounded;
- byte_to_ascii := bounded_to_ascii;
- uint64_to_le := nat64_to_le;
- uint64_from_le := nat64_from_le;
- File := Z;
- nilFile := (- 1)%Z;
- Ptr := fun _ => nat;
- nullptr := fun _ => 0 |}.
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
+  Ascii.ascii_of_nat (proj1_sig x).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqulyt9M"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqt9Zf90"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
