@@ -522,6 +522,6 @@ step.
 }
 {
 (descend; intuition eauto).
-(eapply log_abstraction_nil; eauto).
+}
 (* Auto-generated comment: Succeeded. *)
 
