@@ -150,7 +150,9 @@ Proof.
 (eapply then_init_compose; eauto).
 step.
 (destruct (lt_dec r 1)).
+step.
 -
+step.
 step.
 (* Auto-generated comment: Succeeded. *)
 
