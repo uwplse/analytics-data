@@ -413,6 +413,8 @@ Proof.
   end).
 -
 (intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
-(assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 cnstructor; assumption)).
+(assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
++
+(destruct (IHta1 t2_1) as [IH1| IH1]; destruct (IHta2 t2_2) as [IH2| IH2]).
 (* Auto-generated comment: Failed. *)
 
