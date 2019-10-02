@@ -382,6 +382,10 @@ Proof.
 (unfold log_contents_ok; intros).
 specialize (H a).
 (assert (a < length (bs ++ bs'))).
+{
 (rewrite app_length; lia).
-(* Auto-generated comment: Succeeded. *)
+}
+intuition.
+(rewrite H).
+(* Auto-generated comment: Failed. *)
 
