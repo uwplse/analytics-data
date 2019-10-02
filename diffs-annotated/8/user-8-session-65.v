@@ -949,5 +949,4 @@ Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
 Timeout 1 About restore_dims.
-(do 4 (apply f_equal_gen; trivial)).
 (rewrite size_ntensor).
