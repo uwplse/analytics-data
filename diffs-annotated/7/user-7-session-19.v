@@ -2,5 +2,6 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
-(intros t1 t2 t1' t2' k H).
+(intros t1 t2 t1' t2' k Hsem).
+(unfold sem_sub_k_i in Hsem).
 (* Failed. *)
