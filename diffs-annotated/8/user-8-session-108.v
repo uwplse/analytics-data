@@ -66,5 +66,3 @@ Proof.
 Qed.
 Definition denote_unitary_box {W} (c : Box W W) : Square (2 ^ \226\159\166 W \226\159\167) :=
   denote_u_db_box (hoas_to_db_box c).
-(simpl).
-(rewrite pad_nothing).
