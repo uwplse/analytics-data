@@ -81,6 +81,9 @@ Proof.
    end).
 -
 (destruct v; try contradiction).
-constructor.
+(inversion Htk).
+-
+clear IHt.
+(apply le_S_n in Htk).
 (* Auto-generated comment: Failed. *)
 
