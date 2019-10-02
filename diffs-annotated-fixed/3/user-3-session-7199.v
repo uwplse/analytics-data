@@ -312,6 +312,6 @@ Proof.
 (exfalso; lia).
 -
 (destruct d; simpl in *).
-(inversion H).
+(inversion H; subst).
 (* Auto-generated comment: Succeeded. *)
 
