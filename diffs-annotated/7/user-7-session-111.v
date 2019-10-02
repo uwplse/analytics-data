@@ -108,5 +108,5 @@ split.
 -
 (intros w1).
 specialize (Hsem11 w1).
-specialize (Hsem21 w1).
-(* Auto-generated comment: Failed. *)
+(destruct Hsem11 as [w2 Hsem12]).
+(* Failed. *)
