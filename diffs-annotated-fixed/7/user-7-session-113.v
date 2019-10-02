@@ -33,6 +33,13 @@ reflexivity.
 subst.
 (destruct (beq_idP Y i); reflexivity).
 +
-(destruct (beq_idP Y i); reflexivity).
+(destruct (beq_idP Y i)).
+*
+subst.
+reflexivity.
+*
+(rewrite IHt).
+reflexivity.
+-
 (* Auto-generated comment: Failed. *)
 
