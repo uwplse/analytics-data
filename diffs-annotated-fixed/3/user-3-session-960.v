@@ -190,6 +190,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqN87KBx"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Theorem nat_from_le_zeros base_m2 digits n :
-  nat_from_le (digits ++ repeat bounded0 n) = nat_from_le digits.
+  @nat_from_le base_m2 (digits ++ repeat bounded0 n) =
+  @nat_from_le base_m2 digits.
 (* Auto-generated comment: Failed. *)
 
