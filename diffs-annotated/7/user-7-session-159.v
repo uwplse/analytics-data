@@ -66,11 +66,8 @@ Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   |-[ w] v <$ [X := tx] t ->
   exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
-exists v.
-split.
-+
 assumption.
-+
 (apply match_ty_cname__inv in Hm; subst).
 (intros w' t').
+(induction t').
 (* Failed. *)
