@@ -37,5 +37,6 @@ contradiction.
 (rewrite subst_exist_eq).
 (rewrite subst_id).
 Search -IdSet.mem.
-(pose proof (IdSetFacts.mem_1 Hin)).
+(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
+(rewrite (subst_exist_neq _ _ _ _ HY)).
 (* Failed. *)
