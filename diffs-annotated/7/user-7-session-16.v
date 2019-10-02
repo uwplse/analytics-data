@@ -217,11 +217,7 @@ tauto.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-(intros t1 t2 Hdec).
-(destruct Hdec as [Hdec| Hdec]).
--
-left.
-(apply sub_r__transitive with t1).
+(left; apply sub_r__transitive with t1).
 (apply mk_nf__sub_r1).
 assumption.
 (* Failed. *)
