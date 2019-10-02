@@ -69,6 +69,7 @@ intuition eauto.
 -
 (simpl write).
 step_proc.
+step_proc.
 intuition eauto.
 {
 (exists 0; simpl; auto).
@@ -76,5 +77,9 @@ intuition eauto.
 {
 (exists 1; simpl; auto).
 }
+specialize (IHblocks (off + 1)).
+step_proc.
+intuition subst; eauto.
+*
 (* Auto-generated comment: Succeeded. *)
 
