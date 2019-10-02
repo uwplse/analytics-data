@@ -268,5 +268,16 @@ clear H.
 (descend; intuition eauto).
 -
 (unfold proc_spec; simpl; intros).
+(destruct matches; subst; eauto).
+(eexists; intuition eauto).
+(inv_rexec; inv_exec).
+congruence.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKSBnLc"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
