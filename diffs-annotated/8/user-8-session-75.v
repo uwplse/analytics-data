@@ -227,5 +227,4 @@ Timeout 1 Print Ltac PI.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqd1Bw0O"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Definition _R'_ (m : nat) := _R_ (2 * Real.PI / INR (2 ^ m)).
-(* Failed. *)
+Definition _R'_ (m : nat) := _R_ (2 * Reals.PI / INR (2 ^ m)).
