@@ -48,4 +48,5 @@ Lemma free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TUnion
 (intros X t1 t2 HX).
 (unfold fresh_in_ty, fresh in *).
 (unfold fresh_in_ty in *).
+(unfold freee_in_ty in *).
 (* Failed. *)
