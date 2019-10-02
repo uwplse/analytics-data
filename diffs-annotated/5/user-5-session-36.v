@@ -266,4 +266,8 @@ clear H.
 (apply evalInInts in H; auto).
 (erewrite evalBoolConst in H0).
 (rewrite <- evalEqTrue in H0).
+(rewrite evalVar in H).
+(rewrite extendEnv_eq in H).
 (assert (x0 = 3%Z)).
+{
+(erewrite evalTimes in H0).
