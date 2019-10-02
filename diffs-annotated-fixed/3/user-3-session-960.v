@@ -69,22 +69,10 @@ Class GoModel : Type :={byte : Type;
 Search -"endian".
 Definition byte_nat := {x : nat | x < 256}.
 #[program]
-Fixpoint nat_to_le (x : nat) {measure x : list byte_nat :=
+Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   match x with
   | 0 => nil
-  | _ => exist _ (x mod 256) _ :: nat_to_le (x / 256)
+  | _ => exist _ (x mod S base) _ :: nat_to_le (x / S base)
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqP1Pyki"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoHRNyo"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-Next Obligation.
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
