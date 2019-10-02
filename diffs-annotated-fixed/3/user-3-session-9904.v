@@ -120,6 +120,7 @@ lia.
 (step_proc; intuition).
 (step_proc; intuition).
 (exists s; intuition).
-right.
-(* Auto-generated comment: Succeeded. *)
+(right; intuition).
+congruence.
+(* Auto-generated comment: Failed. *)
 
