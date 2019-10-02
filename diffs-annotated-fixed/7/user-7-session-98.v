@@ -92,6 +92,5 @@ Proof.
 -
 (apply match_ty_exist__0_inv in Hm).
 -
-(apply match_ty_exist__inv in Hm).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
