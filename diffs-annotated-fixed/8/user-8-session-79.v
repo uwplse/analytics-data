@@ -1026,6 +1026,12 @@ Ltac
             A'
  end).
 2: {
-(apply f_equal_gen).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
 (* Auto-generated comment: Succeeded. *)
 
