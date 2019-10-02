@@ -61,6 +61,6 @@ Print Morphisms.respectful.
 Print Morphisms.Proper.
 Search -Morphisms.Proper.
 Search -Morphisms.Proper.
-specialize (Hfact X _ _ _ _ Ht).
+specialize (Hfact X X _ _ _ Ht).
 (* Auto-generated comment: Failed. *)
 
