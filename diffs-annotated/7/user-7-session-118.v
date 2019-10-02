@@ -104,4 +104,5 @@ Proof.
 (intros k t w1).
 exists w1.
 tauto.
+auto.
 (* Failed. *)
