@@ -118,6 +118,7 @@ Proof.
 (simpl).
 (destruct a).
 +
+Msimpl.
 (rewrite IHr).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
