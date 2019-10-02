@@ -100,6 +100,5 @@ specialize denote_compose as DC.
 (simpl).
 (unfold compose_super).
 (rewrite H2, H3).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
