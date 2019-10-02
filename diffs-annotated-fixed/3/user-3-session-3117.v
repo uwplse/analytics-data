@@ -119,6 +119,6 @@ Proof.
 (destruct a; simpl; intros).
 Search -"-" -(_ -> _ < _).
 (apply lt_O_minus_lt).
-(unfold "<").
+Search -(0 < _).
 (* Auto-generated comment: Succeeded. *)
 
