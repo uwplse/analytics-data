@@ -217,7 +217,8 @@ tauto.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-(left; apply sub_r__transitive with t1).
-(apply mk_nf__sub_r1).
 assumption.
+-
+(right; intros Hcontra).
+(apply SR_NOrmalForm in Hcontra; contradiction).
 (* Failed. *)
