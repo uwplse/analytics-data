@@ -318,6 +318,8 @@ Proof.
 Qed.
 Lemma match_ty__unite_pairs_pair : forall t1 t2 : ty, forall (v : ty) (k : nat), |-[ k] v <$ unite_pairs t1 t2 -> |-[ k] v <$ TPair t1 t2.
 Proof.
+Lemma match_ty_i__unite_pairs_pair : forall t1 t2 : ty, forall (v : ty) (k : nat), |-[ k] v <$ unite_pairs t1 t2 -> |-[ k] v <$ TPair t1 t2.
+Proof.
 (intros ta; induction ta; intros tb; induction tb; intros v k Hm; try (solve [ simpl; assumption ]);
   try
    match goal with
