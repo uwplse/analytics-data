@@ -217,9 +217,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTyMpHa"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Check Ascii.byte_of_ascii.
-Check Ascii.nat_of_ascii.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-refine (exist _ (Ascii.nat_of_ascii a) _).
+Check Ascii.ascii_of_nat.
+Print Ascii.ascii_of_nat.
 (* Auto-generated comment: Succeeded. *)
 
