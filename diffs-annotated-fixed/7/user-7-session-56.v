@@ -146,6 +146,13 @@ Proof.
    [ left; intros Hcontra; destruct Hcontra as [v Hm]; apply match_ty_pair__inv in Hm; destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]; subst;
       apply IHv1 || apply IHv2; eexists; eassumption ])).
 -
-(destruct (dec_le (| TRef v |) k) as [Hle| Hle]).
++
+(right; assumption).
++
+(left; intros Hcontra).
+(destruct Hcontra as [v' Hm]).
+(destruct k).
+(destruct v'; contradiction).
+(pose proof (match_ty_value_type__inv_depth_le_index _ _ Hv _ Hm) as Hdep).
 (* Auto-generated comment: Failed. *)
 
