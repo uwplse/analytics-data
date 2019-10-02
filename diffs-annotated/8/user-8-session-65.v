@@ -946,11 +946,9 @@ Fact assert_at_spec_unsafe :
   I (2 ^ i) \226\138\151 (bool_to_ket b) \226\128\160 \226\138\151 I (2 ^ (n - i)) \195\151 \207\129
   \195\151 (I (2 ^ i) \226\138\151 bool_to_ket b \226\138\151 I (2 ^ (n - i))).
 Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 Lemma assert_init_at_id :
-  forall b m i, i < S m -> (assert_at b m i \194\183 init_at b m i \226\137\161 id_circ)%qc.
-Proof.
-(intros b m i Lt \207\129 safe).
-(simpl).
-(simpl_rewrite id_circ_spec).
-(simpl_rewrite inSeq_correct; [  | apply assert_at_WT | apply init_at_WT ]).
-(unfold compose_super).
+  forall b m i, i < S m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
