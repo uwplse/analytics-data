@@ -179,6 +179,7 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
 (destruct (stateBadBlock state == diskSize s)).
 (rewrite disk_oob_eq by omega; auto).
 (rewrite <- Hremap by omega; auto).
+*
 (subst; eexists; intuition eauto).
 *
 (subst; eexists; intuition eauto).
@@ -188,118 +189,12 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
 invert_abstraction.
 (step_proc; intuition idtac).
 (step_proc; intuition idtac).
-(exists s; intuition eauto; intuition eauto).
+(exists s; intuition eauto).
 (destruct (a == diskSize s); subst).
 (rewrite disk_oob_eq by omega; auto).
 (rewrite <- Hgoodsec; auto).
-(subst; eexists; intuition eauto; intuition eauto).
-(subst; eexists; intuition eauto; intuition eauto).
+(subst; eexists).
+(subst; eexists).
 -
-(subst; eauto).
-Qed.
-Theorem remapped_abstraction_diskUpd_remap :
-  forall state s v,
-  remapped_abstraction state s ->
-  remapped_abstraction
-    (mkState (diskUpd (stateDisk state) (diskSize (stateDisk state) - 1) v)
-       (stateBadBlock state)) (diskUpd s (stateBadBlock state) v).
-Proof.
-(intros).
-invert_abstraction.
-(rewrite Hsize).
-replace (diskSize s + 1 - 1) with diskSize s by omega.
-(constructor; simpl).
-all: (autorewrite with upd; intuition idtac).
-(repeat rewrite diskUpd_neq by omega).
-eauto.
-(repeat rewrite diskUpd_eq by omega; auto).
-Qed.
-Theorem remapped_abstraction_diskUpd_noremap :
-  forall state s a v,
-  remapped_abstraction state s ->
-  a <> diskSize (stateDisk state) - 1 ->
-  a <> stateBadBlock state ->
-  remapped_abstraction
-    (mkState (diskUpd (stateDisk state) a v) (stateBadBlock state))
-    (diskUpd s a v).
-Proof.
-(intros).
-invert_abstraction.
-(constructor; simpl).
-all: (autorewrite with upd; intuition idtac).
-(destruct (lt_dec a (diskSize s))).
-(destruct (a == a0); subst).
-(repeat rewrite diskUpd_eq by omega; auto).
-(repeat rewrite diskUpd_neq by omega; auto).
-(repeat rewrite diskUpd_oob_noop by omega).
-auto.
-(repeat rewrite diskUpd_neq by omega).
-eauto.
-Qed.
-Hint Resolve remapped_abstraction_diskUpd_remap: core.
-Hint Resolve remapped_abstraction_diskUpd_noremap: core.
-Theorem write_ok :
-  forall a v, proc_spec (OneDiskAPI.write_spec a v) (write a v) recover abstr.
-Proof.
-(unfold write).
-(intros).
-(apply spec_abstraction_compose; simpl).
-(step_proc; intros).
-(destruct a'; simpl in *; intuition subst; eauto).
-(destruct (a == r - 1); subst).
--
-(step_proc; intuition subst).
-(eexists; split; eauto).
-(rewrite diskUpd_oob_noop; auto).
-(invert_abstraction; omega).
-(eexists; split; eauto).
-(rewrite diskUpd_oob_noop; auto).
-(invert_abstraction; omega).
--
-(step_proc; intuition subst; eauto).
-(destruct (a == r); subst; eauto).
-(step_proc; intuition subst; eauto).
-(step_proc; intuition subst; eauto).
-(step_proc; intuition subst; eauto).
-(step_proc; intuition subst; eauto).
-Qed.
-Theorem size_ok : proc_spec OneDiskAPI.size_spec size recover abstr.
-Proof.
-(unfold diskSize).
-(intros).
-(apply spec_abstraction_compose; simpl).
-step_proc.
-(destruct a'; simpl in *; intuition subst; eauto).
-step_proc.
-intuition subst; eauto.
-(exists s; split; auto).
-(split; auto).
-(invert_abstraction; omega).
-Qed.
-Theorem recover_noop : rec_noop recover abstr no_wipe.
-Proof.
-(unfold rec_noop).
-(intros).
-(apply spec_abstraction_compose; simpl).
-(step_proc; intros).
-eauto.
-(destruct a; simpl in *).
-(autounfold in *; intuition eauto).
-(subst; eauto).
-Qed.
-End RemappedDisk.
-Require Import BadBlockImpl.
-Module x:=  RemappedDisk BadBlockDisk.
-Print Assumptions x.write_ok.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmUE9Cz"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq19roLg"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
