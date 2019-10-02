@@ -71,4 +71,4 @@ Proof.
 (apply mk_nf__in_nf).
 (eapply sem_sub__trans; try eassumption).
 (apply mk_nf__sem_sub_k_r).
-(* Auto-generated comment: Failed. *)
+(* Failed. *)
