@@ -128,6 +128,19 @@ Unset Search Output Name Only.
 Definition append (bs : list block) : proc bool :=
   size <- d.size;
   len <- get_len;
-  (if le_dec (1 + len + length bs) size then append_at len bs else Ret false).
+  (if le_dec (1 + len + length bs) size
+   then _ <- append_at len bs; Ret true
+   else Ret false).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6RYEMO"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqaoLP3Y"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition reset : proc unit :=
+  len0 <- addr_to_block 0; d.write len_addr len0 Admitted.
 (* Auto-generated comment: Failed. *)
 
