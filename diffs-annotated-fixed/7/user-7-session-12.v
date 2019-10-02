@@ -295,7 +295,7 @@ generalize dependent t21.
 (induction Hnf1; intros t21 t22).
 -
 (rewrite unite_pairs_atom_union; try assumption).
-(apply sub_r__rflxv).
+(apply sub_r__reflexive).
 -
 (repeat rewrite unite_pairs_union_t).
 (apply SR_UnionL; eapply sub_r__transitive; try apply IHHnf1_1 || apply IHHnf1_2; constructor).
@@ -307,5 +307,6 @@ Qed.
 Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t2) << MkNF( TUnion (TPair t11 t2) (TPair t12 t2)).
 Proof.
 (intros t11 t12 t2).
+(rewrite mk_nf_pair).
 (* Auto-generated comment: Failed. *)
 
