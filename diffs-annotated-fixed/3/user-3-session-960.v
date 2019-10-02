@@ -238,9 +238,9 @@ refine
  byte_to_ascii := bounded_to_ascii;
  uint64_to_le := nat_to_le 254;
  uint64_from_le := fun digits => Some (le_to_nat digits);
- File := nat;
- nilFile := 0;
+ File := Z;
+ nilFile := - 1;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
