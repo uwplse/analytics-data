@@ -35,6 +35,5 @@ Proof.
 -
 (apply sem_sub__trans with t2; assumption).
 -
-(apply sem_sub_pair; assumption).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
