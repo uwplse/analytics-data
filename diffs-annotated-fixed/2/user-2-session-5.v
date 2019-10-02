@@ -35,6 +35,5 @@ Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
 End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
-Check [Nil Nil Nil Nil].
 (* Auto-generated comment: Succeeded. *)
 
