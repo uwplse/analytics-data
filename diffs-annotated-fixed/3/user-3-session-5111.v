@@ -273,6 +273,38 @@ all: (autorewrite with upd; intuition idtac).
 {
 (destruct (lt_dec a (diskSize s))).
 -
-(destruct (a == a0); subst).
+{
+(repeat rewrite diskUpd_eq by lia; auto).
+}
+{
+(repeat rewrite diskUpd_neq by lia; auto).
+}
+-
+(repeat rewrite diskUpd_oob_noop by lia).
+auto.
+}
+(repeat rewrite diskUpd_neq by lia).
+eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4DaYEN"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve remapped_abstraction_diskUpd_remap: core.
+Hint Resolve remapped_abstraction_diskUpd_noremap: core.
+Theorem write_ok :
+  forall a v, proc_spec (OneDiskAPI.write_spec a v) (write a v) recover abstr.
+Proof.
+(unfold write).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+(destruct a'; simpl in *; intuition subst; eauto).
+(destruct (a == r - 1); subst).
+-
+(step_proc; intuition subst).
+(eexists; split; eauto).
 (* Auto-generated comment: Succeeded. *)
 
