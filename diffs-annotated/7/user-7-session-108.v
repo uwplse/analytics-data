@@ -230,6 +230,5 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-Search -id.
-(rewrite Heq in Hcontra).
+(assert (Hnotm' : ~ (exists v, tx, |-[ k, w] v <$ [i := tx] t))).
 (* Failed. *)
