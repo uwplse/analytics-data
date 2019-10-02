@@ -18,11 +18,5 @@ Module App.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
 Arguments appE : clear implicits.
-Instance showAppE  {T}: (Show (appE id T)) :=
- {|
- show := fun ae =>
-         match ae with
-         | App_Accept => "Application Accept"
-         | App_Recv => "Application Receive"
-         | App_Send msg => "Application Send \226\159\185 " ++ show msg
-         end |}.
+Timeout 1 Print Grammar tactic.
+(* Failed. *)
