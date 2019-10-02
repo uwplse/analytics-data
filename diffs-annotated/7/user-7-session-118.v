@@ -104,10 +104,30 @@ Proof.
 (intros k t w1).
 exists w1.
 tauto.
-(intros v).
-tauto.
+(intros k t; split; intros w1; exists w1; intros v; tauto).
 Qed.
-Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
+Lemma sem_sub_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
-(intros k t w1).
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_sub_k in *).
+(intros w1).
+specialize (Hsem1 w1).
+(destruct Hsem1 as [w2 Hsem1]).
+specialize (Hsem2 w2).
+(destruct Hsem2 as [w3 Hsem2]).
+exists w3.
+(intros v).
+auto.
+Qed.
+Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq_k in *).
+(destruct Hsem1 as [Hsem11 Hsem12]).
+(destruct Hsem2 as [Hsem21 Hsem22]).
+(split; eapply sem_sub_k__trans; eauto).
+Qed.
+Lemma sem_sub__refl : forall t : ty, ||- [t]<= [t].
+Proof.
+(intros k; apply sem_sub_k__refl).
 (* Failed. *)
