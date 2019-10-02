@@ -144,5 +144,6 @@ exists tx.
 (simpl in *).
 assumption.
 Qed.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [Exist vY (TRef (TRef tY))].
 (* Auto-generated comment: Failed. *)
 
