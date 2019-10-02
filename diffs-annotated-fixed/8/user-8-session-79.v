@@ -660,5 +660,6 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
+(rewrite <- kron_assoc).
 (* Auto-generated comment: Failed. *)
 
