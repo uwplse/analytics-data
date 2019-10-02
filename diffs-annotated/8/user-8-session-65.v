@@ -951,5 +951,5 @@ Print Ltac Signatures.
 +
 Timeout 1 About id_kron.
 restore_dims.
-(rewrite (@id_kron (2 ^ i) (2 ^ d))).
+(rewrite id_kron).
 (* Failed. *)
