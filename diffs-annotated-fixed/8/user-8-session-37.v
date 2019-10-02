@@ -27,7 +27,6 @@ Definition valid_ancillae {W} (c : Circuit W) : Prop :=
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOzxL2O"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Definition valid_ancillae_box {W1} {W2} (c : Box W1 W2) :=
-  Typed_Box c -> denote_box true c \226\137\161 denote_box false c.
+Check hoas_equiv.
 (* Auto-generated comment: Failed. *)
 
