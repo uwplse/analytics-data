@@ -21,5 +21,5 @@ Proof.
 (split; intros Hcontra).
 SearchPattern (IdSet.In (IdSet.union _ _)).
 Search -IdSet.union.
-(eapply IdSetFacts.union_2 with fvs2 in Hcontra).
+(apply IdSetFacts.union_2 with fvs2 in Hcontra).
 (* Failed. *)
