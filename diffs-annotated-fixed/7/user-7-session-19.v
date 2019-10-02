@@ -104,6 +104,8 @@ Qed.
 Lemma value_sem_sub_k_union__value_sem_sub_k_component :
   forall k : nat, forall v : ty, value_type v -> forall ta tb : ty, ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
-(induction k; intros v Hv; induction Hv; intros Hsem).
+(induction k; intros v Hv; induction Hv; intros ta tb Hsem).
+6: {
+idtac Abort.
 (* Auto-generated comment: Failed. *)
 
