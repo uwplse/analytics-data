@@ -230,5 +230,7 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(assert (Hnotm' : ~ (exists v, tx, |-[ k, w] v <$ [i := tx] t))).
+(assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
+{
+(intros Hcontra).
 (* Failed. *)
