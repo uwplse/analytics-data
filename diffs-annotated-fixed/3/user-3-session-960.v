@@ -249,6 +249,6 @@ typeclasses eauto.
 Print EqualDec.
 Print EqualDec.
 Print EqDecision.
-(destruct (decide (x0 = x1))).
+(destruct (decide (x0 = x1)); auto).
 (* Auto-generated comment: Succeeded. *)
 
