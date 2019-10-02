@@ -209,6 +209,22 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
 -
 invert_abstraction.
 (step_proc; intuition idtac).
+{
+(step_proc; intuition idtac).
++
+(exists s; split; eauto).
+(destruct (a == diskSize s); subst).
+*
+(rewrite disk_oob_eq by lia; simpl; auto).
+*
+(rewrite <- Hgoodsec; auto).
++
 (subst; eexists; eauto).
-(* Auto-generated comment: Failed. *)
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqP6sZGY"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
