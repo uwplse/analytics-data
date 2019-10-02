@@ -172,61 +172,28 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma match_ty__match_ge_world : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
-Proof.
-(induction w; induction t; intros k v Hm w' Hle).
--
-(apply match_ty_cname__inv in Hm).
-subst.
-(apply match_ty_cname).
--
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
--
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto).
--
-(destruct k).
-+
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]; subst).
-(destruct w'; constructor).
-+
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(destruct w'; assumption).
--
-(apply match_ty_exist__0_inv in Hm; contradiction).
+(destruct w').
+(inversion Hle).
+(apply match_ty_exist).
+exists tx.
+(apply IHw).
+assumption.
+(apply le_S_n; assumption).
 -
 (apply match_ty_var__inv in Hm; subst).
 (apply match_ty_var).
 -
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
+Qed.
+Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Proof.
+(induction t; intros k).
 -
-(apply match_ty_cname__inv in Hm).
-subst.
-(apply match_ty_cname).
+exists 0,(TCName c).
+(apply match_ty_value_type__reflexive; constructor).
 -
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
--
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto).
--
-(destruct k).
-+
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]; subst).
-(destruct w'; constructor).
-+
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(destruct w'; assumption).
--
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(apply match_ty_exist).
+(destruct (IHt1 k) as [w1 [v1 Hm1]]).
+(destruct (IHt2 k) as [w2 [v2 Hm2]]).
+exists (Nat.max w1 w2),(TPair v1 v2).
 (* Failed. *)
