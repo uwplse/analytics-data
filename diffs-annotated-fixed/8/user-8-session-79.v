@@ -943,6 +943,5 @@ restore_dims
 reflexivity.
 }
 (rewrite L2).
-rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
