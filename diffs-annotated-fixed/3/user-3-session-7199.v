@@ -307,6 +307,23 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
 Hint Resolve log_size_ok_shrink: core.
-Hint Rewrite app_length : length.
-(* Auto-generated comment: Succeeded. *)
+Proof.
+generalize dependent a.
+(induction bs'; simpl; intros).
+-
+step_proc.
+intuition eauto.
+(rewrite app_nil_r; auto).
+-
+step_proc.
+(intuition eauto; autorewrite with upd; auto).
+{
+(apply log_contents_ok_unchanged; eauto).
+}
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+(exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
++
+lia.
+(* Auto-generated comment: Failed. *)
 
