@@ -1035,8 +1035,8 @@ Set Printing All.
 Set Printing All.
 Set Printing All.
 (match goal with
- | H:_ -> _ -> denote_box true ?c ?A = _
+ | H:_ -> _ -> denote_box true ?c ?A == _
    |- context [ denote_box true ?c' ?A' ] => idtac A; idtac A'
  end).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
