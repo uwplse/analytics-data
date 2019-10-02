@@ -242,15 +242,5 @@ assumption.
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
 Qed.
-Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
-Proof.
-(induction t; intros k).
--
-exists 0,(TCName c).
-(apply match_ty_value_type__reflexive; constructor).
--
-(destruct (IHt1 k) as [w1 [v1 Hm1]]).
-(destruct (IHt2 k) as [w2 [v2 Hm2]]).
-exists (Nat.max w1 w2),(TPair v1 v2).
-(apply match_ty_pair; apply match_ty__ge_w).
+(apply match_ty_pair; eapply match_ty__ge_w; eassumption).
 (* Failed. *)
