@@ -47,6 +47,5 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
-(simpl in *).
-(apply IHW2).
+(apply (IHW2 _ _ _)).
 (* Failed. *)
