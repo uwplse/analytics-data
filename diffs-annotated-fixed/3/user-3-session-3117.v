@@ -119,21 +119,7 @@ Proof.
 (intro a; unfold Ascii.nat_of_ascii).
 (change_no_check 256 with (N.to_nat 256)).
 (rewrite <- Nat.compare_lt_iff, <- N2Nat.inj_compare, N.compare_lt_iff).
-(apply Ascii.N_ascii_bounded).
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnCPnEx"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkpmdqg"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOj7NfX"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+(destruct a).
+(destruct b, b0, b1, b2, b3, b4, b5, b6).
 (* Auto-generated comment: Succeeded. *)
 
