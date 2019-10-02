@@ -169,6 +169,5 @@ auto.
 (rewrite IHn).
 {
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
-lia.
 (* Auto-generated comment: Succeeded. *)
 
