@@ -1366,6 +1366,658 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 iFrame.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWoSuU2" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqObXUl4" SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Lemma unlock_refinement {T} j K `{LanguageCtx _ _ T Mail.l K} uid :
+  {{{ j \226\164\135 K (Call (Unlock uid)) \226\136\151 Registered \226\136\151 ExecInv }}} MailServer.Unlock uid {{{ 
+  v,  RET v; j \226\164\135 K (Ret v) \226\136\151 Registered}}}.
+Proof.
+iIntros ( \206\166 ) "(Hj&Hreg&Hrest) H\206\166".
+iDestruct "Hrest" as ( \206\147 \206\179init ) "(#Hsource&#Hinv)".
+wp_bind.
+iInv "Hinv" as "H".
+iDestruct "H" as ( \207\131 ) "(>Hstate&Hmsgs&>Hheap&>Htmp)".
+(iMod (is_opened_step_inv with "[$] [$] [$]") as ( Hopen ) "(Hj&Hstate)"; auto).
+{
+(simpl; auto).
+}
+{
+solve_ndisj.
+}
+rewrite /MsgsInv ?Hopen.
+iDestruct "Hmsgs" as ( ls ) "(>Hglobal&Hrootdir&Hinit&Hm)".
+iDestruct (GlobalInv_split with "Hglobal") as "(Hglobal&Hread)".
+iDestruct "Hread" as ( lsptr ) "(Hglobal_read&Hlsptr)".
+(iApply (wp_getX with "[$]"); iIntros "!> Hglobal_read").
+iMod (unlock_step_inv with "Hj Hsource Hstate") as ( v Heq ) "(Hj&Hstate)".
+{
+solve_ndisj.
+}
+(iDestruct (big_sepM_insert_acc with "Hm") as "(Huid&Hm)"; eauto).
+iDestruct "Huid" as ( lk \206\179 ) "(%&%&#Hlock&Hinbox)".
+iDestruct "Hinbox" as "(Hmbox&Hdircontents&Hmsgs)".
+iMod (ghost_step_call with "Hj Hsource Hstate") as "(Hj&Hstate&_)".
+{
+(intros).
+econstructor.
+(<ssreflect_plugin::ssrtclseq@0> eexists; split ; last  by econstructor).
+(econstructor; eauto).
+(eapply opened_step; auto).
+econstructor.
+eexists.
+split.
+-
+rewrite /lookup /readSome.
+rewrite Heq.
+eauto.
+-
+(simpl).
+(do 2 eexists; split; econstructor).
+}
+{
+solve_ndisj.
+}
+iExists _.
+iFrame.
+iExists _.
+(simpl open).
+rewrite Hopen.
+iFrame.
+iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hunlocked)".
+iSplitL "Hm Hmsgs Hdircontents Hunlocked Hrootdir Hinit".
+{
+iModIntro.
+iNext.
+(iDestruct (InitInv_open_update with "[$]") as "$"; auto).
+iSplitL "Hrootdir".
+{
+rewrite /RootDirInv //=.
+(rewrite dom_insert_L_in; eauto).
+(eapply elem_of_dom; eauto).
+}
+iApply "Hm".
+iExists _ , _.
+(do 2 (iSplitL ""; eauto)).
+iFrame.
+iFrame "Hlock".
+}
+iModIntro.
+wp_bind.
+iApply (wp_sliceRead with "[$]").
+{
+eauto.
+}
+iIntros "!> Hlsptr".
+(iApply (wp_lockRelease_writer with "[Hwlock Hlockinv]"); swap 1 2).
+{
+(iFrame "Hlock"; iFrame).
+}
+{
+set_solver +.
+}
+iIntros "!> _".
+iApply "H\206\166".
+iFrame.
+Qed.
+Lemma pickup_refinement {T} j K `{LanguageCtx _ _ T Mail.l K} uid :
+  {{{ j \226\164\135 K (pickup uid) \226\136\151 Registered \226\136\151 ExecInv }}} Pickup uid {{{ v,  RET v; 
+  j \226\164\135 K (Ret v) \226\136\151 Registered}}}.
+Proof.
+iIntros ( \206\166 ) "(Hj&Hreg&Hrest) H\206\166".
+iDestruct "Hrest" as ( \206\147 \206\179init ) "(#Hsource&#Hinv)".
+wp_bind.
+iInv "Hinv" as "H".
+iDestruct "H" as ( \207\131 ) "(>Hstate&Hmsgs&>Hheap&>Htmp)".
+(iMod (is_opened_step_inv' with "[$] [$] [$]") as ( Hopen ) "(Hj&Hstate)"; auto).
+{
+(simpl; auto).
+}
+{
+solve_ndisj.
+}
+rewrite /MsgsInv ?Hopen.
+iDestruct "Hmsgs" as ( ls ) "(>Hglobal&Hrootdir&Hinit&Hm)".
+iDestruct (GlobalInv_split with "Hglobal") as "(Hglobal&Hread)".
+iDestruct "Hread" as ( lsptr ) "(Hglobal_read&Hlsptr)".
+(iApply (wp_getX with "[$]"); iIntros "!> Hglobal_read").
+iMod (pickup_step_inv with "[$] [$] [$]") as ( (v, Heq) ) "(Hj&Hstate)".
+{
+solve_ndisj.
+}
+(<ssreflect_plugin::ssrtclseq@0> iDestruct (MsgsInv_pers_split with "Hm") as "#Huid" ; first  eauto).
+iDestruct "Huid" as ( lk \206\179 H\206\147lookup Hnth ) "#Hlock".
+iExists _.
+iFrame.
+iExists _.
+rewrite Hopen.
+iFrame.
+iModIntro.
+wp_bind.
+iApply (wp_sliceRead with "[$]").
+{
+eauto.
+}
+iIntros "!> Hlsptr".
+wp_bind.
+iApply (wp_lockAcquire_writer with "Hlock").
+{
+set_solver +.
+}
+iIntros "!> (Hlockinv&Hlocked)".
+wp_bind.
+wp_ret.
+wp_bind.
+wp_bind.
+iInv "Hinv" as "H".
+clear \207\131 Hopen Heq v.
+iDestruct "H" as ( \207\131 ) "(>Hstate&Hmsgs&>Hheap&>Htmp)".
+(iMod (is_opened_step_inv' with "[$] [$] [$]") as ( Hopen ) "(Hj&Hstate)"; auto).
+{
+(simpl; auto).
+}
+{
+solve_ndisj.
+}
+rewrite /MsgsInv ?Hopen.
+iDestruct "Hmsgs" as ( ls' ) "(>Hglobal&Hrootdir&Hinit&Hm)".
+iMod (pickup_step_inv with "[$] [$] [$]") as ( (v, Heq) ) "(Hj&Hstate)".
+{
+solve_ndisj.
+}
+iDestruct (GlobalInv_unify with "[$] [$] [$]") as % <-.
+(iDestruct (big_sepM_lookup_acc with "Hm") as "(Huid&Hm)"; eauto).
+iDestruct "Huid" as ( lk' \206\179' ) "(>Heq1&>Heq2&Hinbox)".
+iDestruct "Heq1" as % Heq1.
+iDestruct "Heq2" as % Heq2.
+iDestruct "Hinbox" as "(_&Hmbox&Hdircontents&Hmsgs)".
+(assert (lk' = lk) by congruence).
+subst.
+(assert (\206\179' = \206\179) by congruence).
+subst.
+(destruct v as (status, msgs)).
+(destruct status).
+{
+iDestruct "Hmbox" as ">(Hlocked'&Hauth)".
+iDestruct "Hauth" as ( S ) "(Hauth&%)".
+iExFalso.
+iDestruct "Hlockinv" as ( S' ? ) "(Hauth'&?)".
+iApply (@ghost_var_auth_valid contentsC with "Hauth Hauth'").
+}
+{
+iDestruct "Hmbox" as ">(Hlocked'&Hauth&?)".
+iDestruct "Hauth" as ( S ? ) "(Hauth&?)".
+iExFalso.
+iDestruct "Hlockinv" as ( S' ? ) "(Hauth'&?)".
+iApply (@ghost_var_auth_valid contentsC with "Hauth Hauth'").
+}
+(<ssreflect_plugin::ssrtclseq@0> iDestruct "Hmbox" as "[>Hmbox|Hmbox]" ; last  first).
+{
+iDestruct "Hmbox" as ">(Hlocked'&Hauth)".
+iDestruct "Hauth" as ( S ? ) "(Hauth&?)".
+iExFalso.
+iDestruct "Hlockinv" as ( S' ? ) "(Hauth'&?)".
+iApply (@ghost_var_auth_valid contentsC with "Hauth Hauth'").
+}
+iApply (wp_list_start with "Hmbox").
+iIntros "!> Hmbox".
+iModIntro.
+iExists _.
+iFrame.
+iExists _.
+iFrame.
+replace 0%Z with O : Z by auto.
+iPoseProof (@Count_Heap.read_split_join1 with "Hmbox") as "(Hrl&Hmbox)".
+rewrite ?Hopen.
+iFrame.
+iSplitL "Hm Hmbox Hdircontents Hmsgs Hlockinv".
+{
+iNext.
+iApply "Hm".
+iExists _ , _.
+iFrame "%".
+iFrame "Hlock".
+iFrame.
+iRight.
+iFrame.
+}
+iInv "Hinv" as "H".
+clear \207\131 Hopen Heq Heq1 Heq2 msgs.
+iDestruct "H" as ( \207\131 ) "(>Hstate&Hmsgs&>Hheap&>Htmp)".
+(iMod (is_opened_step_inv' with "[$] [$] [$]") as ( Hopen ) "(Hj&Hstate)"; auto).
+{
+(simpl; auto).
+}
+{
+solve_ndisj.
+}
+rewrite /MsgsInv ?Hopen.
+iDestruct "Hmsgs" as ( ls' ) "(>Hglobal&Hrootdir&Hinit&Hm)".
+iMod (pickup_step_inv with "[$] [$] [$]") as ( (v, Heq) ) "(Hj&Hstate)".
+{
+solve_ndisj.
+}
+iDestruct (GlobalInv_unify with "[$] [$] [$]") as % <-.
+(iDestruct (big_sepM_insert_acc with "Hm") as "(Huid&Hm)"; eauto).
+iDestruct "Huid" as ( lk' \206\179' ) "(>Heq1&>Heq2&Hinbox)".
+iDestruct "Heq1" as % Heq1.
+iDestruct "Heq2" as % Heq2.
+iDestruct "Hinbox" as "(_&Hmbox&>Hdircontents&Hmsgs)".
+(assert (lk' = lk) by congruence).
+subst.
+(assert (\206\179' = \206\179) by congruence).
+subst.
+(destruct v as (status, msgs)).
+(destruct status).
+{
+iDestruct "Hmbox" as ">(Hlocked'&Hauth)".
+iExFalso.
+iApply (wlocked_wlocked with "Hlocked Hlocked'").
+}
+{
+iDestruct "Hmbox" as ">(Hlocked'&Hauth&?)".
+iExFalso.
+iApply (wlocked_wlocked with "Hlocked Hlocked'").
+}
+iDestruct "Hmbox" as "[>Hmbox|>Hmbox]".
+{
+iExFalso.
+(iApply (@Count_Heap.mapsto_valid_generic with "Hrl Hmbox"); lia).
+}
+iDestruct "Hmbox" as "(Hrl'&Hlockinv)".
+iPoseProof (@Count_Heap.read_split_join1 with "[Hrl Hrl']") as "Hrl".
+{
+iFrame.
+}
+iApply (wp_list_finish with "[$]").
+iIntros ( s lmsg_names ) "!> (Hperm&Hslice_list&Hdircontents&Hdirlock)".
+iDestruct "Hperm" as % Hperm.
+rewrite -map_to_list_dom_perm in  {} Hperm *.
+(intros Hperm).
+symmetry in Hperm.
+(<ssreflect_plugin::ssrtclseq@0> edestruct (map_Permutation) as (msgs', (Hperm', Hmsgs'_map)) ; first 
+ by eauto).
+iMod
+ (ghost_step_call _ _ (\206\187 x, K (Bind x (\206\187 x, Call (Pickup_End uid x)))) msgs' with "Hj Hsource Hstate")
+ as "(Hj&Hstate&_)".
+{
+(intros).
+econstructor.
+(<ssreflect_plugin::ssrtclseq@0> eexists; split ; last  by econstructor).
+(econstructor; eauto).
+(eapply opened_step; auto).
+econstructor.
+eexists.
+split.
+-
+rewrite /lookup /readSome.
+rewrite Heq.
+eauto.
+-
+(simpl).
+(<ssreflect_plugin::ssrtclseq@0> do 2 eexists; split ; last  first).
 *
+(econstructor; eauto).
+by symmetry.
+*
+econstructor.
+}
+{
+solve_ndisj.
+}
+iMod (InboxLockInv_set_msgs _ _ msgs with "[$]") as "(Hcontents_auth&Hcontents_frag)".
+iModIntro.
+iExists _.
+iFrame.
+iExists _.
+(simpl open).
+rewrite Hopen.
+iFrame.
+replace 0%Z with O : Z by auto.
+iSplitL "Hm Hlocked Hcontents_auth Hdircontents Hmsgs Hrootdir Hinit".
+{
+iNext.
+(iDestruct (InitInv_open_update with "[$]") as "$"; auto).
+iSplitL "Hrootdir".
+{
+rewrite /RootDirInv dom_insert_L_in //.
+{
+(eapply elem_of_dom; eauto).
+}
+}
+iApply "Hm".
+iExists _ , _.
+(<ssreflect_plugin::ssrtclseq@0> iSplitL "" ; first  by eauto).
+(<ssreflect_plugin::ssrtclseq@0> iSplitL "" ; first  by eauto).
+iFrame "Hlock".
+iFrame.
+(iExists _; iFrame).
+eauto.
+}
+wp_bind.
+iApply (wp_newAlloc with "[//]").
+iIntros ( messages0 ) "!> Hmessages0".
+wp_bind.
+iApply (wp_newSlice with "[//]").
+iIntros ( messages' ) "!> Hmessages".
+wp_bind.
+iApply (wp_writePtr with "[$]").
+iIntros "!> Hmessages0".
+wp_bind.
+(simpl repeat).
+iDestruct (slice_mapsto_len with "Hslice_list") as % ->.
+(remember [] as lmsgs_read eqn:Heq_lmsgs_read ).
+(assert (length lmsg_names = length msgs')).
+{
+by rewrite -Hmsgs'_map map_length.
+}
+(assert (Hread_ind : lmsgs_read = createMessages (take O msgs'))).
+{
+by eauto.
+}
+(assert (Hk : exists k, 0 + k = length lmsg_names) by (exists (length lmsg_names); lia)).
+revert Hk.
+(assert (Hlen : length lmsgs_read = 0) by rewrite Heq_lmsgs_read //=).
+move : {}Hlen {}.
+(assert (\226\136\131 i, i = 0) as (i, Heq_i) by eauto).
+rewrite -{+1}Heq_i.
+rewrite -{+1}Heq_i.
+rewrite -[a in Loop _ a]Heq_i.
+rewrite -Heq_i in  {} Hread_ind.
+replace (messages'.(slice.length) = 0) with messages'.(slice.length) = i by congruence.
+(<ssreflect_plugin::ssrtclintros@0> clear Heq_i =>Hlen).
+clear Heq_lmsgs_read.
+(intros (k, Hk)).
+iMod (ghost_step_bind_ret with "Hj Hsource") as "Hj".
+{
+solve_ndisj.
+}
+(<ssreflect_plugin::ssrtclseq@0> iInduction k as [| k] "IH" forall ( messages' i lmsgs_read Hread_ind
+ Hlen Hk ) ; last  first).
+-
+wp_loop.
+(destruct equal as [Heq_bad| ]).
+{
+exfalso.
+rewrite Heq_bad in  {} Hk.
+lia.
+}
+(assert (i < length lmsg_names)).
+{
+lia.
+}
+(<ssreflect_plugin::ssrtclseq@0> destruct (nth_error lmsg_names i) as [curr_name| ] eqn:Heq_name1 ;
+ last  first).
+{
+exfalso.
+(eapply nth_error_Some; eauto).
+}
+wp_bind.
+(<ssreflect_plugin::ssrtclseq@0> iApply (wp_sliceRead with "Hslice_list") ; first  eauto).
+iIntros "!> Hslice_list".
+wp_bind.
+rewrite readMessage_unfold_open.
+wp_bind.
+clear \207\131 Hopen Heq.
+iInv "Hinv" as "H".
+iDestruct "H" as ( \207\131 ) "(>Hstate&Hmsgs&>Hheap&>Htmp)".
+iMod (pickup_end_step_inv with "Hj Hsource Hstate") as ( v Heq ) "(Hj&Hstate)".
+{
+solve_ndisj.
+}
+(iMod (is_opened_step_inv with "[$] [$] [$]") as ( Hopen ) "(Hj&Hstate)"; auto).
+{
+(simpl; auto).
+}
+{
+solve_ndisj.
+}
+rewrite /MsgsInv ?Hopen.
+iDestruct "Hmsgs" as ( ls' ) "(>Hglobal&Hopen&Hinit&Hm)".
+iDestruct (GlobalInv_unify with "[$] [$] [$]") as % <-.
+(iDestruct (big_sepM_lookup_acc with "Hm") as "(Huid&Hm)"; eauto).
+iDestruct "Huid" as ( lk' \206\179' ) "(>Heq1&>Heq2&Hinbox)".
+iDestruct "Heq1" as % Heq1'.
+iDestruct "Heq2" as % Heq2'.
+iDestruct "Hinbox" as "(Hlock'&Hmbox&>Hdircontents&>Hmsgs)".
+(assert (lk' = lk) by congruence).
+subst.
+(assert (\206\179' = \206\179) by congruence).
+subst.
+iDestruct "Hmbox" as ">(Hwlock&Hlockinv)".
+iDestruct "Hlockinv" as ( S ) "(Hauth&Hsubset)".
+iDestruct "Hsubset" as % Hsubset.
+iDestruct (ghost_var_agree (A:=contentsC) with "Hauth Hcontents_frag") as % ?.
+subst.
+(assert (\226\136\131 body, msgs !! curr_name = Some body \226\136\167 nth_error msgs' i = Some (curr_name, body))
+  as (body, (Hmsgs_curr_name, Hmsgs'_curr_name))).
+{
+(apply nth_error_map in Heq_name1 as (mbody, (Heq_body, Hnth_name1))).
+(apply nth_error_In in Hnth_name1 as Hin).
+(destruct mbody as (?, body)).
+(simpl in Heq_body).
+subst.
+exists body.
+(apply elem_of_list_In in Hin).
+split.
+*
+rewrite -Hperm' in  {} Hin *.
+(apply elem_of_map_to_list).
+*
+eauto.
+}
+(iDestruct (big_sepM_lookup_acc with "Hmsgs") as "(Hcurr_msg&Hmsgs)"; eauto).
+{
+(<ssreflect_plugin::ssrtclseq@0> eapply lookup_weaken ; last  eassumption).
+eauto.
+}
+iDestruct "Hcurr_msg" as ( inode q ) "(Hpath&Hinode)".
+iApply (wp_open with "[$]").
+iIntros ( fh ) "!> (Hpath&Hfh)".
+iPoseProof (@Count_GHeap.read_split_join with "Hinode") as "(Hinode_inv&Hinode)".
+iExists _.
+iFrame.
+rewrite ?Hopen.
+iFrame.
+iSplitL "Hm Hinode_inv Hmsgs Hglobal Hauth Hwlock Hdircontents Hpath".
+{
+iModIntro.
+iNext.
+iExists _.
+iFrame.
+iApply "Hm".
+iExists _ , _.
+iFrame.
+(<ssreflect_plugin::ssrtclseq@0> iSplitL "" ; first  by eauto).
+(<ssreflect_plugin::ssrtclseq@0> iSplitL "" ; first  by eauto).
+iFrame "Hlock".
+iExists _.
+iFrame.
+(<ssreflect_plugin::ssrtclseq@0> iSplitL "" ; first  by eauto).
+iApply "Hmsgs".
+iExists _ , (S q).
+iFrame.
+}
+iModIntro.
+iApply (wp_readMessage_handle with "[$]").
+iIntros "!> Hinode".
+wp_bind.
+iApply (wp_readPtr with "[$]").
+iIntros "!> Hmessages0".
+wp_bind.
+iApply (wp_sliceAppend with "Hmessages").
+rename messages' into messages_old.
+iIntros ( messages' ) "!> Hmessages".
+wp_bind.
+iApply (wp_writePtr with "Hmessages0").
+iIntros "!> Hmessages0".
+wp_ret.
+iNext.
+iApply ("IH" with "[] [] [] [$] H\206\166 [$] [$] [$] [$] [$] [$] [$] [$]").
+*
+iPureIntro.
+rewrite -(map_app _ _ [(curr_name, body)]).
+f_equal.
+(erewrite take_snoc_S; eauto).
+*
+iPureIntro.
+rewrite app_length Hlen //=.
+*
+iPureIntro.
+lia.
+-
+wp_loop.
+(<ssreflect_plugin::ssrtclintros@0> rewrite right_id in  {} Hk * =>Hlen_names).
+rewrite Hlen_names.
+(<ssreflect_plugin::ssrtclseq@0> destruct equal as [_| ] ; last  by congruence).
+(assert (i = length msgs')).
+{
+congruence.
+}
+(assert (lmsgs_read = createMessages msgs')).
+{
+subst.
+rewrite map_length.
+by rewrite firstn_all.
+}
+subst.
+rewrite map_length.
+rewrite firstn_all.
+wp_ret.
+iNext.
+iInv "Hinv" as "H".
+clear \207\131 Hopen Heq.
+iDestruct "H" as ( \207\131 ) "(>Hstate&Hmsgs&>Hheap&>Htmp)".
+iDestruct (slice_mapsto_non_null with "[Hmessages]") as % ?.
+{
+(iExists _; eauto).
+}
+(<ssreflect_plugin::ssrtclseq@0> iDestruct (HeapInv_non_alloc_inv _ _ 0 with "[$] [Hmessages]") as % ?
+ ; first  auto).
+{
+(iDestruct "Hmessages" as "(?&?)"; iFrame).
+}
+iMod (pickup_end_step_inv with "Hj Hsource Hstate") as ( v Heq ) "(Hj&Hstate)".
+{
+solve_ndisj.
+}
+(iMod (is_opened_step_inv with "[$] [$] [$]") as ( Hopen ) "(Hj&Hstate)"; auto).
+{
+(simpl; auto).
+}
+{
+solve_ndisj.
+}
+iDestruct "Hmessages" as ( malloc Hmalloc ) "Hmessages".
+iMod (ghost_step_call _ _ _ messages' with "Hj Hsource Hstate") as "(Hj&Hstate&_)".
+{
+(intros).
+econstructor.
+(<ssreflect_plugin::ssrtclseq@0> eexists; split ; last  by econstructor).
+(econstructor; eauto).
+(apply opened_step; auto).
+econstructor.
+(do 2 eexists).
+{
+rewrite /lookup /readSome.
+rewrite Heq.
+eauto.
+}
+reduce.
+(do 2 eexists).
+split.
+{
+(simpl).
+econstructor.
+}
+(do 2 eexists).
+split.
+{
+(simpl).
+econstructor.
+}
+(do 2 eexists).
+split.
+{
+econstructor.
+eauto.
+}
+eexists (_, _),_.
+split.
+{
+econstructor.
+(split; eauto).
+}
+(do 2 eexists).
+split.
+{
+econstructor.
+}
+econstructor.
+}
+{
+solve_ndisj.
+}
+wp_ret.
+iExists _.
+iFrame.
+(simpl open).
+rewrite Hopen.
+iSplitR "Hj Hmessages0 H\206\166 Hreg".
+{
+iModIntro.
+iNext.
+iSplitL "Hmsgs Hcontents_frag Hdirlock".
+{
+(simpl).
+rewrite /MsgsInv.
+iDestruct "Hmsgs" as ( l0 ) "(?&Hrootdir&Hinit&Hmap)".
+iExists _.
+iFrame.
+(simpl).
+(iDestruct (InitInv_open_update with "[$]") as "$"; auto).
+iSplitL "Hrootdir".
+{
+rewrite /RootDirInv //= dom_insert_L_in //.
+(eapply elem_of_dom; eauto).
+}
+(iApply (big_sepM_insert_override_2 with "Hmap"); eauto).
+rewrite /MsgInv.
+(simpl).
+iIntros "H".
+iDestruct "H" as ( lk' \206\179' ) "(%&%&(?&Hinterp&?&?))".
+iExists _ , _.
+iFrame.
+iDestruct "Hinterp" as "(?&Hinterp)".
+iFrame.
+iDestruct "Hinterp" as ( S ) "(Hauth&_)".
+iFrame "%".
+iExists _ , _.
+iFrame.
+(assert (\206\179' = \206\179) as -> by congruence).
+iFrame.
+}
+(unfold HeapInv).
+(simpl).
+(<ssreflect_plugin::ssrtclseq@0> rewrite big_sepDM_updDyn ; last  first).
+{
+intuition.
+}
+(iFrame; eauto).
+}
+iModIntro.
+wp_bind.
+iApply (wp_readPtr with "[$]").
+iIntros "!> Hptr".
+wp_ret.
+iApply "H\206\166".
+iFrame.
+Time Qed.
+End refinement_triples.
 (* Auto-generated comment: Succeeded. *)
 
