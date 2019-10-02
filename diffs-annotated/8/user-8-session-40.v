@@ -27,4 +27,5 @@ autorewrite with proof_db.
 (simpl).
 (rewrite Nat.sub_diag).
 (rewrite super_I; easy).
-(destruct b; unfold bool_to_ket; simpl; Msimpl).
+Hint Rewrite kron_1_r'.
+(* Failed. *)
