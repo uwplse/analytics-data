@@ -30,6 +30,6 @@ Definition vY := 2.
 Definition vZ := 3.
 Definition tX := TVar vX.
 Definition tY := TVar vY.
-Definition teXX := TExist vX vX.
+Definition teXX := TExist vX tX.
 (* Auto-generated comment: Failed. *)
 
