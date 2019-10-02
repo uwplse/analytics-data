@@ -32,6 +32,6 @@ Proof.
 subst.
 Search -mk_nf.
 (assert (Hnf : InNF( MkNF( t))) by apply mk_nf__in_nf).
-(rewrite (mk_nf_nf__equal (MkNF( t)) Hnf) in Hsub).
+Check mk_nf_nf__equal.
 (* Auto-generated comment: Failed. *)
 
