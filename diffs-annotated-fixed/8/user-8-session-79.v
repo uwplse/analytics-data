@@ -1099,6 +1099,5 @@ easy.
 }
 all: (try reflexivity).
 (rewrite id_circ_spec).
-rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
