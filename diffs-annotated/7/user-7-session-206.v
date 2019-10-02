@@ -46,5 +46,5 @@ Search -Morphisms.Proper.
 setoid_rewrite Hfact.
 Check Hfact.
 Print Morphisms.Proper.
-(apply Hfact).
+specialize (Hfact Ht).
 (* Failed. *)
