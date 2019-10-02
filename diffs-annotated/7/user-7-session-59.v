@@ -191,4 +191,5 @@ auto using match_ty_pair.
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
 clear IHv3.
-(* Auto-generated comment: Failed. *)
+clear IHv3.
+(* Failed. *)
