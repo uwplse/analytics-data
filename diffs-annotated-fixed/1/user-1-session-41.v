@@ -665,5 +665,11 @@ all:
    end).
 all: congruence.
 -
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+specialize (H _ H8).
 (* Auto-generated comment: Succeeded. *)
 
