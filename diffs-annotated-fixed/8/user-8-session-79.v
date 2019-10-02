@@ -1120,6 +1120,5 @@ specialize inSeq_correct as IS.
 (simpl in IS).
 (repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
 clear IS.
-(repeat rewrite_inPar').
 (* Auto-generated comment: Succeeded. *)
 
