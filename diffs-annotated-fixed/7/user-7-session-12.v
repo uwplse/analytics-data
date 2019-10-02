@@ -307,7 +307,6 @@ Qed.
 Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t2) << MkNF( TUnion (TPair t11 t2) (TPair t12 t2)).
 Proof.
 (intros t11 t12 t2).
-(rewrite mk_nf_pair).
-(do 2 rewrite mk_nf_union).
+(repeat rewrite mk_nf_pair).
 (* Auto-generated comment: Failed. *)
 
