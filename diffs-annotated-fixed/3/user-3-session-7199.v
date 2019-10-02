@@ -482,6 +482,6 @@ intuition.
 {
 (descend; intuition eauto).
 }
-step_proc.
+(apply proc_spec_weaken).
 (* Auto-generated comment: Failed. *)
 
