@@ -1250,5 +1250,6 @@ Proof.
 -
 (simpl).
 autounfold with den_db.
+(rewrite H).
 (* Auto-generated comment: Succeeded. *)
 
