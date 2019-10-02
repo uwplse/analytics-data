@@ -242,5 +242,10 @@ assumption.
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
 Qed.
-(apply Nat.max_ge_l).
+SearchPattern (_ <= Nat.max _ _).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
+(destruct (IHt1 k) as [w [v Hm]]).
+exists w v.
 (* Failed. *)
