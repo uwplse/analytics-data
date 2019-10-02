@@ -136,7 +136,6 @@ Proof.
 (unfold get_len; intros).
 (apply spec_abstraction_compose).
 step_proc.
-(destruct a' as [_ bs]).
-intuition.
+(destruct a' as [_ bs]; simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
