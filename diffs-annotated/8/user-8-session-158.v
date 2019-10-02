@@ -335,4 +335,3 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 3: {
-econstructor.
