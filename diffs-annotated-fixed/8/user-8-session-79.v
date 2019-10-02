@@ -1093,9 +1093,10 @@ restore_dims tensor_tac.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-show_dimensions.
-Timeout 1 About tensor_tac.
-Timeout 1 Print tensor_tac.
-Timeout 1 Print Ltac tensor_tac.
+(rewrite ctx_to_mat_list_length).
+(apply IHb).
+easy.
+}
+all: (try reflexivity).
 (* Auto-generated comment: Succeeded. *)
 
