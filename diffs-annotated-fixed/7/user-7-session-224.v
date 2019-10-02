@@ -110,7 +110,13 @@ assumption.
 }
 }
 {
-(split; intros HX').
+(simpl in Hm').
+contradiction.
+}
+*
+(simpl in Hm').
+subst.
+split.
 {
 (* Auto-generated comment: Failed. *)
 
