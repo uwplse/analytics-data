@@ -70,6 +70,13 @@ Proof.
 (intros k v Hm).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(inversion Hv; subst).
+(apply match_ty_pair; [ apply Hsub1 | apply Hsub2 ]; auto).
+Qed.
+Lemma sem_sub_union_1 : forall t t1' t2' : ty, ||- [t]<= [t1'] -> ||- [t]<= [TUnion t1' t2'].
+Proof.
+(intros t t1' t2').
+(unfold sem_sub).
+(intros Hsub).
+(intros k v Hv Hm).
 (* Auto-generated comment: Failed. *)
 
