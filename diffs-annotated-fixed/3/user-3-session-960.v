@@ -94,10 +94,10 @@ Unset Search Output Name Only.
 Print sigT.
 Print sig.
 #[program]
-Fixpoint nat_to_le (x : nat) : list byte_nat :=
+Fixpoint nat_to_le (x : nat) {measure x : list byte_nat :=
   match x with
   | 0 => nil
   | _ => exist _ (x mod 256) _ :: nat_to_le (x / 256)
   end.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
