@@ -209,6 +209,7 @@ Proof.
 (apply spec_abstraction_compose).
 step.
 (destruct a' as [[] bs]; simpl in *; intuition eauto).
+step.
 (exists bs; intuition eauto).
 (* Auto-generated comment: Failed. *)
 
