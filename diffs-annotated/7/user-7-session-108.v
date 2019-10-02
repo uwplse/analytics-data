@@ -230,25 +230,11 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-Lemma ty__empty_or_matching_ty_exists :
-  forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
-Proof.
-(induction w; induction t; intros k).
+(eapply match_ty_exist__0_inv; eassumption).
 -
-(left; exists (TCName c)).
-(apply match_ty_value_type__reflexive; constructor).
+(left; exists (TEV i); apply match_ty_var).
 -
-admit.
+(left; exists (TEV i); apply match_ty_ev).
 -
-admit.
--
-(left; exists (TRef t)).
-(destruct k).
-reflexivity.
-(split; intros w1; exists w1; auto).
--
-right.
-(intros Hcontra).
-(destruct Hcontra as [v Hcontra]).
-(apply match_ty_exist__0_inv; assumption).
+(left; exists (TCName c); apply match_ty_cname).
 (* Failed. *)
