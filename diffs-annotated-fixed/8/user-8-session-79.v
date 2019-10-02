@@ -597,8 +597,6 @@ Proof.
 (intros).
 (simpl).
 (remember (\226\168\130 l2) as A).
-clear.
-specialize @kron_1_l as KL.
-(apply kron_1_l).
+gen A.
 (* Auto-generated comment: Succeeded. *)
 
