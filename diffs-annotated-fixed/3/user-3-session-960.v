@@ -286,11 +286,7 @@ econstructor.
 -
 constructor.
 +
-(intros).
 admit.
-+
-(simpl).
-(unfold nat64_from_le, nat64_to_le; intros).
-Print FixedLengthEncoder.
+admit.
 (* Auto-generated comment: Succeeded. *)
 
