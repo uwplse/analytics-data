@@ -1036,6 +1036,6 @@ Set Printing All.
 Set Printing All.
 Set Printing All.
 revert IP.
-restore_dims.
+(progress restore_dims).
 (* Auto-generated comment: Succeeded. *)
 
