@@ -157,10 +157,5 @@ Fixpoint trace (n : nat) : term -> list term :=
   end.
 Redirect "/tmp/coqMDtlae" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Example t1 := {"if" [{"cons?" <<[] []> <[] []>>} {"fst" <<[] []> []>} []]}.
-Redirect "/tmp/coq5O2xER" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Eval vm_compute in trace 10 t1.
-Eval vm_compute in multistep 10 t1.
 (* Auto-generated comment: Succeeded. *)
 
