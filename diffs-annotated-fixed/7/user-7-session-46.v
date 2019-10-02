@@ -13,6 +13,12 @@ Proof.
 (destruct k; split; assumption).
 Qed.
 Lemma match_ty_i_union_1 : forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ t1 -> |-[ k] v <$ TUnion t1 t2.
+Lemma match_ty_i_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
+Proof.
+(intros v1 v2 t1 t2 k Hm1 Hm2).
+(destruct k; split; assumption).
+Qed.
+Lemma match_ty_i_union_1 : forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ t1 -> |-[ k] v <$ TUnion t1 t2.
 Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; left; assumption).
@@ -42,5 +48,20 @@ Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; assumption).
 Qed.
+Lemma match_ty_i_ref__weak_inv : forall (v t : ty) (k : nat), |-[ k] v <$ TRef t -> exists t' : ty, v = TRef t'.
+Proof.
+(intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
+clear IHv.
+(intros t k).
+(intros Hm).
+exists v.
+reflexivity.
+Qed.
+Lemma match_ty_i_ref__inv : forall (v t : ty) (k : nat), |-[ S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ ||-[ k][t']= [t].
+Proof.
+(intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
+clear IHv.
+(intros t k).
+(intros Hm).
 (* Auto-generated comment: Failed. *)
 
