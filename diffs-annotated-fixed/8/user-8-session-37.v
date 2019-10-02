@@ -435,6 +435,7 @@ Lemma valid_denote_true :
 Proof.
 (intros W W' c \207\129 \207\129' safe T H D).
 (destruct safe; trivial).
+(destruct safe; trivial).
 (rewrite <- H; assumption).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
