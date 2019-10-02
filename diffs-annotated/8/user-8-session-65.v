@@ -948,5 +948,5 @@ Fact assert_at_spec_unsafe :
 Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
-Timeout 1 About restore_dims.
-(rewrite size_ntensor).
+restore_dims.
+(* Failed. *)
