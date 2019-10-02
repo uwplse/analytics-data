@@ -27,4 +27,3 @@ Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
 Module App.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
-(* Failed. *)
