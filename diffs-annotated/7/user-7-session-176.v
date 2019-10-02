@@ -151,5 +151,14 @@ Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w
    | intros Hm; destruct (beq_idP X i);
       [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
 (rewrite IdSetFacts.empty_b in Hmem).
-contradiction.
+(inversion Hmem).
+(unfold mk_subst_exist).
+clear Hmem.
+(destruct (beq_idP X i)).
++
+subst.
+exists v.
+assumption.
++
+(apply match_ty_exist__inv in IHw).
 (* Failed. *)
