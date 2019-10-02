@@ -130,19 +130,6 @@ Theorem proc_spec_rx :
          post := fun r state'' => post (spec' a' state) r state'';
          recovered := fun r state'' => recovered (spec' a' state) r state'' |})
         (rx r) rec abs)) -> proc_spec spec' (Bind p rx) rec abs.
-Proof.
-(unfold proc_spec at 3; intros).
-inv_rexec.
--
-inv_exec.
-(match goal with
- | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
- end).
-(eapply H0 in H2; repeat deex).
-(eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
-(match goal with
- | Hexec:exec (rx _) _ _
-   |- _ => eapply RExec in Hexec; eapply H4 in Hexec; eauto
- end).
+Hint Resolve mark.
 (* Auto-generated comment: Succeeded. *)
 
