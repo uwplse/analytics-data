@@ -1461,6 +1461,6 @@ eexists.
 split.
 -
 (simpl).
-(do 2 eexists; split).
+(do 2 eexists; split; eauto).
 (* Auto-generated comment: Succeeded. *)
 
