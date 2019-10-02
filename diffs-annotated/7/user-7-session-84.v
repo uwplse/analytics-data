@@ -170,8 +170,8 @@ Proof.
    | |- forall ta : ty, atom_type ta -> _ => tauto
    end).
 -
-(intros t Hnft IHt Hdt).
-(inversion Hdt).
+(intros t Hnft IHt Hdep).
+(inversion Hdep).
 -
 (intros t Hnft IH).
 (intros Hdt t2).
@@ -183,28 +183,4 @@ Proof.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
 +
 clear IHt2.
-(simpl in Hdt).
-(pose proof (le_S_n _ _ Hdt) as Hdt').
-(unfold sem_sub_k in Hsem).
-specialize (Hsem _ Hma).
-(apply match_ty_ref__inv in Hsem).
-(destruct Hsem as [t' [Heqt' [[Hk Hdt't2] Href]]]).
-(inversion Heqt'; subst).
-clear Heqt'.
-constructor.
-*
-(apply IHk; try assumption).
-(apply sem_eq_k__sem_sub_k in Href).
-tauto.
-*
-(apply SD_Trans with (MkNF( t2))).
-(apply mk_nf__sub_d_r; assumption).
-(apply IHk).
-(apply mk_nf__in_nf).
-(rewrite inv_depth_mk_nf).
-assumption.
-(apply sem_sub_k__trans with t2).
-(apply mk_nf__sem_sub_k_l).
-(apply sem_eq_k__sem_sub_k; assumption).
-Qed.
-(* Auto-generated comment: Failed. *)
+(simpl in Hdep).
