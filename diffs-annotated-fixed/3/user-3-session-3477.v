@@ -246,49 +246,31 @@ Theorem then_init_compose :
   init_abstraction (then_init init1 init2) rec'
     (abstraction_compose abs1 abs2) init2_sem.
 Proof.
+Theorem then_init_compose :
+  forall (init1 init2 : proc InitResult) (rec rec' : proc unit)
+    `(abs1 : Abstraction State1) `(abs2 : LayerAbstraction State1 State2)
+    (init1_sem : State1 -> Prop) (init2_sem : State2 -> Prop),
+  init_abstraction init1 rec abs1 init1_sem ->
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := init1_sem state;
+     post := fun r state' =>
+             match r with
+             | Initialized =>
+                 exists state'',
+                   abstraction abs2 state' state'' /\ init2_sem state''
+             | InitFailed => True
+             end;
+     recovered := fun _ state' => True |}) init2 rec abs1 ->
+  init_abstraction (then_init init1 init2) rec'
+    (abstraction_compose abs1 abs2) init2_sem.
+Proof.
 (intros).
 (eapply init_abstraction_any_rec with rec).
 (unfold init_abstraction; intros).
 (eapply proc_spec_rx; [ solve [ eauto ] |  ]; cbn[pre post recovered]; intros).
-(exists tt; split; [ solve [ auto ] |  ]; intuition; simpl in *).
+(exists tt; intuition; simpl in *).
 (descend; intuition eauto).
-(destruct r).
--
-clear H.
-(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
-(eapply H0 in H2; eauto).
-(destruct matches in *; safe_intuition repeat deex; eauto).
-(descend; intuition eauto).
--
-(unfold proc_spec; simpl; intros).
-(destruct matches; subst; eauto).
-(eexists; intuition eauto).
-(inv_rexec; inv_exec).
-congruence.
-Qed.
-Theorem spec_abstraction_compose :
-  forall `(spec : Specification A T R State2) `(p : proc T) 
-    `(rec : proc R) `(abs2 : LayerAbstraction State1 State2)
-    `(abs1 : Abstraction State1),
-  proc_spec
-    (fun '(a, state2) state =>
-     {|
-     pre := pre (spec a state2) /\ abstraction abs2 state state2;
-     post := fun v state' =>
-             exists state2',
-               post (spec a state2) v state2' /\
-               abstraction abs2 state' state2';
-     recovered := fun v state' =>
-                  exists state2',
-                    recovered (spec a state2) v state2' /\
-                    abstraction abs2 state' state2' |}) p rec abs1 ->
-  proc_spec spec p rec (abstraction_compose abs1 abs2).
-Proof.
-(intros).
-(unfold proc_spec, abstraction_compose; simpl; intros; safe_intuition
-  repeat deex).
-(eapply (H (a, state)) in H2; simpl in *; eauto).
-(destruct r; intuition repeat deex; eauto).
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
