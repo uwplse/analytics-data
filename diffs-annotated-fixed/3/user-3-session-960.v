@@ -309,6 +309,6 @@ typeclasses eauto.
 (intros; simpl).
 Search -sigT -"dec".
 Check Eqdep_dec.inj_pair2_eq_dec.
-(apply (Eqdep_dec.inj_pair2_eq_dec _ _ _ _ x y)).
-(* Auto-generated comment: Failed. *)
+Check Eqdep_dec.inj_pair2_eq_dec.
+(* Auto-generated comment: Succeeded. *)
 
