@@ -138,6 +138,5 @@ Proof.
 step_proc.
 {
 (destruct a' as [_ bs]; simpl in *; intuition eauto).
-}
 (* Auto-generated comment: Succeeded. *)
 
