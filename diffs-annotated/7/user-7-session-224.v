@@ -149,5 +149,15 @@ reflexivity.
 Check b_free_in_ty__b_free_in_b_subst_neq.
 (apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
 specialize (IHw _ _ Hwftx HX Hm).
-(split; intros i0).
+(split; intros Hi0).
+{
+(unfold not_f_free_in_ty, not_free in Hi0).
+(simpl in Hi0).
+exfalso.
+(apply Hi0).
+Search -IdSet.singleton.
+(apply IdSetFacts.singleton_2).
+reflexivity.
+}
+{
 (* Failed. *)
