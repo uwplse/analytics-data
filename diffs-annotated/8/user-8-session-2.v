@@ -48,3 +48,4 @@ Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
 Msimpl.
+(destruct a; Msimpl).
