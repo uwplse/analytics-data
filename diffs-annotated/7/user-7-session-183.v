@@ -95,7 +95,9 @@ Lemma subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), exists (Z : id) 
 Lemma subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), exists (Z : id) (tz : ty), [X := s] TExist Y t = TExist Z tz.
 Proof.
 (destruct (beq_idP X Y) as [HXY| HXY]).
-(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
 (rewrite (false_beq_id _ _ HXY)).
 (rewrite Hmem).
+eexists.
+eexists.
+ereflexivity.
 (* Failed. *)
