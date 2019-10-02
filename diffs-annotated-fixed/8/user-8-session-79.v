@@ -998,6 +998,6 @@ Proof.
 -
 (simpl).
 (simpl in *).
-rewrite_inPar''.
-(* Auto-generated comment: Failed. *)
+rewrite_inPar.
+(* Auto-generated comment: Succeeded. *)
 
