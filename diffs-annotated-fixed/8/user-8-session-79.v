@@ -651,9 +651,8 @@ Lemma big_kron_append :
 Proof.
 (induction l1).
 -
+-
 (intros).
 (simpl).
-specialize (kron_1_l (\226\168\130 l2)) as KL.
-show_dimensions.
 (* Auto-generated comment: Succeeded. *)
 
