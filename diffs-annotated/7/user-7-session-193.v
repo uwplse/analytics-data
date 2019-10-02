@@ -38,11 +38,11 @@ Definition teXX := TExist vX tX.
 Fixpoint FFV (t : ty) : id_set :=
   match t with
   | TCName _ => IdSet.empty
-  | TPair t1 t2 => IdSet.union (FV t1) (FV t2)
-  | TUnion t1 t2 => IdSet.union (FV t1) (FV t2)
-  | TExist y t' => IdSet.remove y (FV t')
+  | TPair t1 t2 => IdSet.union (FFV t1) (FFV t2)
+  | TUnion t1 t2 => IdSet.union (FFV t1) (FFV t2)
+  | TExist y t' => IdSet.remove y (FFV t')
   | TBVar _ => IdSet.empty
   | TFVar y => IdSet.singleton y
   | TEV _ => IdSet.empty
   end.
-(* Auto-generated comment: Failed. *)
+(* Failed. *)
