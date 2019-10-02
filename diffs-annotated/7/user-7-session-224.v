@@ -149,14 +149,18 @@ reflexivity.
 Check b_free_in_ty__b_free_in_b_subst_neq.
 (apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
 specialize (IHw _ _ Hwftx HX Hm).
-(apply match_ty_union_1; auto).
+(rewrite f_subst_not_b_free_in_ty; auto).
+}
 }
 {
-(destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
-{
-(apply match_ty_union_1; auto).
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_2; auto).
 }
 {
-(apply match_ty_union_1).
-(rewrite f_subst_not_b_free_in_ty; try assumption).
-(* Failed. *)
+(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
+{
+(apply match_ty_union_2; auto).
+}
+{
+(apply match_ty_union_2).
+(rewrite f_subst_not_b_free_in_ty; assumption).
