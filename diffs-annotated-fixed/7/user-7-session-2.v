@@ -145,9 +145,5 @@ Proof.
      end ])).
 (intros t1; induction t1; intros t2; induction t2).
 -
-(match goal with
- | Hsub:|- ?t1 << ?t2
-   |- _ => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hsub; inversion Heqx; inversion Heqy; subst; tauto
- end).
 (* Auto-generated comment: Failed. *)
 
