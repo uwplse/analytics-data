@@ -166,6 +166,6 @@ Proof.
 (simpl).
 Check proc_spec_weaken.
 (eapply proc_spec_weaken; eauto).
-(simpl).
+(compute).
 (* Auto-generated comment: Succeeded. *)
 
