@@ -40,6 +40,6 @@ Proof.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
 (pose proof (fresh_in_ty_var__neq _ _ HX) as HXi).
-(rewrite subst_var_neq).
+(rewrite subst_var_neq; assumption).
 (* Auto-generated comment: Failed. *)
 
