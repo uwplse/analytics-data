@@ -11,7 +11,4 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqznWAeW" Print Ltac
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 CoFixpoint fib (x y : N) : Stream N := Cons y (fib y (x + y)).
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqbF6gTS" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Eval compute in Str_nth 3 (map print fib).
-(* Failed. *)
+Eval compute in Str_nth 3 (map print (fib 0 1)).
