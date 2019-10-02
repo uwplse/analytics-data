@@ -1181,5 +1181,7 @@ reflexivity.
 reflexivity.
 }
 6: {
+listify_kron.
+(rewrite CNOT_at_spec).
 (* Auto-generated comment: Failed. *)
 
