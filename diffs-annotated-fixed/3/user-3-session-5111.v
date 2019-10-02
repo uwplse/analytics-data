@@ -221,6 +221,22 @@ invert_abstraction.
 (step_proc; intuition idtac).
 {
 (step_proc; intuition idtac).
-(exists s; split; eauto).
-(* Auto-generated comment: Failed. *)
++
+*
+(rewrite disk_oob_eq by lia; simpl; auto).
+*
+(rewrite <- Hgoodsec; auto).
++
+(subst; eexists; eauto).
+}
+(subst; eexists; eauto).
+}
+(subst; eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3BtKqQ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
