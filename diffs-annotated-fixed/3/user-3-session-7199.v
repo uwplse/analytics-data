@@ -194,7 +194,7 @@ Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
-     pre := log_addr a < length state;
+     pre := a < length state;
      post := fun r state' => state' = state /\ nth a state block0 = r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
@@ -209,5 +209,6 @@ Proof.
 (descend; intuition eauto).
 (unfold log_abstraction in H0; intuition).
 (pose proof (H1 a); intuition).
-(* Auto-generated comment: Succeeded. *)
+eq_values.
+(* Auto-generated comment: Failed. *)
 
