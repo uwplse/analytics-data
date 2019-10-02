@@ -162,6 +162,44 @@ Proof.
 typeclasses eauto.
 firstorder.
 (inversion H0; subst).
-auto.
+(simpl; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqs8rUcZ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhu1lE7"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3xggWz"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Lemma recover_idempotent :
+  idempotent (fun t : unit => recover_spec).
+Proof.
+(unfold idempotent; intuition; exists tt;
+  simpl in *).
+(unfold puts in *; firstorder; congruence).
+Qed.
+Hint Resolve recover_cok recover_idempotent: core.
+Lemma recover_rok :
+  proc_rspec Var.dynamics impl.(recover)
+    impl.(recover) recover_spec.
+Proof.
+(eapply proc_hspec_to_rspec; eauto).
+(intros []; eauto).
+Qed.
+Lemma init_cok :
+  proc_hspec Var.dynamics impl.(init) init_hspec.
+Proof.
+(eapply ret_hspec; firstorder).
 (* Auto-generated comment: Succeeded. *)
 
