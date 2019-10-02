@@ -1035,8 +1035,5 @@ Set Printing All.
 Set Printing All.
 Set Printing All.
 Set Printing All.
-Timeout 1 About restore_dims.
-Timeout 1 Print restore_dims.
-Timeout 1 Print Ltac restore_dims.
 (* Auto-generated comment: Succeeded. *)
 
