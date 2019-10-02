@@ -174,6 +174,7 @@ reflexivity.
 {
 (destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
 (apply match_ty_union_1; auto).
+(apply match_ty_union_1; auto).
 }
 {
 (destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
@@ -182,5 +183,6 @@ reflexivity.
 }
 {
 (apply match_ty_union_1).
+(rewrite f_subst_not_b_free_in_ty; try assumption).
 (* Auto-generated comment: Failed. *)
 
