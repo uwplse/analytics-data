@@ -257,14 +257,79 @@ Lemma op_step_crash T (op : Var.Op T)
 Proof.
 (intros).
 (hnf in H; propositional).
-(destruct H0; propositional).
-(apply crash_step_simp in H; auto).
-(apply crash_step_simp in H0; auto).
+(destruct H0; propositional; eauto
+  using crash_step_simp).
+Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
 Redirect
-"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWIRPze"
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJYnGhU"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgrACQ6"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOKLC81"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Ltac
+ extract_crash H :=
+  lazymatch type of H
+  with
+  | Var.dynamics.(crash_step) _ _ _ =>
+      apply crash_step_simp in H; subst
+  | (op_spec Var.dynamics _ _).(alternate) _ _ =>
+      apply op_step_crash in H; subst
+  | _ => idtac
+  end.
+Ltac
+ extract_post :=
+  lazymatch goal with
+  | |- pre _ => simpl
+  | |- alternate _ _ _ => simpl
+  | |- post _ _ _ => simpl
+  | _ => idtac
+  end.
+Ltac
+ step_bind :=
+  eapply proc_hspec_rx;
+   [ solve [ eauto ] | cbn[pre post alternate].. ];
+   (let H := fresh "Hpre" in
+    intros * H; extract_pre H); apply util_and3;
+   swap 1 2;
+   [ intros
+   | extract_post
+   | let H := fresh "Hcrash" in
+     intros * H; extract_crash H; extract_post ].
+Ltac
+ step_ret :=
+  apply ret_hspec; cbn[pre post alternate];
+   (let H := fresh "Hpre" in
+    intros * H; extract_pre H); apply conj;
+   [ extract_post
+   | let H := fresh "Hcrash" in
+     intros * H; extract_crash H; extract_post ].
+Ltac
+ newstep :=
+  monad_simpl;
+   lazymatch goal with
+   | |- proc_hspec _ (compile_op _ _) _ => simpl
+   | |- proc_hspec _ (Ret _) _ => step_ret
+   | |- proc_hspec _ (Bind _ _) _ => step_bind
+   end.
+Lemma add_cok n :
+  proc_hspec Var.dynamics
+    (impl.(compile_op) (DB.Add n)) 
+    (add_hspec n).
+Proof.
+(repeat newstep; auto).
+(destruct state0; simpl; auto).
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
