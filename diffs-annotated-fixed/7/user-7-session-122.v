@@ -37,9 +37,7 @@ Proof.
 (intros w1).
 (specialize (Hsem1 w1); specialize (Hsem2 w1)).
 (destruct Hsem1 as [w21 Hsem1]; destruct Hsem2 as [w22 Hsem2]).
-exists (Nat.max w21 w22).
-(intros v Hm).
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]).
+(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; [ apply match_ty_union_1 | apply match_ty_union_2 ];
+  eapply match_ty__ge_w; try eassumption).
 (* Auto-generated comment: Failed. *)
 
