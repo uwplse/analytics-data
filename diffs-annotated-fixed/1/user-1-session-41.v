@@ -298,6 +298,8 @@ Inductive GT : Type :=
   | GFun : GT -> GT -> GT
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
+Definition FromRow : option (option (Ann * GT)) := None.
+Definition AbsentLabel : option (option (Ann * GT)) := Some None.
 Definition SetST := Ensemble ST.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
@@ -366,10 +368,6 @@ Fixpoint Gamma (G : GT) : SetST :=
                         end
                     end))) l)
   end.
-Search -list.
-Print nth.
-Print nth.
-Print SRec.
 Inductive Alpha : SetST -> GT -> Prop :=
   | alpha_int : Alpha (Singleton _ SInt) GInt
   | alpha_bool : Alpha (Singleton _ SBool) GBool
@@ -397,7 +395,9 @@ Inductive Alpha : SetST -> GT -> Prop :=
       forall S tl,
       Inhabited _ S ->
       (forall X,
-       Ensembles.In _ S X -> exists tl, X = SRec (None :: tl)) ->
+       Ensembles.In _ S X ->
+       X = SRec [] \/ (exists tl, X = SRec (None :: tl))) ->
+      (exists tl, X = SRec (None :: tl)) ->
       Alpha
         (SetPMap S
            (fun S =>
@@ -464,14 +464,15 @@ Inductive Alpha : SetST -> GT -> Prop :=
       forall S tl,
       Inhabited _ S ->
       (forall X,
-       Ensembles.In _ S X -> exists tl, X = SRec (None :: tl)) ->
+       Ensembles.In _ S X ->
+       X = SRec [] \/ (exists tl, X = SRec (None :: tl))) ->
       Alpha
         (SetPMap S
            (fun S =>
             match S with
             | SRec (hd :: tl) => Some (SRec tl)
             | _ => None
-            end)) (GRow tl) -> Alpha S (GRow (None :: tl))
+            end)) (GRow tl) -> Alpha S (GRow (AbsentLabel :: tl))
   | alpha_row_cons_req :
       forall S hd tl,
       Inhabited _ S ->
@@ -511,6 +512,28 @@ Inductive Alpha : SetST -> GT -> Prop :=
             match S with
             | SRec (hd :: tl) => hd
             | _ => None
-            end)) hd -> Alpha S (GRow (Some (O, hd) :: tl)).
-(* Auto-generated comment: Succeeded. *)
+            end)) hd ->
+      hd <> GDyn -> Alpha S (GRow (Some (O, hd) :: tl))
+  | alpha_row_cons_row_skip_hd :
+      forall S tl,
+      Inhabited _ S ->
+      (forall X, Ensembles.In _ S X -> exists l, X = SRec l) ->
+      (exists hd tl, Ensembles.In _ S (SRec (Some hd :: tl))) ->
+      Ensembles.In _ S (SRec []) \/
+      (exists tl, Ensembles.In _ S (SRec (None :: tl))) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => Some (SRec tl)
+            | _ => None
+            end)) (GRec tl) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => hd
+            | _ => None
+            end)) Dyn -> Alpha S (GRow (FromRow :: tl)).
+(* Auto-generated comment: Failed. *)
 
