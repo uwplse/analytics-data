@@ -113,6 +113,11 @@ Lemma sem_sub_fresh_var__sem_sub_exist :
   IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
 (intros X t t' X' HX HX' Hsem tx).
+Lemma sem_sub_fresh_var__sem_sub_exist' :
+  forall (X : id) (t t' : ty) (X' : id),
+  IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
+Proof.
+(intros X t t' X' HX HX' Hsem tx).
 (intros k w1).
 specialize (Hsem k w1).
 (destruct Hsem as [w2 Hsem]).
@@ -120,5 +125,10 @@ exists w2.
 (intros v Hm).
 (induction w1).
 Abort.
+Lemma xxx :
+  forall (X : id) (w1 k w2 : nat) (t t' : ty) (X' : id),
+  IdSet.In X (FV t) ->
+  fresh_in_ty X' t' ->
+  (forall v, |-[ k, w1] v <$ [X := X'] t -> |-[ k, w2] v <$ t') -> forall tx : ty, forall v, |-[ k, w1] v <$ [X := tx] t -> |-[ k, w2] v <$ t'.
 (* Auto-generated comment: Failed. *)
 
