@@ -144,6 +144,7 @@ Proof.
 (intros X; induction w; induction t; intros v; try (solve [ intros Hm; exists v; assumption ])).
 -
 (intros Hm).
-(apply match_ty_piar__inv in Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 (* Auto-generated comment: Failed. *)
 
