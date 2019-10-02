@@ -31,5 +31,13 @@ Proof.
 (rewrite IHt1; try assumption).
 (rewrite IHt2; try assumption).
 reflexivity.
+-
+(apply fresh_union__inv in Hfresh).
+(destruct Hfresh as [Hfresh1 Hfresh2]).
+(rewrite IHt1; try assumption).
+(rewrite IHt2; try assumption).
+reflexivity.
+-
+(rewrite Iht; try assumption).
 (* Auto-generated comment: Failed. *)
 
