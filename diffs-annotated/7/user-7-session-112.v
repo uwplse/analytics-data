@@ -171,10 +171,10 @@ Lemma match_ty__transitive_on_value_type :
   forall v1 v2 t3 : ty, value_type v2 -> forall k w1 w2 : nat, |-[ k, w1] v1 <$ v2 -> |-[ k, w2] v2 <$ t3 -> |-[ k, Mat.max w1 w2] v1 <$ t3.
 Lemma match_ty__transitive_on_value_type :
   forall v1 v2 t3 : ty, value_type v2 -> forall k w1 w2 : nat, |-[ k, w1] v1 <$ v2 -> |-[ k, w2] v2 <$ t3 -> |-[ k, Nat.max w1 w2] v1 <$ t3.
-admit.
--
-(intros v0 t3 k w1 w2 Hm1 Hm2).
-(apply match_ty_pair__inv in Hm1).
-(destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst).
-(induction t3; try (solve [ destruct k; contradiction ])).
+(induction t3; try (solve [ destruct k, w2; contradiction ])).
++
+(apply match_ty_pair__inv in Hm2).
+(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
+(inversion Heq; subst).
+auto using match_ty_pair.
 (* Failed. *)
