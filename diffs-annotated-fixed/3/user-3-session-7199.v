@@ -157,8 +157,7 @@ Theorem get_at_ok a :
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' =>
-             state' = state /\ diskGet state (log_addr a) = Some r;
+     post := fun r state' => state' = state /\ diskGet state a = Some r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
 Proof.
@@ -171,6 +170,6 @@ Proof.
 (descend; intuition eauto).
 (descend; intuition eauto).
 (apply disk_inbounds_exists in H; intuition eauto).
-(rewrite H in *).
+(unfold log_abstraction in H0).
 (* Auto-generated comment: Succeeded. *)
 
