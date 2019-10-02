@@ -291,5 +291,7 @@ Proof.
           end
    end).
 Qed.
+Proof.
+(induction k; induction t; intros v; split; intros Hm).
 (* Auto-generated comment: Failed. *)
 
