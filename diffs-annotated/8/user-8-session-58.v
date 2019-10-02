@@ -68,47 +68,6 @@ Proof.
 Qed.
 Open Scope matrix_scope.
 Close Scope circ_scope.
-Print Scopes.
-Lemma denote_unitary_transpose :
-  forall {W} (U : Unitary W), \226\159\166 trans U \226\159\167 == (\226\159\166 U \226\159\167) \226\128\160.
-Proof.
-(induction U; simpl; Msimpl; try reflexivity).
--
-(rewrite IHU).
-reflexivity.
--
-(rewrite IHU).
-reflexivity.
-Qed.
-Instance Denote_Unitary_Correct  W: (Denote_Correct (Denote_Unitary W)) :=
- {|
- correctness := fun A => WF_Unitary A;
- denote_correct := fun U => unitary_gate_unitary U |}.
-Definition denote_gate' (safe : bool) n {w1} {w2} (g : Gate w1 w2) :
-  Superoperator (2 ^ \226\159\166 w1 \226\159\167 * 2 ^ n) (2 ^ \226\159\166 w2 \226\159\167 * 2 ^ n) :=
-  match g with
-  | U u => super (\226\159\166 u \226\159\167 \226\138\151 I (2 ^ n))
-  | BNOT => super (\207\131x \226\138\151 I (2 ^ n))
-  | init0 => super (\226\136\1630\226\159\169 \226\138\151 I (2 ^ n))
-  | init1 => super (\226\136\1631\226\159\169 \226\138\151 I (2 ^ n))
-  | new0 => super (\226\136\1630\226\159\169 \226\138\151 I (2 ^ n))
-  | new1 => super (\226\136\1631\226\159\169 \226\138\151 I (2 ^ n))
-  | meas => Splus (super (\226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I (2 ^ n))) (super (\226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 I (2 ^ n)))
-  | measQ => Splus (super (\226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I (2 ^ n))) (super (\226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 I (2 ^ n)))
-  | discard => Splus (super (\226\159\1680\226\136\163 \226\138\151 I (2 ^ n))) (super (\226\159\1681\226\136\163 \226\138\151 I (2 ^ n)))
-  | assert0 =>
-      if safe
-      then Splus (super (\226\159\1680\226\136\163 \226\138\151 I (2 ^ n))) (super (\226\159\1681\226\136\163 \226\138\151 I (2 ^ n)))
-      else super (\226\159\1680\226\136\163 \226\138\151 I (2 ^ n))
-  | assert1 =>
-      if safe
-      then Splus (super (\226\159\1680\226\136\163 \226\138\151 I (2 ^ n))) (super (\226\159\1681\226\136\163 \226\138\151 I (2 ^ n)))
-      else super (\226\159\1681\226\136\163 \226\138\151 I (2 ^ n))
-  end.
-Definition denote_gate safe {W1} {W2} (g : Gate W1 W2) :
-  Superoperator (2 ^ \226\159\166 W1 \226\159\167) (2 ^ \226\159\166 W2 \226\159\167) := denote_gate' safe 0 g.
-Lemma pow_gt_0 : forall n, (2 ^ n > O)%nat.
-Proof.
 (induction n; auto).
 (simpl).
 (apply gt_trans with (2 ^ n)%nat; auto).
@@ -1172,24 +1131,6 @@ Msimpl.
 (unify_pows_two; easy).
 (restore_dims; easy).
 Qed.
-Lemma apply_meas_correct :
-  forall n k, (k < n)%nat -> WF_Superoperator (@apply_meas n k).
-Proof.
-(intros n k L \207\129 M\207\129).
-(unfold apply_meas).
-(unfold Splus, super).
-remember_differences.
-gen \207\129.
-subst.
-(repeat rewrite Nat.pow_add_r).
-(intros).
-Msimpl.
-(eapply measure_superoperator).
-(unify_pows_two; easy).
-(restore_dims; easy).
-Qed.
-Lemma apply_new0_correct : forall n, WF_Superoperator (@apply_new0 n).
-Proof.
 (intros n \207\129 M\207\129).
 (unfold apply_new0, super).
 gen \207\129.
@@ -2504,5 +2445,752 @@ dependent induction H.
 (simpl).
 easy.
 +
+(simpl).
+(unfold remove_pat, remove_var in *).
+(simpl in *).
+(inversion IHv).
+(rewrite H0).
+easy.
+-
+(destruct v).
++
+(inversion x; subst).
+(inversion m; subst).
+(unfold remove_pat).
+(simpl in *).
+(inversion H; subst; easy).
++
+(inversion x; subst).
+(inversion m; subst).
+(unfold remove_pat, remove_var in *).
+(simpl in *).
+(erewrite IHmerge_ind; easy).
+replace (remove_pat (qubit (S v)) (Some w :: \206\1470)) with
+ Some w :: remove_pat (qubit v) \206\1470 by easy.
+(simpl).
+(erewrite IHmerge_ind; easy).
+Qed.
+Lemma remove_qubit_merge :
+  forall (\206\147 \206\147' : Ctx) W (p : Pat W) v,
+  \206\147 \226\138\162 p :Pat -> \206\147' \226\169\181 singleton v Qubit \226\136\153 \206\147 -> remove_pat (qubit v) \206\147' = \206\147.
+Proof.
+(intros \206\147 \206\147' W p v H H0).
+(erewrite <- (types_pat_no_trail \206\147) by apply H).
+(simpl).
+(assert (remove_pat (bit v) \206\147' = trim \206\147)).
+(apply remove_qubit_merge'; easy).
+(inversion H1).
+easy.
+Qed.
+Lemma remove_bit_pred :
+  forall (\206\147 \206\147' : Ctx) v,
+  \206\147' \226\169\181 singleton v Bit \226\136\153 \206\147 ->
+  size_ctx (remove_pat (bit v) \206\147') = (size_ctx \206\147' - 1)%nat.
+Proof.
+(intros \206\147 \206\147' v H).
+(rewrite (remove_bit_merge' \206\147 \206\147'); trivial).
+(destruct H).
+replace (size_ctx \206\147') with size_octx \206\147' by easy.
+(rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl).
+(rewrite singleton_size).
+(rewrite size_ctx_trim).
+omega.
+Qed.
+Lemma remove_qubit_pred :
+  forall (\206\147 \206\147' : Ctx) v,
+  \206\147' \226\169\181 singleton v Qubit \226\136\153 \206\147 ->
+  size_ctx (remove_pat (qubit v) \206\147') = (size_ctx \206\147' - 1)%nat.
+Proof.
+(intros \206\147 \206\147' v H).
+(rewrite (remove_qubit_merge' \206\147 \206\147'); trivial).
+(destruct H).
+replace (size_ctx \206\147') with size_octx \206\147' by easy.
+(rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl).
+(rewrite singleton_size).
+(rewrite size_ctx_trim).
+omega.
+Qed.
+Lemma maps_to_trim : forall \206\147 v, maps_to v (trim \206\147) = maps_to v \206\147.
+Proof.
+(intros \206\147 v).
+gen \206\147.
+(induction v; intros \206\147).
+-
+(destruct \206\147; trivial).
+(destruct o; trivial).
+(simpl).
+(destruct (trim \206\147); easy).
+-
+(destruct \206\147; trivial).
+(simpl).
+(destruct o).
+(rewrite IHv; easy).
+(rewrite <- IHv).
+(destruct (trim \206\147) eqn:E; trivial).
+(destruct v; easy).
+Qed.
+Lemma subst_pat_trim : forall W \206\147 (p : Pat W), subst_pat (trim \206\147) p = subst_pat \206\147 p.
+Proof.
+(intros W \206\147 p).
+(induction p).
+-
+(simpl).
+easy.
+-
+(simpl).
+(unfold subst_var).
+(rewrite maps_to_trim).
+easy.
+-
+(simpl).
+(unfold subst_var).
+(rewrite maps_to_trim).
+easy.
+-
+(simpl).
+(rewrite IHp1, IHp2).
+easy.
+Qed.
+Lemma trim_types_circ :
+  forall W (c : Circuit W) (\206\147 : Ctx), \206\147 \226\138\162 c :Circ -> trim \206\147 \226\138\162 c :Circ.
+Proof.
+(intros W c).
+(induction c).
+-
+(intros \206\147 WT).
+dependent destruction WT.
+(erewrite types_pat_no_trail by apply t).
+(econstructor; easy).
+-
+(intros \206\147 WT).
+dependent destruction WT.
+(destruct \206\1470 as [| \206\1470], \206\1471 as [| \206\1471]; try invalid_contradiction).
+specialize (types_pat_no_trail _ _ _ t) as NT1.
+econstructor.
+(rewrite <- NT1 in t).
+(apply t).
+2: (apply (trim_merge \206\147 \206\1471 \206\1470 pf1)).
+(simpl).
+(intros \206\1471' \206\147' p2 M' t').
+(destruct \206\1471' as [| \206\1471']; try invalid_contradiction).
+(assert (M'' : (\206\1471' \226\139\147 \206\1470) \226\169\181 \206\1471' \226\136\153 \206\1470)).
+(split; trivial).
+(apply trim_valid).
+(destruct M').
+(apply types_pat_no_trail in t').
+(rewrite <- t' in pf_merge).
+(rewrite <- trim_merge_dist).
+(simpl).
+(rewrite <- pf_merge).
+easy.
+specialize (t0 \206\1471' (\206\1471' \226\139\147 \206\1470) p2 M'' t').
+(destruct M').
+(rewrite pf_merge).
+(apply types_pat_no_trail in t').
+(rewrite <- t').
+(simpl_rewrite (trim_merge_dist \206\1471' \206\1470)).
+(destruct (\206\1471' \226\139\147 \206\1470) as [| \206\147'']; try invalid_contradiction).
+(simpl).
+(apply H).
+(apply t0).
+-
+(intros \206\147 H0).
+dependent destruction H0.
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+econstructor.
+(apply t).
+(intros b).
+(apply H).
+(apply t0).
+(apply types_pat_no_trail in t).
+(rewrite <- t).
+(apply (trim_merge \206\147 \206\1471 \206\1472)).
+easy.
+Qed.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Theorem denote_static_circuit_correct :
+  forall W (\206\1470 \206\147 : Ctx) (c : Circuit W),
+  Static_Circuit c -> \206\147 \226\138\162 c :Circ -> WF_Superoperator (\226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169).
+Proof.
+(intros W \206\1470 \206\147 c).
+gen \206\1470 \206\147.
+(induction c; intros \206\1470 \206\147 STAT WT).
+-
+dependent destruction WT.
+(unfold denote_circuit).
+(simpl).
+(unfold denote_pat).
+(unfold pad).
+subst.
+(rewrite (ctx_wtype_size w p \206\147 t)).
+(apply super_unitary_correct).
+(rewrite Nat.add_sub).
+(match goal with
+ | |- WF_Unitary (?A \226\138\151 ?B) => specialize (kron_unitary A B) as KU
+ end).
+unify_pows_two.
+(simpl in *).
+(rewrite (ctx_wtype_size w p \206\147 t) in *).
+replace (2 ^ (size_ctx \206\1470 + size_ctx \206\147))%nat with
+ (2 ^ size_ctx \206\147 * 2 ^ size_ctx \206\1470)%nat by (simpl; unify_pows_two).
+(apply KU).
+(apply swap_list_unitary).
+(rewrite size_wtype_length).
+(rewrite (ctx_wtype_size w p \206\147 t)).
+omega.
+(intros x).
+(eapply pat_to_list_bounded).
+split.
+validate.
+(rewrite merge_nil_r).
+easy.
+easy.
+(apply id_unitary).
+-
+dependent destruction WT.
+rename p into p1.
+rename \206\1471 into \206\1473.
+rename \206\1472 into \206\1471.
+rename \206\1473 into \206\1472.
+dependent destruction STAT.
+rename H0 into STAT.
+rename H into IH.
+(unfold denote_circuit; simpl).
+(destruct g).
++
+(simpl).
+(destruct pf1).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl_rewrite (octx_wtype_size W p1 \206\1471 t)).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_sub).
+(rewrite <- size_octx_merge by easy).
+(rewrite <- pf_merge in *).
+(simpl).
+(eapply (IH p1); trivial).
+(eapply t0).
+split.
+easy.
+(apply pf_merge).
+easy.
+*
+(rewrite Nat.add_sub).
+(apply apply_U_correct).
+(rewrite size_wtype_length).
+reflexivity.
+(unfold subst_pat).
+replace (size_wtype W) with \226\159\166 W \226\159\167 by easy.
+(rewrite <- size_octx_merge by easy).
+(intros x IN).
+(apply Nat.lt_lt_add_l).
+(rewrite <- pf_merge in *).
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply pat_to_list_bounded).
+split.
+assumption.
+(apply pf_merge).
+(apply t).
+(apply IN).
++
+(simpl).
+(destruct pf1).
+(rewrite pf_merge in *).
+(rewrite Nat.add_sub).
+(apply compose_super_correct).
+*
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+(rewrite pf_merge).
+(apply pf_valid).
+(apply pf_merge).
+easy.
+*
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(rewrite pf_merge).
+(rewrite size_octx_merge by easy).
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(simpl).
+(rewrite singleton_size).
+(simpl).
+(rewrite Nat.add_succ_r).
+specialize (apply_U_correct Qubit) as AUC.
+(simpl in AUC).
+(apply AUC).
+easy.
+(intros x IN).
+(assert (L : (x < size_octx \206\147)%nat)).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply pat_to_list_bounded).
+split.
+validate.
+(apply pf_merge).
+(apply types_bit).
+(apply singleton_singleton).
+easy.
+(rewrite pf_merge in L).
+(rewrite size_octx_merge in L; trivial).
+(simpl in L).
+(rewrite singleton_size in L).
+omega.
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new0_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new1_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Bit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new0_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Bit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new1_correct).
++
+(simpl).
+dependent destruction p1.
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.add_sub).
+replace (size_ctx \206\147) with size_octx (Valid (update_at \206\147 v (Some Bit))).
+2: {
+(simpl).
+(rewrite denote_index_update_some with (w := Qubit)).
+reflexivity.
+(eapply index_merge_l).
+(apply pf1).
+(destruct \206\1471).
+invalid_contradiction.
+(apply singleton_index).
+(inversion t).
+easy.
+}
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(inversion t; subst).
+(eapply update_at_merge; [ apply H1 | apply singleton_singleton | easy ]).
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ apply t | apply pf1 ]).
++
+(simpl).
+(apply compose_super_correct).
+*
+(rewrite Nat.add_sub).
+(unfold denote_circuit in IH).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+(apply pf1).
+(apply t).
+*
+dependent destruction t.
+(simpl).
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Nat.lt_lt_add_l).
+(apply singleton_equiv in s; subst).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (bit x) \206\147).
+2: (erewrite remove_bit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_bit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_bit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (qubit x) \206\147).
+2: (erewrite remove_qubit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_qubit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (qubit x) \206\147).
+2: (erewrite remove_qubit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_qubit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
+-
+(inversion STAT).
+Qed.
+Theorem denote_static_box_correct :
+  forall W1 W2 (c : Box W1 W2),
+  Static_Box c -> Typed_Box c -> WF_Superoperator (\226\159\166 c \226\159\167).
+Proof.
+(intros W1 W2 c STAT WT).
+(simpl).
+(unfold denote_box).
+(unfold denote_db_box).
+(destruct c as [c']).
+(inversion STAT; subst).
+clear STAT.
+rename H0 into STAT.
+(unfold Typed_Box in WT).
+(simpl).
+(destruct (add_fresh W1 []) as [p \206\147] eqn:E).
+specialize (STAT p).
+specialize (WT \206\147 p).
+specialize (denote_static_circuit_correct W2 [] \206\147 (c' p) STAT) as WFC.
+(unfold denote_circuit in WFC).
+(simpl in WFC).
+(rewrite (ctx_wtype_size W1 p \206\147)).
+(apply WFC).
+(apply WT).
+(apply add_fresh_typed_empty).
+easy.
+(apply add_fresh_typed_empty).
+easy.
+Qed.
+Definition HOAS_Equiv {W1} {W2} (c1 c2 : Box W1 W2) :=
+  forall \207\129 b, denote_box b c1 \207\129 == denote_box b c2 \207\129.
+Notation "a \226\137\161 b" := (HOAS_Equiv a b) (at level 70) : circ_scope.
+Hint Unfold HOAS_Equiv: den_db.
+Lemma HOAS_Equiv_refl : forall w1 w2 (c : Box w1 w2), c \226\137\161 c.
+Proof.
+(intros w1 w2 c \207\129 b).
+reflexivity.
+Qed.
+Lemma HOAS_Equiv_sym : forall w1 w2 (c1 c2 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c1.
+Proof.
+(intros).
+(intros \207\129 b).
+(unfold HOAS_Equiv in H).
+(rewrite H).
+reflexivity.
+Qed.
+Lemma HOAS_Equiv_trans :
+  forall w1 w2 (c1 c2 c3 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c3 -> c1 \226\137\161 c3.
+Proof.
+(intros).
+(intros \207\129 b).
+(unfold HOAS_Equiv in H).
+(rewrite H; auto).
+Qed.
+Add Parametric Relation  W1 W2 : Box W1 W2 @HOAS_Equiv W1 W2 reflexivity proved by
+ HOAS_Equiv_refl W1 W2 symmetry proved by HOAS_Equiv_sym W1 W2 transitivity proved
+ by HOAS_Equiv_trans W1 W2 as eq_set_rel.
+Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c = c.
+Proof.
+(destruct c).
+(unfold inSeq).
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p).
+(remember (c p) as c0).
+clear c p Heqc0.
+(induction c0; auto).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+Qed.
+Lemma inSeq_id_r : forall w1 w2 (c : Box w1 w2), c \194\183 id_circ = c.
+Proof.
+(destruct c).
+(unfold inSeq).
+(simpl).
+reflexivity.
+Qed.
+Lemma inSeq_assoc :
+  forall {w1} {w2} {w3} {w4} (c1 : Box w1 w2) (c2 : Box w2 w3) (c3 : Box w3 w4),
+  c3 \194\183 c2 \194\183 c1 = (c3 \194\183 c2) \194\183 c1.
+Proof.
+(intros w1 w2 w3 w4 [c1] [c2] [c3]).
+(unfold inSeq).
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p1).
+(simpl).
+(remember (c1 p1) as c).
+clear c1 p1 Heqc.
+dependent induction c.
+-
+reflexivity.
+-
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p2).
+(rewrite H).
+reflexivity.
+-
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p2).
+(rewrite H).
+reflexivity.
+Qed.
+Hint Unfold get_fresh add_fresh_state add_fresh_pat process_gate process_gate_state:
+  den_db.
+Hint Unfold apply_new0 apply_new1 apply_U apply_unitary denote_ctrls apply_meas
+  apply_discard apply_assert0 apply_assert1 compose_super Splus swap_list swap_two
+  pad denote_box denote_pat super: den_db.
+Hint Unfold get_fresh add_fresh_state add_fresh_pat process_gate process_gate_state:
+  vector_den_db.
+Hint Unfold apply_new0 apply_new1 apply_U apply_unitary denote_ctrls apply_meas
+  apply_discard apply_assert0 apply_assert1 compose_super Splus swap_list swap_two
+  pad denote_box denote_pat: vector_den_db.
+Ltac
+ vector_denote :=
+  intros; repeat (autounfold with vector_den_db; simpl);
+   repeat rewrite <- bool_to_ket_matrix_eq;
+   repeat replace \226\136\1630\226\159\169\226\159\1680\226\136\163 with outer_product \226\136\1630\226\159\169 by reflexivity;
+   repeat replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with outer_product \226\136\1631\226\159\169 by reflexivity;
+   repeat rewrite outer_product_kron; repeat rewrite super_outer_product;
+   apply outer_product_eq.
+Ltac matrix_denote := intros; repeat (autounfold with den_db; simpl).
+Hint Rewrite subst_pat_fresh_empty : proof_db.
+Hint Rewrite size_fresh_ctx using validate : proof_db.
+Hint Rewrite Nat.leb_refl : proof_db.
+Hint Rewrite denote_pat_fresh_id : proof_db.
+Hint Rewrite swap_fresh_seq : proof_db.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqxefnJj"
+Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
