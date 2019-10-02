@@ -832,12 +832,14 @@ Ltac
   unfold ctx_to_matrix;
    repeat
     match goal with
-    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace
-      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
-      by
-        (simpl; Msimpl; rewrite ctx_to_mat_list_length;
-          try rewrite size_ntensor, Nat.mul_1_r; easy)
+    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
+      @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li) by
+      simpl; Msimpl; rewrite ctx_to_mat_list_length;
+       try rewrite size_ntensor, Nat.mul_1_r; easy
     end.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqDYRBhg"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Lemma ctx_lookup_exists :
   forall v \206\147 f,
   get_context (b_var v) \226\138\130 \206\147 ->
@@ -894,25 +896,6 @@ Fact Toffoli_at_spec :
   (\226\159\166 Toffoli_at n x y z \226\159\167) (\226\168\130 li) =
   \226\168\130 update_at li z (bool_to_matrix ((b1 && b2) \226\138\149 b3)).
 Admitted.
-Lemma init_at_spec :
-  forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
-  length l1 = i ->
-  length l2 = n - i ->
-  (forall j, Mixed_State (nth j l1 A)) ->
-  (forall j, Mixed_State (nth j l2 B)) ->
-  i < S n ->
-  (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) == \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
-Ltac
- rewrite_inPar'' :=
-  match goal with
-  | |-
-    context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
-                (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
-        let IP := fresh "IP" in
-        specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP;
-         rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
-         rewrite IP; clear IP
-  end; try (solve [ type_check ]).
 Ltac
  rewrite_inPar'' :=
   match goal with
@@ -924,23 +907,10 @@ Ltac
          rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
          rewrite IP; clear IP
   end; try (solve [ type_check ]).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqExfJeq"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Ltac
  tensor_tac :=
   simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
    lia.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqS8znVM"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Ltac
- tensor_tac :=
-  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-   lia.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqAk6O7E"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Lemma init_at_spec :
   forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
   length l1 = i ->
@@ -1028,8 +998,7 @@ restore_dims tensor_tac.
 -
 (simpl).
 listify_kron.
-Timeout 1 About listify_kron.
-Timeout 1 Print listify_kron.
-Timeout 1 Print Ltac listify_kron.
+(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
+  try omega).
 (* Auto-generated comment: Succeeded. *)
 
