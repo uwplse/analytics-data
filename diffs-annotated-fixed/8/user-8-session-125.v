@@ -41,6 +41,5 @@ setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
 (repeat rewrite Mmult_assoc).
 restore_dims.
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
