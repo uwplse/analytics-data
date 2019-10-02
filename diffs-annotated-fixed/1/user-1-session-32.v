@@ -73,5 +73,20 @@ Proof with
 (simpl; eauto with sf).
 (induction l) ...
 Show Proof.
+Print HintDb core.
+Print HintDb sf.
+Abort.
+Lemma insert_permutation :
+  forall a l, Permutation (a :: l) (insert a l).
+Proof with (simpl; eauto with sf).
+(induction l) ...
+(destruct (a <=? a0)) ...
+Qed.
+Hint Resolve insert_permutation: sf.
+Theorem insertion_sort_permutation :
+  forall l, Permutation l (insertion_sort l).
+Proof with (simpl; eauto with sf).
+(induction l) ...
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
