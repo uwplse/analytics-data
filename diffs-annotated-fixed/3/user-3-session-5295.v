@@ -508,5 +508,11 @@ step.
 (destruct r; try step).
 (destruct r; try step).
 (destruct (v == v0); subst).
-(* Auto-generated comment: Succeeded. *)
+-
+step.
+-
+step.
+Unshelve.
+auto.
+(* Auto-generated comment: Failed. *)
 
