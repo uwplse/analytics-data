@@ -19,7 +19,7 @@ Inductive term :=
   | Cons : term -> term -> term
   | App : term -> term -> term.
 Definition primitive (name : string) : bool :=
-  List.find (String.eq name)
+  List.find (String.eqb name)
     ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil).
 (* Auto-generated comment: Failed. *)
 
