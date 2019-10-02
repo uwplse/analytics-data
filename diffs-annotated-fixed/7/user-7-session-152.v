@@ -58,6 +58,5 @@ exists w2.
 (apply Hsem; assumption).
 (intros t1' t2' Hsem).
 (intros w1).
-specialize (Hsem w1).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
