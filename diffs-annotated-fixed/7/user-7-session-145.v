@@ -125,29 +125,5 @@ exists w2.
 (intros v Hm).
 (induction w1).
 Abort.
-(intros X w1).
-(induction w1).
-admit.
-(intros t).
-(intros k w2 t' X' HX HX' Hsem).
-(intros tx v Hm).
-Abort.
-Lemma sem_sub_fresh_var__sem_sub_exist :
-  forall (X : id) (t t' : ty) (X' : id), IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
-Proof.
-(intros X t t').
-generalize dependent t.
-(induction t').
-admit.
-admit.
-admit.
-admit.
--
-(intros t X' HX HX' Hsem).
-(intros k w1).
-(induction w1).
-exists 0.
-(intros v Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
