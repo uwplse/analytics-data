@@ -434,5 +434,7 @@ Lemma f_b_subst__spec_permute :
 Proof.
 (intros X Y sx sy t Hwfx Hwfy).
 generalize dependent t.
-(induction t).
-(* Auto-generated comment: Failed. *)
+(induction t; try (solve [ simpl; reflexivity ])).
+-
+(repeat rewrite f_subst_pair).
+(* Failed. *)
