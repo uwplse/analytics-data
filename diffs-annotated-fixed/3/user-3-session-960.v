@@ -290,6 +290,5 @@ econstructor.
 (intros).
 (destruct c; simpl).
 Search -Ascii.ascii_of_nat.
-(rewrite Ascii.ascii_nat_embedding; auto).
 (* Auto-generated comment: Succeeded. *)
 
