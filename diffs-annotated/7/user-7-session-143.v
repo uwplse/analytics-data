@@ -110,6 +110,9 @@ Lemma sem_sub_fresh_var__sem_sub_any :
 (induction t; try (solve [ intros; simpl; tauto ])).
 -
 admit.
+admit.
++
+admit.
 +
 admit.
 +
