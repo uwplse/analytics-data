@@ -981,6 +981,14 @@ Msimpl.
 mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169 with @Zero 1 1 by lma.
 mat_replace \226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169 with I 1 by lma.
 Msimpl.
+restore_dims.
 (rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
-(* Auto-generated comment: Failed. *)
+Msimpl.
+reflexivity.
++
+mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169 with @Zero 1 1 by lma.
+mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1630\226\159\169 with I 1 by lma.
+Msimpl.
+(rewrite id_kron' by (apply Nat.pow_nonzero; lia)).
+(* Auto-generated comment: Succeeded. *)
 
