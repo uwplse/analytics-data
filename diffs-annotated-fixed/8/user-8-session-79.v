@@ -903,7 +903,7 @@ Lemma init_at_spec :
   i < S n ->
   (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) == \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
 Ltac
- rewrite_inPar' :=
+ rewrite_inPar'' :=
   match goal with
   | |-
     context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
@@ -913,5 +913,8 @@ Ltac
          rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
          rewrite IP
   end; try (solve [ type_check ]).
-(* Auto-generated comment: Failed. *)
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqhtYRWs"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Succeeded. *)
 
