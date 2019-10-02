@@ -145,5 +145,5 @@ eauto using log_length_ok_nil.
 (simpl; lia).
 }
 congruence.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
