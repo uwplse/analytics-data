@@ -245,7 +245,6 @@ Qed.
 SearchPattern (_ <= Nat.max _ _).
 exists w,v.
 exists 0,(TRef t).
-(destruct k).
-reflexivity.
-split.
+(split; intros w1; exists w1; auto).
+-
 (* Failed. *)
