@@ -26,4 +26,5 @@ autorewrite with proof_db.
 (unfold pad).
 (simpl).
 (rewrite Nat.sub_diag).
-(rewrite super_I; auto).
+(rewrite super_I; reflexivity).
+(* Failed. *)
