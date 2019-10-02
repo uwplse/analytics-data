@@ -433,10 +433,3 @@ IO bool :=
           end
       end
   end.
-Definition exec_test : itree zE unit -> IO bool := exec_test' 1.
-Definition test_crypto : itree zE unit := zip tester server.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqXyZu0z"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Eval compute in IO.very_unsafe_eval (exec_test test_crypto).
