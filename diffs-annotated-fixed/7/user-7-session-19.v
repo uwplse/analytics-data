@@ -96,8 +96,5 @@ Proof.
 reflexivity.
 15: {
 idtac.
-clear IHt'.
-(simpl).
-(apply f_equal).
 (* Auto-generated comment: Failed. *)
 
