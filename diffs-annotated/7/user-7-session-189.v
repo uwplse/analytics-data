@@ -15,4 +15,4 @@ Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
 Lemma free_in_type__decidable : forall (X : id) (t : ty), Decidable.decidable (free_in_type X t).
-(* Auto-generated comment: Failed. *)
+(* Failed. *)
