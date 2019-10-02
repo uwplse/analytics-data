@@ -195,4 +195,5 @@ subst.
 (destruct w).
 +
 (apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
 (* Failed. *)
