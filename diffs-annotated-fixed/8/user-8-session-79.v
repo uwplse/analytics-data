@@ -1181,6 +1181,6 @@ listify_kron.
 (simpl; reflexivity).
 }
 4: {
-rewrite_inPar'.
-(* Auto-generated comment: Succeeded. *)
+(rewrite kron_assoc).
+(* Auto-generated comment: Failed. *)
 
