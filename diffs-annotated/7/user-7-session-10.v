@@ -81,5 +81,11 @@ Proof.
            rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
             apply sub_r_union_l__inv in Hsub; destruct Hsub as [Hsub1 Hsub2]; specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize
             (IHt2_2 _ _ Hsub2 Hnf1 Hnf22); split; tauto || constructor; tauto
+     | Hsub:|- unite_pairs (TUnion _ _) _ << TPair _ _
+       |- _ =>
+           rewrite unite_pairs_union_t in Hsub; destruct (in_nf_union__inv _ _ Hnf1) as [Hnf11 Hnf12]; apply sub_r_union_l__inv in Hsub;
+            destruct Hsub as [Hsub1 Hsub2]; specialize (IHt1_1 _ _ _ Hsub1 Hnf11 Hnf2); specialize (IHt1_2 _ _ _ Hsub2 Hnf12 Hnf2); split;
+            tauto || constructor; tauto
      end ])).
+Qed.
 (* Failed. *)
