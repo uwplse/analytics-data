@@ -48,8 +48,7 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
-Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
+Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k] v <$ t.
 Proof.
-(intros v Hv; induction Hv).
--
+Abort.
 (* Failed. *)
