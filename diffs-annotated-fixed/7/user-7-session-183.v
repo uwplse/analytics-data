@@ -98,6 +98,6 @@ Proof.
 -
 subst.
 exists Y,t.
-(rewrite subst_eq_id).
+(rewrite subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
