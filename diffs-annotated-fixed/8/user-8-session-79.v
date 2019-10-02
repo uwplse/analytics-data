@@ -1040,6 +1040,5 @@ Set Printing All.
  end).
 2: {
 reflexivity.
-}
 (* Auto-generated comment: Succeeded. *)
 
