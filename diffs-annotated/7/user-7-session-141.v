@@ -46,38 +46,5 @@ Proof.
 (apply sem_sub_k_exist_fresh_l).
 assumption.
 Qed.
-Lemma sem_sub_k_fresh_var__sem_sub_exist :
-  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
-Proof.
-(intros X t).
-(induction t).
--
-(intros t' X' Hfresh Hsem).
-(simpl in *).
-(apply sem_sub__trans with (TCName c); try assumption).
-(apply sem_sub_exist_fresh_l).
-(unfold fresh_in_ty, fresh).
-(simpl).
-(pose proof (IdSetFacts.empty_iff X) as H).
-tauto.
--
-(intros t' X' Hfresh Hsem).
-(simpl in *).
-(induction t').
-+
-(intros k; destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]; specialize (Hsem k w);
-  destruct Hsem as [w2 Hsem]; specialize (Hsem _ Hm); apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_cname__inv in Hsem).
-(inversion Hsem).
-+
-clear IHt'1 IHt'2.
-(apply sem_sub_pair__inv in Hsem).
-(destruct Hsem as [Hsem1 Hsem2]).
-(destruct (fresh_in_ty_pair__inv _ _ _ Hfresh) as [Hfresh1 Hfresh2]).
-specialize (IHt1 _ _ Hfresh1 Hsem1).
-specialize (IHt2 _ _ Hfresh2 Hsem2).
-(apply sem_sub__trans with (TPair (TExist X t1) (TExist X t2))).
-2: {
-(apply sem_sub_pair; assumption).
-}
+Lemma sem_sub_k_exist_pair : forall (X : id) (t1 t2 : ty), ||- [TExist X (TPair t1 t2)]<= [TPair (TExist X t1) (TExist X t2)].
 (* Failed. *)
