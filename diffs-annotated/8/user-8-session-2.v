@@ -48,3 +48,5 @@ Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li (trans u)))).
+(rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
+(simpl).
