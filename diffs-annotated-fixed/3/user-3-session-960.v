@@ -305,6 +305,9 @@ admit.
 typeclasses eauto.
 -
 (simpl).
+(unfold EqualDec).
 decide equality.
-(* Auto-generated comment: Failed. *)
+decide equality.
+decide equality.
+(* Auto-generated comment: Succeeded. *)
 
