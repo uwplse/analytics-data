@@ -464,12 +464,6 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Proof.
 (intros (Hpe, Hpc) Hc).
-(unfold idempotent).
-(intros Hidemp).
-(intros Himpl1 Hc_crash_r Hr_alt).
-split.
--
 (rew Hpe; auto).
-(intros s1 s2 t Hl Hpre).
 (* Auto-generated comment: Succeeded. *)
 
