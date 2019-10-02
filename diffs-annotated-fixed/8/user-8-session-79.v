@@ -1226,6 +1226,6 @@ rewrite_inPar.
 all: (simpl; reflexivity).
 }
 1: {
-(rewrite_inPar; try tensor_dims).
+(repeat rewrite_inPar).
 (* Auto-generated comment: Succeeded. *)
 
