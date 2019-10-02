@@ -43,6 +43,22 @@ itree E A :=
   | x :: l' => b <- trigger Or;; (if b : bool then ret x else choose x l')
   end.
 Redirect "/tmp/coq16819yXU" Print Ltac Signatures.
-Definition kvs_state exp_ : Type := list connection * list (N * exp_ N)%type.
-Redirect "/tmp/coq16819Msg" Print Ltac Signatures.
+Definition kvs_state exp_ : Type := list connection * list (N * exp_ N).
+Redirect "/tmp/coq16819Z2m" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Fixpoint choose {A E} `{nondetE -< E} (a : A) (l : list A) : itree E A :=
+  match l with
+  | [] => ret a
+  | x :: l' => b <- trigger Or;; (if b : bool then ret x else choose x l')
+  end.
+Redirect "/tmp/coq16819mAt" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition smi : itree smE void :=
+  rec
+    (fun cst : kvs_state exp =>
+     let (conns, st) := cst in
+     match conns with
+     | [] => conn <- trigger App_Accept;; call ([conn], st)
+     | c0 :: cs => call cst
+     end).
+(* Failed. *)
