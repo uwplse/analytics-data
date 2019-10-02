@@ -176,6 +176,6 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 (step_proc; intros).
 (destruct a'; simpl in *; intuition).
-(destruct a'; simpl in *; intuition eauto).
+(destruct a'; simpl in *; intuition).
 (* Auto-generated comment: Succeeded. *)
 
