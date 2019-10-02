@@ -95,6 +95,5 @@ subst.
 reflexivity.
 +
 (destruct (lt_dec a 3)).
-intuition lia.
 (* Auto-generated comment: Succeeded. *)
 
