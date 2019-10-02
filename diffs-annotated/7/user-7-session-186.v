@@ -22,5 +22,8 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm).
 -
-(induction w'; induction t'; intros Hm'; try contradiction).
+(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction ])).
++
+split.
+*
 (* Failed. *)
