@@ -125,10 +125,16 @@ exists w2.
 (intros v Hm).
 (induction w1).
 Abort.
-Lemma xxx :
-  forall (X : id) (w1 : ty) (t : ty) (k w2 : nat) (t' : ty) (X' : id),
-  IdSet.In X (FV t) ->
-  fresh_in_ty X' t' ->
-  (forall v, |-[ k, w1] v <$ [X := TVar X'] t -> |-[ k, w2] v <$ t') -> forall tx : ty, forall v, |-[ k, w1] v <$ [X := tx] t -> |-[ k, w2] v <$ t'.
-(* Auto-generated comment: Succeeded. *)
+(intros X w1).
+(induction w1).
+admit.
+(intros t).
+(induction t).
+admit.
+admit.
+admit.
+admit.
+-
+(intros k w2 t' X' HX HX').
+(* Auto-generated comment: Failed. *)
 
