@@ -67,5 +67,5 @@ admit.
 -
 admit.
 -
-(rewrite subst_exist in Hm).
-(* Auto-generated comment: Failed. *)
+(pose proof (subst_exist X tx i t) as Heq).
+(* Failed. *)
