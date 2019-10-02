@@ -1249,6 +1249,8 @@ Proof.
 (induction (c p)).
 -
 matrix_denote.
-restore_dims.
-(* Auto-generated comment: Failed. *)
+Search -subst_pat.
+Search -swap_list_aux.
+Search -pat_to_list.
+(* Auto-generated comment: Succeeded. *)
 
