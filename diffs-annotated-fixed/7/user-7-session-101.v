@@ -20,6 +20,12 @@ Proof.
 exists 1.
 (intros k; destruct k; intros v Hm).
 -
-(apply match_ty_ref__weak_inv in Hm).
+(simpl).
+exists tint.
+constructor.
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
