@@ -149,12 +149,5 @@ reflexivity.
 Check b_free_in_ty__b_free_in_b_subst_neq.
 (apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
 specialize (IHw _ _ Hwftx HX Hm).
-(rewrite f_subst_not_b_free_in_ty; auto).
-}
-}
-*
-(destruct (beq_idP X' i0)).
-{
-subst.
-(split; intros HX).
+(split; intros i0).
 (* Failed. *)
