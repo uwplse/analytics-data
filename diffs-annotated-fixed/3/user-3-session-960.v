@@ -130,8 +130,10 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Print FixedLengthEncoder.
-Theorem nat_le_inverse base : forall x, le_to_nat (nat_to_le base x) = x.
+Theorem nat_le_inverse base : forall n, le_to_nat (nat_to_le base n) = n.
 Proof.
 (intros).
+(induction n as [n IHn] using lt_wf_ind).
+(destruct n).
 (* Auto-generated comment: Succeeded. *)
 
