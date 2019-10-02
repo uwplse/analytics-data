@@ -243,9 +243,9 @@ assumption.
 (apply match_ty_ev).
 Qed.
 SearchPattern (_ <= Nat.max _ _).
-(apply Nat.le_max_l).
-(apply Nat.le_max_r).
+exists w,v.
+(apply match_ty_union_1).
+assumption.
 -
-(destruct (IHt1 k) as [w [v Hm]]).
-exists w v.
+exists w,(TRef t).
 (* Failed. *)
