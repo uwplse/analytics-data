@@ -13,6 +13,15 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Close Scope btjm.
 Open Scope btjmi.
+Lemma sem_eq_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq_k in *).
+(intros v).
+specialize (Hsem1 v).
+specialize (Hsem2 v).
+tauto.
+Qed.
 Lemma match_ty_i_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
@@ -87,9 +96,6 @@ Qed.
 Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
 (intros v Hv; induction Hv; intros k).
-Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
-Proof.
-(intros v Hv; induction Hv; intros k).
 -
 (destruct k; reflexivity).
 -
@@ -100,8 +106,6 @@ constructor.
 (simpl).
 tauto.
 Qed.
-Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
-Proof.
 Lemma match_ty_i__transitive_on_value_type :
   forall v1 v2 t3 : ty, value_type v2 -> forall k : nat, |-[ k] v1 <$ v2 -> |-[ k] v2 <$ t3 -> |-[ k] v1 <$ t3.
 Proof.
