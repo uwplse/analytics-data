@@ -64,5 +64,7 @@ Msimpl.
 (destruct W; try (solve [ inversion U ])).
 -
 (simpl).
+(unfold denote_pat; simpl).
+(unfold swap_list; simpl).
 (* Auto-generated comment: Succeeded. *)
 
