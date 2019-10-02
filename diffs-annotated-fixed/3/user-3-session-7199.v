@@ -312,6 +312,6 @@ generalize dependent a.
 -
 (exfalso; lia).
 -
-Search -firstn -cons.
+(destruct a0; simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
