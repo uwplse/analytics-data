@@ -99,6 +99,19 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
+Function
+ subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
+   match t with
+   | TCName _ => t
+   | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
+   | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
+   | TExist y t' =>
+       if IdSet.mem y (FV s)
+       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in mk_subst_exist x z tz (subst x s tz)
+       else mk_subst_exist x y t' (subst x s t')
+   | TVar y => if beq_id x y then s else t
+   | TEV y => t
+   end.
 -
 (intros).
 (simpl).
@@ -133,7 +146,7 @@ Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
 Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
 Proof.
 (intros X s t1 t2).
-(unfold subst).
-Search -subst_terminate.
+Search -subst.
+(apply subst_equation).
 (* Auto-generated comment: Failed. *)
 
