@@ -33,10 +33,5 @@ Fixpoint fib (fuel : nat) (a b : N) : list N :=
   end.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqUPskrz" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqKaxtcz" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Eval compute in nth 5 (fib 9 0 1) 42.
-Eval compute in Str_nth 5 (Fib 0 1).
 (* Auto-generated comment: Succeeded. *)
 
