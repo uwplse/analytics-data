@@ -8,6 +8,7 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
+Require Import Coq.Program.Wf.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -60,7 +61,31 @@ Fixpoint rename (x y : id) (t : ty) :=
   | TEV z => t
   end
 where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
+Fixpoint size (t : ty) :=
+  match t with
+  | TCName _ => 1
+  | TPair t1 t2 => 1 + size t1 + size t2
+  | TUnion t1 t2 => 1 + size t1 + size t2
+  | TExist z t' => 1 + size t'
+  | TVar z => 1
+  | TEV z => 1
+  end.
 Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
+Proof.
+(intros x y).
+(induction t; simpl; try (solve [ reflexivity | rewrite IHt1; rewrite IHt2; reflexivity ])).
+-
+(apply f_equal).
+(destruct (beq_idP x i)).
++
+subst.
+reflexivity.
++
+assumption.
+-
+(destruct (beq_idP x i); reflexivity).
+Qed.
+Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 #[program]
 Fixpoint subst (x : id) (s t : ty) {measure size t :=
   match t with
@@ -75,4 +100,3 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-(* Failed. *)
