@@ -107,4 +107,6 @@ Proof.
 Qed.
 Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
 (induction Hsub; try inversion Heq1; inversion Heq2; subst).
+reflexivity.
+(apply IHHsub).
 (* Failed. *)
