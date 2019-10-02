@@ -18,6 +18,7 @@ Open Scope btjm.
 -
 assumption.
 -
+(unfold sem_sub_k in *).
 auto.
 (* Auto-generated comment: Failed. *)
 
