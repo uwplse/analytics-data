@@ -77,6 +77,6 @@ Proof.
 (rewrite IHt2).
 reflexivity.
 -
-(rewrite subst_exist).
+(rewrite subst_equation).
 (* Auto-generated comment: Failed. *)
 
