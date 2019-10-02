@@ -358,6 +358,31 @@ reflexivity.
 (simpl).
 (rewrite IHn').
 (rewrite plus_assoc).
-reflxivity.
-(* Auto-generated comment: Failed. *)
+Qed.
+Theorem mult_assoc : forall n m p : nat, n * (m * p) = n * m * p.
+Proof.
+(intros n m p).
+(induction n as [| n' IHn']).
+-
+reflexivity.
+-
+(simpl).
+(rewrite IHn').
+(rewrite mult_plus_distr_r).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFb4WeP"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem beq_nat_refl : forall n : nat, true = beq_nat n n.
+Proof.
+(intros n).
+(induction n as [| n' IHn']).
+-
+reflexivity.
+-
+(* Auto-generated comment: Succeeded. *)
 
