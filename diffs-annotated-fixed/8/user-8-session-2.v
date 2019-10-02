@@ -84,6 +84,11 @@ Proof.
 (repeat rewrite ctrls_to_list_empty).
 (simpl; Msimpl).
 reflexivity.
-(dependent destruction u; simpl; reflexivity).
-(* Auto-generated comment: Failed. *)
+(dependent destruction u; simpl; Msimpl; reflexivity).
+-
+dependent destruction u.
++
+(simpl).
+(destruct li as [| k li]; trivial).
+(* Auto-generated comment: Succeeded. *)
 
