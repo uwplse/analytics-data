@@ -230,9 +230,6 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
-assumption.
-}
 (destruct Hcontra as [v Hcontra]).
 (destruct (beq_idP X i)).
 +
@@ -255,4 +252,7 @@ admit.
 (rewrite Heq in Hcontra).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
+(assert (Hnotm' : ~ (exists v, |-[ k, w] v <$ [i := tx] t))).
+{
+(intros [v Hm]).
 (* Failed. *)
