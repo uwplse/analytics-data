@@ -141,7 +141,24 @@ assumption.
 Qed.
 Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [X := tint] t.
 (intros X; induction w; induction t; intros v).
-(rewrite subst_var_neq; try assumption).
-exists v.
-assumption.
+(intros X; induction w; induction t; intros v;
+  try (solve
+   [ intros Hm; exists v; assumption
+   | intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; destruct (IHt1 _ Hm1) as [v1' Hm1'];
+      destruct (IHt2 _ Hm2) as [v2' Hm2']; exists (TPair v1' v2'); rewrite subst_pair; apply match_ty_pair; assumption
+   | intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ];
+      exists v'; rewrite subst_union; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption
+   | intros Hm; destruct (beq_idP X i);
+      [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
+-
+(intros Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(intros Hm).
+(rewrite subst_equation).
+Search -IdSet.mem.
+(destruct (IdSet.mem i (FV tint)) eqn:Hmem).
+(simpl in Hmem).
+Search -IdSet.empty.
+(rewrite IdSetFacts.empty_b).
 (* Failed. *)
