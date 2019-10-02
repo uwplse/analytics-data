@@ -548,4 +548,3 @@ Lemma WF_ctx_to_matrix : forall \206\147 f, WF_Matrix (ctx_to_matrix \206\147 f)
 Proof.
 (induction \206\147; intros f).
 -
-auto with wf_db.
