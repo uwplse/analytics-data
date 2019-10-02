@@ -1238,5 +1238,6 @@ Timeout 1 Print ancilla_free_box_valid.
 specialize @ancilla_free_box_valid as AV.
 (unfold valid_ancillae_box in AV).
 (rewrite AV; [  | apply ancilla_free_X_at | type_check ]).
+(rewrite AV).
 (* Auto-generated comment: Succeeded. *)
 
