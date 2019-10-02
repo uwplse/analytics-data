@@ -38,6 +38,6 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqRuTBbi" Print Ltac
 Timeout 1 Print Grammar tactic.
 Check nth.
 Print nth.
-Eval compute in nth 10 (fib 11 0 1) 233.
-(* Auto-generated comment: Succeeded. *)
+Eval compute in nth 5 (fib 10 0 1) - 1.
+(* Auto-generated comment: Failed. *)
 
