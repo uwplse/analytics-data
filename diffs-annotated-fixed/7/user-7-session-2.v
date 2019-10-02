@@ -140,6 +140,8 @@ Proof.
 (remember (TPair t1' t2') as ty eqn:Heqy ).
 (induction Hsub; inversion Heqx; inversion Heqy; subst).
 -
-(split; tauto).
+(split; assumption).
+-
+(simpl in Hsub).
 (* Auto-generated comment: Failed. *)
 
