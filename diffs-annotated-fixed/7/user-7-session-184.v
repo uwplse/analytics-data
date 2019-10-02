@@ -68,6 +68,17 @@ admit.
 admit.
 -
 (pose proof (subst_exist X tx i t) as Heq).
-(destruct Heq as [X [tz Heq]]).
+(destruct Heq as [Z [tz Heq]]).
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
 (* Auto-generated comment: Failed. *)
 
