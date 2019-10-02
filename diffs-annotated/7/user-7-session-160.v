@@ -34,5 +34,12 @@ Proof.
 (apply fresh_union__inv in Hfresh).
 assumption.
 Qed.
-Lemma fresh_in_ty_exist_neq__inv : forall (X X' : id) (t : ty), X <> X' -> fresh_in_ty X (TExist X' t) -> fresh_in_ty X t'.
-(* Auto-generated comment: Failed. *)
+Proof.
+(intros X X' t Hneq Hfresh).
+(unfold fresh_in_ty in *; simpl in Hfresh; simpl).
+(unfold fresh in *).
+Search -IdSet.remove.
+(intros Hcontra).
+Search -IdSet.remove.
+(apply IdSetFacts.remove_2 in Hcontra).
+(* Failed. *)
