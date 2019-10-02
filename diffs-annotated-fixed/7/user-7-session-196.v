@@ -64,11 +64,14 @@ Lemma b_subst_cname : forall (X : id) (s : ty) (c : cname), [BX := s] TCName c =
 Proof.
 (intros).
 reflexivity.
-Qed.
-Lemma subst_pair : forall (X : id) (s t1 t2 : ty), [BX := s] TPair t1 t2 = TPair ([BX := s] t1) ([BX := s] t2).
+Lemma b_subst_pair : forall (X : id) (s t1 t2 : ty), [BX := s] TPair t1 t2 = TPair ([BX := s] t1) ([BX := s] t2).
 Proof.
 (intros).
 reflexivity.
 Qed.
+Lemma b_subst_union : forall (X : id) (s t1 t2 : ty), [BX := s] TUnion t1 t2 = TUnion ([BX := s] t1) ([BX := s] t2).
+Proof.
+(intros).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
