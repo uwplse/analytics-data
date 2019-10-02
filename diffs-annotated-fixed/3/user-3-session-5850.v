@@ -292,6 +292,6 @@ Theorem plus_ble_compat_l :
 Proof.
 (intros).
 (induction p as [| p' IHp']).
-reflexivity.
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
