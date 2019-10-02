@@ -143,6 +143,5 @@ Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w
 Lemma match_ty__subst_neq_permute :
   forall (X Y : id) (sx sy : ty) (w : nat) (v t : ty), X <> Y -> |-[ w] v <$ [Y := sy] ([X := sx] t) <-> |-[ w] v <$ [X := sx] ([Y := sy] t).
 (split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst;
-  destruct (IHt1 v1) as [Hm1' _]; destruct (IHt2 v2) as [Hm2' _]).
-(apply match_ty_pair; tauto).
+  destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]).
 (* Failed. *)
