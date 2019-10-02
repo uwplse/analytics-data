@@ -351,6 +351,12 @@ Theorem mult_plus_distr_r : forall n m p : nat, (n + m) * p = n * p + m * p.
 Proof.
 (intros n m p).
 (induction n as [| n' IHn']).
+-
 (simpl).
-(* Auto-generated comment: Succeeded. *)
+reflexivity.
+-
+(simpl).
+(rewrite IHn').
+(rewrite mul_assoc).
+(* Auto-generated comment: Failed. *)
 
