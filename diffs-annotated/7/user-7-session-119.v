@@ -21,4 +21,5 @@ Proof.
 (apply sem_sub__refl).
 -
 (apply sem_sub__trans).
-(* Auto-generated comment: Failed. *)
+(apply sem_sub__trans).
+(* Failed. *)
