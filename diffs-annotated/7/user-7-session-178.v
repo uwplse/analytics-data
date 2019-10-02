@@ -73,15 +73,34 @@ reflexivity.
 Qed.
 Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
 Proof.
-(rewrite subst_equation).
-(rewrite <- beq_id_refl).
+(rewrite Hid).
+(unfold fresh_in_ty, fresh in HY).
+(destruct (IdSetFacts.not_mem_iff (FV s) Y) as [Hmem _]).
+specialize (Hmem HY).
+(rewrite Hmem).
 reflexivity.
 Qed.
-Lemma subst_exist_neq : forall (X : id) (s : ty) (Y : id) (t : ty), X <> Y -> fresh_in_ty Y s -> [X := s] TExist Y t = TExist Y ([X := s] t).
+Lemma subst_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
-(intros X s Y t Hneq HY).
+(intros X t; induction t; simpl; try reflexivity).
+-
+(rewrite subst_pair).
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(rewrite subst_union).
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
 (rewrite subst_equation).
-(destruct (beq_id_false_iff X Y) as [_ Hid]).
-specialize (Hid Hneq).
-(simpl).
+(destruct (beq_idP X i); try reflexivity).
+(destruct (IdSet.mem i (IdSet.singleton X)) eqn:Heq).
++
+(apply IdSetFacts.mem_2 in Heq).
+(apply IdSetFacts.singleton_1 in Heq).
+contradiction.
++
+(rewrite IHt).
 (* Failed. *)
