@@ -14,10 +14,10 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Lemma sem_sub_fresh_var__sem_sub_exist :
   forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Lemma sem_sub_exist_fresh : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]= [t].
 Proof.
 (intros X t).
-(induction t).
+(induction t; intros Hfresh).
 -
-(intros t' X' Hfresh Hsem).
-(simpl in *).
+(intros k).
 (* Failed. *)
