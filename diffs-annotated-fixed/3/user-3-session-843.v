@@ -1460,6 +1460,7 @@ econstructor.
 eexists.
 split.
 -
-rewrite /lookup /readSome.
-(* Auto-generated comment: Succeeded. *)
+(simpl).
+(do 2 eexists; split; econstructor).
+(* Auto-generated comment: Failed. *)
 
