@@ -47,7 +47,12 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
-specialize (IHW2 lb li u).
+(simpl in *).
+(apply IHW2).
++
+(simpl).
+(destruct li as [| k li]; simpl; try lma).
 (destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
 (destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
 (simpl in *).
+(apply IHW2).
