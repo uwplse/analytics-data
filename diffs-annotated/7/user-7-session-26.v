@@ -113,10 +113,9 @@ Proof.
 (split; [ eapply Nat.max_lub_l | eapply Nat.max_lub_r ]; eassumption).
 Qed.
 Lemma inv_depth_mk_nf : forall t : ty, | MkNF( t) | = | t |.
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq_k in *).
+(intros v).
+specialize (Hsem1 v).
 specialize (Hsem v).
-tauto.
-Qed.
-Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
-Proof.
-auto with DBBetaJulia.
 (* Failed. *)
