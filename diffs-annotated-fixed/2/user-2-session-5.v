@@ -24,12 +24,21 @@ Fixpoint value (t : term) : bool :=
   | Nil => true
   | Ident _ => true
   | Cons a b => value a && value b
-  | App f a => match f with
-               | Ident name => String.eqb name "lam"
-               | _ => false
-               end
+  | App f a => false
   end.
-Redirect "/tmp/coqp1KVav" Print Ltac Signatures.
+Redirect "/tmp/coqhYSoRC" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-(* Auto-generated comment: Succeeded. *)
+Module TermNotations.
+Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
+Notation "[ x ]" := (Cons x Nil) : coucou_scope.
+Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..)) : coucou_scope.
+End TermNotations.
+Redirect "/tmp/coqY0pFmz" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Import TermNotations.
+Redirect "/tmp/coq34dpHE" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Check [Nil Nil Nil].
+(* Auto-generated comment: Failed. *)
 
