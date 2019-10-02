@@ -64,6 +64,8 @@ Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w 
 Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
 (intros w k).
-(induction k; induction t).
+(induction k; induction t; intros Hdep Hm).
+(apply match_ty_cname__inv in Hm).
+subst.
 (* Auto-generated comment: Failed. *)
 
