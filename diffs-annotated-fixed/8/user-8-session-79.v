@@ -1133,6 +1133,5 @@ clear IS.
 restore_dims tensor_tac.
 (rewrite kron_1_l_inv).
 reflexivity.
-}
 (* Auto-generated comment: Succeeded. *)
 
