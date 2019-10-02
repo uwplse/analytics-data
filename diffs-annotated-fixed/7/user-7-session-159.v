@@ -38,8 +38,7 @@ subst.
 exists (TEV X').
 (rewrite subst_var_eq).
 reflexivity.
-+
-exists v.
-(rewrite subst_var_neq in *).
+(rewrite (subst_var_neq _ _ _ Hbeq) in *).
+assumption.
 (* Auto-generated comment: Failed. *)
 
