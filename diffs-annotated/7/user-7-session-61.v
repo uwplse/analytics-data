@@ -93,55 +93,10 @@ Qed.
 Theorem mk_nf__sub_d_eq : forall t : ty, |- MkNF( t) << t /\ |- t << MkNF( t).
 Proof.
 (induction t).
--
-(split; simpl; constructor).
--
-(destruct IHt1; destruct IHt2).
-(split; simpl).
-(apply unite_pairs__preserves_sub_d_l; assumption).
-(apply unite_pairs__preserves_sub_d_r; assumption).
--
-(destruct IHt1; destruct IHt2).
-(split; simpl; constructor; (apply union_right_1; assumption) || (apply union_right_2; assumption)).
--
-(simpl).
-(destruct IHt).
-(split; constructor; assumption).
-Qed.
-Lemma mk_nf__sub_d_l : forall t : ty, |- MkNF( t) << t.
-Proof.
-(apply mk_nf__sub_d_eq).
-Qed.
-Lemma mk_nf__sub_d_r : forall t : ty, |- t << MkNF( t).
-Proof.
-(apply mk_nf__sub_d_eq).
-Qed.
 Lemma cname_sem_sub_k__sub_d : forall (k : nat) (c : cname), | TCName c | <= k -> forall t2 : ty, ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
 Proof.
 (intros k c Hdep t2).
 (assert (Hva : value_type (TCName c)) by constructor).
 (assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; assumption)).
-(induction t2; intros Hsem; unfold sem_sub_k in Hsem).
--
-(destruct (cname_eq__decidable c c0)).
-{
-(subst; constructor).
-}
-{
-specialize (Hsem _ Hma).
-(apply match_ty_cname__inv in Hsem).
-(inversion Hsem; contradiction).
-}
--
-clear IHt2_1 IHt2_2.
-specialize (Hsem _ Hma).
-(apply match_ty_pair__inv in Hsem).
-(destruct Hsem as [v1 [v2 [Heq _]]]; inversion Heq).
--
-(apply value_sem_sub_k_union__inv in Hsem; try assumption).
-(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
--
-specialize (Hsem _ Hma).
-(destruct k; contradiction).
-Qed.
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
 (* Failed. *)
