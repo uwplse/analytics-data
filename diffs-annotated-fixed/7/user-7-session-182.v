@@ -45,8 +45,8 @@ subst.
 (repeat rewrite subst_exist_eq).
 Search -IdSet.mem.
 Search -IdSet.In.
-(destruct (IdSetProps.In_dec i (FV tY))).
+(destruct (IdSetProps.In_dec i (FV tY)) eqn:Hin).
 {
-Search -IdSet.mem.
+(apply IdSetFacts.mem_1 in Hin).
 (* Auto-generated comment: Failed. *)
 
