@@ -950,4 +950,4 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
 gen \207\129.
 (repeat rewrite Mmult_assoc).
-Msimpl.
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
