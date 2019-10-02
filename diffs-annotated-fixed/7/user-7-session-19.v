@@ -4,6 +4,8 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
+Add LoadPath "../..".
+Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.AltMatchDefs.
@@ -102,17 +104,15 @@ constructor.
 constructor.
 Qed.
 Lemma match_ty_i__transitive_on_value_type :
-  forall v1 v2 v3 : ty, value_type v2 -> forall k : nat, |-[ k] v1 <$ v2 -> |-[ k] v2 <$ v3 -> |-[ k] v1 <$ v3.
-Proof.
-(intros v1 v2 v3 Hv2).
-generalize dependent v3.
-generalize dependent v1.
-Lemma match_ty_i__transitive_on_value_type :
   forall v1 v2 t3 : ty, value_type v2 -> forall k : nat, |-[ k] v1 <$ v2 -> |-[ k] v2 <$ t3 -> |-[ k] v1 <$ t3.
 Proof.
 (intros v1 v2 t3 Hv2).
 generalize dependent t3.
 generalize dependent v1.
+(induction Hv2).
+-
+(intros v1 t3 k Hm1 Hm2).
+(apply match_ty_i_cname__inv in Hm1; subst).
 assumption.
 -
 (intros v0 t3 k Hm1 Hm2).
@@ -133,6 +133,7 @@ auto using match_ty_i_pair.
 +
 (apply match_ty_i_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
++
 clear IHt3.
 (destruct k).
 (destruct v1; contradiction || constructor).
@@ -149,29 +150,5 @@ Proof.
 (intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
 (assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem _ Hv Hm).
-(apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hv' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
-Qed.
-Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
-Proof.
-(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | |- | ?t1 | <= | ?t2 | =>
-           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-             (H _ Hm); contradiction) ||
-             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-               (H _ Hm); contradiction)
-     end ])).
-(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | |- | ?t1 | <= | ?t2 | =>
-           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-             (H _ Hm); contradiction) ||
-             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-               (H _ Hm); contradiction)
-     end ])).
-(assert (Hv : value_type (TCName c)) by constructor).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
