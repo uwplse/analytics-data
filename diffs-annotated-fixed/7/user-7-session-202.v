@@ -123,8 +123,6 @@ generalize dependent t.
 -
 (simpl).
 (destruct (beq_idP X i)).
-+
-subst.
-(destruct (beq_idP Y i); reflexivity).
+(destruct (beq_idP Y i)).
 (* Auto-generated comment: Failed. *)
 
