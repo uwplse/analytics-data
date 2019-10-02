@@ -261,6 +261,9 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqpfIkPc" Print Ltac
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Print taE.
-Print tE.
+Notation sE := (networkE +' exceptE error +' hsgenE +' randomE).
+Notation tE := (nondetE +' sE).
+Print networkE.
+Print Error.
 (* Auto-generated comment: Failed. *)
 
