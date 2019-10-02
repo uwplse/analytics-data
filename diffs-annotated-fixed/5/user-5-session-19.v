@@ -197,6 +197,21 @@ intro x.
 {
 (apply evalChoose).
 exists (eval L env (Int 3)).
+(erewrite evalBoolConst).
 apply -> evalEqTrue.
+(rewrite evalTimes with (i := 3%Z) (j := 2%Z)).
+-
+reflexivity.
+-
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+(apply evalIntConst).
+-
+reflexivity.
+}
+admit.
+}
+(erewrite <- H; reflexivity).
+Admitted.
 (* Auto-generated comment: Succeeded. *)
 
