@@ -702,6 +702,72 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxD1xWt"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+}
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDk9NN7"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Qed.
+Theorem recover_stub_at_ok :
+  forall a,
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := True;
+     post := fun r state' => True;
+     recovered := fun _ state' => True |}) (recover_at a) td.recover td.abstr.
+Proof.
+Admitted.
+Hint Resolve recover_at_ok: core.
+Definition Recover_spec : Specification _ unit unit TwoDiskBaseAPI.State :=
+  fun '(d, s) state =>
+  {|
+  pre := match s with
+         | FullySynced => disk0 state ?|= eq d /\ disk1 state ?|= eq d
+         | OutOfSync a b =>
+             a < diskSize d /\
+             disk0 state ?|= eq (diskUpd d a b) /\ disk1 state ?|= eq d
+         end;
+  post := fun (_ : unit) state' =>
+          match s with
+          | FullySynced => disk0 state' ?|= eq d /\ disk1 state' ?|= eq d
+          | OutOfSync a b =>
+              disk0 state' ?|= eq d /\ disk1 state' ?|= eq d \/
+              disk0 state' ?|= eq (diskUpd d a b) /\
+              disk1 state' ?|= eq (diskUpd d a b)
+          end;
+  recovered := fun (_ : unit) state' =>
+               match s with
+               | FullySynced =>
+                   disk0 state' ?|= eq d /\ disk1 state' ?|= eq d
+               | OutOfSync a b =>
+                   disk0 state' ?|= eq d /\ disk1 state' ?|= eq d \/
+                   disk0 state' ?|= eq (diskUpd d a b) /\
+                   disk1 state' ?|= eq d \/
+                   disk0 state' ?|= eq (diskUpd d a b) /\
+                   disk1 state' ?|= eq (diskUpd d a b)
+               end |}.
+Definition Recover_spec_stub :
+  Specification _ unit unit TwoDiskBaseAPI.State :=
+  fun (_ : unit) state =>
+  {|
+  pre := True;
+  post := fun _ state' => True;
+  recovered := fun _ state' => True |}.
+Theorem Recover_rok : proc_spec Recover_spec Recover td.recover td.abstr.
+Proof.
+(unfold Recover, Recover_spec; intros).
+(spec_intros; simplify).
+(destruct s; simplify).
++
+step.
+step.
+(exists d,FullySynced; simplify; finish).
+step.
++
+step.
+intuition eauto.
+simplify.
 (* Auto-generated comment: Failed. *)
 
