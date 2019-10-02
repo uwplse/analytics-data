@@ -171,6 +171,7 @@ generalize dependent t3.
 (inversion H; subst).
 (inversion H0; subst).
 (remember (TRef t') as tx eqn:Heqx ).
+(remember (TRef t') as tx eqn:Heqx ).
 (induction Hsub2; inversion Heqx; subst).
 +
 (apply SR_UnionR1; tauto).
