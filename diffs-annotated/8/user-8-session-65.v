@@ -949,5 +949,7 @@ Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
 +
-(rewrite (id_kron (2 ^ i) (2 ^ d))).
+Timeout 1 About id_kron.
+Timeout 1 Print id_kron.
+Timeout 1 Print Ltac id_kron.
 (* Failed. *)
