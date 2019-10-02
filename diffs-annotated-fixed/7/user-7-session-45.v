@@ -58,6 +58,6 @@ split.
 (rewrite Heq).
 tauto.
 +
-(apply sem_sub_k__sem_eq_k; assumption).
+(apply sem_sub_k__sem_eq_k; auto).
 (* Auto-generated comment: Failed. *)
 
