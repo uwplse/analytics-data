@@ -15,6 +15,6 @@ Open Scope btjnf_scope.
 Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 Check unite_pairs_union_t.
-(apply sub_r_nf_union_l__inv in Hsub1; try assumption).
-constructor.
+Check sub_r_nf_union_l__inv.
+(destruct (sub_r_nf_union_l__inv _ _ _ Hsub1) as [Hsub11| Hsub12]).
 (* Failed. *)
