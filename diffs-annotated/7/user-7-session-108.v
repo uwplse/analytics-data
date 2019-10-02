@@ -230,12 +230,9 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-Lemma not_match_ty_var__not_match_ty_subs :
-  forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
-Proof.
-(induction t; intros k w Hnotm X S Hcontra).
--
-(apply Hnotm; assumption).
--
-(simpl in Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+subst.
+(apply IHt1).
+(* Failed. *)
