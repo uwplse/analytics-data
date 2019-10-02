@@ -44,5 +44,7 @@ Proof.
 (apply (IdSetFacts.remove_2 Hneq') in Hcontra).
 contradiction.
 Qed.
-Lemma free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TUnion t1 t2) -> free_in_ty t1 \/ free_in_ty t2.
+Lemma free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TUnion t1 t2) -> free_in_ty X t1 \/ free_in_ty X t2.
+(intros X t1 t2 HX).
+(unfold fresh_in_ty, fresh in *).
 (* Failed. *)
