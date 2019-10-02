@@ -2739,4 +2739,3 @@ rename H into IH.
 (destruct g).
 +
 (simpl).
-(destruct pf1).
