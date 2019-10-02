@@ -25,9 +25,11 @@ Fixpoint value (t : term) : bool :=
   | Ident _ => true
   | Cons a b => value a && value b
   | App f a => match f with
-               | Ident name => string.eqb name "lam"
+               | Ident name => String.eqb name "lam"
                | _ => false
                end
   end.
-(* Auto-generated comment: Failed. *)
+Redirect "/tmp/coqp1KVav" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Succeeded. *)
 
