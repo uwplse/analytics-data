@@ -132,6 +132,6 @@ Proof.
 Qed.
 Lemma sem_sub__refl : forall t : ty, ||- [t]<= [t].
 Proof.
-(intros k; apply sem_sub_k__refl).
+(intros k).
 (* Auto-generated comment: Failed. *)
 
