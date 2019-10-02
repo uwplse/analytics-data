@@ -211,8 +211,6 @@ Proof.
 (simpl).
 (rewrite mult_0_r).
 reflexivity.
--
-(simpl).
 (assert (H1 : m * S n' = m + m * n')).
 {
 (induction m as [| m' IHm']).
@@ -220,8 +218,3 @@ reflexivity.
 (simpl).
 reflexivity.
 -
-(simpl).
-(rewrite IHm').
-(rewrite plus_swap).
-reflexivity.
-}
