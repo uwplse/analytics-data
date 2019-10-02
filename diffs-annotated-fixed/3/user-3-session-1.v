@@ -464,5 +464,6 @@ firstorder.
 firstorder.
 (apply H1).
 (destruct ret; firstorder).
+(destruct ret; simpl in *; firstorder).
 (* Auto-generated comment: Succeeded. *)
 
