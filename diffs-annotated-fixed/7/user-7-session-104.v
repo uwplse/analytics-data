@@ -65,19 +65,6 @@ Proof.
 (induction k).
 -
 (induction t).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_cname__inv in Hcontra).
-(inversion Hcontra).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_pair__inv in Hcontra).
-(destruct Hcontra as [v1 [v2 [Heq _]]]).
-(inversion Heq).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_union__inv in Hcontra).
-(destruct Hcontra as [Hcontra| Hcontra]).
-*
+-
 (* Auto-generated comment: Failed. *)
 
