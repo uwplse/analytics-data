@@ -61,6 +61,6 @@ Proof.
 (unfold fresh_in_ty, fresh).
 (simpl).
 Search -IdSet.empty.
-(apply IdSetFacts.empty_iff).
+(intros Hcontra; apply IdSetFacts.empty_iff).
 (* Auto-generated comment: Failed. *)
 
