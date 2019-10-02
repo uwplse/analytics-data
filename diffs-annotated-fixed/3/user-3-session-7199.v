@@ -299,11 +299,16 @@ Theorem append_at_ok a bs' :
             log_size_ok state (bs ++ bs') /\ log_contents_ok bs state;
      post := fun r state' =>
              diskGet state' len_addr = diskGet state len_addr /\
+             diskSize state' = diskSize state /\
              log_size_ok (bs ++ bs') state' /\
              log_contents_ok state (bs ++ bs');
      recovered := fun _ state' =>
                   diskGet state' len_addr = diskGet state len_addr /\
+                  diskSize state' = diskSize state /\
                   log_contents_ok bs state' |}) (append_at a bs') recover
     d.abstr.
-(* Auto-generated comment: Succeeded. *)
+Proof.
+Print append_at.
+(induction bs; simpl).
+(* Auto-generated comment: Failed. *)
 
