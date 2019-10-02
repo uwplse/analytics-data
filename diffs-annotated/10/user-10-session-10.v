@@ -270,7 +270,27 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqiFtR30"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Check nmi_of_smi.
-Check interp.
-Check network_of_app.
-Print network_of_app.
+Definition network_of_app {nE} {E} `{E -< nE} (k : shared_key) T (e : (appE id +' E) T) : 
+  itree nE T :=
+  match e with
+  | (ae|) =>
+      match ae with
+      | App_Recv =>
+          msg <- trigger Network_Recv;;
+          match msg with
+          | Message_Plain _ => throw Error_UnexpectedMessage
+          | Message_Cipher msg =>
+              match decipher k msg with
+              | Some msg =>
+                  match msg with
+                  | PlainMessage_AppData data => ret data
+                  | _ => throw Error_UnexpectedMessage
+                  end
+              | None => throw Error_UnexpectedMessage
+              end
+          end
+      | App_Send data => embed Network_Send (Message_Cipher (cipher k (PlainMessage_AppData data)))
+      end
+  | (|e) => trigger e
+  end.
+(* Failed. *)
