@@ -131,6 +131,6 @@ Proof.
 (intros).
 (unfold denote_ctrls).
 Search -fst -snd.
-(rewrite surjective_pairing).
+(erewrite surjective_pairing).
 (* Auto-generated comment: Failed. *)
 
