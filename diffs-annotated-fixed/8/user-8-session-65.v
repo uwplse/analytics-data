@@ -995,9 +995,14 @@ Msimpl.
 reflexivity.
 -
 (rewrite (assert_at_spec_unsafe b m i); [  | omega ]).
+remember_differences.
 gen \207\129.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-(* Auto-generated comment: Succeeded. *)
+(rewrite Lt).
+(rewrite Nat.pow_add_r, <- (Nat.mul_1_r (2 ^ i))).
+(intros \207\129).
+(intros \207\129 M).
+(* Auto-generated comment: Failed. *)
 
