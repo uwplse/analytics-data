@@ -324,7 +324,7 @@ Fixpoint Gamma (G : GT) : SetST :=
            =>
            match S', G' with
            | None, None => True
-           | S, Some G' => Ensembles.In _ G' S
+           | S', Some G' => Ensembles.In _ G' S'
            | _, _ => False
            end) l'
           (map
@@ -346,5 +346,7 @@ Fixpoint Gamma (G : GT) : SetST :=
                  end)) l)
   | _ => Empty_set _
   end.
-(* Auto-generated comment: Failed. *)
+Inductive Alpha : SetST -> GT -> Prop :=
+    alpha_int : Alpha (Singleton _ SInt) GInt.
+(* Auto-generated comment: Succeeded. *)
 
