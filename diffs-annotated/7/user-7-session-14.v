@@ -276,9 +276,55 @@ tauto.
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
 (apply sub_r__mk_nf_sub_r; assumption).
 Qed.
+Lemma sub_r__reflexive : forall t : ty, |- t << t.
+Proof.
+(apply sub_r__rflxv).
+Qed.
+Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
+Proof.
+(intros t1 t2 t3 Hsub1 Hsub2).
+(destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
+auto.
+Qed.
+Lemma unite_pairs__distr21 :
+  forall t1 t21 t22 : ty, InNF( t1) -> |- unite_pairs t1 (TUnion t21 t22) << TUnion (unite_pairs t1 t21) (unite_pairs t1 t22).
+Proof.
+(intros t1 t21 t22 Hnf1).
+generalize dependent t22.
+generalize dependent t21.
+(induction Hnf1; intros t21 t22).
+-
+(rewrite unite_pairs_atom_union; try assumption).
+(apply sub_r__reflexive).
+-
+(repeat rewrite unite_pairs_union_t).
+(apply SR_UnionL; eapply sub_r__transitive; try apply IHHnf1_1 || apply IHHnf1_2; constructor).
+(apply SR_UnionR1; apply SR_UnionR1; apply sub_r__reflexive).
+(apply SR_UnionR2; apply SR_UnionR1; apply sub_r__reflexive).
+(apply SR_UnionR1; apply SR_UnionR2; apply sub_r__reflexive).
+(apply SR_UnionR2; apply SR_UnionR2; apply sub_r__reflexive).
+Qed.
+Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t2) << MkNF( TUnion (TPair t11 t2) (TPair t12 t2)).
+Proof.
+(intros t11 t12 t2).
+(repeat rewrite mk_nf_union, mk_nf_pair).
+(rewrite mk_nf_pair).
+(rewrite unite_pairs_union_t).
+(apply sub_r__reflexive).
+Qed.
+Lemma mk_nf__distr21 : forall t1 t21 t22 : ty, |- MkNF( TPair t1 (TUnion t21 t22)) << MkNF( TUnion (TPair t1 t21) (TPair t1 t22)).
+Proof.
+(intros t1 t21 t22).
+(repeat rewrite mk_nf_union, mk_nf_pair).
+(rewrite mk_nf_pair).
+(apply unite_pairs__distr21).
+(apply mk_nf__in_nf).
+Qed.
 Lemma mk_nf_sub_r__sub_r : forall t t' : ty, |- MkNF( t) << MkNF( t') -> |- t << t'.
 Proof.
 (intros t t' Hsub).
 (apply SR_NormalForm).
 (apply sub_r__transitive with (MkNF( t'))).
+assumption.
+(apply mk_nf__sub_r1).
 (* Failed. *)
