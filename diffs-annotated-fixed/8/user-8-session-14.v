@@ -1237,6 +1237,7 @@ gen \207\129.
 (rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
 (repeat rewrite Nat.pow_add_r).
 (intros).
+(intros).
 (rewrite Nat.mul_1_r).
 Msimpl.
 (eapply init1_end_superoperator; trivial).
