@@ -2,9 +2,7 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
-Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, 0 < k' -> k' <= k -> |-[ k'] v <$ t.
-Proof.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hgt Hle;
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hlt Hle;
   try
    match goal with
    | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
@@ -12,4 +10,22 @@ Proof.
    | |- |-[ ?k'] ?v <$ TUnion _ _ =>
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
+-
+(destruct v; contradiction).
+-
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(inversion Hle; subst).
++
+(simpl).
+(intros v Hv).
+specialize (Href v Hv).
+(split; tauto).
++
+(destruct k').
+(inversion Hlt).
+(simpl).
+(intros v Hv).
+specialize (Href v Hv).
+(split; auto).
 (* Failed. *)
