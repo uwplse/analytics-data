@@ -75,6 +75,8 @@ exists (TPair v1' v2').
 split.
 (apply match_ty_pair; assumption).
 (induction w'; induction t'; intros HX' Hm'; try contradiction).
-(induction w'; induction t'; intros HX' Hm').
+(induction w'; induction t'; intros HX' Hm'; try contradiction).
++
+(destruct (fresh_in_ty_pair__inv _ _ HX') as [HX'1 HX'2]).
 (* Auto-generated comment: Failed. *)
 
