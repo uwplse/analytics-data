@@ -124,11 +124,18 @@ Proof.
 (unfold log_length_ok; intros).
 (rewrite H; simpl).
 (eexists; eauto).
+(rewrite H; simpl; eauto).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8SRjHv"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquvJho6"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Theorem log_abstraction_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
+Proof.
+(unfold log_abstraction; intros).
+(split; eauto using log_length_ok_nil).
 (* Auto-generated comment: Succeeded. *)
 
