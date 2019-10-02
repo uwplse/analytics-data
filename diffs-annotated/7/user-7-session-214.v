@@ -101,9 +101,5 @@ Lemma f_free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TU
 Proof.
 (solve_free_union f_free_in_ty).
 Qed.
-(simpl).
-(intros X t1 t2 H).
-Search -IdSet.In.
-(destruct H as [H| H]).
-(apply IdSetFacts.union_2).
+(destruct H as [H| H]; [ apply IdSetFacts.union_2 | apply IdSetFacts.union_3 ]).
 (* Failed. *)
