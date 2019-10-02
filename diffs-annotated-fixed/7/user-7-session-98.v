@@ -139,6 +139,7 @@ Proof.
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
-(simpl).
+(apply match_ty_exist).
+exists tx.
 (* Auto-generated comment: Failed. *)
 
