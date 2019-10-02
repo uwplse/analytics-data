@@ -376,6 +376,7 @@ Proof.
 (apply spec_abstraction_compose).
 step_proc.
 (destruct a' as [[] bs]; simpl in *).
-intuition euto.
-(* Auto-generated comment: Failed. *)
+intuition eauto.
+step_proc.
+(* Auto-generated comment: Succeeded. *)
 
