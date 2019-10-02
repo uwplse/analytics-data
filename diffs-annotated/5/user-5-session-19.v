@@ -39,47 +39,22 @@ Record EpsilonLogic :=
            forall env x P Q,
            eval env P = vTrue <-> eval env Q = vTrue ->
            eval env (Choose x P) = eval env (Choose x Q)}.
-Definition isTheorem (L : EpsilonLogic) (t : Term) :=
-  forall env, L.(eval) env t = L.(vTrue).
-Fixpoint identity (t : Term) : Term :=
-  match t with
-  | Var x => Var x
-  | Int i => Int i
-  | Eq a b => Eq (identity a) (identity b)
-  | Plus a b => Plus (identity a) (identity b)
-  | Times a b => Times (identity a) (identity b)
-  | Minus a b => Minus (identity a) (identity b)
-  | Choose x P => Choose x (identity P)
-  end.
-Theorem eval_eq_true_or_false :
-  forall (L : EpsilonLogic) env (t1 t2 : Term),
-  L.(eval) env (Eq t1 t2) = L.(vTrue) \/ L.(eval) env (Eq t1 t2) = L.(vFalse).
-Proof.
-(intros).
-(destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2)) eqn:E).
--
-left.
-(apply L.(evalEqTrue)).
-assumption.
--
-right.
-(apply L.(evalEqFalse)).
-assumption.
-Qed.
-Theorem identity_correct :
-  forall (L : EpsilonLogic) (t : Term), isTheorem L (Eq t (identity t)).
-Proof.
-(unfold isTheorem).
-(induction t; intros; simpl in *).
--
-(apply evalEqTrue).
-reflexivity.
--
-(apply evalEqTrue).
-reflexivity.
--
-(apply evalEqTrue).
-specialize IHt1 with env.
-specialize IHt2 with env.
 (apply evalEqTrue in IHt1).
 (apply evalEqTrue in IHt2).
+(destruct (eval_eq_true_or_false L env t1 t2)).
++
+(rewrite H).
+(apply evalEqTrue in H).
+(rewrite H in IHt1).
+(rewrite IHt1 in IHt2).
+symmetry.
+(apply evalEqTrue).
+assumption.
++
+(rewrite H).
+(apply evalEqFalse in H).
+(assert (eval L env (identity t1) <> eval L env (identity t2)) by congruence).
+symmetry.
+(apply evalEqFalse).
+assumption.
+Admitted.
