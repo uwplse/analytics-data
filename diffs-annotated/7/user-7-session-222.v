@@ -319,4 +319,5 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 (rewrite b_subst_pair).
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Failed. *)
