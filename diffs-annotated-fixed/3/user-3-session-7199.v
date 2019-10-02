@@ -313,7 +313,10 @@ Proof.
 -
 step_proc.
 intuition eauto.
-+
 (rewrite app_nil_r; auto).
+-
+step_proc.
+intuition eauto.
+autorewrite with upd.
 (* Auto-generated comment: Succeeded. *)
 
