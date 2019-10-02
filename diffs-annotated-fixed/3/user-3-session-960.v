@@ -81,7 +81,20 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Search -nat -string.
 Search -"endian".
-Search -"digit".
-Fixpoint nat_to_le (x : nat) : list {x : nat | x < 256}.
-(* Auto-generated comment: Succeeded. *)
+Definition byte_nat := {x : nat | x < 256}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlC6Bto"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhhWJJV"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Fixpoint nat_to_le (x : nat) : list byte_nat.
+refine match x with
+       | 0 => nil
+       | _ => x mod 256 :: nat_to_le x / 256
+       end.
+(* Auto-generated comment: Failed. *)
 
