@@ -140,6 +140,8 @@ assumption.
 (apply le_S_n; assumption).
 Qed.
 Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [X := tint] t.
-Proof.
-(induction w).
+(intros X; induction w; induction t; intros v).
+(intros Hm).
+(apply match_ty_cname__inv in Hm).
+(exists v; assumption).
 (* Failed. *)
