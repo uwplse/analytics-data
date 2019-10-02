@@ -80,8 +80,5 @@ Proof.
 (intros X s Y t Hneq).
 (destruct (beq_id_false_iff X Y) as [_ Hid]).
 specialize (Hid Hneq).
-(simpl).
-(rewrite Hid).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
