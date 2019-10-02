@@ -490,6 +490,12 @@ Theorem log_length_ok_unchanged d bs d' :
 Proof.
 (unfold log_length_ok; intros).
 (rewrite H0 in *).
-congruence.
-(* Auto-generated comment: Failed. *)
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAY6qJf"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve log_length_ok_unchanged.
+(* Auto-generated comment: Succeeded. *)
 
