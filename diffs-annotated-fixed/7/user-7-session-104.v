@@ -61,8 +61,8 @@ Fixpoint inv_depth (t : ty) :=
   end
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
 Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
-Lemma sem_sub_k__inv_depth_le : forall (k : nat) (t t' : ty), | t | <= k \/ | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
-(induction k; induction t; induction t'; intros Hnft Hdep Hsem; try (solve [ simpl; constructor ])).
+(intros w).
 (* Auto-generated comment: Failed. *)
 
