@@ -1218,6 +1218,6 @@ Set Printing All.
 Set Printing All.
 Set Printing All.
 gen \207\129.
-subst.
+(rewrite Nat.mul_1_r).
 (* Auto-generated comment: Succeeded. *)
 
