@@ -189,6 +189,48 @@ Timeout 1 Print LoadPath.
 eauto.
 -
 simplify.
+}
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqY8UEJO"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve write_int_ok: core.
+Theorem size_int_ok :
+  proc_spec
+    (fun '(d_0, d_1) state =>
+     {|
+     pre := disk0 state ?|= eq d_0 /\
+            disk1 state ?|= eq d_1 /\ diskSize d_0 = diskSize d_1;
+     post := fun r state' =>
+             r = diskSize d_0 /\
+             r = diskSize d_1 /\
+             disk0 state' ?|= eq d_0 /\ disk1 state' ?|= eq d_1;
+     recovered := fun _ state' =>
+                  disk0 state' ?|= eq d_0 /\ disk1 state' ?|= eq d_1 |}) size
+    td.recover td.abstr.
+Proof.
+(unfold size).
+step.
 (destruct r; step).
-(* Auto-generated comment: Failed. *)
+(destruct r; step).
+Qed.
+Hint Resolve size_int_ok: core.
+Definition equal_after a (d_0 d_1 : disk) :=
+  diskSize d_0 = diskSize d_1 /\
+  (forall a', a <= a' -> diskGet d_0 a' = diskGet d_1 a').
+Theorem le_eq_or_S_le : forall n m, n <= m -> n = m \/ S n <= m /\ n <> m.
+Proof.
+(intros).
+lia.
+Qed.
+Theorem equal_after_diskUpd :
+  forall a d_0 d_1 b,
+  equal_after (S a) d_0 d_1 ->
+  equal_after a (diskUpd d_0 a b) (diskUpd d_1 a b).
+Proof.
+(unfold equal_after; intuition).
+(autorewrite with upd; eauto).
+(* Auto-generated comment: Succeeded. *)
 
