@@ -157,14 +157,13 @@ Theorem get_at_ok a :
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' => state' = state /\ r = nth a state block0;
+     post := fun r state' => state' = state /\ diskGet state a = Some r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
 Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
 (simpl).
-Check proc_spec_weaken.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; intros).
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
