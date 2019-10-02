@@ -120,5 +120,6 @@ Unset Search Output Name Only.
 Next Obligation.
 Proof.
 subst digit.
+(destruct base).
 (* Auto-generated comment: Succeeded. *)
 
