@@ -1234,6 +1234,5 @@ Theorem source_symmetric_valid :
 Proof.
 (intros n t c H).
 (induction H).
--
 (* Auto-generated comment: Succeeded. *)
 
