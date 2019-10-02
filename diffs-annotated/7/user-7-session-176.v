@@ -157,8 +157,4 @@ exists (Nat.max w1 w2),(TPair v1 v2).
 exists w,v.
 (apply match_ty_union_1; assumption).
 -
-(destruct (IHt) as [w [v Hm]]).
-exists (S w),v.
-(apply match_ty_exist).
-exists (TVar i).
 (* Failed. *)
