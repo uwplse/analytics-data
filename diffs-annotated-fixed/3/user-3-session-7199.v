@@ -451,7 +451,7 @@ Qed.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Lemma log_abstraction_extend :
-  forall (bs' : list block) (bs : LogAPI.State) (d : State),
+  forall (d : disk) (bs bs' : list block),
   log_abstraction d bs ->
   forall d' : State,
   log_size_ok d' (bs ++ bs') ->
@@ -461,5 +461,7 @@ Lemma log_abstraction_extend :
   log_abstraction d' (bs ++ bs').
 Proof.
 (intros).
+(unfold log_abstraction; intuition).
+(unfold log_length_ok; intros).
 (* Auto-generated comment: Succeeded. *)
 
