@@ -230,35 +230,4 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(left; exists (TCName c); apply match_ty_cname).
--
-admit.
--
-admit.
--
-(left; exists (TRef t)).
-(destruct k).
-reflexivity.
-(split; intros w1; exists w1; auto).
--
-right.
-(intros Hcontra).
-(destruct Hcontra as [v Hcontra]).
-(eapply match_ty_exist__0_inv; eassumption).
--
-(left; exists (TEV i); apply match_ty_var).
--
-(left; exists (TEV i); apply match_ty_ev).
--
-(left; exists (TCName c); apply match_ty_cname).
--
-admit.
--
-admit.
--
-(left; exists (TRef t)).
-(destruct k).
-reflexivity.
-(split; intros w1; exists w1; auto).
--
-(destruct (IHt k) as [v Hm]).
+(* Failed. *)
