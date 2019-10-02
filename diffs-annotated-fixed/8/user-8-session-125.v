@@ -54,18 +54,5 @@ Proof.
 (intros W U \207\129 safe).
 matrix_denote.
 (rewrite add_fresh_split).
-(rewrite subst_pat_fresh by constructor).
-(unfold denote_db_box).
-(simpl).
-(unfold compose_super, super, pad).
-(repeat rewrite Nat.add_sub).
-(rewrite Nat.sub_diag).
-Msimpl.
-(destruct W; try (solve [ inversion U ])).
--
-(simpl).
-(unfold denote_pat; simpl).
-(unfold swap_list; simpl).
-(unfold swap_two; simpl).
 (* Auto-generated comment: Succeeded. *)
 
