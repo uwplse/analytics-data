@@ -68,6 +68,6 @@ Proof.
 -
 (apply match_ty_exist__inv in Hm).
 (eapply IHk).
-eauto.
+(apply Hm).
 (* Auto-generated comment: Failed. *)
 
