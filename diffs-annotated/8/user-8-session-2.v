@@ -49,10 +49,4 @@ Timeout 1 Print Grammar tactic.
 (dependent destruction u; simpl; Msimpl; reflexivity).
 (simpl in *).
 (apply IHW2).
-+
-(simpl).
-(destruct li as [| k li]; simpl; try lma).
-(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
-(destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
-(simpl in *).
-(apply IHW2).
+(* Failed. *)
