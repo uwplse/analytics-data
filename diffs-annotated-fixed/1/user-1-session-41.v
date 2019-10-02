@@ -365,11 +365,16 @@ Function
        eq (GRec tl1, GRec tl2)
    | (GRec (None :: tl1), GRec []) => eq (GRec tl1, GRec [])
    | (GRec [], GRec (None :: tl1)) => eq (GRec [], GRec tl1)
+   | (GRow [], GRow []) => True
    | (GRow (Some (Some hd1) :: tl1), GRow
      (Some (Some hd2) :: tl2)) =>
        eq (snd hd1, snd hd2) /\
        fst hd1 = fst hd2 /\ eq (GRow tl1, GRow tl2)
+   | eq (GRow (None :: tl1), GRow (None :: tl2)) =>
+       eq (GRow tl1, GRow tl2)
+   | eq (GRow (Some None :: tl1), GRow (Some None :: tl2)) =>
+       eq (GRow tl1, GRow tl2)
    | _ => False
    end.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
