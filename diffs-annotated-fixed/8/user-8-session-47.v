@@ -1136,5 +1136,6 @@ Lemma init0_end_superoperator :
 Proof.
 (intros; subst).
 (rewrite <- (kron_1_r \207\129)).
+(repeat rewrite kron_mixed_product).
 (* Auto-generated comment: Succeeded. *)
 
