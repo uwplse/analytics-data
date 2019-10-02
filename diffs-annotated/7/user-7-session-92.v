@@ -15,4 +15,13 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Close Scope btjd_scope.
 Open Scope btjr_scope.
-Theorem sub_r__sound : forall t1 t2 : ty, |- t1 << t2 -> (|- t1 << t2)%btj.
+Proof.
+(intros t1 t2 Hsub; induction Hsub; try (solve [ constructor; assumption ])).
+-
+(apply union_right_1; assumption).
+-
+(apply union_right_2; assumption).
+-
+(apply SD_Trans with (MkNF( t))).
+(apply mk_nf__sub_d2).
+(* Failed. *)
