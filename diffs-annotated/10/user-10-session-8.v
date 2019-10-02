@@ -147,11 +147,10 @@ Definition nmi_of_smi {T} (m : itree smE T) : itree (appE id +' exceptE err +' r
      | (ae|) => embed_exp ae
      | (|ee) =>
          match ee in (evalE T) return (_ T) with
-         | Eval_Var => ret (exp_int 0)
+         | Eval_Var => n <- trigger (||Random_Value);; ret (exp_int n)
          | Eval_Decide bx => match unwrap' bx with
                              | Some b => ret b
                              | None => ret false
                              end
          end
      end) m.
-(* Auto-generated comment: Failed. *)
