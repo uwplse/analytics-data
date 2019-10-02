@@ -376,6 +376,8 @@ reflexivity.
 -
 (assert (a < length bs)).
 {
-(rewrite length_app in *).
-(* Auto-generated comment: Failed. *)
+(rewrite app_length in *; simpl in *; lia).
+}
+intuition.
+(* Auto-generated comment: Succeeded. *)
 
