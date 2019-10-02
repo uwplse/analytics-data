@@ -33,7 +33,7 @@ Fixpoint value (t : term) : bool :=
   | Cons a b => value a && value b
   | App f a => false
   end.
-Redirect "/tmp/coqACDvw1" Print Ltac Signatures.
+Redirect "/tmp/coqfu1i2R" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Module TermNotations.
 Declare Scope coucou_scope.
@@ -50,11 +50,24 @@ Open Scope coucou_scope.
 Check
   [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
-Redirect "/tmp/coqLRo0nb" Print Ltac Signatures.
+Fixpoint subst (x : string) (u : term) (t : term) : term := t.
+Fixpoint step (t : term) : term :=
+  match t with
+  | Nil => Nil
+  | Ident _ => Nil
+  | <a b> => if value a then <a (step b)> else <(step a) b>
+  | {f a} =>
+      if value f
+      then
+       match f with
+       | [(Ident lam) (Ident x) body] => if value a then subst x a body else {f (step a)}
+       | Ident prim => t
+       | _ => Nil
+       end
+      else {(step f) a}
+  end.
+Redirect "/tmp/coq3LAWee" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Fixpoint subst (x : string) (u : term) (t : term) : term := t.
-Redirect "/tmp/coqaK2I4e" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
