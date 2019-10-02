@@ -119,6 +119,5 @@ lia.
 -
 (step_proc; intuition).
 (step_proc; intuition).
-(unfold statdb_abstraction in *).
 (* Auto-generated comment: Succeeded. *)
 
