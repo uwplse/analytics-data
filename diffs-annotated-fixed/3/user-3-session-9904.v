@@ -109,6 +109,7 @@ step_proc.
 (destruct (r == 0)).
 -
 (step_proc; intuition).
-exists s.
+(exists s; intuition).
+(left; auto).
 (* Auto-generated comment: Succeeded. *)
 
