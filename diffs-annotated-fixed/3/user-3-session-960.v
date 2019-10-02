@@ -239,28 +239,47 @@ refine
  uint64_to_le := nat_to_le 254;
  uint64_from_le := fun digits => Some (le_to_nat digits);
  File := Z;
- nilFile := (0 - 1)%Z;
+ nilFile := (- 1)%Z;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-Search -(0 < S _).
 (apply Nat.lt_0_succ).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq4v18d"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Defined.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBXLPHE"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfDpN1C"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq5PCWRh"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqx50w41"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Print aModel.
-Eval compute in (0 - 1)%Z.
+Class GoModelWf (model : GoModel) :={uint64_to_string_inj :
+                                      forall x y,
+                                      uint64_to_string x = uint64_to_string y ->
+                                      x = y;
+                                     ascii_byte_bijection1 :
+                                      forall c,
+                                      byte_to_ascii (ascii_to_byte c) = c;
+                                     ascii_byte_bijection2 :
+                                      forall b,
+                                      ascii_to_byte (byte_to_ascii b) = b;
+                                     uint64_le_enc :
+                                      FixedLengthEncoder 8 uint64_to_le
+                                        uint64_from_le;
+                                     file_eqdec :> EqualDec File;
+                                     file_countable :> Countable File;
+                                     sigPtr_eq_dec :> EqualDec (sigT Ptr)}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQqPLC9"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqM2DVBS"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Instance aModel_wf : (GoModelWf aModel).
+Proof.
+(hnf).
 (* Auto-generated comment: Succeeded. *)
 
