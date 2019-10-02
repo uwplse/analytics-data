@@ -49,8 +49,8 @@ Reserved Notation "'[' x '@' y ']' t" (at level 30).
 Fixpoint rename (x y : id) (t : ty) :=
   match t with
   | TCName _ => t
-  | TPair t1 t2 => TPair ([x @ s] t1) ([x @ s] t2)
-  | TUnion t1 t2 => TUnion ([x @ s] t1) ([x @ s] t2)
+  | TPair t1 t2 => TPair ([x @ y] t1) ([x @ y] t2)
+  | TUnion t1 t2 => TUnion ([x @ y] t1) ([x @ y] t2)
   | TExist z t' => TExist z (if beq_id x z then t' else [x @ y] t')
   | TVar z => if beq_id x z then s else t
   | TEV z => t
