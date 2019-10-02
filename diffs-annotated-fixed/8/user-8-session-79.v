@@ -624,6 +624,8 @@ Proof.
 (rewrite kron_1_l).
 (rewrite kron_1_l).
 restore_dims.
+specialize (kron_1_r A).
+specialize (kron_1_r_inv A).
 show_dimensions.
 (* Auto-generated comment: Succeeded. *)
 
