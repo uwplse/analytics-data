@@ -121,6 +121,6 @@ lia.
 (step_proc; intuition).
 (destruct s; intuition).
 +
-congruence.
-(* Auto-generated comment: Failed. *)
+(unfold statdb_abstraction in *).
+(* Auto-generated comment: Succeeded. *)
 
