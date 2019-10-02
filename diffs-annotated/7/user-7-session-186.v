@@ -25,8 +25,9 @@ Proof.
 (rewrite subst_cname in *).
 exists v.
 split.
-asumption.
 assumption.
 (induction w'; induction t'; intros Hm').
 +
+split.
+*
 (* Failed. *)
