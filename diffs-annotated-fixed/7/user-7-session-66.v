@@ -226,7 +226,7 @@ Qed.
 Lemma value_type_matching_ty__exists : forall (t : ty) (k : nat), inv_depth t <= k -> exists v : ty, |-[ k] v <$ t.
 Proof.
 (intros t; induction t; intros k Hdep).
--
-(exists (TCName c); split).
+exists (TCName c).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
