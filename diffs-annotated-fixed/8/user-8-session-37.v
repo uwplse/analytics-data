@@ -232,6 +232,5 @@ clear H.
 (unfold valid_ancillae in *).
 (intros \206\1470 \206\1471 WT).
 dependent destruction WT.
-(destruct \206\147 as [| \206\147], \206\1472 as [| \206\1472]; try invalid_contradiction).
 (* Auto-generated comment: Succeeded. *)
 
