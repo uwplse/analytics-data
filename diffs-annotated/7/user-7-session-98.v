@@ -68,7 +68,30 @@ Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
 Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Lemma sem_sub__eunion__unione : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
+Proof.
+(intros X t1 t2 k v Hm).
+(destruct k).
+-
+(apply match_ty_exist__0_inv in Hm).
+(destruct Hm as [Hv [tx Heqx]]; subst).
+(simpl in Hv).
 (inversion Hv).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl in Hmx).
+(apply match_ty_union__inv in Hmx).
 (destruct Hmx as [Hmx| Hmx]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; apply match_ty_exist; exists tx; assumption).
 Qed.
+Lemma sem_sub__unione__eunion : forall (X : id) (t1 t2 : ty), ||- [TUnion (TExist X t1) (TExist X t2)]<= [TExist X (TUnion t1 t2)].
+Proof.
+(intros X t1 t2 k v Hm).
+(destruct k).
+-
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]).
+(apply match_ty_exist__0_inv in Hm).
+(destruct Hm as [Hv [tx Heqx]]; subst).
+(simpl).
 (* Failed. *)
