@@ -653,6 +653,5 @@ Proof.
 -
 -
 (intros).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
