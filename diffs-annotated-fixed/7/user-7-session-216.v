@@ -421,8 +421,19 @@ tauto.
 tauto.
 -
 (rewrite f_subst_exist).
+(rewrite f_subst_exist).
 (unfold wf_ty in *; simpl in *).
 (destruct (IdSetProps.In_dec i (FBV t))).
 admit.
-(* Auto-generated comment: Failed. *)
+admit.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite f_subst_fvar_eq).
+assumption.
++
+(rewrite f_subst_fvar_neq; assumption).
+Admitted.
+(* Auto-generated comment: Succeeded. *)
 
