@@ -103,6 +103,9 @@ Qed.
 Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
 (intros v Hv; induction Hv; intros k).
+Lemma match_ty_value_type__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros k).
 -
 (destruct k; reflexivity).
 -
@@ -115,12 +118,9 @@ tauto.
 Qed.
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
-Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
-Proof.
 (intros k; destruct k; intros v Hm).
 -
 (apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]; subst).
 (destruct Hm as [t' Heq]; subst).
 (simpl).
 constructor.
@@ -130,26 +130,5 @@ constructor.
 (simpl).
 exists t'.
 (apply match_ty__reflexive).
-constructor.
-Qed.
-Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
-Proof.
-(intros k; destruct k; intros v Hm).
--
-(apply match_ty_exist__0_inv in Hm).
-constructor.
--
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(apply match_ty_exist).
-exists tx.
-(simpl in *).
-assumption.
-Qed.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
-Proof.
-(intros Hcontra).
-specialize (Hcontra 1).
-(assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
