@@ -86,6 +86,6 @@ Msimpl.
 (remember (pat_to_list (add_fresh_pat W [])) as li).
 specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
 (assert (inv : WF_Unitary (denote_ctrls (\226\159\166 W \226\159\167) U li))).
-(apply denote_ctrl_unitary).
-(* Auto-generated comment: Failed. *)
+(apply denote_ctrls_unitary).
+(* Auto-generated comment: Succeeded. *)
 
