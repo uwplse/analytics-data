@@ -128,8 +128,10 @@ exists w1.
 (intros v Hm).
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]).
+(destruct Hm as [Hm| Hm]).
 -
 (destruct w1).
-(v Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
