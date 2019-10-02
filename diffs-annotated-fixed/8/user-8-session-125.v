@@ -131,6 +131,6 @@ Msimpl.
 (rewrite Mmult_assoc).
 easy.
 {
-(inversion HeqW).
+(inversion HeqW; subst).
 (* Auto-generated comment: Succeeded. *)
 
