@@ -386,6 +386,7 @@ specialize (H a).
 (rewrite app_length; lia).
 }
 intuition.
-(rewrite H).
-(* Auto-generated comment: Failed. *)
+Search -nth -"++".
+(rewrite app_nth1 in H).
+(* Auto-generated comment: Succeeded. *)
 
