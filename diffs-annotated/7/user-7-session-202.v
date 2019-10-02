@@ -49,19 +49,7 @@ Qed.
 Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TPair t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
 Proof.
 (solve_not_free_union not_b_free_in_ty).
-Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
-Proof.
-(intros t1 t2 Hwf).
-(unfold wf_ty in *; simpl in *).
-Admitted.
-Lemma wf_ty_union__inv : forall t1 t2 : ty, wf_ty (TUnion t1 t2) -> wf_ty t1 /\ wf_ty t2.
-Proof.
-(intros t1 t2 Hwf).
-(unfold wf_ty in *; simpl in *).
-Admitted.
-Lemma b_subst_wf_ty : forall (X : id) (t : ty), wf_ty t -> forall s : ty, [BX := s] t = t.
-Proof.
-(intros X t).
-(induction t; intros Hwf s; try (solve [ reflexivity ])).
+(destruct (wf_ty_pair__inv _ _ Hwf) as [wf1 wf2]).
 (simpl).
+(rewrite IHt1).
 (* Failed. *)
