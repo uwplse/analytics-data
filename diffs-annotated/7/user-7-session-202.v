@@ -114,28 +114,8 @@ specialize (Hid Hneq).
 (rewrite Hid).
 reflexivity.
 Qed.
-(simpl).
-(destruct (beq_idP Y i)).
-+
-subst.
-(destruct (beq_idP X i)).
-*
-subst.
-(repeat rewrite b_subst_exist_eq).
-reflexivity.
-*
-(rewrite b_subst_exist_neq; try assumption).
-(rewrite b_subst_exist_neq; try assumption).
-reflexivity.
-*
-(repeat rewrite b_subst_exist_neq; try assumption).
-(rewrite IHt).
-reflexivity.
--
-(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
-+
-contradiction.
-+
-(simpl).
-(rewrite <- beq_id_refl).
+Lemma b_subst_wf_ty : forall (X : id) (t : ty), wf_ty t -> forall s : ty, [BX := s] t = t.
+Proof.
+(intros X t).
+(induction t; intros Hwf s; try (solve [ reflexivity ])).
 (* Failed. *)
