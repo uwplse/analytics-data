@@ -116,36 +116,11 @@ Unset Search Output Name Only.
 Check Ascii.nat_ascii_bounded.
 Theorem N_ascii_bounded : forall a, (Ascii.N_of_ascii a < 256)%N.
 Proof.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqd8xgRM"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+(destruct a as [[| ] [| ] [| ] [| ] [| ] [| ] [| ] [| ]]; vm_compute;
+  reflexivity).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjR6chH"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Theorem nat_ascii_bounded : forall a, Ascii.nat_of_ascii a < 256.
-Proof.
-(intro a; unfold Ascii.nat_of_ascii).
-(change_no_check 256 with (N.to_nat 256)).
-(rewrite <- Nat.compare_lt_iff, <- N2Nat.inj_compare, N.compare_lt_iff).
-Theorem nat_ascii_bounded : forall a, Ascii.nat_of_ascii a < 256.
-Proof.
-(intro a; unfold Ascii.nat_of_ascii).
-(change_no_check 256 with (N.to_nat 256)).
-(rewrite <- Nat.compare_lt_iff, <- N2Nat.inj_compare, N.compare_lt_iff).
-(apply N_ascii_bounded).
-Qed.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-refine (exist _ (Ascii.nat_of_ascii a) _).
-(apply nat_ascii_bounded).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1NG2gB"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqrQYZbi"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
