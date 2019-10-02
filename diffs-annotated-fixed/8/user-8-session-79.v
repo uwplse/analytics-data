@@ -1098,5 +1098,6 @@ restore_dims tensor_tac.
 easy.
 }
 all: (try reflexivity).
+(simpl_rewrite id_circ_spec; auto with wf_db).
 (* Auto-generated comment: Succeeded. *)
 
