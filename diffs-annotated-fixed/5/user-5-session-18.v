@@ -15,6 +15,6 @@ Parameter (eval : Environment -> Term -> Value).
 Axiom (evalEqTrue : forall env term, eval env (Eq term term) = vTrue).
 Axiom
   (evalEqFalse : forall env t1 t2, t1 <> t2 -> eval env (Eq t1 t2) = vFalse).
-Definition isTheorem (t : Term) := forall env, eval env t = vTrue.
+Axiom (evalVar : forall env id, eval env (Var id) = env id).
 (* Auto-generated comment: Succeeded. *)
 
