@@ -47,5 +47,6 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
-(rewrite surjective_pairing).
-(* Failed. *)
+Timeout 1 About surjective_pairing.
+Timeout 1 Print surjective_pairing.
+Timeout 1 Print Ltac surjective_pairing.
