@@ -1036,6 +1036,7 @@ Set Printing All.
 Set Printing All.
 revert IP.
 restore_dims tensor_tac.
-(intros Ip).
-(* Auto-generated comment: Succeeded. *)
+(intros IP).
+(rewrite IP).
+(* Auto-generated comment: Failed. *)
 
