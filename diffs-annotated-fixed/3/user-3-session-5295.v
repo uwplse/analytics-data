@@ -513,6 +513,88 @@ step.
 -
 step.
 Unshelve.
+{
 auto.
+}
+exact (fun _ => True).
+Qed.
+Theorem fixup_ok :
+  forall a,
+  proc_spec
+    (fun '(d, s) state =>
+     {|
+     pre := a < diskSize d /\
+            match s with
+            | FullySynced => disk0 state ?|= eq d /\ disk1 state ?|= eq d
+            | OutOfSync a' b =>
+                a' <= a /\
+                disk0 state ?|= eq (diskUpd d a' b) /\ disk1 state ?|= eq d
+            end;
+     post := fun r state' =>
+             match s with
+             | FullySynced => disk0 state' ?|= eq d /\ disk1 state' ?|= eq d
+             | OutOfSync a' b =>
+                 match r with
+                 | Continue =>
+                     a' < a /\
+                     disk0 state' ?|= eq (diskUpd d a' b) /\
+                     disk1 state' ?|= eq d \/
+                     disk0 state' ?|= eq (diskUpd d a' b) /\
+                     disk1 state' ?|= eq (diskUpd d a' b)
+                 | RepairDoneOrFailed =>
+                     disk0 state' ?|= eq d /\ disk1 state' ?|= eq d \/
+                     disk0 state' ?|= eq (diskUpd d a' b) /\
+                     disk1 state' ?|= eq (diskUpd d a' b)
+                 end
+             end;
+     recovered := fun _ state' =>
+                  match s with
+                  | FullySynced =>
+                      disk0 state' ?|= eq d /\ disk1 state' ?|= eq d
+                  | OutOfSync a' b =>
+                      disk0 state' ?|= eq (diskUpd d a' b) /\
+                      disk1 state' ?|= eq (diskUpd d a' b) \/
+                      disk0 state' ?|= eq (diskUpd d a' b) /\
+                      disk1 state' ?|= eq d \/
+                      disk0 state' ?|= eq d /\ disk1 state' ?|= eq d
+                  end |}) (fixup a) td.recover td.abstr.
+Proof.
+(spec_intros; simplify).
+(destruct s; intuition eauto).
+-
+(spec_case fixup_equal_ok; simplify; finish).
+-
+(apply PeanoNat.Nat.lt_eq_cases in H0; intuition).
++
+(spec_case fixup_wrong_addr_ok; simplify; finish).
+(repeat apply exists_tuple2; simpl).
+exists d,b,a0.
+(simplify; finish).
+(destruct v; finish).
++
+(spec_case fixup_correct_addr_ok; simplify; finish).
+exists d,b.
+(simplify; finish).
+(destruct v; finish).
+Restart.
+(intros).
+step_proc.
+(destruct a'; simpl in *).
+(destruct d0; intuition idtac).
+-
+(simplify; finish).
+(destruct r; try step).
+(destruct r; try step).
+(destruct (v == v0); try step).
+-
+(simplify; finish).
+(destruct r; try step).
+(destruct r; try step).
+(destruct (v == v0); try step).
+*
+(assert (a0 < a \/ a0 = a) by lia; intuition auto; simplify).
+*
+intuition eauto.
+step.
 (* Auto-generated comment: Failed. *)
 
