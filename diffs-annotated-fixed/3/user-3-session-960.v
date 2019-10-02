@@ -195,6 +195,7 @@ Theorem nat_from_le_zeros base_m2 digits zero_v n :
   @nat_from_le base_m2 digits.
 Proof.
 (intros).
-(induction digits; simpl).
+(induction digits; simpl; auto).
+(induction n).
 (* Auto-generated comment: Succeeded. *)
 
