@@ -66,15 +66,6 @@ tauto.
 (destruct Hm' as [Hm'1 Hm'2]).
 (apply match_ty_pair; auto).
 (destruct Hm' as [ti Hm']).
-(destruct (beq_idP X i) as [HXi| HXi]).
-+
-subst.
-(rewrite subst_var_eq in *).
-exists (TEV X').
-split.
-reflexivity.
-(induction w'; induction t'; intros Hm'; try contradiction).
-*
-(apply match_ty_union__inv in Hm').
 (destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+*
 (* Failed. *)
