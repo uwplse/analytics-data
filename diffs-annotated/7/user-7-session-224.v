@@ -22,10 +22,4 @@ Lemma build_v_full :
     (forall (w' : nat) (t' : ty),
      |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> exists w2, |-[ w2] v <$ [FX' := tx] t')).
 exists 0.
-(split; intros HX').
-{
-(unfold not_f_free_in_ty, not_free in HX').
-(simpl in HX').
-exfalso.
-(apply HX').
-(apply IdSetFacts.singleton_2).
+(* Failed. *)
