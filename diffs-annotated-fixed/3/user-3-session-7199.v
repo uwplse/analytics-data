@@ -252,12 +252,18 @@ Theorem get_len_ok :
     (fun bs state =>
      {|
      pre := log_length_ok state bs /\ log_size_ok state bs;
-     post := fun r state' => state' = state /\ r = length state;
+     post := fun r state' => state' = state /\ r = length bs;
      recovered := fun _ state' => state' = state |}) get_len recover d.abstr.
 Proof.
 (unfold get_len; intros).
 step_proc.
 step_proc.
 (eapply abstr_get_len; eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNLJDFM"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
