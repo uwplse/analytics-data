@@ -93,7 +93,10 @@ Proof.
 (intros w1).
 exists w1.
 (intros v Hm).
-(destruct k).
--
-(* Auto-generated comment: Failed. *)
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [tx [Heq Href]]; subst).
+(apply match_ty_ref).
+(apply sem_eq_k__trans with t; assumption).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
