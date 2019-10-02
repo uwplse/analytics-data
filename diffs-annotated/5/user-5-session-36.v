@@ -262,7 +262,13 @@ clear H.
  | H:eval ?L ?env (If (In ?x ?S) _ _) = _ |- _ => destruct (evalIn L env x S)
  end).
 (rewrite evalIfTrue in H0; admit).
+(rewrite evalIfFalse in H0).
++
 refine (_ _).
 (apply evalBoolInj).
 (rewrite H0).
 (apply evalBoolConst).
++
+assumption.
+}
+(erewrite <- H; reflexivity).
