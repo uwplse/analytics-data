@@ -143,9 +143,6 @@ Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w
 (intros X; induction w; induction t; intros v).
 (intros X; induction w; induction t; intros v; try (solve [ intros Hm; exists v; assumption ])).
 (apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(destruct (IHt1 _ Hm1) as [v1' Hm1']).
-(destruct (IHt2 _ Hm2) as [v2' Hm2']).
-exists (TPair v1' v2').
+(rewrite subst_pair).
 (apply match_ty_pair).
 (* Failed. *)
