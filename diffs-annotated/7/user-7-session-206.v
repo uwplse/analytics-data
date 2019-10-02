@@ -36,12 +36,5 @@ Proof.
 Qed.
 (unfold wf_ty, not_b_free_in_ty, not_free).
 (pose proof IdSetFacts.In_m as Hfact).
-(destruct (IdSetFacts.empty_iff X) as [H _]).
-(apply H).
-auto.
-Search -Morphisms.respectful.
-Print iff.
-Print Morphisms.respectful.
-Search -IdSet.Equal.
-Print Morphisms.Proper.
+(apply hfact).
 (* Failed. *)
