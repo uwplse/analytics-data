@@ -1036,7 +1036,7 @@ Set Printing All.
 Set Printing All.
 Set Printing All.
 Set Printing All.
-(match IP with
+(match type of IP with
  | ?A => let A' := restore_dims_rec tac A in
          replace
          A
