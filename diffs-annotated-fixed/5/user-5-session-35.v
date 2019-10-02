@@ -212,10 +212,10 @@ Proof.
  end).
 intro x.
 (assert
-  (forall res,
-   eval L env
-     (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
-   res -> exists i, res = eval L env (Int i))).
+  (exists i,
+     eval L env
+       (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
+     eval L env (Int i))).
 {
 (intros).
 apply -> evalInInts.
