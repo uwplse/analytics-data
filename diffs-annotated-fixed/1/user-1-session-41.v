@@ -761,6 +761,6 @@ subst.
 subst.
 (f_equal; eauto).
 -
-(intros; eauto).
+(intros; inversion H0; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
