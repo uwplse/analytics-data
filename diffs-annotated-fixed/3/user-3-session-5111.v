@@ -196,6 +196,5 @@ Proof.
 {
 (destruct (a == r)).
 -
-invert_abstraction.
 (* Auto-generated comment: Succeeded. *)
 
