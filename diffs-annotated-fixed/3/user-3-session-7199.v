@@ -450,6 +450,13 @@ congruence.
 Qed.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
+Theorem abstr_length_sz_bound d bs :
+  log_size_ok d bs -> len_addr < diskSize d.
+Proof.
+(unfold log_size_ok, len_addr, diskSize).
+(intros; lia).
+Qed.
+Hint Resolve abstr_length_sz_bound: core.
 Lemma log_abstraction_commit :
   forall bs bs' : list block,
   forall d' : State,
