@@ -351,6 +351,5 @@ Proof.
 (intros ta; induction ta; intros tb; induction tb; intros Hsem).
 16: {
 idtac.
-clear IHta.
 (* Auto-generated comment: Failed. *)
 
