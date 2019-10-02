@@ -244,8 +244,8 @@ assumption.
 Qed.
 SearchPattern (_ <= Nat.max _ _).
 exists w,v.
-(apply match_ty_union_1).
-assumption.
--
-exists w,(TRef t).
+exists 0,(TRef t).
+(destruct k).
+reflexivity.
+split.
 (* Failed. *)
