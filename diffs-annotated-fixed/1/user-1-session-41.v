@@ -551,35 +551,12 @@ Create HintDb agt discriminated.
 Hint Resolve singleton_eq: agt.
 Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
+Lemma alpha_fun_inversion :
+  forall S,
+  (forall X, Ensembles.In _ S X -> exists S_1 S_2, X = SFun S_1 S_2) ->
+  forall G, Alpha S G -> exists G_1 G_2, G = GFun G_1 G_2.
 Proof.
 (intros).
-generalize dependent G'.
-(induction H).
--
-(intros; inversion H0; subst; eauto).
-all: (try (apply singleton_eq in H1; congruence)).
-all: (try specialize (H1 _ (In_singleton _ _ _))).
-all: (try specialize (H1 _ (In_singleton _ _))).
-all:
- (repeat
-   match goal with
-   | H:exists _, _ |- _ => destruct H
-   | H:_ \/ _ |- _ => inversion H; clear H
-   end).
-all: (try congruence).
--
-(intros; inversion H0; subst; eauto).
-all: (try (apply singleton_eq in H1; congruence)).
-all: (try specialize (H1 _ (In_singleton _ _ _))).
-all: (try specialize (H1 _ (In_singleton _ _))).
-all:
- (repeat
-   match goal with
-   | H:exists _, _ |- _ => destruct H
-   | H:_ \/ _ |- _ => inversion H; clear H
-   end).
-all: (try congruence).
--
-(intros).
+(inversion H0).
 (* Auto-generated comment: Succeeded. *)
 
