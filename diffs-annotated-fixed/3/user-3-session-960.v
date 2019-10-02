@@ -91,6 +91,13 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhhWJJV"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-#[program]Fixpoint nat_to_le (x : nat) : list byte_nat.
+Print sigT.
+Print sig.
+#[program]
+Fixpoint nat_to_le (x : nat) : list byte_nat :=
+  match x with
+  | 0 => nil
+  | _ => exist (x mod 256) _ :: nat_to_le (x / 256)
+  end.
 (* Auto-generated comment: Failed. *)
 
