@@ -69,10 +69,12 @@ Fixpoint match_ty (k : nat) :=
         | S k, _, TRef t', TRef t =>
             (forall w1, exists w2, forall v, |-[ k, w1] v <$ t' -> |-[ k, w2] v <$ t) /\
             (forall w1, exists w2, forall v, |-[ k, w1] v <$ t -> |-[ k, w2] v <$ t')
-        | _, S w, v, TExist X t' => False
+        | _, S w, v, TExist X t' => exists tx, mtyw w v ([X := tx] t')
         | _, _, TEV X, TVar X' => X = X'
         | _, _, TEV X, TEV X' => X = X'
         | _, _, _, _ => False
         end
 where "'|-[' k ',' w ']' v '<$' t" := (match_ty k w v t) : btjm_scope.
+Definition sem_sub_k_w (k w1 w2 : nat) (t1 t2 : ty) := forall v : ty, |-[ k, w1] v <$ t1 -> |-[ k, w2] v <$ t2.
+Notation "'||-[' k ',' w1 ',' w2 ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w_k k w1 w2 t1 t2) (at level 45) : btjm_scope.
 (* Failed. *)
