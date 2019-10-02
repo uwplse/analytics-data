@@ -152,13 +152,11 @@ Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w
       [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
 (rewrite IdSetFacts.empty_b in Hmem).
 (inversion Hmem).
-(unfold mk_subst_exist).
-clear Hmem.
-(destruct (beq_idP X i)).
-+
-subst.
-exists v.
-assumption.
-+
-(apply match_ty_exist__inv in IHw).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+specialize (IHw _ _ Hm).
+(destruct IHw as [v' IHw]).
+exists v'.
+(apply match_ty_exist).
+exists tx.
 (* Failed. *)
