@@ -403,5 +403,12 @@ step_proc.
 -
 (step_proc; intuition; subst; eauto).
 {
+(exists s; simpl; intuition).
+(apply log_abstraction_pre_commit; auto).
+}
+{
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
