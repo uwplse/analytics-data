@@ -314,6 +314,6 @@ Proof.
 step_proc.
 intuition eauto.
 +
-(rewrite app_nil_r in *; auto).
+(rewrite app_nil_r; auto).
 (* Auto-generated comment: Succeeded. *)
 
