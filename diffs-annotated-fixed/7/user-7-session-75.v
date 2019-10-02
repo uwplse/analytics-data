@@ -58,5 +58,5 @@ Proof.
 (apply sem_eq_k__comm).
 (apply mk_nf__sem_eq_k).
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
