@@ -1018,6 +1018,5 @@ restore_dims
 -
 (simpl in *).
 rewrite_inPar''.
-(simpl_rewrite TRUE_spec).
 (* Auto-generated comment: Succeeded. *)
 
