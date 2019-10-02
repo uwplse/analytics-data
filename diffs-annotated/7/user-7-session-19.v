@@ -4,6 +4,6 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 (apply match_ty_i_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
-(destruct v1; contradiction || constructor).
-(apply match_ty_ref__inv in Hm2).
+(apply match_ty_i_ref__inv in Hm2).
+(destruct Hm2 as [t'' [Heq' Href']]).
 (* Failed. *)
