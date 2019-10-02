@@ -27,5 +27,3 @@ autorewrite with proof_db.
 (simpl).
 (rewrite Nat.sub_diag).
 (rewrite super_I; easy).
-Msimpl.
-lma.
