@@ -47,5 +47,5 @@ Fixpoint subst (x : id) (s t : ty) :=
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-Check IdSet.
-(* Auto-generated comment: Failed. *)
+Fixpoint FV (t : ty) : id_set.
+(* Failed. *)
