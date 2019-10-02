@@ -137,12 +137,118 @@ eauto.
 (exists nil; intuition).
 eauto.
 }
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1UjizO"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Qed.
+Lemma diskGet_eq_values :
+  forall d a b b',
+  diskGet d a =?= b -> diskGet d a =?= b' -> a < diskSize d -> b = b'.
+Proof.
+(intros).
+(destruct (diskGet d a) eqn:?; simpl in *).
+-
+congruence.
+-
+exfalso.
+(apply disk_inbounds_not_none in Heqo; eauto).
+Qed.
+Ltac
+ eq_values :=
+  match goal with
+  | H:diskGet ?d ?a =?= ?b, H':diskGet ?d ?a =?= ?b'
+    |- _ =>
+        assert (b = b') by
+         (apply (@diskGet_eq_values d a b b'); try lia; auto); subst
+  end.
+Lemma disk_matches_state_next :
+  forall disk start b blocks,
+  disk_matches_list disk start (b :: blocks) ->
+  disk_matches_list disk (start + 1) blocks.
+Proof.
+(unfold disk_matches_list; simpl; intuition).
+Qed.
+Hint Resolve disk_matches_state_next: core.
+Lemma disk_matches_list_first :
+  forall disk start b blocks,
+  disk_matches_list disk start (b :: blocks) -> diskGet disk start =?= b.
+Proof.
+(unfold disk_matches_list; simpl; intuition).
+Qed.
+Definition get_helper_spec start count :
+  Specification (list block) (list block) unit State :=
+  fun (blocks : list block) state =>
+  {|
+  pre := disk_matches_list state start blocks /\
+         start + count <= diskSize state /\ length blocks = count;
+  post := fun r state' => r = blocks /\ state' = state;
+  recovered := fun _ state' => state' = state |}.
+Theorem get_helper_ok :
+  forall count start,
+  proc_spec (get_helper_spec start count) (get_helper start count) d.recover
+    d.abstr.
+Proof.
+(induction count; simpl; intros).
+-
+step_proc.
+(simpl in *; intuition).
+(destruct a; simpl in *; auto; lia).
+-
+step_proc.
+step_proc.
+(simpl in *; intuition).
+(destruct a'; simpl in *; try lia).
+exists a'.
+intuition eauto.
+{
+lia.
 }
-(* Auto-generated comment: Failed. *)
+step_proc.
+(apply disk_matches_list_first in H).
+eq_values.
+auto.
+Qed.
+Hint Resolve get_helper_ok: core.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+(unfold get).
+(apply spec_abstraction_compose; simpl).
+step_proc.
+(destruct a'; simpl in *; intuition eauto).
+step_proc.
+exists s.
+intuition eauto.
+-
+(unfold log_abstraction in H0; intuition).
+-
+(unfold log_abstraction in H0; intuition).
+eq_values.
+lia.
+-
+(unfold log_abstraction in H0; intuition).
+eq_values.
+auto.
+-
+(step_proc; intuition eauto).
+Qed.
+Definition append_helper_spec start blocks :
+  Specification unit unit unit State :=
+  fun (_ : unit) state =>
+  {|
+  pre := True;
+  post := fun r state' => r = tt /\ state' = diskUpds state start blocks;
+  recovered := fun _ state' =>
+               exists n, state' = diskUpds state start (firstn n blocks) |}.
+Theorem append_helper_ok :
+  forall blocks start,
+  proc_spec (append_helper_spec start blocks) (append_helper start blocks)
+    d.recover d.abstr.
+Proof.
+(induction blocks; simpl; intros).
+-
+(step_proc; intuition; subst; eauto).
+(exists 0; simpl).
+reflexivity.
+-
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
+(* Auto-generated comment: Succeeded. *)
 
