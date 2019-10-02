@@ -164,6 +164,7 @@ Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
 (simpl).
-(proc_spec_weaken d.read_ok).
+Check proc_spec_weaken.
+(apply proc_spec_weaken).
 (* Auto-generated comment: Failed. *)
 
