@@ -191,6 +191,9 @@ subst.
 +
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
-(simpl).
+(destruct w'; constructor).
++
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]).
 (* Auto-generated comment: Failed. *)
 
