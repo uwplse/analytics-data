@@ -300,4 +300,6 @@ generalize dependent t21.
 -
 (destruct (unite_pairs_union_t t1 t2 t21) as [Heq1| [Heq11 Heq12]]; destruct (unite_pairs_union_t t1 t2 t22) as [Heq2| [Heq21 Heq22]]).
 (rewrite unite_pairs_union_t).
+(repeat rewrite unite_pairs_union_t).
+(constructor; eapply SD_Trans; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
 (* Failed. *)
