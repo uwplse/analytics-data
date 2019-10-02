@@ -674,6 +674,5 @@ step.
 -
 step.
 (destruct s; simplify).
-(exists d,FullySynced; simplify; finish).
 (* Auto-generated comment: Succeeded. *)
 
