@@ -337,6 +337,5 @@ Timeout 1 Print LoadPath.
 3: {
 econstructor.
 3: eauto.
-validate.
 (* Auto-generated comment: Succeeded. *)
 
