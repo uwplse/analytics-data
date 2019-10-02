@@ -8,12 +8,11 @@ Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
+Add LoadPath "../..".
+Require Import BetaJulia.BasicPLDefs.Identifier.
+Require Import BetaJulia.Sub0250a.BaseDefs.
+Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.AltMatchDefs.
-Require Import Coq.Lists.List.
-Import ListNotations.
-Require Import Coq.Arith.Arith.
-Require Import Coq.Bool.Bool.
-Open Scope btjmi_scope.
 Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -193,13 +192,6 @@ Proof.
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Lemma in_nf_pair__value_type : forall t1 t2 : ty, InNF( TPair t1 t2) -> value_type (TPair t1 t2).
-Proof.
-(intros t1 t2 Hnf).
-(inversion Hnf; subst).
-(apply atom_type__value_type; assumption).
-Qed.
-Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
@@ -216,5 +208,6 @@ Proof.
      end ])).
 -
 (assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption)).
+(assert (Hmp : |-[ 0] TPair v1 v2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption)).
 (* Auto-generated comment: Failed. *)
 
