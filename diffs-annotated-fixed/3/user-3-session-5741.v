@@ -261,5 +261,23 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPuN122"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-(* Auto-generated comment: Failed. *)
+Fixpoint factorial (n : nat) : nat :=
+  match n with
+  | 0 => 1
+  | S n => S n * factorial n
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgAprxE"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqr2GqAC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_factorial1 : factorial 3 = 6.
+Proof.
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
