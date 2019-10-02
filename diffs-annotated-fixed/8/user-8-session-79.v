@@ -1154,5 +1154,11 @@ clear IS.
 (rewrite strip_one_l_in_eq).
 (rewrite strip_one_l_in_eq).
 (erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+4: (erewrite denote_box_compat).
+5: (erewrite denote_box_compat).
+6: (erewrite denote_box_compat).
+7: (erewrite denote_box_compat).
 (* Auto-generated comment: Succeeded. *)
 
