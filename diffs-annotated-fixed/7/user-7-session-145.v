@@ -92,6 +92,6 @@ Search -IdSet.In.
 subst.
 (apply match_ty_exist).
 exists tx.
-(apply IHw).
+(apply IHw with X).
 (* Auto-generated comment: Failed. *)
 
