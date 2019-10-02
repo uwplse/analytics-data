@@ -948,10 +948,6 @@ Fact assert_at_spec_unsafe :
 Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
-(repeat rewrite Mmult_assoc).
-Msimpl.
-(repeat rewrite <- Mmult_assoc).
-Msimpl.
-(destruct b; simpl; Msimpl).
--
++
+replace (\226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169) with Zero by lma.
 (* Failed. *)
