@@ -25,5 +25,6 @@ exists (TCName c).
 -
 (simpl in Hm).
 (simpl).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
