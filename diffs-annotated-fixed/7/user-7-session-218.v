@@ -475,6 +475,7 @@ reflexivity.
 +
 subst.
 (rewrite f_subst_fvar_eq).
-(rewrite b_subst_fvar).
+(rewrite f_subst_fvar_eq).
+symmtery.
 (* Auto-generated comment: Failed. *)
 
