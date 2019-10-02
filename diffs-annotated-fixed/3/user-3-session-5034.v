@@ -191,5 +191,63 @@ step_proc.
 (destruct a'; simpl in *; try lia).
 exists a'.
 intuition eauto.
+{
+lia.
+}
+step_proc.
+(apply disk_matches_list_first in H).
+eq_values.
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmDlW5Q"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve get_helper_ok: core.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+(unfold get).
+(apply spec_abstraction_compose; simpl).
+step_proc.
+(destruct a'; simpl in *; intuition eauto).
+step_proc.
+exists s.
+intuition eauto.
+-
+(unfold log_abstraction in H0; intuition).
+-
+(unfold log_abstraction in H0; intuition).
+eq_values.
+lia.
+-
+(unfold log_abstraction in H0; intuition).
+eq_values.
+auto.
+-
+(step_proc; intuition eauto).
+Qed.
+Definition append_helper_spec start blocks :
+  Specification unit unit unit State :=
+  fun (_ : unit) state =>
+  {|
+  pre := True;
+  post := fun r state' => r = tt /\ state' = diskUpds state start blocks;
+  recovered := fun _ state' =>
+               exists n, state' = diskUpds state start (firstn n blocks) |}.
+Theorem append_helper_ok :
+  forall blocks start,
+  proc_spec (append_helper_spec start blocks) (append_helper start blocks)
+    d.recover d.abstr.
+Proof.
+(induction blocks; simpl; intros).
+-
+(step_proc; intuition; subst; eauto).
+(exists 0; simpl).
+reflexivity.
+-
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
