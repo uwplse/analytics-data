@@ -270,7 +270,7 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqiFtR30"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Definition network_of_app {E} {nE} `{networkE -< nE} `{exceptE error -< nE} `{E -< nE} 
+Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} {E} `{E -< nE} 
   (k : shared_key) T (e : (appE id +' E) T) : itree nE T :=
   match e with
   | (ae|) =>
@@ -293,5 +293,5 @@ Definition network_of_app {E} {nE} `{networkE -< nE} `{exceptE error -< nE} `{E 
       end
   | (|e) => trigger e
   end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqv20nyB" Print Ltac Signatures.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqnBFG70" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
