@@ -49,6 +49,6 @@ subst.
 {
 (pose proof (IdSetFacts.mem_1 Hin) as Hmem).
 (rewrite (subst_exist_neq _ _ _ _ HY)).
-(rewrite subst_equation).
+(rewrite subst_equation  at 2).
 (* Auto-generated comment: Failed. *)
 
