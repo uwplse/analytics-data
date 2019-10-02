@@ -16,6 +16,13 @@ Set Implicit Arguments.
 Opaque Nat.modulo Nat.div.
 #[local]Obligation Tactic := (intros; simpl; subst).
 Theorem mod_S_lt n m : n `mod` S m < S m.
+From Classes Require Import EqualDec.
+From Armada Require Import Goose.Machine.
+From Coq Require Import List.
+Set Implicit Arguments.
+Opaque Nat.modulo Nat.div.
+#[local]Obligation Tactic := (intros; simpl; subst).
+Theorem mod_S_lt n m : n `mod` S m < S m.
 Proof.
 (apply Nat.mod_upper_bound; auto).
 Qed.
@@ -123,16 +130,6 @@ econstructor.
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
 (apply ProofIrrelevanceTheory.subset_eq_compat).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoqDPof"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwEWGLb"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
 constructor.
@@ -143,5 +140,10 @@ admit.
 typeclasses eauto.
 -
 (simpl).
+(unfold EqualDec).
+(intros; simpl).
+(decide equality; subst).
+(decide equality; subst).
+(destruct (decide (x0 = x1)); auto).
 (* Auto-generated comment: Succeeded. *)
 
