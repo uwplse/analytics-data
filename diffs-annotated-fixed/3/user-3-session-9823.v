@@ -209,5 +209,5 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 }
 (subst; eexists; eauto).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
