@@ -1035,5 +1035,15 @@ Set Printing All.
 Set Printing All.
 Set Printing All.
 Set Printing All.
+Set Printing All.
+(match IP with
+ | ?A =>
+     let A' := restore_dims_rec tac A in
+     replace
+     A
+     with
+     A'
+     by unify_matrix_dims tac
+ end).
 (* Auto-generated comment: Succeeded. *)
 
