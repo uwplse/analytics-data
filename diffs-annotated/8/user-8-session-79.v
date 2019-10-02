@@ -544,7 +544,58 @@ Proof.
 (simpl).
 (destruct a; simpl; rewrite IH\206\147; easy).
 Qed.
-Lemma WF_ctx_to_matrix : forall \206\147 f, WF_Matrix (ctx_to_matrix \206\147 f).
+Lemma pure_bool_to_matrix : forall b, Pure_State (bool_to_matrix b).
 Proof.
-(induction \206\147; intros f).
+(destruct b).
+(apply pure1).
+(apply pure0).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqNvpYR6"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma pure_big_kron :
+  forall (n : nat) (l : list (Square n)) (A : Square n),
+  (forall i : nat, Pure_State (nth i l A)) -> Pure_State (\226\168\130 l).
+Proof.
+(induction l; intros A H).
 -
+(simpl).
+(apply pure_id1).
+-
+(simpl).
+(apply pure_state_kron).
+(apply (H 0)).
+(apply (IHl A)).
+(intros i).
+(apply (H (S i))).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqtrOAAW"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma mixed_big_kron :
+  forall (n : nat) (l : list (Square n)) (A : Square n),
+  (forall i : nat, Mixed_State (nth i l A)) -> Mixed_State (\226\168\130 l).
+Proof.
+(induction l; intros A H).
+-
+(simpl).
+constructor.
+(apply pure_id1).
+-
+(simpl).
+(apply mixed_state_kron).
+(apply (H 0)).
+(eapply IHl).
+(intros i).
+(apply (H (S i))).
+Qed.
+Lemma big_kron_append :
+  forall m n (l1 l2 : list (Matrix m n)) (A B : Matrix m n),
+  (forall j, WF_Matrix (nth j l1 A)) ->
+  (forall j, WF_Matrix (nth j l2 B)) -> \226\168\130 (l1 ++ l2) = (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
+Proof.
+(induction l1).
+-
+(intros).
+(simpl).
+(rewrite kron_1_l).
