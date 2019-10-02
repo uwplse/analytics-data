@@ -360,6 +360,13 @@ step_proc.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
 (descend; intuition eauto).
-(rewrite firstn_length_le).
-(* Auto-generated comment: Failed. *)
+Search -firstn -length.
+(rewrite firstn_all; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOEG1HC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
