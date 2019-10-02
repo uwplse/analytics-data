@@ -8,7 +8,18 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 From Coq Require Import Program.
-From Coq Require Import FunInd.
+Timeout 1 Print LoadPath.
+From Coq Require Import FunInd Recdef.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0iIh4K"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqPaL2mC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 From Classes Require Import EqualDec.
 From RecordUpdate Require Import RecordUpdate.
 From stdpp Require Import decidable countable.
@@ -59,15 +70,6 @@ Class GoModel : Type :={byte : Type;
                         nullptr : forall ty, Ptr ty}.
 Opaque Nat.modulo Nat.div.
 #[local]Obligation Tactic := (intros; simpl; subst).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqPxOPl"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqa30jLs"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Function
  nat_to_le base (x : nat) {wf lt x} : list {x : nat | x < S (S base)} :=
    match x with
@@ -77,5 +79,15 @@ Function
        exist (fun x => x < S (S base)) digit _
        :: nat_to_le base (x / S (S base))
    end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzFl6bk"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqXJczSx"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
