@@ -110,11 +110,20 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2gZaVH"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition append_at (a : addr) (bs : list block) : 
-  proc unit :=
+Fixpoint append_at (a : addr) (bs : list block) : 
+proc unit :=
   match bs with
   | [] => Ret tt
   | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
   end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOIPjdR"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmw0vc8"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Failed. *)
 
