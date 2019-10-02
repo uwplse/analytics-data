@@ -100,6 +100,8 @@ specialize (IHw' HX').
 exists ([FX' := tx] ti).
 split.
 (apply wf_ty__wf_ty_f_subst; assumption).
-subst.
-(rewrite b_subst_exist_eq in Hm).
+(rewrite b_subst_exist_eq in *).
+exists v.
+split.
+assumption.
 (* Failed. *)
