@@ -84,6 +84,6 @@ Proof.
 constructor.
 -
 (apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
+(constructor; [ eapply IHt1 | eapply IHt2 ]; etauto).
 (* Auto-generated comment: Failed. *)
 
