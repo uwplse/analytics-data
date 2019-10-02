@@ -50,3 +50,5 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
+specialize (H _ I).
+restore_dims repeat rewrite rev_length, skipn_length, firstn_length, L, repeat_length; lia.
