@@ -77,5 +77,9 @@ reflexivity.
 Qed.
 Lemma subst_exist_neq : forall (X : id) (s : ty) (Y : id) (t : ty), X <> Y -> fresh_in_ty Y s -> [X := s] TExist Y t = TExist Y ([X := s] t).
 Proof.
-(intros X s Y t Hneq).
-(* Auto-generated comment: Failed. *)
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
+(simpl).
+(rewrite Hid).
+(unfold fresh_in_ty, freh in HY).
+(* Failed. *)
