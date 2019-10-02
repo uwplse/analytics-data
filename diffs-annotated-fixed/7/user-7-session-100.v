@@ -64,9 +64,6 @@ Proof.
 clear IHv.
 (intros t w k Hm).
 (intros t w k Hm).
-(simpl in Hm).
-exists v.
-split.
-reflexivity.
+(destruct w; simpl in Hm; exists v; auto).
 (* Auto-generated comment: Failed. *)
 
