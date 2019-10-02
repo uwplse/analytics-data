@@ -86,5 +86,10 @@ Proof.
 (intros k t t' Hsem).
 (intros w1).
 exists w1.
+(intros w1).
+exists w1.
 (intros v Hm).
+(destruct k).
+-
+(apply match_ty_ref__weak_inv in Hm; subst).
 (* Failed. *)
