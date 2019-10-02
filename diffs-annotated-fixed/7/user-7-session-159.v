@@ -67,6 +67,6 @@ subst.
 specialize (IHw _ _ Hm).
 (destruct IHw as [v' Hm']).
 exists v'.
-(apply match_ty_exist).
+(rewrite subst_neq__permute in Hm).
 (* Auto-generated comment: Failed. *)
 
