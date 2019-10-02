@@ -1036,7 +1036,7 @@ Set Printing All.
 Set Printing All.
 (match goal with
  | H:_ -> _ -> denote_box true ?c ?A == _
-   |- context [ denote_box true ?c ?A ] => replace A' with A
+   |- context [ denote_box true ?c ?A' ] => replace A' with A
  end).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
