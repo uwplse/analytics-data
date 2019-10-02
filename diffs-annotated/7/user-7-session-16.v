@@ -106,4 +106,6 @@ Proof.
      end ])).
 Qed.
 Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
+Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
+Proof.
 (* Failed. *)
