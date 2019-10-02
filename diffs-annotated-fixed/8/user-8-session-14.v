@@ -1215,5 +1215,6 @@ Proof.
 (intros n \207\129 M\207\129).
 (unfold apply_new0, super).
 Set Printing All.
+Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
