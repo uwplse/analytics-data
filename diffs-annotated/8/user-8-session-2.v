@@ -47,5 +47,7 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma ctrls_to_list_transpose : forall W lb li (u : Unitary W), fst (ctrls_to_list lb li u) = fst (ctrls_to_list lb li (trans u)).
 (induction W; intros lb li u; try (solve [ inversion u ])).
-(rewrite ctrls_to_list_empty in *).
-(rewrite ctrls_to_list_empty).
+(repeat rewrite ctrls_to_list_empty).
+reflexivity.
+(inversion u; subst).
+(simpl).
