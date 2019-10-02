@@ -94,9 +94,9 @@ Function
    | 0 => nil
    | _ =>
        let base := S (S base_m2) in
-       let digit := x `mod` base in
-       exist (fun x => x < S (S base_m2)) digit _
+       let digit := x `mod` S S in
+       exist (fun x => x < S (S base_m2)) (x `mod` S (S base_m2)) _
        :: nat_to_le base_m2 (x / S (S base_m2))
    end.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
