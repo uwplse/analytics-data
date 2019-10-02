@@ -949,5 +949,5 @@ Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
 +
-replace (\226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169) with Zero by lma.
+replace (\226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169) with @Zero 1 1 by lma.
 (* Failed. *)
