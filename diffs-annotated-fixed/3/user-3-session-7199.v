@@ -314,6 +314,6 @@ generalize dependent a.
 -
 (destruct a0; simpl in *; auto).
 f_equal.
-(rewrite IHd).
+(rewrite IHd by lia).
 (* Auto-generated comment: Succeeded. *)
 
