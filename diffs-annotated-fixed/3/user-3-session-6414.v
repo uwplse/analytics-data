@@ -167,6 +167,6 @@ step_proc.
 step_proc.
 step_proc.
 (exists nil; simpl).
-eauto.
-(* Auto-generated comment: Succeeded. *)
+(apply log_abstraction_nil).
+(* Auto-generated comment: Failed. *)
 
