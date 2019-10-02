@@ -461,9 +461,6 @@ tauto.
 (split; intros t'; induction t'; intros Hnf'; try (inversion Hnf'; subst); specialize (IH11 _ Hnf'); specialize (IH12 _ Hnf'); specialize
   (IH21 _ Hnf'); specialize (IH22 _ Hnf'); try (solve [ solve_union_sub_r__decidable IH11 IH21 | solve_atom_sub_r_union__decidable IH12 IH22 ])).
 +
-(destruct IHt'1 as [IH1| IH1]; destruct IHt'2 as [IH2| IH2]; try assumption).
-(left; constructor; assumption).
-(right; intros Hcontra).
-(apply sub_r_union_l__inv in Hcontra).
+(solve_union_sub_r__decidable IHt'1 IHt'2).
 (* Auto-generated comment: Failed. *)
 
