@@ -48,7 +48,7 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
-(apply match_ty_i_cname__inv in Hm; subst).
-reflexivity.
--
+(match goal with
+ | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; reflexivity
+ end).
 (* Failed. *)
