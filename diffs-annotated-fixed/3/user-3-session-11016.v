@@ -565,5 +565,27 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-(* Auto-generated comment: Failed. *)
+Unset Search Output Name Only.
+Example test_beq_natlist1 : beq_natlist nil nil = true.
+Proof.
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlbGaaR"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Example test_beq_natlist2 : beq_natlist [1; 2; 3] [1; 2; 3] = true.
+Proof.
+reflexivity.
+Qed.
+Example test_beq_natlist3 : beq_natlist [1; 2; 3] [1; 2; 4] = false.
+Proof.
+reflexivity.
+Qed.
+Theorem beq_natlist_refl : forall l : natlist, true = beq_natlist l l.
+Proof.
+(induction l; simpl).
+(* Auto-generated comment: Succeeded. *)
 
