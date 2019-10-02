@@ -67,8 +67,8 @@ Fixpoint match_ty (k : nat) :=
         | _, _, _, TUnion t1 t2 => mty' t1 \/ mty' t2
         | 0, _, TRef t', TRef t => True
         | S k, _, TRef t', TRef t =>
-            (forall w1, exists w2, forall v, |-[ k, w] v <$ t' -> |-[ k, w] v <$ t) /\
-            (forall w1, exists w2, forall v, |-[ k, w] v <$ t -> |-[ k, w] v <$ t')
+            (forall w1, exists w2, forall v, |-[ k, w1] v <$ t' -> |-[ k, w2] v <$ t) /\
+            (forall w1, exists w2, forall v, |-[ k, w1] v <$ t -> |-[ k, w2] v <$ t')
         | _, 0, v, TExist _ t' => mty' t'
         | _, S w, v, TExist X t' => exists tx, mtyw w v ([X := tx] t')
         | _, _, TEV X, TVar X' => X = X'
@@ -76,4 +76,4 @@ Fixpoint match_ty (k : nat) :=
         | _, _, _, _ => False
         end
 where "'|-[' k ',' w ']' v '<$' t" := (match_ty w k v t) : btjm_scope.
-(* Auto-generated comment: Failed. *)
+(* Failed. *)
