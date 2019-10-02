@@ -98,6 +98,6 @@ Proof.
 -
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair; auto).
+(apply match_ty_i_pair; tauto).
 (* Auto-generated comment: Failed. *)
 
