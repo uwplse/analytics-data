@@ -116,6 +116,8 @@ step_proc.
 (step_proc; intuition; subst; eauto).
 {
 (step_proc; intuition; subst; eauto).
+{
 (exists nil; intuition).
-(* Auto-generated comment: Failed. *)
+eauto.
+(* Auto-generated comment: Succeeded. *)
 
