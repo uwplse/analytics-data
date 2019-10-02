@@ -126,6 +126,6 @@ Theorem log_length_ok_nil d b :
   diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
 Proof.
 (unfold log_length_ok; intros).
-(rewrite H; simpl; eauto).
-(* Auto-generated comment: Failed. *)
+(rewrite H in *).
+(* Auto-generated comment: Succeeded. *)
 
