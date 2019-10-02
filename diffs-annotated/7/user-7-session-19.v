@@ -11,5 +11,7 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjmi_scope.
-(destruct v; simpl in Hm; contradiction).
+(destruct v).
+(simpl in Hm).
+contradiction.
 (* Failed. *)
