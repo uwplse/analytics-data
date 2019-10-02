@@ -9,6 +9,9 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Create HintDb DBBetaJulia.
+Declare Scope btjt_scope.
+Delimit Scope btjt_scope with btjt.
+Open Scope btjt.
 Inductive cname : Type :=
   | NInt : _
   | NFlt : _
@@ -32,9 +35,6 @@ Definition tX := TVar vX.
 Definition tY := TVar vY.
 Definition teXX := TExist vX tX.
 Definition tyXRefX := TExist vX (TRef tX).
-Declare Scope btjt_scope.
-Delimit Scope btjt_scope with btjt.
-Open Scope btjt.
 Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Fixpoint subst (x : id) (s t : ty) :=
   match t with
@@ -47,4 +47,8 @@ Fixpoint subst (x : id) (s t : ty) :=
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-(* Failed. *)
+Inductive value_type : ty -> Prop :=
+  | VT_CName : forall cn, value_type (TCName cn)
+  | VT_Pair : forall v1 v2, value_type v1 -> value_type v2 -> value_type (TPair v1 v2)
+  | VT_Ref : forall t, value_type (TRef t)
+  | VT_EV : forall X, value_type TEV X.
