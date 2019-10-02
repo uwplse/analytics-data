@@ -148,6 +148,6 @@ Proof.
 (intros X s t1 t2).
 (pose proof (subst_equation X s (TPair t1 t2))).
 (simpl in H).
-reflexivity.
+assumption.
 (* Auto-generated comment: Failed. *)
 
