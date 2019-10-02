@@ -972,6 +972,5 @@ restore_dims
 show_dimensions.
 (simpl).
 (repeat rewrite app_length in *).
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
