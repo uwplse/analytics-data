@@ -21,12 +21,12 @@ Lemma build_v_full :
     |-[ w] v' <$ [BX := TFVar X'] t /\
     (forall (w' : nat) (t' : ty),
      |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> exists w2, |-[ w2] v <$ [FX' := tx] t')).
-admit.
--
-admit.
--
-(destruct (beq_idP X i)).
+(rewrite b_subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
 +
 subst.
-(rewrite b_subst_exist_eq in Hm).
+(rewrite b_subst_exist_neq in Hm; try assumption).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
 (* Failed. *)
