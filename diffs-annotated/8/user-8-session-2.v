@@ -48,3 +48,4 @@ Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
 (destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
+(simpl).
