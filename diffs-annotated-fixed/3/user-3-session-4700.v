@@ -402,7 +402,411 @@ Redirect
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
-rewrite counting_op' //= Cinl_op.
-(* Auto-generated comment: Failed. *)
+rewrite counting_op' //= -Cinl_op.
+replace (S q + - 1)%Z with q : Z by lia.
+(assert (Hop : 0 \226\139\133 S n = S n) by auto).
+replace (S q + - 1)%Z with q : Z by lia.
+(repeat destruct (decide); try lia).
+rewrite Hop.
+rewrite agree_idemp //=.
+Qed.
+Lemma read_split_join2 l (q : nat) n v :
+  mapsto l q (ReadLocked n) v
+  \226\138\163\226\138\162 mapsto l (S q) (ReadLocked n) v \226\136\151 mapsto l (- 1) Unlocked v.
+Proof.
+rewrite mapsto_eq /mapsto_def.
+rewrite -own_op -auth_frag_op.
+f_equiv.
+(<ssreflect_plugin::ssrtclintros@0> split =>//= l').
+rewrite discrete_fun_lookup_op.
+(<ssreflect_plugin::ssrtclintros@0> destruct (l' == l) =>//=).
+rewrite -Some_op -?pair_op.
+rewrite counting_op' //= -Cinl_op.
+replace (S q + - 1)%Z with q : Z by lia.
+(assert (Hop : S n \226\139\133 0 = S n) by auto).
+replace (S q + - 1)%Z with q : Z by lia.
+(repeat destruct (decide); try lia).
+rewrite Hop.
+rewrite agree_idemp //=.
+Qed.
+Lemma read_split_join3 l (q : nat) v :
+  mapsto l q Locked v
+  \226\138\163\226\138\162 mapsto l (S q) Locked v \226\136\151 mapsto l (- 1) Locked v.
+Proof.
+rewrite mapsto_eq /mapsto_def.
+rewrite -own_op -auth_frag_op.
+f_equiv.
+(<ssreflect_plugin::ssrtclintros@0> split =>//= l').
+rewrite discrete_fun_lookup_op.
+(<ssreflect_plugin::ssrtclintros@0> destruct (l' == l) =>//=).
+rewrite -Some_op -?pair_op.
+rewrite counting_op' //= -Cinr_op.
+replace (S q + - 1)%Z with q : Z by lia.
+(repeat destruct (decide); try lia).
+rewrite ?agree_idemp //=.
+Qed.
+Lemma read_split_join l (q : nat) v :
+  l \226\134\166{q} v \226\138\163\226\138\162 l \226\134\166{S q} v \226\136\151 l r\226\134\166 v.
+Proof.
+rewrite /read_mapsto mapsto_eq /mapsto_def.
+rewrite -own_op -auth_frag_op.
+f_equiv.
+(<ssreflect_plugin::ssrtclintros@0> split =>//= l').
+rewrite discrete_fun_lookup_op.
+(<ssreflect_plugin::ssrtclintros@0> destruct (l' == l) =>//=).
+rewrite -Some_op -?pair_op.
+rewrite counting_op' //= -Cinl_op.
+replace (S q + - 1)%Z with q : Z by lia.
+(repeat destruct (decide); try lia).
+rewrite agree_idemp //=.
+Qed.
+Lemma discrete_fun_local_update `{EqualDec A} 
+  {B : A \226\134\146 ucmraT} f1 f2 f1' f2' :
+  (\226\136\128 x, (f1 x, f2 x) ~l~> (f1' x, f2' x))
+  \226\134\146 (f1 : discrete_fun B, f2) ~l~> (f1', f2').
+Proof.
+(intros Hupd).
+(<ssreflect_plugin::ssrtclintros@0> apply local_update_unital =>n mf
+  Hmv Hm; simpl in *).
+split.
+-
+(intros k).
+specialize (Hupd k).
+specialize (Hm k).
+rewrite discrete_fun_lookup_op in  {} Hm.
+(edestruct (Hupd n (Some (mf k))); eauto).
+-
+(intros k).
+specialize (Hupd k).
+specialize (Hm k).
+rewrite discrete_fun_lookup_op in  {} Hm.
+(edestruct (Hupd n (Some (mf k))); eauto).
+Qed.
+Lemma gen_heap_ctx_proper \207\131 \207\131' :
+  (\226\136\128 k, \207\131 k = \207\131' k) \226\134\146 gen_heap_ctx \207\131 -\226\136\151 gen_heap_ctx \207\131'.
+Proof.
+(intros Hequiv).
+rewrite /gen_heap_ctx.
+iApply own_mono.
+rewrite /to_gen_heap.
+(apply auth_included; split; <ssreflect_plugin::ssrtclintros@0> auto
+  =>//=).
+exists \206\181.
+rewrite right_id.
+(do 2 f_equiv).
+(intros k).
+(apply to_agree_ne).
+(intros l).
+(rewrite Hequiv; eauto).
+Qed.
+Lemma gen_heap_alloc \207\131 l v :
+  \207\131 l = None
+  \226\134\146 gen_heap_ctx \207\131 ==\226\136\151 gen_heap_ctx (<[l:=(Unlocked, v)]> \207\131) \226\136\151 l \226\134\166 v.
+Proof.
+iIntros ( Hnone ) "H\207\131".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+iMod
+ (own_update _ _
+    (\226\151\143 to_gen_heap (<[l:=(Unlocked, v)]> \207\131)
+     \226\139\133 \226\151\175 <[l:=(Count 0, (Cinl 0, to_agree v))]> \206\181) with "H\207\131") as
+ "[H\207\131 Hl]".
+{
+(eapply auth_update_alloc).
+(<ssreflect_plugin::ssrtclintros@0> apply discrete_fun_local_update
+ =>k).
+rewrite /to_gen_heap.
+rewrite /insert /partial_fn_insert.
+(destruct (k == l)).
+*
+subst.
+rewrite /insert /partial_fn_insert.
+(<ssreflect_plugin::ssrtclseq@0> destruct (l == l) ; last  by
+ congruence).
+rewrite Hnone.
+rewrite discrete_fun_lookup_empty.
+(<ssreflect_plugin::ssrtclintros@0>
+ apply
+  (alloc_option_local_update
+     (Count 0, (to_lock Unlocked, to_agree (v : leibnizO _)))) =>//).
+*
+reflexivity.
+}
+by iFrame.
+Qed.
+Lemma gen_heap_dealloc \207\131 l v :
+  gen_heap_ctx \207\131 -\226\136\151 l \226\134\166 v ==\226\136\151 gen_heap_ctx (delete l \207\131).
+Proof.
+iIntros "H\207\131 Hl".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+rewrite to_gen_heap_delete.
+iApply (own_update_2 with "H\207\131 Hl").
+(eapply auth_update_dealloc).
+(<ssreflect_plugin::ssrtclintros@0> apply discrete_fun_local_update
+ =>k).
+rewrite /delete /partial_fn_delete.
+(destruct (k == l)).
+*
+(apply delete_option_local_update; apply _).
+*
+reflexivity.
+Qed.
+Lemma gen_heap_valid1 \207\131 l s v :
+  gen_heap_ctx \207\131 -\226\136\151 mapsto l 0 s v -\226\136\151 \226\140\156\207\131 l = Some (s, v)\226\140\157.
+Proof.
+iIntros "H\207\131 Hl".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+(iDestruct (own_valid_2 with "H\207\131 Hl") as % [Hl _]%auth_both_valid;
+  auto).
+(apply gen_heap_singleton_full_included in Hl; eauto).
+Qed.
+Lemma gen_heap_valid2 \207\131 l z s v :
+  gen_heap_ctx \207\131
+  -\226\136\151 mapsto l z s v
+     -\226\136\151 \226\140\156\226\136\131 s' : LockStatus,
+           \207\131 l = Some (s', v) \226\136\167 to_lock s \226\137\188 to_lock s'\226\140\157.
+Proof.
+iIntros "H\207\131 Hl".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+(iDestruct (own_valid_2 with "H\207\131 Hl") as % [Hl _]%auth_both_valid;
+  auto).
+(apply gen_heap_singleton_included in Hl; eauto).
+Qed.
+Lemma gen_heap_valid \207\131 l q v :
+  gen_heap_ctx \207\131
+  -\226\136\151 l \226\134\166{q} v -\226\136\151 \226\140\156\226\136\131 s, \207\131 l = Some (s, v) \226\136\167 s \226\137\160 Locked\226\140\157.
+Proof.
+iIntros "H\207\131 Hl".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+(iDestruct (own_valid_2 with "H\207\131 Hl") as %
+  [(s', (Hl, Hincl))%gen_heap_singleton_included _]%auth_both_valid;
+  auto).
+(iExists s'; iPureIntro; split; auto).
+(destruct s'; auto).
+rewrite //= in  {} Hincl.
+(apply csum_included in Hincl).
+(destruct Hincl as [| [(?, (?, ?))| (?, (?, ?))]]; intuition;
+  try congruence).
+Qed.
+Lemma gen_heap_update \207\131 l s1 s2 v1 v2 :
+  gen_heap_ctx \207\131
+  -\226\136\151 mapsto l 0 s1 v1
+     ==\226\136\151 gen_heap_ctx (<[l:=(s2, v2)]> \207\131) \226\136\151 mapsto l 0 s2 v2.
+Proof.
+iIntros "H\207\131 Hl".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+iDestruct (own_valid_2 with "H\207\131 Hl") as %
+ [Hl%gen_heap_singleton_included _]%auth_both_valid.
+iMod
+ (own_update_2 _ _ _
+    (\226\151\143 to_gen_heap (<[l:=(s2, v2)]> \207\131)
+     \226\139\133 \226\151\175 <[l:=(Count 0, (to_lock s2, to_agree v2))]> \206\181)
+ with "H\207\131 Hl") as "[H\207\131 Hl]".
+{
+(<ssreflect_plugin::ssrtclintros@0>
+ eapply auth_update, discrete_fun_local_update =>k).
+rewrite /to_gen_heap /insert /partial_fn_insert //=.
+(destruct (k == l)).
+*
+subst.
+(destruct Hl as (s', (Hl, ?))).
+rewrite Hl.
+unshelve apply : {}option_local_update {}.
+(<ssreflect_plugin::ssrtclintros@0> apply exclusive_local_update
+ =>//=).
+(repeat <ssreflect_plugin::ssrtclintros@0> econstructor =>//=).
+(destruct s2; econstructor).
+*
+reflexivity.
+}
+by iFrame.
+Qed.
+Lemma Cinl_included_nat (n m : nat) :
+  (Cinl n : lockR) \226\137\188 Cinl m \226\134\146 n <= m.
+Proof.
+rewrite csum_included.
+(intros [| [(n', (m', (Heqn, (Heqm, Hincl))))| (?, (?, ?))]];
+  intuition; try congruence).
+(inversion Heqn).
+(inversion Heqm).
+subst.
+by apply nat_included in Hincl.
+Qed.
+Lemma Cinl_included_nat' (n : nat) s :
+  (Cinl n : lockR) \226\137\188 to_lock s \226\134\146 \226\136\131 m, n <= m \226\136\167 to_lock s = Cinl m.
+Proof.
+rewrite csum_included.
+(intros [| [(n', (m', (Heqn, (Heqm, Hincl))))| (?, (?, ?))]];
+  intuition; try congruence).
+{
+(destruct s; simpl in *; congruence).
+}
+(inversion Heqn).
+(inversion Heqm).
+subst.
+(apply nat_included in Hincl).
+(eexists; split; eauto).
+Qed.
+Lemma Cinr_included_excl' s :
+  (Cinr (to_agree tt) : lockR) \226\137\188 to_lock s \226\134\146 s = Locked.
+Proof.
+rewrite csum_included.
+(intros [| [(n', (m', (Heqn, (Heqm, Hincl))))| (?, (?, ?))]];
+  intuition; destruct s; simpl in *; congruence).
+Qed.
+Lemma gen_heap_readlock \207\131 l q v :
+  gen_heap_ctx \207\131
+  -\226\136\151 mapsto l q Unlocked v
+     ==\226\136\151 \226\136\131 s,
+           \226\140\156\207\131 l = Some (s, v)\226\140\157
+           \226\136\151 gen_heap_ctx (<[l:=(force_read_lock s, v)]> \207\131)
+             \226\136\151 mapsto l q (ReadLocked 0) v.
+Proof.
+iIntros "H\207\131 Hl".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+iDestruct (own_valid_2 with "H\207\131 Hl") as %
+ [Hl%gen_heap_singleton_included _]%auth_both_valid.
+(destruct Hl as (s, (Hl, Hincl))).
+iMod
+ (own_update_2 _ _ _
+    (\226\151\143 to_gen_heap (<[l:=(force_read_lock s, v)]> \207\131)
+     \226\139\133 \226\151\175 <[l:=(Count q, (to_lock (ReadLocked 0), to_agree v))]> \206\181)
+ with "H\207\131 Hl") as "[H\207\131 Hl]".
+{
+(<ssreflect_plugin::ssrtclintros@0>
+ eapply auth_update, discrete_fun_local_update =>k).
+rewrite /to_gen_heap /insert /partial_fn_insert //=.
+(destruct (k == l)).
+*
+subst.
+rewrite Hl.
+unshelve apply : {}option_local_update {}.
+unshelve apply : {}prod_local_update_2 {}.
+(destruct s).
+**
+(simpl in Hincl).
+(apply csum_included in Hincl).
+(destruct Hincl as [| [(?, (?, ?))| (?, (?, ?))]]; intuition;
+  try congruence).
+**
+(simpl).
+unshelve apply : {}prod_local_update_1 {}.
+(apply csum_local_update_l).
+(apply nat_local_update; lia).
+**
+(simpl).
+unshelve apply : {}prod_local_update_1 {}.
+(apply csum_local_update_l).
+(apply nat_local_update; lia).
+*
+reflexivity.
+}
+iExists s.
+by iFrame.
+Qed.
+Lemma gen_heap_readlock' \207\131 l q v n :
+  gen_heap_ctx \207\131
+  -\226\136\151 mapsto l q (ReadLocked n) v
+     ==\226\136\151 \226\136\131 s,
+           \226\140\156\207\131 l = Some (s, v)\226\140\157
+           \226\136\151 gen_heap_ctx (<[l:=(force_read_lock s, v)]> \207\131)
+             \226\136\151 mapsto l q (ReadLocked (S n)) v.
+Proof.
+iIntros "H\207\131 Hl".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+iDestruct (own_valid_2 with "H\207\131 Hl") as %
+ [Hl%gen_heap_singleton_included _]%auth_both_valid.
+(destruct Hl as (s, (Hl, Hincl))).
+iMod
+ (own_update_2 _ _ _
+    (\226\151\143 to_gen_heap (<[l:=(force_read_lock s, v)]> \207\131)
+     \226\139\133 \226\151\175 <[l:=(Count q, (to_lock (ReadLocked (S n)), to_agree v))]>
+           \206\181) with "H\207\131 Hl") as "[H\207\131 Hl]".
+{
+(<ssreflect_plugin::ssrtclintros@0>
+ eapply auth_update, discrete_fun_local_update =>k).
+rewrite /to_gen_heap /insert /partial_fn_insert //=.
+(destruct (k == l)).
+*
+subst.
+rewrite Hl.
+unshelve apply : {}option_local_update {}.
+unshelve apply : {}prod_local_update_2 {}.
+(destruct s).
+**
+(simpl in Hincl).
+(apply csum_included in Hincl).
+(destruct Hincl as [| [(?, (?, ?))| (?, (?, ?))]]; intuition;
+  try congruence).
+**
+(simpl).
+unshelve apply : {}prod_local_update_1 {}.
+(apply csum_local_update_l).
+(apply nat_local_update; lia).
+**
+(simpl).
+unshelve apply : {}prod_local_update_1 {}.
+(apply csum_local_update_l).
+(apply nat_local_update; lia).
+*
+reflexivity.
+}
+iExists s.
+by iFrame.
+Qed.
+Lemma gen_heap_readunlock \207\131 l q n v :
+  gen_heap_ctx \207\131
+  -\226\136\151 mapsto l q (ReadLocked n) v
+     ==\226\136\151 \226\136\131 n',
+           \226\140\156\207\131 l = Some (ReadLocked n', v)\226\140\157
+           \226\136\151 gen_heap_ctx
+               (<[l:=(force_read_unlock (ReadLocked n'), v)]> \207\131)
+             \226\136\151 mapsto l q (force_read_unlock (ReadLocked n)) v.
+Proof.
+iIntros "H\207\131 Hl".
+rewrite /gen_heap_ctx mapsto_eq /mapsto_def.
+iDestruct (own_valid_2 with "H\207\131 Hl") as %
+ [Hl%gen_heap_singleton_included _]%auth_both_valid.
+(destruct Hl as (s, (Hl, Hincl))).
+iMod
+ (own_update_2 _ _ _
+    (\226\151\143 to_gen_heap (<[l:=(force_read_unlock s, v)]> \207\131)
+     \226\139\133 \226\151\175 <[l:=(Count q,
+              (to_lock (force_read_unlock (ReadLocked n)),
+              to_agree v))]> \206\181) with "H\207\131 Hl") as "[H\207\131 Hl]".
+{
+(<ssreflect_plugin::ssrtclintros@0>
+ eapply auth_update, discrete_fun_local_update =>k).
+rewrite /to_gen_heap /insert /partial_fn_insert //=.
+(destruct (k == l)).
+*
+subst.
+rewrite Hl.
+unshelve apply : {}option_local_update {}.
+unshelve apply : {}prod_local_update_2 {}.
+(destruct s).
+**
+(simpl in Hincl).
+(apply csum_included in Hincl).
+(destruct Hincl as [| [(?, (?, ?))| (?, (?, ?))]]; intuition;
+  try congruence).
+**
+(simpl).
+unshelve apply : {}prod_local_update_1 {}.
+(<ssreflect_plugin::ssrtclintros@0> destruct num, n =>//=;
+  apply csum_local_update_l; apply nat_local_update; lia).
+**
+(simpl).
+unshelve apply : {}prod_local_update_1 {}.
+(simpl in Hincl).
+(apply Cinl_included_nat in Hincl).
+lia.
+*
+reflexivity.
+}
+(apply Cinl_included_nat' in Hincl as (m, (?, Heq))).
+(destruct s; simpl in *; inversion Heq; subst; try lia).
+(iExists num; by iFrame).
+Qed.
+End gen_heap.
+(* Auto-generated comment: Succeeded. *)
 
