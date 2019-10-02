@@ -22,5 +22,18 @@ Proof.
 (induction t; intros s1 s2;
   try (solve [ simpl; reflexivity | specialize (IHt1 s1 s2); specialize (IHt2 s1 s2); simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
 (induction t; intros s1 s2; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
+-
+(simpl).
+(rewrite IHt).
+reflexivity.
+-
+(simpl).
+(destruct (beq_idP X i)).
++
+subst.
+(destruct (beq_idP Y i)).
+*
+reflexivity.
+*
 (* Auto-generated comment: Failed. *)
 
