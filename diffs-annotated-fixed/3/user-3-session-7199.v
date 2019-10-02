@@ -171,6 +171,7 @@ Proof.
 (descend; intuition eauto).
 (descend; intuition eauto).
 (unfold log_abstraction in H0; intuition).
+(pose proof H).
 (apply H1 in H).
 (* Auto-generated comment: Succeeded. *)
 
