@@ -197,6 +197,5 @@ Proof.
 (destruct (a == r)).
 -
 invert_abstraction.
-(step_proc; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
