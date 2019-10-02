@@ -2666,4 +2666,3 @@ specialize (t0 \206\1471' (\206\1471' \226\139\147 \206\1470) p2 M'' t').
 (apply types_pat_no_trail in t').
 (rewrite <- t').
 (simpl_rewrite (trim_merge_dist \206\1471' \206\1470)).
-unify_pows_two.
