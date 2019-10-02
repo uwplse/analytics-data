@@ -48,7 +48,7 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle).
+(apply match_ty_i_cname__inv in Hm; subst).
+reflexivity.
 -
-(apply match_ty_i_cname__inv in Hm).
 (* Failed. *)
