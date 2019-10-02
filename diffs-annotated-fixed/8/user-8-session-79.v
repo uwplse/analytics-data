@@ -1040,6 +1040,5 @@ specialize inSeq_correct as IS.
 (repeat (rewrite IS; compile_typing compile_WT)).
 (repeat (rewrite IS; compile_typing compile_WT)).
 (unfold compose_super).
-(rewrite IS).
 (* Auto-generated comment: Succeeded. *)
 
