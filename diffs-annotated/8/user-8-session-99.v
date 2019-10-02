@@ -652,4 +652,5 @@ Proof.
 -
 (simpl).
 (apply pure_state_kron).
-(apply (H 0)).
+(apply H).
+(* Failed. *)
