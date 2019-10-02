@@ -87,6 +87,8 @@ Proof.
 eauto.
 }
 (simpl in *; intuition subst).
+{
 (eexists; intuition auto).
+}
 (* Auto-generated comment: Failed. *)
 
