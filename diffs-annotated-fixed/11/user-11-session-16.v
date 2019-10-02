@@ -54,6 +54,8 @@ Definition smi : itree smE void :=
      match conns with
      | [] => conn <- trigger App_Accept;; call ([conn], st)
      | c0 :: cs => call cst
-     end).
-(* Auto-generated comment: Failed. *)
+     end) ([], []).
+Redirect "/tmp/coq16819zKz" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Succeeded. *)
 
