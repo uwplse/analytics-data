@@ -117,15 +117,14 @@ nat :=
   end.
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlpFEfT"
 Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSBClfV"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
+Fixpoint nat_from_le base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
+nat :=
+  match digits with
+  | nil => 0
+  | digit :: digits' => proj1_sig digit + nat_from_le digits' * S (S base_m2)
+  end.
 Theorem nat_le_inverse base_m2 :
-  forall n, le_to_nat (nat_to_le base_m2 n) = n.
+  forall n, nat_from_le (nat_to_le base_m2 n) = n.
 Proof.
 (intros).
 (induction n as [n IHn] using lt_wf_ind).
@@ -145,17 +144,7 @@ lia.
 }
 (apply Nat.div_lt; lia).
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqeJSuoV"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFNw7z8"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-(* Auto-generated comment: Succeeded. *)
+Definition nat64_to_le (x : nat) : list byte :=
+  let digits := nat_to_le x in digits ++ repeat (8 - length digits) 0.
+(* Auto-generated comment: Failed. *)
 
