@@ -114,8 +114,5 @@ specialize (Hid Hneq).
 (rewrite Hid).
 reflexivity.
 Qed.
-Lemma b_subst_wf_ty : forall (X : id) (t : ty), wf_ty t -> forall s : ty, [BX := s] t = t.
-Proof.
-(intros X t).
-(induction t; intros Hwf s; try (solve [ reflexivity ])).
+Lemma wf_ty_pair__inv : forall (X : id) (t1 t2 : ty), wf_ty X (TPair t1 t2) -> wf_ty X t1 /\ wf_ty X t2.
 (* Failed. *)
