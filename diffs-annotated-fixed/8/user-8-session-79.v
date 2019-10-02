@@ -1181,6 +1181,7 @@ listify_kron.
 (simpl; reflexivity).
 }
 4: {
+(rewrite_inPar'; try tensor_tac).
 rewrite_inPar'.
 (* Auto-generated comment: Succeeded. *)
 
