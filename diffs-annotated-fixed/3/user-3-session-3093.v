@@ -391,11 +391,6 @@ Proof.
 injection H as H1 H2.
 (rewrite <- H1, <- H2).
 reflexivity.
--
-(destruct n as [n1 n2]).
-(simpl).
-(destruct (split l')).
-(intros l1 l2 H).
-(apply Hc).
-(* Auto-generated comment: Succeeded. *)
+Search -".}".
+(* Auto-generated comment: Failed. *)
 
