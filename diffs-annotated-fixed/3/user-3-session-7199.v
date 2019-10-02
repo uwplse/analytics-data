@@ -170,6 +170,6 @@ Check proc_spec_weaken.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
-autorewrite with disk.
-(* Auto-generated comment: Failed. *)
+autorewrite with upd.
+(* Auto-generated comment: Succeeded. *)
 
