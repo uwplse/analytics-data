@@ -193,6 +193,7 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 (step_proc; intros).
 (destruct a'; simpl in *; intuition idtac).
+{
 (destruct (a == r)).
 (* Auto-generated comment: Succeeded. *)
 
