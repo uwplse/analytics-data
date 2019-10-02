@@ -50,5 +50,24 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
-Timeout 1 Print ctrls_to_list.
-Timeout 1 Print Ltac ctrls_to_list.
+Opaque rev skipn.
+Lemma denote_ctrls_transpose :
+  forall W (n : nat) (u : Unitary W) li,
+  (forall x, In x li -> x < n)%nat -> denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
+Proof.
+(intros).
+(unfold denote_ctrls).
+(simpl).
+(destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
+(apply ctrls_to_list_transpose in E).
+(rewrite E).
+(match goal with
+ | |- ?A => let A' := restore_dims_rec idtac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+(unify_matrix_dims idtac).
+(rewrite rev_length).
