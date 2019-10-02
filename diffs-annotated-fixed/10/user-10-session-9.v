@@ -171,21 +171,5 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Check interp.
-Definition nmi_of_smi {T} (m : itree smE T) : itree (appE id +' exceptE err +' randomE) T :=
-  interp
-    (fun T e =>
-     match e return (_ (appE id +' exceptE err +' randomE) T) with
-     | (ae|) => embed_exp ae
-     | (|ee) =>
-         match ee in (evalE T) return (_ T) with
-         | Eval_Var => n <- trigger Random_Value;; ret (exp_int n)
-         | Eval_Decide bx => match unwrap' bx with
-                             | Some b => ret b
-                             | None => throw (Err_Decide bx)
-                             end
-         end
-     end) m.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqHCL2Gz" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
