@@ -67,5 +67,11 @@ Lemma match_ty_ref__inv : forall (v t : ty) (k : nat), |-[ S k] v <$ TRef t -> e
 Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [Exist vY (TRef (TRef tY))].
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+(intros Hcontra).
+specialize (Hcontra 0).
+(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX)))).
+{
+(simpl).
 (* Failed. *)
