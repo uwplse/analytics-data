@@ -378,5 +378,5 @@ tauto.
 (destruct (beq_idP Y i)).
 +
 subst.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
