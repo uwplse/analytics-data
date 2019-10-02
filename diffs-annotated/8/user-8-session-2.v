@@ -48,15 +48,5 @@ Timeout 1 Print Grammar tactic.
 (simpl; Msimpl).
 (dependent destruction u; simpl; Msimpl; reflexivity).
 Msimpl.
-(rewrite IHr).
-reflexivity.
-+
-Msimpl.
-(rewrite IHr).
-reflexivity.
--
-(simpl).
-(destruct a).
-+
-Msimpl.
 (rewrite IHl).
+reflexivity.
