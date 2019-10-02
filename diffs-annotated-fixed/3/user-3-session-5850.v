@@ -95,6 +95,12 @@ Unset Search Output Name Only.
 Qed.
 Theorem plus_assoc : forall n m p : nat, n + (m + p) = n + m + p.
 Proof.
-(intros n m p).
+(intros n).
+(induction n as [| n' IHn']).
+-
+(intros m p).
+reflexivity.
+-
+(intros m p).
 (* Auto-generated comment: Succeeded. *)
 
