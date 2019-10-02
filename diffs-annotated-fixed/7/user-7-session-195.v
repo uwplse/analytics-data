@@ -78,14 +78,9 @@ Proof.
 Qed.
 Lemma match_ty_exist__inv :
   forall (v : ty) (X : id) (t : ty) (w : nat), |-[ S w] v <$ TExist X t -> exists tx : ty, wf_ty tx /\ |-[ w] v <$ [BX := tx] t.
-Proof.
-(intros v X t w Hm).
-(destruct v; assumption).
-Qed.
-Lemma match_ty_fvar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TFVar X -> v = TEV X.
+Lemma match_ty_fbar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
 Proof.
 (intros v X w Hm).
-(destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
-Qed.
+(destruct w, v; simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
