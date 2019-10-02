@@ -602,6 +602,78 @@ step.
 (destruct (a == a0); simplify; finish).
 +
 (destruct (a == a0); simplify; finish).
-+
+auto.
+}
+exact (fun _ => True).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqs1peeh"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem fixup_stub_ok :
+  forall a,
+  proc_spec
+    (fun '(d, s) state =>
+     {|
+     pre := a < diskSize d /\
+            match s with
+            | FullySynced => True
+            | OutOfSync a' b => True
+            end;
+     post := fun r state' =>
+             match s with
+             | FullySynced => True
+             | OutOfSync a' b => True
+             end;
+     recovered := fun _ state' =>
+                  match s with
+                  | FullySynced => True
+                  | OutOfSync a' b => True
+                  end |}) (fixup a) td.recover td.abstr.
+Proof.
+Admitted.
+Hint Resolve fixup_ok: core.
+Theorem recover_at_ok :
+  forall a,
+  proc_spec
+    (fun '(d, s) state =>
+     {|
+     pre := a <= diskSize d /\
+            match s with
+            | FullySynced => disk0 state ?|= eq d /\ disk1 state ?|= eq d
+            | OutOfSync a' b =>
+                a' < a /\
+                disk0 state ?|= eq (diskUpd d a' b) /\ disk1 state ?|= eq d
+            end;
+     post := fun r state' =>
+             match s with
+             | FullySynced => disk0 state' ?|= eq d /\ disk1 state' ?|= eq d
+             | OutOfSync a' b =>
+                 disk0 state' ?|= eq d /\ disk1 state' ?|= eq d \/
+                 disk0 state' ?|= eq (diskUpd d a' b) /\
+                 disk1 state' ?|= eq (diskUpd d a' b)
+             end;
+     recovered := fun _ state' =>
+                  match s with
+                  | FullySynced =>
+                      disk0 state' ?|= eq d /\ disk1 state' ?|= eq d
+                  | OutOfSync a' b =>
+                      disk0 state' ?|= eq d /\ disk1 state' ?|= eq d \/
+                      disk0 state' ?|= eq (diskUpd d a' b) /\
+                      disk1 state' ?|= eq d \/
+                      disk0 state' ?|= eq (diskUpd d a' b) /\
+                      disk1 state' ?|= eq (diskUpd d a' b)
+                  end |}) (recover_at a) td.recover td.abstr.
+Proof.
+(induction a; simpl; intros).
+-
+step.
+(destruct s; simplify).
+-
+step.
+(destruct s; simplify).
+(exists d,FullySynced; simplify; finish).
 (* Auto-generated comment: Succeeded. *)
 
