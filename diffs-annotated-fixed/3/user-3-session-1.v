@@ -452,18 +452,24 @@ Theorem spec_exec_impl `(p_hspec : Specification T unit State)
    (p_hspec s).(pre) /\
    (forall s' v, (p_hspec s).(post) s' v -> (p_rspec s).(post) s' v)) ->
   spec_exec p_rspec ---> spec_exec p_hspec.
+Theorem spec_exec_impl `(p_hspec : Specification T unit State)
+  `(p_rspec : Specification T R State) :
+  (forall s,
+   (p_rspec s).(pre) ->
+   (p_hspec s).(pre) /\
+   (forall s' v, (p_hspec s).(post) s' v -> (p_rspec s).(post) s' v)) ->
+  spec_exec p_hspec ---> spec_exec p_rspec.
 Proof.
-firstorder.
 (intros).
-(apply impl_spec_exec).
-(apply impl_spec_exec; auto).
-(apply impl_spec_exec; intros; auto).
 (apply impl_spec_exec; firstorder).
-(apply H in H1).
 (unfold spec_exec in H1).
-firstorder.
-(apply H1).
-(destruct ret; firstorder).
 (destruct ret; simpl in *; firstorder).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwsUJVO"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
