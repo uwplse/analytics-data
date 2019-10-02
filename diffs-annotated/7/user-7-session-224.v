@@ -21,21 +21,9 @@ Lemma build_v_full :
     |-[ w] v' <$ [BX := TFVar X'] t /\
     (forall (w' : nat) (t' : ty),
      |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> exists w2, |-[ w2] v <$ [FX' := tx] t')).
-(apply match_ty_union_1; assumption).
-}
-{
-exists 0.
-(apply match_ty_union_1).
-(rewrite f_subst_not_b_free_in_ty; auto).
-}
-}
-{
-(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+exists w2.
 (apply match_ty_union_2; auto).
 }
 {
-(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
-{
-specialize (IHt'b HXt'2).
-(destruct IHt'b as [w2 IHt'b]).
-(apply match_ty_union_2; auto).
+(exisst 0).
+(* Failed. *)
