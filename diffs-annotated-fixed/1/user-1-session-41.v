@@ -553,6 +553,6 @@ generalize dependent G'.
 (induction H).
 -
 (intros; inversion H0; subst; eauto).
-intuition.
-(* Auto-generated comment: Succeeded. *)
+congruence.
+(* Auto-generated comment: Failed. *)
 
