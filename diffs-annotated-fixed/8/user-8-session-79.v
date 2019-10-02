@@ -597,6 +597,5 @@ Proof.
 (intros).
 (simpl).
 (remember (\226\168\130 l2) as A).
-gen A.
 (* Auto-generated comment: Succeeded. *)
 
