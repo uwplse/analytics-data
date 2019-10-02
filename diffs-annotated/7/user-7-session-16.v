@@ -218,7 +218,7 @@ tauto.
 +
 (apply sub_r_union_l__inv in Hsub').
 Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
-Proof.
-(intros t t' Hsub).
-(apply sub_r__transitive with t).
+(apply sub_r__transitive with t; try assumption).
+(apply mk_nf__sub_r1).
+Qed.
 (* Failed. *)
