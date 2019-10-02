@@ -22,5 +22,5 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm).
 -
-(split; try tauto).
+tauto.
 (* Failed. *)
