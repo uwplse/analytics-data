@@ -60,6 +60,7 @@ Print eq.
 Print Morphisms.respectful.
 Print Morphisms.Proper.
 Search -Morphisms.Proper.
-(apply Morphisms_Prop.not_iff_morphism).
+Search -Morphisms.Proper.
+setoid_rewrite Hfact.
 (* Auto-generated comment: Failed. *)
 
