@@ -596,6 +596,6 @@ Proof.
 -
 (intros).
 (simpl).
-(rewrite Nat.add_0_r).
-(* Auto-generated comment: Failed. *)
+(repeat rewrite Nat.add_0_r).
+(* Auto-generated comment: Succeeded. *)
 
