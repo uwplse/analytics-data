@@ -388,6 +388,6 @@ replace (diskGet d' len_addr) in *.
 auto.
 -
 congruence.
-Qed.
-(* Auto-generated comment: Failed. *)
+-
+(* Auto-generated comment: Succeeded. *)
 
