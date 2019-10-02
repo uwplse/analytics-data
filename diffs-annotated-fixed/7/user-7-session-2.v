@@ -30,6 +30,5 @@ Proof.
 (right; assumption).
 -
 (inversion Heq; subst).
-(rewrite (mk_nf_atomty__equal _ Hat) in *).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
