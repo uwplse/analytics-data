@@ -144,8 +144,6 @@ Proof.
 (unfold rec_wipe).
 (intros).
 (apply spec_abstraction_compose; simpl).
-(step_proc; intros).
-{
-eauto.
+(step_proc; intuition).
 (* Auto-generated comment: Succeeded. *)
 
