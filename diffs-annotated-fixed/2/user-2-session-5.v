@@ -46,7 +46,7 @@ Timeout 1 Print LoadPath.
 Open Scope coucou_scope.
 Open Scope string_scope.
 Check
-  [<Nil <Nil (Ident "hi")>> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
 (* Auto-generated comment: Succeeded. *)
 
