@@ -1013,6 +1013,6 @@ restore_dims
 (rewrite id_circ_spec).
 (destruct t).
 (simpl).
-reflexivity.
-(* Auto-generated comment: Failed. *)
+restore_dims.
+(* Auto-generated comment: Succeeded. *)
 
