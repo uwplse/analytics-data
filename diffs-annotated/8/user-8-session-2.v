@@ -50,13 +50,7 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
-Lemma denote_ctrls_transpose :
-  forall W (n : nat) (u : Unitary W) li,
-  (forall x, In x li -> x < n)%nat -> (length li = \226\159\166 W \226\159\167)%nat -> denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
-(apply ctrls_to_list_transpose in E).
-(rewrite E).
-specialize (ctrls_to_list_spec _ _ _ _ _ _ _ H0 E) as [L I].
-specialize (H _ I).
-restore_dims repeat rewrite rev_length, skipn_length, firstn_length, L, repeat_length; lia.
-(rewrite <- ctrl_list_to_unitary_transpose).
-Search -denote_unitary -trans.
+Timeout 1 About ctrl_list_to_unitary.
+Timeout 1 Print ctrl_list_to_unitary.
+Timeout 1 Print Ltac ctrl_list_to_unitary.
+(* Failed. *)
