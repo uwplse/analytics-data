@@ -432,6 +432,6 @@ Proof.
 (unfold log_size_ok, log_contents_ok, len_addr; intros).
 (destruct (0 == log_addr a)).
 -
-(unfold log_addr in *; lia).
+(exfalso; unfold log_addr in *; lia).
 (* Auto-generated comment: Succeeded. *)
 
