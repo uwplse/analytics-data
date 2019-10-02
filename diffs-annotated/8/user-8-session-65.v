@@ -948,8 +948,10 @@ Fact assert_at_spec_unsafe :
 Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
-(unfold compose_super).
-(rewrite (init_at_spec_strong b m i); [  | omega ]).
-(destruct safe).
--
-(simpl_rewrite (assert_at_spec_safe b m i); [  | omega ]).
+(rewrite (assert_at_spec_safe b m i); [  | omega ]).
+gen \207\129.
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(intros \207\129 M).
+(repeat rewrite Mmult_assoc).
