@@ -97,6 +97,7 @@ admit.
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
 (destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
+(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
 *
 specialize (IHw'b H).
 (split; intros HX').
@@ -111,7 +112,6 @@ assumption.
 subst.
 (unfold free_in_ty in HX').
 (simpl in HX').
-admit.
 admit.
 }
 {
