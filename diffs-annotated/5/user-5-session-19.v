@@ -57,6 +57,4 @@ Theorem eval_eq_true_or_false :
 Proof.
 (intros).
 (destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2)) eqn:E).
--
-left.
-(apply L.(evalIntConst)).
+(apply L.(evalEqTrue)).
