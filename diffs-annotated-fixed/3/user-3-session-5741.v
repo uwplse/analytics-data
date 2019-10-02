@@ -602,6 +602,16 @@ Theorem identity_fn_applied_twice :
   forall f : bool -> bool,
   (forall x : bool, f x = x) -> forall b : bool, f (f b) = b.
 Proof.
-(intros f Hfix).
+(intros f Hfix b).
+(rewrite Hfix).
+(rewrite Hfix).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsN7LML"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
