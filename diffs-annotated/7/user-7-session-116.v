@@ -23,6 +23,5 @@ Qed.
 (induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh).
 (rewrite IHt; try assumption).
 Check IdSetFacts.remove_2.
-(apply Hfresh).
-(apply IdSetFacts.remove_2).
+(apply IdSetFacts.remove_2; assumption).
 (* Failed. *)
