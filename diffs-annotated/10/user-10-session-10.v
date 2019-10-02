@@ -271,6 +271,8 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Check nmi_of_smi.
+Check network_of_app.
+Print sE.
 Definition server : itree sE void :=
   sk <- translate subevent serverHandshake;; interp (network_of_app sk) (nmi_of_smi kvs).
 (* Failed. *)
