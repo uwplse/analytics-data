@@ -14,7 +14,6 @@ Open Scope btjm_scope.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k : nat), |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; contradiction ])).
-(intros c0 k Hm).
-(destruct k; simpl in Hm; subst; reflexivity).
+(destruct k; reflexivity).
 (* Auto-generated comment: Failed. *)
 
