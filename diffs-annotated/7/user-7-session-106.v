@@ -163,5 +163,6 @@ constructor.
 (apply Nat.le_max_r).
 -
 (apply match_ty_cname__inv in Hm).
+(apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hmq Hm2]]]]; subst).
 (* Failed. *)
