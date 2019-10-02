@@ -210,5 +210,6 @@ exists w,v.
 (apply match_ty_union_1; assumption).
 -
 exists (S w).
-(apply match_ty__match_ty_f_subst_int with i in Hm).
+Check match_ty__match_ty_f_subst_int.
+(apply (match_ty__match_ty_f_subst_int i) in Hm).
 (* Failed. *)
