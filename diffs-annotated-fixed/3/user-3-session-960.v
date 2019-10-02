@@ -235,7 +235,8 @@ refine
  byte0 := exist _ 0 _;
  uint64_to_string := pretty.pretty_nat;
  ascii_to_byte := ascii_to_bounded;
- byte_to_ascii := bounded_to_ascii |}.
-lia.
-(* Auto-generated comment: Succeeded. *)
+ byte_to_ascii := bounded_to_ascii;
+ uint64_to_le := nat_to_le 256;
+ le_to_uint64 := fun digits => Some (le_to_nat digits) |}.
+(* Auto-generated comment: Failed. *)
 
