@@ -150,4 +150,5 @@ Check b_free_in_ty__b_free_in_b_subst_neq.
 (apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
 specialize (IHw _ _ Hwftx HX Hm).
 reflexivity.
+(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
 (* Failed. *)
