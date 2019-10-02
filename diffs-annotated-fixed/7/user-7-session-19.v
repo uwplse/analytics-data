@@ -370,6 +370,5 @@ assumption.
 split.
 assumption.
 (intros v' Hv').
-specialize (Href v' Hv').
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
