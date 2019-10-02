@@ -300,16 +300,18 @@ Inductive GT : Type :=
   | GFun : GT -> GT -> GT
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
-Module GTeq.
-Fixpoint eq (G_1 G_2 : GT) : Prop :=
-  match G_1, G_2 with
-  | GInt, GInt => True
-  | GBool, GBool => True
-  | GFun G_11 G_12, GFun G_21 G22 => eq G_11 G_21 /\ eq G_12 G22
-  | GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2) =>
-      eq (snd hd1) (snd hd2) /\
-      fst hd1 = fst hd2 /\ eq (GRec tl1) (GRec tl2)
-  | _, _ => False
+Check fold_right.
+Fixpoint size_gt (G : GT) : nat :=
+  match G with
+  | GFun G_1 G_2 => 1 + size_gt G_1 + size_ G_2
+  | GRec l =>
+      fold_right
+        (fun x acc =>
+         match x with
+         | Some (_, G) => size - gt G
+         | _ => 0
+         end + acc) 1 l
+  | _ => 0
   end.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
