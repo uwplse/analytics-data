@@ -299,5 +299,142 @@ step.
 (destruct r).
 -
 step.
+(destruct r).
++
+(destruct (diskSize d_0 == v)).
+*
+step.
+*
+step.
++
+step.
+-
+step.
+(destruct r).
++
+step.
++
+step.
+Qed.
+Hint Resolve sizeInit_ok: core.
+Theorem equal_after_0_to_eq :
+  forall d_0 d_1, equal_after 0 d_0 d_1 -> d_0 = d_1.
+Proof.
+(unfold equal_after; intuition).
+(eapply disk_ext_eq; intros).
+(eapply H0; lia).
+Qed.
+Theorem equal_after_size :
+  forall d_0 d_1,
+  diskSize d_0 = diskSize d_1 -> equal_after (diskSize d_0) d_0 d_1.
+Proof.
+(unfold equal_after; intuition).
+(assert (~ a' < diskSize d_0) by lia).
+(assert (~ a' < diskSize d_1) by congruence).
+(autorewrite with upd; eauto).
+Qed.
+Hint Resolve equal_after_size: core.
+Hint Resolve equal_after_0_to_eq: core.
+Theorem init'_ok :
+  proc_spec
+    (fun '(d_0, d_1) state =>
+     {|
+     pre := disk0 state ?|= eq d_0 /\ disk1 state ?|= eq d_1;
+     post := fun r state' =>
+             match r with
+             | Initialized =>
+                 exists d_0' d_1',
+                   disk0 state' ?|= eq d_0' /\
+                   disk1 state' ?|= eq d_1' /\ d_0' = d_1'
+             | InitFailed => True
+             end;
+     recovered := fun _ state' => True |}) init' td.recover td.abstr.
+Proof.
+(unfold init).
+step.
+(descend; intuition eauto).
+(destruct r; step).
+step.
+Qed.
+Hint Resolve init'_ok: core.
+Inductive RecStatus :=
+  | Continue : _
+  | RepairDoneOrFailed : _.
+Definition fixup (a : addr) : proc RecStatus :=
+  mv0 <- td.read d0 a;
+  match mv0 with
+  | Working v =>
+      mv2 <- td.read d1 a;
+      match mv2 with
+      | Working v' =>
+          if v == v'
+          then Ret Continue
+          else mu <- td.write d1 a v; Ret RepairDoneOrFailed
+      | Failed => Ret RepairDoneOrFailed
+      end
+  | Failed => Ret RepairDoneOrFailed
+  end.
+Definition fixup_stub (a : addr) : proc RecStatus := Ret Continue.
+Fixpoint recover_at (a : addr) : proc unit :=
+  match a with
+  | 0 => Ret tt
+  | S n =>
+      s <- fixup n;
+      match s with
+      | Continue => recover_at n
+      | RepairDoneOrFailed => Ret tt
+      end
+  end.
+Definition Recover : proc unit := sz <- size; _ <- recover_at sz; Ret tt.
+Theorem if_lt_dec :
+  forall A n m (a a' : A), n < m -> (if lt_dec n m then a else a') = a.
+Proof.
+(intros).
+(destruct (lt_dec n m); auto).
+Qed.
+Theorem disks_eq_inbounds :
+  forall (d : disk) a v v',
+  a < diskSize d -> diskGet d a =?= v -> diskGet d a =?= v' -> v = v'.
+Proof.
+(intros).
+(case_eq (diskGet d a); intros).
+-
+(rewrite H2 in *).
+(simpl in *).
+congruence.
+-
+exfalso.
+(eapply disk_inbounds_not_none; eauto).
+Qed.
+Inductive DiskStatus :=
+  | FullySynced : _
+  | OutOfSync : forall (a : addr) (b : block), _.
+Theorem diskUpd_maybe_same :
+  forall (d : disk) a b, diskGet d a =?= b -> diskUpd d a b = d.
+Proof.
+(intros).
+(destruct (diskGet d a) eqn:?; simpl in *; subst; autorewrite with upd; auto).
+Qed.
+Hint Rewrite diskUpd_maybe_same using (solve [ auto ]) : upd.
+Hint Resolve PeanoNat.Nat.lt_neq: core.
+Hint Resolve disks_eq_inbounds: core.
+Theorem fixup_equal_ok :
+  forall a,
+  proc_spec
+    (fun d state =>
+     {|
+     pre := a < diskSize d /\ disk0 state ?|= eq d /\ disk1 state ?|= eq d;
+     post := fun r state' => disk0 state' ?|= eq d /\ disk1 state' ?|= eq d;
+     recovered := fun _ state' =>
+                  disk0 state' ?|= eq d /\ disk1 state' ?|= eq d |})
+    (fixup a) td.recover td.abstr.
+Proof.
+(unfold fixup).
+step.
+(destruct r; step).
+(destruct r; try step).
+(destruct (v == v0); subst; try step).
+Unshelve.
+auto.
 (* Auto-generated comment: Succeeded. *)
 
