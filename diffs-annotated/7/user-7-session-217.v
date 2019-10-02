@@ -99,5 +99,4 @@ specialize (IHw' HX').
 (rewrite f_subst_exist).
 exists ([FX' := tx] ti).
 split.
-(apply wf_ty__wf_ty_f_subst).
-(* Auto-generated comment: Failed. *)
+(apply wf_ty__wf_ty_f_subst; assumption).
