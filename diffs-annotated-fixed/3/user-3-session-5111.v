@@ -305,5 +305,12 @@ Proof.
 (destruct (a == r - 1); subst).
 -
 (step_proc; intuition subst).
+{
+(eexists; split; eauto).
+(rewrite diskUpd_oob_noop; auto).
+(invert_abstraction; lia).
+}
+(eexists; split; eauto).
+(rewrite diskUpd_oob_noop; auto).
 (* Auto-generated comment: Succeeded. *)
 
