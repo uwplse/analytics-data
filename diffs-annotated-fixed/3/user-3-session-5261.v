@@ -90,6 +90,40 @@ intuition subst; eauto.
 (repeat deex).
 (exists (S nwritten); simpl).
 (f_equal; lia).
-(exists 0; simpl; auto).
-(* Auto-generated comment: Failed. *)
++
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjRYYMf"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+CoFixpoint handle  : proc unit :=
+  req <- nbd.getRequest;
+  match req with
+  | Read h off blocks =>
+      data <- read off blocks;
+      _ <-
+      nbd.sendResponse {| rhandle := h; error := ESuccess; data := data |};
+      handle
+  | Write h off _ dat =>
+      _ <- write off (bsplit_list dat);
+      _ <-
+      nbd.sendResponse {| rhandle := h; error := ESuccess; data := bnull |};
+      handle
+  | Flush h =>
+      _ <-
+      nbd.sendResponse {| rhandle := h; error := ESuccess; data := bnull |};
+      handle
+  | UnknownOp h =>
+      _ <-
+      nbd.sendResponse {| rhandle := h; error := EInvalid; data := bnull |};
+      handle
+  | Disconnect => Ret tt
+  end.
+Definition serverLoop : proc unit := _ <- nbd.recover; _ <- d.recover; handle.
+Definition size : proc nat := d.size.
+Definition init := then_init nbd.init d.init.
+End NBDServer.
+(* Auto-generated comment: Succeeded. *)
 
