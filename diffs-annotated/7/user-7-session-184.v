@@ -64,5 +64,9 @@ assumption.
 tauto.
 -
 (destruct Hm' as [Hm'1 Hm'2]).
-(apply match_ty_pair; tauto).
+(apply match_ty_pair; auto).
++
+(apply match_ty_union__inv in Hm').
+(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
 (* Failed. *)
