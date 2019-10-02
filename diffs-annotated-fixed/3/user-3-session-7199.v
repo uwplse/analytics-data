@@ -149,5 +149,6 @@ Proof.
 (unfold rec_wipe; simpl; intros).
 (apply spec_abstraction_compose).
 step_proc.
+(destruct a as [_ bs]).
 (* Auto-generated comment: Succeeded. *)
 
