@@ -149,7 +149,10 @@ econstructor.
 (simpl; constructor).
 (unfold nat64_to_le; intros).
 (match goal with
- | H:context [ nat_le_dec ?n ?m ] |- _ => destruct (nat_le_dec n m)
+ | H:context [ nat_le_dec ?n ?m ]
+   |- _ => destruct (nat_le_dec n m); try congruence
  end).
-(* Auto-generated comment: Succeeded. *)
+(inversion H; subst).
+(rewrite app_lenegth).
+(* Auto-generated comment: Failed. *)
 
