@@ -45,5 +45,6 @@ Qed.
 Lemma subst_var_eq : forall (X : id) (s : ty), [X := s] TVar X = s.
 Proof.
 (rewrite <- beq_id_refl).
-(intros X s Y Hbeq).
+(intros X s Y Hneq).
+(simpl).
 (* Failed. *)
