@@ -291,6 +291,8 @@ econstructor.
 (destruct c; simpl).
 (rewrite Ascii.ascii_nat_embedding; auto).
 -
-(unfold ascii_to_byte, byte_to_ascii; simpl).
+(simpl).
+(destruct b; simpl).
+Search -ascii_to_bounded.
 (* Auto-generated comment: Succeeded. *)
 
