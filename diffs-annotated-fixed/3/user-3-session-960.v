@@ -104,6 +104,6 @@ Next Obligation of nat_to_le_func.
 Proof.
 (unfold MR).
 Search -wf.
-(apply (wf_projected projT2)).
-(* Auto-generated comment: Failed. *)
+(apply (wf_projected lt projT2)).
+(* Auto-generated comment: Succeeded. *)
 
