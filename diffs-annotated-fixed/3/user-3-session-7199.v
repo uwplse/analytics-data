@@ -164,7 +164,6 @@ Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
 (simpl).
-(unfold recover).
-step_proc.
-(* Auto-generated comment: Succeeded. *)
+step_proc_basic.
+(* Auto-generated comment: Failed. *)
 
