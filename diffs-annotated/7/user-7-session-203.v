@@ -197,5 +197,5 @@ right.
 exists 0,(TCName c).
 (apply match_ty_cname).
 -
-(destruct (IHt1) as [IHt1| [w1 [v1 Hm1]]]; destruct (IHt2) as [IHt2| [w2 [v2 Hm2]]]).
+(destruct IHt1 as [IHt1| [w1 [v1 Hm1]]]; destruct IHt2 as [IHt2| [w2 [v2 Hm2]]]).
 (* Failed. *)
