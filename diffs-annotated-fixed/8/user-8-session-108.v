@@ -81,6 +81,8 @@ specialize (pf p).
 gen \207\129.
 (induction (c p)).
 -
+-
 (unfold denote_u_db_box).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
