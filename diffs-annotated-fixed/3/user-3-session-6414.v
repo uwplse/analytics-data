@@ -125,10 +125,9 @@ step_proc.
 (eapply log_abstraction_nil; eauto).
 (autorewrite with upd; auto).
 Qed.
-Lemma abstr_get_len :
-  forall (bs : list block) (state : State),
-  log_length_ok state bs ->
-  forall r : block,
-  diskGet state len_addr =?= r -> block_to_addr r = length bs.
+Theorem log_abstraction_length d bs :
+  log_abstraction d bs -> log_length_ok d bs.
+Proof.
+intuition.
 (* Auto-generated comment: Succeeded. *)
 
