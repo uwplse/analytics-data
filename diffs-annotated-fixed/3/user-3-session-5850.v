@@ -134,6 +134,18 @@ reflexivity.
 -
 (simpl).
 (rewrite IHn').
+(rewrite plus_n_Sm).
 reflexivity.
-(* Auto-generated comment: Failed. *)
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqLzzYh"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem evenb_S : forall n : nat, evenb (S n) = negb (evenb n).
+Proof.
+(intros n).
+(induction n as [| n' IHn']).
+(* Auto-generated comment: Succeeded. *)
 
