@@ -53,3 +53,5 @@ Timeout 1 About ctrls_to_list.
 (simpl_rewrite @denote_unitary_transpose).
 autorewrite with M_db_light M_db in WFS.
 (apply WFS).
+assumption.
+(* Failed. *)
