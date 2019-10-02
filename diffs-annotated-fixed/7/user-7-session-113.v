@@ -9,10 +9,11 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Open Scope btjm.
+Open Scope btjt.
 Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
+Lemma subs_neq__permute : forall X Y : id, X <> Y -> forall t s1 s2 : ty, t = t.
 (* Auto-generated comment: Failed. *)
 
