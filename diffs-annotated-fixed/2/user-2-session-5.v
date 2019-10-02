@@ -19,7 +19,7 @@ Inductive term :=
   | Symb : string -> term
   | Cons : term -> term -> term
   | App : term -> term -> term.
-Redirect "/tmp/coq84xhGL" Print Ltac Signatures.
+Redirect "/tmp/coqfgPYy0" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Definition oneArgCbvPrimitive (name : string) : bool :=
   if
@@ -27,7 +27,17 @@ Definition oneArgCbvPrimitive (name : string) : bool :=
      ("fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil)
   then true
   else false.
-Redirect "/tmp/coqi2dfar" Print Ltac Signatures.
+Redirect "/tmp/coqdPkGO7" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-(* Auto-generated comment: Succeeded. *)
+Definition primitive (name : string) : bool := String.eqb name "if" || oneArgCbvPrimitive name.
+Redirect "/tmp/coq948p4z" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fixpoint value (t : term) : bool :=
+  match t with
+  | Nil => true
+  | Ident name => primitive name
+  | Cons a b => value a && value b
+  | App f a => false
+  end.
+(* Auto-generated comment: Failed. *)
 
