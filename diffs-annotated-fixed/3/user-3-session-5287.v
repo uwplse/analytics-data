@@ -235,6 +235,42 @@ Proof.
 (unfold atomic_pair_abstraction).
 (intros).
 (autorewrite with upd; intuition; eq_values; auto).
+-
 (specialize (H3 _ _); intuition).
-(* Auto-generated comment: Failed. *)
+-
+(specialize (H3 _ _); intuition).
+Qed.
+Hint Resolve abstraction_update_a abstraction_update_b: core.
+Hint Resolve abstraction_partial_update_a abstraction_partial_update_b
+  abstraction_partial_update1_a abstraction_partial_update1_b: core.
+Theorem put_ok : forall v, proc_spec (put_spec v) (put v) recover abstr.
+Proof.
+(unfold put; intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
+(destruct a'; simpl in *; intuition; subst; eauto).
+(destruct (r == block0)).
+-
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
+-
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+eauto.
+(destruct a; simpl in *).
+(autounfold in *; intuition; subst; eauto).
+Qed.
+End AtomicPair.
+(* Auto-generated comment: Succeeded. *)
 
