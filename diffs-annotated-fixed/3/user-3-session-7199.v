@@ -130,6 +130,20 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
 Theorem log_abstraction_nil d b :
-  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
+  diskGet d len_addr = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
+Proof.
+(unfold log_abstraction; intros).
+intuition.
+-
+eauto using log_length_ok_nil.
+-
+(unfold log_size_ok).
+(destruct d; simpl in *; [  | lia ]).
+(assert (diskGet nil 0 = None)).
+{
+(apply disk_oob_eq).
+(simpl; lia).
+}
+congruence.
 (* Auto-generated comment: Succeeded. *)
 
