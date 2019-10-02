@@ -8,6 +8,6 @@ Add Search Blacklist "Private_" "_subproof".
           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
             (H _ Hv); destruct H as [H _]; specialize (H Hm); contradiction) ||
             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-              (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
+              (H _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
     end ])).
 (* Failed. *)
