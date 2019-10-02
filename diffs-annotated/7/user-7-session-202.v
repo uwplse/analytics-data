@@ -50,6 +50,5 @@ Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_t
 Proof.
 (solve_not_free_union not_b_free_in_ty).
 -
-(destruct (beq_idP X i); try (subst; rewrite b_subst_exist_eq; reflexivity)).
-(rewrite b_subst_exist_neq).
+(rewrite b_subst_exist_neq; try assumption).
 (* Failed. *)
