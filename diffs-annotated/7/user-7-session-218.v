@@ -325,6 +325,12 @@ Proof.
 (intros).
 reflexivity.
 Qed.
+Lemma f_subst_bvar_eq : forall (X : id) (s : ty) (Y : id), [FX := s] TBVar Y = TBVar Y.
+Proof.
+(intros).
+(simpl).
+reflexivity.
+Qed.
 Lemma f_subst_fvar_eq : forall (X : id) (s : ty), [FX := s] TFVar X = s.
 Proof.
 (intros).
@@ -434,6 +440,8 @@ Lemma f_b_subst__spec_permute :
 Proof.
 (intros X Y sx sy t Hwfx Hwfy).
 generalize dependent t.
+(induction t; try (solve [ simpl; reflexivity ])).
+-
 (repeat rewrite f_subst_pair, b_subst_pair).
 (rewrite IHt1, IHt2).
 reflexivity.
@@ -444,5 +452,9 @@ reflexivity.
 -
 admit.
 -
+(destruct (beq_idP Y i)).
++
+subst.
 (rewrite b_subst_bvar_eq).
+(rewrite f_subst_bvar).
 (* Failed. *)
