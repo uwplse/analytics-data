@@ -12,28 +12,7 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Lemma build_v_full :
-  forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
-  |-[ w] v <$ [X := tx] t ->
-  exists v' : ty,
-    |-[ w] v' <$ [X := TVar X'] t /\
-    (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> (fresh_in_ty X' t' -> |-[ w'] v <$ t') /\ (free_in_ty X' t' -> |-[ w'] v <$ [X' := tx] t')).
+Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fresh_in_ty X t -> |-[ w] v <$ t -> |-[ w] v <$ [X := s] t.
 Proof.
-(intros X X' tx).
-(induction w; induction t; intros v Hm).
--
-(rewrite subst_cname in *).
-exists v.
-split.
-assumption.
-(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
-+
-(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
-  destruct IHt' as [IHt'a IHt'b]; split; intros HX').
-*
-(destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
-(apply match_ty_union_1; auto).
-*
-(destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
-(apply match_ty_union_1; auto).
+(intros X s; induction w; induction t; intros v HX Hm; try (solve [ destruct v; contradiction ])).
 (* Failed. *)
