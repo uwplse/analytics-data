@@ -204,12 +204,22 @@ clear IHt3.
 (apply sem_eq_k__trans with t; assumption).
 -
 (intros v1 t3 k Hm1 Hm2).
-(apply match_ty_ev__inv in Hm1; subst).
-assumption.
--
 (intros v1 t3 k Hm1 Hm2).
 (apply match_ty_cname__inv in Hm1; subst).
 assumption.
 -
+(intros v0 t3 k Hm1 Hm2).
+(apply match_ty_pair__inv in Hm1).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst).
+(induction t3; try (solve [ destruct k; contradiction ])).
++
+(apply match_ty_pair__inv in Hm2).
+(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
+(inversion Heq; subst).
+auto using match_ty_pair.
++
+(apply match_ty_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
 (* Auto-generated comment: Failed. *)
 
