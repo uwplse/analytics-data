@@ -75,6 +75,9 @@ Proof.
 -
 (induction t').
 +
+admit.
++
+admit.
 +
 (* Auto-generated comment: Failed. *)
 
