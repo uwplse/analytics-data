@@ -640,5 +640,7 @@ specialize (H2 _ H4).
   | H:_ \/ _ |- _ => inversion H; clear H
   end; congruence).
 -
+(inversion H1).
+specialize (H _ H4).
 (* Auto-generated comment: Succeeded. *)
 
