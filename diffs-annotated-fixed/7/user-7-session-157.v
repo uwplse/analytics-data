@@ -17,9 +17,9 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm).
 -
-exists (TCName c).
-(apply match_ty_cname).
+(exists v; assumption).
 -
+(rewrite subst_pair in *).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (destruct (IHt1 _ Hm1) as [v1' Hm1']).
@@ -44,13 +44,12 @@ reflexivity.
 +
 exists v.
 (simpl in *).
-Check beq_id_false_iff.
-Print "<->".
-Print "/\".
 (destruct (beq_id_false_iff X i) as [_ Hid]).
 specialize (Hid n).
 (rewrite Hid in *).
 assumption.
+-
+(exists v; assumption).
 -
 (* Auto-generated comment: Failed. *)
 
