@@ -107,5 +107,9 @@ assumption.
 *
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 (apply match_ty_exist__inv in Hm).
-specialize (IHw' _ HX't' Hm).
+specialize (IHw' _ Hm).
+(rewrite subst_neq__permute in IHw').
+exists ti.
+assumption.
+assumption.
 (* Failed. *)
