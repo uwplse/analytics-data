@@ -355,12 +355,9 @@ subst.
 (rewrite f_subst_fvar_neq; try assumption).
 reflexivity.
 Qed.
-Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
+Lemma union_empty__inv : forall s1 s2, IdSet.Empty (IdSet.union s1 s2) -> IdSet.Empty s1 /\ IdSet.Empty s2.
 Proof.
-(intros t1 t2 Hwf).
-(unfold wf_ty in *; simpl in *).
-Search -IdSet.Empty.
-Search -IdSet.empty.
-Check IdSet.Empty.
-Search -IdSet.Empty.
+(intros s1 s2 H).
+Check IdSetProps.empty_union_1.
+(pose proof (IdSetProps.empty_union_1 _ s1 H) as H1).
 (* Failed. *)
