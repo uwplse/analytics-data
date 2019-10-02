@@ -20,9 +20,6 @@ Timeout 1 Print Grammar tactic.
 From Coq Require Import NArith Streams.
 Open Scope N_scope.
 CoFixpoint Fib (a b : N) : Stream N := Cons a (print_id (Fib b (a + b))).
-Eval compute in Str_nth 10 (Fib 0 1).
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqaE2wIH" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
+Eval simpl in Str_nth 10 (Fib 0 1).
 (* Auto-generated comment: Succeeded. *)
 
