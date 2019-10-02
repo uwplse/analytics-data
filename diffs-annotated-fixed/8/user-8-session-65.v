@@ -1245,6 +1245,6 @@ Proof.
 (induction c).
 -
 (unfold denote_box; simpl).
-(simpl).
+Search -add_fresh -[].
 (* Auto-generated comment: Succeeded. *)
 
