@@ -50,4 +50,7 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
-(rewrite skipn_length, firstn_length).
+Lemma denote_ctrls_transpose :
+  forall W (n : nat) (u : Unitary W) li,
+  (forall x, In x l -> x < n)%nat -> (length l = \226\159\166 W \226\159\167)%nat -> denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
+(* Failed. *)
