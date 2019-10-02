@@ -67,7 +67,7 @@ Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> foral
 Proof.
 (induction k; induction t; intros Htk v Hm).
 (try match goal with
-     | Hm:|-[ ?k'] ?v <$ TCName _ |- _ => apply match_ty_i_cname__inv in Hm; subst
+     | Hm:|-[ ?k'] ?v <$ TCName _ |- _ => apply match_ty_i_cname__inv in Hm; subst; constructor
      end).
 (* Auto-generated comment: Failed. *)
 
