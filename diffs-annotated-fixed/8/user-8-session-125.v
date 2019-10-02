@@ -134,7 +134,5 @@ Msimpl.
 (rewrite (Mmult_assoc \207\129 _ A)).
 (rewrite inv).
 Msimpl.
-(rewrite Mmult_assoc).
-easy.
 (* Auto-generated comment: Succeeded. *)
 
