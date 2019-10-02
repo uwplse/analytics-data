@@ -230,18 +230,18 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(remember 0 as w).
-(assert (Hcontra : ~ (exists v1 : ty, |-[ k, w] v1 <$ t1) \/ ~ (exists v2 : ty, |-[ k, w] v2 <$ t2))).
-{
-(assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
-{
-(intros [[v'1 Hcontra'1] [v'2 Hcontra'2]]).
-(apply Hnotm).
-exists (TPair v'1 v'2).
-(apply match_ty_pair; assumption).
-}
+(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k Hcontra X s) | specialize (IHt2 k Hcontra X s) ]; [ apply IHt1 | apply IHt2 ]; eauto).
+-
 admit.
-}
-(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]; [ apply IHt1 | apply IHt2 ];
-  eauto).
+-
+(apply Hnotm).
+exists (TRef t).
+(apply match_ty_value_type__reflexive; constructor).
+-
+(destruct Hcontra as [v Hcontra]).
+admit.
+-
+(apply Hnotm).
+exists (TEV X).
+(destruct k; reflexivity).
 (* Failed. *)
