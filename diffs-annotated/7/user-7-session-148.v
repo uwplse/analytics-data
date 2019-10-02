@@ -12,9 +12,6 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Lemma match_ty_ev__match_ty_any :
-  forall (k w : nat) (X : id) (t : ty), fresh_in_ty X t -> |-[ k, w] TEV X <$ t -> forall v : ty, value_type v -> |-[ k, w] v <$ t.
-Proof.
 (intros k w).
 generalize dependent k.
 (induction w).
@@ -80,4 +77,4 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(* Failed. *)
+(apply sem_sub__trans with (TCName c); try assumption).
