@@ -74,5 +74,5 @@ Lemma union_empty : forall s1 s2, IdSet.Empty s1 /\ IdSet.Empty s2 -> IdSet.Empt
 Proof.
 Admitted.
 Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
-(apply IdSetFacts.remove_2; assumption).
+(apply IdSetFacts.remove_2; tauto).
 (* Failed. *)
