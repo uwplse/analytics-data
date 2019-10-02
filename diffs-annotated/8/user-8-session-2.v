@@ -50,3 +50,12 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
+(induction r; try assumption).
+(simpl).
+(destruct a; Msimpl; rewrite IHr; reflexivity).
+-
+(simpl).
+(destruct a; Msimpl; rewrite IHl; reflexivity).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqs7kE9k" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
