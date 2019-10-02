@@ -129,8 +129,66 @@ Proof.
 reflexivity.
 (unfold not_b_free_in_ty, not_free in *).
 (intros Hcontra).
+auto.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(unfold not_b_free_in_ty in HX).
+(simpl in HX).
+(unfold not_free in HX).
+exfalso.
 (apply HX).
-Search -IdSet.remove.
-(apply IdSetFacts.remove_iff).
-tauto.
+(apply IdSetFacts.singleton_2).
+reflexivity.
++
+subst.
+(rewrite b_subst_bvar_neq; try assumption).
+reflexivity.
+Qed.
+Lemma b_subst_neq__permute :
+  forall X Y : id, X <> Y -> forall s1 s2 t : ty, wf_ty s1 -> wf_ty s2 -> [BX := s1] ([BY := s2] t) = [BY := s2] ([BX := s1] t).
+Proof.
+(intros X Y Hneq s1 s2 t Hs1 Hs2).
+generalize dependent t.
+(induction t; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
+-
+(simpl).
+(destruct (beq_idP Y i)).
++
+subst.
+(destruct (beq_idP X i)).
+*
+subst.
+(repeat rewrite b_subst_exist_eq).
+reflexivity.
+*
+(rewrite b_subst_exist_neq; try assumption).
+(rewrite b_subst_exist_eq).
+reflexivity.
++
+(destruct (beq_idP X i)).
+*
+subst.
+(rewrite b_subst_exist_eq).
+(rewrite b_subst_exist_neq; try assumption).
+reflexivity.
+*
+(repeat rewrite b_subst_exist_neq; try assumption).
+(rewrite IHt).
+reflexivity.
+-
+(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
++
+contradiction.
++
+(simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+reflexivity.
+(unfold wf_ty in *).
+(unfold not_b_free_in_ty, not_free).
+(intros Hcontra).
+Search -IdSet.In.
+(apply IdSetFacts.empty_iff).
 (* Failed. *)
