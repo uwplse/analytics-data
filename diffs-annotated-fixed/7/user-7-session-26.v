@@ -184,7 +184,6 @@ Proof.
 Qed.
 Lemma sem_eq_k__comm : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
 Proof.
-auto with DBBetaJulia.
 (intros k t1 t2 Hsem).
 (unfold sem_eq_k in *).
 (intros v).
@@ -197,9 +196,9 @@ Proof.
 (unfold sem_eq_k in *).
 (intros v).
 specialize (Hsem1 v).
+specialize (Hsem2 v).
 tauto.
 Qed.
-Search -and.
 Lemma sem_eq_k__sem_sub_k : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t1]<= [t2] /\ ||-[ k][t2]<= [t1].
 Proof.
 (intros k t1 t2 Hsem).
@@ -228,6 +227,9 @@ Proof.
 Qed.
 Lemma sem_eq__comm : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t2]= [t1].
 Proof.
-auto with DBBetaJulia.
+(intros k t1 t2 Hsem).
+(unfold sem_eq in *).
+(intros v).
+specialize (Hsem v).
 (* Auto-generated comment: Failed. *)
 
