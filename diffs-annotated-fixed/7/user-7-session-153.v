@@ -12,6 +12,9 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Lemma build_v : forall (X X' : id) (w : nat) (tx v t : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v <$ [X := X'] t.
+Lemma build_v : forall (X X' : id) (w : nat) (tx v t : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v <$ [X := TVar X'] t.
+Proof.
+(intros X X' w tx v t).
+(induction t'; intros Hm).
 (* Auto-generated comment: Failed. *)
 
