@@ -13,5 +13,5 @@ Require Import Coq.Bool.Bool.
 Close Scope btj_scope.
 Open Scope btjnf_scope.
 Open Scope btjr_scope.
-(rewrite (mk_nf_nf__equal (MkNF( t)) Hnf) in Hsub).
+Check mk_nf_nf__equal.
 (* Failed. *)
