@@ -1152,6 +1152,6 @@ clear IS.
 (repeat rewrite id_circ_spec).
 restore_dims tensor_dims.
 (repeat rewrite id_circ_spec).
-listify_kron.
-(* Auto-generated comment: Succeeded. *)
+(rewrite strip_one_l_in_spec).
+(* Auto-generated comment: Failed. *)
 
