@@ -75,7 +75,7 @@ if len(group_lines) > 0:
     old_cumulative = group_lines[0]
 
     # Write failure or success in place of cancellation
-    if group_failures[0] is True:
+    if len(group_failures) > 0 and group_failures[0] is True:
         old_cumulative.append("(* Auto-generated comment: Failed. *)\n")
     else:
         old_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
@@ -127,11 +127,10 @@ for i in range(len(group_ends) - 1):
             curr_index = curr_index + 1
 
         # Write failure or success in place of cancellation
-        if len(group_failures) > j:
-            if group_failures[j] is True:
-                new_cumulative.append("(* Auto-generated comment: Failed. *)\n")
-            else:
-                new_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
+        if len(group_failures) > j and group_failures[j] is True:
+            new_cumulative.append("(* Auto-generated comment: Failed. *)\n")
+        else:
+            new_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
 
     # Dump new version to file
     with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:  
