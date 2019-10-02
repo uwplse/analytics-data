@@ -14,5 +14,10 @@ Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqcuNkuE" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-From Coq Require Import Lists NArith.
-(* Auto-generated comment: Failed. *)
+Timeout 1 Print LoadPath.
+Timeout 1 Print Grammar tactic.
+From Coq Require Import List NArith Streams.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqsaA1a1" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+(* Failed. *)
