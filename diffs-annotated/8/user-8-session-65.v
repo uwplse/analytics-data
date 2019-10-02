@@ -949,5 +949,6 @@ Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
 (match goal with
- | |- context [ ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) ] => idtac A; idtac B; idtac C; idtac D
+ | |- context [ ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) ] => rewrite (kron_mixed_product A B C D)
  end).
+(* Failed. *)
