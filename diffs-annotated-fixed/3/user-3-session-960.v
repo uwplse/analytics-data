@@ -292,6 +292,6 @@ admit.
 (simpl).
 (unfold nat64_from_le, nat64_to_le; intros).
 (rewrite app_length).
-(rewrite repeat_length).
+(rewrite ?repeat_length).
 (* Auto-generated comment: Succeeded. *)
 
