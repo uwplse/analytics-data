@@ -258,7 +258,6 @@ Proof.
 +
 (simpl in Hdep).
 clear IHt2.
-(simpl in Hdep).
-(pose proof (le_S_n _ _ Hdep) as Hdt').
+(simpl in Hdt).
 (* Auto-generated comment: Failed. *)
 
