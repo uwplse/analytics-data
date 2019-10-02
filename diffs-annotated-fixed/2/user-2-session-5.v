@@ -39,6 +39,6 @@ Import TermNotations.
 Redirect "/tmp/coq34dpHE" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Check [Nil Nil Nil].
+Check [Nil Nil Nil]%coucou_scope.
 (* Auto-generated comment: Failed. *)
 
