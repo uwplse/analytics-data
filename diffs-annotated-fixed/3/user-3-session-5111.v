@@ -159,6 +159,23 @@ step_proc.
 -
 step_proc.
 (destruct (lt_dec r0 (diskSize (stateDisk state)))).
++
+{
+exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
+(unfold inited_any; split; auto).
+(constructor; intuition idtac; autorewrite with upd in *; intuition idtac).
+-
+(rewrite diskShrink_preserves; auto).
+(rewrite diskShrink_size; lia).
+-
+(rewrite diskUpd_eq; auto).
+(rewrite diskShrink_size; lia).
+-
+lia.
+}
+{
+(exfalso; eapply disk_inbounds_not_none; [  | eauto ]; lia).
+}
 step_proc.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
