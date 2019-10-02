@@ -99,6 +99,25 @@ specialize (IHw' HX').
 (rewrite f_subst_exist).
 exists ([FX' := tx] ti).
 split.
-(rewrite f_b_subst__spec_permute in IHw'; try assumption).
+subst.
+(rewrite b_subst_exist_neq in Hm; try assumption).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+(destruct (beq_idP X i)).
++
+subst.
 (* Auto-generated comment: Failed. *)
 
