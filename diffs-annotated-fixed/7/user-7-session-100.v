@@ -16,7 +16,9 @@ Proof.
 Qed.
 Lemma match_ty_pair : forall (v1 v2 t1 t2 : ty) (w k : nat), |-[ w, k] v1 <$ t1 -> |-[ w, k] v2 <$ t2 -> |-[ w, k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
+(intros v1 v2 t1 t2 w k Hm1 Hm2).
 (destruct w; destruct k; split; assumption).
+Qed.
 Lemma match_ty_union_1 : forall (v t1 t2 : ty) (w k : nat), |-[ w, k] v <$ t1 -> |-[ w, k] v <$ TUnion t1 t2.
 Proof.
 (intros v t1 t2 w k Hm).
@@ -31,6 +33,7 @@ Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (w k : nat), (exists tx
 Proof.
 (intros v X t w k Hex).
 (destruct k; destruct v; assumption).
+Qed.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (w k : nat), |-[ w, k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c w k Hm; destruct w; destruct k; contradiction ])).
@@ -40,6 +43,7 @@ Qed.
 Lemma match_ty_pair__inv :
   forall (v t1 t2 : ty) (w k : nat), |-[ w, k] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ w, k] v1 <$ t1 /\ |-[ w, k] v2 <$ t2.
 Proof.
+(intros v; induction v; try (solve [ intros t1 t2 w k Hm; destruct w; destruct k; contradiction ])).
 (intros t1 t2 w k Hm).
 exists v1,v2.
 (split; try reflexivity).
@@ -61,14 +65,15 @@ reflexivity.
 Qed.
 Lemma match_ty_ref__inv : forall (v t : ty) (w k : nat), |-[ w, S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ ||-[ w, k][t']= [t].
 Proof.
+(intros v; induction v; try (solve [ intros t w k Hm; destruct w; destruct k; contradiction ])).
 clear IHv.
-(intros t w k Hm).
 (intros t w k Hm).
 (destruct w; simpl in Hm; exists v; auto).
 Qed.
 Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ 0, k] v <$ TExist X t -> |-[ 0, k] v <$ t.
 Proof.
 (intros v; induction v; intros X t k Hm; destruct k; assumption).
+Qed.
 Lemma match_ty_exist__inv :
   forall (v : ty) (X : id) (t : ty) (w k : nat), |-[ S w, k] v <$ TExist X t -> exists tx : ty, |-[ w, k] v <$ [X := tx] t.
 Proof.
@@ -76,6 +81,7 @@ Proof.
 Qed.
 Lemma match_ty_var__inv : forall (v : ty) (X : id) (w k : nat), |-[ w, k] v <$ TVar X -> v = TEV X.
 Proof.
+(intros v; induction v; try (solve [ intros X w k Hm; destruct w; destruct k; contradiction ])).
 (intros X w k Hm).
 (destruct w; destruct k; simpl in Hm; subst; reflexivity).
 Qed.
@@ -87,21 +93,10 @@ Proof.
    | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
    | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
-   | apply match_ty_var__inv in Hm; assumption ])).
-(induction w; induction k; intros v t; generalize dependent v; induction t; intros v Hm;
-  try (solve
-   [ apply match_ty_cname__inv in Hm; subst; constructor
-   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
-   | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
-   | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
-   | apply match_ty_var__inv in Hm; constructor ])).
+   | apply match_ty_var__inv in Hm; subst; constructor ])).
 -
 (apply match_ty_exist__0_inv in Hm).
 auto.
--
-(apply match_ty_var__inv in Hm).
-subst.
-constructor.
 -
 (* Auto-generated comment: Failed. *)
 
