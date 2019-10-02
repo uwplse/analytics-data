@@ -484,8 +484,8 @@ Hint Resolve log_abstraction_commit: core.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
-Theorem log_length_ok_unchanged d bs :
+Theorem log_length_ok_unchanged d bs d' :
   log_length_ok d bs ->
   diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
