@@ -95,6 +95,25 @@ specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
 Close Scope btjmdeq_scope.
-Open Scope btjmdle_scope.
-(* Auto-generated comment: Succeeded. *)
+Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> (||- [t1]<= [t2])%btjmdeq.
+Proof.
+(intros ta; induction ta; intros tb; induction tb; intros Hsem; unfold sem_sub_i, sem_sub_k_i in Hsem; unfold sem_sub_deq, sem_sub_k_deq;
+  intros k v Hv Hm1;
+  try
+   match goal with
+   | Hm1:(|-[ ?k] ?v <$ TCName ?c)%btjmdeq
+     |- _ =>
+         apply match_ty_deq_cname__inv in Hm1; subst; assert (Hm : (|-[ k] TCName c <$ TCName c)%btjmi) by (destruct k; reflexivity);
+          pose proof Hsem as Hsem'; specialize (Hsem _ _ Hv Hm)
+   end).
+-
+(apply match_ty_i_cname__inv in Hsem).
+(inversion Hsem).
+(destruct k; reflexivity).
+-
+(apply match_ty_i_pair__inv in Hsem).
+(destruct Hsem as [v1 [v2 [Heq _]]]).
+(inversion Heq).
+-
+(* Auto-generated comment: Failed. *)
 
