@@ -131,6 +131,6 @@ Proof.
 -
 (apply match_ty_pair; auto).
 -
-(destruct w, k; constructor).
+(destruct w, k; constructor; simpl; tauto).
 (* Auto-generated comment: Failed. *)
 
