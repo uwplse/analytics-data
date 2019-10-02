@@ -259,5 +259,5 @@ clear H.
 (rewrite evalAnd in H0).
 (destruct (evalIn _ _ _)).
 (match goal with
- | H:eval ?L ?env (If (In ?x ?S) _ _) |- _ => idtac
+ | H:eval ?L ?env (If (In ?x ?S) _ _) = _ |- _ => idtac
  end).
