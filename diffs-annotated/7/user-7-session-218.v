@@ -444,9 +444,5 @@ reflexivity.
 -
 admit.
 -
-(destruct (beq_idP Y i)).
-+
-subst.
-(rewrite b_subst_bvar_eq).
-(rewrite f_subst_bvar).
+(simpl).
 (* Failed. *)
