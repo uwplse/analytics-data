@@ -291,4 +291,7 @@ Proof.
           end
    end).
 Qed.
-(* Auto-generated comment: Failed. *)
+Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Proof.
+(induction k; induction t; intros v; split; intros Hm).
+(* Failed. *)
