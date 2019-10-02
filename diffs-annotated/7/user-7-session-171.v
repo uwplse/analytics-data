@@ -60,14 +60,8 @@ Fixpoint rename (x y : id) (t : ty) :=
   | TEV z => t
   end
 where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
-Fixpoint size (t : ty) :=
-  match t with
-  | TCName _ => 1
-  | TPair t1 t2 => 1 + size t1 + size t2
-  | TUnion t1 t2 => 1 + size t1 + size t2
-  | TExist z t' => 1 + size t'
-  | TVar z => 1
-  | TEV z => 1
-  end.
-Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = t.
+Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
+Proof.
+(intros x y).
+(induction t).
 (* Failed. *)
