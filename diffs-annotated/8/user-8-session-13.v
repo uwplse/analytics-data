@@ -577,3 +577,4 @@ Add Parametric Morphism  m n : @adjoint m n with signature
  mat_equiv ==> mat_equiv as adjoint_mor.
 Proof.
 (intros).
+Set Printing All.
