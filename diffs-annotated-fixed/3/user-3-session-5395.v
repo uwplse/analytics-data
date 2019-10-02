@@ -112,6 +112,5 @@ Proof.
 -
 destruct_all.
 -
-(rewrite diskUpd_oob_noop by lia).
 (* Auto-generated comment: Succeeded. *)
 
