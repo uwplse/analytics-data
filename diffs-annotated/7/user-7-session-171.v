@@ -61,7 +61,5 @@ Fixpoint rename (x y : id) (t : ty) :=
   end
 where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
 Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
-Proof.
-(intros x y).
-(induction t).
+(induction t; simpl).
 (* Failed. *)
