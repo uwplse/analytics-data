@@ -32,6 +32,6 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Instance absr_non_error : (NonError absr).
 Proof.
-(compute).
+(unfold NonError).
 (* Auto-generated comment: Succeeded. *)
 
