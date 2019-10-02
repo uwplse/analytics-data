@@ -360,6 +360,7 @@ Function
        fst hd1 = fst hd2 /\ eq (GRec tl1, GRec tl2)
    | (GRec (None :: tl1), GRec (None :: tl2)) =>
        eq (GRec tl1, GRec tl2)
+   | (GRec (None :: tl1), GRec []) => eq (GRec tl1, GRec [])
    | _ => False
    end.
 all: (intros; subst; simpl; eauto with math).
