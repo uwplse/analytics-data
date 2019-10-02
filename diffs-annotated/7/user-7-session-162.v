@@ -49,4 +49,4 @@ Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
 Variable (gen_fresh : (fvs : id_set) -> id).
 Variable (gen_fresh : id_set -> id).
 Variable (gen_fresh : id_set -> id).
-(* Failed. *)
+Variable (gen_fresh : id_set -> id).
