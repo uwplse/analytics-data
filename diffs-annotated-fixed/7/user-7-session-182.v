@@ -35,6 +35,6 @@ subst.
 contradiction.
 *
 (rewrite subst_exist_eq).
-(rewrite subst_id).
+(unfold tX in *).
 (* Auto-generated comment: Failed. *)
 
