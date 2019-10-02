@@ -136,8 +136,6 @@ generalize dependent t3.
 Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
 Lemma sub_r_unite_pairs_l__inv : forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
-(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub).
-(simpl in Hsub).
-(inversion Hsub).
+(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; simpl in Hsub; inversion Hsub; subst).
 (* Auto-generated comment: Failed. *)
 
