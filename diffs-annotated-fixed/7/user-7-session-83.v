@@ -258,6 +258,9 @@ Proof.
 +
 (simpl in Hdep).
 clear IHt2.
-(simpl in Hdt).
+(pose proof (le_S_n _ _ Hdep) as Hdep').
+(unfold sem_sub_k in Hsem).
+specialize (Hsem _ Hma).
+(apply match_ty_ref__inv in Hsem).
 (* Auto-generated comment: Failed. *)
 
