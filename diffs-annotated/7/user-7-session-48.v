@@ -88,9 +88,17 @@ Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] 
 Proof.
 auto with DBBetaJulia.
 Qed.
-Lemma sem_sub_k__sem_eq_k : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t1] -> ||-[ k][t1]= [t2].
+Lemma sem_sub_k_i__sem_eq_k_i : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t1] -> ||-[ k][t1]= [t2].
 Proof.
 (intros k t1 t2 Hsem1 Hsem2).
 (split; auto).
 Qed.
-(* Auto-generated comment: Failed. *)
+Lemma sem_eq_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq_k in *).
+(intros v).
+specialize (Hsem1 v).
+specialize (Hsem2 v).
+tauto.
+Qed.
