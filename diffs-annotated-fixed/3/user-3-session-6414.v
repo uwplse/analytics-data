@@ -86,5 +86,10 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSCzANV"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Fixpoint get_upto (a : addr) : proc (list block) :=
+  match a with
+  | 0 => Ret []
+  | S a => b <- get_at a; bs <- get_upto a; Ret (bs ++ [a])
+  end.
 (* Auto-generated comment: Failed. *)
 
