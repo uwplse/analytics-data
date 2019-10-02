@@ -59,5 +59,5 @@ split.
 tauto.
 +
 (assert (Heq : ||-[ k][t]= [t'])).
-(apply sem_sub_k__sem_eq_k).
-(* Auto-generated comment: Failed. *)
+(apply sem_sub_k__sem_eq_k; assumption).
+(* Failed. *)
