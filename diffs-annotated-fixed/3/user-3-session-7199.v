@@ -407,6 +407,8 @@ congruence.
 }
 }
 step_proc.
-intuition eauto.
+intuition.
+{
+(exists bs; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
