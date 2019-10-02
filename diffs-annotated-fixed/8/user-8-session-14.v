@@ -187,5 +187,6 @@ Proof.
 (induction g).
 +
 (simpl).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
