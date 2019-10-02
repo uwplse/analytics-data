@@ -307,6 +307,5 @@ Proof.
 step_proc.
 -
 step_proc.
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
