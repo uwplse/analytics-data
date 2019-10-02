@@ -129,15 +129,19 @@ Admitted.
 Lemma b_subst_wf_ty : forall (X : id) (t : ty), forall s : ty, [BX := s] t = t.
 Proof.
 (intros X t).
-Lemma b_subst_wf_ty : forall (X : id) (t : ty), not_b_free_in_ty X t -> forall s : ty, [BX := s] t = t.
+Lemma b_subst_not_b_free_in_ty : forall (X : id) (t : ty), not_b_free_in_ty X t -> forall s : ty, [BX := s] t = t.
 Proof.
 (intros X t).
+(induction t; intros HX s;
+  try (solve
+   [ reflexivity
+   | try destruct (not_b_free_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]; try destruct (not_b_free_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; simpl;
+      rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
 -
 (destruct (beq_idP X i); try (subst; rewrite b_subst_exist_eq; reflexivity)).
 (rewrite b_subst_exist_neq; try assumption).
 (rewrite IHt).
 reflexivity.
-admit.
 admit.
 -
 (destruct (beq_idP X i)).
@@ -192,5 +196,17 @@ reflexivity.
 contradiction.
 +
 (simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+reflexivity.
+admit.
++
+(simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+reflexivity.
+admit.
++
+(rewrite b_subst_bvar_neq).
 (* Auto-generated comment: Failed. *)
 
