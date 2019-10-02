@@ -56,6 +56,6 @@ Fixpoint match_ty (k : nat) :=
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
 Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
 Proof.
-(intros k; induction v; induction t; intros Hm; constructor).
+(intros k; induction v; induction t; intros Hm; try constructor).
 (* Auto-generated comment: Failed. *)
 
