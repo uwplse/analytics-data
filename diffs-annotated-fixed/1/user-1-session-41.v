@@ -372,9 +372,9 @@ Function
        fst hd1 = fst hd2 /\ eq (GRow tl1, GRow tl2)
    | (GRow (None :: tl1), GRow (None :: tl2)) =>
        eq (GRow tl1, GRow tl2)
-   | eq (GRow (Some None :: tl1), GRow (Some None :: tl2)) =>
+   | (GRow (Some None :: tl1), GRow (Some None :: tl2)) =>
        eq (GRow tl1, GRow tl2)
    | _ => False
    end.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
