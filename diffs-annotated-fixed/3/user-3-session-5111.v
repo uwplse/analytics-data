@@ -249,5 +249,27 @@ invert_abstraction.
 replace (diskSize s + 1 - 1) with diskSize s by lia.
 (constructor; simpl).
 all: (autorewrite with upd; intuition idtac).
-(* Auto-generated comment: Succeeded. *)
+{
+(repeat rewrite diskUpd_neq by lia).
+eauto.
+}
+{
+(repeat rewrite diskUpd_eq by lia; auto).
+}
+Qed.
+Theorem remapped_abstraction_diskUpd_noremap :
+  forall state s a v,
+  remapped_abstraction state s ->
+  a <> diskSize (stateDisk state) - 1 ->
+  a <> stateBadBlock state ->
+  remapped_abstraction
+    (mkState (diskUpd (stateDisk state) a v) (stateBadBlock state))
+    (diskUpd s a v).
+Proof.
+(intros).
+invert_abstraction.
+(constructor; simpl).
+all: (autorewrite with upd; intuition idtac).
+(destruct (lt_dec a (diskSize s))).
+(* Auto-generated comment: Failed. *)
 
