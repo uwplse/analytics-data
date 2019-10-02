@@ -417,6 +417,6 @@ constructor.
 {
 subst.
 (simpl).
-(apply Nat.max_lub_l).
+(apply Nat.max_le_l).
 (* Auto-generated comment: Failed. *)
 
