@@ -281,6 +281,5 @@ Proof.
 (apply spec_abstraction_compose).
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
-(destruct a as [[] bs]).
 (* Auto-generated comment: Succeeded. *)
 
