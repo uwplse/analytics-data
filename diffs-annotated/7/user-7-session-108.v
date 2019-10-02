@@ -230,10 +230,6 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]; [ apply IHt1 | apply IHt2 ];
-  eauto).
--
-admit.
--
-(simpl in Hcontra).
+(apply Hnotm).
+(exists (TRef t); apply match_ty__reflexive; constructor).
 (* Failed. *)
