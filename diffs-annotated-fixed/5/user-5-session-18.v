@@ -26,10 +26,10 @@ Record EpsilonLogic :=
            forall env i j, i <> j -> eval env (Int i) <> eval env (Int j);
           evalEqTrue :
            forall env a b,
-           eval env a = eval env b -> eval env (Eq a b) = vTrue;
+           eval env a = eval env b <-> eval env (Eq a b) = vTrue;
           evalEqFalse :
            forall env a b,
-           eval env a <> eval env b -> eval env (Eq a b) = vFalse;
+           eval env a <> eval env b <-> eval env (Eq a b) = vFalse;
           evalChoose :
            forall env x P,
            (exists value, eval (extendEnv env x value) P = vTrue) ->
@@ -61,5 +61,12 @@ reflexivity.
 -
 (apply evalEqTrue).
 reflexivity.
+-
+(apply evalEqTrue).
+specialize IHt1 with env.
+specialize IHt2 with env.
+(apply evalEqTrue in IHt1).
+(apply evalEqTrue in IHt2).
+(apply evalEqTrue).
 (* Auto-generated comment: Succeeded. *)
 
