@@ -2762,6 +2762,5 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 *
 (unfold denote_circuit in IH).
 (rewrite Nat.add_sub).
-(rewrite <- size_octx_merge by easy).
 (* Auto-generated comment: Succeeded. *)
 
