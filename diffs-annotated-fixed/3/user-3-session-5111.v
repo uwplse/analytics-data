@@ -249,6 +249,5 @@ invert_abstraction.
 replace (diskSize s + 1 - 1) with diskSize s by lia.
 (constructor; simpl).
 all: (autorewrite with upd; intuition idtac).
-(repeat rewrite diskUpd_neq by lia).
 (* Auto-generated comment: Succeeded. *)
 
