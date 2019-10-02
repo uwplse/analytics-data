@@ -157,6 +157,6 @@ econstructor.
 (rewrite app_length, repeat_length).
 lia.
 +
-(unfold nat64_to_le, nat64_from_le).
+(unfold nat64_to_le, nat64_from_le; intros).
 (* Auto-generated comment: Succeeded. *)
 
