@@ -463,17 +463,5 @@ admit.
 subst.
 (rewrite b_subst_bvar_eq).
 (rewrite f_subst_bvar).
-(rewrite b_subst_bvar_eq).
-reflexivity.
-+
-(rewrite b_subst_bvar_neq; try assumption).
-(rewrite f_subst_bvar).
-(rewrite b_subst_bvar_neq; try assumption).
-reflexivity.
--
-(destruct (beq_idP X i)).
-+
-subst.
 (rewrite f_subst_fvar_eq).
-(rewrite b_subst_fvar).
 (* Failed. *)
