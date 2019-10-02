@@ -462,6 +462,6 @@ reflexivity.
 (destruct (beq_idP Y i)).
 +
 subst.
-(rewrite b_subst_exist_beq).
+(rewrite b_subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
