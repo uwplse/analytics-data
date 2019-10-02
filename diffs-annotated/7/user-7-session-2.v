@@ -16,5 +16,8 @@ Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
-(induction Hsub21; inversion Heqx; subst; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
+(induction Hsub21; inversion Heqx; subst).
++
+clear Heqx IHHsub21_1 IHHsub21_2.
+(inversion Hsub12).
 (* Failed. *)
