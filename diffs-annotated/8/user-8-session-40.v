@@ -29,3 +29,4 @@ autorewrite with proof_db.
 (rewrite super_I; easy).
 Hint Rewrite @kron_1_r'.
 (destruct b; unfold bool_to_ket; simpl; Msimpl).
+(rewrite kron_1_r').
