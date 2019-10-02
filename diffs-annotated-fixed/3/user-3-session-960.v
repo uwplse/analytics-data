@@ -82,6 +82,5 @@ Timeout 1 Print LoadPath.
 Search -nat -string.
 Search -"endian".
 Search -"digit".
-Print strings.ascii_of_digits.
 (* Auto-generated comment: Succeeded. *)
 
