@@ -3234,6 +3234,7 @@ Lemma HOAS_Equiv_sym : forall w1 w2 (c1 c2 : Box w1 w2), c1 \226\137\161 c2 -> c
 Proof.
 (intros).
 (intros \207\129 b).
+(unfold HOAS_Equiv in H).
 (rewrite H).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
