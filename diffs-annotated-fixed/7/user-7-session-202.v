@@ -141,6 +141,11 @@ admit.
 -
 (destruct (beq_idP X i)).
 +
+(unfold not_b_free_in_ty in HX).
+(simpl in HX).
+(unfold not_free in HX).
+admit.
++
 subst.
 (* Auto-generated comment: Failed. *)
 
