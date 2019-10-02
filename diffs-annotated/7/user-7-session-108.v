@@ -233,19 +233,4 @@ subst.
 exists (S w),v.
 exists (TVar i).
 Admitted.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
-Proof.
-(induction t; intros k Hdep Hcontra).
--
-specialize (Hcontra 0).
-(destruct Hcontra as [w Hcontra]).
-(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ Hm).
-clear Hm.
-(apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Hcontra _]]).
-(inversion Hcontra).
--
-specialize (Hcontra 0).
-(destruct Hcontra as [w Hcontra]).
-(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+(* Failed. *)
