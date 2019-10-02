@@ -10,9 +10,8 @@ From Coq Require Import NArith Streams.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqznWAeW" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-From ReductionEffect Require Import PrintingEffect.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqTlmINW" Print Ltac Signatures.
+CoFixpoint fib (x y : N) : Stream N := Cons y (fib y (x + y)).
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqbF6gTS" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Check map.
+Eval compute in Str_nth 3 (map print fib).
 (* Failed. *)
