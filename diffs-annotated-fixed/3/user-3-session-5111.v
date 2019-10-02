@@ -198,6 +198,5 @@ Proof.
 -
 invert_abstraction.
 (step_proc; intuition idtac).
-(step_proc; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
