@@ -353,8 +353,5 @@ assumption.
 (rewrite b_subst_exist_neq; try assumption).
 (unfold b_free_in_ty, free in HX).
 (apply IdSetFacts.remove_1 in HX).
-contradiction.
-reflexivity.
-*
-(apply b_free_in_ty_exist_neq__inv in HX).
+(apply b_free_in_ty_exist_neq__inv in HX; try assumption).
 (* Failed. *)
