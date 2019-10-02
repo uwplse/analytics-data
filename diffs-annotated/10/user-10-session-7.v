@@ -263,4 +263,141 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqeLCBJk" Print Ltac
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Print taE.
-(* Failed. *)
+Module App.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Arguments appE : clear implicits.
+Instance showAppE  {T}: (Show (appE id T)) :=
+ {|
+ show := fun ae =>
+         match ae with
+         | App_Recv => "Application Receive"
+         | App_Send msg => "Application Send \226\159\185 " ++ show msg
+         end |}.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Definition smE := appE exp +' evalE.
+Definition kvs_state exp_ := list (N * exp_ N).
+Definition kvs : itree smE void :=
+  rec
+    (fun st : kvs_state exp =>
+     req <- trigger App_Recv;;
+     match req with
+     | Kvs_GET k =>
+         match kvs_get k st with
+         | Some v => embed App_Send (Kvs_OK v);; call st
+         | None => v <- trigger Eval_Var;; embed App_Send (Kvs_OK v);; call (kvs_put k v st)
+         end
+     | Kvs_PUT k v => embed App_Send Kvs_NoContent;; call (kvs_put k (exp_int v) st)
+     | Kvs_CAS k x v' =>
+         match kvs_get k st with
+         | Some v =>
+             b <- trigger (Eval_Decide (exp_eq x v));;
+             (if b : bool
+              then embed App_Send Kvs_NoContent;; call (kvs_put k (exp_int v') st)
+              else embed App_Send Kvs_PreconditionFailed;; call st)
+         | None =>
+             v <- trigger Eval_Var;;
+             b <- trigger (Eval_Decide (exp_eq x v));;
+             (if b : bool
+              then embed App_Send Kvs_NoContent;; call (kvs_put k (exp_int v') st)
+              else embed App_Send Kvs_PreconditionFailed;; call (kvs_put k v st))
+         end
+     | _ => embed App_Send Kvs_BadRequest;; call st
+     end) [].
+Definition unwrap_data (rx : kvs_data exp) : kvs_data id :=
+  match rx with
+  | Kvs_GET k => Kvs_GET k
+  | Kvs_PUT k v => Kvs_PUT k v
+  | Kvs_CAS k x v => Kvs_CAS k x v
+  | Kvs_OK vx => Kvs_OK (unwrap vx)
+  | Kvs_NoContent => Kvs_NoContent
+  | Kvs_BadRequest => Kvs_BadRequest
+  | Kvs_PreconditionFailed => Kvs_PreconditionFailed
+  end.
+Definition wrap_data (r : kvs_data id) : kvs_data exp :=
+  match r with
+  | Kvs_GET k => Kvs_GET k
+  | Kvs_PUT k v => Kvs_PUT k v
+  | Kvs_CAS k x v => Kvs_CAS k x v
+  | Kvs_OK v => Kvs_OK (exp_int v)
+  | Kvs_NoContent => Kvs_NoContent
+  | Kvs_BadRequest => Kvs_BadRequest
+  | Kvs_PreconditionFailed => Kvs_PreconditionFailed
+  end.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Definition embed_exp {T} {E} `{appE id -< E} (ex : appE exp T) : itree E T :=
+  match ex in (appE _ T) return (itree E T) with
+  | App_Recv => trigger App_Recv
+  | App_Send rx => trigger (App_Send (unwrap_data rx))
+  end.
+Variant err :=
+  | Err_Decide : forall bx : exp bool, _
+  | Err_Guard : forall (rx : kvs_data exp) (r : kvs_data id), _
+  | Err_Mismatch : forall {X} {Y} (e0 : appE id X) (te : appE id Y), _
+  | Err_Unify : forall (bx : exp bool) (b : bool), _.
+Instance showErr : (Show err) :=
+ {|
+ show := fun e =>
+         match e with
+         | Err_Decide bx => "Cannot decide: " ++ show bx
+         | Err_Guard rx r => "Guard error: " ++ show rx ++ " <> " ++ show r
+         | Err_Mismatch e0 te => "Events mismatch: " ++ show e0 ++ " <> " ++ show te
+         | Err_Unify bx b => "Cannot unify: " ++ show bx ++ " <> " ++ show b
+         end |}.
+Definition nmi_of_smi {T} (m : itree smE T) : itree (appE id) T :=
+  interp
+    (fun T e =>
+     match e with
+     | (ae|) => embed_exp ae
+     | (|ee) =>
+         match ee in (evalE T) return (_ T) with
+         | Eval_Var => ret (exp_int 0)
+         | Eval_Decide bx => match unwrap' bx with
+                             | Some b => ret b
+                             | None => ret false
+                             end
+         end
+     end) m.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Definition unifier_of_smi : itree smE void -> itree (appE id +' unifyE +' randomE) unit :=
+  rec-fix unifier_of_smi_rec m
+  := match (m : itree smE void).(observe) with
+     | RetF vd => match vd in void with
+                  end
+     | TauF m' => unifier_of_smi_rec m'
+     | VisF (sae|) k =>
+         match sae in (appE _ Y) return ((Y -> _) -> _) with
+         | App_Recv => fun k => r <- trigger Random_Request;; embed App_Send r;; unifier_of_smi_rec (k r)
+         | App_Send rx => fun k => r <- embed App_Recv;; trigger (Unify_Guard rx r);; unifier_of_smi_rec (k tt)
+         end k
+     | VisF (|ee) k =>
+         match ee in (evalE Y) return ((Y -> _) -> _) with
+         | Eval_Var => bind (trigger Unify_New) \226\136\152 compose unifier_of_smi_rec
+         | Eval_Decide bx => bind (embed Unify_Decide bx) \226\136\152 compose unifier_of_smi_rec
+         end k
+     end.
+Notation taE := (appE id +' exceptE err +' nondetE +' randomE).
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Definition liftState {s a : Type} {m : Type -> Type} `{Functor m} : m a -> stateT s m a :=
+  @mkStateT s m a \226\136\152 flip compose (flip pair) \226\136\152 flip fmap.
+Definition tester_of_unifier (u : itree (appE id +' unifyE +' randomE) unit) : stateT state (itree taE) unit :=
+  interp
+    (fun X e =>
+     match e with
+     | (|(ue|)) => handle_unifier ue
+     | (e|) | (||e) => @liftState state X (itree taE) _ (trigger e)
+     end) u.
+CoFixpoint match_app_event {X} (e0 : appE id X) (x0 : X) (t : itree taE unit) : itree taE unit :=
+  match t.(observe) with
+  | RetF r => Ret r
+  | TauF t => Tau (match_event e0 x0 t)
+  | VisF e k =>
+      match e with
+      | (te|) =>
+          match e0 in (appE _ X), te in (appE _ Y) return ((Y -> _) -> X -> _) with
+          | App_Recv, App_Recv => id
+          | App_Send m1, App_Send m2 => if m1 = m2 ? then id else fun _ _ => throw (Err_Mismatch e0 te)
+          | _, _ => fun _ _ => throw (Err_Mismatch e0 te)
+          end k x0
+      | (|(e|)) | (||e|) | (|||e) => vis e (match_event e0 x0 \226\136\152 k)
+      end
+  end.
