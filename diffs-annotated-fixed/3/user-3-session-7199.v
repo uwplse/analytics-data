@@ -277,6 +277,6 @@ Theorem get_len_abstr_ok :
      post := fun r state' => state' = state /\ r = length state;
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
 Proof.
-(unfold get_len; intros).
-(* Auto-generated comment: Succeeded. *)
+(apply spec_weaken).
+(* Auto-generated comment: Failed. *)
 
