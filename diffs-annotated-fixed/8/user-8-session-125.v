@@ -194,6 +194,5 @@ matrix_denote.
 restore_dims.
 (repeat rewrite Mmult_1_l).
 restore_dims.
-(rewrite (kron_1_l \226\136\1630\226\159\169)).
 (* Auto-generated comment: Succeeded. *)
 
