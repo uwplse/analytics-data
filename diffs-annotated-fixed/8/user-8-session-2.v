@@ -120,5 +120,16 @@ Proof.
 +
 Msimpl.
 (rewrite IHr).
+reflexivity.
++
+Msimpl.
+(rewrite IHr).
+reflexivity.
+-
+(simpl).
+(destruct a).
++
+Msimpl.
+(rewrite IHl).
 (* Auto-generated comment: Succeeded. *)
 
