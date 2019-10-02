@@ -186,6 +186,7 @@ clear IHt2.
 (pose proof Hsem as Hsem').
 (unfold sem_sub_k in Hsem).
 (apply sem_eq_k__sem_sub_k in Href).
-assumption.
+tauto.
+}
 (* Auto-generated comment: Failed. *)
 
