@@ -262,8 +262,4 @@ clear H.
  | H:eval ?L ?env (If (In ?x ?S) _ _) = _ |- _ => destruct (evalIn L env x S)
  end).
 (rewrite evalIfTrue in H0; admit).
--
-exfalso.
-(rewrite evalIfFalse in H0).
-+
-(apply evalBoolInj).
+(apply evalBoolInj in H0).
