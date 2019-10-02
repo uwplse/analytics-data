@@ -1141,5 +1141,2116 @@ Msimpl.
 (apply mixed_state_kron; trivial).
 constructor.
 (apply pure0).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqDzxyLF"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma init1_end_superoperator :
+  forall (n i : nat) (\207\129 : Square (2 ^ n)),
+  (i = 2 ^ n)%nat -> Mixed_State \207\129 -> Mixed_State (I i \226\138\151 \226\136\1631\226\159\169 \195\151 \207\129 \195\151 (I i \226\138\151 \226\159\1681\226\136\163)).
+Proof.
+(intros; subst).
+(rewrite <- (kron_1_r \207\129)).
+(repeat rewrite kron_mixed_product).
+Msimpl.
+(apply mixed_state_kron; trivial).
+constructor.
+(apply pure1).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq3mhz3a"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma apply_discard_correct :
+  forall n k, (k < n)%nat -> WF_Superoperator (@apply_discard n k).
+Proof.
+(intros n k L \207\129 M\207\129).
+(unfold apply_discard, Splus, super).
+remember_differences.
+gen \207\129.
+subst.
+(repeat rewrite Nat.pow_add_r).
+(intros).
+Msimpl.
+(eapply discard_superoperator).
+(unify_pows_two; easy).
+(restore_dims; easy).
+Qed.
+Lemma apply_meas_correct :
+  forall n k, (k < n)%nat -> WF_Superoperator (@apply_meas n k).
+Proof.
+(intros n k L \207\129 M\207\129).
+(unfold apply_meas).
+(unfold Splus, super).
+remember_differences.
+gen \207\129.
+subst.
+(repeat rewrite Nat.pow_add_r).
+(intros).
+Msimpl.
+(eapply measure_superoperator).
+(unify_pows_two; easy).
+(restore_dims; easy).
+Qed.
+Lemma apply_new0_correct : forall n, WF_Superoperator (@apply_new0 n).
+Proof.
+(intros n \207\129 M\207\129).
+(unfold apply_new0, super).
+gen \207\129.
+(rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
+(intros).
+(rewrite Nat.mul_1_r).
+Msimpl.
+(eapply init0_end_superoperator; trivial).
+(restore_dims; easy).
+Qed.
+Lemma apply_new1_correct : forall n, WF_Superoperator (@apply_new1 n).
+Proof.
+(intros n \207\129 M\207\129).
+(unfold apply_new1, super).
+gen \207\129.
+(rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
+(intros).
+(rewrite Nat.mul_1_r).
+Msimpl.
+(eapply init1_end_superoperator; trivial).
+(restore_dims; easy).
+Qed.
+Lemma apply_gate_correct :
+  forall W1 W2 n (g : Gate W1 W2) l,
+  length l = \226\159\166 W1 \226\159\167 ->
+  (length l <= n)%nat ->
+  (forall x, In x l -> x < n)%nat -> WF_Superoperator (@apply_gate n W1 W2 true g l).
+Proof.
+(intros W1 W2 n g l L1 L2 Lt).
+(destruct g).
+-
+(simpl in *).
+(rewrite <- L1).
+(bdestruct\206\169 (length l <=? n)).
+replace (n + length l - length l)%nat with n by omega.
+(apply apply_U_correct; easy).
+-
+(simpl in *).
+(destruct n; [ omega |  ]).
+replace (S n + 1 - 1)%nat with S n by omega.
+(apply apply_U_correct; easy).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(apply apply_new0_correct).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(apply apply_new1_correct).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(apply apply_new0_correct).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(apply apply_new1_correct).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Lt; simpl; auto).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Lt; simpl; auto).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_0_r).
+(apply apply_discard_correct).
+(apply Lt; simpl; auto).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_0_r).
+(apply apply_discard_correct).
+(simpl in Lt).
+(apply Lt; simpl; auto).
+-
+(simpl in *).
+(destruct l; simpl).
+(inversion L1).
+(rewrite Nat.add_0_r).
+(apply apply_discard_correct).
+(apply Lt; simpl; auto).
+Qed.
+Lemma map_same_id :
+  forall a l,
+  map (fun z : nat * nat => if a =? snd z then (fst z, a) else z) (combine l l) =
+  combine l l.
+Proof.
+(intros a l).
+(induction l).
+reflexivity.
+(simpl).
+(rewrite IHl).
+(destruct (a =? a0) eqn:eq; try reflexivity).
+(apply beq_nat_true in eq).
+(subst; reflexivity).
+Qed.
+Lemma swap_list_aux_id : forall m n l, swap_list_aux m n (combine l l) == I (2 ^ n).
+Proof.
+(intros m n l).
+generalize dependent m.
+(induction l; intros m).
++
+(simpl).
+(destruct m; reflexivity).
++
+(simpl).
+(destruct m; [ reflexivity |  ]).
+(simpl).
+(rewrite map_same_id).
+(rewrite IHl).
+(unfold swap_two).
+(rewrite <- beq_nat_refl).
+Msimpl.
+reflexivity.
+Qed.
+Lemma swap_list_n_id : forall n, swap_list n (seq 0 n) == I (2 ^ n).
+Proof.
+(intros).
+(unfold swap_list).
+(unfold zip_to).
+(apply swap_list_aux_id).
+Qed.
+Definition get_var (p : Pat Bit) := match p with
+                                    | bit x => x
+                                    end.
+Definition denote_pat {w} (p : Pat w) : Matrix (2 ^ \226\159\166 w \226\159\167) (2 ^ \226\159\166 w \226\159\167) :=
+  swap_list (\226\159\166 w \226\159\167) (pat_to_list p).
+Instance Denote_Pat  {w}: (Denote (Pat w) (Matrix (2 ^ \226\159\166 w \226\159\167) (2 ^ \226\159\166 w \226\159\167))) := {
+ denote :=denote_pat}.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Definition denote_db_box {w1} {w2} (safe : bool) (c : DeBruijn_Box w1 w2) :=
+  match c with
+  | db_box _ c' => denote_db_circuit safe 0 (\226\159\166 w1 \226\159\167) c'
+  end.
+Definition denote_box (safe : bool) {W1 W2 : WType} (c : Box W1 W2) :
+  Superoperator (2 ^ \226\159\166 W1 \226\159\167) (2 ^ \226\159\166 W2 \226\159\167) := denote_db_box safe (hoas_to_db_box c).
+Instance Denote_Box  {W1} {W2}:
+ (Denote (Box W1 W2) (Superoperator (2 ^ \226\159\166 W1 \226\159\167) (2 ^ \226\159\166 W2 \226\159\167))) :=
+ {| denote := denote_box true |}.
+Definition denote_circuit (safe : bool) {W : WType} (c : Circuit W) 
+  (\206\1470 \206\147 : Ctx) : Superoperator (2 ^ (\226\159\166 \206\1470 \226\159\167 + \226\159\166 \206\147 \226\159\167)) (2 ^ (\226\159\166 \206\1470 \226\159\167 + \226\159\166 W \226\159\167)) :=
+  denote_db_circuit safe (\226\159\166 \206\1470 \226\159\167) (\226\159\166 \206\147 \226\159\167) (hoas_to_db \206\147 c).
+Notation "\226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169" := (denote_circuit true c \206\1470 \206\147) (at level 20).
+Notation "\226\159\168! \206\1470 | \206\147 \226\138\169 c !\226\159\169" := (denote_circuit false c \206\1470 \206\147) (at level 20).
+Lemma denote_output :
+  forall \206\1470 \206\147 {w} (p : Pat w),
+  \226\159\168 \206\1470 | \206\147 \226\138\169 output p \226\159\169 = super (pad (\226\159\166 \206\1470 \226\159\167 + \226\159\166 \206\147 \226\159\167) (denote_pat (subst_pat \206\147 p))).
+Proof.
+(intros).
+(simpl).
+(unfold subst_pat).
+reflexivity.
+Qed.
+Ltac
+ fold_denotation :=
+  repeat
+   match goal with
+   | |- context [ size_octx ?\206\147 ] => replace (size_octx \206\147) with \226\159\166 \206\147 \226\159\167; auto
+   end.
+Lemma length_fresh_state :
+  forall w \206\147 \206\147',
+  \206\147' = add_fresh_state w \206\147 -> length \206\147' = (length \206\147 + size_wtype w)%nat.
+Proof.
+(induction w; intros \206\147 \206\147' H).
+-
+(unfold add_fresh_state, add_fresh in H).
+(simpl in H).
+(rewrite H).
+(rewrite app_length).
+easy.
+-
+(unfold add_fresh_state, add_fresh in H).
+(simpl in H).
+(rewrite H).
+(rewrite app_length).
+easy.
+-
+(unfold add_fresh_state, add_fresh in H).
+(simpl in H).
+(rewrite H).
+easy.
+-
+(rewrite H).
+clear H.
+(unfold add_fresh_state in *).
+(simpl).
+(destruct (add_fresh w1 \206\147) as [p1 \206\1471] eqn:E1).
+(destruct (add_fresh w2 \206\1471) as [p2 \206\1472] eqn:E2).
+(simpl).
+specialize (IHw1 \206\147 _ eq_refl).
+(rewrite E1 in IHw1).
+(simpl in IHw1).
+specialize (IHw2 \206\1471 _ eq_refl).
+(rewrite E2 in IHw2).
+(simpl in IHw2).
+(rewrite IHw2, IHw1).
+omega.
+Qed.
+Lemma swap_fresh_seq :
+  forall w (\206\147 : Ctx),
+  pat_to_list (add_fresh_pat w \206\147) = seq (length \206\147) (size_wtype w).
+Proof.
+(induction w; intros; simpl; auto).
+(unfold add_fresh_pat).
+(simpl).
+(destruct (add_fresh w1 \206\147) as [p1 \206\1471] eqn:E1).
+(destruct (add_fresh w2 \206\1471) as [p2 \206\1472] eqn:E2).
+(simpl).
+(rewrite (surjective_pairing (add_fresh w1 \206\147)) in E1).
+(inversion E1).
+(rewrite (surjective_pairing (add_fresh w2 \206\1471)) in E2).
+(inversion E2).
+(unfold add_fresh_pat in *).
+(rewrite IHw1, IHw2).
+symmetry in H1.
+(apply length_fresh_state in H1).
+(rewrite H1).
+(rewrite <- seq_app).
+easy.
+Qed.
+Lemma denote_pat_fresh_id :
+  forall w, denote_pat (add_fresh_pat w []) == I (2 ^ \226\159\166 w \226\159\167).
+Proof.
+(intros).
+(unfold denote_pat).
+(simpl).
+(rewrite swap_fresh_seq by validate).
+(rewrite swap_list_n_id).
+reflexivity.
+Qed.
+Lemma maps_to_app :
+  forall \206\147 w, maps_to (length \206\147) (\206\147 ++ [Some w]) = Some (size_ctx \206\147).
+Proof.
+(intros \206\147 w).
+(induction \206\147; simpl; eauto).
+(destruct a; simpl).
+(rewrite IH\206\147).
+easy.
+(rewrite IH\206\147).
+easy.
+Qed.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Lemma no_gaps_size : forall \206\147, no_gaps \206\147 -> size_ctx \206\147 = length \206\147.
+Proof.
+(induction \206\147; trivial).
+(intros NG).
+(inversion NG; subst; simpl).
+(rewrite IH\206\147; easy).
+Qed.
+Lemma size_ctx_le_length : forall \206\147, (size_ctx \206\147 <= length \206\147)%nat.
+Proof.
+(induction \206\147; trivial).
+(destruct a; simpl; omega).
+Qed.
+Lemma size_eq_no_gaps : forall \206\147, size_ctx \206\147 = length \206\147 -> no_gaps \206\147.
+Proof.
+(induction \206\147).
+constructor.
+(intros E).
+(destruct a).
+-
+constructor.
+(apply IH\206\147).
+(simpl in E; omega).
+-
+(simpl in E).
+specialize (size_ctx_le_length \206\147) as LE.
+omega.
+Qed.
+Lemma no_gaps_app : forall \206\147 \206\147', no_gaps \206\147 -> no_gaps \206\147' -> no_gaps (\206\147 ++ \206\147').
+Proof.
+(intros \206\147 \206\147' NG NG').
+(induction \206\147; trivial).
+(simpl).
+(inversion NG; subst).
+constructor.
+auto.
+Qed.
+Lemma add_fresh_state_no_gaps :
+  forall W \206\147, no_gaps \206\147 -> no_gaps (add_fresh_state W \206\147).
+Proof.
+(induction W; intros \206\147 NG).
+-
+(unfold add_fresh_state; simpl).
+(apply no_gaps_app; trivial).
+(repeat constructor).
+-
+(unfold add_fresh_state; simpl).
+(apply no_gaps_app; trivial).
+(repeat constructor).
+-
+(unfold add_fresh_state; simpl).
+easy.
+-
+(unfold add_fresh_state; simpl).
+(repeat rewrite add_fresh_split).
+(simpl).
+auto.
+Qed.
+Lemma bounded_pat_le :
+  forall W (p : Pat W) n n', (n <= n')%nat -> Bounded_Pat n p -> Bounded_Pat n' p.
+Proof.
+(intros W p n n' LT BP).
+(induction p).
+-
+constructor.
+-
+(inversion BP).
+constructor.
+omega.
+-
+(inversion BP).
+constructor.
+omega.
+-
+dependent destruction BP.
+(constructor; auto).
+Qed.
+Lemma add_fresh_pat_bounded :
+  forall W \206\147,
+  no_gaps \206\147 -> Bounded_Pat (length \206\147 + size_wtype W)%nat (add_fresh_pat W \206\147).
+Proof.
+(induction W; intros \206\147 NG).
+-
+(unfold add_fresh_pat).
+(simpl).
+constructor.
+omega.
+-
+(unfold add_fresh_pat).
+(simpl).
+constructor.
+omega.
+-
+(unfold add_fresh_pat).
+(simpl).
+constructor.
+-
+(unfold add_fresh_pat in *).
+(simpl in *).
+(rewrite 2!add_fresh_split).
+(simpl).
+constructor.
+specialize (IHW1 \206\147 NG).
+(eapply bounded_pat_le; [  | apply IHW1 ]).
+omega.
+specialize (IHW2 _ (add_fresh_state_no_gaps W1 \206\147 NG)).
+(apply_with_obligations IHW2).
+(erewrite length_fresh_state by reflexivity).
+omega.
+Qed.
+Lemma maps_to_no_gaps :
+  forall v \206\147, (v < length \206\147)%nat -> no_gaps \206\147 -> maps_to v \206\147 = Some v.
+Proof.
+(induction v).
+-
+(intros \206\147 LT NG).
+(inversion NG; subst; easy).
+-
+(intros \206\147 LT NG).
+(inversion NG; subst).
+easy.
+(simpl).
+(rewrite IHv; trivial).
+(simpl in LT; omega).
+Qed.
+Lemma subst_var_no_gaps :
+  forall \206\147 v, (v < length \206\147)%nat -> no_gaps \206\147 -> subst_var \206\147 v = v.
+Proof.
+(intros \206\147 v LT NG).
+(unfold subst_var).
+(rewrite maps_to_no_gaps; easy).
+Qed.
+Lemma subst_pat_no_gaps :
+  forall w (\206\147 : Ctx) (p : Pat w),
+  Bounded_Pat (length \206\147) p -> no_gaps \206\147 -> subst_pat \206\147 p = p.
+Proof.
+(intros w \206\147 p BP NG).
+(induction p; trivial).
+-
+(inversion BP).
+(simpl).
+(rewrite subst_var_no_gaps; easy).
+-
+(inversion BP).
+(simpl).
+(rewrite subst_var_no_gaps; easy).
+-
+dependent destruction BP.
+(simpl).
+(rewrite IHp1, IHp2; easy).
+Qed.
+Lemma subst_units : forall w (p : Pat w) \206\147, \226\136\133 \226\138\162 p :Pat -> subst_pat \206\147 p = p.
+Proof.
+(intros w p \206\147 H).
+gen \206\147.
+dependent induction H.
+-
+(intros).
+reflexivity.
+-
+(inversion s).
+-
+(inversion s).
+-
+(intros \206\147).
+symmetry in e.
+(apply merge_nil_inversion in e as [E1 E2]).
+(simpl).
+(rewrite IHTypes_Pat1, IHTypes_Pat2; easy).
+Qed.
+Lemma subst_pat_fresh :
+  forall w \206\147,
+  no_gaps \206\147 ->
+  subst_pat (add_fresh_state w \206\147) (add_fresh_pat w \206\147) = add_fresh_pat w \206\147.
+Proof.
+(intros).
+(apply subst_pat_no_gaps).
+(erewrite length_fresh_state by easy).
+(apply add_fresh_pat_bounded).
+easy.
+(apply add_fresh_state_no_gaps).
+easy.
+Qed.
+Lemma subst_pat_fresh_empty :
+  forall w,
+  subst_pat (add_fresh_state w []) (add_fresh_pat w []) = add_fresh_pat w [].
+Proof.
+(intros).
+(apply subst_pat_fresh).
+constructor.
+Qed.
+Lemma size_fresh_ctx :
+  forall (w : WType) (\206\147 : Ctx),
+  size_ctx (add_fresh_state w \206\147) = (size_ctx \206\147 + size_wtype w)%nat.
+Proof.
+(unfold add_fresh_state; simpl).
+(induction w; intros \206\147).
+-
+(simpl).
+(rewrite size_ctx_app; easy).
+-
+(simpl).
+(rewrite size_ctx_app; easy).
+-
+(simpl; omega).
+-
+(simpl).
+(destruct (add_fresh w1 \206\147) as [p1 \206\1471] eqn:E1).
+(destruct (add_fresh w2 \206\1471) as [p2 \206\1472] eqn:E2).
+(simpl in *).
+(rewrite (surjective_pairing (add_fresh _ _)) in E2).
+(inversion E2).
+(rewrite IHw2).
+(rewrite (surjective_pairing (add_fresh _ _)) in E1).
+(inversion E1).
+(rewrite IHw1).
+omega.
+Qed.
+Lemma denote_db_unbox :
+  forall {w1} {w2} (b : Box w1 w2),
+  \226\159\166 b \226\159\167 = \226\159\168 [] | add_fresh_state w1 [] \226\138\169 unbox b (add_fresh_pat w1 []) \226\159\169.
+Proof.
+(destruct b).
+(simpl).
+(unfold denote_box).
+(unfold denote_circuit).
+(simpl).
+(rewrite size_fresh_ctx).
+(simpl).
+(unfold add_fresh_state, add_fresh_pat).
+(destruct (add_fresh w1 []) as [p1 \206\1471] eqn:E1).
+(simpl).
+easy.
+Qed.
+Lemma denote_index_update_some :
+  forall (\206\147 : Ctx) x w w',
+  index (Valid \206\147) x = Some w -> \226\159\166 update_at \206\147 x (Some w') \226\159\167 = \226\159\166 \206\147 \226\159\167.
+Proof.
+(induction \206\147 as [| o \206\147]; intros; auto).
+(destruct x; auto).
+*
+(simpl in *).
+subst.
+auto.
+*
+(simpl in *).
+(rewrite (IH\206\147 _ w); auto).
+Qed.
+Lemma denote_index_update_none :
+  forall (\206\147 : Ctx) x w,
+  index (Valid \206\147) x = Some w -> \226\159\166 update_at \206\147 x None \226\159\167 = (\226\159\166 \206\147 \226\159\167 - 1)%nat.
+Proof.
+(induction \206\147 as [| o \206\147]; intros; auto).
+(destruct x; auto).
+*
+(simpl in *).
+subst.
+(simpl).
+omega.
+*
+(simpl in *).
+(rewrite (IH\206\147 _ w); trivial).
+(destruct o; trivial).
+(assert (size_ctx \206\147 > 0)%nat).
+clear - H.
+gen x.
+(induction \206\147).
+(destruct x; simpl; intros H; inversion H).
+(intros x H).
+(destruct a; simpl).
+omega.
+(destruct x).
+(simpl in H; inversion H).
+(apply (IH\206\147 x)).
+(simpl in H).
+(apply H).
+omega.
+Qed.
+Lemma singleton_update :
+  forall \206\147 W W' v, SingletonCtx v W \206\147 -> SingletonCtx v W' (update_at \206\147 v (Some W')).
+Proof.
+(intros \206\147 W W' v H).
+(induction H).
++
+(simpl).
+constructor.
++
+(simpl).
+constructor.
+(apply IHSingletonCtx).
+Qed.
+Lemma remove_at_singleton :
+  forall x w \206\147, SingletonCtx x w \206\147 -> empty_ctx (remove_at x \206\147).
+Proof.
+(induction 1; simpl).
+*
+constructor.
+*
+constructor.
+auto.
+Qed.
+Lemma update_none_singleton :
+  forall x w \206\147, SingletonCtx x w \206\147 -> empty_ctx (update_at \206\147 x None).
+Proof.
+(induction 1; simpl).
+*
+(repeat constructor).
+*
+constructor.
+assumption.
+Qed.
+Lemma remove_pat_singleton :
+  forall x W (p : Pat W),
+  singleton x W \226\138\162 p :Pat -> remove_pat p (singleton x W) = [].
+Proof.
+(intros x W p H).
+dependent induction H.
+-
+(rewrite <- x).
+reflexivity.
+-
+(unfold remove_pat).
+(simpl).
+(unfold remove_var).
+(simpl).
+(rewrite trim_empty; trivial).
+(eapply update_none_singleton).
+(apply s).
+-
+(unfold remove_pat).
+(simpl).
+(unfold remove_var).
+(simpl).
+(rewrite trim_empty; trivial).
+(eapply update_none_singleton).
+(apply s).
+-
+(unfold remove_pat).
+(simpl).
+Abort.
+Proposition process_gate_ctx_size :
+  forall w1 w2 (g : Gate w1 w2) p (\206\147 : Ctx),
+  (\226\159\166 w1 \226\159\167 <= \226\159\166 \206\147 \226\159\167)%nat ->
+  \226\159\166 process_gate_state g p \206\147 \226\159\167 = (\226\159\166 \206\147 \226\159\167 + \226\159\166 w2 \226\159\167 - \226\159\166 w1 \226\159\167)%nat.
+Proof.
+(destruct g; intros p \206\147 H; try (simpl; rewrite Nat.add_sub; auto; fail);
+  try (simpl; rewrite ctx_size_app; simpl; omega)).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(destruct \206\147).
+(simpl in *).
+omega.
+(simpl).
+(destruct o; rewrite size_ctx_app; simpl; omega).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(destruct \206\147).
+(simpl in *).
+omega.
+(simpl).
+(destruct o; rewrite size_ctx_app; simpl; omega).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(destruct \206\147).
+(simpl in *).
+omega.
+(simpl).
+(destruct o; rewrite size_ctx_app; simpl; omega).
+-
+(simpl).
+(rewrite Nat.sub_0_r).
+(destruct \206\147).
+(simpl in *).
+omega.
+(simpl).
+(destruct o; rewrite size_ctx_app; simpl; omega).
+-
+dependent destruction p.
+(simpl).
+(destruct \206\147).
+(simpl).
+easy.
+(simpl).
+(destruct o).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+admit.
+admit.
+-
+Abort.
+Proposition process_gate_state_merge :
+  forall w1 w2 (g : Gate w1 w2) p \206\1471 \206\1472 \206\147,
+  Types_Pat \206\1471 p ->
+  Valid \206\147 = \206\1471 \226\139\147 \206\1472 ->
+  Valid (process_gate_state g p \206\147) = process_gate_state g p \206\147 \226\139\147 \206\1472.
+Proof.
+Abort.
+Open Scope circ_scope.
+Lemma index_merge_l :
+  forall \206\147 \206\1471 \206\1472 n w, \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 -> index \206\1471 n = Some w -> index \206\147 n = Some w.
+Proof.
+(intros \206\147 \206\1471 \206\1472 n w H H0).
+(apply merge_fun_ind in H).
+generalize dependent n.
+(induction H).
++
+(intros n H).
+(destruct n; simpl in H; inversion H).
++
+auto.
++
+(intros n Hi).
+(inversion m; subst).
+-
+(destruct n).
+(simpl in Hi).
+(inversion Hi).
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+-
+(destruct n).
+(simpl in *).
+assumption.
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+-
+(destruct n).
+(simpl in Hi).
+(inversion Hi).
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+Qed.
+Lemma index_merge_r :
+  forall \206\147 \206\1471 \206\1472 n w, \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 -> index \206\1472 n = Some w -> index \206\147 n = Some w.
+Proof.
+(intros \206\147 \206\1471 \206\1472 n w H H0).
+(apply (index_merge_l \206\147 \206\1472 \206\1471)).
+(destruct H).
+constructor.
+assumption.
+(rewrite merge_comm; assumption).
+assumption.
+Qed.
+Lemma remove_at_merge :
+  forall (\206\147 \206\1471 \206\1472 : Ctx) n,
+  \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 ->
+  Valid (remove_at n \206\147) \226\169\181 Valid (remove_at n \206\1471) \226\136\153 Valid (remove_at n \206\1472).
+Proof.
+(intros \206\147 \206\1471 \206\1472 n H).
+(apply merge_fun_ind in H).
+generalize dependent n.
+dependent induction H.
++
+(intros n).
+constructor.
+(apply valid_valid).
+replace (remove_at n []) with @nil (option WType).
+(rewrite merge_nil_l).
+reflexivity.
+(destruct n; reflexivity).
++
+(intros n).
+constructor.
+(apply valid_valid).
+replace (remove_at n []) with @nil (option WType).
+(rewrite merge_nil_r).
+reflexivity.
+(destruct n; reflexivity).
++
+(intros n).
+constructor.
+(apply valid_valid).
+(destruct n).
+(simpl).
+(apply merge_ind_fun in H).
+(destruct H).
+(apply pf_merge).
+unlock_merge.
+(simpl).
+(edestruct IHmerge_ind with (n := n); try reflexivity).
+unlock_merge.
+(simpl in pf_merge).
+(rewrite <- pf_merge).
+(apply merge_o_ind_fun in m).
+(rewrite m).
+reflexivity.
+Qed.
+Lemma update_none_merge :
+  forall (\206\147 \206\1471 \206\1472 : Ctx) n,
+  \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 ->
+  Valid (update_at \206\147 n None) \226\169\181 Valid (update_at \206\1471 n None)
+  \226\136\153 Valid (update_at \206\1472 n None).
+Proof.
+(intros \206\147 \206\1471 \206\1472 n H).
+(apply merge_fun_ind in H).
+generalize dependent n.
+dependent induction H.
+-
+(intros n).
+constructor.
+(apply valid_valid).
+replace (update_at [] n None) with @nil (option WType).
+(rewrite merge_nil_l).
+reflexivity.
+(destruct n; reflexivity).
+-
+(intros n).
+constructor.
+(apply valid_valid).
+replace (update_at [] n None) with @nil (option WType).
+(rewrite merge_nil_r).
+reflexivity.
+(destruct n; reflexivity).
+-
+(intros n).
+constructor.
+(apply valid_valid).
+(destruct n).
++
+(simpl).
+(apply merge_ind_fun in H).
+(destruct H).
+unlock_merge.
+(simpl).
+(rewrite <- pf_merge).
+reflexivity.
++
+(simpl).
+(edestruct IHmerge_ind with (n := n); try reflexivity).
+unlock_merge.
+(simpl in *).
+(rewrite <- pf_merge).
+(apply merge_o_ind_fun in m).
+(rewrite m).
+reflexivity.
+Qed.
+Lemma remove_at_collision :
+  forall n W (\206\147 \206\1471 \206\1472 : Ctx),
+  SingletonCtx n W \206\1471 -> \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 -> size_ctx (remove_at n \206\1472) = size_ctx \206\1472.
+Proof.
+(intros n).
+(induction n).
++
+(intros W \206\147 \206\1471 \206\1472 H H0).
+(simpl).
+(destruct \206\1472).
+reflexivity.
+(inversion H; subst).
+(destruct o).
+(destruct H0).
+(simpl in pf_merge).
+(rewrite pf_merge in pf_valid).
+(apply not_valid in pf_valid).
+contradiction.
+reflexivity.
++
+(intros W \206\147 \206\1471 \206\1472 H H0).
+(simpl).
+(destruct \206\1472).
+reflexivity.
+(simpl).
+(inversion H; subst).
+(apply merge_fun_ind in H0).
+(inversion H0; subst).
+(erewrite IHn).
+reflexivity.
+(apply H2).
+(apply merge_ind_fun).
+(apply H8).
+Qed.
+Lemma update_none_collision :
+  forall n W (\206\147 \206\1471 \206\1472 : Ctx),
+  SingletonCtx n W \206\1471 -> \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 -> size_ctx (update_at \206\1472 n None) = size_ctx \206\1472.
+Proof.
+(intros n).
+(induction n).
++
+(intros W \206\147 \206\1471 \206\1472 H H0).
+(simpl).
+(destruct \206\1472).
+reflexivity.
+(inversion H; subst).
+(destruct o).
+(destruct H0).
+(simpl in pf_merge).
+(rewrite pf_merge in pf_valid).
+(apply not_valid in pf_valid).
+contradiction.
+reflexivity.
++
+(intros W \206\147 \206\1471 \206\1472 H H0).
+(simpl).
+(destruct \206\1472).
+reflexivity.
+(simpl).
+(inversion H; subst).
+(apply merge_fun_ind in H0).
+(inversion H0; subst).
+(erewrite IHn).
+reflexivity.
+(apply H2).
+(apply merge_ind_fun).
+(apply H8).
+Qed.
+Lemma process_gate_ctx_size :
+  forall w1 w2 (\206\147 \206\1471 \206\1472 : Ctx) (g : Gate w1 w2) (p1 : Pat w1),
+  \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 ->
+  \206\1471 \226\138\162 p1 :Pat ->
+  size_ctx (process_gate_state g p1 \206\147) = (size_ctx \206\147 + \226\159\166 w2 \226\159\167 - \226\159\166 w1 \226\159\167)%nat.
+Proof.
+(intros w1 w2 \206\147 \206\1471 \206\1472 g p1 M TP).
+(unfold process_gate_state).
+(destruct g; simpl).
+-
+(rewrite Nat.add_sub).
+easy.
+-
+(rewrite Nat.add_sub).
+easy.
+-
+(rewrite Nat.sub_0_r).
+(rewrite size_ctx_app).
+easy.
+-
+(rewrite Nat.sub_0_r).
+(rewrite size_ctx_app).
+easy.
+-
+(rewrite Nat.sub_0_r).
+(rewrite size_ctx_app).
+easy.
+-
+(rewrite Nat.sub_0_r).
+(rewrite size_ctx_app).
+easy.
+-
+dependent destruction p1.
+(simpl).
+(rewrite Nat.add_sub).
+(unfold change_type).
+(rewrite denote_index_update_some with (w := Qubit)).
+easy.
+(eapply index_merge_l).
+(apply M).
+(apply singleton_index).
+dependent destruction TP.
+easy.
+-
+(rewrite Nat.add_sub).
+easy.
+-
+dependent destruction p1.
+(unfold remove_pat).
+(simpl).
+(unfold remove_var).
+(rewrite size_ctx_trim).
+(rewrite Nat.add_0_r).
+(rewrite denote_index_update_none with (w := Bit)).
+easy.
+(eapply index_merge_l).
+(apply M).
+(apply singleton_index).
+dependent destruction TP.
+easy.
+-
+dependent destruction p1.
+(unfold remove_pat).
+(simpl).
+(unfold remove_var).
+(rewrite size_ctx_trim).
+(rewrite Nat.add_0_r).
+(rewrite denote_index_update_none with (w := Qubit)).
+easy.
+(eapply index_merge_l).
+(apply M).
+(apply singleton_index).
+dependent destruction TP.
+easy.
+-
+dependent destruction p1.
+(unfold remove_pat).
+(simpl).
+(unfold remove_var).
+(rewrite size_ctx_trim).
+(rewrite Nat.add_0_r).
+(rewrite denote_index_update_none with (w := Qubit)).
+easy.
+(eapply index_merge_l).
+(apply M).
+(apply singleton_index).
+dependent destruction TP.
+easy.
+Qed.
+Lemma denote_gate_circuit :
+  forall {w1} {w2} {w'} (safe : bool) (g : Gate w1 w2) p1 
+    (f : Pat w2 -> Circuit w') (\206\1470 \206\147 \206\1471 \206\1472 : Ctx),
+  \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 ->
+  \206\1471 \226\138\162 p1 :Pat ->
+  denote_circuit safe (gate g p1 f) \206\1470 \206\147 =
+  compose_super
+    (denote_circuit safe (f (process_gate_pat g p1 \206\147)) \206\1470
+       (process_gate_state g p1 \206\147))
+    (apply_gate safe g (pat_to_list (subst_pat \206\147 p1))).
+Proof.
+(intros).
+(unfold denote_circuit).
+(simpl; fold_denotation).
+replace (process_gate g p1 \206\147) with
+ Datatypes.pair (process_gate_pat g p1 \206\147) (process_gate_state g p1 \206\147)
+ by (symmetry; apply surjective_pairing).
+(simpl; fold_denotation).
+(rewrite process_gate_ctx_size with (\206\1471 := \206\1471) (\206\1472 := \206\1472); easy).
+Qed.
+Lemma lookup_maybe_S : forall x l, lookup_maybe (S x) (map S l) = lookup_maybe x l.
+Proof.
+(intros x l).
+(induction l; auto).
+(simpl).
+(destruct (x =? a)).
+easy.
+(rewrite IHl).
+easy.
+Qed.
+Lemma subst_qubit_bounded :
+  forall v (\206\147 \206\147v \206\147o : Ctx),
+  \206\147v \226\138\162 qubit v :Pat -> \206\147 \226\169\181 \206\147v \226\136\153 \206\147o -> (subst_var \206\147 v < size_octx \206\147)%nat.
+Proof.
+(induction v; intros \206\147 \206\147v \206\147o TP M).
+-
+(inversion TP; subst).
+(apply singleton_equiv in H1).
+(rewrite H1 in M).
+(apply merge_fun_ind in M).
+(inversion M; subst).
+(simpl).
+(unfold subst_var).
+(simpl).
+omega.
+(unfold subst_var).
+(simpl).
+(destruct o; simpl).
+omega.
+(inversion H4).
+-
+(inversion TP; subst).
+(apply singleton_equiv in H1).
+(rewrite H1 in M).
+(apply merge_fun_ind in M).
+(inversion M; subst).
++
+(unfold subst_var).
+(simpl).
+(rewrite maps_to_singleton).
+(rewrite singleton_size).
+omega.
++
+(assert (TP' : singleton v Qubit \226\138\162 qubit v :Pat)).
+constructor.
+(apply singleton_singleton).
+(apply merge_ind_fun in H5).
+specialize (IHv _ _ _ TP' H5).
+(destruct o; simpl in *).
+*
+(unfold subst_var in *).
+(simpl).
+(destruct (maps_to v \206\1470); simpl; auto).
+omega.
+*
+(unfold subst_var in *).
+(simpl).
+(destruct (maps_to v \206\1470); simpl; auto).
+Qed.
+Lemma subst_bit_bounded :
+  forall v (\206\147 \206\147v \206\147o : Ctx),
+  \206\147v \226\138\162 bit v :Pat -> \206\147 \226\169\181 \206\147v \226\136\153 \206\147o -> (subst_var \206\147 v < size_octx \206\147)%nat.
+Proof.
+(induction v; intros \206\147 \206\147v \206\147o TP M).
+-
+(inversion TP; subst).
+(apply singleton_equiv in H1).
+(rewrite H1 in M).
+(apply merge_fun_ind in M).
+(inversion M; subst).
+(simpl).
+(unfold subst_var).
+(simpl).
+omega.
+(unfold subst_var).
+(simpl).
+(destruct o; simpl).
+omega.
+(inversion H4).
+-
+(inversion TP; subst).
+(apply singleton_equiv in H1).
+(rewrite H1 in M).
+(apply merge_fun_ind in M).
+(inversion M; subst).
++
+(unfold subst_var).
+(simpl).
+(rewrite maps_to_singleton).
+(rewrite singleton_size).
+omega.
++
+(assert (TP' : singleton v Bit \226\138\162 bit v :Pat)).
+constructor.
+(apply singleton_singleton).
+(apply merge_ind_fun in H5).
+specialize (IHv _ _ _ TP' H5).
+(destruct o; simpl in *).
+*
+(unfold subst_var in *).
+(simpl).
+(destruct (maps_to v \206\1470); simpl; auto).
+omega.
+*
+(unfold subst_var in *).
+(simpl).
+(destruct (maps_to v \206\1470); simpl; auto).
+Qed.
+Lemma pat_to_list_bounded :
+  forall W (\206\147 \206\147p \206\147o : Ctx) (p : Pat W) x,
+  \206\147 \226\169\181 \206\147p \226\136\153 \206\147o ->
+  \206\147p \226\138\162 p :Pat -> In x (pat_to_list (subst_pat \206\147 p)) -> (x < size_ctx \206\147)%nat.
+Proof.
+(intros W \206\147 \206\147p \206\147o p).
+gen \206\147 \206\147p \206\147o.
+(induction p; intros \206\147 \206\147p \206\147o x M TP IN).
+-
+(simpl in *).
+easy.
+-
+(simpl in *).
+(destruct IN; try easy).
+(rewrite <- H).
+(eapply subst_qubit_bounded).
+(apply TP).
+(apply M).
+-
+(simpl in *).
+(destruct IN; try easy).
+(rewrite <- H).
+(eapply subst_bit_bounded).
+(apply TP).
+(apply M).
+-
+(simpl in IN).
+(apply in_app_or in IN).
+(destruct IN as [IN1| IN2]).
++
+dependent destruction TP.
+(destruct M).
+(rewrite e in pf_merge).
+(rewrite <- merge_assoc in pf_merge).
+(destruct \206\1471 as [| \206\1471], (\206\1472 \226\139\147 \206\147o) as [| \206\147']; try invalid_contradiction).
+(eapply IHp1; trivial).
+(split; trivial).
+(apply pf_merge).
+easy.
++
+dependent destruction TP.
+(destruct M).
+(rewrite e in pf_merge).
+(rewrite (merge_comm \206\1471) in pf_merge).
+(rewrite <- merge_assoc in pf_merge).
+(destruct \206\1472 as [| \206\1472], (\206\1471 \226\139\147 \206\147o) as [| \206\147']; try invalid_contradiction).
+(eapply IHp2; trivial).
+(split; trivial).
+(apply pf_merge).
+easy.
+Qed.
+Lemma update_at_singleton :
+  forall v W W' \206\147 \206\147',
+  SingletonCtx v W \206\147 -> SingletonCtx v W' \206\147' -> update_at \206\147 v (Some W') = \206\147'.
+Proof.
+(intros v W W' \206\147 \206\147' H H').
+(apply singleton_equiv in H).
+(apply singleton_equiv in H').
+subst.
+(induction v; auto).
+(simpl).
+(rewrite IHv).
+easy.
+Qed.
+Lemma update_at_merge :
+  forall v W W' \206\147 \206\1471 \206\1471' \206\1472,
+  SingletonCtx v W \206\1471 ->
+  SingletonCtx v W' \206\1471' ->
+  Valid \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 -> Valid (update_at \206\147 v (Some W')) \226\169\181 \206\1471' \226\136\153 \206\1472.
+Proof.
+(induction v; intros W W' \206\147 \206\1471 \206\1471' \206\1472 H H0 H1).
+-
+(apply singleton_equiv in H).
+subst.
+(apply singleton_equiv in H0).
+subst.
+(simpl in *).
+(destruct H1).
+split.
+validate.
+(destruct \206\1472 as [| \206\1472]).
+invalid_contradiction.
+(destruct \206\147).
+Search -merge -\226\136\133.
+symmetry in pf_merge.
+(apply merge_nil_inversion in pf_merge as [L R]).
+(inversion L).
+(simpl).
+(destruct \206\1472).
+(destruct \206\147).
+easy.
+(rewrite merge_nil_r in pf_merge).
+(inversion pf_merge).
+(destruct o0).
+(inversion pf_merge).
+unlock_merge.
+(simpl in *).
+(inversion pf_merge; subst).
+easy.
+-
+(apply merge_fun_ind in H1).
+(inversion H1; subst).
+(inversion H).
+split.
+validate.
+(rewrite merge_nil_r).
+f_equal.
+(eapply update_at_singleton; trivial).
+(apply H).
+(inversion H; subst).
+(inversion H0; subst).
+(simpl).
+(apply merge_ind_fun in H6).
+specialize (IHv _ _ _ _ _ _ H7 H3 H6).
+(destruct IHv).
+split.
+validate.
+(simpl).
+unlock_merge.
+(simpl in *).
+(rewrite <- pf_merge).
+(inversion H4; subst; easy).
+Qed.
+Lemma types_pat_no_trail : forall \206\147 W (p : Pat W), Valid \206\147 \226\138\162 p :Pat -> trim \206\147 = \206\147.
+Proof.
+(intros \206\147 W).
+gen \206\147.
+(induction W; intros \206\147 p H; dependent destruction p; dependent destruction H).
+-
+(apply singleton_equiv in s; subst).
+(induction v; trivial).
+(simpl).
+(rewrite IHv).
+(destruct v; easy).
+-
+(apply singleton_equiv in s; subst).
+(induction v; trivial).
+(simpl).
+(rewrite IHv).
+(destruct v; easy).
+-
+easy.
+-
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+(assert (otrim (Valid \206\147) = Valid \206\147)).
+(rewrite e  at 2).
+(rewrite <- (IHW1 \206\1471 p1); trivial).
+(rewrite <- (IHW2 \206\1472 p2); trivial).
+(destruct (trim_merge \206\147 \206\1471 \206\1472)).
+solve_merge.
+assumption.
+(apply pf_merge).
+(simpl in H1).
+(rewrite ctx_octx in H1).
+easy.
+Qed.
+Lemma remove_bit_merge' :
+  forall (\206\147 \206\147' : Ctx) v, \206\147' \226\169\181 singleton v Bit \226\136\153 \206\147 -> remove_pat (bit v) \206\147' = trim \206\147.
+Proof.
+(intros \206\147 \206\147' v H).
+(apply merge_fun_ind in H).
+dependent induction H.
+-
+(destruct v; inversion x).
+-
+(induction v).
++
+(simpl).
+(unfold remove_pat).
+(simpl).
+easy.
++
+(simpl).
+(unfold remove_pat in *).
+(unfold remove_var in *).
+(simpl in *).
+(rewrite IHv).
+easy.
+-
+(destruct v).
++
+(inversion x; subst).
+(inversion m; subst).
+(unfold remove_pat).
+(simpl in *).
+(inversion H; subst; easy).
++
+(inversion x; subst).
+(inversion m; subst).
+(unfold remove_pat, remove_var in *).
+(simpl in *).
+(erewrite IHmerge_ind; easy).
+replace (remove_pat (bit (S v)) (Some w :: \206\1470)) with Some w :: remove_pat (bit v) \206\1470
+ by easy.
+(simpl).
+(erewrite IHmerge_ind; easy).
+Qed.
+Lemma remove_bit_merge :
+  forall (\206\147 \206\147' : Ctx) W (p : Pat W) v,
+  \206\147 \226\138\162 p :Pat -> \206\147' \226\169\181 singleton v Bit \226\136\153 \206\147 -> remove_pat (bit v) \206\147' = \206\147.
+Proof.
+(intros \206\147 \206\147' W p v H H0).
+(erewrite <- (types_pat_no_trail \206\147) by apply H).
+(simpl).
+(assert (remove_pat (bit v) \206\147' = trim \206\147)).
+(apply remove_bit_merge'; easy).
+(inversion H1).
+easy.
+Qed.
+Lemma remove_qubit_merge' :
+  forall (\206\147 \206\147' : Ctx) v,
+  \206\147' \226\169\181 singleton v Qubit \226\136\153 \206\147 -> remove_pat (qubit v) \206\147' = trim \206\147.
+Proof.
+(intros \206\147 \206\147' v H).
+(apply merge_fun_ind in H).
+dependent induction H.
+-
+(destruct v; inversion x).
+-
+(induction v).
++
+(simpl).
+(unfold remove_pat).
+(simpl).
+easy.
++
+(simpl).
+(unfold remove_pat, remove_var in *).
+(simpl in *).
+(inversion IHv).
+(rewrite H0).
+easy.
+-
+(destruct v).
++
+(inversion x; subst).
+(inversion m; subst).
+(unfold remove_pat).
+(simpl in *).
+(inversion H; subst; easy).
++
+(inversion x; subst).
+(inversion m; subst).
+(unfold remove_pat, remove_var in *).
+(simpl in *).
+(erewrite IHmerge_ind; easy).
+replace (remove_pat (qubit (S v)) (Some w :: \206\1470)) with
+ Some w :: remove_pat (qubit v) \206\1470 by easy.
+(simpl).
+(erewrite IHmerge_ind; easy).
+Qed.
+Lemma remove_qubit_merge :
+  forall (\206\147 \206\147' : Ctx) W (p : Pat W) v,
+  \206\147 \226\138\162 p :Pat -> \206\147' \226\169\181 singleton v Qubit \226\136\153 \206\147 -> remove_pat (qubit v) \206\147' = \206\147.
+Proof.
+(intros \206\147 \206\147' W p v H H0).
+(erewrite <- (types_pat_no_trail \206\147) by apply H).
+(simpl).
+(assert (remove_pat (bit v) \206\147' = trim \206\147)).
+(apply remove_qubit_merge'; easy).
+(inversion H1).
+easy.
+Qed.
+Lemma remove_bit_pred :
+  forall (\206\147 \206\147' : Ctx) v,
+  \206\147' \226\169\181 singleton v Bit \226\136\153 \206\147 ->
+  size_ctx (remove_pat (bit v) \206\147') = (size_ctx \206\147' - 1)%nat.
+Proof.
+(intros \206\147 \206\147' v H).
+(rewrite (remove_bit_merge' \206\147 \206\147'); trivial).
+(destruct H).
+replace (size_ctx \206\147') with size_octx \206\147' by easy.
+(rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl).
+(rewrite singleton_size).
+(rewrite size_ctx_trim).
+omega.
+Qed.
+Lemma remove_qubit_pred :
+  forall (\206\147 \206\147' : Ctx) v,
+  \206\147' \226\169\181 singleton v Qubit \226\136\153 \206\147 ->
+  size_ctx (remove_pat (qubit v) \206\147') = (size_ctx \206\147' - 1)%nat.
+Proof.
+(intros \206\147 \206\147' v H).
+(rewrite (remove_qubit_merge' \206\147 \206\147'); trivial).
+(destruct H).
+replace (size_ctx \206\147') with size_octx \206\147' by easy.
+(rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl).
+(rewrite singleton_size).
+(rewrite size_ctx_trim).
+omega.
+Qed.
+Lemma maps_to_trim : forall \206\147 v, maps_to v (trim \206\147) = maps_to v \206\147.
+Proof.
+(intros \206\147 v).
+gen \206\147.
+(induction v; intros \206\147).
+-
+(destruct \206\147; trivial).
+(destruct o; trivial).
+(simpl).
+(destruct (trim \206\147); easy).
+-
+(destruct \206\147; trivial).
+(simpl).
+(destruct o).
+(rewrite IHv; easy).
+(rewrite <- IHv).
+(destruct (trim \206\147) eqn:E; trivial).
+(destruct v; easy).
+Qed.
+Lemma subst_pat_trim : forall W \206\147 (p : Pat W), subst_pat (trim \206\147) p = subst_pat \206\147 p.
+Proof.
+(intros W \206\147 p).
+(induction p).
+-
+(simpl).
+easy.
+-
+(simpl).
+(unfold subst_var).
+(rewrite maps_to_trim).
+easy.
+-
+(simpl).
+(unfold subst_var).
+(rewrite maps_to_trim).
+easy.
+-
+(simpl).
+(rewrite IHp1, IHp2).
+easy.
+Qed.
+Lemma trim_types_circ :
+  forall W (c : Circuit W) (\206\147 : Ctx), \206\147 \226\138\162 c :Circ -> trim \206\147 \226\138\162 c :Circ.
+Proof.
+(intros W c).
+(induction c).
+-
+(intros \206\147 WT).
+dependent destruction WT.
+(erewrite types_pat_no_trail by apply t).
+(econstructor; easy).
+-
+(intros \206\147 WT).
+dependent destruction WT.
+(destruct \206\1470 as [| \206\1470], \206\1471 as [| \206\1471]; try invalid_contradiction).
+specialize (types_pat_no_trail _ _ _ t) as NT1.
+econstructor.
+(rewrite <- NT1 in t).
+(apply t).
+2: (apply (trim_merge \206\147 \206\1471 \206\1470 pf1)).
+(simpl).
+(intros \206\1471' \206\147' p2 M' t').
+(destruct \206\1471' as [| \206\1471']; try invalid_contradiction).
+(assert (M'' : (\206\1471' \226\139\147 \206\1470) \226\169\181 \206\1471' \226\136\153 \206\1470)).
+(split; trivial).
+(apply trim_valid).
+(destruct M').
+(apply types_pat_no_trail in t').
+(rewrite <- t' in pf_merge).
+(rewrite <- trim_merge_dist).
+(simpl).
+(rewrite <- pf_merge).
+easy.
+specialize (t0 \206\1471' (\206\1471' \226\139\147 \206\1470) p2 M'' t').
+(destruct M').
+(rewrite pf_merge).
+(apply types_pat_no_trail in t').
+(rewrite <- t').
+(simpl_rewrite (trim_merge_dist \206\1471' \206\1470)).
+(destruct (\206\1471' \226\139\147 \206\1470) as [| \206\147'']; try invalid_contradiction).
+(simpl).
+(apply H).
+(apply t0).
+-
+(intros \206\147 H0).
+dependent destruction H0.
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+econstructor.
+(apply t).
+(intros b).
+(apply H).
+(apply t0).
+(apply types_pat_no_trail in t).
+(rewrite <- t).
+(apply (trim_merge \206\147 \206\1471 \206\1472)).
+easy.
+Qed.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Theorem denote_static_circuit_correct :
+  forall W (\206\1470 \206\147 : Ctx) (c : Circuit W),
+  Static_Circuit c -> \206\147 \226\138\162 c :Circ -> WF_Superoperator (\226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169).
+Proof.
+(intros W \206\1470 \206\147 c).
+gen \206\1470 \206\147.
+(induction c; intros \206\1470 \206\147 STAT WT).
+-
+dependent destruction WT.
+(unfold denote_circuit).
+(simpl).
+(unfold denote_pat).
+(unfold pad).
+subst.
+(rewrite (ctx_wtype_size w p \206\147 t)).
+(apply super_unitary_correct).
+(rewrite Nat.add_sub).
+(match goal with
+ | |- WF_Unitary (?A \226\138\151 ?B) => specialize (kron_unitary A B) as KU
+ end).
+unify_pows_two.
+(simpl in *).
+(rewrite (ctx_wtype_size w p \206\147 t) in *).
+replace (2 ^ (size_ctx \206\1470 + size_ctx \206\147))%nat with
+ (2 ^ size_ctx \206\147 * 2 ^ size_ctx \206\1470)%nat by (simpl; unify_pows_two).
+(apply KU).
+(apply swap_list_unitary).
+(rewrite size_wtype_length).
+(rewrite (ctx_wtype_size w p \206\147 t)).
+omega.
+(intros x).
+(eapply pat_to_list_bounded).
+split.
+validate.
+(rewrite merge_nil_r).
+easy.
+easy.
+(apply id_unitary).
+-
+dependent destruction WT.
+rename p into p1.
+rename \206\1471 into \206\1473.
+rename \206\1472 into \206\1471.
+rename \206\1473 into \206\1472.
+dependent destruction STAT.
+rename H0 into STAT.
+rename H into IH.
+(unfold denote_circuit; simpl).
+(destruct g).
++
+(simpl).
+(destruct pf1).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl_rewrite (octx_wtype_size W p1 \206\1471 t)).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_sub).
+(rewrite <- size_octx_merge by easy).
+(rewrite <- pf_merge in *).
+(simpl).
+(eapply (IH p1); trivial).
+(eapply t0).
+split.
+easy.
+(apply pf_merge).
+easy.
+*
+(rewrite Nat.add_sub).
+(apply apply_U_correct).
+(rewrite size_wtype_length).
+reflexivity.
+(unfold subst_pat).
+replace (size_wtype W) with \226\159\166 W \226\159\167 by easy.
+(rewrite <- size_octx_merge by easy).
+(intros x IN).
+(apply Nat.lt_lt_add_l).
+(rewrite <- pf_merge in *).
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply pat_to_list_bounded).
+split.
+assumption.
+(apply pf_merge).
+(apply t).
+(apply IN).
++
+(simpl).
+(destruct pf1).
+(rewrite pf_merge in *).
+(rewrite Nat.add_sub).
+(apply compose_super_correct).
+*
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+(rewrite pf_merge).
+(apply pf_valid).
+(apply pf_merge).
+easy.
+*
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(rewrite pf_merge).
+(rewrite size_octx_merge by easy).
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(simpl).
+(rewrite singleton_size).
+(simpl).
+(rewrite Nat.add_succ_r).
+specialize (apply_U_correct Qubit) as AUC.
+(simpl in AUC).
+(apply AUC).
+easy.
+(intros x IN).
+(assert (L : (x < size_octx \206\147)%nat)).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply pat_to_list_bounded).
+split.
+validate.
+(apply pf_merge).
+(apply types_bit).
+(apply singleton_singleton).
+easy.
+(rewrite pf_merge in L).
+(rewrite size_octx_merge in L; trivial).
+(simpl in L).
+(rewrite singleton_size in L).
+omega.
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new0_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new1_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Bit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new0_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Bit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new1_correct).
++
+(simpl).
+dependent destruction p1.
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.add_sub).
+replace (size_ctx \206\147) with size_octx (Valid (update_at \206\147 v (Some Bit))).
+2: {
+(simpl).
+(rewrite denote_index_update_some with (w := Qubit)).
+reflexivity.
+(eapply index_merge_l).
+(apply pf1).
+(destruct \206\1471).
+invalid_contradiction.
+(apply singleton_index).
+(inversion t).
+easy.
+}
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(inversion t; subst).
+(eapply update_at_merge; [ apply H1 | apply singleton_singleton | easy ]).
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ apply t | apply pf1 ]).
++
+(simpl).
+(apply compose_super_correct).
+*
+(rewrite Nat.add_sub).
+(unfold denote_circuit in IH).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+(apply pf1).
+(apply t).
+*
+dependent destruction t.
+(simpl).
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Nat.lt_lt_add_l).
+(apply singleton_equiv in s; subst).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (bit x) \206\147).
+2: (erewrite remove_bit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_bit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_bit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (qubit x) \206\147).
+2: (erewrite remove_qubit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_qubit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (qubit x) \206\147).
+2: (erewrite remove_qubit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_qubit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
+-
+(inversion STAT).
+Qed.
+Theorem denote_static_box_correct :
+  forall W1 W2 (c : Box W1 W2),
+  Static_Box c -> Typed_Box c -> WF_Superoperator (\226\159\166 c \226\159\167).
+Proof.
+(intros W1 W2 c STAT WT).
+(simpl).
+(unfold denote_box).
+(unfold denote_db_box).
+(destruct c as [c']).
+(inversion STAT; subst).
+clear STAT.
+rename H0 into STAT.
+(unfold Typed_Box in WT).
+(simpl).
+(destruct (add_fresh W1 []) as [p \206\147] eqn:E).
+specialize (STAT p).
+specialize (WT \206\147 p).
+specialize (denote_static_circuit_correct W2 [] \206\147 (c' p) STAT) as WFC.
+(unfold denote_circuit in WFC).
+(simpl in WFC).
+(rewrite (ctx_wtype_size W1 p \206\147)).
+(apply WFC).
+(apply WT).
+(apply add_fresh_typed_empty).
+easy.
+(apply add_fresh_typed_empty).
+easy.
+Qed.
+Definition HOAS_Equiv {W1} {W2} (c1 c2 : Box W1 W2) :=
+  forall \207\129 b, denote_box b c1 \207\129 == denote_box b c2 \207\129.
+Notation "a \226\137\161 b" := (HOAS_Equiv a b) (at level 70) : circ_scope.
+Hint Unfold HOAS_Equiv: den_db.
+Lemma HOAS_Equiv_refl : forall w1 w2 (c : Box w1 w2), c \226\137\161 c.
+Proof.
+(intros w1 w2 c \207\129 b).
+reflexivity.
+Qed.
+Lemma HOAS_Equiv_sym : forall w1 w2 (c1 c2 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c1.
+Proof.
+(intros).
+(intros \207\129 b).
+(unfold HOAS_Equiv in H).
+(rewrite H).
+reflexivity.
+Qed.
+Lemma HOAS_Equiv_trans :
+  forall w1 w2 (c1 c2 c3 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c3 -> c1 \226\137\161 c3.
+Proof.
+(intros).
+(intros \207\129 b).
+(unfold HOAS_Equiv in H).
+(rewrite H; auto).
+Qed.
+Add Parametric Relation  W1 W2 : Box W1 W2 @HOAS_Equiv W1 W2 reflexivity proved by
+ HOAS_Equiv_refl W1 W2 symmetry proved by HOAS_Equiv_sym W1 W2 transitivity proved
+ by HOAS_Equiv_trans W1 W2 as eq_set_rel.
+Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c = c.
+Proof.
+(destruct c).
+(unfold inSeq).
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p).
+(remember (c p) as c0).
+clear c p Heqc0.
+(induction c0; auto).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+Qed.
+Lemma inSeq_id_r : forall w1 w2 (c : Box w1 w2), c \194\183 id_circ = c.
+Proof.
+(destruct c).
+(unfold inSeq).
+(simpl).
+reflexivity.
+Qed.
+Lemma inSeq_assoc :
+  forall {w1} {w2} {w3} {w4} (c1 : Box w1 w2) (c2 : Box w2 w3) (c3 : Box w3 w4),
+  c3 \194\183 c2 \194\183 c1 = (c3 \194\183 c2) \194\183 c1.
+Proof.
+(intros w1 w2 w3 w4 [c1] [c2] [c3]).
+(unfold inSeq).
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p1).
+(simpl).
+(remember (c1 p1) as c).
+clear c1 p1 Heqc.
+dependent induction c.
+-
+reflexivity.
+-
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p2).
+(rewrite H).
+reflexivity.
+-
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p2).
+(rewrite H).
+reflexivity.
+Qed.
+Hint Unfold get_fresh add_fresh_state add_fresh_pat process_gate process_gate_state:
+  den_db.
+Hint Unfold apply_new0 apply_new1 apply_U apply_unitary denote_ctrls apply_meas
+  apply_discard apply_assert0 apply_assert1 compose_super Splus swap_list swap_two
+  pad denote_box denote_pat super: den_db.
+Hint Unfold get_fresh add_fresh_state add_fresh_pat process_gate process_gate_state:
+  vector_den_db.
+Hint Unfold apply_new0 apply_new1 apply_U apply_unitary denote_ctrls apply_meas
+  apply_discard apply_assert0 apply_assert1 compose_super Splus swap_list swap_two
+  pad denote_box denote_pat: vector_den_db.
+Ltac
+ vector_denote :=
+  intros; repeat (autounfold with vector_den_db; simpl);
+   repeat rewrite <- bool_to_ket_matrix_eq;
+   repeat replace \226\136\1630\226\159\169\226\159\1680\226\136\163 with outer_product \226\136\1630\226\159\169 by reflexivity;
+   repeat replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with outer_product \226\136\1631\226\159\169 by reflexivity;
+   repeat rewrite outer_product_kron; repeat rewrite super_outer_product;
+   apply outer_product_eq.
+Ltac matrix_denote := intros; repeat (autounfold with den_db; simpl).
+Hint Rewrite subst_pat_fresh_empty : proof_db.
+Hint Rewrite size_fresh_ctx using validate : proof_db.
+Hint Rewrite Nat.leb_refl : proof_db.
+Hint Rewrite denote_pat_fresh_id : proof_db.
+Hint Rewrite swap_fresh_seq : proof_db.
 (* Auto-generated comment: Succeeded. *)
 
