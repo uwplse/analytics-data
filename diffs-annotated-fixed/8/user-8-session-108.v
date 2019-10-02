@@ -72,6 +72,6 @@ Lemma denote_unitary_box_eq :
   denote_box safe c \207\129 == denote_unitary_box c \195\151 \207\129 \195\151 (denote_unitary_box c) \226\128\160.
 Proof.
 (intros W safe [c] \207\129 pf).
-(simpl in pf).
+(intros W safe [c] \207\129 pf).
 (* Auto-generated comment: Succeeded. *)
 
