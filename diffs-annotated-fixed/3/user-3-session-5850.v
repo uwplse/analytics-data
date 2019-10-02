@@ -291,13 +291,6 @@ Theorem plus_ble_compat_l :
   forall n m p : nat, leb n m = true -> leb (p + n) (p + m) = true.
 Proof.
 (intros).
-(induction p as [| p' IHp']).
--
-(simpl).
-(rewrite H).
-reflexivity.
--
-(simpl).
-(rewrite IHp').
+(destruct p).
 (* Auto-generated comment: Succeeded. *)
 
