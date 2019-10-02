@@ -295,6 +295,6 @@ econstructor.
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
 Check Ascii.nat_ascii_embedding.
-(apply sig_eta).
-(* Auto-generated comment: Failed. *)
+Search -(@eq (sig _)).
+(* Auto-generated comment: Succeeded. *)
 
