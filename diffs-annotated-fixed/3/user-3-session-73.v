@@ -90,5 +90,6 @@ Proof.
 (intros Hprspec Hpre Hpost Halt).
 (unfold crash_refines, refines; split).
 -
+setoid_rewrite  <- op_spec_complete1.
 (* Auto-generated comment: Succeeded. *)
 
