@@ -36,5 +36,5 @@ contradiction.
 *
 (rewrite subst_exist_eq).
 (rewrite subst_id).
-(simpl in *).
+(rewrite subst_exist_neq).
 (* Failed. *)
