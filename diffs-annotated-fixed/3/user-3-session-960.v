@@ -163,8 +163,18 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpJJRBT"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition nat64_to_le (x : nat) : list byte :=
+Definition nat64_to_le (x : nat) : list {x | x < 256} :=
   let digits := nat_to_le 254 x in
   digits ++ repeat bounded0 (8 - length digits).
-(* Auto-generated comment: Failed. *)
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0IJEmx"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQ7ZRNG"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition nat64_from_le (digits : list {x | x < 256}) : option nat.
+(* Auto-generated comment: Succeeded. *)
 
