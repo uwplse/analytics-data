@@ -47,6 +47,14 @@ Definition dynamics : Dynamics Op State :=
 Definition l : Layer Op :=
   {| Layer.State := State; sem := dynamics; initP := fun s => s = (0, 0) |}.
 End Var.
-Instance var_crash_step_nonerror : (NonError Var.crash_step).
+Instance var_crash_step_nonerror : (NonError Var.dynamics.(crash_step)).
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDM4iN6"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+Proof.
+typeclasses eauto.
 (* Auto-generated comment: Failed. *)
 
