@@ -28,10 +28,12 @@ Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; right; assumption).
 Qed.
-Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
+Lemma value_sem_sub_k_i_union__inv :
+  forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
-auto with DBBetaJulia.
-Qed.
-Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
-Proof.
+(intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
+(assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+specialize (Hsem _ Hm).
+(apply match_ty_i_union__inv in Hsem).
+(destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
 (* Failed. *)
