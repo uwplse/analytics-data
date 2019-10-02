@@ -1181,6 +1181,7 @@ listify_kron.
 (simpl; reflexivity).
 }
 4: {
+restore_dims tensor_tac.
 (rewrite <- kron_assoc).
 (* Auto-generated comment: Failed. *)
 
