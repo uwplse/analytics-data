@@ -54,3 +54,4 @@ Lemma denote_ctrls_transpose :
   forall W (n : nat) (u : Unitary W) li,
   (forall x, In x li -> x < n)%nat -> (length li = \226\159\166 W \226\159\167)%nat -> denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
 (rewrite repeat_length).
+lia.
