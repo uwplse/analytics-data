@@ -1371,6 +1371,7 @@ iFrame.
 iDestruct "Hmbox" as "(Hlocked'&Hauth)".
 iDestruct "Hauth" as ( S ? ) "(Hauth&?)".
 iExFalso.
+iExFalso.
 iDestruct "Hlockinv" as ( S' ? ) "(Hauth'&?)".
 (* Auto-generated comment: Succeeded. *)
 
