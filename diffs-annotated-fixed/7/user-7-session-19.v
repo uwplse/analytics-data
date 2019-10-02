@@ -13,7 +13,6 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjmi_scope.
 Lemma match_ty_i_pair : forall v1 v2 t1 t2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
-Lemma match_ty_i_pair : forall v1 v2 t1 t2 : ty, forall k : nat, |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
 (destruct k; split; assumption).
@@ -70,7 +69,11 @@ clear IHv.
 (intros Hm).
 (pose proof Hm as Href).
 (simpl in Href).
-(pose proof Hm as Href).
-(simpl in Href).
+exists v.
+split.
+reflexivity.
+(intros v').
+specialize (Href v').
+auto.
 (* Auto-generated comment: Failed. *)
 
