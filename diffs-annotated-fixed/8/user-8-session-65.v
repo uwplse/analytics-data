@@ -983,6 +983,6 @@ mat_replace \226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169 with I 
 Msimpl.
 Timeout 1 About id_kron.
 Timeout 1 Print id_kron.
-Timeout 1 Print Ltac id_kron.
+(rewrite (@id_kron (2 ^ i) (2 ^ d))).
 (* Auto-generated comment: Failed. *)
 
