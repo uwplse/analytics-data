@@ -258,6 +258,6 @@ intuition eauto.
 Qed.
 Hint Resolve get_len_ok: core.
 Theorem log_size_bound d bs :
-  forall a, log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
+  log_size_ok d bs -> forall a, a < length bs -> log_addr a < diskSize d.
 (* Auto-generated comment: Succeeded. *)
 
