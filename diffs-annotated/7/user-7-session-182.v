@@ -36,13 +36,9 @@ contradiction.
 *
 (rewrite subst_exist_eq).
 (rewrite subst_id).
-(rewrite subst_exist_neq; try assumption).
-(rewrite subst_exist_eq).
-reflexivity.
-+
-(destruct (beq_idP X i) as [HX| HX]).
-*
-subst.
-(repeat rewrite subst_exist_eq).
-Search -idSet.mem.
+Search -IdSet.mem.
+Search -IdSet.In.
+(destruct (IdSetProps.In_dec i (FV tY))).
+{
+Search -IdSet.mem.
 (* Failed. *)
