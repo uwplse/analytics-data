@@ -1082,6 +1082,5 @@ listify_kron.
   try omega).
 (simpl).
 rewrite_inPar'.
-all: (rewrite size_ntensor).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
