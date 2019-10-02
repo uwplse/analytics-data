@@ -120,6 +120,5 @@ Proof.
 Search -"-" -(_ -> _ < _).
 (apply lt_O_minus_lt).
 (unfold "<").
-Print le.
 (* Auto-generated comment: Succeeded. *)
 
