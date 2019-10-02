@@ -35,14 +35,6 @@ Proof.
       destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; auto
    | rewrite subst_union; destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
       [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto
-   | rewrite subst_ev in *; assumption ])).
-(intros X s; induction w; induction t; intros v HX Hm;
-  try (solve
-   [ rewrite subst_cname in *; assumption
-   | rewrite subst_pair; destruct (fresh_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]; apply match_ty_pair__inv in Hm;
-      destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; auto
-   | rewrite subst_union; destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
-      [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto
    | pose proof (fresh_in_ty_var__neq _ _ HX) as HXi; rewrite subst_var_neq; assumption
    | rewrite subst_ev in *; assumption ])).
 -
@@ -83,5 +75,15 @@ assumption.
 *
 (destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
 (apply match_ty_union_1; auto).
+(apply match_ty_union_1).
+admit.
+*
+admit.
+*
+admit.
++
+admit.
++
+(apply match_ty_exist__iv in Hm').
 (* Auto-generated comment: Failed. *)
 
