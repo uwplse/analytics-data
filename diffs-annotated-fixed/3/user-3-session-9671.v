@@ -523,6 +523,5 @@ intuition.
 step.
 (unfold spec_impl; simpl; intuition).
 (exists []; intuition eauto).
-{
 (* Auto-generated comment: Succeeded. *)
 
