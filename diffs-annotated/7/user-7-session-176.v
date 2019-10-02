@@ -142,7 +142,6 @@ Qed.
 Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [X := tint] t.
 (intros X; induction w; induction t; intros v).
 (intros X; induction w; induction t; intros v; try (solve [ intros Hm; exists v; assumption ])).
--
-(intros Hm).
-(apply match_ty_piar__inv in Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 (* Failed. *)
