@@ -219,6 +219,6 @@ tauto.
 (apply sub_r_union_l__inv in Hsub').
 Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || (apply mk_nf_nf__equal; assumption) || apply mk_nf__in_nf
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; tauto || (apply mk_nf_nf__equal; assumption) || apply mk_nf__in_nf
  end).
 (* Failed. *)
