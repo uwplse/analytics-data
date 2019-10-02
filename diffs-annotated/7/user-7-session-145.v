@@ -67,8 +67,6 @@ Proof.
 (intros X t1 t2 k).
 (apply sem_sub_k_exist_pair).
 Qed.
-Lemma match_ty_ev__match_ty_any :
-  forall (k w : nat) (X : id) (t : ty), fresh_in_ty X t -> |-[ k, w] TEV X <$ t -> forall v : ty, value_type v -> |-[ k, w] v <$ t.
-Proof.
 (intros k w X t HX Hm v Hv).
+(induction t).
 (* Failed. *)
