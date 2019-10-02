@@ -451,5 +451,6 @@ Proof.
 (intros W W' c \207\129 \207\129' safe T H D).
 (destruct safe; trivial).
 (unfold valid_ancillae_box in H).
+(rewrite H; assumption).
 (* Auto-generated comment: Succeeded. *)
 
