@@ -111,6 +111,10 @@ Proof.
 (destruct (r == 0)).
 -
 (step_proc_basic; intros).
+{
 eauto.
-(* Auto-generated comment: Failed. *)
+}
+(simpl in *; intuition subst).
+2: (autounfold in *; intuition).
+(* Auto-generated comment: Succeeded. *)
 
