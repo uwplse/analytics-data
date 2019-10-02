@@ -56,7 +56,27 @@ exists w2.
 (intros v Hm).
 (apply match_ty_union_1).
 (apply Hsem; assumption).
-(intros t1' t2' Hsem).
+(intros t t1' t2' Hsem).
 (intros w1).
+specialize (Hsem w1).
+(destruct Hsem as [w2 Hsem]).
+exists w2.
+(intros v Hm).
+(apply match_ty_union_2).
+(apply Hsem; assumption).
+Qed.
+Lemma sem_sub_pair__inv : forall t1 t2 t1' t2' : ty, ||- [TPair t1 t2]<= [TPair t1' t2'] -> ||- [t1]<= [t1'] /\ ||- [t2]<= [t2'].
+Proof.
+(intros t1 t2 t1' t2' Hsem).
+(split; intros w1; destruct (match_ty__exists_w_v t1) as [w11 [v1 Hm1]]; destruct (match_ty__exists_w_v t2) as [w12 [v2 Hm2]];
+  [ specialize (Hsem (Nat.max w1 w12)) | specialize (Hsem (Nat.max w1 w11)) ]; destruct Hsem as [w2 Hsem]; exists w2; intros v Hm;
+  [ remember (Nat.max w1 w12) as w1' eqn:Heqw1'  | remember (Nat.max w1 w11) as w1' eqn:Heqw1'  ]).
+-
+(assert (Hmp : |-[ w1'] TPair v v2 <$ TPair t1 t2)).
+{
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
+}
+specialize (Hsem _ Hmp).
+(apply match_ty_pairir_pair__inv in Hsem).
 (* Auto-generated comment: Failed. *)
 
