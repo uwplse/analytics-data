@@ -81,6 +81,5 @@ specialize (pf p).
 gen \207\129.
 (induction (c p)).
 -
--
 (* Auto-generated comment: Succeeded. *)
 
