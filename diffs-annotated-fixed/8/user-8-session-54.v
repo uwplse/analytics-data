@@ -14,8 +14,7 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqVoxw9J"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Proof.
-(intros W \207\129 safe H).
+(intros W \207\129 safe).
 (simpl).
 (unfold denote_box).
 (simpl).
@@ -25,5 +24,9 @@ autorewrite with proof_db.
 (unfold pad).
 (simpl).
 (rewrite Nat.sub_diag).
+(rewrite kron_1_r').
+(rewrite subst_pat_fresh_empty).
+(rewrite denote_pat_fresh_id).
+(rewrite super_I; easy).
 (* Auto-generated comment: Succeeded. *)
 
