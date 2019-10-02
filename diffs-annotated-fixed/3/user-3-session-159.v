@@ -32,6 +32,67 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Instance absr_non_error : (NonError absr).
 Proof.
-(unfold NonError).
+(compute; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7QyU3R"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZVTrXv"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqteqYWo"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Definition init_hspec : Specification InitStatus unit Var.State :=
+  fun state =>
+  {|
+  pre := state = (0, 0);
+  post := fun state' _ => state' = (0, 0);
+  alternate := fun state' (_ : unit) => True |}.
+Definition add_hspec n : Specification unit unit Var.State :=
+  fun state =>
+  {|
+  pre := True;
+  post := fun state' (_ : unit) =>
+          fst state' = n + fst state /\ snd state' = S (snd state);
+  alternate := fun state' (_ : unit) => state' = (0, 0) |}.
+Definition add_rspec n : Specification unit unit Var.State :=
+  fun state =>
+  {|
+  pre := True;
+  post := fun state' (_ : unit) =>
+          fst state' = n + fst state /\ snd state' = S (snd state);
+  alternate := fun state' (_ : unit) => state' = (0, 0) |}.
+Definition avg_hspec : Specification nat unit Var.State :=
+  fun state =>
+  {|
+  pre := True;
+  post := fun state' v => state = state' /\ v = fst state / snd state';
+  alternate := fun state' v => state' = (0, 0) |}.
+Definition avg_rspec : Specification nat unit Var.State :=
+  fun state =>
+  {|
+  pre := True;
+  post := fun state' v => state = state' /\ v = fst state / snd state';
+  alternate := fun state' v => state' = (0, 0) |}.
+Definition recover_spec : Specification unit unit Var.State :=
+  fun state =>
+  {|
+  pre := state = (0, 0);
+  post := fun state' (_ : unit) => state' = (0, 0);
+  alternate := fun state' (_ : unit) => state' = (0, 0) |}.
+Lemma read_op_ok :
+  forall i,
+  proc_hspec Var.dynamics (read i) (op_spec Var.dynamics (Var.Read i)).
+Proof.
+(intros).
+(eapply op_spec_sound).
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
