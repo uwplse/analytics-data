@@ -119,6 +119,5 @@ lia.
 -
 (step_proc; intuition).
 (destruct s; intuition).
-+
 (* Auto-generated comment: Succeeded. *)
 
