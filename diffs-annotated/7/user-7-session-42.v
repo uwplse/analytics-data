@@ -15,8 +15,13 @@ Open Scope btjt_scope.
 Open Scope btjm_scope.
 Open Scope btjnf_scope.
 Open Scope btjd_scope.
-Lemma sub_d__inv_depth_le : forall t t' : ty, |- t << t' -> | t | <= | t' |.
-Proof.
-(intros t t' Hsub).
 (induction Hsub).
-(* Auto-generated comment: Failed. *)
+-
+constructor.
+-
+(apply Nat.le_trans with (| t2 |); assumption).
+-
+(simpl).
+(apply Nat.max_le_compat; assumption).
+-
+(* Failed. *)
