@@ -948,7 +948,5 @@ Fact assert_at_spec_unsafe :
 Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
-(repeat rewrite Mmult_assoc).
-Msimpl.
-(rewrite kron_mixed_product).
+setoid_rewrite kron_mixed_product.
 (* Failed. *)
