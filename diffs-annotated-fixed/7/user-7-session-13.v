@@ -39,6 +39,6 @@ Proof.
 -
 (apply SR_UnionR2; apply sub_r__reflexive).
 -
-(apply mk_nf_sub_r__sub_r).
+(apply mk_nf__distr11).
 (* Auto-generated comment: Succeeded. *)
 
