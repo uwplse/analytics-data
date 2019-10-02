@@ -16,5 +16,3 @@ From Coq Require Import NArith Streams.
 Open Scope N_scope.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
-Please report at http://coq.inria.fr/bugs/.
