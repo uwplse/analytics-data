@@ -5,5 +5,8 @@ Add Search Blacklist "Private_" "_subproof".
 exists (TRef t).
 (split; intros v Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_i_union_1; assumption) || (apply match_ty_i_union_2; assumption);
   apply Hsem; assumption).
-(induction k; induction t; induction t'; intros Hnft Hsem).
+(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ])).
+(match goal with
+ | Hsem:||-[ ?k][?t1]<= [?t2] |- | ?t1 | <= | ?t2 | => idtac
+ end).
 (* Failed. *)
