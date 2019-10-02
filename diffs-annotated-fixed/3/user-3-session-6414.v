@@ -81,8 +81,34 @@ Unset Search Output Name Only.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 Admitted.
-Axiom
-  (append_ok : forall v, proc_spec (append_spec v) (append v) recover abstr).
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
+Admitted.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+Admitted.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDeDx9w"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqnAF75v"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+End Log.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqofeRUT"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxssI6y"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
