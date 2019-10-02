@@ -370,14 +370,5 @@ Theorem append_at_ok a bs' :
 Proof.
 generalize dependent a.
 (induction bs'; simpl; intros).
--
-step.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
-step.
-(intuition eauto; autorewrite with upd; auto).
-step.
-(exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
 (* Auto-generated comment: Succeeded. *)
 
