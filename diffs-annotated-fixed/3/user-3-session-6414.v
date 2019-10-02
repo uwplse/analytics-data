@@ -128,11 +128,56 @@ Proof.
 (unfold log_length_ok; intros).
 (rewrite H in H1; simpl in H1; subst).
 auto.
+(rewrite H in *; simpl in *; subst).
+auto.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2b4vgk"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqyyuSGc"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
+Theorem log_abstraction_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
+Proof.
+(unfold log_abstraction; intros).
+split.
+-
+eauto using log_length_ok_nil.
+-
+(simpl; intuition).
+(exfalso; lia).
+Qed.
+Theorem init_ok : init_abstraction init recover abstr inited_any.
+Proof.
+(eapply then_init_compose; eauto).
+step_proc.
+(destruct (lt_dec r 1)).
+-
+step_proc.
+-
+step_proc.
+step_proc.
+step_proc.
+(exists nil; simpl).
+(split; auto).
+(eapply log_abstraction_nil; eauto).
+(autorewrite with upd; auto).
+Qed.
+Theorem log_abstraction_length d bs :
+  log_abstraction d bs -> log_length_ok d bs.
+Proof.
+(unfold log_abstraction; intuition).
+Qed.
+Hint Resolve log_abstraction_length: core.
+Lemma abstr_get_len :
+  forall (bs : list block) (state : State),
+  log_length_ok state bs ->
+  forall r : block,
+  diskGet state len_addr =?= r -> block_to_addr r = length bs.
+Proof.
+(intros).
+(unfold log_length_ok in H).
+(apply H in H0).
 (* Auto-generated comment: Succeeded. *)
 
