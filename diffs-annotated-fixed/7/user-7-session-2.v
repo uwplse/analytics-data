@@ -134,16 +134,9 @@ Proof.
 (intros t1 t2 t3 Hsub1).
 generalize dependent t3.
 Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
-Lemma sub_r_unite_pairs_l__inv :
+Lemma sub_r_unite_pairs_nf_l__inv :
   forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
-(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
-  try (solve
-   [ match goal with
-     | Hsub:|- ?t1 << ?t2
-       |- _ => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hsub; inversion Heqx; inversion Heqy; subst; tauto
-     end ])).
-(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2).
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
   try (solve
    [ match goal with
@@ -176,6 +169,11 @@ specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (destruct (union_in_nf__components_in_nf _ _ Hnf1) as [Hnf11 Hnf12]).
 (apply sub_r_nf_union_l__inv in Hsub).
 (destruct Hsub as [Hsub1 Hsub2]).
+specialize (IHt1_1 _ _ _ Hsub1 Hnf11 Hnf2).
+specialize (IHt1_2 _ _ _ Hsub2 Hnf12 Hnf2).
+(split; tauto || constructor; tauto).
+(apply NF_Union; apply unite_pairs__preserves_nf; assumption).
+-
 (rewrite unite_pairs_union_t in Hsub).
 (destruct (union_in_nf__components_in_nf _ _ Hnf1) as [Hnf11 Hnf12]).
 (apply sub_r_nf_union_l__inv in Hsub).
@@ -212,5 +210,16 @@ specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (split; tauto || constructor; tauto).
 (apply NF_Union; apply unite_pairs__preserves_nf; assumption).
 Qed.
+Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
+Proof.
+(intros t1 t2 t1' t2' Hsub).
+(remember (TPair t1 t2) as tx eqn:Heqx ).
+(remember (TPair t1' t2') as ty eqn:Heqy ).
+(induction Hsub; inversion Heqx; inversion Heqy; subst).
+-
+(split; assumption).
+-
+(simpl in Hsub).
+(apply sub_r_unite_pairs_nf_l__inv).
 (* Auto-generated comment: Failed. *)
 
