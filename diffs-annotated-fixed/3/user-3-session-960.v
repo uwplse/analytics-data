@@ -144,6 +144,5 @@ lia.
 }
 (apply Nat.div_lt; lia).
 Qed.
-Definition byte0 : {x | x < 256}.
 (* Auto-generated comment: Failed. *)
 
