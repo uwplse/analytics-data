@@ -67,15 +67,8 @@ Proof.
 (intros X t1 t2 k).
 (apply sem_sub_k_exist_pair).
 Qed.
-Lemma sem_sub_fresh_var__sem_sub_any :
-  forall (X : id) (t t' : ty) (X' : id),
-  IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
+Lemma match_ty_ev__match_ty_any :
+  forall (k w : nat) (X : id) (t : ty), fresh_in_ty X t -> |-[ k, w] TEV X <$ t -> forall v : ty, value_type v -> |-[ k, w] v <$ t.
 Proof.
-(intros X t).
-(intros t' X' HX HX' Hsem tx).
-(intros k w1).
-specialize (Hsem k w1).
-(destruct Hsem as [w2 Hsem]).
-exists w2.
-(intros v Hm).
+(intros k w X t HX Hm v Hv).
 (* Failed. *)
