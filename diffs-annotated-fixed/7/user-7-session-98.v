@@ -152,6 +152,8 @@ specialize (Hcontra 0).
 specialize (Hcontra _ Hm).
 (apply match_ty_exist__0_inv in Hcontra).
 (destruct Hcontra as [Hv [tx Heqx]]).
-(simpl in Heqx).
+(inversion Heqx).
+Qed.
+Lemma sem_sub__eunion__union_e : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
 (* Auto-generated comment: Failed. *)
 
