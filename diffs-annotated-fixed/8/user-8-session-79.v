@@ -1033,6 +1033,6 @@ restore_dims tensor_tac.
  end; try (solve [ type_check ])).
 Set Printing All.
 Set Printing All.
-show_dimensions.
+Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
