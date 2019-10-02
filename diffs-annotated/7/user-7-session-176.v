@@ -144,4 +144,5 @@ Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w
 (intros Hm).
 (apply match_ty_cname__inv in Hm).
 (exists v; assumption).
+exists v.
 (* Failed. *)
