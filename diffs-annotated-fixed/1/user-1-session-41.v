@@ -421,6 +421,9 @@ Check relation.
 Print relation.
 Print eq.
 Check eq.
-Theorem eq_refl : forall A, reflexive GT eq.
-(* Auto-generated comment: Failed. *)
+Theorem eq_refl : reflexive GT eq.
+Proof.
+(unfold reflexive).
+(induction x).
+(* Auto-generated comment: Succeeded. *)
 
