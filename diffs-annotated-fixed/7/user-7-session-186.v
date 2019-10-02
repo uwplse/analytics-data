@@ -29,6 +29,6 @@ assumption.
 (induction w'; induction t'; intros Hm').
 (induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction ])).
 +
-(split; try tauto).
+tauto.
 (* Auto-generated comment: Failed. *)
 
