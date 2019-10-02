@@ -230,18 +230,21 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k Hcontra X s) | specialize (IHt2 k Hcontra X s) ]; [ apply IHt1 | apply IHt2 ]; eauto).
+exists (TEV i).
+(destruct k; reflexivity).
+-
+(apply Hnotm).
+exists (TEV i).
+(destruct k; reflexivity).
 -
 admit.
 -
-(apply Hnotm).
-exists (TRef t).
-(apply match_ty_value_type__reflexive; constructor).
+admit.
+-
+admit.
+-
+admit.
 -
 (destruct Hcontra as [v Hcontra]).
-admit.
--
-(apply Hnotm).
-exists (TEV X).
-(destruct k; reflexivity).
+(destruct (dec_id X i)).
 (* Failed. *)
