@@ -423,6 +423,9 @@ clear IHt.
 (inversion Hle; subst).
 +
 (simpl).
-(intros v Hv).
+(intros v).
+specialize (Href v).
+(split; tauto).
++
 (* Auto-generated comment: Failed. *)
 
