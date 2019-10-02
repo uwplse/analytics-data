@@ -168,5 +168,6 @@ exists (TEV X').
 split.
 reflexivity.
 (induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
-(* Auto-generated comment: Failed. *)
++
+(* Auto-generated comment: Succeeded. *)
 
