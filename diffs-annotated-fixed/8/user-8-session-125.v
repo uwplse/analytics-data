@@ -191,6 +191,7 @@ solve_matrix.
 +
 (simpl).
 matrix_denote.
-(repeat (restore_dims; autorewrite with M_db_light)).
-(* Auto-generated comment: Failed. *)
+restore_dims.
+(rewrite Mmult_1_l).
+(* Auto-generated comment: Succeeded. *)
 
