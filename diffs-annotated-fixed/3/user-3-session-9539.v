@@ -437,6 +437,14 @@ Proof.
 (exists bs; intuition eauto).
 (unfold log_abstraction in H0; intuition).
 (pose proof (H3 a); intuition).
-(assert (v = nth a bs block0)).
-(* Auto-generated comment: Succeeded. *)
+(eapply diskGet_eq_values; eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJxzttA"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+auto.
+(* Auto-generated comment: Failed. *)
 
