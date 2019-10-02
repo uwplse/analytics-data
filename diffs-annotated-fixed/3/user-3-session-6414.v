@@ -179,10 +179,5 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem get_ok : proc_spec get_spec get recover abstr.
-Proof.
-(unfold get; intros).
-(apply spec_abstraction_compose; simpl).
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
