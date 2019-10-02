@@ -22,5 +22,7 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm).
 -
-tauto.
+(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
++
+(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ specialize (IHt'1 Hm') | specialize (IHt'2 Hm') ]).
 (* Failed. *)
