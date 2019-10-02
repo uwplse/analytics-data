@@ -416,6 +416,6 @@ Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le_1 : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
 (intros).
-(apply sem_sub_k_i_nf__inv_depth_le with k; eauto).
+(apply sem_sub_k_i_nf__inv_depth_le with k; tauto).
 (* Auto-generated comment: Failed. *)
 
