@@ -217,6 +217,8 @@ tauto.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-(apply SR_NormalForm in Hcontra; contradiction).
-(intros Hcontra).
+Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
+Proof.
+(intros t t' Hsub).
+(apply sub_r__transitive with t).
 (* Failed. *)
