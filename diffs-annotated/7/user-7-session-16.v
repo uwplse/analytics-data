@@ -230,4 +230,14 @@ Ltac
   destruct IHt2_1 as [IH1| IH1]; destruct IHt2_2 as [IH2| IH2];
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
+Lemma nf_sub_r__decidable2 :
+  forall t : ty, InNF( t) -> (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t)).
+Proof.
+(apply
+  (in_nf_mut
+     (fun (t : ty) (Hat : atom_type t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t)))
+     (fun (t : ty) (Hnf : in_nf t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t))))).
+-
+(intros c).
+(split; intros t'; induction t').
 (* Failed. *)
