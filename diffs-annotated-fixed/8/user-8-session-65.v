@@ -1260,7 +1260,5 @@ Timeout 1 Print Ltac restore_dims.
             A'
  end).
 2: {
-(apply f_equal_gen; trivial).
-2: reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
