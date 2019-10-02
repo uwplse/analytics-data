@@ -237,6 +237,5 @@ refine
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii |}.
 Search -(0 < _).
-constructor.
 (* Auto-generated comment: Succeeded. *)
 
