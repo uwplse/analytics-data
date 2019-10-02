@@ -1034,9 +1034,13 @@ restore_dims tensor_tac.
 Set Printing All.
 Set Printing All.
 Set Printing All.
-(match goal with
- | H:_ -> _ -> denote_box true ?c ?A == _
-   |- context [ denote_box true ?c ?A' ] => replace A' with A
- end).
+(progress
+  match goal with
+  | H:_ -> _ -> denote_box true ?c ?A == _
+    |- context [ denote_box true ?c ?A' ] => replace A' with A
+  end).
+2: {
+reflexivity.
+}
 (* Auto-generated comment: Succeeded. *)
 
