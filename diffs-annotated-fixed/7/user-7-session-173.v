@@ -10,6 +10,7 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Require Import Coq.Program.Wf.
 Require Import Recdef.
+Require Import Recdef.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -94,11 +95,13 @@ Function
    | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
    | TExist y t' =>
        if IdSet.mem y (FV s)
-       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
+       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s t')
        else TExist y (if beq_id x y then t' else subst x s t')
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
+-
+(intros).
 (simpl).
 Omega.omega.
 -
