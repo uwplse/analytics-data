@@ -462,6 +462,6 @@ Lemma log_abstraction_commit :
 Proof.
 (intros).
 (unfold log_abstraction; intuition).
-(unfold log_length_ok; intros).
+(unfold log_length_ok in *; intros).
 (* Auto-generated comment: Succeeded. *)
 
