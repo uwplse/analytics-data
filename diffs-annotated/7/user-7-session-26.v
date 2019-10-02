@@ -9,11 +9,21 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Theorem value_type__dcdbl : forall t : ty, Decidable.decidable (value_type t).
+Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
-(induction t; try (solve [ left; constructor | right; intros Hcontra; inversion Hcontra ])).
--
-(destruct IHt1 as [IHt1| IHt1]; destruct IHt2 as [IHt2| IHt2]; try (solve [ right; intros Hcontra; inversion Hcontra; subst; contradiction ])).
-(left; constructor; assumption).
+(intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
-(* Auto-generated comment: Failed. *)
+Open Scope btjnf_scope.
+Lemma in_nf_pair__inv : forall t1 t2 : ty, InNF( TPair t1 t2) -> InNF( t1) /\ InNF( t2).
+Proof.
+(intros t1 t2 Hnf).
+(inversion Hnf; subst).
+(inversion H; subst).
+(split; constructor; assumption).
+Qed.
+Lemma in_nf_union__inv : forall t1 t2 : ty, InNF( TUnion t1 t2) -> InNF( t1) /\ InNF( t2).
+Proof.
+(intros t1 t2 Hnf).
+(inversion Hnf; subst).
+(inversion H).
+(* Failed. *)
