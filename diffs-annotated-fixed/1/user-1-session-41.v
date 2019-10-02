@@ -548,6 +548,14 @@ Inductive Alpha : SetST -> GT -> Prop :=
 Theorem alpha_is_partial_function :
   forall S G G', Alpha S G -> Alpha S G' -> G = G'.
 Create HintDb agt discriminated.
-Hint Resolve Singleton_eq: agt.
-(* Auto-generated comment: Failed. *)
+Hint Resolve singleton_eq: agt.
+Theorem alpha_is_partial_function :
+  forall S G G', Alpha S G -> Alpha S G' -> G = G'.
+Proof.
+(intros).
+generalize dependent G'.
+(induction H).
+-
+(intros; inversion H0; subst; eauto with agt).
+(* Auto-generated comment: Succeeded. *)
 
