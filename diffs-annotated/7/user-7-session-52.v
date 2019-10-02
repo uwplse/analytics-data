@@ -115,7 +115,6 @@ Lemma mk_nf__sub_d_r : forall t : ty, |- t << MkNF( t).
 Proof.
 (apply mk_nf__sub_d_eq).
 Qed.
-Theorem nf_sem_sub__sub_d : forall t t' : ty, InNF( t) -> ||- [t]<= [t'] -> |- t << t'.
 Proof.
-(intros t t' Hsem).
-(* Auto-generated comment: Failed. *)
+(intros k c Hdep t2).
+(assert (Hva : value_type (TCName c)) by constructor).
