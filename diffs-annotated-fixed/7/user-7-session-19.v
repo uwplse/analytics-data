@@ -112,6 +112,7 @@ admit.
 admit.
 +
 clear IHk'.
+clear IHk' IHt.
 (intros Htk Htk' v).
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
