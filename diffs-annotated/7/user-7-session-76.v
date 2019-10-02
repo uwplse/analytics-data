@@ -70,5 +70,5 @@ Proof.
 (apply nf_sem_sub__sub_d).
 (apply mk_nf__in_nf).
 (eapply sem_sub__trans; try eassumption).
-(apply mk_nf__sem_sub_k_r).
+(apply mk_nf__sem_sub_k_l).
 (* Failed. *)
