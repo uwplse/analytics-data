@@ -46,6 +46,8 @@ subst.
 Search -IdSet.mem.
 Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FV tY)) eqn:Hin).
-(destruct (IdSetProps.In_dec i (FV tY))).
+(destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
+{
+(apply IdSetFacts.mem_1 in Hin).
 (* Auto-generated comment: Failed. *)
 
