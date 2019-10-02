@@ -291,6 +291,25 @@ Theorem plus_ble_compat_l :
   forall n m p : nat, leb n m = true -> leb (p + n) (p + m) = true.
 Proof.
 (intros).
-(destruct p).
+(induction p as [| p' IHp']).
+-
+(simpl).
+(rewrite H).
+reflexivity.
+-
+(simpl).
+(rewrite IHp').
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAUcK0c"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem S_nbeq_0 : forall n : nat, beq_nat (S n) 0 = false.
+Proof.
+(simpl).
+Print beq_nat.
 (* Auto-generated comment: Succeeded. *)
 
