@@ -53,6 +53,6 @@ Lemma unitary_transpose_id : forall W (U : Unitary W), unitary_transpose U \226\
 Proof.
 Timeout 1 About WF_Unitary.
 Timeout 1 Print WF_Unitary.
-Timeout 1 Print Ltac WF_Unitary.
+Arguments WF_Unitary {n} A /.
 (* Auto-generated comment: Failed. *)
 
