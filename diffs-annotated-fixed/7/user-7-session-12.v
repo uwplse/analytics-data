@@ -298,11 +298,15 @@ generalize dependent t21.
 (apply sub_r__rflxv).
 -
 (repeat rewrite unite_pairs_union_t).
-(apply SR_UnionL; eapply sub_r__transitive; try apply IHHnf1_1 || apply IHHnf1_2).
-+
-constructor.
+(apply SR_UnionL; eapply sub_r__transitive; try apply IHHnf1_1 || apply IHHnf1_2; constructor).
 (apply SR_UnionR1; apply SR_UnionR1; apply sub_r__reflexive).
 (apply SR_UnionR2; apply SR_UnionR1; apply sub_r__reflexive).
-+
+(apply SR_UnionR1; apply SR_UnionR2; apply sub_r__reflexive).
+(apply SR_UnionR2; apply SR_UnionR2; apply sub_r__reflexive).
+Qed.
+Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t2) << MkNF( TUnion (TPair t11 t2) (TPair t12 t2)).
+Proof.
+(intros t11 t12 t2).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
