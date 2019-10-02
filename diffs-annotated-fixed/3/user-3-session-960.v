@@ -119,17 +119,18 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1tRDll"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
+Fixpoint le_to_nat base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
+nat :=
   match digits with
   | nil => 0
-  | digit :: digits' => proj1_sig digit * base + le_to_nat digits'
+  | digit :: digits' => proj1_sig digit * S (S base_m2) + le_to_nat digits'
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8Bga3l"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqGyddPj"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq7lPKp"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJVULoX"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
@@ -145,5 +146,7 @@ auto.
 (assert (1 < S (S base_m2)) by lia).
 (assert (base_m2 = S (S base_m2) - 2) by lia).
 (generalize dependent S (S base_m2); intros base **; subst).
-(* Auto-generated comment: Succeeded. *)
+(assert (0 < S n) by lia).
+(generalize dependent S n; intros n).
+(* Auto-generated comment: Failed. *)
 
