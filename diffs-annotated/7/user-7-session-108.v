@@ -231,10 +231,5 @@ subst.
 (destruct w').
 (inversion Hle).
 Search -id.
-(destruct (beq_idP X i)).
-+
-subst.
-(apply Hnotm).
-exists v.
-assumption.
+(simpl in Hcontra).
 (* Failed. *)
