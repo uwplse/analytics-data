@@ -237,6 +237,7 @@ refine
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii;
  uint64_to_le := nat_to_le 254;
- uint64_from_le := fun digits => Some (le_to_nat digits) |}.
+ uint64_from_le := fun digits => Some (le_to_nat digits);
+ Ptr := fun _ => nat |}.
 (* Auto-generated comment: Succeeded. *)
 
