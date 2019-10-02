@@ -1232,3 +1232,5 @@ constructor.
 +
 (unfold valid_ancillae_box).
 (intros \207\129 TB).
+(unfold compose_super).
+(simpl_rewrite inSeq_correct).
