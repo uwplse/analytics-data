@@ -55,5 +55,11 @@ contradiction.
 (unfold fresh in Hfresh).
 (destruct (beq_idP X i); try reflexivity).
 subst.
+exfalso.
+(apply Hfresh).
+Search -IdSet.singleton.
+(apply IdSetFacts.singleton_2).
+reflexivity.
+Qed.
 (* Auto-generated comment: Failed. *)
 
