@@ -145,6 +145,7 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 step_proc.
+(pose proof I as state2).
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
