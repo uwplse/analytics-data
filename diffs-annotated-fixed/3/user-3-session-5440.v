@@ -425,6 +425,38 @@ lia.
 }
 {
 (step_proc; intuition; subst; eauto).
-+
-(* Auto-generated comment: Succeeded. *)
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
+(erewrite log_abstraction_len in * by eauto).
+(rewrite app_length).
+lia.
+}
+{
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
+(erewrite log_abstraction_len in * by eauto).
+(rewrite app_length).
+lia.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAXg9E3"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBGp8AQ"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8oShLM"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+(* Auto-generated comment: Failed. *)
 
