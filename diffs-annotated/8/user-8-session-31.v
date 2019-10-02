@@ -2742,4 +2742,3 @@ rename H into IH.
 (destruct pf1).
 replace (size_ctx \206\147) with size_octx \206\147 by easy.
 (rewrite pf_merge in *).
-(rewrite size_octx_merge by easy).
