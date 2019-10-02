@@ -54,5 +54,6 @@ assumption.
 (rewrite (subst_exist_neq _ _ _ _ Hbeq) in Hm).
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 (destruct Hm as [ti Hm]).
-(rewrite subst_neq_permute in Hm).
+(rewrite subst_neq__permute in Hm).
+symmetry in Hbeq.
 (* Failed. *)
