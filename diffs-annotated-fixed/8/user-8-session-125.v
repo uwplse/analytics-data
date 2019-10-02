@@ -134,6 +134,6 @@ easy.
 (intros).
 (rewrite Heqli in H).
 (simpl).
-(rewrite ctx_wtype_size).
-(* Auto-generated comment: Failed. *)
+(erewrite ctx_wtype_size).
+(* Auto-generated comment: Succeeded. *)
 
