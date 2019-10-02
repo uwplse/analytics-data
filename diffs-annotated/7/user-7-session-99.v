@@ -47,11 +47,13 @@ Fixpoint match_ty (w : nat) :=
         | _, _, TPair v1 v2, TPair t1 t2 => mty v1 t1 /\ mty v2 t2
         | _, _, _, TUnion t1 t2 => mty' t1 \/ mty' t2
         | _, 0, TRef t', TRef t => True
-        | _, S k, TRef t', TRef t => forall v, mtyk v t' <-> mtyk v t
+        | _, S k, TRef t', TRef t => forall v, mtyk k v t' <-> mtyk k v t
         | 0, _, v, TExist _ t' => mty' t'
         | S w, _, v, TExist X t' => exists tx, |-[ w, k] v <$ [X := tx] t'
         | _, _, TEV X, TVar X' => X = X'
         | _, _, _, _ => False
         end
 where "'|-[' w ',' k ']' v '<$' t" := (match_ty w k v t) : btjm_scope.
+Definition sem_sub_w_k (w : nat) (k : nat) (t1 t2 : ty) := forall v : ty, |-[ w, k] v <$ t1 -> |-[ w, k] v <$ t2.
+Notation "'||-[' w ',' k ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w_k w k t1 t2) (at level 45) : btjm_scope.
 (* Failed. *)
