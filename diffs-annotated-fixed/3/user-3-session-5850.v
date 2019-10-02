@@ -319,6 +319,38 @@ Unset Search Output Name Only.
 Qed.
 Theorem mult_1_l : forall n : nat, 1 * n = n.
 Proof.
+(rewrite plus_n_O).
 reflexivity.
-(* Auto-generated comment: Failed. *)
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqkw4MU"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem all3_spec :
+  forall b c : bool, orb (andb b c) (orb (negb b) (negb c)) = true.
+Proof.
+(intros [] []).
+-
+reflexivity.
+-
+reflexivity.
+-
+reflexivity.
+-
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqC8TcN1"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem mult_plus_distr_r : forall n m p : nat, (n + m) * p = n * p + m * p.
+Proof.
+(intros n m p).
+(induction n as [| n' IHn']).
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
