@@ -28,3 +28,5 @@ autorewrite with proof_db.
 (rewrite Nat.sub_diag).
 (rewrite super_I; easy).
 vector_denote.
+(destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
+(* Failed. *)
