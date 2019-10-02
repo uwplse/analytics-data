@@ -580,6 +580,6 @@ all:
    end).
 all: (try congruence).
 -
-specialize (IHAlpha1 _ H1).
+(intros).
 (* Auto-generated comment: Succeeded. *)
 
