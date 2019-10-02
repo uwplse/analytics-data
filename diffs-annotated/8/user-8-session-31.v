@@ -2666,70 +2666,15 @@ specialize (t0 \206\1471' (\206\1471' \226\139\147 \206\1470) p2 M'' t').
 (apply types_pat_no_trail in t').
 (rewrite <- t').
 (simpl_rewrite (trim_merge_dist \206\1471' \206\1470)).
-(destruct (\206\1471' \226\139\147 \206\1470) as [| \206\147'']; try invalid_contradiction).
++
 (simpl).
-(apply H).
-(apply t0).
--
-(intros \206\147 H0).
-dependent destruction H0.
-(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
-econstructor.
-(apply t).
-(intros b).
-(apply H).
-(apply t0).
-(apply types_pat_no_trail in t).
-(rewrite <- t).
-(apply (trim_merge \206\147 \206\1471 \206\1472)).
-easy.
-Qed.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
-Please report at http://coq.inria.fr/bugs/.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
-Please report at http://coq.inria.fr/bugs/.
-Theorem denote_static_circuit_correct :
-  forall W (\206\1470 \206\147 : Ctx) (c : Circuit W),
-  Static_Circuit c -> \206\147 \226\138\162 c :Circ -> WF_Superoperator (\226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169).
-Proof.
-(intros W \206\1470 \206\147 c).
-gen \206\1470 \206\147.
-(induction c; intros \206\1470 \206\147 STAT WT).
--
-dependent destruction WT.
-(unfold denote_circuit).
+(destruct pf1).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl_rewrite (octx_wtype_size W p1 \206\1471 t)).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
 (simpl).
-(unfold denote_pat).
-(unfold pad).
-subst.
-(rewrite (ctx_wtype_size w p \206\147 t)).
-(apply super_unitary_correct).
-(rewrite Nat.add_sub).
-(match goal with
- | |- WF_Unitary (?A \226\138\151 ?B) => specialize (kron_unitary A B) as KU
- end).
-unify_pows_two.
-(simpl in *).
-(rewrite (ctx_wtype_size w p \206\147 t) in *).
-replace (2 ^ (size_ctx \206\1470 + size_ctx \206\147))%nat with
- (2 ^ size_ctx \206\147 * 2 ^ size_ctx \206\1470)%nat by (simpl; unify_pows_two).
-(apply KU).
-(apply swap_list_unitary).
-(rewrite size_wtype_length).
-(rewrite (ctx_wtype_size w p \206\147 t)).
-omega.
-(intros x).
-(eapply pat_to_list_bounded).
-split.
-validate.
-(rewrite merge_nil_r).
-easy.
-easy.
-(apply id_unitary).
--
-dependent destruction WT.
-rename p into p1.
-rename \206\1471 into \206\1473.
-rename \206\1472 into \206\1471.
-rename \206\1473 into \206\1472.
-dependent destruction STAT.
