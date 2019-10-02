@@ -110,5 +110,5 @@ split.
 specialize (Hsem11 w1).
 (destruct Hsem11 as [w2 Hsem11]).
 specialize (Hsem21 w2).
-tauto.
+(intros v).
 (* Failed. *)
