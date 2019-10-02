@@ -27,6 +27,6 @@ Definition valid_ancillae {W} (c : Circuit W) : Prop :=
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOzxL2O"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Check hoas_equiv.
+Check HOAS_equiv.
 (* Auto-generated comment: Failed. *)
 
