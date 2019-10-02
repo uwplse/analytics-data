@@ -191,12 +191,5 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Instance aModel : GoModel.
 Proof.
-refine
- {|
- byte := Ascii.ascii;
- byte0 := Ascii.Ascii false false false false false false false false;
- uint64_to_string := pretty.pretty_nat;
- ascii_to_byte := id;
- byte_to_ascii := id |}.
 (* Auto-generated comment: Succeeded. *)
 
