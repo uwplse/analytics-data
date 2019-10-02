@@ -36,4 +36,3 @@ assumption.
 *
 (rewrite subst_union).
 (exfalso; apply not__free_and_fresh_in_ty).
-(* Failed. *)
