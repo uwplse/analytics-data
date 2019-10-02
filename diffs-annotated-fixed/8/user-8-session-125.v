@@ -192,5 +192,6 @@ solve_matrix.
 (simpl).
 matrix_denote.
 restore_dims.
+Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
