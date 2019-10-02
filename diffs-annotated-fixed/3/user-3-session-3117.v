@@ -119,6 +119,6 @@ Proof.
 (destruct a; simpl; intros).
 Search -"-" -(_ -> _ < _).
 (apply lt_O_minus_lt).
-constructor.
-(* Auto-generated comment: Failed. *)
+Print lt.
+(* Auto-generated comment: Succeeded. *)
 
