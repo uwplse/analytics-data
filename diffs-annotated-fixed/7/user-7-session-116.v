@@ -65,8 +65,24 @@ Lemma subs_neq__permute :
 Proof.
 (intros X Y Hneq t).
 (induction t; intros s1 s2 HXs2 HYs1; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; rewrite IHt2; reflexivity || assumption ])).
+(induction t; intros s1 s2 HXs2 HYs1;
+  try (solve [ simpl; reflexivity | simpl; rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
 -
 (simpl).
-(rewrite IHt1; try assumption).
+(rewrite IHt; try assumption).
+reflexivity.
+-
+(simpl).
+(destruct (beq_idP X i)).
++
+subst.
+(destruct (beq_idP Y i); reflexivity).
++
+(destruct (beq_idP Y i)).
+*
+subst.
+reflexivity.
+*
+(rewrite IHt).
 (* Auto-generated comment: Failed. *)
 
