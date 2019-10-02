@@ -40,5 +40,6 @@ exists (TEV X').
 reflexivity.
 +
 exists v.
-(rewrite subst_var_neq in *).
-(* Auto-generated comment: Failed. *)
+(rewrite (subst_var_neq _ _ _ Hbeq) in *).
+assumption.
+(* Failed. *)
