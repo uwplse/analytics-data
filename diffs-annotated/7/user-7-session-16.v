@@ -225,28 +225,9 @@ Ltac
         remember tx as t eqn:Heq1 ; remember ty as t' eqn:Heq2 ; intros Hcontra; induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ]);
          subst; auto
   end.
-Lemma nf_sub_r__decidable : forall t1 t2 : ty, InNF( t1) -> Decidable.decidable (|- t1 << t2).
-Proof.
-(intros t1 t2 Hnf1).
-generalize dependent t2.
-generalize dependent Hnf1.
-generalize dependent t1.
-(apply
-  (in_nf_mut (fun (t1 : ty) (Hat : atom_type t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2))
-     (fun (t1 : ty) (Hnf : in_nf t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2)))).
--
-(intros c t2).
-(induction t2).
-+
-(destruct (cname_eq__decidable c c0)).
-*
-(subst; left; constructor).
-*
-right.
-(intros Hcontra).
-(apply sub_r_cname__inv in Hcontra).
-contradiction.
-+
-(right; solve_not_x_sub_r_y_full).
-+
+Ltac
+ solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
+  destruct IHt2_1 as [IH1| IH1]; destruct IHt2_2 as [IH2| IH2];
+   try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
+   apply atom_sub_r_union__sub_r_component in Hcontra; tauto || constructor.
 (* Failed. *)
