@@ -461,6 +461,6 @@ admit.
 }
 -
 step_proc.
-eauto  10.
-(* Auto-generated comment: Failed. *)
+intuition.
+(* Auto-generated comment: Succeeded. *)
 
