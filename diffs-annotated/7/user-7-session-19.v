@@ -13,6 +13,6 @@ Add Search Blacklist "Private_" "_subproof".
    | H:|-[ ?k'] ?v <$ TUnion _ _
      |- _ =>
          destruct (max_inv_depth_le__components_le _ _ _ Htk) as [Htk1 Htk2]; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2];
-          [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; apply Max.le_max_l || apply Max.le_max_r; auto
+          [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]
    end).
 (* Failed. *)
