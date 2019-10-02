@@ -86,6 +86,5 @@ clear Heq.
 (unfold sem_eq_k in Href).
 (destruct Href as [Href _]).
 specialize (Href 1).
-(destruct Href as [w2 Hsem]).
 (* Auto-generated comment: Failed. *)
 
