@@ -1218,6 +1218,6 @@ Set Printing All.
 Set Printing All.
 Set Printing All.
 gen \207\129.
-(rewrite Nat.mul_1_r).
+(rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
 (* Auto-generated comment: Succeeded. *)
 
