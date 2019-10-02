@@ -121,6 +121,5 @@ lia.
 (step_proc; intuition).
 (exists s; intuition).
 (right; intuition).
-(destruct state).
 (* Auto-generated comment: Succeeded. *)
 
