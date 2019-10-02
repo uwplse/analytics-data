@@ -366,7 +366,6 @@ Proof.
 lia.
 }
 (destruct (a == length bs); subst).
--
-autorewrite with upd.
+(destruct (a == length bs); subst; autorewrite with upd).
 (* Auto-generated comment: Succeeded. *)
 
