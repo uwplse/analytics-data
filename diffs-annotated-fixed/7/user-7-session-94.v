@@ -54,6 +54,6 @@ auto.
 Qed.
 Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k] v <$ TExist X t -> exists tx : ty, |-[ k] v <$ [X := tx] t.
 Proof.
-(intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
+(intros v; induction v; try (solve [ intros X t k Hm; destruct k; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
