@@ -189,5 +189,7 @@ Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii :=
 Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqN87KBx"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Theorem nat_from_le_zeros base_m2 digits n :
+  nat_from_le (digits ++ repeat bounded0 n) = nat_from_le digits.
 (* Auto-generated comment: Failed. *)
 
