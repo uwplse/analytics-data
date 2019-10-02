@@ -407,6 +407,26 @@ Proof.
 (intros n m o).
 (intros Hnm Hmo).
 (rewrite Hnm).
-(rewrite Hnm).
-(* Auto-generated comment: Succeeded. *)
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjUqYct"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem mult_0_plus : forall n m : nat, (0 + n) * m = n * m.
+Proof.
+(intros n m).
+(rewrite plus_O_n).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHphtrC"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem mult_S_1 : forall n m : nat, m = S n -> m * (1 + n) = m * m.
+Proof.
+(intros n m H).
+simp.
+(* Auto-generated comment: Failed. *)
 
