@@ -119,6 +119,8 @@ exists tx.
 (apply match_ty_union_2).
 assumption.
 Qed.
+Definition ty_not_empty_k (t : ty) (k : nat) : Prop := exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Hint Unfold ty_not_empty_k: DBBetaJulia.
 Reserved Notation "'|' t '|'" (at level 20).
 Fixpoint inv_depth (t : ty) :=
   match t with
@@ -172,12 +174,6 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma match_ty__match_ge_world : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
-Proof.
-(induction w; induction t; intros k v Hm w' Hle).
--
-(apply match_ty_cname__inv in Hm).
-subst.
 Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
 (induction w; induction t; intros k v Hm w' Hle).
@@ -248,12 +244,6 @@ assumption.
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
 Qed.
-Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
-Lemma ty__empty_or_matching_ty_exists :
-  forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
-Proof.
-Lemma not_match_ty_var__not_match_ty_subs :
-  forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
 Lemma ty_empty__subs_ty_empty :
   forall (w : nat) (t : ty) (k : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
 Proof.
@@ -278,6 +268,7 @@ exists (TPair v'1 v'2).
 }
 admit.
 }
+(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k Hcontra X s) | specialize (IHt2 k Hcontra X s) ]; [ apply IHt1 | apply IHt2 ]; eauto).
 -
 admit.
 -
@@ -339,6 +330,9 @@ assumption.
 exists v0.
 assumption.
 }
+specialize (IHw _ _ Hnotm' X s).
+(apply IHw).
+exists v.
 admit.
 -
 (apply Hnotm).
@@ -389,6 +383,8 @@ reflexivity.
 +
 (destruct Hm as [v Hm]).
 (left; exists v).
+(apply match_ty_exist).
+exists (TVar i).
 (assert (Heq : [i := TVar i] t = t)).
 admit.
 (rewrite Heq).
@@ -399,7 +395,6 @@ right.
 (destruct Hcontra as [v Hcontra]).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
-Check ty_empty__subs_ty_empty.
 (apply (ty_empty__subs_ty_empty _ _ _ Hnotm i tx)).
 eauto.
 -
@@ -407,10 +402,9 @@ eauto.
 -
 (left; exists (TEV i); apply match_ty_ev).
 Admitted.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t k -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
-(induction t; intros k Hdep Hcontra).
+(induction t; intros k Ht Hcontra).
 -
 specialize (Hcontra 0).
 (destruct Hcontra as [w Hcontra]).
@@ -420,8 +414,5 @@ clear Hm.
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
--
-specialize (Hcontra 0).
-(destruct Hcontra as [w Hcontra]).
 (* Auto-generated comment: Failed. *)
 
