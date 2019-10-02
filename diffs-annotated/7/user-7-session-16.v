@@ -217,19 +217,7 @@ tauto.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-(induction t2).
-+
-(destruct (cname_eq__decidable c c0)).
-*
-(subst; left; constructor).
-*
-right.
-(intros Hcontra).
-(apply sub_r_cname__inv in Hcontra).
-contradiction.
-+
-right.
-(intros Hcontra).
-(remember (TCName c) as t eqn:Heq1 ; remember (TPair t2_1 t2_2) as t' eqn:Heq2 ).
-(induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ])).
+Lemma sub_r_dec__mk_nf_sub_r_dec : forall t1 t2 : ty, Decidable.decidable (|- t1 << t2) -> Decidable.decidable (|- MkNF( t1) << t2).
+Proof.
+(intros t1 t2 Hde).
 (* Failed. *)
