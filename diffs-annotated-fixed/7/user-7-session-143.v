@@ -68,7 +68,8 @@ Proof.
 (apply sem_sub_k_exist_pair).
 Qed.
 Lemma sem_sub_fresh_var__sem_sub_any :
-  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
+  forall (X : id) (t t' : ty) (X' : id),
+  fresh_in_ty X t -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
 (intros X t).
 (induction t; try (solve [ intros; simpl; tauto ])).
@@ -83,5 +84,6 @@ admit.
 +
 admit.
 +
+(intros X' HX HX' Hsem).
 (* Auto-generated comment: Failed. *)
 
