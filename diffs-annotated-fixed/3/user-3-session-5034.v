@@ -116,8 +116,28 @@ step_proc.
 (step_proc; intuition; subst; eauto).
 {
 (step_proc; intuition; subst; eauto).
-{
+-
 (exists nil; intuition).
 eauto.
+-
+(exists nil; intuition).
+eauto.
+}
+(exists nil; intuition).
+eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWpmGwn"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Lemma diskGet_eq_values :
+  forall d a b b',
+  diskGet d a =?= b -> diskGet d a =?= b' -> a < diskSize d -> b = b'.
+Proof.
+(intros).
+(destruct (diskGet d a) eqn:?; simpl in *).
+congruence.
 (* Auto-generated comment: Succeeded. *)
 
