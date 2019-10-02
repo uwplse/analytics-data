@@ -1160,6 +1160,7 @@ clear IS.
 5: (erewrite denote_box_compat).
 6: (erewrite denote_box_compat).
 7: (erewrite kron_compat).
+8: reflexivity.
 9: (erewrite denote_box_compat).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
