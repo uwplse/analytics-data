@@ -2666,8 +2666,17 @@ specialize (t0 \206\1471' (\206\1471' \226\139\147 \206\1470) p2 M'' t').
 (apply types_pat_no_trail in t').
 (rewrite <- t').
 (simpl_rewrite (trim_merge_dist \206\1471' \206\1470)).
-(rewrite Nat.add_sub).
-(rewrite <- size_octx_merge by easy).
-(rewrite <- pf_merge in *).
-(simpl).
 (eapply (IH p1); trivial).
+(eapply t0).
+split.
+easy.
+(apply pf_merge).
+easy.
+*
+(rewrite Nat.add_sub).
+(apply apply_U_correct).
+(rewrite size_wtype_length).
+reflexivity.
+(unfold subst_pat).
+replace (size_wtype W) with \226\159\166 W \226\159\167 by easy.
+(rewrite <- size_octx_merge by easy).
