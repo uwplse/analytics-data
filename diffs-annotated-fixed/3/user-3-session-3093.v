@@ -396,14 +396,6 @@ reflexivity.
 (simpl).
 (destruct (split l')).
 (intros l1 l2 H).
-injection H as H1 H2.
-(rewrite <- H1, <- H2).
-(simpl).
-(assert (Hc : combine x y = l')).
-{
-(apply IHl').
-reflexivity.
-}
 (apply Hc).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
