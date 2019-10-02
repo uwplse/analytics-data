@@ -200,6 +200,5 @@ Qed.
 Lemma init_cok :
   proc_hspec Var.dynamics impl.(init) init_hspec.
 Proof.
-(eapply ret_hspec; firstorder).
 (* Auto-generated comment: Succeeded. *)
 
