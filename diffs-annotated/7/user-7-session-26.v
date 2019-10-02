@@ -113,5 +113,5 @@ Proof.
 (split; [ eapply Nat.max_lub_l | eapply Nat.max_lub_r ]; eassumption).
 Qed.
 Lemma inv_depth_mk_nf : forall t : ty, | MkNF( t) | = | t |.
-(split; tauto).
+(split; auto).
 (* Failed. *)
