@@ -123,5 +123,7 @@ Proof.
 (apply mk_nf__sub_d_r; assumption).
 (apply nf_sem_sub_i__sub_d).
 (apply mk_nf__in_nf).
-(* Auto-generated comment: Failed. *)
+(apply sem_sub_i__trans with t1).
+(apply mk_nf__sem_sub_i1).
+(* Auto-generated comment: Succeeded. *)
 
