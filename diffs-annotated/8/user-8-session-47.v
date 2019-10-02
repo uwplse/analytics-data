@@ -625,4 +625,3 @@ Proof.
 (induction n; intros).
 -
 (simpl).
-(rewrite (kron_1_r u)).
