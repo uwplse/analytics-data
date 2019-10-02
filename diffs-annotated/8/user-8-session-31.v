@@ -2666,37 +2666,3 @@ specialize (t0 \206\1471' (\206\1471' \226\139\147 \206\1470) p2 M'' t').
 (apply types_pat_no_trail in t').
 (rewrite <- t').
 (simpl_rewrite (trim_merge_dist \206\1471' \206\1470)).
-(apply AUC).
-easy.
-(intros x IN).
-(assert (L : (x < size_octx \206\147)%nat)).
-(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
-(eapply pat_to_list_bounded).
-split.
-validate.
-(apply pf_merge).
-(apply types_bit).
-(apply singleton_singleton).
-easy.
-(rewrite pf_merge in L).
-(rewrite size_octx_merge in L; trivial).
-(simpl in L).
-(rewrite singleton_size in L).
-omega.
-+
-(simpl).
-dependent destruction p1.
-dependent destruction t.
-(destruct pf1).
-(rewrite merge_nil_l in pf_merge).
-subst.
-(unfold subst_pat).
-(simpl).
-(apply compose_super_correct).
-*
-(unfold denote_circuit in IH).
-(unfold process_gate_state).
-(simpl).
-(rewrite Nat.sub_0_r).
-replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
-2: (simpl; rewrite size_ctx_app; simpl; omega).
