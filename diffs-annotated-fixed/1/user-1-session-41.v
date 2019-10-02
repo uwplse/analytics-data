@@ -762,5 +762,15 @@ subst.
 (f_equal; eauto).
 -
 (intros; inversion H0; subst; eauto).
+(intros; inversion H0; subst; eauto).
+all: (try (apply singleton_eq in H1; congruence)).
+all: (try specialize (H1 _ (In_singleton _ _))).
+all:
+ (repeat
+   match goal with
+   | H:exists _, _ |- _ => destruct H
+   | H:_ \/ _ |- _ => inversion H; clear H
+   end).
+all: (try congruence).
 (* Auto-generated comment: Succeeded. *)
 
