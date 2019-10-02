@@ -281,6 +281,110 @@ Proof.
 (apply spec_abstraction_compose).
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; intros).
-(destruct a as [[] bs]; simpl in *).
-(* Auto-generated comment: Succeeded. *)
+(destruct a as [[] bs]; simpl in *; intuition eauto).
+(descend; intuition eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWicxor"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve get_len_abstr_ok: core.
+Theorem log_size_bound d bs a :
+  log_size_ok d bs -> a < length bs -> log_addr a < diskSize d.
+Proof.
+(unfold log_size_ok, log_addr; intros; lia).
+Qed.
+Hint Resolve log_size_bound: core.
+Theorem get_at_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a < length state;
+     post := fun r state' => state' = state /\ nth a state block0 = r;
+     recovered := fun _ state' => state' = state |}) 
+    (get_at a) recover abstr.
+Proof.
+(unfold get_at; intros).
+(apply spec_abstraction_compose).
+(simpl).
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; intros).
+(destruct a0 as [_ bs]; simpl in *; intuition eauto).
+(descend; intuition eauto).
+(descend; intuition eauto).
+(unfold log_abstraction in H0; intuition).
+(pose proof (H3 a); intuition).
+(assert (v = nth a bs block0)).
+(eapply diskGet_eq_values; eauto).
+auto.
+Qed.
+Hint Resolve get_at_ok: core.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe; simpl; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a as [_ bs]; simpl in *; intuition eauto).
+Qed.
+Hint Resolve recover_wipe: core.
+Lemma firstn_one_more :
+  forall (a : nat) (d : list block),
+  S a <= length d -> firstn a d ++ [nth a d block0] = firstn (S a) d.
+Proof.
+(intros).
+generalize dependent a.
+(induction d; simpl; intros).
+-
+(exfalso; lia).
+-
+(destruct a0; simpl in *; auto).
+(rewrite IHd by lia; auto).
+Qed.
+Opaque firstn.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
+Proof.
+(induction a; simpl).
+-
+step_proc.
+-
+step_proc.
+step_proc.
+intuition eauto.
+{
+lia.
+}
+step_proc.
+auto using firstn_one_more.
+Qed.
+Hint Resolve get_upto_ok: core.
+Theorem get_ok : proc_spec get_spec get recover abstr.
+Proof.
+(unfold get, get_spec; intros).
+step_proc.
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
+(rewrite firstn_all; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdcTpNv"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+step_proc.
+(* Auto-generated comment: Failed. *)
 
