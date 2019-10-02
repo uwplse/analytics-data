@@ -16,35 +16,50 @@ Open Scope btjr_scope.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
-(constructor; assumption).
--
-(rewrite <- mk_nf__idempotent).
-assumption.
-Qed.
-Lemma sub_r__reflexive : forall t : ty, |- t << t.
-Proof.
-(apply sub_r__rflxv).
-Qed.
-Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
+Lemma sub_r_nf__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> InNF( t1) -> InNF( t2) -> |- t2 << t3 -> |- t1 << t3.
 Proof.
 (intros t1 t2 t3 Hsub1).
 generalize dependent t3.
-(induction Hsub1; intros t3 Hsub2).
+(induction Hsub1; intros t3 Hnf1 Hnf2 Hsub2; try (solve [ assumption ])).
 -
-assumption.
--
-(remember (TPair t1' t2') as tm eqn:Heq ).
-(induction Hsub2; try (solve [ inversion Heq | constructor ])).
+(inversion Hnf1; subst).
+(inversion Hnf2; subst).
+(inversion H; inversion H0; subst).
+(remember (TPair t1' t2') as tx eqn:Heqx ; induction Hsub2; inversion Heqx; subst).
 +
-(inversion Heq; subst).
-(constructor; auto with DBBetaJulia).
+(constructor; [ apply IHHsub1_1 | apply IHHsub1_2 ]; try assumption || constructor; assumption).
++
+(apply SR_UnionR1; auto).
++
+(apply SR_UnionR2; auto).
++
+(apply IHHsub2).
+(apply mk_nf_nf__equal; assumption).
+(apply mk_nf__in_nf).
+(rewrite mk_nf_nf__equal; assumption).
+-
+(destruct (union_in_nf__components_in_nf _ _ Hnf1) as [Hnfa1 Hnfa2]).
+(constructor; [ apply IHHsub1_1 | apply IHHsub1_2 ]; assumption).
+-
+(destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnfa1 Hnfa2]).
+(apply IHHsub1; try assumption).
+(pose proof (sub_r_nf_union_l__inv _ _ _ Hsub2 Hnf2); tauto).
+-
+(destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnfa1 Hnfa2]).
+(apply IHHsub1; try assumption).
+(pose proof (sub_r_nf_union_l__inv _ _ _ Hsub2 Hnf2); tauto).
+-
+(inversion Hnf1; subst).
+(inversion Hnf2; subst).
+(inversion H; subst).
+(inversion H0; subst).
+(remember (TRef t') as tx eqn:Heqx ).
+(induction Hsub2; inversion Heqx; subst).
 +
 (apply SR_UnionR1; tauto).
 +
 (apply SR_UnionR2; tauto).
 +
-subst.
-clear IHHsub2.
-(assert (Hsub1 : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
-(apply SR_NormalForm).
+constructor.
+auto.
 (* Failed. *)
