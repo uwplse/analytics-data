@@ -68,10 +68,9 @@ Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
 Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
-Proof.
-(intros Hcontra).
-specialize (Hcontra 0).
-(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX)))).
-{
-(simpl).
+(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
+specialize (Hcontra _ Hm).
+(apply match_ty_exist__0_inv in Hcontra).
+(destruct Hcontra as [Hv [tx Heqx]]).
+(simpl in Heqx).
 (* Failed. *)
