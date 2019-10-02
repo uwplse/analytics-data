@@ -2759,6 +2759,5 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 (rewrite size_octx_merge by easy).
 (simpl_rewrite (octx_wtype_size W p1 \206\1471 t)).
 (apply compose_super_correct).
-*
 (* Auto-generated comment: Succeeded. *)
 
