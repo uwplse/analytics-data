@@ -256,6 +256,5 @@ reflexivity.
 }
 (rewrite H in H0).
 clear H.
-(rewrite evalIfTrue in H0).
--
-admit.
+(rewrite evalAnd in H0).
+(destruct (evalIn _ _ _)).
