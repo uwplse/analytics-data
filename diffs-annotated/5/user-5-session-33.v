@@ -26,7 +26,3 @@ Theorem eval_eq_true_or_false :
   L.(eval) env (Eq t1 t2) = L.(eval) env (Bool true) \/
   L.(eval) env (Eq t1 t2) = L.(eval) env (Bool false).
 Proof.
-(intros).
-(destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2))).
--
-apply -> L.(evalEqTrue).
