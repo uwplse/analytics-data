@@ -157,6 +157,5 @@ Unset Search Output Name Only.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-Check repeat.
 (* Auto-generated comment: Succeeded. *)
 
