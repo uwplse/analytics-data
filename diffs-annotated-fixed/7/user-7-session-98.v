@@ -151,8 +151,8 @@ Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [T
 Proof.
 (intros Hcontra).
 specialize (Hcontra 1).
-specialize (Hcontra 2).
-(assert (Hm : |-[ 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra 3).
+(assert (Hm : |-[ 3] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hcontra _ Hm).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hmx]).
@@ -163,5 +163,7 @@ clear Heq.
 (destruct Hmx as [t' [Heq' Hsem']]).
 (inversion Heq'; subst).
 clear Heq'.
+clear Hm.
+(assert (Hm : |-[ 1] TRef tx <$ TRef tx)).
 (* Auto-generated comment: Failed. *)
 
