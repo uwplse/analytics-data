@@ -116,6 +116,6 @@ contradiction.
 (rewrite IHt).
 reflexivity.
 -
-(destruct (beq_idP X i); try reflexivity).
+(destruct (beq_idP X i)).
 (* Auto-generated comment: Failed. *)
 
