@@ -125,12 +125,18 @@ nat :=
   | nil => 0
   | digit :: digits' => proj1_sig digit * S (S base_m2) + le_to_nat digits'
   end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqGyddPj"
+Fixpoint le_to_nat base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
+nat :=
+  match digits with
+  | nil => 0
+  | digit :: digits' => S (S base_m2) * proj1_sig digit + le_to_nat digits'
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlbeccJ"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJVULoX"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6G0v7G"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
@@ -148,11 +154,8 @@ auto.
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
-Check PeanoNat.Nat.mod_small.
-Check PeanoNat.Nat.mod_le.
 (rewrite IHn).
 Search -"mod" -div.
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
-lia.
 (* Auto-generated comment: Succeeded. *)
 
