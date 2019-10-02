@@ -230,9 +230,7 @@ subst.
 (destruct Hm as [tx Hmx]).
 (destruct w').
 (inversion Hle).
-Lemma ty__matching_ty_exists : forall (w : nat) (t : ty) (k : nat), exists v : ty, |-[ k, w] v <$ t.
-Proof.
-(induction w; induction t; intros k).
+exists (TCName c).
+(apply match_ty_value_type__reflexive; constructor).
 -
-(TCName c).
-(* Failed. *)
+(destruct (IHt1 k) as [w1 [v1 Hm1]]).
