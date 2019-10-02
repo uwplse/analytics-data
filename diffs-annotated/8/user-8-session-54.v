@@ -26,4 +26,3 @@ autorewrite with proof_db.
 (simpl).
 (rewrite Nat.sub_diag).
 (rewrite kron_1_r').
-(rewrite subst_pat_fresh_empty).
