@@ -143,6 +143,6 @@ eauto using log_length_ok_nil.
 -
 (intuition; exfalso; simpl in *; lia).
 Add Search Blacklist "Raw" "Proofs".
-(simpl; lia).
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
