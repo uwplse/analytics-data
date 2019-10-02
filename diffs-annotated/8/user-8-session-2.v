@@ -50,7 +50,5 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About restore_dims.
 Timeout 1 About trans.
 Timeout 1 About ctrls_to_list.
-Timeout 1 About ctrl_list_to_unitary.
-Timeout 1 Print ctrl_list_to_unitary.
-Timeout 1 Print Ltac ctrl_list_to_unitary.
+Lemma ctrl_list_to_unitary_compat : A == A' -> ctrl_list_to_unitary l r A == ctrl_list_to_unitary l r A'.
 (* Failed. *)
