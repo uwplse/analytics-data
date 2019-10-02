@@ -166,6 +166,7 @@ exists (S w').
 }
 *
 (split; intros HX').
+(split; intros HX').
 {
 (apply match_ty_exist__inv in Hm').
 (destruct Hm' as [ti [Hwfti Hm']]).
