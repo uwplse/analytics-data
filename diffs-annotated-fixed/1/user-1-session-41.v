@@ -565,5 +565,16 @@ specialize (H _ (In_singleton _ _)).
   | H:exists _, _ |- _ => destruct H
   | H:_ \/ _ |- _ => inversion H; clear H
   end).
+congruence.
+-
+specialize (H _ (In_singleton _ _)).
+(repeat
+  match goal with
+  | H:exists _, _ |- _ => destruct H
+  | H:_ \/ _ |- _ => inversion H; clear H
+  end).
+congruence.
+-
+specialize (H _ (In_singleton _ _)).
 (* Auto-generated comment: Succeeded. *)
 
