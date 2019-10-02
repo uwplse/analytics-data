@@ -135,8 +135,12 @@ admit.
 (destruct (beq_idP X i) as [Hbeq| Hbeq]).
 +
 subst.
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
++
+subst.
 (rewrite subst_exist_eq in *).
 exists v.
-(apply match_ty_exist__inv in Hm).
+split.
+assumption.
 (* Auto-generated comment: Failed. *)
 
