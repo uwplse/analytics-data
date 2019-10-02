@@ -126,7 +126,13 @@ Theorem log_length_ok_nil d b :
   diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
 Proof.
 (unfold log_length_ok; intros).
-(rewrite H in H1; simpl in H1).
-congruence.
+(rewrite H in H1; simpl in H1; subst).
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2b4vgk"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
