@@ -53,5 +53,16 @@ Lemma unitary_transpose_id : forall W (U : Unitary W), unitary_transpose U \226\
 Proof.
 (intros W U \207\129 safe).
 matrix_denote.
+(rewrite add_fresh_split).
+(rewrite subst_pat_fresh by constructor).
+(unfold denote_db_box).
+(simpl).
+(unfold compose_super, super, pad).
+(repeat rewrite Nat.add_sub).
+(rewrite Nat.sub_diag).
+Msimpl.
+(destruct W; try (solve [ inversion U ])).
+-
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
