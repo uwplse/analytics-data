@@ -254,6 +254,17 @@ tauto.
 -
 (destruct IHHsub1 as [IHHsub11 IHHsub12]).
 (destruct IHHsub2 as [IHHsub21 IHHsub22]).
+(apply SR_NormalForm).
+(assert (Hsub : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
+(apply sub_r__mk_nf_sub_r in Hsub).
+(pose proof (mk_nf__in_nf (TPair t1 t2)) as Hnf1).
+(pose proof (mk_nf__in_nf (TPair t1' t2')) as Hnf2).
+(pose proof (sub_r_nf__trans2 _ _ Hsub Hnf1 Hnf2) as Htrans).
+(destruct Htrans as [_ Htrans]).
+(apply Htrans; assumption).
+-
+(destruct IHHsub1 as [IHHsub11 IHHsub12]).
+(destruct IHHsub2 as [IHHsub21 IHHsub22]).
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (remember (TUnion t1 t2) as ty eqn:Heqy ).
@@ -276,5 +287,9 @@ tauto.
 (split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst;
   try (solve [ constructor; auto ])).
 +
+(apply SR_NormalForm).
+(assert (Hsub : |- TRef t << TRef t') by (constructor; assumption)).
+(apply sub_r__mk_nf_sub_r in Hsub).
+(apply sub_r_nf__trans2 with (MkNF( TRef t'))).
 (* Auto-generated comment: Failed. *)
 
