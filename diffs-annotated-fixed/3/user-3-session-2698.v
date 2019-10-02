@@ -158,6 +158,32 @@ lia.
 +
 (inversion H; subst).
 (rewrite nat_from_le_zeros; auto).
-(rewrite nat_le_inverse).
+(rewrite nat_le_inverse; auto).
+-
+(simpl).
+typeclasses eauto.
+-
+(simpl).
+(unfold EqualDec).
+(intros; simpl).
+(decide equality; subst).
+(decide equality; subst).
+(destruct (x0 == x1); auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfd5Mho"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSoBuMR"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwDPN5t"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
