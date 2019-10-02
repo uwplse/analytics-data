@@ -292,6 +292,12 @@ Theorem plus_ble_compat_l :
 Proof.
 (intros).
 (induction p as [| p' IHp']).
+-
 (simpl).
+(rewrite H).
+reflexivity.
+-
+(simpl).
+(rewrite IHp').
 (* Auto-generated comment: Succeeded. *)
 
