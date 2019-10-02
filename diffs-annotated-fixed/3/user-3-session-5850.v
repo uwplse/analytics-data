@@ -160,5 +160,64 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquIn0vd"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem plus_rearrange_firsttry :
+  forall n m p q : nat, n + m + (p + q) = m + n + (p + q).
+Proof.
+(intros n m p q).
+(rewrite plus_comm).
+Abort.
+Theorem plus_rearrange :
+  forall n m p q : nat, n + m + (p + q) = m + n + (p + q).
+Proof.
+(intros n m p q).
+(assert (H : n + m = m + n)).
+{
+(rewrite plus_comm).
+reflexivity.
+}
+(rewrite H).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2rSjgk"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem plus_assoc' : forall n m p : nat, n + (m + p) = n + m + p.
+Proof.
+(intros n m p).
+(induction n as [| n' IHn']).
+reflexivity.
+(simpl).
+(rewrite IHn').
+reflexivity.
+Qed.
+Theorem plus_assoc'' : forall n m p : nat, n + (m + p) = n + m + p.
+Proof.
+(intros n m p).
+(induction n as [| n' IHn']).
+-
+reflexivity.
+-
+(simpl).
+(rewrite IHn').
+reflexivity.
+Qed.
+Theorem plus_swap : forall n m p : nat, n + (m + p) = m + (n + p).
+Proof.
+(intros n m p).
+(rewrite plus_assoc).
+(assert (n + m = m + n)).
+{
+(rewrite plus_comm).
+reflexivity.
+}
 (* Auto-generated comment: Succeeded. *)
 
