@@ -149,6 +149,6 @@ auto.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
 Check PeanoNat.Nat.mod_small.
-(rewrite IHn by (apply PeanoNat.Nat.mod_lt; lia)).
+(rewrite IHn by (apply PeanoNat.Nat.mod_le; lia)).
 (* Auto-generated comment: Failed. *)
 
