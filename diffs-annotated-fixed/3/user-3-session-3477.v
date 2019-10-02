@@ -272,5 +272,42 @@ Proof.
 (eapply proc_spec_rx; [ solve [ eauto ] |  ]; cbn[pre post recovered]; intros).
 (descend; intuition eauto).
 (destruct r).
+-
+clear H.
+(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
+(eapply H0 in H2; eauto).
+(destruct matches in *; safe_intuition repeat deex; eauto).
+(descend; intuition eauto).
+-
+(unfold proc_spec; simpl; intros).
+(destruct matches; subst; eauto).
+(eexists; intuition eauto).
+(inv_rexec; inv_exec).
+congruence.
+Qed.
+Theorem spec_abstraction_compose :
+  forall `(spec : Specification A T R State2) `(p : proc T) 
+    `(rec : proc R) `(abs2 : LayerAbstraction State1 State2)
+    `(abs1 : Abstraction State1),
+  proc_spec
+    (fun '(a, state2) state =>
+     {|
+     pre := pre (spec a state2) /\ abstraction abs2 state state2;
+     post := fun v state' =>
+             exists state2',
+               post (spec a state2) v state2' /\
+               abstraction abs2 state' state2';
+     recovered := fun v state' =>
+                  exists state2',
+                    recovered (spec a state2) v state2' /\
+                    abstraction abs2 state' state2' |}) p rec abs1 ->
+  proc_spec spec p rec (abstraction_compose abs1 abs2).
+Proof.
+(intros).
+(unfold proc_spec, abstraction_compose; simpl; intros; safe_intuition
+  repeat deex).
+(eapply (H (a, state)) in H2; simpl in *; eauto).
+(destruct r; intuition repeat deex; eauto).
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
