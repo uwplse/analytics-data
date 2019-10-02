@@ -949,3 +949,5 @@ Admitted.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqi4Q9u"
 Print Ltac Signatures.
 (rewrite Nat.pow_add_r, <- (Nat.mul_1_r i)).
+(intros \207\129 intros \207\129).
+(* Failed. *)
