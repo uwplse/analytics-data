@@ -674,5 +674,14 @@ step.
 -
 step.
 (destruct s; simplify).
-(* Auto-generated comment: Succeeded. *)
++
+(exists d,FullySynced; simplify; finish).
+(destruct r; step).
+(exists d,FullySynced; simplify; finish).
+lia.
++
+(exists d,(OutOfSync a0 b); simplify; finish).
+intuition eauto.
+lia.
+(* Auto-generated comment: Failed. *)
 
