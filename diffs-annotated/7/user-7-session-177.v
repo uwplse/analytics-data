@@ -85,15 +85,17 @@ assumption.
 -
 (destruct (beq_idP x i); reflexivity).
 Qed.
-Definition mk_subst_exist (x : id) (y : id) (t ts : ty) := TExist y (if beq_id x y then t else ts).
-Function
- subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
-   match t with
-   | TCName _ => t
-   | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
-   | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
-   | TExist y t' => if beq_id x y then t else t
-   | TVar y => if beq_id x y then s else t
-   | TEV y => t
-   end.
-(* Auto-generated comment: Failed. *)
+Check IdSet.add.
+Proof.
+all: (try (intros; simpl; Omega.omega)).
+-
+(intros).
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+tauto.
+Defined.
+Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
