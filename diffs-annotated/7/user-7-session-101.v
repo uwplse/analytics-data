@@ -24,5 +24,4 @@ exists 1.
 (destruct Hm as [t' Heq]; subst).
 (simpl).
 constructor.
--
-(* Auto-generated comment: Failed. *)
+(* Failed. *)
