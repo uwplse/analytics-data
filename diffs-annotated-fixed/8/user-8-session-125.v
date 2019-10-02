@@ -193,6 +193,5 @@ solve_matrix.
 matrix_denote.
 restore_dims.
 (repeat rewrite Mmult_1_l).
-restore_dims.
 (* Auto-generated comment: Succeeded. *)
 
