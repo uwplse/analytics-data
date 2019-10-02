@@ -235,6 +235,68 @@ Proof.
 (autorewrite with upd; eauto).
 -
 (apply le_eq_or_S_le in H1; intuition subst).
+{
+(destruct (lt_dec a' (diskSize d_0)); autorewrite with upd).
 +
+(assert (a' < diskSize d_1) by congruence; autorewrite with upd; auto).
++
+(assert (~ a' < diskSize d_1) by congruence; autorewrite with upd; auto).
+}
+(autorewrite with upd; eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtSHWPa"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve equal_after_diskUpd: core.
+Theorem init_at_ok :
+  forall a,
+  proc_spec
+    (fun '(d_0, d_1) state =>
+     {|
+     pre := disk0 state ?|= eq d_0 /\
+            disk1 state ?|= eq d_1 /\ equal_after a d_0 d_1;
+     post := fun _ state' =>
+             exists d_0' d_1' : disk,
+               disk0 state' ?|= eq d_0' /\
+               disk1 state' ?|= eq d_1' /\ equal_after 0 d_0' d_1';
+     recovered := fun _ state' => True |}) (init_at a) td.recover td.abstr.
+Proof.
+(induction a; simpl; intros).
+-
+step.
+-
+step.
+step.
+(destruct r; finish).
++
+step.
+(destruct r; simplify; finish).
++
+step.
+(destruct r; finish).
+Qed.
+Hint Resolve init_at_ok: core.
+Theorem sizeInit_ok :
+  proc_spec
+    (fun '(d_0, d_1) state =>
+     {|
+     pre := disk0 state ?|= eq d_0 /\ disk1 state ?|= eq d_1;
+     post := fun r state' =>
+             exists d_0' d_1',
+               disk0 state' ?|= eq d_0' /\
+               disk1 state' ?|= eq d_1' /\
+               match r with
+               | Some sz => diskSize d_0' = sz /\ diskSize d_1' = sz
+               | None => True
+               end;
+     recovered := fun _ state' => True |}) sizeInit td.recover td.abstr.
+Proof.
+(unfold sizeInit).
+step.
+(destruct r).
+step.
 (* Auto-generated comment: Succeeded. *)
 
