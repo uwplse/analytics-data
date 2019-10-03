@@ -198,6 +198,7 @@ Qed.
 Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
 Proof.
 (intros t t' Hsem).
-(split; intros k).
+(split; intros k; specialize (Hsem (S k))).
+(assert (Hvref : value_type (TRef t))).
 (* Auto-generated comment: Failed. *)
 
