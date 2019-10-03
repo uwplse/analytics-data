@@ -58,7 +58,8 @@ split.
 (rewrite Heq).
 tauto.
 +
-(assert (Heq : ||-[ k][t]= [t'])).
-(apply sem_sub_k__sem_eq_k; tauto).
-(* Auto-generated comment: Failed. *)
+(assert (Heq : ||-[ k][t]= [t']) by (apply sem_sub_k__sem_eq_k; auto)).
+(eapply sem_eq_k__trans; eassumption).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
