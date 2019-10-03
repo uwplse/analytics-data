@@ -34,6 +34,6 @@ Proof.
 -
 (intros k w1).
 exists w1.
-(intros v).
+(intros v Hm).
 (* Auto-generated comment: Failed. *)
 
