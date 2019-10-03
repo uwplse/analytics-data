@@ -199,5 +199,6 @@ tauto.
 (induction Hsub'; inversion Heqy; subst; try (solve [ (constructor; tauto) || auto ])).
 +
 (constructor; auto).
+-
 (* Auto-generated comment: Failed. *)
 
