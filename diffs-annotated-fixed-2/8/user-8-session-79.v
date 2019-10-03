@@ -921,6 +921,7 @@ restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
 (erewrite denote_box_compat).
 2: {
-restore_dims.
-(* Auto-generated comment: Failed. *)
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+(* Auto-generated comment: Succeeded. *)
 
