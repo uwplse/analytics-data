@@ -200,5 +200,8 @@ tauto.
 +
 (constructor; auto).
 -
+(destruct (in_nf_union__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
+(destruct IHHsub as [IHHsub1 IHHsub2]; try assumption).
+(split; intros tx Hsub').
 (* Auto-generated comment: Failed. *)
 
