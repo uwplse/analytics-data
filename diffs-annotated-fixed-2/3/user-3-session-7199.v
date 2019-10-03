@@ -316,6 +316,6 @@ intuition eauto.
 (rewrite app_nil_r; auto).
 -
 step_proc.
-(intuition eauto; autorewrite with upd).
+(intuition eauto; autorewrite with upd; auto).
 (* Auto-generated comment: Succeeded. *)
 
