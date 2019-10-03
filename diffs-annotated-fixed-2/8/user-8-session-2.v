@@ -52,7 +52,8 @@ Proof.
 (destruct li as [| k li]).
 (repeat rewrite ctrls_to_list_empty).
 reflexivity.
-dependent destruction u.
-+
+(dependent destruction u; simpl; reflexivity).
+-
+clear IHW1.
 (* Auto-generated comment: Succeeded. *)
 
