@@ -79,6 +79,8 @@ assumption.
 *
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
-(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+(destruct (IdSetProps.In_dec i (FV tx)) as [Hin| Hin]).
+{
+(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
 (* Auto-generated comment: Failed. *)
 
