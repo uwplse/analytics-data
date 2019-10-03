@@ -527,6 +527,7 @@ Proof.
 -
 (rewrite app_nil_r; auto).
 -
-(rewrite IHl1; auto).
+(rewrite IHl1; simpl).
+(rewrite app_assoc).
 (* Auto-generated comment: Succeeded. *)
 
