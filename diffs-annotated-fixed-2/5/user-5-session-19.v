@@ -147,8 +147,9 @@ intro x.
    eval L env (Choose x (Eq (Int 6) (Times (Var x) (Int 2)))) = res ->
    res = eval L env (Int 3))).
 {
-admit.
-}
-(erewrite <- H; reflexivity).
+(intros).
+(assert
+  (eval L (extendEnv env x (Int 3)) (Eq (Int 6) (Times (Var x) (Int 2))) =
+   L.(vTrue))).
 (* Auto-generated comment: Succeeded. *)
 
