@@ -51,9 +51,9 @@ Fixpoint simplify (t : Term) : Term :=
   | Choose x P => Choose x (simplify P)
   end.
 Theorem simplify_correct :
-  forall (L : EpsilonLogic) env (t : Term),
+  forall (L : EpsilonLogic) (t : Term) env,
   L.(eval) env t = L.(eval) env (simplify t).
 Proof.
-(induction t; split; intros; simpl in *; intuition).
+(induction t; intros).
 (* Auto-generated comment: Succeeded. *)
 
