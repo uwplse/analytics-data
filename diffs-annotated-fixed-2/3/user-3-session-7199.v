@@ -383,6 +383,34 @@ Theorem log_abstraction_preserved d bs d' :
 Proof.
 (unfold log_abstraction, log_length_ok, log_size_ok; intuition).
 -
-replace (diskGet d' len addr) in *.
-(* Auto-generated comment: Failed. *)
+replace (diskGet d' len_addr) in *.
+auto.
+-
+congruence.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMrjmBN"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+step_proc.
+(descend; intuition eauto).
+destruct matches.
+-
+step_proc.
+(descend; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(* Auto-generated comment: Succeeded. *)
 
