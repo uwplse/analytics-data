@@ -1032,5 +1032,6 @@ reflexivity.
 }
 all: (try reflexivity).
 rewrite_inPar'.
+(repeat simpl_rewrite id_circ_spec; auto with wf_db).
 (* Auto-generated comment: Succeeded. *)
 
