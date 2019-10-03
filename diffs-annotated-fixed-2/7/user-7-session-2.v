@@ -63,6 +63,6 @@ Proof.
 (intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
 Check unite_pairs_union_t.
 (rewrite (unite_pairs_union_t t1 t0 t2')).
-(apply sub_r_nf_union_l__inv in Hsub1; try assumption).
+(destruct (atom_sub_r_union__sub_r_component _ _ _ Hsub1 H) as [Hsub11| Hsub12]).
 (* Auto-generated comment: Failed. *)
 
