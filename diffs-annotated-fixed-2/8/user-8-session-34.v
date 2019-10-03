@@ -130,6 +130,6 @@ Proof.
 (simpl_rewrite inSeq_correct; trivial).
 (unfold compose_super).
 (unfold HOAS_Equiv in *).
-(rewrite E1 by easy).
-(* Auto-generated comment: Failed. *)
+(rewrite E2).
+(* Auto-generated comment: Succeeded. *)
 
