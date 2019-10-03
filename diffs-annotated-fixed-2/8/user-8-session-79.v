@@ -942,6 +942,5 @@ Timeout 1 Print Ltac rewrite_inPar.
         try rewrite Nat.mul_1_r in IP; try fold NTensor in *; 
         simpl in *
  end).
-(rewrite IP).
 (* Auto-generated comment: Failed. *)
 
