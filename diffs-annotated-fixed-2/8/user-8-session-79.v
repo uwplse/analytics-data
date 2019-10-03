@@ -938,5 +938,5 @@ restore_dims
 (rewrite id_circ_spec).
 (rewrite init_spec).
 reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
