@@ -414,5 +414,64 @@ reflexivity.
 (apply match_ty__inv_depth_0_stable).
 (inversion H0).
 reflexivity.
+-
+(induction t).
++
+(intros; split; intros Hm; apply match_ty_i_cname__inv in Hm; subst; reflexivity).
++
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__components_le _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__components_le _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k').
+specialize (IHt2 Ht2k Ht2k').
+(split; intros Hm; apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hv1 Hv2]]]]; subst; specialize (IHt1 v1); specialize (IHt2 v2);
+  apply match_ty_i_pair; tauto).
++
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__components_le _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__components_le _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k' v).
+specialize (IHt2 Ht2k Ht2k' v).
+(split; intros Hm; apply match_ty_i_union__inv in Hm; destruct Hm; (apply match_ty_i_union_1; tauto) || (apply match_ty_i_union_2; tauto)).
++
+clear IHk' IHt.
+(intros Htk Htk' v).
+(simpl in Htk, Htk').
+(apply le_S_n in Htk).
+(apply le_S_n in Htk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
+*
+(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Href)).
+(pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k').
+(pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
+tauto.
+*
+(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk' Href)).
+(pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k').
+(pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
+tauto.
+Qed.
+Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
+Proof.
+(induction k;
+  match goal with
+  | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
+        apply
+         (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
+            (fun (t1 : ty) (_ : in_nf t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))
+  end).
+-
+(intros c Hdep t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
++
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+-
 (* Auto-generated comment: Failed. *)
 
