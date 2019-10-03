@@ -319,6 +319,5 @@ Lemma firstn_one_more :
   firstn a state ++ [nth a state block0] = firstn (S a) state.
 Proof.
 (intros a state H).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
