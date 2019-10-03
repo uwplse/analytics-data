@@ -505,6 +505,24 @@ reflexivity.
 Qed.
 Theorem app_nil_r : forall l : natlist, l ++ [ ] = l.
 Proof.
+(induction l).
+-
 (simpl).
+reflexivity.
+-
+(simpl).
+(rewrite IHl).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqLlCnnf"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem rev_app_distr :
+  forall l1 l2 : natlist, rev (l1 ++ l2) = rev l2 ++ rev l1.
+Proof.
+(induction l1).
 (* Auto-generated comment: Succeeded. *)
 
