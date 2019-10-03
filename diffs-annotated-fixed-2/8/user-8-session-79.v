@@ -984,5 +984,7 @@ Theorem compile_correct :
 Proof.
 (intros b).
 (induction b; intros \206\147 f t H).
+-
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
