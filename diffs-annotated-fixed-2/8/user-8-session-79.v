@@ -1187,5 +1187,9 @@ reflexivity.
  (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
    rewrite ctx_to_mat_list_length; specialize (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137);
    repeat rewrite Nat.add_0_r in *; apply IHb1; trivial).
-(* Auto-generated comment: Succeeded. *)
+(rewrite xorb_nilpotent).
+all: reflexivity.
+}
+1: {
+(* Auto-generated comment: Failed. *)
 
