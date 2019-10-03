@@ -576,5 +576,42 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-(* Auto-generated comment: Failed. *)
+Fixpoint beq_natlist (l1 l2 : natlist) : bool :=
+  match l1, l2 with
+  | [ ], [ ] => true
+  | _ :: _, [ ] => false
+  | [ ], _ :: _ => false
+  | x :: xs, y :: ys => andb (beq_nat x y) (beq_natlist xs ys)
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmfTnBC"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqS21E7C"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_beq_natlist1 : beq_natlist nil nil = true.
+Proof.
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlbGaaR"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Example test_beq_natlist2 : beq_natlist [1; 2; 3] [1; 2; 3] = true.
+Proof.
+reflexivity.
+Qed.
+Example test_beq_natlist3 : beq_natlist [1; 2; 3] [1; 2; 4] = false.
+Proof.
+reflexivity.
+Qed.
+Theorem beq_natlist_refl : forall l : natlist, true = beq_natlist l l.
+Proof.
+(induction l; simpl).
+(* Auto-generated comment: Succeeded. *)
 
