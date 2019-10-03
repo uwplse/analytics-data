@@ -942,5 +942,8 @@ Timeout 1 Print Ltac rewrite_inPar.
        as
        IP
  end).
+show_dimensions.
+(simpl in *).
+(rewrite IP).
 (* Auto-generated comment: Failed. *)
 
