@@ -100,5 +100,5 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
