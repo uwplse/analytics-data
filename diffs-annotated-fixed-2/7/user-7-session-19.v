@@ -74,6 +74,7 @@ Proof.
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
 -
-(destruct v; contradiction).
-(* Auto-generated comment: Succeeded. *)
+(destruct v).
+contradiction.
+(* Auto-generated comment: Failed. *)
 
