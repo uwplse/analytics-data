@@ -87,6 +87,9 @@ assumption.
 }
 +
 (apply match_ty_exist__inv in Hm').
-(destruct Hm' as [ti Hm']).
+(destruct Hm' as [ti [Hwf Hm']]).
+(split; intros HX').
+*
+exists ti'.
 (* Auto-generated comment: Failed. *)
 
