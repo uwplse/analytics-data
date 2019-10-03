@@ -185,25 +185,11 @@ Proof.
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
-Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Lemma in_nf_pair__value_type : forall t1 t2 : ty, InNF( TPair t1 t2) -> value_type (TPair t1 t2).
 Proof.
-(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | Hsem:||-[ ?k][?t]<= [?t']
-       |- | ?t | <= | ?t' | =>
-           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
-            (Hsem _ Hm); contradiction
-     | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
-       |- | ?t | <= _ =>
-           assert (Hv : value_type t) by constructor; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
-            destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
-            tauto || apply Max.le_max_l || apply Max.le_max_r
-     end ])).
--
-(assert (Hvp : value_type (TPair t1 t2))).
-constructor.
-(inversion Hnft; subst).
+(intros t1 t2 Hnf).
+(inversion Hnf; subst).
 (inversion H; subst).
+Search -atom_type.
 (* Auto-generated comment: Failed. *)
 
