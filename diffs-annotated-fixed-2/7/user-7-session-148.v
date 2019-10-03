@@ -80,6 +80,6 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(apply sem_sub__trans with (TCName c); try assumption).
-(* Auto-generated comment: Succeeded. *)
+(apply sem_sub__trans).
+(* Auto-generated comment: Failed. *)
 
