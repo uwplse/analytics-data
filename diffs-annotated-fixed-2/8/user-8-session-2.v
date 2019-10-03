@@ -116,6 +116,5 @@ Proof.
 -
 (induction r; try reflexivity).
 (simpl).
-(destruct a).
 (* Auto-generated comment: Succeeded. *)
 
