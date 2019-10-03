@@ -441,5 +441,25 @@ assumption.
 +
 (rewrite f_subst_fvar_neq; assumption).
 Admitted.
+Lemma f_b_subst__spec_permute :
+  forall (X Y : id) (sx sy t : ty), wf_ty sx -> wf_ty sy -> [FX := sx] ([BY := sy] t) = [BY := [FX := sx] sy] ([FX := sx] t).
+Proof.
+(intros X Y sx sy t Hwfx Hwfy).
+generalize dependent t.
+(induction t; try (solve [ simpl; reflexivity ])).
+-
+(repeat rewrite f_subst_pair, b_subst_pair).
+(rewrite IHt1, IHt2).
+reflexivity.
+-
+(repeat rewrite f_subst_union, b_subst_union).
+(rewrite IHt1, IHt2).
+reflexivity.
+-
+(rewrite f_subst_exist).
+(destruct (beq_idP Y i)).
++
+subst.
+(rewrite b_subst_exist_beq).
 (* Auto-generated comment: Failed. *)
 
