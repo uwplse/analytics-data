@@ -936,6 +936,6 @@ Timeout 1 Print Ltac rewrite_inPar.
         try rewrite ctx_to_mat_list_length in *; try rewrite size_ntensor in IP;
         try rewrite Nat.mul_1_r in IP; try fold NTensor in *; 
         simpl in *; rewrite IP; clear IP
- end; try (solve [ type_check ]); eauto with wf_db rewrite_inPar).
+ end; try (solve [ type_check ]); eauto with wf_db).
 (* Auto-generated comment: Failed. *)
 
