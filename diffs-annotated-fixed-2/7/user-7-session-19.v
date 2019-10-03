@@ -198,6 +198,10 @@ Proof.
        |- | ?t | <= | ?t' | =>
            assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
             (Hsem _ Hm); contradiction
+     | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
+       |- _ =>
+           assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+            solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
        |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
@@ -209,5 +213,8 @@ Proof.
            destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl;
             apply Nat.max_le_compat; auto
      end ])).
+-
+(destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]).
+(inversion Hnft; subst).
 (* Auto-generated comment: Failed. *)
 
