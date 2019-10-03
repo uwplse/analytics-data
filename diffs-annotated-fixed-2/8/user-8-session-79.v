@@ -1026,7 +1026,5 @@ Timeout 1 Print Ltac rewrite_inPar'.
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
 Set Printing All.
-(fold NTensor).
-(rewrite IP).
 (* Auto-generated comment: Succeeded. *)
 
