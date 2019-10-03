@@ -291,6 +291,11 @@ tauto.
 -
 (intros t3 Hsub21).
 (remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21; inversion Heqx; subst; clear Heqx).
+(induction Hsub21; inversion Heqx; subst; try clear Heqx).
++
+(intros Hsub22).
+(apply sub_r_pair__inv in Hsub22).
+(destruct Hsub22).
+(constructor; tauto).
 (* Auto-generated comment: Failed. *)
 
