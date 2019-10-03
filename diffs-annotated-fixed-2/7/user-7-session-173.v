@@ -126,8 +126,7 @@ Proof.
 (intros X s t1 t2).
 (unfold subst).
 (unfold subst_func).
+Check fix_sub_eq.
 (rewrite fix_sub_eq).
-(simpl).
-reflexivity.
 (* Auto-generated comment: Failed. *)
 
