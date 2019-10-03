@@ -189,6 +189,10 @@ Proof.
 (simpl).
 (unfold super).
 restore_dims.
+gen \207\129.
+(rewrite <- (Nat.mul_1_r (2 ^ \226\159\166 W \226\159\167))).
+(intros).
+(rewrite Nat.mul_1_r).
 Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
