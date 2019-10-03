@@ -195,6 +195,5 @@ invert_abstraction.
 (rewrite <- Hgoodsec; auto).
 (subst; eexists).
 (subst; eexists).
--
 (* Auto-generated comment: Succeeded. *)
 
