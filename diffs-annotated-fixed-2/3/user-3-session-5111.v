@@ -275,6 +275,9 @@ Proof.
 invert_abstraction.
 (constructor; simpl).
 all: (autorewrite with upd; intuition idtac).
+{
 (destruct (lt_dec a (diskSize s))).
-(* Auto-generated comment: Failed. *)
+-
+(destruct (a == a0); subst).
+(* Auto-generated comment: Succeeded. *)
 
