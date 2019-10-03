@@ -40,6 +40,6 @@ Proof.
 exists (Nat.max w21 w22).
 (intros v Hm).
 (apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; eapply match_ty__ge_w; [ eapply Hsem1 | eapply Hsem2 ]).
+(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; eapply match_ty__ge_w).
 (* Auto-generated comment: Failed. *)
 
