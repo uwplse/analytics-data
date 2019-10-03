@@ -475,6 +475,37 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Hint Resolve log_length_ok_unchanged.
-(* Auto-generated comment: Succeeded. *)
+Hint Resolve log_length_ok_unchanged: core.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+step_proc.
+(descend; intuition eauto).
+destruct matches.
+-
+step_proc.
+(descend; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto using log_abstraction_preserved).
+}
+step_proc.
+intuition.
+{
+(exists bs; eauto using log_abstraction_preserved).
+}
+step_proc.
+intuition.
+{
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+{
+(* Auto-generated comment: Failed. *)
 
