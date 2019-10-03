@@ -129,5 +129,8 @@ Proof.
 Check fix_sub_eq.
 (rewrite fix_sub_eq).
 (fold (subst X s t1)).
+(fold (subst X s t2)).
+(simpl).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
