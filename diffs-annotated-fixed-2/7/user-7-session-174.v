@@ -131,12 +131,9 @@ Omega.omega.
 Omega.omega.
 -
 (unfold well_founded).
-(intros a).
+(induction a).
++
 (unfold lt_size).
-Search -Acc.
-Check Acc.
-constructor.
-(intros y Hlt).
 constructor.
 (* Auto-generated comment: Failed. *)
 
