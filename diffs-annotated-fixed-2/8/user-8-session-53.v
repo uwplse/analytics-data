@@ -947,6 +947,6 @@ Lemma assert_init_at_id :
 Proof.
 (intros b m i Lt \207\129 safe).
 (simpl).
-(simpl_rewrite id_circ_spec; auto with wf_db).
-(* Auto-generated comment: Failed. *)
+(simpl_rewrite id_circ_spec).
+(* Auto-generated comment: Succeeded. *)
 
