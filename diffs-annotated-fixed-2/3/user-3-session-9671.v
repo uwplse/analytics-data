@@ -526,6 +526,6 @@ step.
 intuition eauto.
 {
 (exists []; intuition eauto).
-(apply log_abstraction_nil; eauto).
-(* Auto-generated comment: Failed. *)
+(apply log_abstraction_nil with (b := r); eauto).
+(* Auto-generated comment: Succeeded. *)
 
