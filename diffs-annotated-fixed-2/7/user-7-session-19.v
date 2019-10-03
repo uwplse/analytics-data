@@ -651,7 +651,72 @@ Qed.
 Lemma mk_nf__sem_sub_i1 : forall t : ty, ||- [MkNF( t)]<= [t].
 Proof.
 (intros t k).
-(pose proof (match_ty_i_nf t k)).
-auto with DBBetaJulia.
-(* Auto-generated comment: Failed. *)
+(pose proof (match_ty_i_nf t k) as H).
+(intros v; specialize (H v)).
+tauto.
+Qed.
+Theorem sub_d__semantic_complete : forall t1 t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
+Proof.
+(intros t1 t2 Hsem).
+(apply SD_Trans with (MkNF( t1))).
+(apply mk_nf__sub_d2; assumption).
+(apply nf_sem_sub_i__sub_d).
+(apply mk_nf__in_nf).
+(apply sem_sub_i__trans with t1).
+(apply mk_nf__sem_sub_i1).
+assumption.
+Qed.
+Theorem sub_d__sem_sub_i : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
+Proof.
+(intros t1 t2 Hsub).
+(unfold sem_sub_i).
+(induction Hsub; intros k v Hm).
+-
+assumption.
+-
+specialize (IHHsub1 k).
+specialize (IHHsub2 k).
+auto.
+-
+specialize (IHHsub1 k).
+specialize (IHHsub2 k).
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+auto using match_ty_i_pair.
+-
+(apply match_ty_i_union__inv in Hm).
+(destruct Hm; [ apply IHHsub1 | apply IHHsub2 ]; assumption).
+-
+(apply match_ty_i_union_1; assumption).
+-
+(apply match_ty_i_union_2; assumption).
+-
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_i_union__inv in Hm1).
+(destruct Hm1; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_i_pair).
+-
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_i_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_i_pair).
+-
+(destruct k).
+(destruct v; contradiction || constructor).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [tx [Heq Href]]; subst).
+(simpl).
+(intros v; split; intros Hm; specialize (Href v)).
+specialize (IHHsub2 k _ Hm).
+tauto.
+(apply IHHsub1; tauto).
+Qed.
+Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> (||- [t1]<= [t2])%btjmdeq.
+Proof.
+(intros ta; induction ta; intros tb; induction tb; intros Hsem).
+16: {
+idtac.
+clear IHta.
+Abort.
+(* Auto-generated comment: Succeeded. *)
 
