@@ -1004,8 +1004,7 @@ restore_dims tensor_tac.
                (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
        let IP := fresh "IP" in
        specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
-        rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
-        rewrite IP; clear IP
+        rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *
  end; try (solve [ type_check ])).
 (* Auto-generated comment: Failed. *)
 
