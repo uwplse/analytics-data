@@ -1084,5 +1084,8 @@ restore_dims tensor_tac.
 (rewrite xorb_comm).
 restore_dims tensor_tac.
 Msimpl.
-(* Auto-generated comment: Failed. *)
+(match goal with
+ | |- ?A == ?B => replace A with B by unify_matrix_dims tensor_tac
+ end).
+(* Auto-generated comment: Succeeded. *)
 
