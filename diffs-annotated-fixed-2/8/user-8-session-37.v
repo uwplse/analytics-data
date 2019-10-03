@@ -61,6 +61,5 @@ replace (gate g p c) with compose (gate g p (fun p' => output p')) c by auto.
 dependent destruction H'.
 (destruct \206\1471 as [| \206\1471]; try invalid_contradiction).
 (erewrite denote_compose with (\206\1471 := []); trivial).
-Focus 3.
 (* Auto-generated comment: Succeeded. *)
 
