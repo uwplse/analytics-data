@@ -43,7 +43,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtKERBA"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Notation "'proc:' p" := (ProcMarker p) (at level 10, only printing).
+Notation "'is' p" := (ProcMarker p) (at level 10, only printing).
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -56,6 +56,5 @@ Proof.
 (match goal with
  | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
  end).
-(unfold swapXY).
 (* Auto-generated comment: Succeeded. *)
 
