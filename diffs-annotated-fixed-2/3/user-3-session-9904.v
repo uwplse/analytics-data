@@ -148,7 +148,7 @@ step_proc.
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
-          end _) |- _ => idtac a
+          end _) |- _ => idtac H a
  end).
 (* Auto-generated comment: Succeeded. *)
 
