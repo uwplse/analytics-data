@@ -1,1 +1,0 @@
-Cd "logging-client/extract/".
