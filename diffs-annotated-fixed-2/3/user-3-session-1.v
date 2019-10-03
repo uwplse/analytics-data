@@ -463,5 +463,6 @@ firstorder.
 (unfold spec_exec in H1).
 firstorder.
 (apply H1).
-(* Auto-generated comment: Failed. *)
+(destruct ret; firstorder).
+(* Auto-generated comment: Succeeded. *)
 
