@@ -80,6 +80,6 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Search -"endian".
-Definition uint64_to_bv (n : uint64) : option (ByteVector.ByteVector 8).
+Search -"digits".
 (* Auto-generated comment: Succeeded. *)
 
