@@ -478,6 +478,6 @@ Proof.
 (assert (Hma : |-[ k] TPair ta1 ta2 <$ TPair ta1 ta2) by (apply match_ty_i__reflexive; assumption)).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
 -
-(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hdep Hsem') as [Hsem1 Hsem2]).
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hdep Hsem) as [Hsem1 Hsem2]).
 (* Auto-generated comment: Failed. *)
 
