@@ -420,5 +420,5 @@ lia.
 (exists s; simpl; intuition).
 (apply log_abstraction_pre_commit; auto).
 +
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
