@@ -418,6 +418,7 @@ clear Hm.
 (destruct Ht as [w1 [v Hm]]).
 specialize (Hcontra w1).
 (destruct Hcontra as [w2 Hcontra]).
-specialize (Hcontra _ Hm).
+Check Hcontra.
+specialize (Hcontra Hm).
 (* Auto-generated comment: Failed. *)
 
