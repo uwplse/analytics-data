@@ -103,18 +103,6 @@ constructor.
 Qed.
 Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t'; intros H).
-32: {
-idtac.
-(simpl).
-(apply le_n_S).
-(apply IHk).
-(assert (Hv : value_type (TRef t)) by constructor).
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
-specialize (H _ Hm).
-(apply match_ty_i_ref__inv in H).
-(destruct H as [tx [Heq Href]]; inversion Heq; subst).
-(intros v Hmv; apply Href; assumption).
-}
+(induction k; induction t; induction t'; intros H; try solve constructor).
 (* Auto-generated comment: Failed. *)
 
