@@ -63,6 +63,9 @@ Proof.
 (intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
 Check unite_pairs_union_t.
 (rewrite (unite_pairs_union_t t1 t0 t2')).
-(destruct (atom_sub_r_union__sub_r_component _ _ _ Hsub1 H) as [Hsub11| Hsub12]).
+(destruct (atom_sub_r_union__sub_r_component _ _ _ Hsub1 H) as [Hsub11| Hsub12]; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
+-
+(intros Hnf1' Hnf2 Hn2' Hsub1 Hsub2).
+(destruct (unite_pairs_union_t t1 t0 t2) as [Heq| [hEq1 Heq2]]).
 (* Auto-generated comment: Failed. *)
 
