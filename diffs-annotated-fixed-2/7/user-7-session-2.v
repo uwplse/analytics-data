@@ -124,9 +124,10 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma sub_r_unite_pairs_l__inv : forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
+Lemma sub_r_unite_pairs_l__inv :
+  forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
-(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub;
+(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
   try (solve
    [ match goal with
      | Hsub:|- ?t1 << ?t2
@@ -137,5 +138,6 @@ Proof.
 (remember (TPair t1' t2') as ty eqn:Heqy ).
 (induction Hsub; inversion Heqx; inversion Heqy; subst).
 tauto.
+(assert (Hnf : InNF( TPair (TCName c) (TPair t2_1 t2_2))) by (constructor; assumption)).
 (* Auto-generated comment: Failed. *)
 
