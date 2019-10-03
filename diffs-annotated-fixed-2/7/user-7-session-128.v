@@ -91,6 +91,6 @@ Proof.
 -
 (assert (Hmp : |-[ k, w1'] TPair v v2 <$ TPair t1 t2)).
 {
-(apply match_ty_pair; apply match_ty__ge_w).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
 (* Auto-generated comment: Failed. *)
 
