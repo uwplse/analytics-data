@@ -967,19 +967,7 @@ gen \207\129.
 (simpl).
 (rewrite Nat.mul_1_r).
 (intros \207\129).
-(match goal with
- | |- ?A => let A' := restore_dims_rec tac A in
-            replace
-            A
-            with
-            A'
- end).
-2: {
-(do 3 (apply f_equal_gen; trivial)).
-(apply f_equal_gen; trivial).
-(rewrite size_ntensor; unify_pows_two; simpl; try lia).
-(rewrite size_ntensor; unify_pows_two; simpl; try lia).
-(unify_matrix_dims unify_pows_two; simpl; try lia).
-(unify_matrix_dims unify_pows_two; simpl; try lia).
-(* Auto-generated comment: Succeeded. *)
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+gridify.
+(* Auto-generated comment: Failed. *)
 
