@@ -57,6 +57,10 @@ where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
 Definition sem_sub_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 -> |-[ k] v <$ t2.
 Notation "'||-[' k ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_k k t1 t2) (at level 45) : btjm_scope.
 Definition sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> |-[ k] v <$ t2.
-Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_k k t1 t2) (at level 47) : btjm_scope.
+Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_k k t1 t2) (at level 45) : btjm_scope.
+Definition sem_sub (t1 t2 : ty) := forall k : nat, ||-[ k][t1]<= [t2].
+Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : btjm_scope.
+Definition sem_eq (t1 t2 : ty) := forall k : nat, ||-[ k][t1]= [t2].
+Notation "'||-' '[' t1 ']' '=' '[' t2 ']' '-||'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
