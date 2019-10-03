@@ -939,6 +939,5 @@ restore_dims
 (rewrite init_spec).
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
