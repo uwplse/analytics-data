@@ -87,5 +87,9 @@ replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by 
 (destruct W; try (solve [ inversion HeqW ])).
 (rewrite denote_ctrls_transpose).
 (remember (denote_ctrls (\226\159\166 W3 \226\138\151 W4 \226\159\167) U li) as A).
-(* Auto-generated comment: Succeeded. *)
+(remember (swap_list (\226\159\166 W3 \226\138\151 W4 \226\159\167) li) as S).
+(rewrite <- (Mmult_assoc _ (A \195\151 \207\129) _)).
+(rewrite <- (Mmult_assoc _ A \207\129)).
+(rewrite inv).
+(* Auto-generated comment: Failed. *)
 
