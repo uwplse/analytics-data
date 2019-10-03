@@ -135,8 +135,6 @@ Proof.
 -
 (intros Hsub12 t3 Hsub21).
 (remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21; inversion Heqx; subst).
-+
-clear Heqx IHHsub21_1 IHHsub21_2.
+(induction Hsub21; inversion Heqx; subst; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
 (* Auto-generated comment: Failed. *)
 
