@@ -355,6 +355,6 @@ split.
 assumption.
 split.
 assumption.
-(intros v' Hv').
+(intros v').
 (* Auto-generated comment: Failed. *)
 
