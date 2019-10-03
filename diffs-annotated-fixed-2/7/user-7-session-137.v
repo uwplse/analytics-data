@@ -12,11 +12,14 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Lemma sem_eq_k_exist_fresh : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]= [t].
+Lemma sem_sub_k_exist_fresh_l : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]<= [t].
 Proof.
 (intros k X t).
 (induction t; intros Hfresh).
 -
-split.
+(intros w1).
+exists w1.
+(intros v Hm).
+(destruct w1).
 (* Auto-generated comment: Failed. *)
 
