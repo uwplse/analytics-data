@@ -145,6 +145,14 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 step_proc.
-(destruct a; simpl in *).
+(destruct a; simpl in *; intuition).
+intuition eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqVWvEbE"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
