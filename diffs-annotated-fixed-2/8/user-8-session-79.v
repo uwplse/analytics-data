@@ -996,10 +996,9 @@ restore_dims tensor_tac.
 (simpl).
 restore_dims tensor_tac.
 (match goal with
- | |- denote_box _ _ ?A == _ =>
-       match type of A with
-       | ?T => evar ( e : T ); mat_replace A with e
-       end
+ | |- denote_box _ _ ?A == _ => match type of A with
+                                | ?T => evar ( e : T )
+                                end
  end).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
