@@ -967,6 +967,7 @@ gen \207\129.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-(intros \207\129).
-(* Auto-generated comment: Succeeded. *)
+(rewrite Lt).
+(rewrite Nat.pow_add).
+(* Auto-generated comment: Failed. *)
 
