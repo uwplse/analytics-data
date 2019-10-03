@@ -572,6 +572,5 @@ step_proc.
 *
 intuition eauto.
 {
-step.
 (* Auto-generated comment: Succeeded. *)
 
