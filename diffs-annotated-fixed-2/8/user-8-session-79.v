@@ -946,8 +946,7 @@ reflexivity.
 (destruct l1; inversion L1).
 (simpl).
 (rewrite H0).
-(simpl).
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
