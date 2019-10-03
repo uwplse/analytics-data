@@ -287,6 +287,6 @@ Proof.
 (unfold log_contents_ok; intros).
 (specialize (H a); intuition).
 (unfold log_addr in *).
-(destruct (a0 == S a); try lia).
+(destruct (a0 == S a); subst; try lia).
 (* Auto-generated comment: Succeeded. *)
 
