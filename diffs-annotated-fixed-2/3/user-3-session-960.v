@@ -275,7 +275,6 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-Check sigT_eq_dec.
-Check sigT_eq_dec.
+Check sig.
 (* Auto-generated comment: Succeeded. *)
 
