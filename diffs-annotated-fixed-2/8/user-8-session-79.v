@@ -997,10 +997,8 @@ restore_dims tensor_tac.
 restore_dims tensor_tac.
 (repeat
   match goal with
-  | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
-    @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li) by
-    simpl; Msimpl; rewrite ctx_to_mat_list_length;
-     try rewrite size_ntensor, Nat.mul_1_r; easy
+  | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace 
+    (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
   end).
 (* Auto-generated comment: Succeeded. *)
 
