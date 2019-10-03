@@ -909,5 +909,5 @@ gen n.
 clear L1 M1 Lt.
 (rewrite strip_one_l_in_eq).
 setoid_rewrite (kron_1_l_inv (\226\168\130 l2)).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
