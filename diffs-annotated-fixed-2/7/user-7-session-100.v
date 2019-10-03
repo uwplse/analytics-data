@@ -112,6 +112,6 @@ Proof.
 -
 (apply match_ty_pair; auto).
 -
-(destruct k).
+(destruct w, k).
 (* Auto-generated comment: Failed. *)
 
