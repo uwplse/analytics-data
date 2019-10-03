@@ -135,6 +135,6 @@ Proof.
 +
 (intros; split; constructor).
 +
-(intros).
+(intros; split).
 (* Auto-generated comment: Failed. *)
 
