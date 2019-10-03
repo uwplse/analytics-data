@@ -985,6 +985,7 @@ Timeout 1 About id_kron.
 Timeout 1 Print id_kron.
 restore_dims.
 (rewrite id_kron').
-auto with arith.
+2: auto with arith.
+2: omega.
 (* Auto-generated comment: Succeeded. *)
 
