@@ -1267,5 +1267,11 @@ Timeout 1 Print Ltac restore_dims.
 2: {
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqghZIEg"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
