@@ -1254,6 +1254,6 @@ Proof.
 (induction (c p)).
 -
 matrix_denote.
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+restore_dims.
+(* Auto-generated comment: Failed. *)
 
