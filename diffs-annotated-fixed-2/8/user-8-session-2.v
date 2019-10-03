@@ -102,5 +102,5 @@ specialize (IHW2 lb li u).
 (destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
 (simpl in *).
 (apply IHW2).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
