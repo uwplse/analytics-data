@@ -564,6 +564,6 @@ Qed.
 Lemma match_ty_value_type__inv_depth_equal : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> inv_depth v = inv_depth v'.
 Proof.
 (intros v v' Hv' k Hm1).
-(pose proof (match_ty__inv_depth_le v v' k Hm1) as Hdep1).
+(pose proof (match_ty__inv_depth_le_l v v' k Hm1) as Hdep1).
 (* Auto-generated comment: Failed. *)
 
