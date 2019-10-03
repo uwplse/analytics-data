@@ -28,6 +28,7 @@ constructor.
 -
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
+exists tint.
 (simpl).
 (* Auto-generated comment: Failed. *)
 
