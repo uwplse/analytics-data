@@ -947,6 +947,5 @@ reflexivity.
 (simpl).
 show_dimensions.
 (repeat rewrite app_length).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
