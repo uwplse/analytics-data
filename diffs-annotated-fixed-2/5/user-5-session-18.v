@@ -54,6 +54,12 @@ Theorem simplify_correct :
   forall (L : EpsilonLogic) (t : Term), isTheorem L (Eq t (simplify t)).
 Proof.
 (unfold isTheorem).
-(induction t; intros; simpl in *; try congruence).
+(induction t; intros; simpl in *).
+-
+(apply evalEqTrue).
+reflexivity.
+-
+(apply evalEqTrue).
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
