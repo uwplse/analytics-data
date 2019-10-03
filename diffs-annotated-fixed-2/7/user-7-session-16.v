@@ -408,7 +408,6 @@ Proof.
    match goal with
    | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
-   | Hnf':InNF( TRef _) |- _ => pose proof (in_nf_ref__inv _ _ Hnf') as Hnf''
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 +
 (destruct (IHta11 _ Hnf'1) as [IH11| IH11]; destruct (IHta12 _ Hnf'1) as [IH12| IH12]; destruct (IHta21 _ Hnf'2) as [IH21| IH21];
@@ -417,6 +416,6 @@ Proof.
    [ left; constructor; assumption
    | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
 +
-(right; solve_not_x_sub_r_y_full).
+(pose proof (in_nf_ref__inv _ _ Hnf') as Hnf'').
 (* Auto-generated comment: Failed. *)
 
