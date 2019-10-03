@@ -271,6 +271,5 @@ clear H.
 (descend; intuition eauto).
 -
 (unfold proc_spec; simpl; intros).
-(destruct matches; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
