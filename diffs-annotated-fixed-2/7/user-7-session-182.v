@@ -86,5 +86,8 @@ assumption.
 Search -beq_id.
 (pose proof (false_beq_id _ _ Hbeq) as Hneq).
 (rewrite Hneq).
+(rewrite Hmem).
+(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as Z).
+exists ([X' := tx] ti).
 (* Auto-generated comment: Failed. *)
 
