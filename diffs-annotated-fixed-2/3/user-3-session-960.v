@@ -191,20 +191,11 @@ refine
  uint64_to_string := pretty.pretty_nat;
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii;
- uint64_to_le := nat_to_le 254;
- uint64_from_le := fun digits => Some (nat_from_le digits);
+ uint64_to_le := nat64_from_le;
+ uint64_from_le := nat64_from_le;
  File := Z;
  nilFile := (- 1)%Z;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqih90a6"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTXf3vY"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
