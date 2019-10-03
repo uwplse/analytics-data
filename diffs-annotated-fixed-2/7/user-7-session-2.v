@@ -68,6 +68,6 @@ Check unite_pairs_union_t.
 (intros Hnf1' Hnf2 Hn2' Hsub1 Hsub2).
 (rewrite (unite_pairs_union_t t1 t0 t2)).
 (apply sub_r_nf_union_l__inv in Hsub1; try assumption).
-(constructor; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
+constructor.
 (* Auto-generated comment: Failed. *)
 
