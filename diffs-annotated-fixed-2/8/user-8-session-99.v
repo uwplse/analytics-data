@@ -652,6 +652,6 @@ Proof.
 -
 (simpl).
 (apply pure_state_kron).
-(apply (H 0)).
-(* Auto-generated comment: Succeeded. *)
+(apply H).
+(* Auto-generated comment: Failed. *)
 
