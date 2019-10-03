@@ -170,6 +170,14 @@ Proof.
 +
 subst.
 exists v.
+(rewrite b_subst_exist_eq).
 assumption.
++
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx [Hwf Hm]]).
+specialize (IHw _ _ Hm).
+(destruct IHw as [v' IHw]).
+exists v'.
+(apply match_ty_exist).
 (* Auto-generated comment: Failed. *)
 
