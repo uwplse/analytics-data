@@ -1007,8 +1007,7 @@ reflexivity.
 (apply ctx_lookup_exists; easy).
 -
 (simpl in *).
+restore_dims tensor_tac.
 specialize inSeq_correct as IS.
-(simpl in IS).
-(rewrite IS).
 (* Auto-generated comment: Succeeded. *)
 
