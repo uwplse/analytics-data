@@ -196,6 +196,6 @@ Proof.
 (pose proof (sub_r__mk_nf_sub_r _ _ Hsub)).
 (pose proof (mk_nf__in_nf (TRef t)) as Hnf).
 (pose proof (mk_nf__in_nf (TRef t')) as Hnf').
-(apply (sub_r_nf_ref__inv _ _ Hnf Hnf') in H).
+Check sub_r_nf_ref__inv.
 (* Auto-generated comment: Failed. *)
 
