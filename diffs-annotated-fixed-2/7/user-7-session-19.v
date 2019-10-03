@@ -212,6 +212,5 @@ Proof.
 -
 (intros c t2).
 (induction t2; intros Hsem).
-+
 (* Auto-generated comment: Failed. *)
 
