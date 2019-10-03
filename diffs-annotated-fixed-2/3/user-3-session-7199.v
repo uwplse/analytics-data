@@ -185,6 +185,7 @@ eauto using log_length_ok_nil.
 -
 (unfold log_size_ok).
 (destruct d; simpl in *; [  | lia ]).
-Search -diskGet -"inbounds".
+Search -diskGet -diskSize.
+(assert (diskGet nil 0 = None)).
 (* Auto-generated comment: Succeeded. *)
 
