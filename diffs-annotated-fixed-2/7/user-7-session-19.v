@@ -115,9 +115,12 @@ Proof.
                (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
      end ])).
 -
-(assert (H1 : forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ TCName c <-> |-[ k] v <$ t'1)).
+(assert (IH1 : forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ TCName c <-> |-[ k] v <$ t'1)).
 {
 (intros k v Hv).
 specialize (H k v Hv).
+(destruct H as [H1 H2]).
+split.
++
 (* Auto-generated comment: Failed. *)
 
