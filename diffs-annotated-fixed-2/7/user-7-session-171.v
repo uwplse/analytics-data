@@ -8,6 +8,7 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
+Require Import Coq.Program.Wf.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -99,5 +100,5 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
