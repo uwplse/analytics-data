@@ -935,7 +935,10 @@ Timeout 1 Print Ltac restore_dims.
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
-(rewrite L2).
-lia.
+(rewrite L2; lia).
+(rewrite L2; lia).
+}
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
 (* Auto-generated comment: Succeeded. *)
 
