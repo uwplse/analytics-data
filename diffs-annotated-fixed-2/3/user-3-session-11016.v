@@ -612,6 +612,7 @@ reflexivity.
 Qed.
 Theorem beq_natlist_refl : forall l : natlist, true = beq_natlist l l.
 Proof.
-(induction l; simpl).
+(induction l; simpl; auto).
+(rewrite IHl; auto).
 (* Auto-generated comment: Succeeded. *)
 
