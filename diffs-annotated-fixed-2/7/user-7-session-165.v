@@ -85,6 +85,5 @@ Proof.
 -
 (destruct (beq_idP X i); try reflexivity).
 (rewrite IHt).
-reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
