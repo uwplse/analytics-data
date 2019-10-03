@@ -603,9 +603,9 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma new_morphism :
   forall {m} {n} (A : Matrix m n),
-  Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) 
-    (mat_equiv A) Lemma big_kron_append
-  :
-  forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
-(* Auto-generated comment: Failed. *)
+  Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv A).
+Proof.
+(intros).
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
