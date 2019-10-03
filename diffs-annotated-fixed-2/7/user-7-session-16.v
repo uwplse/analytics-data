@@ -370,10 +370,12 @@ Proof.
      (fun (t : ty) (Hnf : in_nf t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t))))).
 -
 (intros c).
-(split; intros t'; induction t').
-(match goal with
- | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
-       destruct (cname_eq__decidable c1 c2); [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
- end).
+(split; intros t'; induction t';
+  try
+   match goal with
+   | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
+         destruct (cname_eq__decidable c1 c2);
+          [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
+   end).
 (* Auto-generated comment: Failed. *)
 
