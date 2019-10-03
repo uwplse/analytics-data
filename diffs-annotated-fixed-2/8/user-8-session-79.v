@@ -677,5 +677,6 @@ Timeout 1 About length_app.
 (repeat rewrite app_length).
 unify_pows_two.
 (rewrite Nat.pow_add_r).
+lia.
 (* Auto-generated comment: Succeeded. *)
 
