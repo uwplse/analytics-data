@@ -39,6 +39,5 @@ Timeout 1 Print Grammar tactic.
 Check nth.
 Print nth.
 Eval compute in nth 5 (fib 9 0 1) 4.
-Eval compute in Str_nth 5 (Fib 0 1).
 (* Auto-generated comment: Succeeded. *)
 
