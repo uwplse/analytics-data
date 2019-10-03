@@ -388,7 +388,7 @@ tauto.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 Admitted.
-Lemma nf_sem_sub_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
+Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
 (induction k;
   match goal with
@@ -447,11 +447,26 @@ constructor.
 (apply IHk).
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf).
-Check sem_eq_k_i__inv_depth_eq_1.
 (pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href) as Hdepeq).
 (rewrite <- Hdepeq; assumption).
 admit.
 }
 Admitted.
+Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+Proof.
+(intros t Hnf t' Hsem).
+(apply nf_sem_sub_k_i__sub_d with (| t |)).
+assumption.
+constructor.
+(apply Hsem).
+Qed.
+Theorem sub_d__semantic_complete : forall t1 t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
+Proof.
+(intros t1 t2 Hsem).
+(apply SD_Trans with (MkNF( t1))).
+(apply mk_nf__sub_d2; assumption).
+(apply nf_sem_sub__sub_d).
+(apply mk_nf__in_nf).
+(eapply sem_sub_i__trans; try eassumption).
 (* Auto-generated comment: Failed. *)
 
