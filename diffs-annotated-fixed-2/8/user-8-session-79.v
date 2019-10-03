@@ -966,6 +966,8 @@ show_dimensions.
 replace (length l1 + S (length l2)) with S n in * by lia.
 (simpl in *).
 (rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
 (rewrite IHi).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
