@@ -56,5 +56,85 @@ Check
 Fixpoint subst (x : string) (u : term) (t : term) : term := t.
 Redirect "/tmp/coqAO7f1D" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-(* Auto-generated comment: Failed. *)
+Fixpoint step (t : term) : term :=
+  match t with
+  | Nil => Nil
+  | Ident _ => Nil
+  | <a b> => if value a then <a (step b)> else <(step a) b>
+  | {f a} =>
+      if value f
+      then
+       match f with
+       | [(Ident lam) (Ident x) body] => if value a then subst x a body else {f (step a)}
+       | Ident prim =>
+           if String.eqb prim "if"
+           then
+            match a with
+            | [cond bThen bElse] =>
+                if value cond
+                then match cond with
+                     | Nil => bElse
+                     | _ => bThen
+                     end
+                else {"if" [(step cond) bThen bElse]}
+            | _ => Nil
+            end
+           else
+            if oneArgCbvPrimitive prim
+            then
+             if value a
+             then
+              if String.eqb prim "fst"
+              then match a with
+                   | <x y> => x
+                   | _ => Nil
+                   end
+              else
+               if String.eqb prim "snd"
+               then match a with
+                    | <x y> => y
+                    | _ => Nil
+                    end
+               else
+                if String.eqb prim "fun"
+                then match a with
+                     | {f a} => f
+                     | _ => Nil
+                     end
+                else
+                 if String.eqb prim "arg"
+                 then match a with
+                      | {f a} => a
+                      | _ => Nil
+                      end
+                 else
+                  if String.eqb prim "nil?"
+                  then match a with
+                       | Nil => "t"
+                       | _ => Nil
+                       end
+                  else
+                   if String.eqb prim "cons?"
+                   then match a with
+                        | <_ _> => "t"
+                        | _ => Nil
+                        end
+                   else
+                    if String.eqb prim "app?"
+                    then match a with
+                         | {_ _} => "t"
+                         | _ => Nil
+                         end
+                    else Nil
+             else {f (step a)}
+            else Nil
+       | _ => Nil
+       end
+      else {(step f) a}
+  end.
+Redirect "/tmp/coqfAE0Rj" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+Print step.
+(* Auto-generated comment: Succeeded. *)
 
