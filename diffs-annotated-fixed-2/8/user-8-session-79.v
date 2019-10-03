@@ -596,6 +596,6 @@ Proof.
 -
 (intros).
 (simpl).
-restore_dims.
+(progress restore_dims).
 (* Auto-generated comment: Succeeded. *)
 
