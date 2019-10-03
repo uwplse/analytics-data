@@ -418,6 +418,9 @@ Search -IdSet.In.
 admit.
 admit.
 -
+(destruct (beq_idP X i)).
++
+subst.
 (simpl).
 (* Auto-generated comment: Failed. *)
 
