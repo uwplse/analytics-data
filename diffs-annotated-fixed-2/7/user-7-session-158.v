@@ -52,6 +52,11 @@ Qed.
 Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [X := s] TVar Y = TVar Y.
 Proof.
 (intros X s Y Hneq).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
 (simpl).
+(rewrite Hid).
+reflexivity.
+Qed.
 (* Auto-generated comment: Failed. *)
 
