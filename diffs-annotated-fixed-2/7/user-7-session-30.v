@@ -78,7 +78,14 @@ clear IHt1 IHt2.
 (destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]).
 (inversion Heq; subst).
 (simpl).
+(specialize (IHv1 _ _ Hm1); specialize (IHv2 _ _ Hm2)).
 split.
-(apply Nat.max_lub; auto).
+(apply Nat.max_lub; tauto).
+(apply Nat.max_le_compat; tauto).
++
+clear IHv1 IHv2.
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ specialize (IHt1 _ Hm) | specialize (IHt2 _ Hm) ]; split; try tauto; rewrite inv_depth_union;
+  [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; try tauto; apply Max.le_max_l || apply Max.le_max_r).
 (* Auto-generated comment: Failed. *)
 
