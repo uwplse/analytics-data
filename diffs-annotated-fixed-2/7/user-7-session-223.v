@@ -383,6 +383,6 @@ Search -IdSet.singleton.
 subst.
 contradiction.
 +
-(rewrite b_subst_bvar_neq).
+(rewrite b_subst_bvar_neq; try assumption).
 (* Auto-generated comment: Failed. *)
 
