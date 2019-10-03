@@ -401,6 +401,8 @@ step_proc.
 (rewrite H; eauto).
 }
 {
-(unfold log_size_ok, log_abstraction in *; intuition eauto).
+(unfold log_size_ok, log_abstraction in *; intuition).
+(rewrite H1).
+lia.
 (* Auto-generated comment: Succeeded. *)
 
