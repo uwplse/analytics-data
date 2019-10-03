@@ -147,5 +147,7 @@ Timeout 1 Print Ltac restore_dims.
             with
             A'
  end).
+2: {
+(unify_matrix_dims idtac).
 (* Auto-generated comment: Succeeded. *)
 
