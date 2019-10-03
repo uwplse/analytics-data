@@ -225,14 +225,6 @@ Proof.
 (intros Hsub12 t3 Hsub21).
 (apply sub_r_pair__inv in Hsub12; destruct Hsub12 as [Hsub121 Hsub122]).
 (remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21; inversion Heqx; subst).
-*
-clear Heqx IHHsub21_1 IHHsub21_2.
-(intros Hsub22).
-(apply sub_r_pair__inv in Hsub22; destruct Hsub22 as [Hsub221 Hsub222]).
-specialize (IHHsub11_1 Hsub121 _ Hsub21_1 Hsub221).
-specialize (IHHsub11_2 Hsub122 _ Hsub21_2 Hsub222).
-(split; constructor; tauto).
-*
+(induction Hsub21; inversion Heqx; subst; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
 (* Auto-generated comment: Failed. *)
 
