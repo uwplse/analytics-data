@@ -443,71 +443,11 @@ Lemma log_abstraction_commit :
   log_size_ok d' (bs ++ bs') ->
   log_contents_ok d' (bs ++ bs') ->
   forall len_b : block,
-  diskGet d' len_addr =?= len_b ->
   block_to_addr len_b = length bs + length bs' ->
-  log_abstraction d' (bs ++ bs').
+  log_abstraction (diskUpd d' len_addr len_b) (bs ++ bs').
 Proof.
 (intros).
 (unfold log_abstraction; intuition).
 (unfold log_length_ok in *; intros).
-(assert (len_addr < diskSize d') by eauto).
-eq_values.
-(rewrite app_length; auto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3UtkMr"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Hint Resolve log_abstraction_commit: core.
-Theorem log_length_ok_unchanged d bs d' :
-  log_length_ok d bs ->
-  diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
-Proof.
-(unfold log_length_ok; intros).
-(rewrite H0 in *).
-eauto.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAY6qJf"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
-Hint Resolve log_length_ok_unchanged: core.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step_proc.
-(descend; intuition eauto).
-destruct matches.
--
-step_proc.
-(descend; intuition eauto).
-{
-(unfold log_size_ok; autorewrite with list; auto).
-}
-{
-(exists bs; intuition eauto using log_abstraction_preserved).
-}
-step_proc.
-intuition.
-{
-(exists bs; eauto using log_abstraction_preserved).
-}
-step_proc.
-intuition.
-{
-(exists bs; intuition eauto).
-(unfold log_abstraction; intuition eauto).
-}
-{
-(exists (bs ++ v); intuition).
 (* Auto-generated comment: Succeeded. *)
 
