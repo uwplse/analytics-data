@@ -1063,6 +1063,10 @@ all: (try tensor_tac).
 2: (erewrite kron_compat).
 4: {
 restore_dims tensor_tac.
+(simpl).
 (rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(apply IHb).
 (* Auto-generated comment: Succeeded. *)
 
