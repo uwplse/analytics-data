@@ -192,6 +192,16 @@ invert_abstraction.
 (exists s; split; eauto).
 (destruct (a == diskSize s); subst).
 +
-(autorewrite with upd; auto).
+(autorewrite with upd; simpl; auto).
++
+(rewrite <- Hgoodsec; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxn96RW"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+(subst; eexists; eauto).
 (* Auto-generated comment: Succeeded. *)
 
