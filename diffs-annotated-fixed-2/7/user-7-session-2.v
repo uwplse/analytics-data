@@ -91,6 +91,5 @@ subst.
 clear IHHsub2.
 (assert (Hsub1 : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
 (apply SR_NormalForm).
-(pose proof (sub_r__mk_nf_sub_r _ _ Hsub1) as Hsub1nf).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
