@@ -117,8 +117,19 @@ Ltac
          (apply (@diskGet_eq_values d a b b'); try lia; auto); subst
   end.
 Theorem log_length_ok_nil d b :
-  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
+  diskGet d len_addr = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
 Proof.
 (unfold log_length_ok; intros).
+(rewrite H in *; simpl in *; subst).
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqH0Mv0e"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem log_abstraction_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_abstraction d nil.
 (* Auto-generated comment: Succeeded. *)
 
