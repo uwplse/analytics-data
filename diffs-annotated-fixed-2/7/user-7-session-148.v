@@ -101,6 +101,7 @@ tauto.
 clear IHt'1 IHt'2.
 (apply sem_sub_pair__inv in Hsem).
 (destruct Hsem as [Hsem1 Hsem2]).
-(destruct (fresh_in_ty_pair__inv _ _ _ Hfresh) as [Hfresh1 Hfresh2]).
+(destruct (fresh_in_ty_pair__inv _ _ _ Hfresh') as [Hfresh1 Hfresh2]).
+specialize (IHt1 _ _ Hfresh1 Hsem1).
 (* Auto-generated comment: Succeeded. *)
 
