@@ -19,9 +19,5 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqzKzL6J" Print Ltac
 Timeout 1 Print Grammar tactic.
 From Coq Require Import NArith Streams.
 Open Scope N_scope.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqp7icPD" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Eval compute in Str_nth 10 (Fib 0 1).
 (* Auto-generated comment: Succeeded. *)
 
