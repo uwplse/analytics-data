@@ -87,8 +87,6 @@ assumption.
 }
 +
 (split; intros HX').
-*
 assumption.
-*
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
