@@ -970,8 +970,5 @@ gen \207\129.
 remember_differences.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (destruct b; simpl; Msimpl).
-(repeat rewrite Mmult_assoc).
-Msimpl.
-Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
