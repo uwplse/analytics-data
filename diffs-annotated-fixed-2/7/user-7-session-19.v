@@ -121,6 +121,14 @@ assumption.
 (apply match_ty_i_pair__inv in Hm2).
 (destruct Hm2 as [pv21 [pv22 [Heq [Hm21 Hm22]]]]).
 (inversion Heq; subst).
-auto using match_ty_pair.
-(* Auto-generated comment: Failed. *)
+auto using match_ty_i_pair.
++
+(apply match_ty_i_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
+-
+(intros v1 v3 k Hm1 Hm2).
+(destruct k).
+(destruct v1; inversion Hm1).
+(apply match_ty_i_ref__inv in Hm1).
+(* Auto-generated comment: Succeeded. *)
 
