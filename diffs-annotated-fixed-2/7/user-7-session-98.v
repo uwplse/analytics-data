@@ -141,5 +141,6 @@ Proof.
 (destruct Hm as [tx Hmx]).
 (apply match_ty_exist).
 exists tx.
+(simpl).
 (* Auto-generated comment: Failed. *)
 
