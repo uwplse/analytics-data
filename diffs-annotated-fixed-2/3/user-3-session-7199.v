@@ -298,6 +298,7 @@ Qed.
 Theorem log_size_ok_shrink d bs bs' :
   log_size_ok d (bs ++ bs') -> log_size_ok d bs.
 Proof.
-(unfold log_size_ok; simpl; intros).
+(unfold log_size_ok; simpl).
+(rewrite app_length).
 (* Auto-generated comment: Succeeded. *)
 
