@@ -63,6 +63,15 @@ constructor.
 (destruct Hm as [t' [Heq _]]; subst).
 constructor.
 Qed.
+Ltac
+ solve_match_ty__inv_depth_l__union_r IHt1 IHt2 :=
+  match goal with
+  | Hm:|-[ _] _ <$ TUnion ?t1 ?t2
+    |- _ =>
+        apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ specialize (IHt1 _ Hm) | specialize (IHt2 _ Hm) ]; split; try tauto;
+         rewrite inv_depth_union; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; try tauto;
+         apply Max.le_max_l || apply Max.le_max_r
+  end.
 Lemma match_ty__inv_depth_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> | v | <= k /\ | v | <= | t |.
 Proof.
 (intros v; induction v).
@@ -71,27 +80,6 @@ Proof.
 (simpl).
 (split; apply Nat.le_0_l).
 -
-(intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction ])).
-+
-clear IHt1 IHt2.
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]).
-(inversion Heq; subst).
-(simpl).
-(specialize (IHv1 _ _ Hm1); specialize (IHv2 _ _ Hm2)).
-split.
-(apply Nat.max_lub; tauto).
-(apply Nat.max_le_compat; tauto).
-+
-clear IHv1 IHv2.
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ specialize (IHt1 _ Hm) | specialize (IHt2 _ Hm) ]; split; try tauto; rewrite inv_depth_union;
-  [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; try tauto; apply Max.le_max_l || apply Max.le_max_r).
--
-(intros t k Hm).
-(apply match_ty__value_type_l in Hm).
-(inversion Hm).
--
-(intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction ])).
+(intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction | solve_match_ty__inv_depth_l__union_r IHt1 IHt2 ])).
 (* Auto-generated comment: Failed. *)
 
