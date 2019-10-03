@@ -288,6 +288,12 @@ Lemma weird_trans :
   InNF( tm1) ->
   InNF( tm2) ->
   (forall tl : ty, |- tl << tm1 -> InNF( tl) -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> InNF( tr) -> |- tm1 << tr).
-Proof / Lemma sub_r__mk_nf_sub_r : forall t t' : ty, |- t << t' -> |- MkNF( t) << MkNF( t').
-(* Auto-generated comment: Failed. *)
+Proof.
+(intros tm1 tm2 Hsub).
+(induction Hsub; intros Hnfm1 Hnfm2).
+Show 2.
+-
+tauto.
+-
+(* Auto-generated comment: Succeeded. *)
 
