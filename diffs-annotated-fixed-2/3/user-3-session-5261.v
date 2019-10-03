@@ -43,6 +43,43 @@ step_proc.
 step_proc.
 (rewrite bsplit_bappend).
 intuition subst; eauto.
++
 (destruct (diskGet state off); simpl in *; intuition subst; eauto).
-(* Auto-generated comment: Failed. *)
++
+(replace (S off) with off + 1 by lia; auto).
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYvBan9"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbUkiQL"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
+Theorem write_ok :
+  forall blocks off,
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := True;
+     post := fun r state' => r = tt /\ state' = write_upd state off blocks;
+     recovered := fun _ state' =>
+                  exists nwritten,
+                    state' = write_upd state off (firstn nwritten blocks) |})
+    (write off blocks) d.recover d.abstr.
+Proof.
+(induction blocks; intros).
+-
+(simpl).
+step_proc.
+intuition eauto.
+(exists 0; simpl; eauto).
+-
+(simpl write).
+step_proc.
+intuition eauto.
+specialize (IHblocks (off + 1)).
+(* Auto-generated comment: Succeeded. *)
 
