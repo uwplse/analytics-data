@@ -254,6 +254,8 @@ Proof.
 (apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 subst.
-(apply IHt1).
+(assert (Hcontra : ~ (exists v : ty, |-[ k, w] v <$ t1))).
+{
+(intros Hcontra).
 (* Auto-generated comment: Failed. *)
 
