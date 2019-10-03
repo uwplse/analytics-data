@@ -210,8 +210,14 @@ exists w,v.
 (apply match_ty_union_1; assumption).
 -
 (destruct IHt as [w [v Hm]]).
-exists (S w).
-Check match_ty__match_ty_f_subst_int.
 (apply (match_ty__match_ty_f_subst_int i) in Hm).
+(destruct Hm as [v' Hm]).
+exists (S w),v'.
+(apply match_ty_exist).
+exists tint.
+split.
+admit.
+assumption.
+-
 (* Auto-generated comment: Failed. *)
 
