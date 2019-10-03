@@ -194,10 +194,6 @@ Proof.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
-     | Hsem:||-[ ?k][?t]<= [?t']
-       |- | ?t | <= | ?t' | =>
-           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
-            (Hsem _ Hm); contradiction
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
        |- _ =>
            assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
