@@ -489,6 +489,13 @@ auto using match_ty_i_pair.
 (apply match_ty_i_union__inv in Hm).
 (destruct Hm; [ apply IHHsub1 | apply IHHsub2 ]; assumption).
 -
-(apply match_ty_union_1; assumption).
+(apply match_ty_i_union_1; assumption).
+-
+(apply match_ty_i_union_2; assumption).
+-
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_i_union__inv in Hm1).
+(destruct Hm1; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_pair).
 (* Auto-generated comment: Failed. *)
 
