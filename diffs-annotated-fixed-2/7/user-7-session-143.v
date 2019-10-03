@@ -84,6 +84,6 @@ admit.
 +
 admit.
 +
-(intros X' HX HX' Hsem).
-(* Auto-generated comment: Failed. *)
+(intros X' HX HX' Hsem tx).
+(* Auto-generated comment: Succeeded. *)
 
