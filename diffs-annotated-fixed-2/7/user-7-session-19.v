@@ -406,6 +406,11 @@ clear IHt.
 (destruct k).
 (destruct k'; inversion Hle).
 assumption.
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
 (destruct k').
+constructor.
+(apply le_S_n in Hle).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
