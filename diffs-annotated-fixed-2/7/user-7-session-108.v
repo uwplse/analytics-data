@@ -422,6 +422,7 @@ specialize (Hcontra v Hm).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq _]]]; subst).
 (apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Heq _]]; inversion heq).
+(destruct Hcontra as [t' [Heq _]]; inversion Heq).
+-
 (* Auto-generated comment: Failed. *)
 
