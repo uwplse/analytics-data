@@ -128,6 +128,8 @@ Lemma b_subst_wf_ty : forall (X : id) (t : ty), wf_ty t -> forall s : ty, [BX :=
 Proof.
 (intros X t).
 (induction t; intros Hwf s; try (solve [ reflexivity ])).
+(destruct (wf_ty_pair__inv _ _ Hwf) as [wf1 wf2]).
 (simpl).
+(rewrite IHt1).
 (* Auto-generated comment: Failed. *)
 
