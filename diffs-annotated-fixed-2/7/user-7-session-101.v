@@ -94,6 +94,6 @@ clear Hm.
 (inversion Href).
 -
 (apply match_ty_exist__inv in Hcontra).
-(destruct Hcontra as [tx Hcontra]).
+(destruct Hcontra as [t' Hcontra]).
 (* Auto-generated comment: Failed. *)
 
