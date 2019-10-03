@@ -1135,5 +1135,7 @@ reflexivity.
 Timeout 1 About denote_box_compat.
 Timeout 1 Print denote_box_compat.
 show_dimensions.
-(* Auto-generated comment: Succeeded. *)
+Set Printing All.
+denote_box_compat.
+(* Auto-generated comment: Failed. *)
 
