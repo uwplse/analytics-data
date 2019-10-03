@@ -265,6 +265,7 @@ assumption.
 exists 0,(TRef t).
 (destruct k).
 reflexivity.
-split.
+(split; intros w1; exists w1; auto).
+-
 (* Auto-generated comment: Failed. *)
 
