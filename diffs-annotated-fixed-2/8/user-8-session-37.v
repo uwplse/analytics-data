@@ -375,6 +375,9 @@ dependent destruction AF.
 (intros; apply H; apply H0).
 clear H.
 (unfold valid_ancillae in *).
-(intros \206\147 \206\1470 WT).
+(intros \206\147 \206\1470 \207\129 WT).
+(unfold denote_circuit in *).
+(simpl in *).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
 (* Auto-generated comment: Succeeded. *)
 
