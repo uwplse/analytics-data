@@ -23,6 +23,11 @@ exists 1.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
 (simpl).
+exists tint.
 constructor.
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
