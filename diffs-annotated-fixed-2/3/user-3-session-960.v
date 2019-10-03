@@ -69,14 +69,7 @@ Class GoModel : Type :={byte : Type;
                         nullptr : forall ty, Ptr ty}.
 Opaque Nat.modulo Nat.div.
 #[local]Obligation Tactic := (intros; simpl; subst).
-Function
- nat_to_le base (x : nat) {wf lt x} : list {x : nat | x < S (S base)} :=
-   match x with
-   | 0 => nil
-   | _ =>
-       let digit := x mod S (S base) in
-       exist (fun x => x < S (S base)) digit _
-       :: nat_to_le base (x / S (S base))
-   end.
+Theorem mod_lt : forall n m, n `mod` S m < S m.
+Proof.
 (* Auto-generated comment: Succeeded. *)
 
