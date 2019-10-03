@@ -977,6 +977,7 @@ Msimpl.
 (repeat rewrite <- Mmult_assoc).
 Msimpl.
 (destruct b; simpl; Msimpl).
--
++
+replace (\226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169) with Zero by lma.
 (* Auto-generated comment: Failed. *)
 
