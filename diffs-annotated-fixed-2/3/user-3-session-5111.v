@@ -158,6 +158,5 @@ Proof.
 (eapply then_init_compose; eauto).
 step_proc.
 (destruct (r == 0)).
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
