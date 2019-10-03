@@ -48,6 +48,6 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(apply sem_sub_trans).
+(apply sem_sub_trans with (TCName c)).
 (* Auto-generated comment: Failed. *)
 
