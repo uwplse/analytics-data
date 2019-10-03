@@ -102,7 +102,7 @@ Fixpoint match_ty (w : nat) :=
       | _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
       | _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
       | S w, v, TExist X t' => exists tx, wf_ty tx /\ |-[ w] v <$ [BX := tx] t'
-      | _, TEV X, TVar X' => X = X'
+      | _, TEV X, TFVar X => X = X'
       | _, TEV X, TEV X' => X = X'
       | _, _, _ => False
       end
