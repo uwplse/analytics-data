@@ -265,12 +265,19 @@ Proof.
        |- _ =>
            destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (max_inv_depth_le__components_le _ _ _ Hdept') as [Hdept'1 Hdept'2];
             destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl; apply Nat.max_le_compat; auto
-     | Hsem:||-[ ?k][TUnion _ _]<= [_], Hnft:InNF( TUnion _ _), Hdept:| TUnion _ _ | <= _
+     | Hsem:||-[ ?k][TUnion _ _]<= [_], Hnft:InNF( TUnion _ _)
        |- _ =>
            destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
-(destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]; rewrite inv_depth_union;
-  apply Nat.max_lub; auto).
+-
+(inversion Hdept'; subst).
+-
+(simpl).
+(apply le_n_S).
+(inversion Hnft; subst).
+(inversion H; subst).
+(simpl in Hdept').
+(apply le_S_n in Hdept').
 (* Auto-generated comment: Failed. *)
 
