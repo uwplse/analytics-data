@@ -472,6 +472,18 @@ Theorem sub_d__sem_sub_i : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
 Proof.
 (intros t1 t2 Hsub).
 (unfold sem_sub_i).
-(induction Hsub; intros k; unfold sem_sub_k_i; intros v Hv Hm).
+(induction Hsub; intros k v Hm).
+-
+assumption.
+-
+specialize (IHHsub1 k).
+specialize (IHHsub2 k).
+auto.
+-
+specialize (IHHsub1 k).
+specialize (IHHsub2 k).
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(inversion Hv; subst).
 (* Auto-generated comment: Failed. *)
 
