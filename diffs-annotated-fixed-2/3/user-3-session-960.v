@@ -81,5 +81,7 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Search -"endian".
 Search -"digit".
-(* Auto-generated comment: Succeeded. *)
+Definition uint64_to_le (x : uint64) : list byte :=
+  if lt_dec x (pow 2 64) then nil else nil.
+(* Auto-generated comment: Failed. *)
 
