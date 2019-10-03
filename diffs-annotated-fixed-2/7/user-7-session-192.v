@@ -93,6 +93,13 @@ specialize (IHw' _ Hm').
 specialize (IHw'b H).
 (split; intros HX').
 {
-(appy match_ty_exist).
+(apply match_ty_exist).
+exists ti.
+assumption.
+}
+(destruct (beq_idP X' i)).
+{
+subst.
+(rewrite subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
