@@ -216,6 +216,6 @@ invert_abstraction.
 {
 (exists s; split; eauto).
 (destruct (a == diskSize s); subst).
-*
++
 (* Auto-generated comment: Succeeded. *)
 
