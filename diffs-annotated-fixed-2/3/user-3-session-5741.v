@@ -575,6 +575,10 @@ reflexivity.
 Qed.
 Theorem andb_true_elim2 : forall b c : bool, andb b c = true -> c = true.
 Proof.
-(intros [] []).
-(* Auto-generated comment: Succeeded. *)
+(intros [] [] H).
+-
+reflexivity.
+-
+reflexivity.
+(* Auto-generated comment: Failed. *)
 
