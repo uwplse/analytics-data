@@ -388,38 +388,6 @@ tauto.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 Admitted.
-Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
-Proof.
-(induction k; induction t; intros v Hm k' Hle;
-  try
-   match goal with
-   | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
-   | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; auto
-   | |- |-[ ?k'] ?v <$ TUnion _ _ =>
-         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
-   end).
--
-(inversion Hle; subst).
-assumption.
--
-clear IHt.
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(inversion Hle; subst; simpl).
-+
-(intros v).
-specialize (Href v).
-(split; tauto).
-+
-(destruct k').
-(simpl).
-tauto.
-(simpl).
-(intros v).
-specialize (Href v).
-split.
-*
-Abort.
 Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
 Proof.
 (intros v Hv ta tb Hsem; unfold sem_sub_i in Hsem).
