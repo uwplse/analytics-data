@@ -1043,6 +1043,7 @@ mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with bool_to_matr
 restore_dims tensor_tac.
 specialize (IHb \206\147 f true).
 (simpl in *).
+(rewrite size_ntensor).
 (apply IHb).
 (* Auto-generated comment: Failed. *)
 
