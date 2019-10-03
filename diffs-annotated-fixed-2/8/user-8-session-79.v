@@ -1091,5 +1091,11 @@ reflexivity.
 -
 (simpl in *).
 restore_dims tensor_tac.
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
+clear IS.
+(repeat rewrite_inPar').
+(repeat rewrite strip_one_l_in_eq).
 (* Auto-generated comment: Succeeded. *)
 
