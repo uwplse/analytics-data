@@ -27,6 +27,5 @@ Proof.
 (apply mk_nf__sub_d_r).
 assumption.
 Qed.
-Theorem sub_r__complete : forall t1 t2 : ty, (|- t1 << t2)%btj -> |- t1 << t2.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
