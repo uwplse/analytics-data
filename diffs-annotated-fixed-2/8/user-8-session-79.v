@@ -1184,12 +1184,6 @@ reflexivity.
 (rewrite id_circ_spec).
 (erewrite kron_compat).
 3: {
-(simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
-  rewrite ctx_to_mat_list_length).
-show_dimensions.
-(simpl).
-(repeat rewrite Nat.add_0_r in IHb1).
-specialize (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137).
-(repeat rewrite Nat.add_0_r in *; apply IHb1; trivial).
+(simpl; specialize (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137)).
 (* Auto-generated comment: Succeeded. *)
 
