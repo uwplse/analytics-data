@@ -79,6 +79,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Print string.
+Search -nat -string.
+Print pretty.pretty.
 (* Auto-generated comment: Succeeded. *)
 
