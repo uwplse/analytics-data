@@ -70,6 +70,23 @@ subst.
 (rewrite subst_neq__permute in Hm).
 specialize (IHw _ _ Hm).
 (destruct IHw as [v' Hm']).
-(rewrite subst_neq__permute in Hm).
+(rewrite subst_neq__permute in Hm').
+exists v'.
+(apply match_ty_exist).
+exists ti.
+assumption.
+assumption.
+Abort.
+Lemma build_v_full :
+  forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
+  |-[ w] v <$ [X := tx] t ->
+  exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
+Proof.
+(intros X X' tx).
+(induction w; induction t; intros v Hm).
+-
+exists v.
+split.
+assumption.
 (* Auto-generated comment: Failed. *)
 
