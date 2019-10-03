@@ -84,6 +84,7 @@ Proof.
       reflexivity ])).
 -
 (destruct (beq_idP X i); try reflexivity).
-(rewrite IHt).
+(destruct (IdSet.mem i (FV s))).
++
 (* Auto-generated comment: Failed. *)
 
