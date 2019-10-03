@@ -273,9 +273,8 @@ replace (add_fresh_state w2 (add_fresh_state w1 [])) with
 (rewrite app_assoc).
 reflexivity.
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqTRDGmZ"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqByvNx9"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
