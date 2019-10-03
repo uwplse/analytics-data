@@ -50,6 +50,5 @@ Proof.
 (induction W; intros lb li u; try (solve [ inversion u ])).
 -
 (destruct li as [| k li]).
-(repeat rewrite ctrls_to_list_empty).
 (* Auto-generated comment: Succeeded. *)
 
