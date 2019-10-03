@@ -933,6 +933,6 @@ reflexivity.
 }
 (rewrite L2).
 rewrite_inPar''.
-(simpl_rewrite id_circ_spec).
+(rewrite id_circ_spec).
 (* Auto-generated comment: Failed. *)
 
