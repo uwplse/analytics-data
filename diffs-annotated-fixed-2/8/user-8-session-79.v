@@ -952,5 +952,6 @@ Timeout 1 Print Ltac restore_dims.
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
   lia.
+rewrite_inPar''.
 (* Auto-generated comment: Failed. *)
 
