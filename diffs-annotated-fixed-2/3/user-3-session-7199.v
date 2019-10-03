@@ -480,6 +480,10 @@ intuition.
 (descend; intuition eauto).
 }
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl).
-(* Auto-generated comment: Succeeded. *)
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
+{
+(descend; intuition eauto).
+(apply log_abstraction_nil).
+(* Auto-generated comment: Failed. *)
 
