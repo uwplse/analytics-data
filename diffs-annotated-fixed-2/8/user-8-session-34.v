@@ -125,6 +125,10 @@ Lemma HOAS_Equiv_inSeq :
   Typed_Box c1 -> Typed_Box c1' -> Typed_Box c2 -> Typed_Box c2' -> c1 \226\137\161 c1' -> c2 \226\137\161 c2' -> c2 \194\183 c1 \226\137\161 c2' \194\183 c1'.
 Proof.
 (intros w1 w2 w3 c1 c1' c2 c2' T1 T1' T2 T2' E1 E2).
-(intros \207\129 b M\207\129).
-(* Auto-generated comment: Succeeded. *)
+(intros \207\129 b).
+(simpl_rewrite inSeq_correct; trivial).
+(simpl_rewrite inSeq_correct; trivial).
+(unfold compose_super).
+(rewrite E1 by easy).
+(* Auto-generated comment: Failed. *)
 
