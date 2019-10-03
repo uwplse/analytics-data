@@ -69,6 +69,7 @@ Check unite_pairs_union_t.
 (rewrite (unite_pairs_union_t t1 t0 t2)).
 Check sub_r_nf_union_l__inv.
 (assert (Hnf : InNF( TUnion t1 t0)) by (constructor; assumption)).
-(destruct (sub_r_nf_union_l__inv _ _ _ Hsub1 Hnf) as [Hsub11| Hsub12]).
+(destruct (sub_r_nf_union_l__inv _ _ _ Hsub1 Hnf)).
+Check sub_r_nf_union_l__inv.
 (* Auto-generated comment: Failed. *)
 
