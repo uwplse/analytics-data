@@ -969,6 +969,6 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 (rewrite Lt).
 (rewrite Nat.pow_add_r, <- (Nat.mul_1_r i)).
-(intros \207\129 intros \207\129).
-(* Auto-generated comment: Failed. *)
+(intros \207\129).
+(* Auto-generated comment: Succeeded. *)
 
