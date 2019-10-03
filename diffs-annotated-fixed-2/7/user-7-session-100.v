@@ -81,6 +81,6 @@ Proof.
 Qed.
 Lemma match_ty_var__inv : forall (v : ty) (X : id) (w k : nat), |-[ w, k] v <$ TVar X -> v = TEV X.
 Proof.
-(intros v; induction v; intros X w k Hm; destruct w; destruct k).
+(intros v; induction v; try (solve [ intros c w k Hm; destruct w; destruct k; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
