@@ -67,6 +67,5 @@ Msimpl.
 (unfold denote_pat; simpl).
 (unfold swap_list; simpl).
 (unfold swap_two; simpl).
-(unfold apply_U; simpl).
 (* Auto-generated comment: Succeeded. *)
 
