@@ -1878,7 +1878,16 @@ Proposition process_gate_state_merge :
   Valid (process_gate_state g p \206\147) = process_gate_state g p \206\147 \226\139\147 \206\1472.
 Proof.
 Abort.
+Open Scope circ_scope.
 Lemma index_merge_l :
   forall \206\147 \206\1471 \206\1472 n w, \206\147 \226\137\136 \206\1471 \226\136\153 \206\1472 -> index \206\1471 n = Some w -> index \206\147 n = Some w.
-(* Auto-generated comment: Failed. *)
+Proof.
+(intros \206\147 \206\1471 \206\1472 n w H H0).
+(apply merge_fun_ind in H).
+generalize dependent n.
+(induction H).
++
+(intros n H).
+(destruct n; simpl in H; inversion H).
+(* Auto-generated comment: Succeeded. *)
 
