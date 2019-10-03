@@ -81,7 +81,5 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-specialize (IHblocks (off + 1)).
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
