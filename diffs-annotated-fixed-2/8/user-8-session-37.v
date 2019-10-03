@@ -239,7 +239,19 @@ dependent destruction WT.
 (simpl).
 (unfold compose_super).
 (erewrite VA).
-reflexivity.
+easy.
 (eapply t0; [ apply pf1 | apply t ]).
-(* Auto-generated comment: Succeeded. *)
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+(eapply t0; [ apply pf1 | apply t ]).
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+2: (constructor; apply singleton_singleton).
+(* Auto-generated comment: Failed. *)
 
