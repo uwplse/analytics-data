@@ -1003,22 +1003,6 @@ restore_dims tensor_tac.
      simpl; Msimpl; rewrite ctx_to_mat_list_length;
       try rewrite size_ntensor, Nat.mul_1_r; easy
    end).
-(match goal with
- | |- ?A => let A' := restore_dims_rec tac A in
-            replace
-            A
-            with
-            A'
- end).
-2: {
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(simpl).
-(apply f_equal_gen; trivial).
+restore_dims tensor_tac.
 (* Auto-generated comment: Succeeded. *)
 
