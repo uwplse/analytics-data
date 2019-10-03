@@ -174,6 +174,11 @@ Proof.
 (destruct (a == r)).
 -
 invert_abstraction.
-(step_proc; intuition).
+(step_proc; intuition eauto).
+(step_proc; intuition eauto).
+(step_proc; intuition eauto).
+replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
+(exists s; repeat split; auto).
+(destruct (stateBadBlock state == diskSize s)).
 (* Auto-generated comment: Succeeded. *)
 
