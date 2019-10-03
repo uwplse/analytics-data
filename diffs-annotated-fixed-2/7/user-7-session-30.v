@@ -97,5 +97,16 @@ split.
 (inversion Hm).
 -
 (intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction | solve_match_ty__inv_depth_l__union_r IHt1 IHt2 ])).
++
+clear IHt.
+(destruct k).
+contradiction.
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heqt' [[Hdept Hdept'] _]]]).
+(inversion Heqt'; subst).
+(simpl).
+(rewrite Hdept').
+(split; apply le_n_S; assumption || constructor).
+Qed.
 (* Auto-generated comment: Failed. *)
 
