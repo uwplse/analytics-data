@@ -401,6 +401,236 @@ Proof.
 (apply sem_sub_k_i_nf__inv_depth_le_1 with k).
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf; assumption).
-(apply sem_sub_k__i__trans with t; try assumption).
-(* Auto-generated comment: Succeeded. *)
+(apply sem_sub_k_i__trans with t; try assumption).
+(pose proof (match_ty_i_nf t k) as H).
+(intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_sub_k_i__inv_depth_le_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
+(intros k t t' Hdept' Hsem).
+(rewrite <- inv_depth_mk_nf).
+(apply sem_sub_k_i_nf__inv_depth_le_2 with k).
+(apply mk_nf__in_nf).
+assumption.
+(apply sem_sub_k_i__trans with t; try assumption).
+(pose proof (match_ty_i_nf t k) as H).
+(intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_eq_k_i__inv_depth_eq_1 : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+(intros k t t' Hdept H).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
+(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept H1)).
+(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept H2)).
+(apply Nat.le_antisymm; assumption).
+Qed.
+Lemma sem_eq_k_i__inv_depth_eq_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+(intros k t t' Hdept' H).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
+(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept' H1)).
+(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept' H2)).
+(apply Nat.le_antisymm; assumption).
+Qed.
+Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -> ||- [t1]<= [t'] /\ ||- [t2]<= [t'].
+Proof.
+(intros t1 t2 t' Hsem).
+(unfold sem_sub_i in Hsem).
+(split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem); assumption).
+Qed.
+Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
+Proof.
+(intros t t' Hsem).
+(split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
+  assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem; 
+  intros v' Hm'; specialize (Hsem v'); tauto).
+Qed.
+Open Scope btj_scope.
+Lemma match_ty__inv_depth_0_stable : forall t : ty, inv_depth t = 0 -> forall k v, |-[ k] v <$ t <-> |-[ 0] v <$ t.
+Proof.
+(induction t; intros Heqdep k v).
+-
+(split; intros Hm; apply match_ty_i_cname__inv in Hm; subst).
+reflexivity.
+(destruct k; reflexivity).
+-
+(simpl in Heqdep).
+(assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
+{
+(rewrite Heqdep).
+constructor.
+}
+(destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(split; intros Hm; apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hvq Hv2]]]]; subst).
++
+(rewrite H0).
+(apply match_ty_i_pair; [ apply IHt1 | apply IHt2 ]; assumption).
++
+(rewrite H0 in *).
+(apply match_ty_i_pair; [ apply IHt1 | apply IHt2 ]; assumption).
+-
+(simpl in Heqdep).
+(assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
+{
+(rewrite Heqdep).
+constructor.
+}
+(destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(rewrite H0 in *).
+(split; intros Hm; apply match_ty_i_union__inv in Hm; destruct Hm; (solve
+  [ apply match_ty_i_union_1; apply IHt1; assumption | apply match_ty_i_union_2; apply IHt2; assumption ])).
+-
+(inversion Heqdep).
+Qed.
+Lemma match_ty_i__inv_depth_stable :
+  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Proof.
+(induction k; induction k').
+-
+tauto.
+-
+(intros).
+symmetry.
+(apply match_ty__inv_depth_0_stable).
+(inversion H).
+reflexivity.
+-
+(intros).
+(apply match_ty__inv_depth_0_stable).
+(inversion H0).
+reflexivity.
+-
+(induction t).
++
+(intros; split; intros Hm; apply match_ty_i_cname__inv in Hm; subst; reflexivity).
++
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__components_le _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__components_le _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k').
+specialize (IHt2 Ht2k Ht2k').
+(split; intros Hm; apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hv1 Hv2]]]]; subst; specialize (IHt1 v1); specialize (IHt2 v2);
+  apply match_ty_i_pair; tauto).
++
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__components_le _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__components_le _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k' v).
+specialize (IHt2 Ht2k Ht2k' v).
+(split; intros Hm; apply match_ty_i_union__inv in Hm; destruct Hm; (apply match_ty_i_union_1; tauto) || (apply match_ty_i_union_2; tauto)).
++
+clear IHk' IHt.
+(intros Htk Htk' v).
+(simpl in Htk, Htk').
+(apply le_S_n in Htk).
+(apply le_S_n in Htk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
+*
+(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Href)).
+(pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k').
+(pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
+tauto.
+*
+(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk' Href)).
+(pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k').
+(pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
+tauto.
+Qed.
+Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname), forall t2 : ty, ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
+Proof.
+(intros k c t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+(assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+-
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+Qed.
+Lemma pair_sem_sub_k_i__sub_d :
+  forall k : nat,
+  forall ta1 ta2 : ty,
+  atom_type (TPair ta1 ta2) ->
+  (forall tb1 : ty, ||-[ k][ta1]<= [tb1] -> |- ta1 << tb1) ->
+  (forall tb2 : ty, ||-[ k][ta2]<= [tb2] -> |- ta2 << tb2) -> forall t2 : ty, ||-[ k][TPair ta1 ta2]<= [t2] -> |- TPair ta1 ta2 << t2.
+Proof.
+(intros k ta1 ta2 Hat IH1 IH2).
+(pose proof (atom_type__value_type _ Hat) as Hva).
+(assert (Hma : |-[ k] TPair ta1 ta2 <$ TPair ta1 ta2) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+-
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+(constructor; [ apply IH1 | apply IH2 ]; tauto).
+-
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+Qed.
+Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
+Proof.
+(induction k;
+  match goal with
+  | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
+        apply
+         (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
+            (fun (t1 : ty) (_ : in_nf t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))
+  end; try tauto;
+  try
+   match goal with
+   | |- context [ |- TCName _ << _ ] => intros c Hdep; apply cname_sem_sub_k_i__sub_d; assumption
+   | |- context [ |- TPair _ _ << _ ] =>
+         intros ta1 ta2 Hat1 IH1 Hat2 IH2 Hdep; assert (Hat : atom_type (TPair ta1 ta2)) by (constructor; assumption);
+          destruct (max_inv_depth_le__components_le _ _ _ Hdep) as [Hdep1 Hdep2]; apply pair_sem_sub_k_i__sub_d; tauto
+   | |- context [ |- TUnion _ _ << _ ] =>
+         intros t1 t2 Hnf1 IH1 Hnf2 IH2 Hdep; destruct (max_inv_depth_le__components_le _ _ _ Hdep) as [Hdep1 Hdep2]; intros t' Hsem;
+          apply sem_sub_k_union_l__inv in Hsem; destruct Hsem as [Hsem1 Hsem2]; constructor; auto
+   end).
+-
+(intros t Hnft _ Hdep).
+(inversion Hdep).
+-
+(intros t Hnft _ Hdep t2).
+(assert (Hva : value_type (TRef t)) by constructor).
+(assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
++
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
++
+(simpl in Hdep).
+(pose proof (le_S_n _ _ Hdep) as Hdep').
+(pose proof Hsem as Hsem').
+(unfold sem_sub_k_i in Hsem).
+specialize (Hsem _ Hma).
+(apply match_ty_i_ref__inv in Hsem).
+(destruct Hsem as [t' [Heqt' Href]]).
+(inversion Heqt'; subst).
+clear Heqt'.
+constructor.
+{
+(apply IHk; try assumption).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ Href); assumption).
+}
+(apply SD_Trans with (MkNF( t2))).
+(apply mk_nf__sub_d2; assumption).
+{
+(apply IHk).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf).
+(pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href) as Hdepeq).
+(rewrite <- Hdepeq; assumption).
+(apply sem_sub_k_i__trans with t2).
+Search -mk_nf.
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ (match_ty_i_nf t2))).
+(* Auto-generated comment: Failed. *)
 
