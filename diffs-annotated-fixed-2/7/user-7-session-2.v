@@ -230,6 +230,9 @@ Proof.
 clear Heqx IHHsub21_1 IHHsub21_2.
 (intros Hsub22).
 (apply sub_r_pair__inv in Hsub22; destruct Hsub22 as [Hsub221 Hsub222]).
-specialize (IHHsub11_1 Hsib121 _ Hsub21_1 Hsub221).
+specialize (IHHsub11_1 Hsub121 _ Hsub21_1 Hsub221).
+specialize (IHHsub11_2 Hsub122 _ Hsub21_2 Hsub222).
+(split; constructor; tauto).
+*
 (* Auto-generated comment: Failed. *)
 
