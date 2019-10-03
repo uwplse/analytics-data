@@ -380,6 +380,7 @@ Qed.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
-(unfold append).
-(* Auto-generated comment: Succeeded. *)
+(unfold append; intros).
+step_proc.
+(* Auto-generated comment: Failed. *)
 
