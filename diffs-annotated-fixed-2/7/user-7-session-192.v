@@ -140,6 +140,23 @@ subst.
 exists ti.
 assumption.
 }
-contradiction.
-(* Auto-generated comment: Succeeded. *)
+admit.
+}
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+(* Auto-generated comment: Failed. *)
 
