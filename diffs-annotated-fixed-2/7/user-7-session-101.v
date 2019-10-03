@@ -86,6 +86,7 @@ clear Hm.
 (inversion Heq; subst).
 clear Heq.
 (assert (Hm : |-[ 0, 0] TEV vX <$ TEV vX) by (apply match_ty_value_type__reflexive; constructor)).
-(destruct (Href (TEV vX)) as [Href _]).
+specialize (Href (TEV vX)).
+(destruct Href as [Href _]).
 (* Auto-generated comment: Failed. *)
 
