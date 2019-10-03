@@ -453,6 +453,9 @@ Proof.
 (inversion Hnft; subst).
 (inversion H; subst).
 (simpl in Hdep).
-(apply IHk; try assumption).
+(assert (Hv : value_type (TRef t)) by constructor).
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
+specialize (Hsem _ Hm).
+(simpl in Hsem).
 (* Auto-generated comment: Failed. *)
 
