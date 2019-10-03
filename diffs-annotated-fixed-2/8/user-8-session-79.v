@@ -658,5 +658,6 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
-(* Auto-generated comment: Succeeded. *)
+(rewrite kron_assoc; try apply Nat.pow_nonzero; try lia).
+(* Auto-generated comment: Failed. *)
 
