@@ -1015,7 +1015,10 @@ specialize inSeq_correct as IS.
 (repeat (rewrite IS; compile_typing compile_WT)).
 (unfold compose_super).
 restore_dims tensor_tac.
+Set Printing All.
 Transparent init_at.
+(simpl).
+Transparent assert_at.
 (simpl).
 (* Auto-generated comment: Succeeded. *)
 
