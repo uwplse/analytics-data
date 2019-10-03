@@ -360,6 +360,6 @@ reflexivity.
 {
 (rewrite app_length in *; simpl in *; lia).
 }
-intuition.
+(rewrite diskUpd_neq).
 (* Auto-generated comment: Succeeded. *)
 
