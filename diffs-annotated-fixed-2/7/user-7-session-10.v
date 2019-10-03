@@ -133,9 +133,12 @@ Proof.
 (specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22)).
 (split; tauto || constructor; tauto).
 -
-(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
-  apply sub_r_union_l__inv in Hsub; destruct Hsub as [Hsub1 Hsub2]).
-(specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22)).
-(split; tauto || constructor; tauto).
+(match goal with
+ | Hsub:|- unite_pairs _ (TUnion _ _) << TPair _ _
+   |- _ =>
+       rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
+        apply sub_r_union_l__inv in Hsub; destruct Hsub as [Hsub1 Hsub2]; specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21); specialize
+        (IHt2_2 _ _ Hsub2 Hnf1 Hnf22); split; tauto || constructor; tauto
+ end).
 (* Auto-generated comment: Failed. *)
 
