@@ -1170,6 +1170,6 @@ all: (simpl; reflexivity).
 rewrite_inPar'.
 rewrite_inPar'.
 (rewrite 2!id_circ_spec).
-(repeat simpl_rewrite strip_one_l_out_eq).
+(rewrite strip_one_l_out_eq).
 (* Auto-generated comment: Succeeded. *)
 
