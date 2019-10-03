@@ -174,6 +174,6 @@ invert_abstraction.
 (step_proc; intuition idtac).
 *
 replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
-(exists s; intuition; intuition).
+(exists s; intuition).
 (* Auto-generated comment: Succeeded. *)
 
