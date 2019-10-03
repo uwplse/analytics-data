@@ -108,6 +108,7 @@ exists Y,t.
 (rewrite Hmem).
 eexists.
 eexists.
-ereflexivity.
+reflexivity.
++
 (* Auto-generated comment: Failed. *)
 
