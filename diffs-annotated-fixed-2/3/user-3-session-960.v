@@ -133,5 +133,6 @@ Proof.
 (intros).
 (induction n as [n IHn] using lt_wf_ind).
 (destruct n; simpl).
+Print nat_to_le.
 (* Auto-generated comment: Succeeded. *)
 
