@@ -399,18 +399,39 @@ Theorem log_abstraction_preserved d bs d' bs' :
   diskSize d' = diskSize d ->
   log_contents_ok d' (bs ++ bs') -> log_abstraction d' bs.
 Proof.
-(unfold log_abstraction, log_length_ok, log_size_ok; intuition eauto).
+(unfold log_abstraction, log_length_ok, log_size_ok; intuition).
 -
 replace (diskGet d' len_addr) in *.
 auto.
 -
 congruence.
+-
+eauto.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBiPyjK"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1fE9YP"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+step_proc.
+(descend; intuition eauto).
+destruct matches.
+-
+step_proc.
+(descend; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+eauto using log_abstraction_preserved.
 (* Auto-generated comment: Succeeded. *)
 
