@@ -433,6 +433,10 @@ Proof.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; intros).
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
-simplify.
+(simplify; intuition eauto).
+(exists bs; intuition eauto).
+(unfold log_abstraction in H0; intuition).
+(pose proof (H3 a); intuition).
+(assert (v = nth a bs block0)).
 (* Auto-generated comment: Succeeded. *)
 
