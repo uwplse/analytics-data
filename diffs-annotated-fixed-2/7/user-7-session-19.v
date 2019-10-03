@@ -204,6 +204,9 @@ Proof.
            assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
             assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
      end ])).
-Search -in_nf.
+-
+(destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+(apply Nat.max_le_compat).
 (* Auto-generated comment: Failed. *)
 
