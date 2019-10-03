@@ -89,7 +89,5 @@ assumption.
 +
 subst.
 clear IHHsub2.
-(assert (Hsub1 : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
-(apply SR_NormalForm).
 (* Auto-generated comment: Failed. *)
 
