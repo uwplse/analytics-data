@@ -302,11 +302,29 @@ Unset Search Output Name Only.
 Example test_alternate1 : alternate [1; 2; 3] [4; 5; 6] = [1; 4; 2; 5; 3; 6].
 Proof.
 reflexivity.
+Qed.
+Example test_alternate2 : alternate [1] [4; 5; 6] = [1; 4; 5; 6].
+Proof.
+reflexivity.
+Qed.
+Example test_alternate3 : alternate [1; 2; 3] [4] = [1; 4; 2; 3].
+Proof.
+reflexivity.
+Qed.
+Example test_alternate4 : alternate [ ] [20; 30] = [20; 30].
+Proof.
+reflexivity.
+Qed.
+Definition bag := natlist.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqae6duK"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbUz5DE"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQOVHPd"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Fixpoint count (v : nat) (s : bag) : nat.
 (* Auto-generated comment: Succeeded. *)
 
