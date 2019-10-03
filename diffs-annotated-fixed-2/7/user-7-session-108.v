@@ -258,6 +258,6 @@ subst.
 {
 (assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
 {
-(intros [Hcontra'1 hcontra'2]).
+(intros [Hcontra'1 Hcontra'2]).
 (* Auto-generated comment: Failed. *)
 
