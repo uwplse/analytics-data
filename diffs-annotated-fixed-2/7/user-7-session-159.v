@@ -60,6 +60,12 @@ exists (TPair v1' v2').
 (destruct (beq_idP X i) as [Hbeq| Hbeq]).
 +
 subst.
-(rewrite subst_exist_eq).
+(rewrite subst_exist_eq in *).
+(exists v; assumption).
++
+(rewrite (subst_exist_neq _ _ _ _ Hbeq) in Hm).
+(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
 (* Auto-generated comment: Failed. *)
 
