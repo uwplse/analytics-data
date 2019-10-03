@@ -1141,6 +1141,5 @@ clear IS.
 (repeat rewrite_inPar).
 (repeat rewrite id_circ_spec).
 listify_kron.
-listify_kron.
 (* Auto-generated comment: Succeeded. *)
 
