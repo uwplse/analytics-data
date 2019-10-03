@@ -1024,7 +1024,7 @@ restore_dims tensor_tac.
  end; try (solve [ type_check ])).
 (match goal with
  | H:_ -> _ -> denote_box true ?c ?A == _
-   |- context [ denote_box true ?c ?A' ] => replace A with A'
+   |- context [ denote_box true ?c ?A' ] => replace A' with A
  end).
 2: {
 (unify_matrix_dims lia).
