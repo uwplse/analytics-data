@@ -301,12 +301,6 @@ Inductive GT : Type :=
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
 Definition SetST := Ensemble ST.
-Fixpoint Gamma (G : GT) : SetST :=
-  match G with
-  | GDyn => Full_set _
-  | GInt => Singleton _ SInt
-  | GBool => Singleton _ SBool
-  | _ => Empty_set _
-  end.
-(* Auto-generated comment: Succeeded. *)
+Search -Ensembles.
+(* Auto-generated comment: Failed. *)
 
