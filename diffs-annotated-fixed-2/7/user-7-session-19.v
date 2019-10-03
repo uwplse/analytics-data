@@ -377,7 +377,9 @@ clear IHt.
 (intros v; specialize (IHk v t); specialize (Href v)).
 tauto.
 Qed.
-Lemma match_ty_i_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
 Proof.
+(intros t k).
+(apply match_ty_i_nf').
 (* Auto-generated comment: Failed. *)
 
