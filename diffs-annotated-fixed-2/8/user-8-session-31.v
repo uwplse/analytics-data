@@ -2848,6 +2848,5 @@ subst.
 (unfold denote_circuit in IH).
 (unfold process_gate_state).
 (simpl).
-(rewrite Nat.sub_0_r).
 (* Auto-generated comment: Succeeded. *)
 
