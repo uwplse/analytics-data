@@ -79,8 +79,10 @@ auto.
 Qed.
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
-(intros k; induction k; intros v Hm).
+(intros k; destruct k; intros v Hm).
 2: {
+idtac.
 (apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]).
 (* Auto-generated comment: Failed. *)
 
