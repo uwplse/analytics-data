@@ -62,6 +62,5 @@ dependent destruction H'.
 (destruct \206\1471 as [| \206\1471]; try invalid_contradiction).
 (erewrite denote_compose with (\206\1471 := []); trivial).
 Focus 3.
-(intros \206\1473 \206\1470' p0 H0 H1).
 (* Auto-generated comment: Succeeded. *)
 
