@@ -155,6 +155,7 @@ clear IHk' IHt.
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
 (apply le_S_n in Htk').
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv)).
-(* Auto-generated comment: Failed. *)
+(simpl in Hvk, Hvk').
+(apply le_S_n in Hvk).
+(* Auto-generated comment: Succeeded. *)
 
