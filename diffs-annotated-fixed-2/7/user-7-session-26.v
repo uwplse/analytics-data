@@ -175,6 +175,7 @@ auto with DBBetaJulia.
 Qed.
 Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
 Proof.
-auto with DBBetaJulia.
+(intros; split; auto).
+Qed.
 (* Auto-generated comment: Failed. *)
 
