@@ -127,8 +127,6 @@ Msimpl.
 (rewrite Mmult_assoc).
 easy.
 {
-(intros).
-(rewrite Heqli in H).
-(simpl).
+(inversion HeqW).
 (* Auto-generated comment: Succeeded. *)
 
