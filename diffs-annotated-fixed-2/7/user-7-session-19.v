@@ -266,5 +266,36 @@ Proof.
 (intros k t t' Hdept H).
 (destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
 (pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept H1)).
-(* Auto-generated comment: Failed. *)
+Abort.
+Lemma xxx : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+(induction k; induction t; induction t'; intros Hdept Hsem; try (solve [ simpl; constructor ])).
+(try (solve
+  [ match goal with
+    | Hsem:||-[ ?k][?t]<= [?t']
+      |- | ?t | <= | ?t' | =>
+          assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
+           (Hsem _ Hm); contradiction
+    | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
+      |- _ =>
+          assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+           solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+    | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
+      |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+    | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
+      |- _ <= | ?t' | =>
+          assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+           assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
+    | Hsem:||-[ ?k][TPair _ _]<= [TPair _ _]
+      |- _ =>
+          destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (max_inv_depth_le__components_le _ _ _ Hdept) as [Hdept1 Hdept2];
+           destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl; apply Nat.max_le_compat; auto
+    | Hsem:||-[ ?k][TUnion _ _]<= [_], Hnft:InNF( TUnion _ _), Hdept:| TUnion _ _ | <= _
+      |- _ =>
+          destruct (max_inv_depth_le__components_le _ _ _ Hdept) as [Hdept1 Hdept2];
+           destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
+           rewrite inv_depth_union; apply Nat.max_lub; auto
+    end ])).
+Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -> ||- [t1]<= [t'] /\ ||- [t2]<= [t'].
+(* Auto-generated comment: Succeeded. *)
 
