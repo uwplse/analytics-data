@@ -156,10 +156,10 @@ specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 -
 (match goal with
  | Hsub:|- ?t1 << ?t2
-   |- _ => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hsub; inversion Heqx; inversion Heqy; subst; try tauto
+   |- _ =>
+       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ;
+        assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; 
+        inversion Heqx; inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
  end).
-(assert (Hnf : InNF( unite_pairs (TCName c) (TRef t2))) by (apply unite_pairs__preserves_nf; assumption)).
-(rewrite (mk_nf_nf__equal _ Hnf) in IHHsub).
-tauto.
 (* Auto-generated comment: Failed. *)
 
