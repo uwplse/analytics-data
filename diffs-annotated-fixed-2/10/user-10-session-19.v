@@ -19,6 +19,10 @@ Please report at http://coq.inria.fr/bugs/.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
 Eval compute in Str_nth 10 (fib1 0 1).
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqgMPClb"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 Fail Timeout 1 Eval compute in hd (fib2 0 1).
 (* Auto-generated comment: Succeeded. *)
 
