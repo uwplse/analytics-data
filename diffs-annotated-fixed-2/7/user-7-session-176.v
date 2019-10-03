@@ -156,7 +156,11 @@ Proof.
 +
 (rewrite (subst_equation X sx) in Hm).
 (destruct (IdSet.mem i (FV sx))).
+*
 (unfold mk_subst_exist in Hm).
 (rewrite (subst_equation Y sy) in Hm).
+(destruct (IdSet.mem (gen_fresh (IdSet.union (FV sx) (FV t))) (FV sy))).
+(unfold mk_subst_exist in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
 (* Auto-generated comment: Failed. *)
 
