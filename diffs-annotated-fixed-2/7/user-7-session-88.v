@@ -432,5 +432,7 @@ specialize (IHt'2 Hnft).
 Check left.
 Print "\/".
 (apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_l ]).
+*
+(apply Nat.le_trans with (| t'2 |); [ tauto | apply Max.le_max_r ]).
 (* Auto-generated comment: Failed. *)
 
