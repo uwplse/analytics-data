@@ -43,8 +43,13 @@ Proof.
 vector_denote.
 (destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqi8zFxo"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqYJshKs"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Lemma init0_spec : forall safe, denote_box safe init0 (I (2 ^ 0)) = \226\136\1630\226\159\169\226\159\1680\226\136\163.
+Proof.
+(intros).
+matrix_denote.
+Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
