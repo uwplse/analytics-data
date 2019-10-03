@@ -124,7 +124,7 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma sub_r_unite_pairs_l__inv :
+Lemma sub_r_unite_pairs_nf_l__inv :
   forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
@@ -200,5 +200,16 @@ specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (split; tauto || constructor; tauto).
 (apply NF_Union; apply unite_pairs__preserves_nf; assumption).
 Qed.
+Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
+Proof.
+(intros t1 t2 t1' t2' Hsub).
+(remember (TPair t1 t2) as tx eqn:Heqx ).
+(remember (TPair t1' t2') as ty eqn:Heqy ).
+(induction Hsub; inversion Heqx; inversion Heqy; subst).
+-
+(split; assumption).
+-
+(simpl in Hsub).
+(apply sub_r_unite_pairs_nf_l__inv).
 (* Auto-generated comment: Failed. *)
 
