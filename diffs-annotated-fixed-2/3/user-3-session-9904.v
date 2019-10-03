@@ -113,6 +113,6 @@ step_proc.
 left.
 intuition.
 (unfold statdb_abstraction in *).
-(destruct s; simpl in *).
+(destruct s; simpl in *; auto).
 (* Auto-generated comment: Succeeded. *)
 
