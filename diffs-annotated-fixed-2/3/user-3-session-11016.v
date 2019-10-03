@@ -614,6 +614,6 @@ Theorem beq_natlist_refl : forall l : natlist, true = beq_natlist l l.
 Proof.
 (induction l; simpl; auto).
 (rewrite <- IHl; simpl).
-Search -andb -true.
-(* Auto-generated comment: Succeeded. *)
+(rewrite beq_nat_refl).
+(* Auto-generated comment: Failed. *)
 
