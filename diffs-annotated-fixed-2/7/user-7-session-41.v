@@ -13,5 +13,13 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Open Scope btjm.
 Theorem sub_d__semantic_sound : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
+Proof.
+(intros t1 t2 Hsub).
+(unfold sem_sub).
+(induction Hsub; intros k v Hm).
+-
+assumption.
+-
+auto.
 (* Auto-generated comment: Failed. *)
 
