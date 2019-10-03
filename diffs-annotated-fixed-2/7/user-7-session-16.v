@@ -434,5 +434,9 @@ Proof.
    | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 +
+(right; solve_not_x_sub_r_y_full).
+(rewrite mk_nf_nf__equal).
+reflexivity.
+(do 2 constructor).
 (* Auto-generated comment: Failed. *)
 
