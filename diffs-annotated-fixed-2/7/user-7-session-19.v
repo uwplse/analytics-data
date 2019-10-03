@@ -192,7 +192,7 @@ Proof.
      | Hsem:||-[ ?k][?t1]<= [?t2]
        |- | ?t1 | <= | ?t2 | =>
            assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-            (Hsem _ Hm); contradiction
+            (Hsem _ Hm); contradiction || destruct k; contradiction
      end ])).
 (* Auto-generated comment: Failed. *)
 
