@@ -383,6 +383,6 @@ destruct matches.
 -
 step_proc.
 (descend; intuition eauto).
-(unfold log_size_ok; lia).
-(* Auto-generated comment: Failed. *)
+(unfold log_size_ok; simpl).
+(* Auto-generated comment: Succeeded. *)
 
