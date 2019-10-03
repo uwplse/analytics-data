@@ -53,5 +53,6 @@ contradiction.
 -
 (unfold fresh in Hfresh).
 (destruct (beq_idP X i); try reflexivity).
+subst.
 (* Auto-generated comment: Failed. *)
 
