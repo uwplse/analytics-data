@@ -1025,6 +1025,6 @@ restore_dims tensor_tac.
 revert IP.
 restore_dims tensor_tac.
 (intros IP).
-setoid_rewrite IP.
-(* Auto-generated comment: Failed. *)
+(rewrite IP).
+(* Auto-generated comment: Succeeded. *)
 
