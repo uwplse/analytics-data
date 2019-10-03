@@ -288,6 +288,8 @@ Proof.
 (unfold log_size_ok, log_contents_ok; intros).
 (specialize (H0 a); intuition).
 (unfold log_addr in *).
+(rewrite disk_oob_eq; simpl; auto).
+autorewrite with upd.
 lia.
 (* Auto-generated comment: Failed. *)
 
