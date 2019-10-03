@@ -108,6 +108,16 @@ easy.
 }
 Timeout 1 About denote_ctrls_unitary.
 Timeout 1 Print denote_ctrls_unitary.
-specialize (denote_ctrls_unitary W _ U _ L).
+specialize (denote_ctrls_unitary W _ U _ L) as inv.
+replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by (subst; easy).
+(unfold apply_U, apply_unitary, super).
+(destruct W; try (solve [ inversion HeqW ])).
+(rewrite denote_ctrls_transpose).
+(remember (denote_ctrls (\226\159\166 W3 \226\138\151 W4 \226\159\167) U li) as A).
+(remember (swap_list (\226\159\166 W3 \226\138\151 W4 \226\159\167) li) as S).
+(rewrite <- (Mmult_assoc _ (A \195\151 \207\129) _)).
+(rewrite <- (Mmult_assoc _ A \207\129)).
+(simpl in inv).
+(rewrite inv).
 (* Auto-generated comment: Succeeded. *)
 
