@@ -318,6 +318,16 @@ Proof.
 (rewrite <- inv_depth_mk_nf).
 (apply sem_sub_k_i_nf__inv_depth_le_2 with k).
 (apply mk_nf__in_nf).
-(rewrite inv_depth_mk_nf; assumption).
+assumption.
+(apply sem_sub_k__i__trans with t; try assumption).
+(pose proof (match_ty_i_nf k t) as H).
+(intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+(intros k t t' Hdept H).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
+(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept H1)).
+(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept H1)).
 (* Auto-generated comment: Failed. *)
 
