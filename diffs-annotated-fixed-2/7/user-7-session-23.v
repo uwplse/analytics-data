@@ -86,6 +86,10 @@ Proof.
 (apply sub_d__semantic_sound).
 (apply sub_d__semantic_complete_i).
 assumption.
-Abort.
+Qed.
+Theorem sem_sub_deq__sem_sub_i : forall t1 t2 : ty, ||- [t1]<= [t2] -> (||- [t1]<= [t2])%btjmi.
+Proof.
+(intros t1 t2 Hsemdec).
+(apply sub_d__semantic_complete).
 (* Auto-generated comment: Failed. *)
 
