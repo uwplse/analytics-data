@@ -331,7 +331,113 @@ Definition match_event_list {X} : networkE X -> X -> list (itree tE unit) -> lis
 Definition server : itree sE void :=
   sk <- translate subevent serverHandshake;; interp (network_of_app sk) (nmi_of_smi kvs).
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqV9VsME" Print Ltac Signatures.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Definition showSE (se : sigT (fun X => sE X * X)%type) : string :=
+  match se with
+  | existT _ _ er =>
+      let (e, r) := er in
+      match e with
+      | (ne|) =>
+          match ne in (networkE X) return (X -> _) with
+          | Network_Recv => fun m => "Network     Recv to   server: " ++ show m
+          | Network_Send m => fun _ => "Network     Send from server: " ++ show m
+          end r
+      | (|(Throw _|)) => "This message should never be printed."
+      | (||hge|) =>
+          match hge in (hsgenE X) return (X -> _) with
+          | HsGen_Key => fun k => "Handshake   Generate Key    : " ++ show k
+          | HsGen_Random => fun r => "Handshake   Generate Random : " ++ show r
+          end r
+      | (|||re) =>
+          match re in (randomE X) return (X -> _) with
+          | Random_Value => fun n => "Server      Generate Value  : " ++ show n
+          | Random_Requst => fun r => "Tester      Generate Request: " ++ show r
+          end r
+      end
+  end.
+Definition showTE (te : sigT (fun X => tE X * X)%type) : string :=
+  match te with
+  | existT _ _ er =>
+      let (e, r) := er in
+      match e with
+      | (ne|) =>
+          match ne in (nondetE X) return (X -> _) with
+          | Or => fun b => "Flip coin and get           : " ++ show b
+          end r
+      | (|se) => showSE (existT _ _ (se, r))
+      end
+  end.
+Instance showEvent : (Show event) :=
+ {|
+ show := fun e =>
+         match e with
+         | Event_Tester te => showTE te
+         | Event_Server se => showSE se
+         | Event_Retry e => "Retry upon exception        : " ++ show e
+         end |}.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Notation zE := (exceptE error +' traceE +' hsgenE +' randomE +' nondetE).
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Definition _zip (_ : unit) : itree tE unit -> itree sE void -> itree zE unit := zip' [].
+Notation zip := (_zip tt).
+End Network.
+Module Test.
+Import App Network.
+Definition random_N : N -> IO N := fmap n_of_int \226\136\152 ORandom.int \226\136\152 int_of_n.
+Definition random_kvs_data : IO (kvs_data id) :=
+  n <- random_N 3;;
+  match n with
+  | 0 => Kvs_GET <$> random_N 10
+  | 1 => (Kvs_PUT <$> random_N 10) <*> random_N 10
+  | _ => ((Kvs_CAS <$> random_N 10) <*> random_N 10) <*> random_N 10
+  end.
+Fixpoint exec_test' (fuel : nat) (m : itree zE unit) : 
+IO bool :=
+  match fuel with
+  | O => ret true
+  | S fuel =>
+      match m.(observe) with
+      | RetF tt => ret true
+      | TauF m' => exec_test' fuel m'
+      | VisF ze k =>
+          match ze with
+          | (Throw e|) => prerr_endline (show e);; ret false
+          | (|(te|)) =>
+              match te in (traceE Y) return ((Y -> _) -> _) with
+              | Trace e =>
+                  fun k => prerr_endline (show e);; exec_test' fuel (k tt)
+              end k
+          | (||ge) =>
+              sk <- random_N 5;;
+              n <- random_N 10;;
+              r <- random_kvs_data;;
+              b <- ORandom.bool tt;;
+              exec_test' fuel
+                match ge with
+                | (hge|) =>
+                    match hge in (hsgenE Y) return ((Y -> _) -> _) with
+                    | HsGen_Key => fun k => k sk
+                    | HsGen_Random => fun k => k n
+                    end k
+                | (|(re|)) =>
+                    match re in (randomE Y) return ((Y -> _) -> _) with
+                    | Random_Value => fun k => k n
+                    | Random_Request => fun k => k r
+                    end k
+                | (||ne) =>
+                    match ne in (nondetE Y) return ((Y -> _) -> _) with
+                    | Or => fun k => k b
+                    end k
+                end
+          end
+      end
+  end.
+Definition exec_test : itree zE unit -> IO bool := exec_test' 5000.
+Definition test_crypto : itree zE unit := zip tester server.
+End Test.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqYPstZj"
+Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
