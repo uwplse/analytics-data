@@ -339,8 +339,7 @@ Lemma match_ty_deq_ref__inv :
   forall v t : ty,
   forall k : nat,
   |-[ S k] v <$ TRef t ->
-  exists t' : ty,
-    v = TRef t' /\ inv_depth t <= k /\ inv_depth t' = inv_depth t /\ (forall v' : ty, value_type v' -> |-[ k] v' <$ t' <-> |-[ k] v' <$ t).
+  exists t' : ty, v = TRef t' /\ inv_depth t <= k /\ inv_depth t' = inv_depth t /\ (forall v' : ty, |-[ k] v' <$ t' <-> |-[ k] v' <$ t).
 Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; simpl in Hm; contradiction ])).
 clear IHv.
@@ -356,5 +355,20 @@ assumption.
 split.
 assumption.
 (intros v').
-(* Auto-generated comment: Failed. *)
+specialize (Href v').
+(destruct Href; split; assumption).
+Qed.
+Close Scope btjmdeq_scope.
+Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> (||- [t1]<= [t2])%btjmdeq.
+Proof.
+(intros ta; induction ta; intros tb; induction tb; intros Hsem; pose proof Hsem as Hsem'; unfold sem_sub_i, sem_sub_k_i in Hsem';
+  unfold sem_sub_deq, sem_sub_k_deq; intros k v Hv Hm1;
+  try
+   match goal with
+   | Hm1:(|-[ ?k] ?v <$ TCName ?c)%btjmdeq
+     |- _ =>
+         apply match_ty_deq_cname__inv in Hm1; subst; assert (Hm : (|-[ k] TCName c <$ TCName c)%btjmi) by (destruct k; reflexivity); specialize
+          (Hsem' _ _ Hv Hm)
+   end).
+(* Auto-generated comment: Succeeded. *)
 
