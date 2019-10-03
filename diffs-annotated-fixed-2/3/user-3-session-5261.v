@@ -86,6 +86,8 @@ step_proc.
 intuition subst; eauto.
 *
 (f_equal; lia).
+*
 (repeat deex).
-(* Auto-generated comment: Failed. *)
+(exists (S nwritten); simpl).
+(* Auto-generated comment: Succeeded. *)
 
