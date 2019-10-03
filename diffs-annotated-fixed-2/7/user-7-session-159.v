@@ -136,5 +136,8 @@ admit.
 +
 subst.
 (rewrite subst_exist_eq in *).
+exists v.
+split.
+assumption.
 (* Auto-generated comment: Failed. *)
 
