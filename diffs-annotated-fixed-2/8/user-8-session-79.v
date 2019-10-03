@@ -1024,13 +1024,11 @@ restore_dims tensor_tac.
  end; try (solve [ type_check ])).
 Set Printing All.
 (match IP with
- | ?A =>
-     let A' := restore_dims_rec tac A in
-     replace
-     A
-     with
-     A'
-     by unify_matrix_dims tac
+ | ?A => let A' := restore_dims_rec tac A in
+         replace
+         A
+         with
+         A'
  end).
 (* Auto-generated comment: Succeeded. *)
 
