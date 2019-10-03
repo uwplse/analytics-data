@@ -50,6 +50,6 @@ exists t'.
 (apply match_ty_value_type__reflexive).
 constructor.
 -
-exists w1.
+exists S w1.
 (* Auto-generated comment: Failed. *)
 
