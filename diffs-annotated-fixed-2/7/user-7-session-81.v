@@ -94,6 +94,6 @@ Proof.
 (unfold sem_sub in Hsem).
 (split; unfold sem_sub; intros k v Hm).
 -
-(destruct (value_type_matching_ty__exists t2) as [pv2 Hpv2]).
+(destruct (value_type_matching_ty__exists k t2) as [pv2 Hpv2]).
 (* Auto-generated comment: Failed. *)
 
