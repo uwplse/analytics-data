@@ -19,6 +19,7 @@ Proof.
 (destruct (match_ty_value_type_r v Hv k) as [Hcontra| Hm]).
 -
 (left; intros v' Hm').
-(exfalso; apply Hcontra).
+(exfalso; apply Hcontra; eauto).
+-
 (* Auto-generated comment: Failed. *)
 
