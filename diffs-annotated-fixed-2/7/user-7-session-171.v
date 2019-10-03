@@ -100,6 +100,11 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-Proof.
+Next Obligation.
+(simpl).
+Search -S.
+Search -"+".
+(rewrite <- Nat.add_1_r).
+auto.
 (* Auto-generated comment: Failed. *)
 
