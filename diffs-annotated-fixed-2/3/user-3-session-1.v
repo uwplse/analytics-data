@@ -456,5 +456,6 @@ Proof.
 firstorder.
 (intros).
 (apply impl_spec_exec).
+(apply impl_spec_exec; auto).
 (* Auto-generated comment: Succeeded. *)
 
