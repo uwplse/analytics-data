@@ -403,6 +403,6 @@ constructor.
 {
 subst.
 (simpl).
-(apply Nat.max_le_l).
+(apply Nat.max_le_n).
 (* Auto-generated comment: Failed. *)
 
