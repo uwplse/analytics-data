@@ -154,6 +154,6 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
-(rewrite diskUpd_eq; auto).
-(* Auto-generated comment: Failed. *)
+omega.
+(* Auto-generated comment: Succeeded. *)
 
