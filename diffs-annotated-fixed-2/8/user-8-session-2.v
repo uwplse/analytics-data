@@ -54,6 +54,6 @@ Proof.
 reflexivity.
 (dependent destruction u; simpl; reflexivity).
 -
-clear IHW1.
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
