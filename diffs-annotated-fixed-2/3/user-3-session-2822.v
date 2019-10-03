@@ -152,5 +152,5 @@ typeclasses eauto.
 (decide equality; subst).
 (destruct (x0 == x1); auto).
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
