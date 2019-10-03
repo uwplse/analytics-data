@@ -59,6 +59,15 @@ Proof.
 (unfold fresh_in_ty, fresh).
 (simpl).
 Search -IdSet.empty.
-(intros Hcontra; apply IdSetFacts.empty_iff).
+Check IdSetFacts.empty_iff.
+(pose proof (IdSetFacts.empty_iff X) as H).
+tauto.
+-
+(intros t' X' Hfresh Hsem).
+(simpl in *).
+(induction t').
++
+(intros k w1).
+specialize (Hsem k w1).
 (* Auto-generated comment: Failed. *)
 
