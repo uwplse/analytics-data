@@ -87,5 +87,8 @@ clear IHv1 IHv2.
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]; [ specialize (IHt1 _ Hm) | specialize (IHt2 _ Hm) ]; split; try tauto; rewrite inv_depth_union;
   [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; try tauto; apply Max.le_max_l || apply Max.le_max_r).
+-
+(intros t k Hm).
+(apply match_ty__value_type in Hm).
 (* Auto-generated comment: Failed. *)
 
