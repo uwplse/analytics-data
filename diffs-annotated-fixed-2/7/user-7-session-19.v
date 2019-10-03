@@ -388,29 +388,37 @@ tauto.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 Admitted.
-Lemma match_ty_i__match_le_inv_depth : forall (t : ty) (k : nat) (v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
+Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
 Proof.
-(induction t; intros k v Hm k' Hle).
+(induction k; induction t; intros v Hm k' Hle;
+  try
+   match goal with
+   | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
+   | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; auto
+   | |- |-[ ?k'] ?v <$ TUnion _ _ =>
+         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
+   end).
 -
-(apply match_ty_i_cname__inv in Hm; subst).
-(destruct k'; reflexivity).
--
-(apply match_ty_i_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_i_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
--
-(apply match_ty_i_union__inv in Hm).
-(destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ eapply IHt1 | eapply IHt2 ]; eauto).
+(inversion Hle; subst).
+assumption.
 -
 clear IHt.
-(destruct k).
-(destruct k'; inversion Hle).
-assumption.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (destruct k').
 constructor.
 (apply le_S_n in Hle).
 (simpl).
+Abort.
+Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
+Proof.
+(apply
+  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
+     (fun (t1 : ty) (_ : in_nf t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
+-
+(intros c t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
 (* Auto-generated comment: Failed. *)
 
