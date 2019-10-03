@@ -110,6 +110,9 @@ step_proc.
 -
 (step_proc; intuition).
 (exists s; intuition).
-(left; auto).
+left.
+intuition.
+(unfold statdb_abstraction in *).
+(destruct s; intuition; simpl in *; try congruence).
 (* Auto-generated comment: Succeeded. *)
 
