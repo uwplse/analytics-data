@@ -978,6 +978,6 @@ Timeout 1 Print Ltac restore_dims.
             A'
  end).
 2: {
-(unify_matrix_dims idtac).
+(apply f_equal_gen).
 (* Auto-generated comment: Succeeded. *)
 
