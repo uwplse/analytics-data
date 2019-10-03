@@ -190,102 +190,36 @@ Ltac
  solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2 :=
   pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
    [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
-Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -> ||- [t1]<= [t'] /\ ||- [t2]<= [t'].
+Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
-(intros t1 t2 t' Hsem).
-(unfold sem_sub_i in Hsem).
-(split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem); assumption).
-Qed.
-Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
-Proof.
-(intros v Hv ta tb Hsem; unfold sem_sub_i in Hsem).
-(assert (Hm : |-[ 0] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem 0 _ Hm).
-(apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]).
-Abort.
-Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
-Proof.
-(intros t t' Hsem).
-(split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
-  assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem; 
-  intros v' Hm'; specialize (Hsem v'); tauto).
-Qed.
-Open Scope btj_scope.
-Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
-Proof.
-(apply
-  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
-     (fun (t1 : ty) (_ : in_nf t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
--
-(intros c t2).
-(assert (Hva : value_type (TCName c)) by constructor).
-(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
-+
-Abort.
-Lemma value_type_sem_sub_i__inv_depth_le : forall v : ty, value_type v -> forall t : ty, ||- [v]<= [t] -> | v | <= | t |.
-Proof.
-Abort.
-Lemma match_ty_i__inv_depth_stable :
-  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
-Proof.
-(induction k; induction k').
--
-tauto.
--
-admit.
--
-admit.
--
-(induction t).
-admit.
-admit.
-admit.
-+
-clear IHk' IHt.
-(intros Htk Htk' v).
-(simpl in Htk, Htk').
-(apply le_S_n in Htk).
-(apply le_S_n in Htk').
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
-(pose proof (IHk k' t Htk Htk' v) as Ht).
-Abort.
-Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
-Proof.
-(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
+(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
-     | |- | ?t1 | <= | ?t2 | =>
-           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-             (H _ Hm); contradiction) ||
-             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-               (H _ Hm); contradiction)
+     | Hsem:||-[ ?k][?t]<= [?t']
+       |- | ?t | <= | ?t' | =>
+           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
+            (Hsem _ Hm); contradiction
+     | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
+       |- _ =>
+           assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+            solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+     | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
+       |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+     | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
+       |- _ <= | ?t' | =>
+           assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+            assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
+     | Hsem:||-[ ?k][TPair _ _]<= [TPair _ _]
+       |- _ =>
+           destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl;
+            apply Nat.max_le_compat; auto
+     | Hsem:||-[ ?k][TUnion _ _]<= [_], Hnft:InNF( TUnion _ _)
+       |- _ =>
+           destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
+            rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
-Abort.
-Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
-Proof.
-(induction k; induction t; intros Htk v Hm;
-  try
-   match goal with
-   | Hm:|-[ ?k'] ?v <$ TCName _ |- _ => apply match_ty_i_cname__inv in Hm; subst; constructor
-   | H:|-[ ?k'] ?v <$ TPair _ _
-     |- _ =>
-         destruct (max_inv_depth_le__components_le _ _ _ Htk) as [Htk1 Htk2]; apply match_ty_i_pair__inv in Hm;
-          destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply Nat.max_le_compat; auto
-   | H:|-[ ?k'] ?v <$ TUnion _ _
-     |- _ =>
-         destruct (max_inv_depth_le__components_le _ _ _ Htk) as [Htk1 Htk2]; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2];
-          [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto; apply Max.le_max_l || apply Max.le_max_r
-   end).
 -
-(destruct v; try contradiction).
-(inversion Htk).
--
-clear IHt.
-(simpl in Htk).
-(apply le_S_n in Htk).
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+(apply le_n_S).
 (* Auto-generated comment: Failed. *)
 
