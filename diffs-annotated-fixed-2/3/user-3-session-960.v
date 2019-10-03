@@ -149,5 +149,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQ7ZRNG"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Theorem nat_from_le_zeros base_m2 digits n :
+  nat_from_le (digits ++ repeat bounded0 n) = nat_from_le digits.
 (* Auto-generated comment: Failed. *)
 
