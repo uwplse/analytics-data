@@ -1123,6 +1123,9 @@ restore_dims tensor_tac.
 (erewrite kron_compat).
 3: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb1 \206\147 f false); trivial).
 (rewrite xorb_false_l).
-all: easy.
-(* Auto-generated comment: Succeeded. *)
+all: reflexivity.
+}
+7: {
+(rewrite id_circ_spec).
+(* Auto-generated comment: Failed. *)
 
