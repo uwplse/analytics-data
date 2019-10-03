@@ -111,5 +111,25 @@ Proof.
 (destruct (le_dec (S a) (diskSize d0))).
 -
 destruct_all.
+-
+(rewrite diskUpd_oob_noop by lia).
+destruct_all.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4NAQV4"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem size_ok : forall i, proc_spec (size_spec i) (size i) recover abstr.
+Proof.
+unshelve prim.
+eauto.
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+eauto.
+Qed.
+End TwoDisk.
 (* Auto-generated comment: Succeeded. *)
 
