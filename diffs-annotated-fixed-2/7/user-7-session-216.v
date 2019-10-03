@@ -413,6 +413,11 @@ tauto.
 Search -IdSet.Empty.
 Search -IdSet.Empty.
 Search -IdSet.remove.
+Search -IdSet.In.
+(destruct (IdSetProps.In_dec i (FBV t))).
 admit.
+admit.
+-
+(simpl).
 (* Auto-generated comment: Failed. *)
 
