@@ -133,34 +133,6 @@ Axiom (fresh_var_unique : forall exclude, ~ In (fresh_var exclude) exclude).
 Definition Divide (t1 : Term) (t2 : Term) :=
   let x := fresh_var (free_vars t1 ++ free_vars t2) in
   Choose x (Eq t1 (Times (Var x) t2)).
-Lemma divide_test :
-  forall L env, L.(eval) env (Divide (Int 6) (Int 2)) = L.(eval) env (Int 3).
-Proof.
-(intros).
-(unfold Divide).
-(match goal with
- | |- context [ Choose ?x _ ] => generalize x
- end).
-intro x.
-(assert
-  (forall res,
-   eval L env (Choose x (Eq (Int 6) (Times (Var x) (Int 2)))) = res ->
-   res = eval L env (Int 3))).
-{
-(intros).
-(assert
-  (eval L
-     (extendEnv env x
-        (eval L env (Choose x (Eq (Int 6) (Times (Var x) (Int 2))))))
-     (Eq (Int 6) (Times (Var x) (Int 2))) = L.(vTrue))).
-{
-(apply evalChoose).
-exists (eval L env (Int 3)).
-(apply evalEqTrue).
-(rewrite evalTimes with (i := 3%Z) (j := 2%Z)).
--
-reflexivity.
--
-(rewrite evalVar).
+Lemma extendEnv_eq : forall env x val, (extendEnv env x val) x = val.
 (* Auto-generated comment: Succeeded. *)
 
