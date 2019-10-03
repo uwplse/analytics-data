@@ -135,6 +135,5 @@ Proof.
    |- _ => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hsub; inversion Heqx; inversion Heqy; subst; tauto
  end).
 -
-(simpl in Hsub).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
