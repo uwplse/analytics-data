@@ -660,6 +660,6 @@ reflexivity.
 (simpl).
 (erewrite IHl1; auto).
 restore_dims try rewrite app_length; try rewrite Nat.pow_add_r; lia.
-(rewrite kron_assoc').
+(rewrite kron_assoc'; try apply Nat.pow_nonzero; try lia).
 (* Auto-generated comment: Succeeded. *)
 
