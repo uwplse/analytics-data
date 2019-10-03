@@ -369,7 +369,7 @@ Ltac
  solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
   destruct IHt2_1 as [IH1| IH1]; try assumption; destruct IHt2_2 as [IH2| IH2]; try assumption;
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
-   apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
+   apply atom_sub_r_union__inv in Hcontra; tauto || constructor; assumption.
 Ltac
  solve_union_sub_r__decidable IHt'1 IHt'2 :=
   destruct IHt'1 as [IH1| IH1]; try assumption; destruct IHt'2 as [IH2| IH2]; try assumption;
@@ -416,6 +416,6 @@ Proof.
    [ left; constructor; assumption
    | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
 +
-(solve_atom_sub_r_union__decidable IHt'1 IHt'2; assumption).
+(right; solve_not_x_sub_r_y_full).
 (* Auto-generated comment: Failed. *)
 
