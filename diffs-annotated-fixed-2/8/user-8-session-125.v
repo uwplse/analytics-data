@@ -108,6 +108,6 @@ easy.
 }
 Timeout 1 About denote_ctrls_unitary.
 Timeout 1 Print denote_ctrls_unitary.
-specialize (denote_ctrls_unitary W _ \207\129 _ L).
-(* Auto-generated comment: Failed. *)
+specialize (denote_ctrls_unitary W _ U _ L).
+(* Auto-generated comment: Succeeded. *)
 
