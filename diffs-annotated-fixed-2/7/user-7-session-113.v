@@ -27,6 +27,6 @@ Proof.
 (induction t; intros Hnfresh s; try (solve [ reflexivity ])).
 -
 (simpl).
-(unfold fresh_in_ty in *).
+(unfold not_fresh_in_ty in *).
 (* Auto-generated comment: Failed. *)
 
