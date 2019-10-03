@@ -87,5 +87,45 @@ specialize denote_compose as DC.
 (unfold denote_circuit in DC).
 (erewrite DC with (\206\1471 := []) (\206\14701 := [])).
 (simpl).
+(unfold compose_super).
+(rewrite H2, H3).
+reflexivity.
+*
+(apply types_f).
+(rewrite <- H0, <- H1).
+(apply add_fresh_typed_empty).
+(rewrite add_fresh_split).
+easy.
+*
+(unfold Typed_Box in types_g).
+(intros \206\147 \206\147' p pf wf_p).
+solve_merge.
+(apply types_g).
+monoid.
+(rewrite merge_nil_r).
+auto.
+*
+solve_merge.
+*
+(split; [ validate | monoid ]).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq67odxH" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fact inPar_correct :
+  forall W1 W1' W2 W2' (f : Box W1 W1') (g : Box W2 W2') (safe : bool) (\207\1291 : Square (2 ^ \226\159\166 W1 \226\159\167)) (\207\1292 : Square (2 ^ \226\159\166 W2 \226\159\167)),
+  Typed_Box f ->
+  Typed_Box g ->
+  WF_Matrix \207\1291 -> WF_Matrix \207\1292 -> denote_box safe (inPar f g) (\207\1291 \226\138\151 \207\1292)%M == (denote_box safe f \207\1291 \226\138\151 denote_box safe g \207\1292)%M.
+Proof.
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq2J2kKe" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma HOAS_Equiv_inSeq :
+  forall w1 w2 w3 (c1 c1' : Box w1 w2) (c2 c2' : Box w2 w3),
+  Typed_Box c1 -> Typed_Box c1' -> Typed_Box c2 -> Typed_Box c2' -> c1 \226\137\161 c1' -> c2 \226\137\161 c2' -> c2 \194\183 c1 \226\137\161 c2' \194\183 c1'.
+Proof.
+(intros w1 w2 w3 c1 c1' c2 c2' T1 T1' T2 T2' E1 E2).
+(intros \207\129 b M\207\129).
+(simpl_rewrite inSeq_correct; trivial).
 (* Auto-generated comment: Succeeded. *)
 
