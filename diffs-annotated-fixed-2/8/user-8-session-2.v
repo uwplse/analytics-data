@@ -137,6 +137,6 @@ Search -fst -snd.
 (destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
 Opaque skipn.
 (simpl).
-(rewrite <- ctrl_list_to_unitary_transpose).
+restore_dims repeat rewrite repeat_length; unify_pows_two; lia.
 (* Auto-generated comment: Failed. *)
 
