@@ -325,6 +325,10 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqQOVHPd"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Fixpoint count (v : nat) (s : bag) : nat.
-(* Auto-generated comment: Succeeded. *)
+Fixpoint count (v : nat) (s : bag) : nat :=
+  match s with
+  | [ ] => 0
+  | x :: s' => (if nat_eqb x v then 1 else 0) + count v s'
+  end.
+(* Auto-generated comment: Failed. *)
 
