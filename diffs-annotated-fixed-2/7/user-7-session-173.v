@@ -99,10 +99,6 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
--
-(intros).
-(simpl).
-Omega.omega.
--
+(repeat (intros; simpl; Omega.omega)).
 (* Auto-generated comment: Failed. *)
 
