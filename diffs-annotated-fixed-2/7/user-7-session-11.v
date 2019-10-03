@@ -27,6 +27,6 @@ Proof.
 -
 (apply union_right_2; assumption).
 -
-(apply SD_Trans with (MkNF( t))).
+(constructor; assumption).
 (* Auto-generated comment: Failed. *)
 
