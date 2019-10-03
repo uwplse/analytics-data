@@ -102,7 +102,8 @@ Fixpoint identity (t : Term) : Term :=
   end.
 Theorem eval_eq_true_or_false :
   forall (L : EpsilonLogic) env (t1 t2 : Term),
-  L.(eval) env (Eq t1 t2) = L.(vTrue) \/ L.(eval) env (Eq t1 t2) = L.(vFalse).
+  L.(eval) env (Eq t1 t2) = L.(eval) env (Bool true) \/
+  L.(eval) env (Eq t1 t2) = L.(eval) env (Bool false).
 Proof.
 (intros).
 (destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2)) eqn:E).
