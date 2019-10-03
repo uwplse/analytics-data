@@ -73,6 +73,7 @@ Qed.
 Lemma b_subst_union : forall (X : id) (s t1 t2 : ty), [BX := s] TUnion t1 t2 = TUnion ([BX := s] t1) ([BX := s] t2).
 Proof.
 (intros).
+(simpl).
 reflexivity.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
