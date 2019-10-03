@@ -239,6 +239,11 @@ tauto.
 Qed.
 Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
 Proof.
-(induction k; induction t; intros v; split; intros Hm).
+(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ])).
+Admitted.
+Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
+Proof.
+auto with DBBetaJulia.
+Qed.
 (* Auto-generated comment: Failed. *)
 
