@@ -180,5 +180,6 @@ Proof.
 subst.
 (apply match_ty_cname).
 -
+(des Abort).
 (* Auto-generated comment: Failed. *)
 
