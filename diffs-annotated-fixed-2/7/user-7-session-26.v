@@ -78,6 +78,7 @@ Qed.
 Hint Resolve mk_nf_pair mk_nf_union mk_nf_ref: DBBetaJulia.
 Theorem mk_nf__in_nf : forall t : ty, InNF( MkNF( t)).
 Proof.
-(intros t; induction t; try (solve [ auto using unite_pairs__preserves_nf with DBBetaJulia ])).
+(intros t; induction t; try (solve [ simpl; auto using unite_pairs__preserves_nf with DBBetaJulia ])).
+Qed.
 (* Auto-generated comment: Failed. *)
 
