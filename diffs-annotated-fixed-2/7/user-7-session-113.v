@@ -21,6 +21,6 @@ Proof.
 -
 (specialize (IHt1 s1 s2); specialize (IHt2 s1 s2)).
 (simpl in *).
-auto.
+tauto.
 (* Auto-generated comment: Failed. *)
 
