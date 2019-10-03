@@ -291,5 +291,6 @@ tauto.
 -
 (intros t3 Hsub21).
 (remember (TPair t1' t2') as tx eqn:Heqx ).
+(induction Hsub21).
 (* Auto-generated comment: Failed. *)
 
