@@ -259,6 +259,5 @@ Proof.
 -
 admit.
 -
-(destruct Hsem as [_ Hsem]).
 (* Auto-generated comment: Failed. *)
 
