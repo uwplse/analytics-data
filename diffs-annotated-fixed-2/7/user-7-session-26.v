@@ -183,6 +183,11 @@ auto with DBBetaJulia.
 (intros k t1 t2 Hsem).
 (unfold sem_eq_k in *).
 (intros v).
-auto using Hsem.
+specialize (Hsem v).
+tauto.
+Qed.
+Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+auto with DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
