@@ -154,5 +154,8 @@ idtac.
 (pose proof (Hsem _ Hvref Hmref) as Hmu).
 (apply match_ty_i_union__inv in Hmu).
 (destruct Hmu as [Hmu1| Hmu2]; [ left | right ]; intros v Hv Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst).
+(assert (Hmt't : |-[ S k] TRef t' <$ TRef t)).
+(simpl).
+assumption.
 (* Auto-generated comment: Failed. *)
 
