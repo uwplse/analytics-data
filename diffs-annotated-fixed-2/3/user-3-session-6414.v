@@ -137,6 +137,6 @@ split.
 -
 eauto using log_length_ok_nil.
 -
-(simpl; lia).
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
