@@ -82,7 +82,6 @@ assumption.
 *
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
-(destruct (IdSetProps.In_dec i (FV tx)) as [Hin| Hin]).
 specialize (IHw' _ Hm).
 (* Auto-generated comment: Failed. *)
 
