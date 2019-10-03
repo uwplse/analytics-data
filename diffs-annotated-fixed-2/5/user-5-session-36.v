@@ -202,6 +202,9 @@ Proof.
 (unfold extendEnv).
 (destruct (id_eq_dec x x); congruence).
 Qed.
+Lemma evalIntEq :
+  forall L env x y, L.(eval) env (Int x) = L.(eval) env (Int y) -> x = y.
+Admitted.
 Lemma divide_test :
   forall L env, L.(eval) env (Divide (Int 6) (Int 2)) = L.(eval) env (Int 3).
 Proof.
