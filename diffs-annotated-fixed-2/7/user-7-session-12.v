@@ -317,5 +317,8 @@ Proof.
 (intros t1 t21 t22).
 (repeat rewrite mk_nf_union, mk_nf_pair).
 (rewrite mk_nf_pair).
-(* Auto-generated comment: Failed. *)
+(apply unite_pairs__distr21).
+(apply mk_nf__in_nf).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
