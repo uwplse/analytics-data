@@ -345,5 +345,8 @@ Proof.
 (left; apply sub_r__transitive with t1).
 (apply mk_nf__sub_r1).
 assumption.
+-
+(right; intros Hcontra).
+(apply SR_NOrmalForm in Hcontra; contradiction).
 (* Auto-generated comment: Failed. *)
 
