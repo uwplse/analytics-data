@@ -130,7 +130,7 @@ Lemma denote_ctrls_transpose :
 Proof.
 (intros).
 (unfold denote_ctrls).
-(destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
-(apply ctrls_to_list_transpose in E).
-(* Auto-generated comment: Succeeded. *)
+Search -fst -snd.
+(rewrite surjective_pairing).
+(* Auto-generated comment: Failed. *)
 
