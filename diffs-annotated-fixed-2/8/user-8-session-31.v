@@ -3180,6 +3180,27 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
-Timeout 1 Print Ltac denote_box.
-(* Auto-generated comment: Failed. *)
+Definition HOAS_Equiv {W1} {W2} (c1 c2 : Box W1 W2) :=
+  forall \207\129 b, denote_box b c1 \207\129 == denote_box b c2 \207\129.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq7A2bAj"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Notation "a \226\137\161 b" := (HOAS_Equiv a b) (at level 70) : circ_scope.
+Hint Unfold HOAS_Equiv: den_db.
+Open Scope circ_scope.
+Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c = c.
+Proof.
+(destruct c).
+(unfold inSeq).
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p).
+(remember (c p) as c0).
+clear c p Heqc0.
+(induction c0; auto).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(* Auto-generated comment: Succeeded. *)
 
