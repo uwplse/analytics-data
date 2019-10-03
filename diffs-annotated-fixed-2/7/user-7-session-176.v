@@ -150,6 +150,6 @@ Proof.
 (destruct (IHt2 _ Hm2) as [v2' Hm2']).
 exists (TPair v1' v2').
 (rewrite subst_pair).
-(apply match_ty_pair).
+(apply match_ty_pair; assumption).
 (* Auto-generated comment: Failed. *)
 
