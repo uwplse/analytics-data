@@ -142,6 +142,7 @@ step_proc.
 (case_eq (diskGet (stateDisk state) (diskSize (stateDisk state) - 1)); intros).
 {
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
-(unfold inited_any).
+(unfold inited_any; intuition idtac).
+(intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
