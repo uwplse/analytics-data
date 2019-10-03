@@ -399,17 +399,15 @@ Theorem log_abstraction_preserved d bs d' bs' :
   diskSize d' = diskSize d ->
   log_contents_ok d' (bs ++ bs') -> log_abstraction d' bs.
 Proof.
-(unfold log_abstraction, log_length_ok, log_size_ok; intuition).
+(unfold log_abstraction, log_length_ok, log_size_ok; intuition eauto).
 -
 replace (diskGet d' len_addr) in *.
 auto.
 -
 congruence.
--
-eauto.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqiKy2nd"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBiPyjK"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
