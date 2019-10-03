@@ -280,30 +280,11 @@ step_proc.
 (descend; intuition eauto).
 (rewrite firstn_all; auto).
 Qed.
-Theorem append_at_ok a bs' :
-  proc_spec
-    (fun (bs : list block) state =>
-     {|
-     pre := a = length bs /\
-            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
-     post := fun r state' =>
-             diskGet state' len_addr = diskGet state len_addr /\
-             diskSize state' = diskSize state /\
-             log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state' (bs ++ bs');
-     recovered := fun _ state' =>
-                  diskGet state' len_addr = diskGet state len_addr /\
-                  diskSize state' = diskSize state /\
-                  log_contents_ok state' bs |}) (append_at a bs') recover
-    d.abstr.
+Theorem log_contents_ok_unchanged d bs a b :
+  log_contents_ok d bs ->
+  log_addr a >= length bs -> log_contents_ok (diskUpd d a b) bs.
 Proof.
-(induction bs'; simpl).
--
-step_proc.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
+(unfold log_contents_ok; intros).
+specialize (H a).
 (* Auto-generated comment: Succeeded. *)
 
