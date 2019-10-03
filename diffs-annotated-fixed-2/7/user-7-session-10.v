@@ -179,6 +179,8 @@ Proof.
 -
 tauto.
 -
-(destruct (in_nf_pair__inv _ _ Hnfm1) as [Hnfmx Hnfmy]).
+(destruct (in_nf_pair__inv _ _ Hnfm1) as [Hnfm11 Hnfm12]).
+(destruct (in_nf_pair__inv _ _ Hnfm2) as [Hnfm21 Hnfm22]).
+(destruct IHHsub1 as [IHHsub11 IHHsub12]).
 (* Auto-generated comment: Failed. *)
 
