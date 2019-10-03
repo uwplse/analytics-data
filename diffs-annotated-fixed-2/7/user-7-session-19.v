@@ -103,6 +103,12 @@ constructor.
 Qed.
 Lemma bbb : forall (k : nat) (t t' v : ty), |-[ k] v <$ t -> |-[ k] v <$ t' -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t').
+(induction k; induction t; induction t'; intros v Hmt Hmt').
+Show 2.
+32: {
+idtac.
+(simpl).
+(apply le_n_S).
+(apply IHk).
 (* Auto-generated comment: Failed. *)
 
