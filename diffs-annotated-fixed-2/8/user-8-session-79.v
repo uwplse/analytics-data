@@ -1016,7 +1016,5 @@ specialize inSeq_correct as IS.
 (unfold compose_super).
 restore_dims tensor_tac.
 rewrite_inPar'.
-restore_dims tensor_tac.
-rewrite_inPar'.
 (* Auto-generated comment: Succeeded. *)
 
