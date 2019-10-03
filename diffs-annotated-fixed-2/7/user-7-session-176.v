@@ -161,6 +161,5 @@ exists w,v.
 exists (S w),v.
 (apply match_ty_exist).
 exists (TVar i).
-(rewrite subst_id).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
