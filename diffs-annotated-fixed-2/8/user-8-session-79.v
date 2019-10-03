@@ -946,5 +946,11 @@ reflexivity.
 (destruct l1; inversion L1).
 (simpl).
 show_dimensions.
-(* Auto-generated comment: Succeeded. *)
+(repeat rewrite app_length).
+(simpl).
+replace (length l1 + length l2) with n by omega.
+(rewrite H0, L2).
+(simpl).
+hide_dimensions.
+(* Auto-generated comment: Failed. *)
 
