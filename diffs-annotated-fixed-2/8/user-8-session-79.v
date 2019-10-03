@@ -1162,6 +1162,7 @@ rewrite_inPar.
 reflexivity.
 }
 8: {
+(rewrite size_ntensor).
 (apply IHb1).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
