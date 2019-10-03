@@ -85,6 +85,6 @@ replace (size_wtype W1) with \226\159\166 \206\1471 \226\159\167.
 replace (size_wtype W2) with \226\159\166 \206\1472 \226\159\167.
 specialize denote_compose as DC.
 (unfold denote_circuit in DC).
-(rewrite DC with (\206\1471 := [])).
+(erewrite DC with (\206\1471 := [])).
 (* Auto-generated comment: Succeeded. *)
 
