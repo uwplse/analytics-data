@@ -348,9 +348,8 @@ Proof.
 (rewrite app_length in *; simpl in *).
 lia.
 }
-(destruct (a == length bs); subst).
+(destruct (a == length bs); subst; autorewrite with upd).
 -
-autorewrite with upd.
 (simpl).
 (rewrite app_nth2 by lia).
 replace (length bs - length bs) with 0 by lia.
@@ -360,6 +359,6 @@ reflexivity.
 {
 (rewrite app_length in *; simpl in *; lia).
 }
-(rewrite diskUpd_neq by auto).
+auto.
 (* Auto-generated comment: Succeeded. *)
 
