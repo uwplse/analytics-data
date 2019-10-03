@@ -149,6 +149,6 @@ Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [T
 Proof.
 (intros Hcontra).
 specialize (Hcontra 1).
-(assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
+(assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
 (* Auto-generated comment: Failed. *)
 
