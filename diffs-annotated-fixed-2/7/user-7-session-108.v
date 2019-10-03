@@ -278,6 +278,5 @@ admit.
 reflexivity.
 (split; intros w1; exists w1; auto).
 -
-(destruct (IHt k) as [v Hm]).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
