@@ -430,39 +430,16 @@ auto.
 -
 congruence.
 Qed.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Lemma log_abstraction_extend :
+  forall (bs' : list block) (bs : LogAPI.State) (d : State),
+  log_abstraction d bs ->
+  forall d' : State,
+  log_size_ok d' (bs ++ bs') ->
+  log_contents_ok d' (bs ++ bs') ->
+  forall len_b : block,
+  block_to_addr len_b = length bs + length bs' ->
+  log_abstraction d' (bs ++ bs').
 Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step_proc.
-(descend; intuition eauto).
-destruct matches.
--
-step_proc.
-(descend; intuition eauto).
-{
-(unfold log_size_ok; autorewrite with list; auto).
-}
-{
-(exists bs; intuition eauto using log_abstraction_preserved).
-}
-step_proc.
-intuition.
-{
-(exists bs; eauto using log_abstraction_preserved).
-}
-step_proc.
-intuition.
-{
-(exists (bs ++ v); intuition).
-rename state into d.
-rename state0 into d'.
-rename v into bs'.
-rename r0 into len_b.
-Timeout 1 Show.
+(intros).
 (* Auto-generated comment: Succeeded. *)
 
