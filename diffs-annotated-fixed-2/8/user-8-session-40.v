@@ -68,6 +68,7 @@ Proof.
 (destruct safe).
 -
 matrix_denote.
+lma.
 Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
