@@ -170,6 +170,5 @@ generalize dependent t3.
 +
 constructor.
 auto.
--
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
