@@ -633,6 +633,25 @@ constructor.
 Search -mk_nf.
 (destruct (sem_eq_k_i__sem_sub_k_i _ _ _ (match_ty_i_nf t2 k)) as [_ Hsemt2]).
 assumption.
-(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ Href)).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ Href) as [_ Hsemt']).
+assumption.
+}
+Qed.
+Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+Proof.
+(intros t Hnf t' Hsem).
+(apply nf_sem_sub_k_i__sub_d with (| t |)).
+assumption.
+constructor.
+(apply Hsem).
+Qed.
+Theorem sub_d__semantic_complete : forall t1 t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
+Proof.
+(intros t1 t2 Hsem).
+(apply SD_Trans with (MkNF( t1))).
+(apply mk_nf__sub_d2; assumption).
+(apply nf_sem_sub__sub_d).
+(apply mk_nf__in_nf).
+(apply sem_sub_k_i__trans with t1).
 (* Auto-generated comment: Failed. *)
 
