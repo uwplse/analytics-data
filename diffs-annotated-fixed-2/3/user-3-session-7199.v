@@ -450,7 +450,7 @@ Proof.
 (assert (len_addr < diskSize d') by eauto).
 (unfold log_abstraction; intuition).
 -
-(unfold log_length_ok in *; intros; autorewrite with upd list in *;
-  simpl in *; subst; auto).
+(unfold log_length_ok in *; intros; autorewrite with upd list in *).
+intuition.
 (* Auto-generated comment: Succeeded. *)
 
