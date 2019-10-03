@@ -135,6 +135,5 @@ Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
 (rewrite <- ctrls_to_list_transpose_fst).
 (simpl).
-(rewrite <- ctrls_to_list_transpose_snd).
 (* Auto-generated comment: Succeeded. *)
 
