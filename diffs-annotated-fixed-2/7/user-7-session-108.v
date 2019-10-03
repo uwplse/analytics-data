@@ -269,6 +269,11 @@ reflexivity.
 (destruct (IHt k) as [w [v Hm]]).
 exists (S w),v.
 (apply match_ty_exist).
-exists i.
+exists (TVar i).
+(assert (Heq : [i := TVar i] t = t)).
+admit.
+(rewrite Heq).
+assumption.
+Qed.
 (* Auto-generated comment: Failed. *)
 
