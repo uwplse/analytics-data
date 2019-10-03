@@ -120,6 +120,6 @@ Proof.
 (change_no_check 256 with (N.to_nat 256)).
 (rewrite <- Nat.compare_lt_iff, <- N2Nat.inj_compare, N.compare_lt_iff).
 (destruct a).
-(destruct b, b0, b1, b2, b3, b4, b5, b6).
+(destruct b, b0, b1, b2, b3, b4, b5, b6; simpl).
 (* Auto-generated comment: Succeeded. *)
 
