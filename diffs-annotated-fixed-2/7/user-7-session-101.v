@@ -85,6 +85,6 @@ clear Hm.
 (destruct Href as [t' [Heq Href]]).
 (inversion Heq; subst).
 clear Heq.
-(assert (Hm : |-[ 0, 0] TEV vX <$ TEV vX)).
+(assert (Hm : |-[ 0, 0] TEV vX <$ TEV vX) by (apply match_ty_value_type__reflexive; constructor)).
 (* Auto-generated comment: Failed. *)
 
