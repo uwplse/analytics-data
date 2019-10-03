@@ -462,5 +462,6 @@ firstorder.
 (apply H in H1).
 (unfold spec_exec in H1).
 firstorder.
-(* Auto-generated comment: Succeeded. *)
+(apply H1).
+(* Auto-generated comment: Failed. *)
 
