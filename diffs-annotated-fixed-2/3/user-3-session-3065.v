@@ -120,6 +120,15 @@ Definition init_base `{@GoModelWf gm} (s : GoLayer.Go.State) :=
           dom (gset string) s.(fs).(FS.dirlocks)
           \226\136\167 (\226\136\128 dir l, s.(fs).(FS.dirlocks) !! dir = Some l \226\134\146 fst l = Unlocked)
             \226\136\167 s.(maillocks) = None.
-Context {gm} {gmWf : GoModelWf gm}.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8RNjmf"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqaIVHDi"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Context gm {gmWf : GoModelWf gm}.
 (* Auto-generated comment: Failed. *)
 
