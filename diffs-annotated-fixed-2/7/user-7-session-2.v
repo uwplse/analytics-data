@@ -282,7 +282,14 @@ generalize dependent t3.
 (apply SR_UnionR2; tauto).
 +
 Abort.
-Lemma weird_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3.
+Lemma weird_trans : forall t1 t2 : ty, |- t1 << t2 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3.
 Proof.
+(intros t1 t2 Hsub1).
+(induction Hsub1).
+-
+tauto.
+-
+(intros t3 Hsub21).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
 (* Auto-generated comment: Failed. *)
 
