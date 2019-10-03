@@ -112,6 +112,5 @@ Lemma ctrl_list_to_unitary_transpose :
 Proof.
 (intros l r u).
 (induction l).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
