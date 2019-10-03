@@ -1140,6 +1140,6 @@ clear IS.
 (apply subset_classical_merge in H as [S1 S2]).
 (repeat rewrite_inPar).
 (repeat rewrite id_circ_spec).
-(rewrite strip_one_l_in_spec).
-(* Auto-generated comment: Failed. *)
+(rewrite strip_one_l_in_eq).
+(* Auto-generated comment: Succeeded. *)
 
