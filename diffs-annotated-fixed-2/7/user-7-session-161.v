@@ -86,6 +86,9 @@ Proof.
 (rewrite IHt1, IHt2).
 reflexivity.
 -
-(repeat rewrite subst_pair).
+(repeat rewrite subst_union).
+(rewrite IHt1, IHt2).
+reflexivity.
+-
 (* Auto-generated comment: Failed. *)
 
