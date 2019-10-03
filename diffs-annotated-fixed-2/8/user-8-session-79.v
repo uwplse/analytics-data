@@ -1146,5 +1146,6 @@ clear IS.
 3: (erewrite denote_box_compat).
 4: (erewrite denote_box_compat).
 5: (erewrite denote_box_compat).
+6: (erewrite denote_box_compat).
 (* Auto-generated comment: Succeeded. *)
 
