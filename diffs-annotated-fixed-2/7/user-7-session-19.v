@@ -366,7 +366,20 @@ clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
-(intros v; specialize (IHk v t); specialize (Href v)).
-(split; auto).
+(intros v; specialize (IHk t v); specialize (Href v)).
+tauto.
+-
+clear IHt.
+(rewrite mk_nf_ref in Hm).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+(intros v; specialize (IHk t v); specialize (Href v)).
+tauto.
+Qed.
+Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
+Proof.
+(intros t k).
+(apply match_ty_i_nf').
 (* Auto-generated comment: Failed. *)
 
