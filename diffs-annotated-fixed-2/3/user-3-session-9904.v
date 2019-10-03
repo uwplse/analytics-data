@@ -99,6 +99,34 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Opaque Nat.di.
-(* Auto-generated comment: Failed. *)
+Opaque Nat.div.
+Theorem mean_ok : proc_spec mean_spec mean recover abstr.
+Proof.
+(unfold mean).
+(intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
+(destruct a'; simpl in *; intuition idtac).
+(destruct (r == 0)).
+-
+(step_proc; intuition).
+(exists s; intuition).
+left.
+intuition.
+(unfold statdb_abstraction in *).
+(destruct s; intuition).
+(simpl in *).
+lia.
+-
+(step_proc; intuition).
+(step_proc; intuition).
+(destruct s; intuition).
++
+exfalso.
+(unfold statdb_abstraction in *; simpl in *).
+intuition.
++
+(exists (n0 :: s); intuition).
+(lia right; intuition congruence).
+(* Auto-generated comment: Succeeded. *)
 
