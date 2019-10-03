@@ -96,6 +96,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Proof.
-Search -"div" -"smaller".
+Search -"div" -"<".
+(apply PeanoNat.Nat.div_lt).
 (* Auto-generated comment: Succeeded. *)
 
