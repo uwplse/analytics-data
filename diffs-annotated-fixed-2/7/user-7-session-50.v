@@ -96,5 +96,24 @@ Proof.
 (split; simpl; constructor).
 -
 (destruct IHt1; destruct IHt2).
-(* Auto-generated comment: Failed. *)
+(split; simpl).
+(apply unite_pairs__preserves_sub_d_l; assumption).
+(apply unite_pairs__preserves_sub_d_r; assumption).
+-
+(destruct IHt1; destruct IHt2).
+(split; simpl; constructor; (apply union_right_1; assumption) || (apply union_right_2; assumption)).
+-
+(simpl).
+(destruct IHt).
+(split; constructor; assumption).
+Qed.
+Lemma mk_nf__sub_d_l : forall t : ty, |- MkNF( t) << t.
+Proof.
+(apply mk_nf__sub_d_eq).
+Qed.
+Lemma mk_nf__sub_d_r : forall t : ty, |- t << MkNF( t).
+Proof.
+(apply mk_nf__sub_d_eq).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
