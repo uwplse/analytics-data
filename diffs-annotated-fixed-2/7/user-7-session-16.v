@@ -194,6 +194,8 @@ Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |
 Proof.
 (intros t t' Hsub).
 (pose proof (sub_r__mk_nf_sub_r _ _ Hsub)).
-(apply sub_r_nf_ref__inv in H).
+(pose proof (mk_nf__in_nf (TRef t)) as Hnf).
+(pose proof (mk_nf__in_nf (TRef t')) as Hnf').
+(apply (sub_r_nf_ref__inv _ _ Hnf Hnf') in H).
 (* Auto-generated comment: Failed. *)
 
