@@ -44,5 +44,5 @@ restore_dims.
 show_dimensions.
 (simpl).
 (simpl_rewrite (unitary_gate_unitary U)).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
