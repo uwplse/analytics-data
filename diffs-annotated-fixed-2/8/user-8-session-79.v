@@ -1077,5 +1077,7 @@ rewrite_inPar'.
 (rewrite id_circ_spec).
 (rewrite strip_one_l_out_eq).
 (rewrite xorb_nb_b).
+rewrite_inPar'.
+(simpl_rewrite assert1_spec; auto with wf_db).
 (* Auto-generated comment: Failed. *)
 
