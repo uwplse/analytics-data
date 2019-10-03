@@ -151,6 +151,6 @@ Proof.
    | split; repeat rewrite subst_union; intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
       [ destruct (IHt1 v) as [Hm1 Hm2] | destruct (IHt2 v) as [Hm1 Hm2] ]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto ])).
 (split; repeat rewrite subst_union; intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm];
-  destruct (IHt1 v) as [Hm1 Hm2] || destruct (IHt2 v) as [Hm1 Hm2]; (apply match_ty_union_1; tauto) || (apply match_ty_union_2; tauto)).
+  destruct (IHt1 v) as [Hm1 Hm2] || destruct (IHt2 v) as [Hm1 Hm2]; (apply match_ty_union_1; auto) || (apply match_ty_union_2; auto)).
 (* Auto-generated comment: Failed. *)
 
