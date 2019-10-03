@@ -81,6 +81,15 @@ subst.
 subst.
 reflexivity.
 *
-(rewrite IHt; assumption).
+(rewrite IHt; try assumption).
+reflexivity.
+-
+(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
++
+contradiction.
++
+(simpl).
+(rewrite <- beq_id_refl).
+(apply subs_fresh_in_ty).
 (* Auto-generated comment: Failed. *)
 
