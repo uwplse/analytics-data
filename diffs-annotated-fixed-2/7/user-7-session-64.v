@@ -40,6 +40,11 @@ Check value_type_matching_ty__exists.
 (destruct (value_type_matching_ty__exists t2 k Hdep2) as [pv2 [Hpval2 Hpv2]]).
 (split; intros v Hm).
 -
-(assert (Hvp : value_type (TPair v pv2)) by (constructor; assumption)).
+(assert (Hmp : |-[ k] TPair v pv2 <$ TPair t1 t2) by (apply match_ty_pair; assumption)).
+specialize (Hsem _ Hmp).
+(apply match_ty_pair__inv in Hsem).
+(destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+(inversion Heq; subst).
+assumption.
 (* Auto-generated comment: Failed. *)
 
