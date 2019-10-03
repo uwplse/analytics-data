@@ -56,6 +56,6 @@ Proof.
 (intros v t k w Hm).
 (destruct k, w, v; simpl in Hm; try contradiction).
 -
-(unfold match_ty in Hm).
+(repeat unfold match_ty in Hm).
 (* Auto-generated comment: Failed. *)
 
