@@ -129,6 +129,5 @@ auto using match_ty_i_pair.
 (intros v1 t3 k Hm1 Hm2).
 (destruct k).
 (destruct v1; try contradiction).
-(apply match_ty_i_ref__inv in Hm1).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
