@@ -258,7 +258,9 @@ reflexivity.
 clear H.
 (rewrite evalAnd in H0).
 (match goal with
- | H:eval ?L ?env (If (In ?x ?S) _ _) = _ |- _ => idtac
+ | H:eval ?L ?env (If (In ?x ?S) _ _) = _ |- _ => destruct (evalIn L env x S)
  end).
+-
+(rewrite evalIfTrue in H0).
 (* Auto-generated comment: Succeeded. *)
 
