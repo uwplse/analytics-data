@@ -81,6 +81,6 @@ subst.
 subst.
 reflexivity.
 *
-(rewrite IHt; try assumption).
+(rewrite IHt; assumption).
 (* Auto-generated comment: Failed. *)
 
