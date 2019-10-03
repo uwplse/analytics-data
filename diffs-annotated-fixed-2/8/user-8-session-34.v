@@ -33,6 +33,5 @@ dependent induction TP.
 (simpl).
 (unfold compose_super).
 (unfold denote_circuit).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
