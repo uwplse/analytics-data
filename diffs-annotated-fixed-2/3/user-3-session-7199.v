@@ -469,21 +469,10 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqB5pbtF"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Theorem abstr_length_sz_bound d bs :
+  log_size_ok d bs -> len_addr < diskSize d.
 Proof.
-(unfold reset; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition.
-{
-(descend; intuition eauto).
-}
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intuition).
-(descend; intuition eauto).
-{
-(descend; intuition eauto).
-(eapply log_abstraction_nil; eauto).
-(* Auto-generated comment: Succeeded. *)
+(unfold log_size_ok).
+lia.
+(* Auto-generated comment: Failed. *)
 
