@@ -164,6 +164,6 @@ Proof.
      end ])).
 (assert (Hv : value_type (TCName c)) by constructor).
 (pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ H) as Hsemu).
-(destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]).
+(destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; auto).
 (* Auto-generated comment: Failed. *)
 
