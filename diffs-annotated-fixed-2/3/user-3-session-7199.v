@@ -326,16 +326,7 @@ Theorem append_at_ok a bs' :
                   log_contents_ok state' bs |}) (append_at a bs') recover
     d.abstr.
 Proof.
+generalize dependent a.
 (induction bs'; simpl).
--
-step_proc.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
-{
-(apply log_contents_ok_unchanged; eauto).
-}
 (* Auto-generated comment: Succeeded. *)
 
