@@ -38,7 +38,9 @@ Lemma sem_sub__eXrefX_eYrefY :
   forall w1 : nat, exists w2 : nat, forall (k : nat) (v : ty), |-[ w1, k] v <$ TExist vX (TRef tX) -> |-[ w2, k] v <$ TExist vY (TRef tY).
 Proof.
 (intros w1).
-exists w1.
+(induction w1).
+-
+exists 1.
 (intros k v Hm).
 (apply match_ty_exist__inv in Hm).
 (* Auto-generated comment: Failed. *)
