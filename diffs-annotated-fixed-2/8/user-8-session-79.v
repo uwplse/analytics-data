@@ -995,7 +995,7 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-show_dimensions.
 evar ( e : Square (2 * 2 ^ \226\159\166 \206\147 \226\159\167) ).
-(* Auto-generated comment: Succeeded. *)
+mat_replace bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f with e.
+(* Auto-generated comment: Failed. *)
 
