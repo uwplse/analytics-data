@@ -69,6 +69,9 @@ clear Heq.
 (destruct Hcontra as [t' [Heq Href]]).
 (inversion Heq; subst).
 clear Heq.
-(unfold sem_sub_k in Href).
+(unfold sem_eq_k in Href).
+(destruct Href as [Href _]).
+specialize (Href 1).
+(destruct Href as [w Hsem]).
 (* Auto-generated comment: Failed. *)
 
