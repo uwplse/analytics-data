@@ -20,6 +20,7 @@ Proof.
 -
 assumption.
 -
+(unfold sem_sub_k in *).
 auto.
 (* Auto-generated comment: Failed. *)
 
