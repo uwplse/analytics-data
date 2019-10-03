@@ -183,5 +183,5 @@ exists v'.
 exists tx.
 split.
 assumption.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
