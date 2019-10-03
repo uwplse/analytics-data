@@ -206,6 +206,14 @@ Proof.
 (intros).
 (unfold proc_spec; intros).
 (eapply H in H3; simpl in *; eauto).
-(eapply H0 in H2).
+(eapply H0 in H2; eauto).
+(destruct r; intuition eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqXAMGmP"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
