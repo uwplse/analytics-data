@@ -162,9 +162,9 @@ Proof.
           destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]; specialize (IH1 Hdep1); specialize (IH2 Hdep2); 
           apply pair_sem_sub_k__sub_d; assumption
    | |- context [ |- TUnion _ _ << _ ] =>
-         intros t1 t2 Hnf1 IH1 Hnf2 IH2 Hdep; destruct (max_inv_depth_le__components_le _ _ _ Hdep) as [Hdep1 Hdep2]; intros t' Hsem;
+         intros t1 t2 Hnf1 IH1 Hnf2 IH2 Hdep; destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]; intros t' Hsem;
           apply sem_sub_k_union_l__inv in Hsem; destruct Hsem as [Hsem1 Hsem2]; constructor; auto
    | |- forall ta : ty, atom_type ta -> _ => tauto
    end).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
