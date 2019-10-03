@@ -949,21 +949,8 @@ reflexivity.
 Timeout 1 About restore_dims.
 Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
-(match goal with
- | |- ?A => let A' := restore_dims_rec tac A in
-            replace
-            A
-            with
-            A'
- end).
-2: {
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-  lia).
-(simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-  lia).
-(* Auto-generated comment: Succeeded. *)
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
+  lia.
+(* Auto-generated comment: Failed. *)
 
