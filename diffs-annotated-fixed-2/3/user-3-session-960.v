@@ -81,6 +81,5 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Search -"endian".
 Search -"digit".
-Print strings.ascii_of_digits.
 (* Auto-generated comment: Succeeded. *)
 
