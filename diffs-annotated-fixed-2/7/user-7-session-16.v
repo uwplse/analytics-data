@@ -339,6 +339,12 @@ assumption.
 Qed.
 Lemma sub_r_dec__mk_nf_sub_r_dec : forall t1 t2 : ty, Decidable.decidable (|- t1 << t2) -> Decidable.decidable (|- MkNF( t1) << t2).
 Proof.
-(intros t1 t2 Hde).
+(intros t1 t2 Hdec).
+(destruct Hdec as [Hdec| Hdec]).
+-
+left.
+(apply sub_r__transitive with t1).
+(apply mk_nf__sub_r1).
+assumption.
 (* Auto-generated comment: Failed. *)
 
