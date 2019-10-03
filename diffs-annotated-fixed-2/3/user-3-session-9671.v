@@ -527,6 +527,7 @@ intuition eauto.
 (rewrite diskUpd_eq; eauto).
 }
 {
-(exists bs; intuition eauto).
+(descend; intuition eauto).
+}
 (* Auto-generated comment: Succeeded. *)
 
