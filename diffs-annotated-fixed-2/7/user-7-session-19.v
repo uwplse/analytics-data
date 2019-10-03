@@ -128,6 +128,6 @@ auto using match_ty_i_pair.
 -
 (intros v1 v3 k Hm1 Hm2).
 (destruct k).
-(destruct v1; inversion Hm1).
+(destruct v1; try contradiction).
 (* Auto-generated comment: Failed. *)
 
