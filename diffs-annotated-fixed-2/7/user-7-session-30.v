@@ -108,5 +108,9 @@ contradiction.
 (rewrite Hdept').
 (split; apply le_n_S; assumption || constructor).
 Qed.
+Lemma match_ty__inv_depth_l_le_index : forall v t : ty, forall k : nat, |-[ k] v <$ t -> inv_depth v <= k.
+Proof.
+(apply match_ty__inv_depth_l).
+Qed.
 (* Auto-generated comment: Failed. *)
 
