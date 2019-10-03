@@ -253,6 +253,6 @@ Lemma add_cok n :
 Proof.
 (repeat newstep; auto).
 (destruct state0; simpl; auto).
-(simpl).
+step_ret.
 (* Auto-generated comment: Succeeded. *)
 
