@@ -33,5 +33,10 @@ constructor.
 (simpl).
 exists t'.
 (split; intros w; exists w; tauto).
+Qed.
+Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
+Proof.
+(intros k).
+(destruct k; intros w1; exists w1; intros v Hm).
 (* Auto-generated comment: Failed. *)
 
