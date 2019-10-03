@@ -348,6 +348,6 @@ Proof.
 (rewrite app_length in *; simpl in *).
 lia.
 }
-(destruct (a == bs)).
-(* Auto-generated comment: Failed. *)
+(destruct (log_addr a == log_addr (length bs))).
+(* Auto-generated comment: Succeeded. *)
 
