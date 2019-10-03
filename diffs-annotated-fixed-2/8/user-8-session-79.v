@@ -626,16 +626,5 @@ Proof.
 (intros).
 (simpl).
 specialize (kron_1_l (\226\168\130 l2)) as KL.
-(assert
-  (Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv (\226\168\130 l2)))).
-(unfold Morphisms.Proper).
-(unfold Morphisms.respectful).
-(unfold flip).
-(unfold impl).
-(intros).
-(rewrite H0).
-(rewrite H).
-reflexivity.
-setoid_rewrite kron_1_l.
 (* Auto-generated comment: Succeeded. *)
 
