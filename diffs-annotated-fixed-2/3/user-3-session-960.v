@@ -71,6 +71,7 @@ Opaque Nat.modulo Nat.div.
 #[local]Obligation Tactic := (intros; simpl; subst).
 Theorem mod_S_lt : forall n m, n `mod` S m < S m.
 Proof.
+(intros).
 (apply PeanoNat.Nat.mod_upper_bound).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
