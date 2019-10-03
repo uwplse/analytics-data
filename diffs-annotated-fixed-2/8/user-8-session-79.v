@@ -658,6 +658,16 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
-restore_dims.
+Timeout 1 About restore_dims.
+Timeout 1 Print restore_dims.
+Timeout 1 Print Ltac restore_dims.
+(match goal with
+ | |- ?A => let A' := restore_dims_rec tac A in
+            replace
+            A
+            with
+            A'
+ end).
+(apply f_equal_gen; trivial).
 (* Auto-generated comment: Failed. *)
 
