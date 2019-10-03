@@ -598,6 +598,6 @@ Proof.
 (simpl).
 (remember (\226\168\130 l2) as A).
 clear.
-(rewrite kron_1_l).
+(apply kron_1_l).
 (* Auto-generated comment: Failed. *)
 
