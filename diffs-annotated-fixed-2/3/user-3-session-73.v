@@ -132,10 +132,14 @@ Lemma proc_hspec_init_ok (init : proc C_Op InitStatus)
   (forall sC, C_initP sC -> (spec sC).(pre)) ->
   (forall sC sC',
    (spec sC).(post) sC' Initialized ->
-   exists sA', absr sA' sC' tt /\ A_initP sA') ->
+   exists sA', absr sA' (Val sC' tt) /\ A_initP sA') ->
   (test C_initP;; exec c_sem init)
   --->
    (any (T:=unit);; test A_initP;; absr;; pure Initialized) +
    (any (T:=unit);; pure InitFailed).
+Proof  using ((c_sem) + (C_Op)).
+clear a_sem A_Op.
+(intros Hproc Hinit_pre Hinit_post).
+(intros sC sC' i ([], (?, ((HCinit, <-), Hexec)))).
 (* Auto-generated comment: Succeeded. *)
 
