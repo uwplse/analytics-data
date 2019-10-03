@@ -1241,6 +1241,5 @@ Proof.
 (induction H).
 -
 (apply ancilla_free_box_valid).
-constructor.
 (* Auto-generated comment: Succeeded. *)
 
