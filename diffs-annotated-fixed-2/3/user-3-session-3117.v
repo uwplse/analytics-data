@@ -121,6 +121,22 @@ Proof.
 (rewrite <- Nat.compare_lt_iff, <- N2Nat.inj_compare, N.compare_lt_iff).
 (destruct a).
 (apply N.ltb_lt).
-(destruct b, b0, b1, b2, b3, b4, b5, b6; compute).
+(destruct b, b0, b1, b2, b3, b4, b5, b6; reflexivity).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqhLPCn9"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq7TgfjF"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbM1j20"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
