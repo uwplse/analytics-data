@@ -73,6 +73,6 @@ idtac.
 clear IHt'.
 (simpl).
 (apply f_equal).
-(apply IHt).
+(eapply IHt).
 (* Auto-generated comment: Failed. *)
 
