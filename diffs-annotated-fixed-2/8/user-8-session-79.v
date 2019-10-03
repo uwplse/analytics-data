@@ -658,6 +658,6 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
-(rewrite <- kron_assoc).
+restore_dims.
 (* Auto-generated comment: Failed. *)
 
