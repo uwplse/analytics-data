@@ -159,5 +159,6 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Search -Ascii.ascii.
 Print Ascii.ascii_of_byte.
+Print Byte.byte.
 (* Auto-generated comment: Succeeded. *)
 
