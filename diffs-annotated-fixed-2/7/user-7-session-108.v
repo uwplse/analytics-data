@@ -245,7 +245,7 @@ Qed.
 Lemma ty_empty__subs_ty_empty :
   forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
 Proof.
-(induction t; intros k w Hnotm X S Hcontra).
+(induction t; intros k w Hnotm X s Hcontra).
 -
 (apply Hnotm; assumption).
 -
