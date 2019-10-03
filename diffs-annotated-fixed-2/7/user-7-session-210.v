@@ -82,6 +82,9 @@ Qed.
 Lemma f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), f_free_in_ty X (TExist Y t) -> f_free_in_ty X t.
 Proof.
 (unfold f_free_in_ty, free).
-(intros X Y t HX Hcontra).
-(* Auto-generated comment: Failed. *)
+(intros X Y t HX).
+(simpl in HX).
+assumption.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
