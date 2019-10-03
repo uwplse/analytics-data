@@ -142,6 +142,6 @@ Proof.
 (remember (TPair t1' t2') as tx eqn:Heqx ).
 (induction Hsub21; inversion Heqx; subst).
 *
-clear Heqx IHHsub21_1 IHHsub21_2.
+clear Heqx IHHsub12_1 IHHsub12_2 IHHsub21_1 IHHsub21_2.
 (* Auto-generated comment: Failed. *)
 
