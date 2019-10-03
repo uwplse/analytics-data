@@ -3181,5 +3181,5 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
 Timeout 1 Print Ltac denote_box.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
