@@ -85,8 +85,5 @@ Definition bounded0 : {x | x < 256}.
 exists 0.
 (apply Nat.lt_0_succ).
 Defined.
-Definition nat64_to_le (x : nat) : list {x | x < 256} :=
-  let digits := nat_to_le 254 x in
-  digits ++ repeat bounded0 (8 - length digits).
 (* Auto-generated comment: Succeeded. *)
 
