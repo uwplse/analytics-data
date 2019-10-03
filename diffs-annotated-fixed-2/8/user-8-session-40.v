@@ -212,6 +212,5 @@ Lemma XOR_spec :
   denote_box safe XOR (bool_to_matrix x \226\138\151 bool_to_matrix y \226\138\151 bool_to_matrix z) =
   bool_to_matrix x \226\138\151 bool_to_matrix y \226\138\151 bool_to_matrix ((x \226\138\149 y) \226\138\149 z).
 Proof.
-vector_denote.
 (* Auto-generated comment: Succeeded. *)
 
