@@ -178,6 +178,6 @@ assumption.
 specialize (IHw _ _ Hm).
 (destruct IHw as [v' IHw]).
 exists v'.
-(simpl).
+(rewrite b_subst_exist_neq; try assumption).
 (* Auto-generated comment: Failed. *)
 
