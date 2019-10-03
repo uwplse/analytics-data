@@ -65,6 +65,6 @@ Search -b_free_in_ty.
 idtac.
 Search -not_b_free_in_ty.
 (rewrite b_subst_not_b_free_in_ty in IHHsub; try assumption).
-(intros w1).
+(induction w1).
 (* Auto-generated comment: Failed. *)
 
