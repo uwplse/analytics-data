@@ -489,6 +489,7 @@ intuition.
 step_proc.
 intuition.
 {
-(exists bs; intuition euato).
-(* Auto-generated comment: Failed. *)
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+(* Auto-generated comment: Succeeded. *)
 
