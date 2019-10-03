@@ -126,6 +126,11 @@ Proof.
 Qed.
 Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
+(intros t1 t2 t1' t2' Hsub).
 (remember (TPair t1 t2) as tx eqn:Heqx ).
-(* Auto-generated comment: Succeeded. *)
+(remember (TPair t1' t2') as ty eqn:Heqy ).
+(induction Hsub; inversion Heqx; inversion Heqy; subst).
+-
+(split; tauto).
+(* Auto-generated comment: Failed. *)
 
