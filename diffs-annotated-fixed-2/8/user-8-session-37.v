@@ -321,7 +321,10 @@ validate.
 (rewrite merge_comm, merge_singleton_append).
 easy.
 -
-dependent destruction p.
-dependent destruction t.
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+(eapply t0; [  | constructor; apply singleton_singleton ]).
 (* Auto-generated comment: Succeeded. *)
 
