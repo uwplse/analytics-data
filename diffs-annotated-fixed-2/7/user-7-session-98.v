@@ -148,9 +148,7 @@ Qed.
 Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
 Proof.
 (intros Hcontra).
-specialize (Hcontra 0).
-(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
-specialize (Hcontra _ Hm).
-(apply match_ty_exist__0_inv in Hcontra).
+specialize (Hcontra 1).
+(assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
 (* Auto-generated comment: Failed. *)
 
