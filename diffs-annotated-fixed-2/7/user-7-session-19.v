@@ -203,6 +203,7 @@ Proof.
 -
 (assert (Hvp : value_type (TPair t1 t2))).
 constructor.
-(destruct Hnft).
+(inversion Hnft; subst).
+(inversion H; subst).
 (* Auto-generated comment: Failed. *)
 
