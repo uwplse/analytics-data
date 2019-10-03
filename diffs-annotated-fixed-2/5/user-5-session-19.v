@@ -110,11 +110,5 @@ Proof.
 -
 left.
 (apply L.(evalEqTrue)).
-assumption.
--
-right.
-(apply L.(evalEqFalse)).
-assumption.
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
