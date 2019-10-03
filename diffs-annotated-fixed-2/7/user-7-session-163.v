@@ -82,6 +82,5 @@ Proof.
 specialize (Hid Hneq).
 (simpl).
 (rewrite Hid).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
