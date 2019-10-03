@@ -42,9 +42,5 @@ Theorem swapXY_ok :
      recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
 Proof.
 (unfold swapXY).
-monad_simpl.
-(match goal with
- | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
- end).
 (* Auto-generated comment: Succeeded. *)
 
