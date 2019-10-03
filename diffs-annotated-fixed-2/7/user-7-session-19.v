@@ -162,6 +162,6 @@ Proof.
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H _ Hm); contradiction)
      end ])).
-(pose proof (value_sem_sub_k_i_union__inv _ 0 _ _ H)).
+(pose proof (value_sem_sub_k_i_union__inv _ _ _ _ H)).
 (* Auto-generated comment: Failed. *)
 
