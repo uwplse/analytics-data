@@ -224,6 +224,6 @@ type_check.
 Qed.
 Timeout 1 About PI.
 Timeout 1 Print PI.
-Timeout 1 Print Ltac PI.
+Definition _R'_ (m : nat) := _R_ (2 * Complex.PI / INR (2 ^ m)).
 (* Auto-generated comment: Failed. *)
 
