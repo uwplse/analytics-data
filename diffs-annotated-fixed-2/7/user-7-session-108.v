@@ -250,6 +250,10 @@ Proof.
 (apply Hnotm; assumption).
 -
 (simpl in Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
-(* Auto-generated comment: Succeeded. *)
+subst.
+(apply IHt1).
+(* Auto-generated comment: Failed. *)
 
