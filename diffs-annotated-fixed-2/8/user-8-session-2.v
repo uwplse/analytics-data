@@ -141,11 +141,11 @@ Timeout 1 About restore_dims.
 Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
 (match goal with
- | |- ?A => let A' := restore_dims_rec A in
+ | |- ?A => let A' := restore_dims_rec idtac A in
             replace
             A
             with
             A'
  end).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
