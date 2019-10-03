@@ -230,7 +230,13 @@ dependent destruction AF.
 (apply H1).
 clear H.
 (unfold valid_ancillae in *).
-(intros \206\1470 \206\1471 WT).
+(intros \206\1470 \206\1471 \207\129 WT).
 dependent destruction WT.
+(destruct \206\147 as [| \206\147], \206\1472 as [| \206\1472]; try invalid_contradiction).
+(erewrite 2!denote_gate_circuit; try apply pf1; try apply t).
+(destruct g).
+-
+(simpl).
+(erewrite VA).
 (* Auto-generated comment: Succeeded. *)
 
