@@ -115,19 +115,9 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
+Lemma sub_r_unite_pairs_nf_l__inv :
+  forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
-(intros t t' Hsub; induction Hsub; simpl; try (solve [ simpl; constructor; constructor ])).
--
-(apply unite_pairs_of_nf__preserves_sub_r1; assumption || apply mk_nf__in_nf).
--
-(constructor; assumption).
--
-(apply SR_UnionR1; assumption).
--
-(apply SR_UnionR2; assumption).
--
-constructor.
-assumption.
+(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2).
 (* Auto-generated comment: Failed. *)
 
