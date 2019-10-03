@@ -80,6 +80,9 @@ Abort.
 Lemma subst_nested : forall (X Y : id) (t tx ty : ty), [X := tx] ([Y := ty] t) = [Y := [X := tx] ty] ([X := tx] t).
 Proof.
 (intros X Y t).
-(induction t).
+(induction t; intros tx ty; try reflexivity).
+-
+(repeat rewrite subst_pair).
+(rewrite IHt1).
 (* Auto-generated comment: Failed. *)
 
