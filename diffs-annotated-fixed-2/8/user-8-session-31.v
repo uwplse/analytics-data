@@ -3193,5 +3193,6 @@ Proof.
 (destruct c).
 (unfold inSeq).
 (simpl).
+(intros \207\129 b).
 (* Auto-generated comment: Succeeded. *)
 
