@@ -973,7 +973,7 @@ restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (repeat rewrite Mmult_assoc).
 Msimpl.
 (match goal with
- | |- context [ ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) ] => rewrite (kron_mixed_product A B C D)
+ | |- context [ ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) ] => setoid_rewrite (kron_mixed_product A B C D)
  end).
 (* Auto-generated comment: Failed. *)
 
