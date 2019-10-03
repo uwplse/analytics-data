@@ -84,6 +84,8 @@ intuition eauto.
 specialize (IHblocks (off + 1)).
 step_proc.
 intuition subst; eauto.
+*
 (f_equal; lia).
+(repeat deex).
 (* Auto-generated comment: Failed. *)
 
