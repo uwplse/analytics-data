@@ -459,6 +459,6 @@ tauto.
 -
 (intros t1 t2 Hnf1 [IH11 IH12] Hnf2 [IH21 IH22]).
 (split; intros t'; induction t'; intros Hnf'; specialize (IH11 _ Hnf'); specialize (IH12 _ Hnf'); specialize (IH21 _ Hnf'); specialize
-  (IH21 _ Hnf')).
+  (IH22 _ Hnf')).
 (* Auto-generated comment: Failed. *)
 
