@@ -172,8 +172,8 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma match_ty__match_ge_world : forall (w k : nat) (t v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Lemma match_ty__match_ge_world : forall (t : ty) (w k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-(induction w; intros k t; generalize k; induction t).
+(induction t; intros w k t).
 (* Auto-generated comment: Failed. *)
 
