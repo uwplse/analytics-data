@@ -592,6 +592,6 @@ Qed.
 Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
 Proof.
 (intros).
-(apply kron_1_l).
+(rewrite (Nat.mul_1_l m)).
 (* Auto-generated comment: Failed. *)
 
