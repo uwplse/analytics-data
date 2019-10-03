@@ -26,7 +26,6 @@ Proof.
 (right; assumption).
 -
 subst.
-Search -mk_nf.
 (assert (Hnf : InNF( t)) by (constructor; assumption)).
 (rewrite (mk_nf_nf__equal t Hnf) in IHHsub).
 tauto.
@@ -61,13 +60,11 @@ Proof.
 (constructor; assumption).
 +
 (intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
-Check unite_pairs_union_t.
 (rewrite (unite_pairs_union_t t1 t0 t2')).
 (destruct (atom_sub_r_union__sub_r_component _ _ _ Hsub1 H) as [Hsub11| Hsub12]; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
 -
 (intros Hnf1' Hnf2 Hn2' Hsub1 Hsub2).
 (rewrite (unite_pairs_union_t t1 t0 t2)).
-Check sub_r_nf_union_l__inv.
 (assert (Hnf : InNF( TUnion t1 t0)) by (constructor; assumption)).
 (destruct (sub_r_nf_union_l__inv _ _ _ Hsub1 Hnf) as [Hsub11 Hsub12]).
 (constructor; tauto).
@@ -213,23 +210,30 @@ Proof.
 (apply sub_r_unite_pairs_nf_l__inv in Hsub; try apply mk_nf__in_nf).
 (destruct Hsub; split; apply SR_NormalForm; assumption).
 Qed.
-Lemma sub_r_union_l__inv : forall t1 t2 t' : ty, |- TUnion t1 t2 << t' -> |- t1 << t' /\ |- t2 << t'.
+Lemma eq_r_trans :
+  forall t1 t2 : ty, |- t1 << t2 -> |- t2 << t1 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
 Proof.
-(intros t1 t2 t' Hsub).
-(remember (TUnion t1 t2) as t eqn:Heqt ).
-(induction Hsub; inversion Heqt; subst).
+(intros t1 t2 Hsub11).
+(induction Hsub11).
 -
-tauto.
+(intros Hsub12 t3 Hsub21).
+(induction Hsub21; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
 -
-(split; apply SR_UnionR1; tauto).
--
-(split; apply SR_UnionR2; tauto).
--
-(simpl in Hsub).
-(apply sub_r_nf_union_l__inv in Hsub).
-(destruct Hsub as [Hsub1 Hsub2]).
-(split; apply SR_NormalForm; assumption).
-(apply NF_Union; apply mk_nf__in_nf).
-Qed.
+(intros Hsub12 t3 Hsub21).
+(apply sub_r_pair__inv in Hsub12; destruct Hsub12 as [Hsub121 Hsub122]).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
+(induction Hsub21; inversion Heqx; subst).
+*
+clear Heqx IHHsub21_1 IHHsub21_2.
+(intros Hsub22).
+(apply sub_r_pair__inv in Hsub22; destruct Hsub22 as [Hsub221 Hsub222]).
+specialize (IHHsub11_1 Hsub121 _ Hsub21_1 Hsub221).
+specialize (IHHsub11_2 Hsub122 _ Hsub21_2 Hsub222).
+(split; constructor; tauto).
+*
+(intros Hsub22).
+(apply sub_r_union_l__inv in Hsub22).
+split.
+(apply SR_UnionR1; tauto).
 (* Auto-generated comment: Failed. *)
 
