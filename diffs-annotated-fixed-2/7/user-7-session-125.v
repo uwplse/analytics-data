@@ -167,7 +167,7 @@ exists tx.
 assumption.
 (apply le_S_n; assumption).
 Qed.
-Lemma match_ty_exists : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Lemma match_ty__exists_w_v : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
 Proof.
 (induction t; intros k).
 -
@@ -188,5 +188,9 @@ exists w,v.
 exists 0,(TRef t).
 (apply match_ty_value_type__reflexive; constructor).
 -
-(* Auto-generated comment: Failed. *)
+(destruct (IHt k) as [w [v Hm]]).
+exists (S w),v.
+(apply match_ty_exist).
+exists (TVar i).
+(* Auto-generated comment: Succeeded. *)
 
