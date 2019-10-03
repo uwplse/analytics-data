@@ -399,6 +399,10 @@ assumption.
 }
 7: {
 idtac.
-clear IHv.
+clear IHt.
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(intros k' Hle).
+(inversion Hle; subst).
 (* Auto-generated comment: Failed. *)
 
