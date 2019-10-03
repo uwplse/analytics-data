@@ -264,5 +264,11 @@ Unset Search Output Name Only.
 (exists 0; simpl; auto).
 }
 {
+(exists 1; simpl; auto).
+}
+{
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
