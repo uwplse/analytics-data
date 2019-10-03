@@ -103,5 +103,6 @@ Proof.
 reflexivity.
 -
 (intros m p).
-(* Auto-generated comment: Succeeded. *)
+(rewrite IHn').
+(* Auto-generated comment: Failed. *)
 
