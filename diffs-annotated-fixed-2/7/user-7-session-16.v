@@ -373,6 +373,32 @@ Ltac
 Ltac
  solve_union_sub_r__decidable IHt'1 IHt'2 :=
   destruct IHt'1 as [IH1| IH1]; try assumption; destruct IHt'2 as [IH2| IH2]; try assumption;
-   try (solve [ right; intros Hcontra; destruct (sub_r_union_l__inv _ _ _ Hcontra) as [Hsub1 Hsub2]; contradiction ]).
+   try (solve [ right; intros Hcontra; destruct (sub_r_union_l__inv _ _ _ Hcontra) as [Hsub1 Hsub2]; contradiction ]); left; constructor;
+   assumption.
+Lemma nf_sub_r__decidable2 :
+  forall t : ty,
+  InNF( t) -> (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)).
+Proof.
+(apply
+  (in_nf_mut
+     (fun (t : ty) (Hat : atom_type t) =>
+      (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)))
+     (fun (t : ty) (Hnf : in_nf t) =>
+      (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t))))).
+-
+(intros c).
+(split; intros t'; induction t'; intros Hnf';
+  try
+   match goal with
+   | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ]);
+  match goal with
+  | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
+        destruct (cname_eq__decidable c1 c2);
+         [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
+  end).
+-
+(intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
 (* Auto-generated comment: Failed. *)
 
