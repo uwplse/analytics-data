@@ -146,8 +146,5 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 step_proc.
 (pose proof I as state2).
-(let x := fresh "state2" in
- idtac
- x).
 (* Auto-generated comment: Succeeded. *)
 
