@@ -416,6 +416,6 @@ Proof.
    [ left; constructor; assumption
    | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
 +
-(solve_atom_sub_r_union__decidable IHt2_1 IHt2_2; assumption).
+(solve_atom_sub_r_union__decidable IHt'1 IHt'2; assumption).
 (* Auto-generated comment: Failed. *)
 
