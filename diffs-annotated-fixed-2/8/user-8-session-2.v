@@ -51,6 +51,5 @@ Proof.
 -
 (destruct li as [| k li]).
 (rewrite ctrls_to_list_empty in *).
-(inversion u; subst).
 (* Auto-generated comment: Succeeded. *)
 
