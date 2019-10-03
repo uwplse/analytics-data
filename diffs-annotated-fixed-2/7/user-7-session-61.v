@@ -135,6 +135,10 @@ Lemma pair_sem_sub_k__sub_d :
   (forall tb2 : ty, ||-[ k][ta2]<= [tb2] -> |- ta2 << tb2) -> forall t2 : ty, ||-[ k][TPair ta1 ta2]<= [t2] -> |- TPair ta1 ta2 << t2.
 Proof.
 (intros k ta1 ta2 Hat Hdep IH1 IH2).
-(assert (Hva : value_type (TPair ta1 ta2)) by exact (atom_type__value_type _ Hat)).
-(* Auto-generated comment: Failed. *)
+(assert (Hva : value_type (TPair ta1 ta2)) by (apply atom_type__value_type; assumption)).
+(assert (Hma : |-[ k] TPair ta1 ta2 <$ TPair ta1 ta2) by (apply match_ty_value_type__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+-
+clear IHt2_1 IHt2_2.
+(* Auto-generated comment: Succeeded. *)
 
