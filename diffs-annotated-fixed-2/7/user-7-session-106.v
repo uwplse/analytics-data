@@ -182,6 +182,6 @@ subst.
 -
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_pair; auto).
+(apply match_ty_pair; [ apply IHt1 | apply IHt2 ]).
 (* Auto-generated comment: Failed. *)
 
