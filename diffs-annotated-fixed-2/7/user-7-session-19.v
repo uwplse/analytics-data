@@ -203,6 +203,6 @@ Proof.
 -
 (assert (Hvp : value_type (TPair t1 t2))).
 constructor.
-solve_by_inverts.
+solve_by_invert.
 (* Auto-generated comment: Failed. *)
 
