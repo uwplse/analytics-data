@@ -1368,6 +1368,6 @@ Timeout 1 Print LoadPath.
 iFrame.
 (<ssreflect_plugin::ssrtclseq@0> iDestruct "Hmbox" as "[Hmbox|Hmbox]" ; last  first).
 {
-iDestruct "Hauth" as ( S ) "(Hauth&%)".
-(* Auto-generated comment: Succeeded. *)
+iDestruct "Hmbox" as ">(Hlocked'&Hauth)".
+(* Auto-generated comment: Failed. *)
 
