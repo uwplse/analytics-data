@@ -26,5 +26,7 @@ Proof.
 (intros t1 t2 Hnf).
 (inversion Hnf; subst).
 (inversion H).
+(split; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
