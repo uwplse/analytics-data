@@ -465,17 +465,14 @@ Proof.
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
 Qed.
-Lemma nf_sem_sub_k_i__sub_d : forall (k : nat) (t1 : ty), InNF( t1) -> | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
+Lemma pair_sem_sub_k_i__sub_d :
+  forall k : nat,
+  forall ta1 ta2 : ty,
+  value_type (TPair ta1 ta2) ->
+  | TPair ta1 ta2 | <= k ->
+  (forall tb1 : ty, ||-[ k][ta1]<= [tb1] -> |- ta1 << tb1) ->
+  (forall tb2 : ty, ||-[ k][ta2]<= [tb2] -> |- ta2 << tb2) -> forall t2 : ty, ||-[ k][TPair ta1 ta2]<= [t2] -> |- TPair ta1 ta2 << t2.
 Proof.
-(induction k;
-  match goal with
-  | |- forall t1 : ty, InNF( t1) -> | t1 | <= ?k -> forall t2 : ty, ||-[ ?k][t1]<= [t2] -> |- t1 << t2 =>
-        apply
-         (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
-            (fun (t1 : ty) (_ : in_nf t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))
-  end; try match goal with
-           | |- context [ |- TCName _ << _ ] => apply cname_sem_sub_k_i__sub_d
-           end).
--
+(intros k ta1 ta2 Hva Hdep IH1 IH2).
 (* Auto-generated comment: Failed. *)
 
