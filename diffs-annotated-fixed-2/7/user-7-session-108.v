@@ -295,6 +295,6 @@ admit.
 -
 (assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
 {
-(intros Hcontra).
+(intros Hm).
 (* Auto-generated comment: Failed. *)
 
