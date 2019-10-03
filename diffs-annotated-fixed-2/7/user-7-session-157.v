@@ -64,6 +64,8 @@ exists (TPair v1' v2').
 +
 subst.
 (simpl in *).
-(rewrite <- beq_id_refl in Hm).
+(rewrite <- beq_id_refl in *).
+(exists v; assumption).
++
 (* Auto-generated comment: Failed. *)
 
