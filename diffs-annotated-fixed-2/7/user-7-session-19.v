@@ -81,6 +81,7 @@ Proof.
 (simpl).
 (intros v Hv).
 specialize (Href v Hv).
-(split; intros Hm; tauto).
+(split; tauto).
+Qed.
 (* Auto-generated comment: Failed. *)
 
