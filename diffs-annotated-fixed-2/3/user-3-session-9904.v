@@ -79,5 +79,6 @@ step_proc.
 (destruct a'; simpl in *; intuition).
 step_proc.
 intuition.
+(step_proc; intros).
 (* Auto-generated comment: Succeeded. *)
 
