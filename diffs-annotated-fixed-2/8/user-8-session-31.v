@@ -3208,14 +3208,88 @@ Proof.
 (unfold HOAS_Equiv in H).
 (rewrite H; auto).
 Qed.
-Require Import Setoid.
-Require Import Relation_Definitions.
 Add Parametric Relation  W1 W2 : Box W1 W2 @HOAS_Equiv W1 W2 reflexivity proved by
  HOAS_Equiv_refl W1 W2 symmetry proved by HOAS_Equiv_sym W1 W2 transitivity proved
  by HOAS_Equiv_trans W1 W2 as eq_set_rel.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqtsQLOz"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqr8qhHR"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
+Lemma inSeq_id_l : forall w1 w2 (c : Box w1 w2), id_circ \194\183 c = c.
+Proof.
+(destruct c).
+(unfold inSeq).
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p).
+(remember (c p) as c0).
+clear c p Heqc0.
+(induction c0; auto).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+*
+(simpl).
+(apply f_equal).
+(apply functional_extensionality; intros p').
+(apply H).
+Qed.
+Lemma inSeq_id_r : forall w1 w2 (c : Box w1 w2), c \194\183 id_circ = c.
+Proof.
+(destruct c).
+(unfold inSeq).
+(simpl).
+reflexivity.
+Qed.
+Lemma inSeq_assoc :
+  forall {w1} {w2} {w3} {w4} (c1 : Box w1 w2) (c2 : Box w2 w3) (c3 : Box w3 w4),
+  c3 \194\183 c2 \194\183 c1 = (c3 \194\183 c2) \194\183 c1.
+Proof.
+(intros w1 w2 w3 w4 [c1] [c2] [c3]).
+(unfold inSeq).
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p1).
+(simpl).
+(remember (c1 p1) as c).
+clear c1 p1 Heqc.
+dependent induction c.
+-
+reflexivity.
+-
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p2).
+(rewrite H).
+reflexivity.
+-
+(simpl).
+(apply f_equal; apply functional_extensionality; intros p2).
+(rewrite H).
+reflexivity.
+Qed.
+Hint Unfold get_fresh add_fresh_state add_fresh_pat process_gate process_gate_state:
+  den_db.
+Hint Unfold apply_new0 apply_new1 apply_U apply_unitary denote_ctrls apply_meas
+  apply_discard apply_assert0 apply_assert1 compose_super Splus swap_list swap_two
+  pad denote_box denote_pat super: den_db.
+Hint Unfold get_fresh add_fresh_state add_fresh_pat process_gate process_gate_state:
+  vector_den_db.
+Hint Unfold apply_new0 apply_new1 apply_U apply_unitary denote_ctrls apply_meas
+  apply_discard apply_assert0 apply_assert1 compose_super Splus swap_list swap_two
+  pad denote_box denote_pat: vector_den_db.
+Ltac
+ vector_denote :=
+  intros; repeat (autounfold with vector_den_db; simpl);
+   repeat rewrite <- bool_to_ket_matrix_eq;
+   repeat replace \226\136\1630\226\159\169\226\159\1680\226\136\163 with outer_product \226\136\1630\226\159\169 by reflexivity;
+   repeat replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with outer_product \226\136\1631\226\159\169 by reflexivity;
+   repeat rewrite outer_product_kron; repeat rewrite super_outer_product;
+   apply outer_product_eq.
+Ltac matrix_denote := intros; repeat (autounfold with den_db; simpl).
+Hint Rewrite subst_pat_fresh_empty : proof_db.
+Hint Rewrite size_fresh_ctx using validate : proof_db.
+Hint Rewrite Nat.leb_refl : proof_db.
+Hint Rewrite denote_pat_fresh_id : proof_db.
+Hint Rewrite swap_fresh_seq : proof_db.
 (* Auto-generated comment: Succeeded. *)
 
