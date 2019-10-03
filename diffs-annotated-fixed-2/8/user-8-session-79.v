@@ -1154,6 +1154,7 @@ clear IS.
 10: {
 restore_dims tensor_dims.
 (apply kron_1_l_inv).
+}
 9: {
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
