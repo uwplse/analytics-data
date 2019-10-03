@@ -101,6 +101,7 @@ contradiction.
 (rewrite subst_exist_eq).
 Check subst_exist_neq.
 (rewrite (subst_exist_neq _ _ _ _ HX)).
-(rewrite subst_exist_neq).
+Check subst_exist_neq.
+(rewrite subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
