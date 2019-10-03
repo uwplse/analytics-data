@@ -72,6 +72,7 @@ clear Heq.
 (unfold sem_eq_k in Href).
 (destruct Href as [Href _]).
 specialize (Href 1).
-(destruct Href as [w Hsem]).
+(destruct Href as [w2 Hsem]).
+(assert (Hm : |-[ 1, w2] TExist vX (TRef tX) <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
 (* Auto-generated comment: Failed. *)
 
