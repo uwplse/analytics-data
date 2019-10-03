@@ -400,5 +400,7 @@ assumption.
 7: {
 idtac.
 clear IHv.
+(intros Hm).
+(apply match_ty_i_ref__inv in Hm).
 (* Auto-generated comment: Failed. *)
 
