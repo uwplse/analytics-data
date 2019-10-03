@@ -1255,6 +1255,5 @@ specialize @ancilla_free_box_valid as AV.
 (unfold valid_ancillae_box in AV).
 (do 2 (rewrite AV; [  | apply ancilla_free_CNOT_at | type_check ])).
 reflexivity.
-+
 (* Auto-generated comment: Succeeded. *)
 
