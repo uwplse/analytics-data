@@ -179,5 +179,9 @@ specialize (IHw _ _ Hm).
 (destruct IHw as [v' IHw]).
 exists v'.
 (rewrite b_subst_exist_neq; try assumption).
+(apply match_ty_exist).
+exists tx.
+split.
+assumption.
 (* Auto-generated comment: Failed. *)
 
