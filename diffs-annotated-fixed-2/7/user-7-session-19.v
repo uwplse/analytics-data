@@ -331,5 +331,42 @@ Proof.
 (pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept H2)).
 (apply Nat.le_antisymm; assumption).
 Qed.
+Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -> ||- [t1]<= [t'] /\ ||- [t2]<= [t'].
+Proof.
+(intros t1 t2 t' Hsem).
+(unfold sem_sub_i in Hsem).
+(split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem); assumption).
+Qed.
+Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
+Proof.
+(intros t t' Hsem).
+(split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
+  assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem; 
+  intros v' Hm'; specialize (Hsem v'); tauto).
+Qed.
+Open Scope btj_scope.
+Lemma match_ty_i__inv_depth_stable :
+  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Proof.
+(induction k; induction k').
+-
+tauto.
+-
+admit.
+-
+admit.
+-
+(induction t).
+admit.
+admit.
+admit.
++
+clear IHk' IHt.
+(intros Htk Htk' v).
+(simpl in Htk, Htk').
+(apply le_S_n in Htk).
+(apply le_S_n in Htk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
+(pose proof (IHk k' t Htk Htk' v) as Ht).
 (* Auto-generated comment: Failed. *)
 
