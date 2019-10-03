@@ -174,5 +174,9 @@ Proof.
 (rewrite E2).
 (rewrite E1).
 reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqvORNMZ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
