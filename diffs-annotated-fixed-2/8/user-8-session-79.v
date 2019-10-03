@@ -917,7 +917,7 @@ Timeout 1 Print Ltac rewrite_inPar.
 Timeout 1 About restore_dims.
 Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
-(progress restore_dims
-  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia).
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
 (* Auto-generated comment: Succeeded. *)
 
