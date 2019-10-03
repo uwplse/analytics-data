@@ -596,5 +596,7 @@ Proof.
 -
 (intros).
 (simpl).
-(* Auto-generated comment: Succeeded. *)
+Set Printing All.
+(remember (length l2) as L).
+(* Auto-generated comment: Failed. *)
 
