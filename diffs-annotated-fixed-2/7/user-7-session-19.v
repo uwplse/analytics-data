@@ -468,11 +468,12 @@ Qed.
 Lemma pair_sem_sub_k_i__sub_d :
   forall k : nat,
   forall ta1 ta2 : ty,
-  value_type (TPair ta1 ta2) ->
+  atom_type (TPair ta1 ta2) ->
   | TPair ta1 ta2 | <= k ->
   (forall tb1 : ty, ||-[ k][ta1]<= [tb1] -> |- ta1 << tb1) ->
   (forall tb2 : ty, ||-[ k][ta2]<= [tb2] -> |- ta2 << tb2) -> forall t2 : ty, ||-[ k][TPair ta1 ta2]<= [t2] -> |- TPair ta1 ta2 << t2.
 Proof.
-(intros k ta1 ta2 Hva Hdep IH1 IH2).
+(intros k ta1 ta2 Hat Hdep IH1 IH2).
+(pose proof (atom_type__vaue_type _ Hat) as Hva).
 (* Auto-generated comment: Failed. *)
 
