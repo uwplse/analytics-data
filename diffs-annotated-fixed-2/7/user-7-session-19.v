@@ -378,5 +378,6 @@ clear IHk' IHt.
 *
 (assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Href)).
 (pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k'; pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 (* Auto-generated comment: Failed. *)
 
