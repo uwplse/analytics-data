@@ -187,6 +187,8 @@ Proof.
 (induction g).
 +
 (simpl).
-(apply mixed_unitary; trivial).
-(* Auto-generated comment: Failed. *)
+(unfold super).
+restore_dims.
+Msimpl.
+(* Auto-generated comment: Succeeded. *)
 
