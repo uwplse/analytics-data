@@ -598,5 +598,6 @@ Proof.
 (simpl).
 (remember (\226\168\130 l2) as A).
 clear.
+Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
