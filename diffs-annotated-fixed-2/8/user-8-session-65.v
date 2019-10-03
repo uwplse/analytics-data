@@ -968,6 +968,5 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 (intros \207\129).
 remember_differences.
-restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (* Auto-generated comment: Succeeded. *)
 
