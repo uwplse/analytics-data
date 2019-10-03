@@ -1041,6 +1041,8 @@ mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with bool_to_matr
 4: (erewrite kron_compat).
 6: {
 restore_dims tensor_tac.
-(apply (IHb \206\147 f true)).
+specialize (IHb \206\147 f true).
+(simpl in *).
+(simpl_rewrite IHb).
 (* Auto-generated comment: Failed. *)
 
