@@ -1166,5 +1166,8 @@ reflexivity.
 }
 7: {
 (rewrite xorb_false_l).
-(* Auto-generated comment: Succeeded. *)
+reflexivity.
+}
+6: {
+(* Auto-generated comment: Failed. *)
 
