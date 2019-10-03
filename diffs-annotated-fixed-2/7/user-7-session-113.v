@@ -18,5 +18,8 @@ Lemma subs_not_in_FV : forall (X : id) (t : ty), ~ fresh_in_ty X t -> forall s :
 Proof.
 (intros X t).
 (induction t; intros Hnfresh s; try (solve [ reflexivity ])).
+-
+(simpl).
+(simpl in Hnfresh).
 (* Auto-generated comment: Failed. *)
 
