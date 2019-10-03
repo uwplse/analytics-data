@@ -946,7 +946,21 @@ reflexivity.
 (destruct l1; inversion L1).
 (simpl).
 (rewrite H0).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+Timeout 1 About restore_dims.
+Timeout 1 Print restore_dims.
+Timeout 1 Print Ltac restore_dims.
+(match goal with
+ | |- ?A => let A' := restore_dims_rec tac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(apply f_equal_gen; trivial).
+(simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia).
 (* Auto-generated comment: Failed. *)
 
