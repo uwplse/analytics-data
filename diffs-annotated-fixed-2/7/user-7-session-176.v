@@ -153,7 +153,10 @@ Proof.
       try (solve [ apply match_ty_union_1; auto | apply match_ty_union_2; auto ]) ])).
 -
 (split; intros Hm).
++
 (rewrite (subst_equation X sx) in Hm).
 (destruct (IdSet.mem i (FV sx))).
+(unfold mk_subst_exist in Hm).
+(rewrite (subst_equation Y sy) in Hm).
 (* Auto-generated comment: Failed. *)
 
