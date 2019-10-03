@@ -408,6 +408,17 @@ Proof.
 -
 admit.
 -
-(intros t Hnft Hdep).
+(intros t Hnft _ Hdep).
+(inversion Hdep).
+-
+tauto.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+(intros t Hnft _ k Hdep t2).
 (* Auto-generated comment: Failed. *)
 
