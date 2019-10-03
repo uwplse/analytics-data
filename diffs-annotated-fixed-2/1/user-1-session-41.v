@@ -554,6 +554,6 @@ Proof.
 generalize dependent G'.
 (induction H).
 -
-(intros; inversion H0; subst; eapply singleton_eq; try rewrite H1; eauto).
+(intros; inversion H0; subst; eapply singleton_eq; eauto).
 (* Auto-generated comment: Succeeded. *)
 
