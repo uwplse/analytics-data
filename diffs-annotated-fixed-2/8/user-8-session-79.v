@@ -1184,6 +1184,7 @@ reflexivity.
 (rewrite id_circ_spec).
 (erewrite kron_compat).
 3: {
-(simpl; specialize (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137)).
-(* Auto-generated comment: Succeeded. *)
+(simpl; specialize (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137); repeat rewrite Nat.add_0_r in *;
+  apply IHb1; trivial).
+(* Auto-generated comment: Failed. *)
 
