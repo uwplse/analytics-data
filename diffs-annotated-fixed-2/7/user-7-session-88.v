@@ -446,6 +446,13 @@ Proof.
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
 -
-(inversion Hdept; subst).
+(destruct Hdep as [Hdep| Hdep]; inversion Hdep; subst).
+-
+(simpl).
+(apply le_n_S).
+(inversion Hnft; subst).
+(inversion H; subst).
+(simpl in Hdep).
+(apply le_S_n in Hdep).
 (* Auto-generated comment: Failed. *)
 
