@@ -117,6 +117,5 @@ Proof.
 (intros X s t1 t2).
 (unfold subst).
 (unfold subst_terminate).
-reflexivity.
 (* Auto-generated comment: Failed. *)
 
