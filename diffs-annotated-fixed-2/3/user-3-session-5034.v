@@ -415,6 +415,10 @@ lia.
 (erewrite log_abstraction_len in * by eauto).
 (rewrite app_length).
 lia.
-*
-(* Auto-generated comment: Succeeded. *)
+}
++
+(exists s; simpl; intuition).
+(apply log_abstraction_pre_commit; auto).
++
+(* Auto-generated comment: Failed. *)
 
