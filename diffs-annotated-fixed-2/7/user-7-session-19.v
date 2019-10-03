@@ -190,9 +190,9 @@ Ltac
  solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2 :=
   pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
    [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
-Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
+(induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
   try (solve
    [ match goal with
      | Hsem:||-[ ?k][?t]<= [?t']
@@ -219,7 +219,6 @@ Proof.
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
 -
-(simpl).
-(apply le_n_S).
+(destruct (max_inv_depth_le__components_le _ _ _ Hdept) as [Hdept1 Hdept2]).
 (* Auto-generated comment: Failed. *)
 
