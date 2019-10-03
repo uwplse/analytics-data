@@ -1068,6 +1068,8 @@ restore_dims tensor_tac.
 (simpl).
 (rewrite Nat.mul_1_r).
 show_dimensions.
-(apply (IHb \206\147 f (\194\172 \226\140\136 b | f \226\140\137))).
-(* Auto-generated comment: Failed. *)
+Timeout 1 About tensor_tac.
+Timeout 1 Print tensor_tac.
+Timeout 1 Print Ltac tensor_tac.
+(* Auto-generated comment: Succeeded. *)
 
