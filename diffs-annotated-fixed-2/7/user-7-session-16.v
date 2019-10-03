@@ -416,6 +416,7 @@ Proof.
    [ left; constructor; assumption
    | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
 +
-(pose proof (in_nf_ref__inv _ _ Hnf') as Hnf'').
+(pose proof (in_nf_ref__inv _ Hnf') as Hnf'').
+(right; solve_not_x_sub_r_y_full).
 (* Auto-generated comment: Failed. *)
 
