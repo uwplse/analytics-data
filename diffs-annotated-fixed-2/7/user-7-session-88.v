@@ -425,6 +425,7 @@ Proof.
   destruct Hsemu as [Hsemu| Hsemu];
   [ destruct Hdep as [Hdept| Hdept']; try destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; apply Nat.le_trans with (| t'1 |);
      tauto || apply Max.le_max_l
-  |  ]).
+  | destruct Hdep as [Hdept| Hdept']; try destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; apply Nat.le_trans with (| t'2 |);
+     tauto || apply Max.le_max_r ]).
 (* Auto-generated comment: Failed. *)
 
