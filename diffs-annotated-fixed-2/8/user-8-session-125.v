@@ -42,6 +42,5 @@ setoid_rewrite denote_unitary_transpose.
 (repeat rewrite Mmult_assoc).
 restore_dims.
 (simpl).
-show_dimensions.
 (* Auto-generated comment: Succeeded. *)
 
