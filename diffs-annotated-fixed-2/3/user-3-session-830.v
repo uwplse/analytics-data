@@ -240,6 +240,5 @@ non_err.
 -
 (destruct p as ([], msgs); try by iFrame; eauto; try solve_err).
 iExists _.
-non_err.
 (* Auto-generated comment: Succeeded. *)
 
