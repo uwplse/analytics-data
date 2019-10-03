@@ -600,5 +600,5 @@ Proof.
 clear.
 specialize @kron_1_l as KL.
 (apply kron_1_l).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
