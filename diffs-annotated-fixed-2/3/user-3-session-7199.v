@@ -432,6 +432,7 @@ step_proc.
 (unfold log_size_ok; autorewrite with list; auto).
 }
 {
-eauto using log_abstraction_preserved.
-(* Auto-generated comment: Succeeded. *)
+(exists bs; intuition).
+(apply log_abstraction_preserved).
+(* Auto-generated comment: Failed. *)
 
