@@ -597,5 +597,7 @@ Proof.
 (intros).
 (simpl).
 Set Printing All.
+(remember (length l2) as L).
+Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
