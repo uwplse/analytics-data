@@ -87,6 +87,6 @@ constructor.
 -
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
-(apply Nat.max_lub_l).
+(eapply Nat.max_lub_l).
 (* Auto-generated comment: Failed. *)
 
