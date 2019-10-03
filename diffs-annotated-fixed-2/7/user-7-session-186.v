@@ -28,5 +28,7 @@ split.
 assumption.
 (induction w'; induction t'; intros Hm').
 +
+split.
+*
 (* Auto-generated comment: Failed. *)
 
