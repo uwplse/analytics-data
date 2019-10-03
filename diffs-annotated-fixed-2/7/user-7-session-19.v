@@ -77,6 +77,8 @@ Proof.
 (destruct v; contradiction).
 -
 (apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+tauto.
 (* Auto-generated comment: Failed. *)
 
