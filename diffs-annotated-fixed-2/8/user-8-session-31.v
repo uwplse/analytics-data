@@ -2186,8 +2186,8 @@ Proof.
 (intros).
 (unfold denote_circuit).
 (simpl; fold_denotation).
-replace (process_gate g p1 \206\147) with
- (process_gate_pat g p1 \206\147, process_gate_state g p1 \206\147)
- by (symmetry; apply surjective_pairing).
+Timeout 1 About process_gate.
+Timeout 1 Print process_gate.
+Timeout 1 Print Ltac process_gate.
 (* Auto-generated comment: Failed. *)
 
