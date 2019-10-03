@@ -35,8 +35,7 @@ assumption.
 (apply match_ty_union_1; auto).
 *
 (rewrite subst_union).
-(destruct (either_free_or_fresh_in_ty X t'1) as [HXt'1| HXt'1]).
-(apply match_ty_union_1).
-(apply IHt'b).
+(destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
+(apply match_ty_union_1; tauto).
 (* Auto-generated comment: Failed. *)
 
