@@ -419,6 +419,6 @@ Proof.
 (intros c k Hdep t2).
 (assert (Hva : value_type (TCName c)) by constructor).
 (assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
-(induction t2; intros Hsem; try (solve [ specialize (Hsem _ _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
 (* Auto-generated comment: Failed. *)
 
