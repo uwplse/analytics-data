@@ -364,5 +364,12 @@ Proof.
 (pose proof (sub_r_nf_ref__inv _ _ Hnf Hnf' Hsubnf) as H).
 (split; apply mk_nf_sub_r__sub_r; tauto).
 Qed.
-(* Auto-generated comment: Failed. *)
+Lemma sub_r_dec__mk_nf_sub_r_dec : forall t1 t2 : ty, Decidable.decidable (|- t1 << t2) -> Decidable.decidable (|- MkNF( t1) << t2).
+Proof.
+(intros t1 t2 Hdec).
+(destruct Hdec as [Hdec| Hdec]).
+-
+(left; apply sub_r__transitive with t1).
+(apply mk_nf__sub_r1).
+(* Auto-generated comment: Succeeded. *)
 
