@@ -995,6 +995,12 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-evar ( e : Square (2 * 2 ^ \226\159\166 \206\147 \226\159\167) ).
+(repeat
+  match goal with
+  | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
+    @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li) by
+    simpl; Msimpl; rewrite ctx_to_mat_list_length;
+     try rewrite size_ntensor, Nat.mul_1_r; easy
+  end).
 (* Auto-generated comment: Succeeded. *)
 
