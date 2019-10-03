@@ -629,6 +629,514 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqkgd1Jh"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
+(rewrite (kron_1_r u)).
+reflexivity.
+-
+(intros).
+(simpl).
+specialize (IHn u).
+(remember (ctrl_list_to_unitary_r (repeat false n) u) as A).
+gen A.
+(rewrite repeat_length).
+(rewrite (plus_comm n)).
+(rewrite Nat.pow_add_r).
+(intros).
+clear HeqA.
+restore_dims.
+(rewrite IHn).
+(rewrite kron_assoc).
+(restore_dims; rewrite id_kron).
+replace (2 ^ n * 2)%nat with (2 ^ n + (2 ^ n + 0))%nat by unify_pows_two.
+reflexivity.
+Qed.
+Lemma ctrl_list_to_unitary_false :
+  forall m n (u : Matrix 2 2),
+  ctrl_list_to_unitary (repeat false m) (repeat false n) u ==
+  I (2 ^ m) \226\138\151 u \226\138\151 I (2 ^ n).
+Proof.
+(induction m; intros).
+-
+(simpl).
+(rewrite ctrl_list_to_unitary_r_false).
+(rewrite repeat_length).
+restore_dims.
+(rewrite (kron_1_l u)).
+reflexivity.
+-
+(simpl in *).
+(rewrite IHm by easy).
+(repeat rewrite repeat_length).
+(progress restore_dims).
+specialize (pow_gt_0 m) as Gm.
+specialize (pow_gt_0 n) as Gn.
+(repeat rewrite <- kron_assoc'; try lia).
+restore_dims.
+(rewrite id_kron).
+reflexivity.
+Qed.
+Lemma ctrls_to_list_empty : forall W lb u, @ctrls_to_list W lb [] u = (O, [], _X).
+Proof.
+(destruct u; easy).
+Qed.
+Lemma denote_ctrls_empty :
+  forall W (n : nat) (u : Unitary W), denote_ctrls n u [] = \207\131x.
+Proof.
+(destruct u; compute; easy).
+Qed.
+Opaque rev skipn.
+Lemma denote_ctrls_qubit :
+  forall n (u : Unitary Qubit) k,
+  (k < n)%nat -> denote_ctrls n u [k] == I (2 ^ k) \226\138\151 \226\159\166 u \226\159\167 \226\138\151 I (2 ^ (n - k - 1)).
+Proof.
+(intros n u k L).
+(remember Qubit as W).
+(induction u; try discriminate).
+all:
+ (unfold denote_ctrls; simpl;
+   rewrite firstn_repeat_le, skipn_repeat, rev_repeat by lia; replace
+   (n - k - 1)%nat with (n - S k)%nat by lia; restore_dims
+   repeat rewrite repeat_length; unify_pows_two; try lia;
+   apply ctrl_list_to_unitary_false).
+Qed.
+Transparent rev skipn.
+Lemma ctrl_list_to_unitary_r_unitary :
+  forall r (u : Square 2), WF_Unitary u -> WF_Unitary (ctrl_list_to_unitary_r r u).
+Proof.
+(intros r u Uu).
+(induction r; auto).
+(simpl).
+(destruct a).
+-
+(simpl).
+(assert
+  (H :
+   forall n (U : Square n), WF_Unitary U -> WF_Unitary (U \226\138\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 .+ I n \226\138\151 \226\136\1630\226\159\169\226\159\1680\226\136\163))).
+(intros n U UU).
+(unfold WF_Unitary in *).
 Msimpl.
+(rewrite Mmult_plus_dist_r, Mmult_plus_dist_l).
+(rewrite Mmult_plus_dist_l).
+Msimpl.
+(rewrite UU).
+mat_replace \226\136\1630\226\159\169\226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 with @Zero 2 2 by lma.
+mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 \195\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 with @Zero 2 2 by lma.
+Msimpl.
+(rewrite <- kron_plus_dist_l).
+mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 .+ \226\136\1630\226\159\169\226\159\1680\226\136\163 \195\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 with I 2 by lma.
+(rewrite id_kron).
+reflexivity.
+specialize (H _ (ctrl_list_to_unitary_r r u)).
+(rewrite Nat.mul_comm in H).
+(apply H).
+(apply IHr).
+-
+specialize (kron_unitary _ (I 2) IHr) as H.
+(rewrite Nat.mul_comm in H).
+(apply H).
+(apply id_unitary).
+Qed.
+Lemma ctrl_list_to_unitary_unitary :
+  forall l r (u : Square 2), WF_Unitary u -> WF_Unitary (ctrl_list_to_unitary l r u).
+Proof.
+(intros l r u Uu).
+(induction l).
+-
+(simpl).
+(apply ctrl_list_to_unitary_r_unitary).
+easy.
+-
+(simpl).
+(destruct a).
++
+(simpl).
+(assert
+  (H :
+   forall n (U : Square n), WF_Unitary U -> WF_Unitary (\226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 U .+ \226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I n))).
+(intros n U UU).
+(unfold WF_Unitary in *).
+Msimpl.
+(rewrite Mmult_plus_dist_l, Mmult_plus_dist_r).
+(rewrite Mmult_plus_dist_r).
+Msimpl.
+(rewrite UU).
+mat_replace \226\136\1630\226\159\169\226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 with @Zero 2 2 by lma.
+mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 \195\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 with @Zero 2 2 by lma.
+Msimpl.
+(rewrite <- kron_plus_dist_r).
+mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 .+ \226\136\1630\226\159\169\226\159\1680\226\136\163 \195\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 with I 2 by lma.
+(rewrite id_kron).
+reflexivity.
+specialize (H _ (ctrl_list_to_unitary l r u)).
+(apply H).
+(apply IHl).
++
+specialize (kron_unitary _ _ (id_unitary 2) IHl) as H.
+(apply H).
+Qed.
+Lemma ctrls_to_list_spec :
+  forall W l (g : Unitary W) k lb lb' u,
+  (length l = \226\159\166 W \226\159\167)%nat ->
+  ctrls_to_list lb l g = (k, lb', u) -> length lb' = length lb /\ In k l.
+Proof.
+(intros W l g).
+gen l.
+(induction g; simpl in *; intros l k lb lb' u L H).
+-
+(destruct l; inversion L).
+(inversion H; subst).
+(simpl; split; auto).
+-
+(destruct l; inversion L).
+(inversion H; subst).
+(simpl; split; auto).
+-
+(destruct l; inversion L).
+(inversion H; subst).
+(simpl; split; auto).
+-
+(destruct l; inversion L).
+(inversion H; subst).
+(simpl; split; auto).
+-
+(destruct l; inversion L).
+(inversion H; subst).
+(simpl; split; auto).
+-
+(destruct l; inversion L).
+(destruct (ctrls_to_list lb l g) as [[k' lb''] u'] eqn:E).
+(inversion H; subst).
+(rewrite update_length).
+specialize (IHg l k lb lb'' u H1 E) as [LE I].
+(simpl; split; auto).
+-
+(destruct l; inversion L).
+(destruct (ctrls_to_list lb l g) as [[k' lb''] u'] eqn:E).
+(inversion H; subst).
+(rewrite update_length).
+specialize (IHg l k lb lb'' u H1 E) as [LE I].
+(simpl; split; auto).
+Qed.
+Lemma denote_ctrls_unitary :
+  forall W n (g : Unitary W) l,
+  (forall x, In x l -> x < n)%nat ->
+  (length l = \226\159\166 W \226\159\167)%nat -> WF_Unitary (denote_ctrls n g l).
+Proof.
+(intros W n g l H H0).
+(unfold denote_ctrls).
+(simpl).
+(destruct (ctrls_to_list (repeat false n) l g) as [[k lb] u] eqn:E).
+(apply ctrls_to_list_spec in E as [L I]; trivial).
+specialize (H k I).
+specialize
+ (ctrl_list_to_unitary_unitary (firstn k lb) (rev (skipn (S k) lb)) (\226\159\166 u \226\159\167)) as U.
+(assert (E : (length (firstn k lb) + length (rev (skipn (S k) lb)) + 1 = n)%nat)).
+(rewrite firstn_length_le).
+(rewrite rev_length).
+(rewrite skipn_length).
+(rewrite L, repeat_length).
+omega.
+(rewrite L, repeat_length).
+omega.
+(rewrite E in U).
+(apply U).
+(apply (unitary_gate_unitary u)).
+Qed.
+Lemma denote_ctrls_transpose_qubit :
+  forall (n : nat) (u : Unitary Qubit) (li : list nat),
+  (forall x, In x li -> x < n)%nat ->
+  denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
+Proof.
+(intros).
+(destruct li as [| k li]).
+{
+(rewrite 2!denote_ctrls_empty).
+autounfold with U_db.
+(intros i j _ _).
+(rewrite (if_dist _ _ _ Cconj)).
+autorewrite with C_db.
+(rewrite plus_comm).
+easy.
+}
+specialize (H _ (in_eq _ _)).
+dependent destruction u.
+all:
+ (simpl; unfold denote_ctrls, ctrls_to_list;
+   rewrite skipn_repeat, rev_repeat, firstn_repeat; restore_dims
+   repeat rewrite repeat_length; unify_pows_two; lia;
+   repeat rewrite ctrl_list_to_unitary_false; restore_dims
+   repeat rewrite repeat_length; unify_pows_two; lia; simpl; Msimpl; reflexivity).
+Qed.
+Lemma ctrls_to_list_transpose :
+  forall W lb li (u : Unitary W) n lb' u',
+  ctrls_to_list lb li u = (n, lb', u') ->
+  ctrls_to_list lb li (trans u) = (n, lb', trans u').
+Proof.
+(induction W; intros lb li u n lb' u' H; try (solve [ inversion u ])).
+-
+(destruct li as [| k li]).
+(rewrite ctrls_to_list_empty in *).
+(inversion H; subst).
+easy.
+(dependent destruction u; simpl in *; inversion H; subst; Msimpl; easy).
+-
+clear IHW1.
+(destruct li as [| k li]).
+(rewrite ctrls_to_list_empty in *).
+(inversion H; subst).
+easy.
+dependent destruction u.
++
+(simpl in *).
+(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
+(apply IHW2 in E).
+(rewrite E).
+(inversion H; subst).
+easy.
++
+(simpl in *).
+(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
+(apply IHW2 in E).
+(rewrite E).
+(inversion H; subst).
+easy.
+Qed.
+Lemma ctrl_list_to_unitary_transpose :
+  forall l r u, ctrl_list_to_unitary l r (u) \226\128\160 == (ctrl_list_to_unitary l r u) \226\128\160.
+Proof.
+(intros l r u).
+(induction l).
+(simpl).
+-
+(induction r; try reflexivity).
+(simpl).
+(destruct a; Msimpl; rewrite IHr; reflexivity).
+-
+(simpl).
+(destruct a; Msimpl; rewrite IHl; reflexivity).
+Qed.
+Lemma ctrl_list_to_unitary_compat :
+  forall l r A A',
+  A == A' -> ctrl_list_to_unitary l r A == ctrl_list_to_unitary l r A'.
+Proof.
+(intros).
+(induction l).
+(simpl).
+-
+(induction r; try assumption).
+(simpl).
+(destruct a; Msimpl; rewrite IHr; reflexivity).
+-
+(simpl).
+(destruct a; Msimpl; rewrite IHl; reflexivity).
+Qed.
+Add Parametric Morphism  l r : @ctrl_list_to_unitary l r with signature
+ mat_equiv ==> mat_equiv as cltu_mor.
+Proof.
+(intros; apply ctrl_list_to_unitary_compat; easy).
+Qed.
+Opaque rev skipn.
+Lemma denote_ctrls_transpose :
+  forall W (n : nat) (u : Unitary W) li,
+  (forall x, In x li -> x < n)%nat ->
+  (length li = \226\159\166 W \226\159\167)%nat -> denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
+Proof.
+(intros).
+(unfold denote_ctrls).
+(simpl).
+(destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
+(apply ctrls_to_list_transpose in E).
+(rewrite E).
+specialize (ctrls_to_list_spec _ _ _ _ _ _ _ H0 E) as [L I].
+specialize (H _ I).
+restore_dims
+ repeat rewrite rev_length, skipn_length, firstn_length, L, repeat_length; lia.
+(rewrite <- ctrl_list_to_unitary_transpose).
+(simpl_rewrite @denote_unitary_transpose).
+reflexivity.
+Qed.
+Transparent rev skipn.
+Lemma apply_unitary_unitary :
+  forall W n (u : Unitary W) l,
+  length l = \226\159\166 W \226\159\167 ->
+  (forall x, In x l -> x < n)%nat -> WF_Unitary (apply_unitary n u l).
+Proof.
+(intros W n u l L LT).
+(destruct W; try (solve [ inversion u ])).
+-
+(simpl).
+(destruct l; try (solve [ inversion L ])).
+(simpl).
+specialize (LT n0 (or_introl eq_refl)).
+replace (2 ^ n)%nat with (2 ^ n0 * 2 * 2 ^ (n - n0 - 1))%nat by unify_pows_two.
+(repeat apply kron_unitary; try apply id_unitary; try apply unitary_gate_unitary).
+specialize (unitary_gate_unitary u) as UU.
+(apply UU).
+-
+(dependent destruction u; apply denote_ctrls_unitary; auto).
+Qed.
+Lemma apply_U_correct :
+  forall W n (U : Unitary W) l,
+  length l = \226\159\166 W \226\159\167 ->
+  (forall x, In x l -> x < n)%nat -> WF_Superoperator (apply_U n U l).
+Proof.
+(intros).
+(apply super_unitary_correct; trivial).
+(apply apply_unitary_unitary; easy).
+Qed.
+Definition apply_new0 {n} : Superoperator (2 ^ n) (2 ^ (n + 1)) :=
+  super (I (2 ^ n) \226\138\151 \226\136\1630\226\159\169).
+Definition apply_new1 {n} : Superoperator (2 ^ n) (2 ^ (n + 1)) :=
+  super (I (2 ^ n) \226\138\151 \226\136\1631\226\159\169).
+Definition apply_discard {n} (k : nat) : Superoperator (2 ^ n) (2 ^ (n - 1)) :=
+  Splus (super (I (2 ^ k) \226\138\151 \226\159\1680\226\136\163 \226\138\151 I (2 ^ (n - k - 1))))
+    (super (I (2 ^ k) \226\138\151 \226\159\1681\226\136\163 \226\138\151 I (2 ^ (n - k - 1)))).
+Definition apply_assert0 {n} (k : nat) : Superoperator (2 ^ n) (2 ^ (n - 1)) :=
+  super (I (2 ^ k) \226\138\151 \226\159\1680\226\136\163 \226\138\151 I (2 ^ (n - k - 1))).
+Definition apply_assert1 {n} (k : nat) : Superoperator (2 ^ n) (2 ^ (n - 1)) :=
+  super (I (2 ^ k) \226\138\151 \226\159\1681\226\136\163 \226\138\151 I (2 ^ (n - k - 1))).
+Definition apply_meas {n} (k : nat) : Superoperator (2 ^ n) (2 ^ n) :=
+  Splus (super (I (2 ^ k) \226\138\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I (2 ^ (n - k - 1))))
+    (super (I (2 ^ k) \226\138\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 I (2 ^ (n - k - 1)))).
+Definition apply_measQ {n} (k : nat) : Superoperator (2 ^ n) (2 ^ n) :=
+  Splus (super (I (2 ^ k) \226\138\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I (2 ^ (n - k - 1))))
+    (super (I (2 ^ k) \226\138\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 I (2 ^ (n - k - 1)))).
+Definition apply_gate {n} {w1} {w2} (safe : bool) (g : Gate w1 w2) 
+  (l : list nat) : Superoperator (2 ^ n) (2 ^ (n + \226\159\166 w2 \226\159\167 - \226\159\166 w1 \226\159\167)) :=
+  match g with
+  | U u => apply_U n u l
+  | BNOT => apply_U n _X l
+  | init0 | new0 => apply_new0
+  | init1 | new1 => apply_new1
+  | meas => apply_meas (hd O l)
+  | measQ => apply_meas (hd O l)
+  | discard => apply_discard (hd O l)
+  | assert0 => (if safe then apply_discard else apply_assert0) (hd O l)
+  | assert1 => (if safe then apply_discard else apply_assert1) (hd O l)
+  end.
+Definition operator_sum {m} {n} (l : list (Matrix m n)) : 
+  Superoperator n m := fold_left Splus (map (fun A => super A) l) SZero.
+Definition outer_sum {m} {n} (l : list (Matrix m n)) :=
+  fold_left Mplus (map (fun A => (A) \226\128\160 \195\151 A) l) Zero.
+Axiom
+  (operator_sum_decomposition :
+     forall {m} {n} (l : list (Matrix m n)),
+     outer_sum l == I n <-> WF_Superoperator (operator_sum l)).
+Lemma discard_superoperator :
+  forall (n i j : nat) (\207\129 : Square (2 ^ n)),
+  (i * j * 2 = 2 ^ n)%nat ->
+  Mixed_State \207\129 ->
+  Mixed_State
+    (I i \226\138\151 \226\159\1680\226\136\163 \226\138\151 I j \195\151 \207\129 \195\151 (I i \226\138\151 \226\136\1630\226\159\169 \226\138\151 I j)
+     .+ I i \226\138\151 \226\159\1681\226\136\163 \226\138\151 I j \195\151 \207\129 \195\151 (I i \226\138\151 \226\136\1631\226\159\169 \226\138\151 I j)).
+Proof.
+(intros n i j \207\129 E M).
+(destruct (operator_sum_decomposition [I i \226\138\151 \226\159\1680\226\136\163 \226\138\151 I j; I i \226\138\151 \226\159\1681\226\136\163 \226\138\151 I j]) as [WFS _]).
+(assert (OS : outer_sum [I i \226\138\151 \226\159\1680\226\136\163 \226\138\151 I j; I i \226\138\151 \226\159\1681\226\136\163 \226\138\151 I j] == I (i * 2 * j))).
+{
+(unfold outer_sum).
+(simpl).
+Msimpl.
+(rewrite <- kron_plus_dist_r, <- kron_plus_dist_l).
+mat_replace \226\136\1630\226\159\169\226\159\1680\226\136\163 .+ \226\136\1631\226\159\169\226\159\1681\226\136\163 with I 2 by lma.
+(repeat rewrite id_kron).
+easy.
+}
+specialize (WFS OS \207\129).
+(unfold operator_sum, Splus, SZero, super, WF_Superoperator in WFS).
+(simpl in WFS).
+autorewrite with M_db_light M_db in WFS.
+(apply WFS).
+(rewrite <- Nat.mul_assoc, (Nat.mul_comm 2%nat), Nat.mul_assoc).
+(rewrite E).
+(apply M).
+Qed.
+Lemma measure_superoperator :
+  forall (n i j : nat) (\207\129 : Square (2 ^ n)),
+  (i * j * 2 = 2 ^ n)%nat ->
+  Mixed_State \207\129 ->
+  Mixed_State
+    (I i \226\138\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I j \195\151 \207\129 \195\151 (I i \226\138\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I j)
+     .+ I i \226\138\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 I j \195\151 \207\129 \195\151 (I i \226\138\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 I j)).
+Proof.
+(intros n i j \207\129 E M).
+(destruct (operator_sum_decomposition [I i \226\138\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I j; I i \226\138\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 I j])
+  as [WFS _]).
+(assert (OS : outer_sum [I i \226\138\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 \226\138\151 I j; I i \226\138\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 \226\138\151 I j] == I (i * 2 * j))).
+{
+(unfold outer_sum).
+(simpl).
+Msimpl.
+(rewrite <- kron_plus_dist_r, <- kron_plus_dist_l).
+mat_replace \226\136\1630\226\159\169\226\159\1680\226\136\163 \195\151 \226\136\1630\226\159\169\226\159\1680\226\136\163 .+ \226\136\1631\226\159\169\226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169\226\159\1681\226\136\163 with I 2 by lma.
+(repeat rewrite id_kron).
+easy.
+}
+specialize (WFS OS \207\129).
+(unfold operator_sum, Splus, SZero, super, WF_Superoperator in WFS).
+(simpl in WFS).
+autorewrite with M_db_light M_db in WFS.
+(apply WFS).
+(rewrite <- Nat.mul_assoc, (Nat.mul_comm 2%nat), Nat.mul_assoc).
+(rewrite E).
+(apply M).
+Qed.
+Lemma init0_superoperator :
+  forall (n i j : nat) (\207\129 : Square (2 ^ n)),
+  (i * j = 2 ^ n)%nat ->
+  Mixed_State \207\129 -> Mixed_State (I i \226\138\151 \226\136\1630\226\159\169 \226\138\151 I j \195\151 \207\129 \195\151 (I i \226\138\151 \226\159\1680\226\136\163 \226\138\151 I j)).
+Proof.
+(intros n i j \207\129 E M).
+(destruct (operator_sum_decomposition [I i \226\138\151 \226\136\1630\226\159\169 \226\138\151 I j]) as [WFS _]).
+(assert (OS : outer_sum [I i \226\138\151 \226\136\1630\226\159\169 \226\138\151 I j] == I (i * 1 * j))).
+{
+(unfold outer_sum).
+(simpl).
+Msimpl.
+mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1630\226\159\169 with I 1 by lma.
+(repeat rewrite id_kron).
+easy.
+}
+specialize (WFS OS \207\129).
+(unfold operator_sum, Splus, SZero, super, WF_Superoperator in WFS).
+(simpl in WFS).
+autorewrite with M_db_light M_db in WFS.
+(apply WFS).
+(rewrite Nat.mul_1_r).
+(rewrite E).
+(apply M).
+Qed.
+Lemma init1_superoperator :
+  forall (n i j : nat) (\207\129 : Square (2 ^ n)),
+  (i * j = 2 ^ n)%nat ->
+  Mixed_State \207\129 -> Mixed_State (I i \226\138\151 \226\136\1631\226\159\169 \226\138\151 I j \195\151 \207\129 \195\151 (I i \226\138\151 \226\159\1681\226\136\163 \226\138\151 I j)).
+Proof.
+(intros n i j \207\129 E M).
+(destruct (operator_sum_decomposition [I i \226\138\151 \226\136\1631\226\159\169 \226\138\151 I j]) as [WFS _]).
+(assert (OS : outer_sum [I i \226\138\151 \226\136\1631\226\159\169 \226\138\151 I j] == I (i * 1 * j))).
+{
+(unfold outer_sum).
+(simpl).
+Msimpl.
+mat_replace \226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169 with I 1 by lma.
+(repeat rewrite id_kron).
+easy.
+}
+specialize (WFS OS \207\129).
+(unfold operator_sum, Splus, SZero, super, WF_Superoperator in WFS).
+(simpl in WFS).
+autorewrite with M_db_light M_db in WFS.
+(apply WFS).
+(rewrite Nat.mul_1_r).
+(rewrite E).
+(apply M).
+Qed.
+Lemma init0_end_superoperator :
+  forall (n i : nat) (\207\129 : Square (2 ^ n)),
+  (i = 2 ^ n)%nat -> Mixed_State \207\129 -> Mixed_State (I i \226\138\151 \226\136\1630\226\159\169 \195\151 \207\129 \195\151 (I i \226\138\151 \226\159\1680\226\136\163)).
+Proof.
+(intros; subst).
+(rewrite <- (kron_1_r \207\129)).
+Msimpl.
+(apply (mixed_state_kron _ _ \207\129 \226\136\1630\226\159\169\226\159\1680\226\136\163)).
 (* Auto-generated comment: Succeeded. *)
 
