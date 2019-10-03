@@ -147,6 +147,14 @@ Proof.
       apply IHv1 || apply IHv2; eexists; eassumption ])).
 (right; apply Nat.max_lub; assumption).
 -
-(destruct (dec_le (| TRef v |) k) as [Hle| Hle]).
+(destruct (dec_le (| TRef t |) k) as [Hle| Hle]).
++
+(right; assumption).
++
+(left; intros Hcontra).
+(destruct Hcontra as [v' Hm]).
+(destruct k).
+(destruct v'; contradiction).
+(pose proof (match_ty_value_type__inv_depth_le_index _ _ Hv _ Hm) as Hdep).
 (* Auto-generated comment: Failed. *)
 
