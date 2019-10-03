@@ -49,6 +49,6 @@ exists w1.
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
 -
 (apply sem_sub_ref).
-(constructor; assumption).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
