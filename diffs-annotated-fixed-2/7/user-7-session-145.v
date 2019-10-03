@@ -125,13 +125,23 @@ Proof.
 (induction w1).
 admit.
 (intros t).
-(induction t).
+(intros k w2 t' X' HX HX' Hsem).
+(intros tx v Hm).
+Abort.
+Lemma sem_sub_fresh_var__sem_sub_exist :
+  forall (X : id) (t t' : ty) (X' : id), IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Proof.
+(intros X t t').
+generalize dependent t.
+(induction t').
 admit.
 admit.
 admit.
 admit.
 -
-(intros k w2 t' X' HX HX' Hsem).
-(intros tx v Hm).
+(intros t X' HX HX' Hsem).
+(intros w1).
+(induction w1).
+(intros k Hm).
 (* Auto-generated comment: Failed. *)
 
