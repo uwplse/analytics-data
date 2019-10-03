@@ -60,6 +60,7 @@ exists w1.
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
 -
 Search -b_free_in_ty.
-(destruct (b_free_in_ty__dec X t)).
+(destruct (b_free_in_ty__dec X t) as [HX| HX]).
++
 (* Auto-generated comment: Failed. *)
 
