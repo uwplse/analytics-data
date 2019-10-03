@@ -231,6 +231,16 @@ Qed.
 Lemma sub_r__trans2 :
   forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
 Proof.
-Abort.
+(intros tm1 tm2 Hsub).
+(induction Hsub).
+-
+tauto.
+-
+(destruct IHHsub1 as [IHHsub11 IHHsub12]).
+(destruct IHHsub2 as [IHHsub21 IHHsub22]).
+(split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
+  subst; try (solve [ constructor; auto ])).
++
+(assert (Hsub1 : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
 (* Auto-generated comment: Failed. *)
 
