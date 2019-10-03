@@ -525,6 +525,8 @@ Theorem rev_app_distr :
 Proof.
 (induction l1; simpl; intros).
 -
-(rewrite app_nil_r).
+(rewrite app_nil_r; auto).
+-
+(rewrite IHl1).
 (* Auto-generated comment: Succeeded. *)
 
