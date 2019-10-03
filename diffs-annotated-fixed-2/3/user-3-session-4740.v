@@ -15,6 +15,6 @@ Timeout 1 Print LoadPath.
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
-Notation "a \226\137\161 b" := (a = b).
-(* Auto-generated comment: Failed. *)
+Notation "a \226\137\161 b" := (a = b) (at level 30).
+(* Auto-generated comment: Succeeded. *)
 
