@@ -1209,6 +1209,5 @@ reflexivity.
 }
 -
 (simpl in *).
-specialize inSeq_correct as IS.
 (* Auto-generated comment: Succeeded. *)
 
