@@ -28,5 +28,14 @@ Proof.
 -
 (apply sem_sub_pair; assumption).
 -
+(apply sem_sub_union; assumption).
+-
+(apply sem_sub_union_1).
+(apply sem_sub__refl).
+-
+(apply sem_sub_union_2).
+(apply sem_sub__refl).
+-
+(intros k w1).
 (* Auto-generated comment: Failed. *)
 
