@@ -130,6 +130,8 @@ Proof.
 (induction t; intros Hwf s; try (solve [ reflexivity ])).
 (destruct (wf_ty_pair__inv _ _ Hwf) as [wf1 wf2]).
 (simpl).
-(rewrite IHt1).
+(rewrite IHt1; try assumption).
+(rewrite IHt2; try assumption).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
