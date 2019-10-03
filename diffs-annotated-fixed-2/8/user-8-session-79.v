@@ -923,5 +923,8 @@ restore_dims
 2: {
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+setoid_rewrite (kron_1_l_inv (\226\168\130 l2)).
+reflexivity.
+}
 (* Auto-generated comment: Succeeded. *)
 
