@@ -130,5 +130,5 @@ exists w1.
 -
 (destruct w1).
 (v Hm).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
