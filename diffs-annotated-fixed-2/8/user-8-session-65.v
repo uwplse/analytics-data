@@ -1250,5 +1250,9 @@ Proof.
 (destruct c).
 (unfold denote_box; simpl).
 (rewrite add_fresh_split; simpl).
+(remember (add_fresh_pat W1 []) as p).
+(induction (c p)).
+-
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
