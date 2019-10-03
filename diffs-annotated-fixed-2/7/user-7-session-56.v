@@ -133,6 +133,28 @@ Lemma match_ty__inv_depth_l_le_r : forall (v t : ty) (k : nat), |-[ k] v <$ t ->
 Proof.
 (apply match_ty__inv_depth_l).
 Qed.
+Lemma match_ty_value_type_r__inv_depth_r_le_index : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> inv_depth v' <= k.
+Proof.
+(intros v v' Hv').
+generalize dependent v.
+(induction Hv').
+-
+(intros).
+(simpl).
+(apply Nat.le_0_l).
+-
+(intros v k Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1' [v2' [Heqp [Hm1 Hm2]]]]; subst).
+(simpl; apply Nat.max_lub; [ eapply IHHv'1 | eapply IHHv'2 ]; eassumption).
+-
+(intros v k Hm).
+(destruct k).
+(destruct v; contradiction).
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq [[Hdep _] _]]]; subst).
+(simpl; apply le_n_S; assumption).
+Qed.
 Lemma match_ty_value_type_k : forall v : ty, value_type v -> forall k : nat, ~ (exists v' : ty, |-[ k] v' <$ v) \/ | v | <= k.
 Proof.
 (intros v Hv).
@@ -155,6 +177,7 @@ Proof.
 (destruct Hcontra as [v' Hm]).
 (destruct k).
 (destruct v'; contradiction).
-(pose proof (match_ty_value_type__inv_depth_le_index _ _ Hv _ Hm) as Hdep).
+(assert (Hdep : | TRef t | <= S k)).
+(apply match_ty_value_type_r__inv_depth_r_le_index).
 (* Auto-generated comment: Failed. *)
 
