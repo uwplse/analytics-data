@@ -1242,36 +1242,5 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
-Lemma denote_box_compat :
-  forall (safe : bool) (W1 W2 : WType) (c : Box W1 W2) \207\129 \207\129',
-  \207\129 == \207\129' -> denote_box safe c \207\129 == denote_box safe c \207\129'.
-Proof.
-(intros).
-(destruct c).
-(unfold denote_box; simpl).
-(rewrite add_fresh_split; simpl).
-(remember (add_fresh_pat W1 []) as p).
-(induction (c p)).
--
-matrix_denote.
-Timeout 1 About restore_dims.
-Timeout 1 Print restore_dims.
-Timeout 1 Print Ltac restore_dims.
-(match goal with
- | |- ?A => let A' := restore_dims_rec tac A in
-            replace
-            A
-            with
-            A'
- end).
-2: {
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-Admitted.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqghZIEg"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
