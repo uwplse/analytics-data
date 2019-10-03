@@ -370,7 +370,7 @@ Proof.
      (fun (t : ty) (Hnf : in_nf t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t))))).
 -
 (intros c).
-(split; intros t'; induction t'; try (solve [ right; solve_not_x_sub_r_y_full ]);
+(split; intros t'; induction t'; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 ]);
   try
    match goal with
    | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
