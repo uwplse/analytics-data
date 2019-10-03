@@ -85,6 +85,5 @@ reflexivity.
 (rewrite IHt2).
 reflexivity.
 -
-(rewrite subst_equation).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
