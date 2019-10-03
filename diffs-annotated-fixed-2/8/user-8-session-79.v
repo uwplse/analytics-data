@@ -1221,6 +1221,10 @@ rewrite_inPar.
 restore_dims tensor_dims.
 (rewrite assert0_spec).
 (rewrite id_circ_spec).
+restore_dims tensor_dims.
 Msimpl.
-(* Auto-generated comment: Failed. *)
+(unfold ctx_to_matrix).
+(rewrite xorb_comm).
+reflexivity.
+(* Auto-generated comment: Succeeded. *)
 
