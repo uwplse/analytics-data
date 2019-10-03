@@ -961,5 +961,16 @@ restore_dims
 (simpl).
 specialize (IHi n l1 l2 A B).
 show_dimensions.
+(repeat rewrite app_length in *).
+(simpl in *).
+replace (length l1 + S (length l2)) with S n in * by lia.
+(simpl in *).
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(rewrite IHi; trivial; try lia).
+reflexivity.
+(intros j).
+(apply (M1 (S j))).
 (* Auto-generated comment: Succeeded. *)
 
