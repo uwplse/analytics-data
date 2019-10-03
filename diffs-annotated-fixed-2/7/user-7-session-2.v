@@ -153,7 +153,6 @@ Search -TUnion.
 specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21).
 specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (split; tauto || constructor; tauto).
-(apply NF_Union).
-Search -unite_pairs.
+(apply NF_Union; apply unite_pairs__preserves_nf).
 (* Auto-generated comment: Failed. *)
 
