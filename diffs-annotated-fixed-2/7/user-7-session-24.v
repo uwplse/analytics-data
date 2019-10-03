@@ -46,7 +46,7 @@ Function odd (n : nat) := match n with
                           | 0 => false
                           | S n => true
                           end even (n : nat) := false.
-Reserved Notation "'|-[' k ']' v '<$' t" (at level 50).
+Reserved Notation "'|-[' k ']' v '<$' t" (at level 40).
 Fixpoint match_ty (k : nat) :=
   fix mty (v : ty) :=
     fix mty' (t : ty) :=
@@ -58,5 +58,9 @@ Fixpoint match_ty (k : nat) :=
       | _, _, _ => False
       end
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
+Definition sem_sub_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 -> |-[ k] v <$ t2.
+Notation "'||-[' k ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_k k t1 t2) (at level 45) : btjm_scope.
+Definition sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> |-[ k] v <$ t2.
+Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_k k t1 t2) (at level 47) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
