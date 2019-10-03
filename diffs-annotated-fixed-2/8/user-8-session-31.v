@@ -2850,6 +2850,5 @@ subst.
 (simpl).
 (rewrite Nat.sub_0_r).
 replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
-2: (simpl; rewrite size_ctx_app; simpl; omega).
 (* Auto-generated comment: Succeeded. *)
 
