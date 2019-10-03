@@ -388,25 +388,15 @@ tauto.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 Admitted.
-Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
+Lemma match_ty_i__match_le_inv_depth : forall (t : ty) (k : nat) (v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
 Proof.
-(induction k; induction t; intros v Hm k' Hle;
-  try
-   match goal with
-   | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
-   | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; auto
-   | |- |-[ ?k'] ?v <$ TUnion _ _ =>
-         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
-   end).
+(induction t; intros k v Hm k' Hle).
 -
-(inversion Hle; subst).
-assumption.
+(apply match_ty_i_cname__inv in Hm; subst).
+(destruct k'; reflexivity).
 -
-clear IHt.
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-Search -le.
-(destruct (Nat.le_decidable (| t |) k')).
-+
+(apply match_ty_i_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_i_pair; auto).
 (* Auto-generated comment: Failed. *)
 
