@@ -35,6 +35,9 @@ Proof.
 (unfold sem_sub_k in Hsem).
 Check value_type_matching_ty__exists.
 (destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
-(destruct (value_type_matching_ty__exists t1 k Hdep) as [pv1 [Hpval1 Hpv1]]).
-(* Auto-generated comment: Failed. *)
+Check value_type_matching_ty__exists.
+(destruct (value_type_matching_ty__exists t1 k Hdep1) as [pv1 [Hpval1 Hpv1]]).
+(destruct (value_type_matching_ty__exists t2 k Hdep2) as [pv2 [Hpval2 Hpv2]]).
+(split; intros v Hv Hm).
+(* Auto-generated comment: Succeeded. *)
 
