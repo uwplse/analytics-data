@@ -436,8 +436,13 @@ Lemma log_abstraction_commit :
   log_size_ok d' (bs ++ bs') ->
   log_contents_ok d' (bs ++ bs') ->
   forall len_b : block,
-  diskGet d' len_addr =?= b ->
+  diskGet d' len_addr =?= len_b ->
   block_to_addr len_b = length bs + length bs' ->
   log_abstraction d' (bs ++ bs').
+Proof.
+(intros).
+(unfold log_abstraction; intuition).
+(unfold log_length_ok in *; intros).
+eq_values.
 (* Auto-generated comment: Failed. *)
 
