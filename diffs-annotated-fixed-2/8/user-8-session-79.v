@@ -995,8 +995,8 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-(match goal with
- | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => idtac A; idtac li
- end).
+Timeout 1 About big_kron.
+Timeout 1 Print big_kron.
+Timeout 1 Print Ltac big_kron.
 (* Auto-generated comment: Failed. *)
 
