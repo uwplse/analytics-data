@@ -112,6 +112,6 @@ specialize (Hsem11 w1).
 specialize (Hsem21 w2).
 (destruct Hsem21 as [w3 Hsem21]).
 exists w3.
-auto.
+tauto.
 (* Auto-generated comment: Failed. *)
 
