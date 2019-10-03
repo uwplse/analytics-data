@@ -995,7 +995,9 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-Search -ctx_to_matrix.
 (unfold ctx_to_matrix).
+(match goal with
+ | |- context [ @kron ?a ?b ?c ?d ?A (@big_kron _ _ ?li) ] => idtac A; idtac li
+ end).
 (* Auto-generated comment: Succeeded. *)
 
