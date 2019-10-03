@@ -394,9 +394,9 @@ contradiction.
 +
 (right; solve_not_x_sub_r_y_full).
 (apply IHHcontra; try tauto).
-Search -mk_nf.
 (apply mk_nf_nf__equal).
 (do 2 constructor; assumption).
 +
+Check atom_pair_sub_r_pair__sub_r_components.
 (* Auto-generated comment: Failed. *)
 
