@@ -139,7 +139,5 @@ subst.
 exists v.
 split.
 assumption.
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [ti Hm]).
 (* Auto-generated comment: Failed. *)
 
