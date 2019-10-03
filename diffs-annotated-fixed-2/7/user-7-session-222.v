@@ -319,6 +319,5 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 (rewrite b_subst_pair).
-(apply b_free_in_ty_pair).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
