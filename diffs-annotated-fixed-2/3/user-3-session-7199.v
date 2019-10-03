@@ -401,6 +401,19 @@ step_proc.
 (rewrite H; eauto).
 }
 {
-(unfold log_abstraction, log_size in *; intuition).
-(* Auto-generated comment: Failed. *)
+(unfold log_abstraction, log_size_ok in *; intuition).
+(rewrite H1).
+congruence.
+}
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMAC3RX"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDaSUn9"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
