@@ -319,5 +319,12 @@ Timeout 1 Print LoadPath.
 Check file_truncate.
 Check file_set_sz.
 Anomaly "No printing rule found for "If _ _ else _"." Please report at http://coq.inria.fr/bugs/.
-(* Auto-generated comment: Failed. *)
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYYZafd" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6ls6Tj" SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
