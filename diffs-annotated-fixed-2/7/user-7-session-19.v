@@ -652,6 +652,6 @@ Proof.
 (apply mk_nf__sub_d2; assumption).
 (apply nf_sem_sub__sub_d).
 (apply mk_nf__in_nf).
-(apply sem_sub_k_i__trans with t1).
+(apply sem_sub_k__trans with t1).
 (* Auto-generated comment: Failed. *)
 
