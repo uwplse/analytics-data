@@ -381,8 +381,12 @@ Proof.
       (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t))))).
 -
 (intros c).
-(split; intros t'; induction t'; intros Hnf'; try destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2];
-  try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 ]);
+(split; intros t'; induction t'; intros Hnf';
+  try
+   match goal with
+   | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 ]);
   try
    match goal with
    | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
@@ -395,6 +399,9 @@ right.
  | |- ~ |- ?t1 << ?t2 =>
        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
         subst
+ end).
+(match goal with
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
  end).
 (* Auto-generated comment: Failed. *)
 
