@@ -598,6 +598,6 @@ Proof.
 (simpl).
 Set Printing All.
 (remember (length l2) as L).
-Msimpl.
-(* Auto-generated comment: Succeeded. *)
+Msimpl_light.
+(* Auto-generated comment: Failed. *)
 
