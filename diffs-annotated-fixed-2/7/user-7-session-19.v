@@ -134,6 +134,7 @@ auto using match_ty_i_pair.
 +
 clear IHt3.
 (destruct k).
-(destruct v1; try contradiction).
+(destruct v1; contradiction || constructor).
+(apply match_ty_ref__inv in Hm2).
 (* Auto-generated comment: Failed. *)
 
