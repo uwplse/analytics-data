@@ -995,5 +995,8 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-(* Auto-generated comment: Succeeded. *)
+(match goal with
+ | |- denote_box _ _ ?A == _ => replace A with e
+ end).
+(* Auto-generated comment: Failed. *)
 
