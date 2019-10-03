@@ -34,9 +34,10 @@ Lemma sem_sub_k_exist_fresh_r : forall (k : nat) (X : id) (t : ty), fresh_in_ty 
 Proof.
 (intros k X t Hfresh).
 (intros w1).
-exists w1.
+exists (S w1).
 (intros v Hm).
-(destruct w1).
--
+(apply match_ty_exist).
+exists (TEV X).
+(rewrite subs_fresh_in_ty in Hm; try assumption).
 (* Auto-generated comment: Failed. *)
 
