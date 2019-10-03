@@ -127,6 +127,7 @@ Proof.
 (unfold subst).
 (unfold subst_func).
 (rewrite fix_sub_eq).
+(simpl).
 reflexivity.
 (* Auto-generated comment: Failed. *)
 
