@@ -995,5 +995,7 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
+Search -ctx_to_matrix.
+(unfold ctx_to_matrix).
 (* Auto-generated comment: Succeeded. *)
 
