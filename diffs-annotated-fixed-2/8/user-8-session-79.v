@@ -597,7 +597,5 @@ Proof.
 (intros).
 (simpl).
 restore_dims.
-Set Printing All.
-(rewrite kron_1_l).
 (* Auto-generated comment: Succeeded. *)
 
