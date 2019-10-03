@@ -70,7 +70,6 @@ clear IHv.
 (intros t w k Hm).
 (simpl in Hm).
 exists v.
-auto.
-Qed.
+(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
