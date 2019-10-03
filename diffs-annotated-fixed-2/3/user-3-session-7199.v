@@ -359,6 +359,43 @@ reflexivity.
 {
 (rewrite app_length in *; simpl in *; lia).
 }
+(rewrite app_nth1 by lia).
 auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOPXDAN"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve log_contents_ok_append: core.
+Theorem append_at_ok a bs' :
+  proc_spec
+    (fun (bs : list block) state =>
+     {|
+     pre := a = length bs /\
+            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
+     post := fun r state' =>
+             diskGet state' len_addr = diskGet state len_addr /\
+             diskSize state' = diskSize state /\
+             log_size_ok state' (bs ++ bs') /\
+             log_contents_ok state' (bs ++ bs');
+     recovered := fun _ state' =>
+                  diskGet state' len_addr = diskGet state len_addr /\
+                  diskSize state' = diskSize state /\
+                  log_contents_ok state' bs |}) (append_at a bs') recover
+    d.abstr.
+Proof.
+generalize dependent a.
+(induction bs'; simpl; intros).
+-
+step_proc.
+intuition eauto.
+(rewrite app_nil_r; auto).
+-
+step_proc.
+(intuition eauto; autorewrite with upd; auto).
+{
+(apply log_contents_ok_unchanged; eauto).
 (* Auto-generated comment: Succeeded. *)
 
