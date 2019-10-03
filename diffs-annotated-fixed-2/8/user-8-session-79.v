@@ -813,12 +813,10 @@ Ltac
      context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
                  (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
          let IP := fresh "IP" in
-         specialize (inPar_correct W1 W1' W2 W2' f g \207\1291 \207\1292) as IP; simpl in *;
+         specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
           match goal with
           | H:?A ->
               ?B ->
-              ?C ->
-              ?D ->
               (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
                 (@kron ?m' ?n' ?o' ?p' ?\207\1291 ?\207\1292) == ?RHS
             |- _ =>
@@ -827,7 +825,7 @@ Ltac
                  try dim_solve; try rewrite H
           end; clear IP
    end; try (solve [ type_check ]).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqVAzNmS"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqToBOIb"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Ltac
@@ -983,11 +981,39 @@ Proof.
 (induction b; intros \206\147 f t H).
 -
 (simpl in *).
-Timeout 1 About inPar_correct.
-Timeout 1 Print inPar_correct.
-Timeout 1 About inPar_correct.
-Timeout 1 Print inPar_correct.
-Timeout 1 About inPar_correct.
-Timeout 1 Print inPar_correct.
-(* Auto-generated comment: Succeeded. *)
+rewrite_inPar''.
+(simpl_rewrite TRUE_spec).
+restore_dims tensor_tac.
+(rewrite id_circ_spec).
+restore_dims tensor_tac.
+(destruct t; reflexivity).
+-
+(simpl in *).
+rewrite_inPar''.
+(simpl_rewrite FALSE_spec).
+restore_dims tensor_tac.
+(rewrite id_circ_spec).
+restore_dims tensor_tac.
+(destruct t; reflexivity).
+-
+(simpl).
+listify_kron.
+(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
+  try omega).
+(simpl).
+(rewrite xorb_comm).
+reflexivity.
+(apply (singleton_nth_classical \206\147 v) in H as [W H]).
+(apply position_of_lt in H).
+(simpl in *; omega).
+(apply ctx_lookup_exists; easy).
+-
+(simpl in *).
+restore_dims tensor_tac.
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; compile_typing compile_WT)).
+(unfold compose_super).
+restore_dims tensor_tac.
+(* Auto-generated comment: Failed. *)
 
