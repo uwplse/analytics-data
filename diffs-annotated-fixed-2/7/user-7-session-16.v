@@ -110,6 +110,6 @@ Proof.
 (intros c1 c2 Hsub).
 (remember (TCName c1) as t1 eqn:Heq1 ).
 (remember (TCName c2) as t2 eqn:Heq2 ).
-(induction Hsub; try (solve [ inversion Heq1; inversion Heq2 ])).
+(induction Hsub; try inversion Heq1; inversion Heq2; subst).
 (* Auto-generated comment: Failed. *)
 
