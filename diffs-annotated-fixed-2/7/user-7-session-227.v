@@ -95,6 +95,11 @@ Proof.
 (simpl).
 Search -IdSet.singleton.
 (intros X Y Hin).
-(destruct (beq_idP X Y) as HXY).
+(destruct (beq_idP X Y) as [HXY| HXY]).
+-
+subst.
+exfalso.
+(apply Hin).
+(apply IdSetFacts.singleton_q).
 (* Auto-generated comment: Failed. *)
 
