@@ -190,6 +190,13 @@ auto using match_ty_pair.
 (apply match_ty_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
-clear IHv3.
-(* Auto-generated comment: Failed. *)
+clear IHt3.
+(apply match_ty_ref__inv in Hm2).
+(destruct Hm2 as [t'' [Heq' [[Hdepv3 Hdept''] Href']]]).
+(inversion Heq'; subst).
+(simpl).
+(rewrite Hdept').
+(split; tauto || eapply sem_eq_k__trans; eassumption).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
