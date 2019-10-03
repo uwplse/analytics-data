@@ -49,6 +49,8 @@ Proof.
 specialize (Hcontra 2).
 (assert (Hm : |-[ w, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hcontra _ Hm).
-(apply match_ty_exist__inv in Hcontra).
+(destruct w).
+-
+(apply match_ty_exist__0_inv in Hcontra).
 (* Auto-generated comment: Failed. *)
 
