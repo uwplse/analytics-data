@@ -607,5 +607,6 @@ Lemma new_morphism :
 Proof.
 (intros).
 (unfold Morphisms.Proper).
+(unfold Morphisms.respectful).
 (* Auto-generated comment: Succeeded. *)
 
