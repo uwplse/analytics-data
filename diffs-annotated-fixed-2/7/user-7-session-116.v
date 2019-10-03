@@ -30,6 +30,8 @@ Proof.
 (simpl in Hfresh).
 (apply fresh_union__inv in Hfresh).
 (destruct Hfresh as [Hfresh1 Hfresh2]).
-ereflexivity.
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
