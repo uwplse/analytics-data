@@ -625,6 +625,6 @@ Proof.
 restore_dims.
 specialize (kron_1_r A) as KR.
 specialize (kron_1_r_inv A) as KR'.
-show_dimensions.
+(rewrite KR).
 (* Auto-generated comment: Succeeded. *)
 
