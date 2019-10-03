@@ -350,6 +350,5 @@ lia.
 }
 (destruct (a == length bs)).
 -
-autorewrite with upd.
 (* Auto-generated comment: Succeeded. *)
 
