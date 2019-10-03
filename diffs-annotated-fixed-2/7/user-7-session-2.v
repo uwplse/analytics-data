@@ -124,7 +124,9 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma eq_r_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t1 -> |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
+Lemma eq_r_trans :
+  forall t1 t2 : ty, |- t1 << t2 -> |- t2 << t1 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
 Proof.
+(intros t1 t2 Hsub1).
 (* Auto-generated comment: Failed. *)
 
