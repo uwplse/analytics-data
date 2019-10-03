@@ -82,7 +82,7 @@ Proof.
 (intros v X t w Hm).
 (destruct v; assumption).
 Qed.
-Lemma match_ty_fbar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
+Lemma match_ty_bvar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
 Proof.
 (intros v X w Hm).
 (destruct w, v; simpl in Hm; assumption).
