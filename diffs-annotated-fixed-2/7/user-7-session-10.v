@@ -225,6 +225,6 @@ tauto.
 (apply mk_nf_nf__equal; assumption).
 (apply mk_nf__in_nf).
 -
-(split; intros tx Hsub').
+(split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub).
 (* Auto-generated comment: Failed. *)
 
