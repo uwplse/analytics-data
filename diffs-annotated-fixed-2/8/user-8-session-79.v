@@ -1002,6 +1002,7 @@ restore_dims tensor_tac.
  end).
 2: {
 (simpl).
-reflexivity.
+(rewrite ctx_to_mat_list_length; try rewrite size_ntensor, Nat.mul_1_r;
+  easy reflexivity).
 (* Auto-generated comment: Failed. *)
 
