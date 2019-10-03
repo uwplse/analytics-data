@@ -89,6 +89,6 @@ Search -IdSet.In.
 subst.
 (apply match_ty_exist).
 exists tx.
-(apply IHw with X).
+(apply IHw with i).
 (* Auto-generated comment: Failed. *)
 
