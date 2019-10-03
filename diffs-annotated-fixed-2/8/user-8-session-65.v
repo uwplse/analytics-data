@@ -972,6 +972,8 @@ restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (destruct b; simpl; Msimpl).
 (repeat rewrite Mmult_assoc).
 Msimpl.
-setoid_rewrite kron_mixed_product.
+(match goal with
+ | |- ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) => idtac A; idtac B; idtac C; idtac D
+ end).
 (* Auto-generated comment: Failed. *)
 
