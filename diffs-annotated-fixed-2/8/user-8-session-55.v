@@ -954,6 +954,5 @@ Proof.
 (intros q0 q1 q2 q3 WF0 WF1 WF2 WF3).
 (unfold move_to_0, move_to_0_aux).
 (repeat rewrite Mmult_assoc).
-(rewrite (kron_assoc q0 q1)).
 (* Auto-generated comment: Succeeded. *)
 
