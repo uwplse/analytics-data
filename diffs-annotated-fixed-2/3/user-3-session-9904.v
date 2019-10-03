@@ -147,6 +147,5 @@ Proof.
 (step_proc; intros).
 {
 eauto.
-}
 (* Auto-generated comment: Succeeded. *)
 
