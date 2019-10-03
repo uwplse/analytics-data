@@ -980,5 +980,6 @@ gen \207\129.
 (rewrite size_ntensor; unify_pows_two; simpl; try lia).
 (rewrite size_ntensor; unify_pows_two; simpl; try lia).
 (unify_matrix_dims unify_pows_two; simpl; try lia).
+(unify_matrix_dims unify_pows_two; simpl; try lia).
 (* Auto-generated comment: Succeeded. *)
 
