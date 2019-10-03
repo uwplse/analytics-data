@@ -206,6 +206,6 @@ exists 0,(TCName c).
 +
 (left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 exfalso.
-(apply IHt1).
+(eapply IHt1).
 (* Auto-generated comment: Failed. *)
 
