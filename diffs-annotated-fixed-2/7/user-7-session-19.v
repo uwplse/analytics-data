@@ -353,12 +353,28 @@ Proof.
   intros v' Hm'; specialize (Hsem v'); tauto).
 Qed.
 Open Scope btj_scope.
-Lemma match_ty_i__inv_depth_stable :
-  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Lemma match_ty__inv_depth_0_stable : forall t : ty, inv_depth t = 0 -> forall k v, |-[ k] v <$ t <-> |-[ 0] v <$ t.
 Proof.
-(induction k; induction k').
+(induction t; intros Heqdep k v).
 -
-tauto.
+(split; intros Hm; apply match_ty_i_cname__inv in Hm; subst).
+reflexivity.
+(destruct k; reflexivity).
 -
+(simpl in Heqdep).
+(assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
+{
+(rewrite Heqdep).
+constructor.
+}
+(destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(split; intros Hm; apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hvq Hv2]]]]; subst).
++
+(rewrite H0).
+(apply match_ty_pair; [ apply IHt1 | apply IHt2 ]; assumption).
 (* Auto-generated comment: Failed. *)
 
