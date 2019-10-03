@@ -1022,6 +1022,6 @@ restore_dims tensor_tac.
 (erewrite denote_box_compat).
 2: (erewrite denote_box_compat).
 3: (erewrite denote_box_compat).
-3: (erewrite kron_compat).
-(* Auto-generated comment: Failed. *)
+4: (erewrite kron_compat).
+(* Auto-generated comment: Succeeded. *)
 
