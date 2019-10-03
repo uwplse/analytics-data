@@ -58,7 +58,9 @@ dependent destruction u.
 +
 (simpl).
 (destruct li as [| k li]; trivial).
+specialize (IHW2 lb li u).
 (destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
 (destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
+(inversion IHW2).
 (* Auto-generated comment: Succeeded. *)
 
