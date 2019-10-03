@@ -160,6 +160,15 @@ exists (TRef t).
 (apply match_ty_i__reflexive).
 constructor.
 Qed.
+Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
+Proof.
+auto with DBBetaJulia.
+Qed.
+Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Proof.
+(intros k t t' H).
+(split; intros v Hm; specialize (H v); tauto).
+Qed.
 Lemma sem_sub_k_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
 (intros k t1 t2 t' Hsem).
@@ -385,15 +394,6 @@ Proof.
 specialize (H v).
 tauto.
 Qed.
-Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
-Proof.
-auto with DBBetaJulia.
-Qed.
-Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
-Proof.
-(intros k t t' H).
-(split; intros v Hm; specialize (H v); tauto).
-Qed.
 Lemma sem_sub_k_i__inv_depth_le_1 : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
 (intros k t t' Hdept Hsem).
@@ -402,35 +402,5 @@ Proof.
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf; assumption).
 (apply sem_sub_k__i__trans with t; try assumption).
-(pose proof (match_ty_i_nf t k) as H).
-(intros v Hm; specialize (H v); tauto).
-Qed.
-Lemma sem_sub_k_i__inv_depth_le_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Proof.
-(intros k t t' Hdept' Hsem).
-(rewrite <- inv_depth_mk_nf).
-(apply sem_sub_k_i_nf__inv_depth_le_2 with k).
-(apply mk_nf__in_nf).
-assumption.
-(apply sem_sub_k__i__trans with t; try assumption).
-(pose proof (match_ty_i_nf t k) as H).
-(intros v Hm; specialize (H v); tauto).
-Qed.
-Lemma sem_eq_k_i__inv_depth_eq_1 : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
-Proof.
-(intros k t t' Hdept H).
-(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
-(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept H1)).
-(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept H2)).
-(apply Nat.le_antisymm; assumption).
-Qed.
-Lemma sem_eq_k_i__inv_depth_eq_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
-Proof.
-(intros k t t' Hdept' H).
-(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
-(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept' H1)).
-(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept' H2)).
-(apply Nat.le_antisymm; assumption).
-Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
