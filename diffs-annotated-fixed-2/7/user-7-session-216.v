@@ -360,6 +360,7 @@ Proof.
 (intros s1 s2 H).
 Check IdSetProps.empty_union_1.
 Check IdSetProps.empty_union_1.
-(pose proof (IdSetProps.empty_union_1 _ s1 H) as H1).
+(pose proof (IdSetProps.empty_union_1 s1 H) as H1).
+(pose proof (IdSetProps.empty_union_1 s2 H) as H1).
 (* Auto-generated comment: Failed. *)
 
