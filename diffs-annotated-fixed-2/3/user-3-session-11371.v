@@ -202,18 +202,5 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Theorem mult_comm' :
-  forall m n : nat, m * n = n * m.
-Proof.
-(intros).
-(induction n as [| n' IHn']).
--
-(simpl).
-(rewrite mult_0_r).
-reflexivity.
--
-(simpl).
-(assert (H1 : m * S n' = m + m * n')).
-{
 (* Auto-generated comment: Succeeded. *)
 
