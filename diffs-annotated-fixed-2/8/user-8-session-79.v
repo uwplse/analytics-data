@@ -965,6 +965,5 @@ show_dimensions.
 (simpl in *).
 replace (length l1 + S (length l2)) with S n in * by lia.
 (simpl in *).
-(rewrite size_ntensor).
 (* Auto-generated comment: Succeeded. *)
 
