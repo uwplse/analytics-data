@@ -318,6 +318,7 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Check file_truncate.
 Check file_set_sz.
-Search -(addr -> word).
+Search -addr -word.
+Check waddr.
 (* Auto-generated comment: Succeeded. *)
 
