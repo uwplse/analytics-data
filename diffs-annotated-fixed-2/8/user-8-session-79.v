@@ -1042,6 +1042,19 @@ mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with bool_to_matr
 6: {
 restore_dims tensor_tac.
 specialize (IHb \206\147 f true).
+(simpl).
 (rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(apply IHb).
+easy.
+}
+all: (try reflexivity).
+(rewrite xorb_true_l).
+listify_kron.
+(simpl_rewrite (CNOT_at_spec (\194\172 \226\140\136 b | f \226\140\137) t (S (S (\226\159\166 \206\147 \226\159\167))) 1 0); trivial;
+  try omega).
+(simpl).
+rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
