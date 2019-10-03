@@ -139,6 +139,5 @@ Proof.
 (induction Hsub12; inversion Heqx; inversion Heqy; subst).
 +
 (intros t3 Hsub21).
-(remember (TPair t1' t2') as tx eqn:Heqx ).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
