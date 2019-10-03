@@ -61,7 +61,7 @@ Theorem inSeq_correct :
   forall W1 W2 W3 (g : Box W2 W3) (f : Box W1 W2) (safe : bool) \207\129,
   Typed_Box g -> Typed_Box f -> denote_box safe (inSeq f g) \207\129 == compose_super (denote_box safe g) (denote_box safe f) \207\129.
 Proof.
-(intros W1 W2 W3 g f safe types_g types_f \207\129).
+(intros W1 W2 W3 g f safe \207\129 types_g types_f).
 (autounfold with den_db; simpl).
 (destruct f as [f]).
 (destruct g as [g]).
@@ -86,9 +86,5 @@ replace (size_wtype W2) with \226\159\166 \206\1472 \226\159\167.
 specialize denote_compose as DC.
 (unfold denote_circuit in DC).
 (erewrite DC with (\206\1471 := [])).
-(simpl).
-(unfold compose_super).
-(rewrite H2, H3).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
