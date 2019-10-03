@@ -145,14 +145,6 @@ Qed.
 Lemma value_sem_sub_k_union__value_sem_sub_k_component :
   forall k : nat, forall v : ty, value_type v -> forall ta tb : ty, ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
-(induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem;
-  try
-   match goal with
-   | Hsem:forall v', value_type v' -> |-[ ?k] v' <$ ?v -> _
-     |- _ =>
-         assert (Hvv : value_type v) by (constructor; assumption); assert (Hmv : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption);
-          specialize (Hsem _ Hvv Hmv); apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]; unfold sem_sub_k_i; 
-          intros v' Hv' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption
-   end).
+(induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem).
 (* Auto-generated comment: Failed. *)
 
