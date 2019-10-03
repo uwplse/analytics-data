@@ -134,6 +134,7 @@ Omega.omega.
 Check lt_wf.
 Print lt_wf.
 (unfold well_founded).
-(intros t; induction t; constructor; induction t'; intros H).
+(intros t; induction t; constructor; intros t'; induction t'; intros H).
+constructor.
 (* Auto-generated comment: Failed. *)
 
