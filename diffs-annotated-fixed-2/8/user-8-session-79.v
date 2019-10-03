@@ -1007,6 +1007,5 @@ reflexivity.
 (apply ctx_lookup_exists; easy).
 -
 Opaque NTensor.
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
