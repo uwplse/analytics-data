@@ -397,6 +397,9 @@ contradiction.
 (apply mk_nf_nf__equal).
 (do 2 constructor; assumption).
 +
-Check atom_pair_sub_r_pair__sub_r_components.
+Search -TPair.
+(destruct (IH1 t2_1) as [IH1| IH1]; destruct (IH2 t2_2) as [IH2| IH2]; (solve
+  [ left; constructor; assumption
+  | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
