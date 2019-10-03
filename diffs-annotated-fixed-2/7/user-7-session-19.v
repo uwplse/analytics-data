@@ -455,9 +455,9 @@ tauto.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 Qed.
-Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname), | TCName c | <= k -> forall t2 : ty, ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
+Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname), forall t2 : ty, ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
 Proof.
-(intros k c Hdep t2).
+(intros k c t2).
 (assert (Hva : value_type (TCName c)) by constructor).
 (assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
@@ -491,13 +491,11 @@ Proof.
         apply
          (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
             (fun (t1 : ty) (_ : in_nf t1) => | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))
-  end; try match goal with
-           | |- context [ |- TCName _ << _ ] => apply cname_sem_sub_k_i__sub_d
-           end).
--
-(intros ta1 ta2 Hat1 IH1 Hat2 IH2 Hdep).
-(assert (Hat : atom_type (TPair ta1 ta2)) by (constructor; assumption)).
-(destruct (max_inv_depth_le__components_le _ _ _ Hdep) as [Hdep1 Hdep2]).
-(apply pair_sem_sub_k_i__sub_d; tauto).
+  end;
+  try
+   match goal with
+   | |- context [ |- TCName _ << _ ] => intros c Hdep; apply cname_sem_sub_k_i__sub_d; assumption
+   | |- context [ |- TPair _ _ << _ ] => idtac
+   end).
 (* Auto-generated comment: Failed. *)
 
