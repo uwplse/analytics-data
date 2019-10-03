@@ -476,5 +476,6 @@ Proof.
   end; try match goal with
            | |- context [ |- TCName _ << _ ] => apply cname_sem_sub_k_i__sub_d
            end).
+-
 (* Auto-generated comment: Failed. *)
 
