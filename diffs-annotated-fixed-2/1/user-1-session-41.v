@@ -744,6 +744,6 @@ all:
 all: (try congruence).
 -
 (intros).
-(apply alpha_rec_inversion in H0; eauto).
+(apply alpha_fun_inversion in H0; eauto).
 (* Auto-generated comment: Failed. *)
 
