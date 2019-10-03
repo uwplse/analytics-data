@@ -47,6 +47,9 @@ Proof.
 Qed.
 Lemma mk_nf__sem_sub_k_l : forall (k : nat) (t : ty), ||-[ k][MkNF( t)]<= [t].
 Proof.
+(intros k t).
 (apply sem_eq_k__sem_sub_k).
-(* Auto-generated comment: Failed. *)
+(apply mk_nf__sem_eq_k).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
