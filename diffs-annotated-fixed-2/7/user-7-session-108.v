@@ -253,6 +253,11 @@ exists 0,(TCName c).
 (destruct (IHt2 k) as [w2 [v2 Hm2]]).
 exists (Nat.max w1 w2),(TPair v1 v2).
 (apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
-(apply Nat.max_ge_l).
+SearchPattern (_ <= Nat.max _ _).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
+(destruct (IHt1 k) as [w [v Hm]]).
+exists w v.
 (* Auto-generated comment: Failed. *)
 
