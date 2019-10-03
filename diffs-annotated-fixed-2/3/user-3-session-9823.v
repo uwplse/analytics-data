@@ -180,13 +180,6 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 (step_proc; intros).
-(destruct a'; simpl in *; intuition idtac).
-{
-(subst; eauto).
-}
-(destruct (a == r)).
--
-invert_abstraction.
-(step_proc; intuition).
+(destruct a'; simpl in *; intuition).
 (* Auto-generated comment: Succeeded. *)
 
