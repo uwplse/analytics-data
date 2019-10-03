@@ -448,6 +448,8 @@ Lemma log_abstraction_commit :
 Proof.
 (intros).
 (unfold log_abstraction; intuition).
+-
 (unfold log_length_ok in *; intros).
+(assert (len_addr < diskSize d') by eauto).
 (* Auto-generated comment: Succeeded. *)
 
