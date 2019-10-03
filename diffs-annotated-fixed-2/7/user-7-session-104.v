@@ -53,8 +53,16 @@ Proof.
 specialize (Hcontra 2 1).
 (destruct Hcontra as [w Hcontra]).
 (assert (Hm : |-[ 2, 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+(unfold sem_sub_k_w in Hcontra).
+specialize (Hcontra _ Hm).
 (destruct w).
 -
-(simpl in Hcontra).
+(apply Hcontra).
+-
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [t Hcontra]).
+(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
+(rewrite Heq in Hcontra).
+clear Heq.
 (* Auto-generated comment: Failed. *)
 
