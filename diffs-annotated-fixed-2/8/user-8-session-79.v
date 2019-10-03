@@ -1003,10 +1003,6 @@ restore_dims tensor_tac.
      simpl; Msimpl; rewrite ctx_to_mat_list_length;
       try rewrite size_ntensor, Nat.mul_1_r; easy
    end).
-(repeat
-  match goal with
-  | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
-    @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li)
-  end).
-(* Auto-generated comment: Succeeded. *)
+restore_dims tensor_tac.
+(* Auto-generated comment: Failed. *)
 
