@@ -349,7 +349,7 @@ Proof.
 assumption.
 (apply mk_nf__sub_r_l).
 Qed.
-Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
+Lemma sub_r__mk_nf_sub_r_l : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
 Proof.
 (intros t t' Hsub).
 (apply sub_r__transitive with t; try assumption).
