@@ -291,6 +291,27 @@ tauto.
 -
 (intros Hnf2 t3 Hsub21).
 (inversion Hnf2; subst).
-(inversion H; remember (TPair t1' t2') as tx eqn:Heqx ).
+(inversion H; subst).
+(apply NF_Atom in H2).
+(apply NF_Atom in H3).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
+(induction Hsub21; inversion Heqx; subst; try clear Heqx).
++
+(intros Hsub22).
+(apply sub_r_pair__inv in Hsub22).
+(destruct Hsub22).
+(constructor; auto).
++
+(intros Hsub22).
+(apply sub_r_union_l__inv in Hsub22).
+(destruct Hsub22).
+(apply SR_UnionR1; tauto).
++
+(intros Hsub22).
+(apply sub_r_union_l__inv in Hsub22).
+(destruct Hsub22).
+(apply SR_UnionR2; tauto).
++
+(rewrite mk_nf_nf__equal in IHHsub21).
 (* Auto-generated comment: Failed. *)
 
