@@ -134,6 +134,8 @@ Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair
 Proof.
 (intros X s t1 t2).
 Search -subst.
-(apply subst_equation).
+Search -subst_equation.
+Check subst_equation.
+(apply (subst_equation X s (TPair t1 t2))).
 (* Auto-generated comment: Failed. *)
 
