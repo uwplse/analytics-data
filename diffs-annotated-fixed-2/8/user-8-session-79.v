@@ -1056,6 +1056,6 @@ listify_kron.
   try omega).
 (simpl).
 rewrite_inPar'.
-all: (rewrite size_ntensor; unify_pows_two; try lia).
-(* Auto-generated comment: Succeeded. *)
+all: tensor_tac.
+(* Auto-generated comment: Failed. *)
 
