@@ -91,7 +91,7 @@ specialize (Hsem _ Hmp).
 (apply match_ty_pair_pair__inv in Hsem).
 tauto.
 Qed.
-Lemma sem_sub_k_exist_fresh_l : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]<= [t].
+Lemma sem_sub_exist_fresh_l : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]<= [t].
 Proof.
 (intros X t Hfresh).
 (intros w1).
@@ -109,5 +109,16 @@ exists w1.
 eassumption.
 (repeat constructor).
 Qed.
+Lemma sem_sub_exist_fresh_r : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [t]<= [TExist X t].
+Proof.
+(intros X t Hfresh).
+(intros w1).
+exists (S w1).
+(intros v Hm).
+(apply match_ty_exist).
+exists (TEV X).
+(rewrite subs_fresh_in_ty; assumption).
+Qed.
+Lemma sem_sub_exist_fresh_l : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]<= [t].
 (* Auto-generated comment: Failed. *)
 
