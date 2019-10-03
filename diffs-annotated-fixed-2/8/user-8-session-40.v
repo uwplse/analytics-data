@@ -93,6 +93,21 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq8NsR6J"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Search -swap.
+Lemma SWAP_spec : forall \207\129 safe, denote_box safe SWAP \207\129 == swap \195\151 \207\129 \195\151 swap.
+Proof.
+(intros).
+matrix_denote.
+Msimpl.
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqp0IENJ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma SWAP_spec_sep :
+  forall (\207\1291 \207\1292 : Density 2) safe,
+  WF_Matrix \207\1291 -> WF_Matrix \207\1292 -> denote_box safe SWAP (\207\1291 \226\138\151 \207\1292) = \207\1292 \226\138\151 \207\1291.
+Proof.
+(intros).
+(rewrite SWAP_spec).
 (* Auto-generated comment: Succeeded. *)
 
