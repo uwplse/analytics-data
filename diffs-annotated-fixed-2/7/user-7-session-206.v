@@ -63,6 +63,6 @@ Search -Morphisms.Proper.
 Search -Morphisms.Proper.
 Check Hfact.
 Print Morphisms.Proper.
-(apply Hfact).
+specialize (Hfact Ht).
 (* Auto-generated comment: Failed. *)
 
