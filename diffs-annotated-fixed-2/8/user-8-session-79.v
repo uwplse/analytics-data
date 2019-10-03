@@ -1225,6 +1225,8 @@ restore_dims tensor_dims.
 Msimpl.
 (unfold ctx_to_matrix).
 (rewrite xorb_comm).
+(rewrite (xorb_comm _ t)).
+(rewrite xorb_assoc).
 reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
