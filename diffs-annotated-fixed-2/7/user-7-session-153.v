@@ -21,6 +21,5 @@ exists (TCName c).
 (apply match_ty_cname).
 -
 (simpl in *).
-(apply match_ty_pair__inv in Hm).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
