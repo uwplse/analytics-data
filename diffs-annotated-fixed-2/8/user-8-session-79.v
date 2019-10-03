@@ -1132,6 +1132,7 @@ rewrite_inPar'.
 (rewrite strip_one_l_in_eq).
 (erewrite kron_compat).
 3: (erewrite kron_compat).
-5: (restore_dims tensor_tac; apply (kron_1_l_inv (ctx_to_matrix \206\147 f))).
+5: (erewrite denote_box_compat).
+6: (restore_dims tensor_tac; apply (kron_1_l_inv (ctx_to_matrix \206\147 f))).
 (* Auto-generated comment: Failed. *)
 
