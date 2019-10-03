@@ -401,7 +401,7 @@ right.
         subst
  end).
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || apply mk_nf_nf__equal
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || (apply mk_nf_nf__equal; assumption)
  end).
 (* Auto-generated comment: Failed. *)
 
