@@ -598,5 +598,6 @@ Proof.
 (simpl).
 Set Printing All.
 (remember (length l2) as L).
-(* Auto-generated comment: Failed. *)
+setoid_rewrite kron_1_l.
+(* Auto-generated comment: Succeeded. *)
 
