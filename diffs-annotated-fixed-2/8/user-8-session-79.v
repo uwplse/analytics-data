@@ -599,6 +599,6 @@ Proof.
 (remember (\226\168\130 l2) as A).
 clear.
 specialize @kron_1_l as KL.
-(eapply kron_1_l).
+(apply kron_1_l).
 (* Auto-generated comment: Failed. *)
 
