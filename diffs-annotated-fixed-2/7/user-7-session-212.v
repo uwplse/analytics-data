@@ -94,6 +94,7 @@ assumption.
 Qed.
 Lemma f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TPair t1 t2) -> f_free_in_ty X t1 \/ f_free_in_ty X t2.
 Proof.
+(intros X t1 t2).
 (unfold f_free_in_ty).
 (simpl).
 (apply free_union__inv).
