@@ -378,6 +378,10 @@ clear IHk' IHt.
 (assert (Hdepeq : | t' | = | t |)).
 {
 Check sem_eq_k_i__inv_depth_eq_2.
-(apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Hrefv)).
+(apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Href)).
+}
+(pose proof Htk as Ht'k).
+(pose proof Htk' as Ht'k').
+(rewrite Hdepeq in Ht'k, Ht'k').
 (* Auto-generated comment: Failed. *)
 
