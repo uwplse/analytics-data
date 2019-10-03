@@ -69,7 +69,8 @@ Class GoModel : Type :={byte : Type;
                         nullptr : forall ty, Ptr ty}.
 Opaque Nat.modulo Nat.div.
 #[local]Obligation Tactic := (intros; simpl; subst).
-Theorem mod_lt : forall n m, n `mod` S m < S m.
+Theorem mod_S_lt : forall n m, n `mod` S m < S m.
 Proof.
-(* Auto-generated comment: Succeeded. *)
+(apply PeanoNat.Nat.mod_upper_bound).
+(* Auto-generated comment: Failed. *)
 
