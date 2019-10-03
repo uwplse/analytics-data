@@ -72,7 +72,9 @@ Definition byte_nat := {x : nat | x < 256}.
 Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   match x with
   | 0 => nil
-  | _ => exist _ (x mod S base) _ :: nat_to_le base x / S base
+  | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
   end.
-(* Auto-generated comment: Failed. *)
+Next Obligation.
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
