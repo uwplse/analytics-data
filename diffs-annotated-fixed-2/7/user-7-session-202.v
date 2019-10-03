@@ -134,6 +134,6 @@ Proof.
       rewrite IHt2; try assumption; reflexivity ])).
 -
 (destruct (beq_idP X i); try (subst; rewrite b_subst_exist_eq; reflexivity)).
-(rewrite b_subst_exist_neq).
+(rewrite b_subst_exist_neq; try assumption).
 (* Auto-generated comment: Failed. *)
 
