@@ -201,6 +201,5 @@ Proof.
 (destruct a'; simpl in *; intuition idtac).
 {
 (destruct (a == r)).
--
 (* Auto-generated comment: Succeeded. *)
 
