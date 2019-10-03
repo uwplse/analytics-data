@@ -325,6 +325,9 @@ exists tx.
 assumption.
 }
 (apply Hnotm).
-exists v.
+exists v0.
+assumption.
+}
+specialize (IHw _ _ Hnotm').
 (* Auto-generated comment: Failed. *)
 
