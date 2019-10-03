@@ -1034,6 +1034,6 @@ Timeout 1 Print Ltac restore_dims.
          in IP
  end).
 2: {
-(apply f_equal_gen; trivial).
-(* Auto-generated comment: Failed. *)
+reflexivity.
+(* Auto-generated comment: Succeeded. *)
 
