@@ -374,6 +374,10 @@ clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
-auto.
+(intros v; specialize (IHk v t); specialize (Href v)).
+tauto.
+Qed.
+Lemma match_ty_i_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Proof.
 (* Auto-generated comment: Failed. *)
 
