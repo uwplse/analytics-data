@@ -26,8 +26,8 @@ Proof.
 exists v.
 split.
 assumption.
-(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction ])).
+(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
 +
-tauto.
+(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ specialize (IHt'1 Hm') | specialize (IHt'2 Hm') ]).
 (* Auto-generated comment: Failed. *)
 
