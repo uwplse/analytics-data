@@ -121,6 +121,20 @@ Proof.
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
 (simpl).
-split.
+constructor.
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+exists t'.
+(apply match_ty__reflexive).
+constructor.
+Qed.
+Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
+Proof.
+(intros k; destruct k; intros v Hm).
+-
+(apply match_ty_exist__0_inv in Hm).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
