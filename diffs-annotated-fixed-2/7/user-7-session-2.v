@@ -124,49 +124,7 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma sub_r__mk_nf_sub_r : forall t t' : ty, |- t << t' -> |- MkNF( t) << MkNF( t').
+Lemma weird_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- MkNF( t2) << t3 -> |- t1 << t3.
 Proof.
-(intros t t' Hsub; induction Hsub; try (solve [ simpl; constructor ])).
--
-(simpl).
-(apply unite_pairs_of_nf__preserves_sub_r; assumption || apply mk_nf__in_nf).
--
-(simpl).
-(constructor; assumption).
--
-(apply SR_UnionR1; assumption).
--
-(apply SR_UnionR2; assumption).
--
-(simpl).
-(constructor; assumption).
--
-(rewrite <- mk_nf__idempotent).
-assumption.
-Qed.
-Lemma sub_r__reflexive : forall t : ty, |- t << t.
-Proof.
-(apply sub_r__rflxv).
-Qed.
-Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
-Proof.
-(intros t1 t2 t3 Hsub1).
-generalize dependent t3.
-(induction Hsub1; intros t3 Hsub2).
--
-assumption.
--
-(remember (TPair t1' t2') as tm eqn:Heq ).
-(induction Hsub2; try (solve [ inversion Heq | constructor ])).
-+
-(inversion Heq; subst).
-(constructor; auto with DBBetaJulia).
-+
-(apply SR_UnionR1; tauto).
-+
-(apply SR_UnionR2; tauto).
-+
-subst.
-clear IHHsub2.
 (* Auto-generated comment: Failed. *)
 
