@@ -14,6 +14,11 @@ Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
-Lemma fresh_union__inv : forall (X : id) (fvs1 fvs2 : id_set), fresh X (IdSet.union fvs1 fvs2) -> fresh X fvs1 /\ not_fresh X fvs2.
-(* Auto-generated comment: Failed. *)
+Lemma fresh_union__inv : forall (X : id) (fvs1 fvs2 : id_set), fresh X (IdSet.union fvs1 fvs2) -> fresh X fvs1 /\ fresh X fvs2.
+Proof.
+(intros X fvs1 fvs2 H).
+(unfold fresh in *).
+(split; intros Hcontra).
+Search -IdSet.union.
+(* Auto-generated comment: Succeeded. *)
 
