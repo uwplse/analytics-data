@@ -163,6 +163,6 @@ Proof.
                (H _ Hm); contradiction)
      end ])).
 (assert (Hv : value_type (TCName c)) by constructor).
-(pose proof (value_sem_sub_k_i_union__inv _ Hv)).
+(pose proof (value_sem_sub_k_i_union__inv _ Hv 0 _ _ H)).
 (* Auto-generated comment: Failed. *)
 
