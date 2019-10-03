@@ -61,6 +61,7 @@ Fixpoint inv_depth (t : ty) :=
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
 Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
-(intros w).
+(intros w k).
+(induction k).
 (* Auto-generated comment: Failed. *)
 
