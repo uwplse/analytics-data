@@ -81,7 +81,7 @@ Msimpl.
 (simpl).
 (remember (W1 \226\138\151 W2) as W).
 (remember (pat_to_list (add_fresh_pat W [])) as li).
-(assert (forall x : nat, List.In x li -> (x < \226\159\166 W \226\159\167)%nat)).
+(assert (L : forall x : nat, List.In x li -> (x < \226\159\166 W \226\159\167)%nat)).
 {
 (intros).
 (rewrite Heqli in H).
@@ -106,5 +106,8 @@ easy.
 (rewrite add_fresh_split).
 easy.
 }
+Timeout 1 About denote_ctrls_unitary.
+Timeout 1 Print denote_ctrls_unitary.
+Timeout 1 Print Ltac denote_ctrls_unitary.
 (* Auto-generated comment: Succeeded. *)
 
