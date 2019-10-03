@@ -122,6 +122,6 @@ specialize (H k v Hv).
 (destruct H as [H1 H2]).
 (split; intros Hm).
 +
-specialize H1.
+specialize (H1 Hm).
 (* Auto-generated comment: Failed. *)
 
