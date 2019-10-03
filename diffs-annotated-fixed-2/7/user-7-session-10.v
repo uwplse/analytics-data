@@ -275,5 +275,14 @@ tauto.
 -
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
 (apply sub_r__mk_nf_sub_r; assumption).
+Qed.
+Lemma sub_r__reflexive : forall t : ty, |- t << t.
+Proof.
+(apply sub_r__rflxv).
+Qed.
+Lemma sub_r__transitive : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
+Proof.
+(intros t1 t2 t3 Hsub1 Hsub2).
+(pose proof (sub_r__trans2 _ _ Hsub1)).
 (* Auto-generated comment: Failed. *)
 
