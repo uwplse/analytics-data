@@ -1107,5 +1107,7 @@ clear IS.
 rewrite_inPar'.
 (repeat rewrite strip_one_l_in_eq).
 (rewrite id_circ_spec).
-(* Auto-generated comment: Succeeded. *)
+restore_dims tensor_tac.
+(rewrite (kron_1_l_inv (ctx_to_matrix \206\147 f))).
+(* Auto-generated comment: Failed. *)
 
