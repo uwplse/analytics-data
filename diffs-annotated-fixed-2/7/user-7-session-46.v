@@ -64,6 +64,12 @@ clear IHv.
 (intros t k Hm).
 (simpl in Hm).
 exists v.
-(split; auto).
+auto.
+Qed.
+Theorem match_ty_i__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
+Proof.
+(intros v t).
+generalize dependent v.
+(induction t; intros k v Hm).
 (* Auto-generated comment: Failed. *)
 
