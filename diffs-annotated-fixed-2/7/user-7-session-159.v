@@ -90,6 +90,5 @@ split.
 +
 assumption.
 +
-(apply match_ty_cname__inv in Hm; subst).
 (* Auto-generated comment: Failed. *)
 
