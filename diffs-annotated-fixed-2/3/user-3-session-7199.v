@@ -170,6 +170,5 @@ step_proc.
 (split; auto).
 (eapply log_abstraction_nil; eauto).
 (autorewrite with upd; auto).
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
