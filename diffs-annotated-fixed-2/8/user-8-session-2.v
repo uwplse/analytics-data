@@ -128,6 +128,5 @@ reflexivity.
 -
 (simpl).
 (destruct a).
-+
 (* Auto-generated comment: Succeeded. *)
 
