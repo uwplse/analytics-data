@@ -135,7 +135,8 @@ Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
 (rewrite <- ctrls_to_list_transpose_fst).
 (destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
-Opaque firstn.
+Opaque rev.
 (simpl).
+(rewrite <- ctrl_list_to_unitary_transpose).
 (* Auto-generated comment: Succeeded. *)
 
