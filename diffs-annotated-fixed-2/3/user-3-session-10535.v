@@ -157,6 +157,5 @@ step.
 step.
 step.
 (exists nil; simpl).
-(split; auto).
 (* Auto-generated comment: Succeeded. *)
 
