@@ -399,6 +399,5 @@ reflexivity.
 injection H as H1 H2.
 (rewrite <- H1, <- H2).
 (simpl).
-Search -".}".
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
