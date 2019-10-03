@@ -247,6 +247,17 @@ step.
 (pose proof (H3 a); intuition).
 (assert (log_addr a < diskSize state)).
 {
-lia.
-(* Auto-generated comment: Failed. *)
+eauto.
+}
+eq_values.
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqn7pS5Y"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
