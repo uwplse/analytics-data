@@ -128,6 +128,13 @@ Lemma sub_r_unite_pairs_l__inv :
   forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
 (intros t1; induction t1; intros t2; induction t2).
+(intros t1' t2' Hsub; intros Hnf1 Hnf2).
 -
-(* Auto-generated comment: Failed. *)
+(match goal with
+ | Hsub:|- ?t1 << ?t2
+   |- _ => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hsub; inversion Heqx; inversion Heqy; subst; tauto
+ end).
+-
+(simpl in Hsub).
+(* Auto-generated comment: Succeeded. *)
 
