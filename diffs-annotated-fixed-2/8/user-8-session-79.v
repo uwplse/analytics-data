@@ -599,6 +599,6 @@ Proof.
 (intros).
 (simpl).
 restore_dims.
-(rewrite kron_1_l).
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(* Auto-generated comment: Succeeded. *)
 
