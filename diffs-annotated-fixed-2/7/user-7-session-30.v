@@ -52,6 +52,25 @@ constructor.
 -
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(constructor; tauto).
+(constructor; eauto).
+-
+(apply match_ty_union__inv in Hm).
+(destruct Hm; eauto).
+-
+(destruct k).
+(destruct v; contradiction).
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq _]]; subst).
+constructor.
+Qed.
+Lemma match_ty__inv_depth_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> | v | <= k /\ | v | <= | t |.
+Proof.
+(intros v; induction v).
+-
+(intros t k Hm).
+(simpl).
+(split; apply Nat.le_0_l).
+-
+(intros t; induction t; intros k Hm; try (solve [ destruct k; simpl in Hm; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
