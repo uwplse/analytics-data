@@ -144,7 +144,7 @@ Redirect "/tmp/coq1McSmJ" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Fixpoint trace (n : nat) : term -> list term :=
   match n with
-  | O => nil
+  | O => @nil term
   | S m => fun t => cons t (trace m (step t))
   end.
 (* Auto-generated comment: Failed. *)
