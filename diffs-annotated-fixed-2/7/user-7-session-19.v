@@ -413,7 +413,9 @@ Abort.
 Lemma nf_sem_sub_i__sub_d : forall t1 : ty, InNF( t1) -> forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2.
 Proof.
 (apply
-  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2)
-     (fun (t1 : ty) (_ : in_nf t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
+  (in_nf_mut (fun (t1 : ty) (_ : atom_type t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2)
+     (fun (t1 : ty) (_ : in_nf t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||-[ k][t1]<= [t2] -> |- t1 << t2))).
+-
+(intros c k Hdept1 t2).
 (* Auto-generated comment: Failed. *)
 
