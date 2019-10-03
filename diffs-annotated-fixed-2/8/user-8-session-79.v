@@ -598,6 +598,7 @@ Proof.
 -
 (intros).
 (simpl).
-Msimpl.
-(* Auto-generated comment: Succeeded. *)
+restore_dims.
+(rewrite kron_1_l).
+(* Auto-generated comment: Failed. *)
 
