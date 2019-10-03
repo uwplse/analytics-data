@@ -314,10 +314,10 @@ step_proc.
 Qed.
 Hint Resolve recover_wipe: core.
 Lemma firstn_one_more :
-  forall (a : nat) (state : list block),
-  S a <= length state ->
-  firstn a state ++ [nth a state block0] = firstn (S a) state.
+  forall (a : nat) (d : list block),
+  S a <= length d -> firstn a d ++ [nth a d block0] = firstn (S a) d.
 Proof.
-(intros a state H).
+(intros).
+Print firstn.
 (* Auto-generated comment: Succeeded. *)
 
