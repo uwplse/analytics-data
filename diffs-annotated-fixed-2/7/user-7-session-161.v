@@ -110,8 +110,5 @@ assumption.
 (destruct Hm as [ti Hm]).
 specialize (IHw' _ Hm).
 (rewrite subst_neq__permute in IHw').
-exists ti.
-assumption.
-assumption.
 (* Auto-generated comment: Failed. *)
 
