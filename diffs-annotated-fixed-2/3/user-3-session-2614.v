@@ -43,11 +43,5 @@ Proof.
 -
 (apply lt_wf).
 Qed.
-Fixpoint nat_from_le base_m2 (digits : list {x : nat | x < S (S base_m2)}) :
-nat :=
-  match digits with
-  | nil => 0
-  | digit :: digits' => proj1_sig digit + nat_from_le digits' * S (S base_m2)
-  end.
 (* Auto-generated comment: Succeeded. *)
 
