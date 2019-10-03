@@ -145,6 +145,14 @@ Proof.
 (intros).
 (apply spec_abstraction_compose; simpl).
 step_proc.
-(pose proof I as state2).
+(match goal with
+ | H:pre (match ?a with
+          | (x, y) => _
+          end _)
+   |- _ =>
+       let x := fresh x in
+       let y := fresh y in
+       destruct a as [x y]; cbn[pre post recovered] in *
+ end).
 (* Auto-generated comment: Succeeded. *)
 
