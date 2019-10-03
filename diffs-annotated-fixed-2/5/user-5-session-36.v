@@ -276,6 +276,7 @@ clear H.
 {
 (apply Z).
 (eapply evalIntEq).
-(erewrite <- evalTimes).
+(erewrite evalTimes in H0).
+(apply H0).
 (* Auto-generated comment: Succeeded. *)
 
