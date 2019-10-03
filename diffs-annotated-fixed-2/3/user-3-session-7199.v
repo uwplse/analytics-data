@@ -472,7 +472,25 @@ Unset Search Output Name Only.
 Theorem abstr_length_sz_bound d bs :
   log_size_ok d bs -> len_addr < diskSize d.
 Proof.
-(unfold log_size_ok).
+(unfold log_size_ok, len_addr, diskSize).
 (intros; lia).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJ1UsXW"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+(unfold reset; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition.
+{
+(descend; intuition eauto).
+}
+(eapply proc_spec_weaken; eauto).
 (* Auto-generated comment: Succeeded. *)
 
