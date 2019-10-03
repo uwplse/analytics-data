@@ -346,6 +346,7 @@ step_proc.
 (simpl; lia).
 +
 (unfold log_size_ok in *; simpl in *).
-(autorewrite with upd list in *; lia).
-(* Auto-generated comment: Failed. *)
+autorewrite with upd list in *.
+(simpl in *).
+(* Auto-generated comment: Succeeded. *)
 
