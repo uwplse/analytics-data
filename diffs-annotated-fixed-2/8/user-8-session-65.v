@@ -1245,5 +1245,7 @@ constructor.
 constructor.
 -
 (inversion g0).
++
+(unfold valid_ancillae_box).
 (* Auto-generated comment: Succeeded. *)
 
