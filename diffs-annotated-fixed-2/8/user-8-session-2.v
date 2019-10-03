@@ -113,6 +113,5 @@ Proof.
 (intros l r u).
 (induction l).
 (simpl).
--
 (* Auto-generated comment: Succeeded. *)
 
