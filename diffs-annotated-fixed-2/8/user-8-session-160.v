@@ -122,6 +122,71 @@ Hint Rewrite
 Hint Rewrite @Mscale_assoc @Mmult_assoc : ket_db.
 Hint Rewrite
  @Mmult_1_l @Mmult_1_r @kron_1_l @kron_1_r @Mscale_0_l @Mscale_1_l @Mplus_0_l
- Mplus_0_r : ket_db.
-(* Auto-generated comment: Failed. *)
+ @Mplus_0_r : ket_db.
+Hint Rewrite @kron_mixed_product.
+Hint Rewrite
+ H0_spec H1_spec Hplus_spec Hminus_spec X0_spec X1_spec Y0_spec Y1_spec Z0_spec
+ Z1_spec : ket_db.
+Hint Rewrite CNOT00_spec CNOT01_spec CNOT10_spec CNOT11_spec SWAP_spec : ket_db.
+Lemma XYZ0 : - Ci .* \207\131x \195\151 \207\131y \195\151 \207\131z \195\151 \226\136\163 0 \226\159\169 == \226\136\163 0 \226\159\169.
+Proof.
+(autorewrite with ket_db C_db; easy).
+Qed.
+Lemma XYZ1 : - Ci .* \207\131x \195\151 \207\131y \195\151 \207\131z \195\151 \226\136\163 1 \226\159\169 == \226\136\163 1 \226\159\169.
+Proof.
+autorewrite with ket_db C_db.
+replace (Ci * - 1 * Ci) with RtoC 1 by lca.
+(rewrite Mscale_1_l; reflexivity).
+Qed.
+Ltac
+ simpl_ket_1_qubit :=
+  repeat
+   match goal with
+   | |- context [ ?a .* \226\136\163 ?x \226\159\169 .+ ?b .* \226\136\163 ?x \226\159\169 ] =>
+         rewrite <- (Mscale_plus_dist_l _ _ a b \226\136\163 x \226\159\169)
+   | |- context [ ?a .+ ?b .* \226\136\163 ?x \226\159\169 .+ ?c .* \226\136\163 ?x \226\159\169 ] =>
+         rewrite (Mplus_assoc _ _ a (b .* \226\136\163 x \226\159\169) (c .* \226\136\163 x \226\159\169));
+          rewrite <- (Mscale_plus_dist_l _ _ b c \226\136\163 x \226\159\169)
+   | |- context [ ?a .* \226\136\163 1 \226\159\169 .+ ?b .* \226\136\163 0 \226\159\169 ] =>
+         rewrite (Mplus_comm _ _ (a .* \226\136\163 1 \226\159\169) (b .* \226\136\163 0 \226\159\169))
+   | |- context [ ?a .+ ?b .* \226\136\163 1 \226\159\169 .+ ?c .* \226\136\163 0 \226\159\169 ] =>
+         rewrite (Mplus_assoc _ _ a (b .* \226\136\163 1 \226\159\169) (c .* \226\136\163 0 \226\159\169));
+          rewrite (Mplus_comm _ _ (b .* \226\136\163 1 \226\159\169) (c .* \226\136\163 0 \226\159\169));
+          rewrite <- (Mplus_assoc _ _ a (c .* \226\136\163 0 \226\159\169) (b .* \226\136\163 1 \226\159\169))
+   end.
+Local Open Scope nat_scope.
+Ltac
+ simpl_ket_2_qubit :=
+  repeat
+   match goal with
+   | |- context [ ?a .* \226\136\163 ?x, ?y \226\159\169 .+ ?b .* \226\136\163 ?x, ?y \226\159\169 ] =>
+         rewrite <- (Mscale_plus_dist_l _ _ a b \226\136\163 x, y \226\159\169)
+   | |- context [ ?a .+ ?b .* \226\136\163 ?x, ?y \226\159\169 .+ ?c .* \226\136\163 ?x, ?y \226\159\169 ] =>
+         rewrite (Mplus_assoc _ _ a (b .* \226\136\163 x, y \226\159\169) (c .* \226\136\163 x, y \226\159\169));
+          rewrite <- (Mscale_plus_dist_l _ _ b c \226\136\163 x, y \226\159\169)
+   | |- context [ ?a .* \226\136\163 ?x, ?y \226\159\169 .+ ?b .* \226\136\163 ?x', ?y' \226\159\169 ] =>
+         assert (x' < x \/ x' = x /\ y' < y) by lia;
+          rewrite (Mplus_comm _ _ (a .* \226\136\163 x, y \226\159\169) (b .* \226\136\163 x', y' \226\159\169))
+   | |- context [ ?a .+ ?b .* \226\136\163 ?x, ?y \226\159\169 .+ ?c .* \226\136\163 ?x', ?y' \226\159\169 ] =>
+         assert (x' < x \/ x' = x /\ y' < y) by lia;
+          rewrite (Mplus_assoc _ _ a (b .* \226\136\163 x, y \226\159\169) (c .* \226\136\163 x', y' \226\159\169));
+          rewrite (Mplus_comm _ _ (b .* \226\136\163 x, y \226\159\169) (c .* \226\136\163 x', y' \226\159\169));
+          rewrite <- (Mplus_assoc _ _ a (c .* \226\136\163 x', y' \226\159\169) (b .* \226\136\163 x, y \226\159\169))
+   end.
+Local Close Scope nat_scope.
+Ltac
+ ket_eq_solver :=
+  intros; autorewrite with ket_db C_db;
+   try
+    match goal with
+    | |- ?a .* \226\136\163 0 \226\159\169 .+ ?b .* \226\136\163 1 \226\159\169 = ?a' .* \226\136\163 0 \226\159\169 .+ ?b' .* \226\136\163 1 \226\159\169 =>
+          replace a with a' by lca; replace b with b' by lca; reflexivity
+    end.
+Lemma XYZ :
+  forall \206\177 \206\178,
+  - Ci .* \207\131x \195\151 \207\131y \195\151 \207\131z \195\151 (\206\177 .* \226\136\163 0 \226\159\169 .+ \206\178 .* \226\136\163 1 \226\159\169) == \206\177 .* \226\136\163 0 \226\159\169 .+ \206\178 .* \226\136\163 1 \226\159\169.
+Proof.
+ket_eq_solver.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
