@@ -53,6 +53,13 @@ Search -IdSet.In.
 (pose proof IdSetFacts.In_m as Hfact).
 (destruct (IdSetFacts.empty_iff X) as [H _]).
 (apply H).
-Morphisms.solve_proper.
+Print Morphisms.respectful.
+Print Morphisms.Proper.
+Search -(IdSet.Equal _ _ -> IdSet.In _ _ -> IdSet.In _ _).
+Print eq.
+Print Morphisms.respectful.
+Print Morphisms.Proper.
+Search -Morphisms.Proper.
+(apply Morphisms_Prop.not_iff_morphism).
 (* Auto-generated comment: Failed. *)
 
