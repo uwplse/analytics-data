@@ -94,6 +94,6 @@ specialize (IHw' _ Hm).
 exists ([X' := tx] ti).
 admit.
 }
--
-(* Auto-generated comment: Succeeded. *)
+{
+(* Auto-generated comment: Failed. *)
 
