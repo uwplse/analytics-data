@@ -27,6 +27,19 @@ Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; right; assumption).
 Qed.
+Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros k).
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_i_pair; auto).
+-
+(destruct k).
+constructor.
+(simpl).
+tauto.
+Qed.
 Lemma match_ty_i_cname__inv : forall (v : ty) (c : cname), forall k : nat, |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; simpl in Hm; contradiction ])).
