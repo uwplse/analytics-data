@@ -58,6 +58,5 @@ reflexivity.
 +
 (intros H \206\147 \206\1470 H').
 replace (gate g p c) with compose (gate g p (fun p' => output p')) c by auto.
-dependent destruction H'.
 (* Auto-generated comment: Succeeded. *)
 
