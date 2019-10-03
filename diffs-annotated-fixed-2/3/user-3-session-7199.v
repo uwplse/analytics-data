@@ -257,6 +257,6 @@ Proof.
 (unfold get_len; intros).
 step_proc.
 step_proc.
-intuition eauto.
+eauto.
 (* Auto-generated comment: Succeeded. *)
 
