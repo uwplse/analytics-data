@@ -250,7 +250,8 @@ Proof.
 (apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
 +
+clear IHt2.
 (simpl in Hdep).
-(pose proof (le_S_n _ _ Hdep) as Hdep').
+(pose proof (le_S_n _ _ Hdep) as Hdt').
 (* Auto-generated comment: Failed. *)
 
