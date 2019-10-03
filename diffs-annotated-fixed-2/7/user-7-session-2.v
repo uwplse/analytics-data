@@ -70,6 +70,6 @@ Check unite_pairs_union_t.
 Check sub_r_nf_union_l__inv.
 (assert (Hnf : InNF( TUnion t1 t0)) by (constructor; assumption)).
 (destruct (sub_r_nf_union_l__inv _ _ _ Hsub1 Hnf) as [Hsub11 Hsub12]).
-(constructor; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
+constructor.
 (* Auto-generated comment: Failed. *)
 
