@@ -430,8 +430,37 @@ Theorem log_contents_ok_len_change d bs b :
   log_contents_ok d bs -> log_contents_ok (diskUpd d len_addr b) bs.
 Proof.
 (unfold log_size_ok, log_contents_ok, len_addr; intros).
-(destruct (0 == log_addr a)).
+(destruct (0 == log_addr a); autorewrite with upd).
 -
 (exfalso; unfold log_addr in *; lia).
+-
+auto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqIydDso"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Lemma log_abstraction_commit :
+  forall bs bs' : list block,
+  forall d' : State,
+  log_size_ok d' (bs ++ bs') ->
+  log_contents_ok d' (bs ++ bs') ->
+  forall len_b : block,
+  block_to_addr len_b = length bs + length bs' ->
+  log_abstraction (diskUpd d' len_addr len_b) (bs ++ bs').
+Proof.
+(intros).
+(assert (len_addr < diskSize d') by eauto).
+(unfold log_abstraction; intuition).
+-
+(unfold log_length_ok in *; intros; autorewrite with upd list in *).
+(simpl in *; intuition).
+-
+(unfold log_size_ok in *; autorewrite with upd list in *).
+lia.
+-
+(apply log_contents_ok_len_change).
 (* Auto-generated comment: Succeeded. *)
 
