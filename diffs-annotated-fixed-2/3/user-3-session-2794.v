@@ -196,6 +196,15 @@ Definition allocPtr (ty : Ptr.ty) (init : ptrRawModel ty) :
   relation State State (model.(@Ptr) ty) :=
   r <- such_that (fun s r => getAlloc r s = None /\ r <> nullptr _);
   _ <- updAllocs r (Unlocked, init); pure r.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqxi4mg5"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqIbEGGn"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Definition step T (op : Op T) : relation State State T :=
   match op in (Op T) return (relation State State T) with
   | NewAlloc v len => allocPtr (Ptr.Heap _) (List.repeat v len)
@@ -272,7 +281,7 @@ Definition step T (op : Op T) : relation State State T :=
       | FinishArgs _ =>
           s' <- readSome (fun _ => lock_release Reader s);
           _ <- updAllocs p.(slice.ptr) (s', alloc);
-          x <- readSome (fun _ => uint64_from_le (list.take 8 val)); pure x
+          pure (uint64_from_le (list.take 8 val))
       end
   | Uint64Put p x ph =>
       let! (s, alloc) <- readSome (getAlloc p.(slice.ptr));
@@ -303,5 +312,5 @@ Definition step T (op : Op T) : relation State State T :=
         slice.length := String.length s |}
   | RandomUint64 => such_that (fun _ (r : uint64) => True)
   end.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
