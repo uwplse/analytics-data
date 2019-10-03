@@ -458,6 +458,6 @@ admit.
 }
 -
 step_proc.
-(descend; intuition eauto).
+intuition eauto.
 (* Auto-generated comment: Succeeded. *)
 
