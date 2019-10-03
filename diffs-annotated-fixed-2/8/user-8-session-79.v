@@ -1022,6 +1022,5 @@ Timeout 1 Print Ltac restore_dims.
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
 (simpl).
-(rewrite ctx_to_mat_list_length).
 (* Auto-generated comment: Succeeded. *)
 
