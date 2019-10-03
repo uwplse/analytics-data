@@ -1250,6 +1250,8 @@ constructor.
 (intros \207\129 TB).
 (repeat simpl_rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
   try apply source_symmetric_WT; trivial).
-(simpl_rewrite inSeq_correct).
-(* Auto-generated comment: Failed. *)
+Timeout 1 About inSeq_correct.
+Timeout 1 Print inSeq_correct.
+Timeout 1 Print Ltac inSeq_correct.
+(* Auto-generated comment: Succeeded. *)
 
