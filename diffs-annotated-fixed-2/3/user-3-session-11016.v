@@ -568,6 +568,13 @@ Lemma nonzeros_app :
 Proof.
 (induction l1; simpl; auto; intros).
 (destruct (beq_nat n 0); auto).
-(rewrite IHl1; simpl).
-(* Auto-generated comment: Succeeded. *)
+(rewrite IHl1; simpl; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4rzfNG"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+(* Auto-generated comment: Failed. *)
 
