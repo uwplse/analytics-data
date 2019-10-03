@@ -103,6 +103,13 @@ Proof.
 (intros k t1 t2 t3 Hsem1 Hsem2).
 (unfold sem_sub_k in *).
 (intros w1).
-specialize (Hsem11 w1).
+specialize (Hsem1 w1).
+(destruct Hsem1 as [w2 Hsem1]).
+specialize (Hsem2 w2).
+(destruct Hsem2 as [w3 Hsem2]).
+exists w3.
+(intros v).
+auto.
+Qed.
 (* Auto-generated comment: Failed. *)
 
