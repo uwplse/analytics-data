@@ -280,5 +280,6 @@ Lemma mk_nf_sub_r__sub_r : forall t t' : ty, |- MkNF( t) << MkNF( t') -> |- t <<
 Proof.
 (intros t t' Hsub).
 (apply SR_NormalForm).
+(apply sub_r__transitive with (MkNF( t'))).
 (* Auto-generated comment: Failed. *)
 
