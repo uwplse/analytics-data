@@ -131,6 +131,8 @@ Proof.
          apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto
    | |- |-[ _, _] _ <$ TUnion _ _ =>
          apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto
+   | |- |-[ _, _] _ <$ TVar _ => apply match_ty_var__inv in Hm; subst; apply match_ty_var
+   | |- |-[ _, _] _ <$ TEV _ => apply match_ty_ev__inv in Hm; subst; apply match_ty_ev
    end).
 -
 (destruct k).
@@ -144,5 +146,26 @@ Proof.
 (destruct w'; assumption).
 -
 (apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(destruct k).
++
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(destruct w'; constructor).
++
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(destruct w'; assumption).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(destruct w').
+(inversion Hle).
+(apply match_ty_exist).
+exists tx.
+(apply IHw).
+assumption.
+(apply le_S_n; assumption).
+-
 (* Auto-generated comment: Failed. *)
 
