@@ -1024,6 +1024,8 @@ restore_dims tensor_tac.
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
 Set Printing All.
-(simpl_rewrite IP).
-(* Auto-generated comment: Failed. *)
+Timeout 1 About strip_one_l_out.
+Timeout 1 Print strip_one_l_out.
+Timeout 1 Print Ltac strip_one_l_out.
+(* Auto-generated comment: Succeeded. *)
 
