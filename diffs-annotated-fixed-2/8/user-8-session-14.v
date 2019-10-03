@@ -190,6 +190,5 @@ Proof.
 (rewrite Nat.mul_1_r).
 (apply mixed_unitary; trivial).
 Set Printing Implicit.
-restore_dims.
 (* Auto-generated comment: Succeeded. *)
 
