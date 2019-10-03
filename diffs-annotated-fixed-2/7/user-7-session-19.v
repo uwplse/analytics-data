@@ -453,8 +453,6 @@ Check sem_eq_k_i__inv_depth_eq_1.
 admit.
 }
 Admitted.
-Theorem nf_sem_sub__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
-Proof.
-(intros t Hnf t' Hsem).
-(* Auto-generated comment: Failed. *)
+Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+(* Auto-generated comment: Succeeded. *)
 
