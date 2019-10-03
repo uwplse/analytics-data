@@ -118,6 +118,5 @@ contradiction.
 subst.
 (split; intros HX').
 {
-(unfold not_f_free_in_ty, not_free in HX').
 (* Auto-generated comment: Failed. *)
 
