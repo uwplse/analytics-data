@@ -490,6 +490,6 @@ step_proc.
 intuition.
 {
 (exists (bs ++ v); intuition eauto).
-(eapply log_abstraction_commit).
+(eapply log_abstraction_commit; eauto).
 (* Auto-generated comment: Succeeded. *)
 
