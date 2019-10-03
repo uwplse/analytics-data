@@ -151,21 +151,9 @@ specialize (Hsem _ Hm).
 (apply match_ty_i_union__inv in Hsem).
 (destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
 Qed.
-Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
+Lemma sem_sub_k_i_pair__inv :
+  forall t1 t2 t1' t2' : ty,
+  forall k : nat, | TPair t1 t2 | <= k -> ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
 Proof.
-(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | |- | ?t1 | <= | ?t2 | =>
-           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-             (H _ Hm); contradiction) ||
-             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-               (H _ Hm); contradiction)
-     end ])).
-(assert (Hv : value_type (TCName c)) by constructor).
-(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ H) as Hsemu).
-(destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
-  tauto || apply Max.le_max_l || apply Max.le_max_r).
-admit.
 (* Auto-generated comment: Failed. *)
 
