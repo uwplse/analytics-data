@@ -439,6 +439,14 @@ clear Heqt'.
 constructor.
 {
 (apply IHk; try assumption).
-(apply sem_eq_k_i__sem_sub_k_i; assumption).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ Href); assumption).
+}
+(apply SD_Trans with (MkNF( t2))).
+(apply mk_nf__sub_d2; assumption).
+{
+(apply IHk).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf).
+assumption.
 (* Auto-generated comment: Failed. *)
 
