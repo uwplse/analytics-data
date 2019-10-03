@@ -224,6 +224,8 @@ Proof.
 -
 (simpl).
 (apply le_n_S).
-(inversion Hnf; subst).
+(inversion Hnft; subst).
+(inversion H; subst).
+(apply IHk).
 (* Auto-generated comment: Failed. *)
 
