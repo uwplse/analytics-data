@@ -102,5 +102,6 @@ lia.
 Qed.
 Next Obligation of nat_to_le_func.
 Proof.
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
