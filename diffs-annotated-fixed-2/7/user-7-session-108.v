@@ -147,6 +147,8 @@ Proof.
 reflexivity.
 -
 (apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1' [v2' [Heq [Hm1' Hm2']]]]).
+(destruct Hm as [v1' [v2' [Heq [Hm1' Hm2']]]]; subst).
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(assert (Heq1 : | v1' | = | v1 |) by auto).
 (* Auto-generated comment: Failed. *)
 
