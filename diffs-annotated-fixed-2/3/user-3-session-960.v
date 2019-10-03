@@ -277,6 +277,5 @@ typeclasses eauto.
 (intros; simpl).
 decide equality.
 decide equality.
-decide equality.
 (* Auto-generated comment: Succeeded. *)
 
