@@ -196,6 +196,6 @@ tauto.
 (split; intros tx Hsub').
 +
 (remember (TUnion t1 t2) as ty eqn:Heqy ).
-(induction Hsub'; inversion Heqy; subst; try (solve [ auto using DBBetaJulia ])).
+(induction Hsub'; inversion Heqy; subst; try (solve [ auto ])).
 (* Auto-generated comment: Failed. *)
 
