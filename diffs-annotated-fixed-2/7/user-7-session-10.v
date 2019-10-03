@@ -241,6 +241,11 @@ tauto.
 (split; intros tx Hsub'; [ remember (TPair t1 t2) as ty eqn:Heqy  | remember (TPair t1' t2') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy;
   subst; try (solve [ constructor; auto ])).
 +
-(assert (Hsub1 : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
+(assert (Hsub : |- TPair t1 t2 << TPair t1' t2') by (constructor; assumption)).
+(apply SR_NormalForm).
+(apply sub_r__mk_nf_sub_r in Hsub).
+(pose proof (mk_nf__in_nf (TPair t1 t2)) as Hnf1).
+(pose proof (mk_nf__in_nf (TPair t1' t2')) as Hnf2).
+(pose proof (sub_r_nf__trans2 _ _ Hsub1 Hnf1 Hnf2) as Htrans).
 (* Auto-generated comment: Failed. *)
 
