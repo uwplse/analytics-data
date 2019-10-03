@@ -275,6 +275,6 @@ tauto.
 (apply SR_NormalForm).
 (assert (Hsub : |- TRef t << TRef t') by (constructor; assumption)).
 (apply sub_r__mk_nf_sub_r in Hsub).
-(apply sub_r_nf__trans2 with (MkNF( TRef t')); try assumption || apply mk_nf__in_nf).
+(apply sub_r_nf__trans2 with (MkNF( TRef t')); assumption || apply mk_nf__in_nf).
 (* Auto-generated comment: Failed. *)
 
