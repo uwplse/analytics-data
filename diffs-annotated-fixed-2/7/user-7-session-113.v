@@ -38,6 +38,6 @@ reflexivity.
 reflexivity.
 -
 (simpl).
-(destruct (beq_idP X i); destruct (beq_idP Y i); try reflexivity).
+(destruct (beq_idP X i); destruct (beq_idP Y i); subst; try reflexivity).
 (* Auto-generated comment: Failed. *)
 
