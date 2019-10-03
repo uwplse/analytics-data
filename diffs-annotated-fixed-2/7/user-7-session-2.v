@@ -148,7 +148,6 @@ tauto.
 (rewrite unite_pairs_t_union in Hsub; try resolve_not_union).
 (apply sub_r_nf_union_l__inv in Hsub).
 (destruct Hsub as [Hsub1 Hsub2]).
-specialize (IHt2_1 _ _ Hsub1).
-specialize (IHt2_2 _ _ Hsub2).
+(inversion Hnf2; subst).
 (* Auto-generated comment: Failed. *)
 
