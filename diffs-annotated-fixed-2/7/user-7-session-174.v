@@ -132,6 +132,6 @@ Defined.
 Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
 Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
 Proof.
-(apply subst_equatio).
+(apply subst_equation).
 (* Auto-generated comment: Failed. *)
 
