@@ -150,19 +150,33 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
+Lemma sub_r__mk_nf_sub_r : forall t t' : ty, |- t << t' -> |- MkNF( t) << MkNF( t').
 Proof.
-(intros t t' Hsub; induction Hsub; simpl; try (solve [ simpl; constructor; constructor ])).
+(intros t t' Hsub; induction Hsub; try (solve [ simpl; constructor ])).
 -
-(apply unite_pairs_of_nf__preserves_sub_r1; assumption || apply mk_nf__in_nf).
+(simpl).
+(apply unite_pairs_of_nf__preserves_sub_r; assumption || apply mk_nf__in_nf).
 -
+(simpl).
 (constructor; assumption).
 -
 (apply SR_UnionR1; assumption).
 -
 (apply SR_UnionR2; assumption).
 -
-constructor.
+(simpl).
+(constructor; assumption).
+-
+(rewrite <- mk_nf__idempotent).
 assumption.
+Qed.
+Lemma sub_r_nf__trans :
+  forall tm1 tm2 : ty,
+  |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
+Proof.
+(intros tm1 tm2 Hsub).
+(induction Hsub; intros Hnfm1 Hnfm2).
+-
+tauto.
 (* Auto-generated comment: Failed. *)
 
