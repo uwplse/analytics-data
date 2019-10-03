@@ -264,7 +264,13 @@ assumption.
 (destruct (beq_idP X i)).
 +
 subst.
-(unfold not_f_free_in_ty in HX).
+(unfold not_f_free_in_ty, not_free in HX).
 (simpl in HX).
+exfalso.
+(apply HX).
+(apply IdSetFacts.singleton_2).
+reflexivity.
++
+subst.
 (* Auto-generated comment: Failed. *)
 
