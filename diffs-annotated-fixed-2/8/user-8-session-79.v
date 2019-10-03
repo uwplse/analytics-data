@@ -1033,5 +1033,5 @@ Timeout 1 Print assert_at.
  end; try (solve [ type_check ])).
 Set Printing All.
 (simpl_rewrite IP).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
