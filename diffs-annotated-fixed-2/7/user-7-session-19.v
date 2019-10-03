@@ -270,6 +270,6 @@ Proof.
 SearchPattern (_ <= _ -> _ <= _ -> _ = _).
 Check le_unique.
 SearchPattern (_ <= _ -> _ = _).
-(apply Nat.le_antisymm; assumption).
+(apply Nat.le_antisymm; apply sem_sub_k_i__inv_depth_le; assumption).
 (* Auto-generated comment: Failed. *)
 
