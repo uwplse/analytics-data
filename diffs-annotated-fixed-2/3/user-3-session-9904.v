@@ -57,6 +57,9 @@ Theorem init_ok : init_abstraction init recover abstr inited.
 Proof.
 (eapply then_init_compose; eauto).
 (unfold init').
-(step_proc; intros).
-(* Auto-generated comment: Succeeded. *)
+step_proc.
+step_proc.
+step_proc.
+step_proc.
+(* Auto-generated comment: Failed. *)
 
