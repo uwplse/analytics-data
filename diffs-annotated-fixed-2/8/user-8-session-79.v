@@ -1139,8 +1139,5 @@ specialize inSeq_correct as IS.
 clear IS.
 (apply subset_classical_merge in H as [S1 S2]).
 Set Printing Implicit.
-Timeout 1 About ctx_to_matrix.
-Timeout 1 Print ctx_to_matrix.
-Timeout 1 Print Ltac ctx_to_matrix.
 (* Auto-generated comment: Succeeded. *)
 
