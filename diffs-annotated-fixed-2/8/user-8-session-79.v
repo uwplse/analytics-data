@@ -1103,6 +1103,6 @@ clear IS.
 6: (erewrite denote_box_compat).
 7: (erewrite denote_box_compat).
 8: (erewrite denote_box_compat).
-last.
+9: {
 (* Auto-generated comment: Failed. *)
 
