@@ -89,6 +89,8 @@ specialize (Href 1).
 {
 (apply match_ty_exist).
 exists tint.
-(simpl).
+(apply match_ty_value_type__reflexive).
+constructor.
+}
 (* Auto-generated comment: Failed. *)
 
