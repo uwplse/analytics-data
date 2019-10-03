@@ -49,6 +49,6 @@ reflexivity.
 Search -IdSet.remove.
 Check IdSetFacts.remove_2.
 (apply Hfresh).
-(apply IdSetFacts.remove_2).
+(apply IdSetFacts.remove_2; assumption).
 (* Auto-generated comment: Failed. *)
 
