@@ -170,6 +170,12 @@ subst.
 exists v.
 assumption.
 +
-(apply match_ty_exist__inv in IHw).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+specialize (IHw _ _ Hm).
+(destruct IHw as [v' IHw]).
+exists v'.
+(apply match_ty_exist).
+exists tx.
 (* Auto-generated comment: Failed. *)
 
