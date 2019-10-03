@@ -170,6 +170,9 @@ reflexivity.
 -
 reflexivity.
 }
-admitted.
+admit.
+}
+(erewrite <- H; reflexivity).
+Admitted.
 (* Auto-generated comment: Succeeded. *)
 
