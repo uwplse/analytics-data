@@ -102,6 +102,5 @@ assumption.
 (destruct (beq_idP X i) as [Hbeq| Hbeq]).
 *
 subst.
-(rewrite subst_exist_eq in *).
 (* Auto-generated comment: Failed. *)
 
