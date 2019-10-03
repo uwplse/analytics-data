@@ -298,10 +298,10 @@ Inductive GT : Type :=
   | GDyn : GT
   | GInt : GT
   | GBool : GT
+  | GFun : GT -> GT -> GT
   | GRec : list (option (Ann * GT)) -> GT
   | GRow : list (option (option (Ann * GT))) -> GT.
 Definition SetST := Ensemble ST.
-Search -Ensemble.
 Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
