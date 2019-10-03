@@ -203,11 +203,10 @@ Proof.
        |- _ <= | ?t' | =>
            assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
             assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
+     | Hsem:||-[ ?k][TPair _ _]<= [TPair _ _]
+       |- _ =>
+           destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl;
+            apply Nat.max_le_compat; auto
      end ])).
--
-(destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
-(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
-(simpl).
-(apply Nat.max_le_compat; auto).
 (* Auto-generated comment: Failed. *)
 
