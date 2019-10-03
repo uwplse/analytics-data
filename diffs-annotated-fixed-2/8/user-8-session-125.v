@@ -180,6 +180,6 @@ solve_matrix.
 (simpl).
 matrix_denote.
 restore_dims.
-(rewrite Mmult_1_l).
+(repeat rewrite Mmult_1_l).
 (* Auto-generated comment: Succeeded. *)
 
