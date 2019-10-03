@@ -85,6 +85,35 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Definition abstr : Abstraction State :=
   abstraction_compose d.abstr {| abstraction := log_abstraction |}.
+Lemma diskGet_eq_values :
+  forall d a b b',
+  diskGet d a =?= b -> diskGet d a =?= b' -> a < diskSize d -> b = b'.
+Proof.
+(intros).
+(destruct (diskGet d a) eqn:?; simpl in *).
+-
+congruence.
+-
+exfalso.
+(apply disk_inbounds_not_none in Heqo; eauto).
+Qed.
+Ltac
+ eq_values :=
+  match goal with
+  | H:diskGet ?d ?a =?= ?b, H':diskGet ?d ?a =?= ?b'
+    |- _ =>
+        assert (b = b') by
+         (apply (@diskGet_eq_values d a b b'); try lia; auto); subst
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZ1eFZJ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquxxYPs"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Theorem log_length_ok_nil d b :
   diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d nil.
 Proof.
@@ -172,5 +201,6 @@ Proof.
 (descend; intuition eauto).
 (unfold log_abstraction in H0; intuition).
 (apply H1 in H).
+eq_values.
 (* Auto-generated comment: Succeeded. *)
 
