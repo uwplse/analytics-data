@@ -32,7 +32,7 @@ failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+)\*\)\s+)"
 failure = "(\(\*FAILED.*\*\)\s+)"
 with open(fpath, 'r') as f:
     groups = re.split(failure_or_cancellation, f.read())
-    max_state = 0
+    max_state = -1
     for group_num, group in enumerate(groups, start = 0):
         cancel_match = re.match(failure_or_cancellation, group)
         failure_match = re.match(failure, group)
@@ -49,7 +49,7 @@ with open(fpath, 'r') as f:
                 # Deal with missing states
                 if state_num > max_state:
                     if state_num > max_state + 1:
-                        diff = state_num - max_state
+                        diff = state_num - max_state - 1
                         for i in range(diff):
                             line_num = line_num + 1
                             lines_buff.append("(* Auto-generated comment: Missing state. *)")
