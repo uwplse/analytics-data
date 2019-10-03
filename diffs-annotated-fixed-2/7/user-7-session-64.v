@@ -38,13 +38,10 @@ Check value_type_matching_ty__exists.
 Check value_type_matching_ty__exists.
 (destruct (value_type_matching_ty__exists t1 k Hdep1) as [pv1 [Hpval1 Hpv1]]).
 (destruct (value_type_matching_ty__exists t2 k Hdep2) as [pv2 [Hpval2 Hpv2]]).
-(split; intros v Hm).
--
-(assert (Hmp : |-[ k] TPair v pv2 <$ TPair t1 t2) by (apply match_ty_pair; assumption)).
-specialize (Hsem _ Hmp).
-(apply match_ty_pair__inv in Hsem).
-(destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]).
-(inversion Heq; subst).
-assumption.
-(* Auto-generated comment: Failed. *)
+(split; intros v Hm;
+  [ assert (Hmp : |-[ k] TPair v pv2 <$ TPair t1 t2) by (apply match_ty_pair; assumption)
+  | assert (Hmp : |-[ k] TPair pv1 v <$ TPair t1 t2) by (apply match_ty_pair; assumption) ]; specialize (Hsem _ Hmp);
+  apply match_ty_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
