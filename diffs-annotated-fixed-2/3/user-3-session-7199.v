@@ -451,6 +451,9 @@ Proof.
 (unfold log_abstraction; intuition).
 -
 (unfold log_length_ok in *; intros; autorewrite with upd list in *).
-intuition.
+(simpl in *; intuition).
+-
+(unfold log_size_ok; autorewrite with upd list in *).
+lia.
 (* Auto-generated comment: Succeeded. *)
 
