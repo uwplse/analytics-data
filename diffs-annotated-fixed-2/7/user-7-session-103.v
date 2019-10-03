@@ -56,6 +56,6 @@ Proof.
 (intros v t k w Hm).
 (destruct v).
 -
-(destruct k, w; simpl in Hm; try contradiction).
+(destruct k, w; simpl in Hm; contradiction).
 (* Auto-generated comment: Failed. *)
 
