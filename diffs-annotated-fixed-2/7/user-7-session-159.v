@@ -90,6 +90,6 @@ split.
 assumption.
 (apply match_ty_cname__inv in Hm; subst).
 (intros w' t').
-(induction t').
+(induction t'; intros Hm).
 (* Auto-generated comment: Failed. *)
 
