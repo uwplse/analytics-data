@@ -58,6 +58,6 @@ Proof.
 exists v.
 split.
 reflexivity.
-(simpl in Hm).
+auto.
 (* Auto-generated comment: Failed. *)
 
