@@ -996,6 +996,8 @@ restore_dims tensor_tac.
 (simpl).
 restore_dims tensor_tac.
 evar ( e : Square (2 * 2 ^ \226\159\166 \206\147 \226\159\167) ).
-mat_replace bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f with e.
+(match goal with
+ | |- denote_box _ _ ?A => mat_replace bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f with e
+ end).
 (* Auto-generated comment: Failed. *)
 
