@@ -162,6 +162,17 @@ Proof.
 (apply match_ty_exist__0_inv in Hm).
 (destruct Hm as [Hv [tx Heqx]]; subst).
 (simpl in Hv).
-contradiction.
+(inversion Hv).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl in Hmx).
+(apply match_ty_union__inv in Hmx).
+(destruct Hmx as [Hmx| Hmx]).
++
+(apply match_ty_union_1).
+(apply match_ty_exist).
+exists tx.
+assumption.
 (* Auto-generated comment: Failed. *)
 
