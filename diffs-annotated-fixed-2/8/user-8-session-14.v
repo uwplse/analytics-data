@@ -187,5 +187,6 @@ Proof.
 (induction g).
 +
 (simpl).
-(* Auto-generated comment: Succeeded. *)
+(apply mixed_unitary; trivial).
+(* Auto-generated comment: Failed. *)
 
