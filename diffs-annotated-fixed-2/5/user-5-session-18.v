@@ -21,8 +21,24 @@ Axiom
   (evalEqFalse : forall env t1 t2, t1 <> t2 -> eval env (Eq t1 t2) = vFalse).
 Axiom
   (evalChoose :
-     forall env id body,
-     (exists value, eval (extendEnv env id value) body = vTrue) ->
-     exists out, eval env (Eq (Choose id body) out) = vTrue).
+     forall env x P,
+     (exists value, eval (extendEnv env x value) P = vTrue) ->
+     exists out, eval env (Eq (Choose x P) out) = vTrue).
+Axiom
+  (evalChooseDet :
+     forall env x P Q,
+     eval env P = vTrue <-> eval env Q = vTrue ->
+     eval env (Choose x P) = eval env (Choose x Q)).
+Definition isTheorem (t : Term) := forall env, eval env t = vTrue.
+End EpsilonLogic.
+Fixpoint simplify (t : Term) : Term :=
+  match t with
+  | Var x => Var x
+  | Eq a b => Eq (simplify a) (simplify b)
+  | Choose x P => Choose x (simplify P)
+  end.
+Theorem simplify_correct :
+  forall (L : EpsilonLogic) (t : Term),
+  isTheorem L t <-> isTheorem L (simplify t).
 (* Auto-generated comment: Succeeded. *)
 
