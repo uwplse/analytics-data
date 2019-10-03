@@ -653,10 +653,5 @@ Proof.
 show_dimensions.
 (intros).
 (simpl).
-specialize (kron_1_l (\226\168\130 l2)) as KL.
-specialize (kron_1_l_inv (\226\168\130 l2)) as KL'.
-show_dimensions.
-(rewrite <- kron_1_l_inv).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
