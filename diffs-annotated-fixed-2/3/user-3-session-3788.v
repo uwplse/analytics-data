@@ -21,6 +21,17 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
+Inductive ProcMarker {T} (p : proc T) : Type :=
+    AProc : _.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq0qu6fL"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoPhort"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
@@ -32,5 +43,8 @@ Theorem swapXY_ok :
 Proof.
 (unfold swapXY).
 monad_simpl.
+(match goal with
+ | |- proc_spec _ ?p _ _ => pose proof (ProcMarker p)
+ end).
 (* Auto-generated comment: Succeeded. *)
 
