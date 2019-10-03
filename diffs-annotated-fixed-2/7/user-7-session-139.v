@@ -19,7 +19,9 @@ Proof.
 exists w1.
 (intros v Hm).
 (destruct w1).
+-
 (apply match_ty_exist__0_inv in Hm; contradiction).
+-
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
@@ -27,5 +29,6 @@ exists w1.
 (eapply match_ty__ge_w).
 eassumption.
 (repeat constructor).
+Qed.
 (* Auto-generated comment: Failed. *)
 
