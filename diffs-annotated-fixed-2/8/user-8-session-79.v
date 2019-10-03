@@ -1035,5 +1035,8 @@ Timeout 1 Print Ltac restore_dims.
  end).
 2: {
 reflexivity.
+Timeout 1 About restore_dims_rec.
+Timeout 1 Print restore_dims_rec.
+Timeout 1 Print Ltac restore_dims_rec.
 (* Auto-generated comment: Succeeded. *)
 
