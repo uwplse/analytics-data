@@ -1138,6 +1138,12 @@ rewrite_inPar'.
 5: (rewrite id_circ_spec, init0_spec; reflexivity).
 all: reflexivity.
 }
-6: (simpl in *).
+6: {
+rewrite_inPar'.
+rewrite_inPar'.
+(rewrite 2!id_circ_spec).
+(erewrite kron_compat).
+3: (erewrite kron_compat).
+5: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb2 \206\147 f false); trivial).
 (* Auto-generated comment: Succeeded. *)
 
