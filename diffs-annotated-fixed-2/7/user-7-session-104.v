@@ -69,6 +69,6 @@ clear Heq.
 (destruct Hcontra as [t' [Heq Href]]).
 (inversion Heq; subst).
 clear Heq.
-(simpl in Href).
+(unfold sem_sub_k in Href).
 (* Auto-generated comment: Failed. *)
 
