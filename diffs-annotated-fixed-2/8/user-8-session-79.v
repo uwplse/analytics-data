@@ -985,6 +985,9 @@ Proof.
 (simpl in *).
 rewrite_inPar''.
 (simpl_rewrite TRUE_spec).
-restore_dims.
-(* Auto-generated comment: Failed. *)
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
+  lia.
+(simpl_rewrite id_circ_spec).
+(* Auto-generated comment: Succeeded. *)
 
