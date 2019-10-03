@@ -958,7 +958,5 @@ rewrite_inPar''.
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
   lia.
-show_dimensions.
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
