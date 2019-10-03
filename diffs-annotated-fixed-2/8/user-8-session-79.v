@@ -1012,6 +1012,7 @@ specialize inSeq_correct as IS.
 (simpl in IS).
 (repeat (rewrite IS; compile_typing compile_WT)).
 (unfold compose_super).
+restore_dims tensor_tac.
 (match goal with
  | |-
    context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
