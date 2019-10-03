@@ -430,9 +430,9 @@ auto.
 -
 congruence.
 Qed.
-Lemma log_abstraction_extend :
+Lemma log_abstraction_commit :
   forall (d : disk) (bs bs' : list block),
-  log_abstraction d bs ->
+  log_length_ok d bs ->
   forall d' : State,
   log_size_ok d' (bs ++ bs') ->
   log_contents_ok d' (bs ++ bs') ->
@@ -442,6 +442,5 @@ Lemma log_abstraction_extend :
 Proof.
 (intros).
 (unfold log_abstraction in *; intuition).
-(unfold log_length_ok; intros).
 (* Auto-generated comment: Succeeded. *)
 
