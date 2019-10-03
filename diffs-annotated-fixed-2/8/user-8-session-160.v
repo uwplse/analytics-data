@@ -114,7 +114,7 @@ Qed.
 Hint Rewrite bra0_equiv bra1_equiv ket0_equiv ket1_equiv : ket_db.
 Hint Rewrite bra0ket0 bra0ket1 bra1ket0 bra1ket1 : ket_db.
 Hint Rewrite
- @Mmult_plus_dist_l @Mmult_plus_dist_r kron_plus_dist_l kron_plus_dist_r
+ @Mmult_plus_dist_l @Mmult_plus_dist_r @kron_plus_dist_l kron_plus_dist_r
  Mscale_plus_dist_r : ket_db.
 (* Auto-generated comment: Failed. *)
 
