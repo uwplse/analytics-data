@@ -80,5 +80,11 @@ Notation "'||-[' w ',' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_w_k w k t1 t2
 Definition sem_sub_w (w : nat) (t1 t2 : ty) := forall k : nat, ||-[ w, k][t1]<= [t2].
 Notation "'||-[' w ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w w t1 t2) (at level 45) : btjm_scope.
 Definition sem_eq_w (w : nat) (t1 t2 : ty) := forall k : nat, ||-[ w, k][t1]= [t2].
+Notation "'||-[' w ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_w w t1 t2) (at level 45) : btjm_scope.
+Definition sem_sub (t1 t2 : ty) := exists w : nat, ||-[ w][t1]<= [t2].
+Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : btjm_scope.
+Definition sem_eq (t1 t2 : ty) := exists w : nat, ||-[ w][t1]= [t2].
+Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
+Hint Unfold sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
