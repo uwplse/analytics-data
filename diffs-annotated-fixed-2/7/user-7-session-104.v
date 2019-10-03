@@ -59,5 +59,6 @@ Fixpoint inv_depth (t : ty) :=
   | TEV _ => 0
   end
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
+Lemma sem_eq_k_inv_depth__exists_not : forall (k : nat) (t : ty), | t | <= k -> exists t' : ty, ~ ||-[ k][t']= [t].
 (* Auto-generated comment: Failed. *)
 
