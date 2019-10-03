@@ -66,6 +66,6 @@ Proof.
 (induction t; intros s1 s2 HXs2 HYs1; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
 -
 (simpl).
-(rewrite IHtt1).
+(rewrite IHt1).
 (* Auto-generated comment: Failed. *)
 
