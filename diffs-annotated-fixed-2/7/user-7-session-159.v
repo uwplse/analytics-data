@@ -136,7 +136,5 @@ admit.
 +
 subst.
 (rewrite subst_exist_eq in *).
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [ti Hm]).
 (* Auto-generated comment: Failed. *)
 
