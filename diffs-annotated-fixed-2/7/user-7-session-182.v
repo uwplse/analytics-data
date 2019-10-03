@@ -48,6 +48,6 @@ Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
 (pose proof (IdSetFacts.mem_1 Hin) as Hmem).
-(rewrite (subst_exist_neq _ _ _ _ HY)).
+(rewrite (subst_exist_neq _ _ _ _ HY); try assumption).
 (* Auto-generated comment: Failed. *)
 
