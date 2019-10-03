@@ -1120,6 +1120,7 @@ rewrite_inPar'.
 (rewrite id_circ_spec).
 restore_dims tensor_tac.
 (erewrite kron_compat).
-3: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb1 \206\147 f false)).
+3: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb1 \206\147 f false); trivial).
+all: (try easy).
 (* Auto-generated comment: Succeeded. *)
 
