@@ -54,6 +54,8 @@ Proof.
 (destruct t; try (solve [ simpl; reflexivity ])).
 exfalso.
 (apply Hcontra).
-(eexists; reflexivity).
+eexists.
+eexists.
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
