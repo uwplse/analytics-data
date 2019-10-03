@@ -1017,6 +1017,6 @@ rewrite_inPar'.
 rewrite_inPar'.
 (rewrite strip_one_l_in_eq).
 restore_dims tensor_tac.
-(repeat simpl_rewrite id_circ_spec; auto with wf_db).
+(repeat simpl_rewrite id_circ_spec).
 (* Auto-generated comment: Succeeded. *)
 
