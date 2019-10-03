@@ -238,7 +238,7 @@ Timeout 1 Print Grammar tactic.
 Lemma denote_isometry_box_eq :
   forall W W' (c : Box W W') \207\129,
   Isometry_Box c ->
-  denote_box false c \207\129 = denote_isometry_box c \195\151 \207\129 \195\151 (denote_isometry_box c) \226\128\160.
+  denote_box false c \207\129 == denote_isometry_box c \195\151 \207\129 \195\151 (denote_isometry_box c) \226\128\160.
 Proof.
 (intros W W' [f] \207\129 pf).
 (simpl in pf).
