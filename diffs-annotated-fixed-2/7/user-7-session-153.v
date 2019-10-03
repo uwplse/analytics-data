@@ -20,6 +20,6 @@ Proof.
 exists (TCName c).
 (apply match_ty_cname).
 -
-Check subs.
-(* Auto-generated comment: Failed. *)
+Check subst.
+(* Auto-generated comment: Succeeded. *)
 
