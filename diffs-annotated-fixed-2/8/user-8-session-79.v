@@ -1109,6 +1109,6 @@ rewrite_inPar'.
 (rewrite id_circ_spec).
 restore_dims tensor_tac.
 (erewrite denote_box_compat).
-2: (apply (kron_1_l_inv (ctx_to_matrix \206\147 f))).
-(* Auto-generated comment: Failed. *)
+2: restore_dims tensor_tac.
+(* Auto-generated comment: Succeeded. *)
 
