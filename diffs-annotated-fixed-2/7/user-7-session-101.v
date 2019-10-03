@@ -95,7 +95,7 @@ clear Hm.
 -
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [t Hcontra]).
-(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef ([vY := t] tY))) by reflexivity).
+(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
 (rewrite Heq in Hcontra).
 clear Heq.
 (apply match_ty_ref__inv in Hcontra).
