@@ -25,6 +25,6 @@ Proof.
 (inversion Heq; subst).
 (right; assumption).
 -
-(inversion Heq; subst).
+subst.
 (* Auto-generated comment: Failed. *)
 
