@@ -234,6 +234,22 @@ constructor.
 (destruct k; reflexivity).
 -
 (destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
-(destruct IHt1 as [v1 [Hv1 Hm1]]).
+(destruct (IHt1 k Hdep1) as [v1 [Hv1 Hm1]]).
+(destruct (IHt2 k Hdep2) as [v2 [Hv2 Hm2]]).
+(exists (TPair v1 v2); split).
++
+(constructor; assumption).
++
+(apply match_ty_pair; assumption).
+-
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(destruct (IHt1 k Hdep1) as [v [Hv Hm]]).
+(exists v; split).
+assumption.
+(apply match_ty_union_1; assumption).
+-
+(exists (TRef t); split).
+constructor.
+(apply match_ty_value_type__reflexive).
 (* Auto-generated comment: Failed. *)
 
