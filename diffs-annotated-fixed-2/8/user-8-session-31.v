@@ -2963,7 +2963,7 @@ dependent destruction p1.
 (simpl).
 (rewrite Nat.add_sub).
 replace (size_ctx \206\147) with size_octx (Valid (update_at \206\147 v (Some Bit))).
-Focus 2.
+2: {
 (simpl).
 (rewrite denote_index_update_some with (w := Qubit)).
 reflexivity.
@@ -2974,6 +2974,7 @@ invalid_contradiction.
 (apply singleton_index).
 (inversion t).
 easy.
+}
 (eapply IH).
 (apply STAT).
 (eapply t0).
@@ -2994,5 +2995,193 @@ validate.
 *
 (rewrite Nat.add_sub).
 (unfold denote_circuit in IH).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+(apply pf1).
+(apply t).
+*
+dependent destruction t.
+(simpl).
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Nat.lt_lt_add_l).
+(apply singleton_equiv in s; subst).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (bit x) \206\147).
+2: (erewrite remove_bit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_bit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_bit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (qubit x) \206\147).
+2: (erewrite remove_qubit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_qubit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
++
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(rewrite Nat.add_0_r).
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(assert (M : \206\1472 \226\169\181 \226\136\133 \226\136\153 \206\1472)).
+solve_merge.
+(rewrite pf_merge in *).
+validate.
+specialize (t0 \226\136\133 \206\1472 unit M types_unit).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (remove_pat (qubit x) \206\147).
+2: (erewrite remove_qubit_pred; [ easy | apply pf1 ]).
+(eapply IH).
+(apply STAT).
+(erewrite remove_qubit_merge'; trivial).
+(apply trim_types_circ).
+(apply t0).
+(apply pf1).
+*
+dependent destruction p1.
+dependent destruction t.
+(apply singleton_equiv in s; subst).
+(unfold pat_to_list).
+(simpl).
+(unfold process_gate_state).
+(simpl).
+(unfold remove_pat).
+(simpl).
+(simpl).
+(rewrite Nat.add_0_r).
+(rewrite Nat.add_sub_assoc).
+(apply apply_discard_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ constructor; apply singleton_singleton | apply pf1 ]).
+replace (size_ctx \206\147) with size_octx \206\147 by easy.
+(destruct pf1; rewrite pf_merge in *).
+(rewrite size_octx_merge by easy).
+(simpl; rewrite singleton_size).
+omega.
+-
+(inversion STAT).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqVy35XM"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Theorem denote_static_box_correct :
+  forall W1 W2 (c : Box W1 W2),
+  Static_Box c -> Typed_Box c -> WF_Superoperator (\226\159\166 c \226\159\167).
+Proof.
+(intros W1 W2 c STAT WT).
+(simpl).
+(unfold denote_box).
+(unfold denote_db_box).
+(destruct c as [c']).
+(inversion STAT; subst).
+clear STAT.
+rename H0 into STAT.
+(unfold Typed_Box in WT).
+(simpl).
+(destruct (add_fresh W1 []) as [p \206\147] eqn:E).
+specialize (STAT p).
+specialize (WT \206\147 p).
+specialize (denote_static_circuit_correct W2 [] \206\147 (c' p) STAT) as WFC.
+(unfold denote_circuit in WFC).
+(simpl in WFC).
+(rewrite (ctx_wtype_size W1 p \206\147)).
+(apply WFC).
+(apply WT).
+(apply add_fresh_typed_empty).
+easy.
+(apply add_fresh_typed_empty).
+easy.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOW491C"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition HOAS_Equiv {W1} {W2} (c1 c2 : Box W1 W2) :=
+  forall \207\129 b, denote_box b c1 \207\129 = denote_box b c2 \207\129.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqcJ7hDP"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
