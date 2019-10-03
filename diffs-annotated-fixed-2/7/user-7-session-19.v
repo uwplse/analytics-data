@@ -471,6 +471,7 @@ Admitted.
 Theorem sub_d__sem_sub_i : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
 Proof.
 (intros t1 t2 Hsub).
-(unfold sem_sub).
+(unfold sem_sub_i).
+(induction Hsub; intros k v Hv Hm).
 (* Auto-generated comment: Failed. *)
 
