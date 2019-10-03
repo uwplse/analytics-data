@@ -171,6 +171,24 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 (step_proc; intros).
 (destruct a'; simpl in *; intuition idtac).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1eiNax"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFlo0QD"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 {
+(subst; eauto).
+}
+(destruct (a == r)).
+-
+invert_abstraction.
+(step_proc; intuition idtac).
+{
+(step_proc; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
