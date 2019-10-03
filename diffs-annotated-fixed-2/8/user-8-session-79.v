@@ -954,5 +954,6 @@ Timeout 1 Print rewrite_inPar.
 Timeout 1 Print Ltac rewrite_inPar.
 (simpl in *).
 (try rewrite Nat.mul_1_r in *).
+(rewrite IP).
 (* Auto-generated comment: Succeeded. *)
 
