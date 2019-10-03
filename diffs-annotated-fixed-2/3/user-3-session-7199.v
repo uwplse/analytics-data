@@ -313,6 +313,7 @@ step_proc.
 (destruct a as [_ bs]; simpl in *; intuition eauto).
 Qed.
 Hint Resolve recover_wipe: core.
+Opaque firstn.
 Theorem get_upto_ok a :
   proc_spec
     (fun (_ : unit) state =>
@@ -327,5 +328,23 @@ Proof.
 step_proc.
 -
 step_proc.
+step_proc.
+intuition eauto.
+{
+lia.
+}
+step_proc.
+Timeout 1 Show.
+Timeout 1 Show Intros.
+Timeout 1
+(repeat
+  match goal with
+  | company_coq_hyp__:_ |- _ => clear dependent company_coq_hyp__; idtac
+  end;
+  repeat
+   match goal with
+   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
+   end).
+Timeout 1 Show Intros.
 (* Auto-generated comment: Succeeded. *)
 
