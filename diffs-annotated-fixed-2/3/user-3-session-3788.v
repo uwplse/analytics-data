@@ -32,10 +32,5 @@ Theorem swapXY_ok :
 Proof.
 (unfold swapXY).
 monad_simpl.
-(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
-Check proc_spec_rx.
-(cbn[pre post recovered]).
-(let state := fresh "state" in
- intros ? state Hpre).
 (* Auto-generated comment: Succeeded. *)
 
