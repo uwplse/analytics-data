@@ -125,5 +125,5 @@ Omega.omega.
 (simpl).
 Omega.omega.
 Defined.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
