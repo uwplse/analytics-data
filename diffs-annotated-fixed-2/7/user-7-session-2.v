@@ -212,6 +212,26 @@ Proof.
 (simpl in Hsub).
 (apply sub_r_unite_pairs_nf_l__inv in Hsub; try apply mk_nf__in_nf).
 (destruct Hsub; split; apply SR_NormalForm; assumption).
+Qed.
+Lemma eq_r_trans :
+  forall t1 t2 : ty, |- t1 << t2 -> |- t2 << t1 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
+Proof.
+(intros t1 t2 Hsub11).
+(induction Hsub11).
 -
+(intros Hsub12 t3 Hsub21).
+(induction Hsub21; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
+-
+(intros Hsub12).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
+(remember (TPair t1 t2) as ty eqn:Heqy ).
+(induction Hsub12; inversion Heqx; inversion Heqy; subst; try clear Heqx Heqy).
++
+(intros t3 Hsub21).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
+(induction Hsub21; inversion Heqx; subst).
+*
+clear Heqx IHHsub12_1 IHHsub12_2 IHHsub21_1 IHHsub21_2.
+(intros Hsub22).
 (* Auto-generated comment: Failed. *)
 
