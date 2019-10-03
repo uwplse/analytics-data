@@ -89,26 +89,12 @@ clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 Abort.
-Lemma match_ty_i_eq__inv_depth_eq :
-  forall t t' : ty, (forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ t <-> |-[ k] v <$ t') -> | t | = | t' |.
+Lemma match_ty_i__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
-(induction t; induction t'; intros H).
-reflexivity.
-15: {
-clear IHt'.
-(simpl).
-(apply f_equal).
-(apply IHt).
-(intros k v Hv).
-(assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
-specialize (H (S k) (TRef t)).
-(destruct H as [H _]).
-constructor.
-specialize (H Hmt).
-(apply match_ty_i_ref__inv in H).
-(destruct H as [tx [Heq Href]]).
-(inversion Heq; subst).
-auto.
-}
+(intros v Hv; induction Hv; intros k).
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_i_pair; auto).
 (* Auto-generated comment: Failed. *)
 
