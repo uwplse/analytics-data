@@ -76,7 +76,18 @@ Proof.
 -
 (destruct v; try contradiction).
 (inversion Hle; subst).
+tauto.
+-
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(inversion Hle; subst).
++
 (simpl).
-constructor.
+(intros v Hv).
+specialize (Href v Hv).
+(split; tauto).
++
+(destruct k').
+tauto.
 (* Auto-generated comment: Failed. *)
 
