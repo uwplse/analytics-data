@@ -447,6 +447,7 @@ constructor.
 (apply IHk).
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf).
-assumption.
+Check sem_eq_k_i__inv_depth_eq_1.
+(pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href)).
 (* Auto-generated comment: Failed. *)
 
