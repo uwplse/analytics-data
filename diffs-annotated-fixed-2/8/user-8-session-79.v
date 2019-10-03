@@ -758,9 +758,12 @@ Ltac
    repeat
     match goal with
     | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace
-      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li) by tensor_dims
+      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
+      by
+        (simpl; rewrite ctx_to_mat_list_length;
+          try rewrite size_ntensor, Nat.mul_1_r; easy)
     end.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coql5T98o"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqlkhZoL"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma ctx_lookup_exists :
@@ -918,5 +921,22 @@ restore_dims tensor_dims.
 -
 (simpl).
 listify_kron.
+(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
+  try omega).
+(simpl).
+(rewrite xorb_comm).
+reflexivity.
+(apply (singleton_nth_classical \206\147 v) in H as [W H]).
+(apply position_of_lt in H).
+(simpl in *; omega).
+(apply ctx_lookup_exists; easy).
+-
+(simpl in *).
+restore_dims tensor_dims.
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
+clear IS.
+rewrite_inPar'.
 (* Auto-generated comment: Succeeded. *)
 
