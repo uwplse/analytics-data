@@ -187,6 +187,7 @@ eauto using log_length_ok_nil.
 (destruct d; simpl in *; [  | lia ]).
 (assert (diskGet nil 0 = None)).
 (apply disk_oob_eq).
-(simpl).
+(simpl; lia).
+congruence.
 (* Auto-generated comment: Succeeded. *)
 
