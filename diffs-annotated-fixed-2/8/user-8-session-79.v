@@ -992,6 +992,10 @@ restore_dims
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
   lia.
-(destruct t).
+(destruct t; reflexivity).
+-
+(simpl in *).
+rewrite_inPar''.
+(simpl_rewrite TRUE_spec).
 (* Auto-generated comment: Succeeded. *)
 
