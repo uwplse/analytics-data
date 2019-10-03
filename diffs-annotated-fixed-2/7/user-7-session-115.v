@@ -20,6 +20,6 @@ Proof.
 (induction t; intros Hfresh s; try (solve [ reflexivity ])).
 -
 (simpl).
-(unfold fresh_in_ty in *).
+(unfold fresh_in_ty, fresh in *).
 (* Auto-generated comment: Failed. *)
 
