@@ -118,6 +118,8 @@ Proof.
 idtac.
 clear IHt'1 IHt'2.
 (simpl).
-(apply f_equals).
+(assert (Heq1 : | t1 | = | t'1 |)).
+{
+(apply IHt1).
 (* Auto-generated comment: Failed. *)
 
