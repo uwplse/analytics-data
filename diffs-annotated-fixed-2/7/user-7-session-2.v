@@ -155,6 +155,10 @@ specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (split; tauto || constructor; tauto).
 (apply NF_Union; apply unite_pairs__preserves_nf; assumption).
 -
-(rewrite unite_pairs_union_t).
+(rewrite unite_pairs_union_t in Hsub).
+(destruct (union_in_nf__components_in_nf _ _ Hnf1) as [Hnf11 Hnf12]).
+(apply sub_r_nf_union_l__inv in Hsub).
+(destruct Hsub as [Hsub1 Hsub2]).
+specialize (IHt1_1 _ _ Hsub1 Hnf11 Hnf2).
 (* Auto-generated comment: Failed. *)
 
