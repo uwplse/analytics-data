@@ -1023,7 +1023,8 @@ restore_dims tensor_tac.
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
 Set Printing All.
-revert IP.
-(progress restore_dims).
+Timeout 1 About restore_dims.
+Timeout 1 Print restore_dims.
+Timeout 1 Print Ltac restore_dims.
 (* Auto-generated comment: Succeeded. *)
 
