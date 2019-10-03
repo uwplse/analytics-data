@@ -218,5 +218,6 @@ intro x.
    res -> exists i, res = eval L env (Int i))).
 {
 (intros).
+apply -> evalInInts.
 (* Auto-generated comment: Succeeded. *)
 
