@@ -459,8 +459,8 @@ tauto.
 -
 (intros t1 t2 Hnf1 [IH11 IH12] Hnf2 [IH21 IH22]).
 (split; intros t'; induction t'; intros Hnf'; specialize (IH11 _ Hnf'); specialize (IH12 _ Hnf'); specialize (IH21 _ Hnf'); specialize
-  (IH22 _ Hnf'); try (solve [ solve_union_sub_r__decidable IH11 IH21 ])).
+  (IH22 _ Hnf'); try (solve [ solve_union_sub_r__decidable IH11 IH21 | solve_atom_sub_r_union__decidable IH12 IH22 ])).
 +
-(solve_atom_sub_r_union__decidable IH12 IH22).
+(destruct IH12 as [IH12| IH12]; destruct IH22 as [IH22| IH22]; try (solve [ left; constructor; assumption ])).
 (* Auto-generated comment: Failed. *)
 
