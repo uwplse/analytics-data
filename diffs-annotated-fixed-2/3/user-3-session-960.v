@@ -81,6 +81,5 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Search -"endian".
 Definition uint64_to_bv (n : uint64) : option (ByteVector.ByteVector 8).
-Print ByteVector.ByteVector.
 (* Auto-generated comment: Succeeded. *)
 
