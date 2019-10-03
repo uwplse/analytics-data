@@ -218,10 +218,18 @@ Proof.
 (intros t1 t2 t' Hsub).
 (remember (TUnion t1 t2) as t eqn:Heqt ).
 (induction Hsub; inversion Heqt; subst).
+-
 tauto.
+-
 (split; apply SR_UnionR1; tauto).
+-
 (split; apply SR_UnionR2; tauto).
+-
 (simpl in Hsub).
 (apply sub_r_nf_union_l__inv in Hsub).
+(destruct Hsub as [Hsub1 Hsub2]).
+(split; apply SR_NormalForm; assumption).
+(apply NF_Union; apply mk_nf__in_nf).
+Qed.
 (* Auto-generated comment: Failed. *)
 
