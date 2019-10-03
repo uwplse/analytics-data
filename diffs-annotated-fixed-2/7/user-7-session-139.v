@@ -68,8 +68,7 @@ tauto.
 (induction t').
 +
 (intros k).
-specialize (Hsem k).
-Check match_ty__exists_w_v.
 (destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]).
+specialize (Hsem _ _ _ Hm).
 (* Auto-generated comment: Failed. *)
 
