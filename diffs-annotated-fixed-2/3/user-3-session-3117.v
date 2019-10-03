@@ -118,45 +118,52 @@ Theorem N_ascii_bounded : forall a, (Ascii.N_of_ascii a < 256)%N.
 Proof.
 (destruct a as [[| ] [| ] [| ] [| ] [| ] [| ] [| ] [| ]]; vm_compute;
   reflexivity).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqVa0oVk"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqj1FTwL"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJqbCst"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Theorem nat_ascii_bounded : forall a, Ascii.nat_of_ascii a < 256.
 Proof.
 (intro a; unfold Ascii.nat_of_ascii).
 (change_no_check 256 with (N.to_nat 256)).
 (rewrite <- Nat.compare_lt_iff, <- N2Nat.inj_compare, N.compare_lt_iff).
 (apply N_ascii_bounded).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtluCF2"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqN0FZbd"
+Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
+refine (exist _ (Ascii.nat_of_ascii a) _).
+(apply nat_ascii_bounded).
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqZ0TTNh"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqMVjRvp"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqBpQAWu"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition ascii_to_bounded (a : Ascii.ascii) : {x | x < 256}.
-refine (exist _ (Ascii.nat_of_ascii a) _).
+Instance aModel : GoModel.
+Proof.
+refine
+ {|
+ byte := {x | x < 256};
+ byte0 := exist _ 0 _;
+ uint64_to_string := pretty.pretty_nat;
+ ascii_to_byte := ascii_to_bounded;
+ byte_to_ascii := bounded_to_ascii;
+ uint64_to_le := nat64_to_le;
+ uint64_from_le := nat64_from_le;
+ File := Z;
+ nilFile := (- 1)%Z;
+ Ptr := fun _ => nat;
+ nullptr := fun _ => 0 |}.
+(apply Nat.lt_0_succ).
+Defined.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsU7UCB"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1HNagX"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
