@@ -127,23 +127,15 @@ Qed.
 Lemma sub_r_unite_pairs_l__inv :
   forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
-(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2).
--
-(match goal with
- | Hsub:|- ?t1 << ?t2
-   |- _ => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hsub; inversion Heqx; inversion Heqy; subst; tauto
- end).
--
-(simpl in Hsub).
-(remember (TPair (TCName c) (TPair t2_1 t2_2)) as tx eqn:Heqx ).
-(remember (TPair t1' t2') as ty eqn:Heqy ).
-(induction Hsub; inversion Heqx; inversion Heqy; subst).
-tauto.
-(inversion Hnf1; subst).
-(inversion Hnf2; subst).
-(assert (Hnf : InNF( TPair (TCName c) (TPair t2_1 t2_2))) by (do 2 constructor; assumption)).
-(rewrite (mk_nf_nf__equal _ Hnf) in IHHsub).
-tauto.
+(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2;
+  try (solve
+   [ match goal with
+     | Hsub:|- ?t1 << ?t2
+       |- _ =>
+           remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ;
+            assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; 
+            inversion Heqx; inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
+     end ])).
 -
 (rewrite unite_pairs_t_union in Hsub; try resolve_not_union).
 (destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22]).
@@ -154,12 +146,15 @@ specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (split; tauto || constructor; tauto).
 (apply NF_Union; apply unite_pairs__preserves_nf; assumption).
 -
-(match goal with
- | Hsub:|- ?t1 << ?t2
-   |- _ =>
-       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ;
-        assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; 
-        inversion Heqx; inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
- end).
+(rewrite unite_pairs_t_union in Hsub; try resolve_not_union).
+(destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22]).
+(apply sub_r_nf_union_l__inv in Hsub).
+(destruct Hsub as [Hsub1 Hsub2]).
+specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21).
+specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
+(split; tauto || constructor; tauto).
+(apply NF_Union; apply unite_pairs__preserves_nf; assumption).
+-
+(rewrite unite_pairs_union_t).
 (* Auto-generated comment: Failed. *)
 
