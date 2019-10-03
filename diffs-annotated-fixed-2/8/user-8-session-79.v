@@ -1154,5 +1154,5 @@ listify_kron.
   try omega).
 (simpl).
 (rewrite xorb_true_r).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
