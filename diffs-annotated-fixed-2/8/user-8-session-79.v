@@ -1013,6 +1013,9 @@ restore_dims tensor_tac.
 specialize inSeq_correct as IS.
 (simpl in IS).
 (repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
-(repeat rewrite_inPar').
-(* Auto-generated comment: Succeeded. *)
+rewrite_inPar'.
+rewrite_inPar'.
+(rewrite strip_one_l_in_eq).
+(rewrite <- (kron_1_l _ _ (ctx_to_matrix \206\147 f)); auto with wf_db).
+(* Auto-generated comment: Failed. *)
 
