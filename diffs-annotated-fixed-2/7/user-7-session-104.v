@@ -55,6 +55,8 @@ exists (TRef t).
 (destruct Hcontra as [Hsem1 Hsem2]).
 specialize (Hsem1 1).
 (destruct Hsem1 as [w2 Hsem1]).
-(assert (Hm : |-[ k, 1] TRef t <$ TRef t)).
+(assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hsem1 _ Hm).
+(destruct k, w2, t; try (solve [ simpl in Hsem1; contraidction ])).
 (* Auto-generated comment: Failed. *)
 
