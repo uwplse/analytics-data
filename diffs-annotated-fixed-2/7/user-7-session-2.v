@@ -210,6 +210,6 @@ Proof.
 (split; assumption).
 -
 (simpl in Hsub).
-(apply sub_r_unite_pairs_nf_l__inv).
+(apply sub_r_unite_pairs_nf_l__inv in Hsub).
 (* Auto-generated comment: Failed. *)
 
