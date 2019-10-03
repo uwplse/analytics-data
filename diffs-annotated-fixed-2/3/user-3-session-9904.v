@@ -127,6 +127,11 @@ exfalso.
 intuition.
 +
 (exists (n0 :: s); intuition).
-(right; intuition congruence).
+(right; intuition).
+{
+congruence.
+}
+(simpl).
+(unfold statdb_abstraction in *).
 (* Auto-generated comment: Succeeded. *)
 
