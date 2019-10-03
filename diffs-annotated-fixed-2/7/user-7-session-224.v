@@ -132,6 +132,6 @@ exists w2.
 (apply match_ty_union_1; assumption).
 }
 {
-exists S w.
+exists S w'.
 (* Auto-generated comment: Failed. *)
 
