@@ -98,6 +98,36 @@ Function
        else mk_subst_exist x y t' (subst x s t')
    | TVar y => if beq_id x y then s else t
    | TEV y => t
-   end - intros.
+   end.
+-
+(intros).
+(simpl).
+Omega.omega.
+-
+(intros).
+(simpl).
+Omega.omega.
+-
+(intros).
+(simpl).
+Omega.omega.
+-
+(intros).
+(simpl).
+Omega.omega.
+-
+(intros).
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+-
+(intros).
+(simpl).
+Omega.omega.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+tauto.
+Defined.
 (* Auto-generated comment: Failed. *)
 
