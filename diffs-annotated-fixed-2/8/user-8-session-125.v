@@ -68,6 +68,5 @@ Msimpl.
 (unfold swap_list; simpl).
 (unfold swap_two; simpl).
 Msimpl.
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
