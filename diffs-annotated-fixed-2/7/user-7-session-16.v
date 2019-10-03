@@ -408,6 +408,6 @@ Proof.
    | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 +
-(destruct IHta1 as [IH1| IH1]; destruct IHta2 as [IH2| IH2]).
+(destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
 (* Auto-generated comment: Failed. *)
 
