@@ -136,8 +136,6 @@ Proof.
 (intros Hsub12).
 (remember (TPair t1' t2') as tx eqn:Heqx ).
 (remember (TPair t1 t2) as ty eqn:Heqy ).
-(induction Hsub12; inversion Heqx; inversion Heqy; subst).
-+
-(intros t3 Hsub21).
+(induction Hsub12; inversion Heqx; inversion Heqy; subst; clear Heqx Heqy).
 (* Auto-generated comment: Failed. *)
 
