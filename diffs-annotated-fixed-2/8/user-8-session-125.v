@@ -38,6 +38,7 @@ Proof.
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
-(repeat rewrite Mmult_assoc; try simpl_rewrite unitary_gate_unitary).
-(* Auto-generated comment: Succeeded. *)
+(repeat rewrite Mmult_assoc).
+(simpl_rewrite unitary_gate_unitary).
+(* Auto-generated comment: Failed. *)
 
