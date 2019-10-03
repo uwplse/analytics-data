@@ -250,7 +250,7 @@ Theorem get_len_ok :
   proc_spec
     (fun bs state =>
      {|
-     pre := log_length_ok state bs;
+     pre := log_length_ok state bs /\ log_size_ok state bs;
      post := fun r state' => state' = state /\ r = length state;
      recovered := fun _ state' => state' = state |}) get_len recover d.abstr.
 Proof.
@@ -258,5 +258,7 @@ Proof.
 step_proc.
 step_proc.
 eauto.
+intuition eauto.
+(eexists; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
