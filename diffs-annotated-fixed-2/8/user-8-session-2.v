@@ -115,6 +115,5 @@ Proof.
 (simpl).
 -
 (induction r; trivial).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
