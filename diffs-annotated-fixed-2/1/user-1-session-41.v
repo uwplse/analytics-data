@@ -366,6 +366,66 @@ Fixpoint Gamma (G : GT) : SetST :=
                         end
                     end))) l)
   end.
-Search -Infinite.
+Search -list.
+Print nth.
+Print nth.
+Print SRec.
+Inductive Alpha : SetST -> GT -> Prop :=
+  | alpha_int : Alpha (Singleton _ SInt) GInt
+  | alpha_bool : Alpha (Singleton _ SBool) GBool
+  | alpha_fun :
+      forall S G_1 G_2,
+      Inhabited _ S ->
+      (forall X,
+       Ensembles.In _ S X -> exists S_1 S_2, X = SFun S_1 S_2) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SFun S_1 S_2 => Some S_1
+            | _ => None
+            end)) G_1 ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SFun S_1 S_2 => Some S_2
+            | _ => None
+            end)) G_2 -> Alpha S (GFun G_1 G_2)
+  | alpha_rec_mt : Alpha (Singleton _ (SRec [])) (GRec [])
+  | alpha_rec_cons_req :
+      forall S tl,
+      Inhabited _ S ->
+      (forall X,
+       Ensembles.In _ S X -> exists hd tl, X = SRec (Some hd :: tl)) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => SRec tl
+            | _ => None
+            end)) (GRec tl) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SRec (hd :: tl) => hd
+            | _ => None
+            end)) hd -> Alpha S (GRec ((R, hd) :: tl))
+  | alpha_row_mt :
+      forall S,
+      Inhabited _ S ->
+      (forall X, Ensembles.In _ S X -> exists l, X = SRec l) ->
+      (forall n,
+       exists l_1,
+         Ensembles.In _ S (SRec l_1) /\
+         nth n l_1 None = None /\
+         Alpha
+           (SetPMap S
+              (fun S =>
+               match S with
+               | SRec l => nth n l None
+               | _ => None
+               end)) GDyn) -> Alpha S (GRow []).
 (* Auto-generated comment: Failed. *)
 
