@@ -271,6 +271,8 @@ admit.
 admit.
 -
 (apply Hnotm).
-(exists (TRef t); apply match_ty__reflexive; constructor).
+exists (TRef t).
+(apply match_ty_value_type__reflexive; constructor).
+-
 (* Auto-generated comment: Failed. *)
 
