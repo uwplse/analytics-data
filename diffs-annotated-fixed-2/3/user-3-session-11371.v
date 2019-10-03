@@ -215,6 +215,6 @@ reflexivity.
 (simpl).
 (assert (H1 : m * S n' = m + m * n')).
 {
-(simpl).
+Search -(_ * S _).
 (* Auto-generated comment: Succeeded. *)
 
