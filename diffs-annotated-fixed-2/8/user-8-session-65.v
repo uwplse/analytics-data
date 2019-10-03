@@ -967,6 +967,17 @@ gen \207\129.
 (simpl).
 (rewrite Nat.mul_1_r).
 (intros \207\129).
-restore_dims.
+Timeout 1 About restore_dims.
+Timeout 1 Print restore_dims.
+Timeout 1 Print Ltac restore_dims.
+(match goal with
+ | |- ?A => let A' := restore_dims_rec tac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+unify_matrix_dims.
 (* Auto-generated comment: Failed. *)
 
