@@ -29,5 +29,12 @@ Proof.
 (intros safe w c \206\147 TP).
 dependent induction TP.
 -
+(intros w' f \206\1470 \206\1471 \206\1471' \206\14701 WT pf_merge1 pf_merge2).
+(simpl).
+(unfold compose_super).
+(unfold denote_circuit).
+(simpl).
+(unfold pad).
+(rewrite (ctx_wtype_size w p \206\147) by easy).
 (* Auto-generated comment: Succeeded. *)
 
