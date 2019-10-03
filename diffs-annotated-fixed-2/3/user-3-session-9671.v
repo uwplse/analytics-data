@@ -520,6 +520,9 @@ intuition.
 (exists bs; intuition eauto).
 }
 step.
-intuition eauto.
+intuition.
+{
+eauto.
+}
 (* Auto-generated comment: Succeeded. *)
 
