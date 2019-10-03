@@ -146,17 +146,17 @@ econstructor.
 (apply ProofIrrelevanceTheory.subset_eq_compat).
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
-(simpl; constructor).
+(simpl; constructor; unfold nat64_to_le, nat64_from_le; intros;
+  match goal with
+  | H:context [ nat_le_dec ?n ?m ]
+    |- _ => destruct (nat_le_dec n m); try congruence
+  end).
 +
-(unfold nat64_to_le; intros).
-(match goal with
- | H:context [ nat_le_dec ?n ?m ]
-   |- _ => destruct (nat_le_dec n m); try congruence
- end).
 (inversion H; subst).
 (rewrite app_length, repeat_length).
 lia.
 +
-(unfold nat64_to_le, nat64_from_le; intros).
+(inversion H; subst).
+(rewrite nat_from_le_zeros).
 (* Auto-generated comment: Succeeded. *)
 
