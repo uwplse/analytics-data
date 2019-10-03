@@ -1025,16 +1025,15 @@ restore_dims tensor_tac.
 Timeout 1 About restore_dims.
 Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
-(progress
-  match type of IP with
-  | ?A =>
-      let A' := restore_dims_rec tac A in
-      replace
-      A
-      with
-      A'
-      in IP
-      by unify_matrix_dims tac
-  end).
+(match type of IP with
+ | ?A => let A' := restore_dims_rec tac A in
+         replace
+         A
+         with
+         A'
+         in IP
+ end).
+2: {
+(apply f_equal_gen; trivial).
 (* Auto-generated comment: Failed. *)
 
