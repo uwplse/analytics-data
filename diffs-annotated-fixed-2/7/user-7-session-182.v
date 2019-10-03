@@ -83,17 +83,6 @@ assumption.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
 (destruct (IdSetProps.In_dec i (FV tx)) as [Hin| Hin]).
-{
-(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
-(rewrite subst_equation).
-(pose proof (false_beq_id _ _ Hbeq) as Hneq).
-(rewrite Hneq).
-(rewrite Hmem).
-(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as Z).
 specialize (IHw' _ Hm).
-exists ([X' := tx] ti).
-admit.
-}
-{
 (* Auto-generated comment: Failed. *)
 
