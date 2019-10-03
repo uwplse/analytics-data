@@ -360,6 +360,16 @@ Unset Search Output Name Only.
 Example test_sum1 : count 1 (sum [1; 2; 3] [1; 4; 1]) = 3.
 Proof.
 reflexivity.
-QEd.
-(* Auto-generated comment: Failed. *)
+Qed.
+Definition add (v : nat) (s : bag) : bag := v :: s.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3379k5"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdjcOCO"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
