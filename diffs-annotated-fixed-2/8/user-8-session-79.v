@@ -1193,5 +1193,9 @@ rewrite_inPar.
  (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *; specialize
    (IHb2 \206\147 f false); repeat rewrite Nat.add_0_r in *; apply IHb2; trivial).
 (rewrite xorb_false_l).
+all: (simpl; reflexivity).
+}
+3: {
+rewrite_inPar.
 (* Auto-generated comment: Succeeded. *)
 
