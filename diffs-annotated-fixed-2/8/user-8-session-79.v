@@ -968,6 +968,5 @@ replace (length l1 + S (length l2)) with S n in * by lia.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-(rewrite IHi; trivial; try lia).
 (* Auto-generated comment: Succeeded. *)
 
