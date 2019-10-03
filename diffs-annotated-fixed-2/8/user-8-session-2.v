@@ -137,6 +137,15 @@ Search -fst -snd.
 (destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
 Opaque skipn.
 (simpl).
-restore_dims repeat rewrite repeat_length; unify_pows_two; lia.
+Timeout 1 About restore_dims.
+Timeout 1 Print restore_dims.
+Timeout 1 Print Ltac restore_dims.
+(match goal with
+ | |- ?A => let A' := restore_dims_rec A in
+            replace
+            A
+            with
+            A'
+ end).
 (* Auto-generated comment: Failed. *)
 
