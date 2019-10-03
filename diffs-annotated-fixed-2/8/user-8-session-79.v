@@ -1155,6 +1155,6 @@ listify_kron.
 (simpl; reflexivity).
 }
 4: {
-(rewrite kron_assoc).
+(rewrite <- kron_assoc).
 (* Auto-generated comment: Failed. *)
 
