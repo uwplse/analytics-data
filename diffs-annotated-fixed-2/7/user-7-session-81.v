@@ -95,7 +95,7 @@ Proof.
 (split; unfold sem_sub; intros k v Hm).
 -
 Check value_type_matching_ty__exists.
+Check value_type_matching_ty__exists.
 (destruct (value_type_matching_ty__exists t2 k) as [pv2 Hpv2]).
-(remember (Nat.max k (| t2 |)) as kmax).
 (* Auto-generated comment: Failed. *)
 
