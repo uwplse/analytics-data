@@ -405,5 +405,60 @@ step_proc.
 autorewrite with upd list in *.
 (simpl in *; lia).
 +
+(unfold log_size_ok in *; simpl in *).
+autorewrite with upd list in *.
+(simpl in *; lia).
++
+(rewrite <- app_assoc in *; simpl in *; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwyXlbA"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve append_at_ok: core.
+Theorem log_abstraction_preserved d bs d' :
+  log_abstraction d bs ->
+  diskGet d' len_addr = diskGet d len_addr ->
+  diskSize d' = diskSize d -> log_contents_ok d' bs -> log_abstraction d' bs.
+Proof.
+(unfold log_abstraction, log_length_ok, log_size_ok; intuition).
+-
+replace (diskGet d' len_addr) in *.
+auto.
+-
+congruence.
+Qed.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+step_proc.
+(descend; intuition eauto).
+destruct matches.
+-
+step_proc.
+(descend; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto using log_abstraction_preserved).
+}
+step_proc.
+intuition.
+{
+(exists bs; eauto using log_abstraction_preserved).
+}
+step_proc.
+intuition.
+{
+(exists (bs ++ v); intuition).
+rename state0 into d'.
 (* Auto-generated comment: Succeeded. *)
 
