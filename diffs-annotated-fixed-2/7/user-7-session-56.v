@@ -140,6 +140,10 @@ Proof.
 -
 (right; simpl; apply Nat.le_0_l).
 -
-(specialize (IHHv1 k H1); specialize (IHHv2 k H2)).
-(* Auto-generated comment: Succeeded. *)
+(specialize (IHHv1 k); specialize (IHHv2 k)).
+(destruct IHv1 as [IHv1| IHv1]; destruct IHv2 as [IHv2| IHv2];
+  try (solve
+   [ left; intros Hcontra; destruct Hcontra as [v Hm]; apply match_ty_pair__inv in Hm; destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]; subst;
+      apply IHv1 || apply IHv2; eexists; eassumption ])).
+(* Auto-generated comment: Failed. *)
 
