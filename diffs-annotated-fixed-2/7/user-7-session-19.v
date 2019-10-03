@@ -268,6 +268,8 @@ Proof.
 (pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept H1)).
 (pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept' H2)).
 SearchPattern (_ <= _ -> _ <= _ -> _ = _).
-(apply le_unique).
+Check le_unique.
+SearchPattern (_ <= _ -> _ = _).
+(apply Nat.le_antisymm).
 (* Auto-generated comment: Failed. *)
 
