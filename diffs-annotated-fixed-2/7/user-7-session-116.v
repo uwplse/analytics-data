@@ -40,14 +40,11 @@ reflexivity.
 (rewrite IHt; try assumption).
 reflexivity.
 -
-(destruct (beq_idP X i)).
-reflexivity.
+(destruct (beq_idP X i); try reflexivity).
 (rewrite IHt).
 reflexivity.
 (unfold fresh in *).
 (intros Hcontra).
-Search -IdSet.remove.
-Check IdSetFacts.remove_2.
 (apply Hfresh).
 (apply IdSetFacts.remove_2; try assumption).
 (intros Heq).
