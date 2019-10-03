@@ -962,6 +962,5 @@ restore_dims
 specialize (IHi n l1 l2 A B).
 (repeat rewrite app_length in *).
 (simpl in *).
-show_dimensions.
 (* Auto-generated comment: Succeeded. *)
 
