@@ -164,6 +164,5 @@ Proof.
 -
 constructor.
 assumption.
--
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
