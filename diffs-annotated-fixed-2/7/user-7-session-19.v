@@ -194,5 +194,6 @@ Proof.
            assert (Hv : value_type t1) by constructor; assert (Hm : |-[ k] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
             (Hsem _ Hm); contradiction
      end ])).
+(assert (Hv : value_type (TCName c)) by constructor).
 (* Auto-generated comment: Failed. *)
 
