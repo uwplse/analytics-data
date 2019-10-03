@@ -263,6 +263,7 @@ Proof.
 Qed.
 Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
-(intros k t t' H).
+(intros k t t' Hdept H).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
 (* Auto-generated comment: Failed. *)
 
