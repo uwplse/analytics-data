@@ -339,6 +339,6 @@ validate.
 -
 (simpl).
 (unfold compose_super).
-(erewrite VA).
-(* Auto-generated comment: Succeeded. *)
+now erewrite VA.
+(* Auto-generated comment: Failed. *)
 
