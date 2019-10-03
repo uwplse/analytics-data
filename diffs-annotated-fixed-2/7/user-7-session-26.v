@@ -257,5 +257,27 @@ Proof.
 (unfold sem_sub_k in Hsem).
 (split; intros v Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_union_1; assumption) || (apply match_ty_union_2; assumption);
   apply Hsem; assumption).
-(* Auto-generated comment: Failed. *)
+Qed.
+Open Scope btjd_scope.
+Lemma sub_d_union_l__inv : forall t1 t2 t' : ty, |- TUnion t1 t2 << t' -> |- t1 << t' /\ |- t2 << t'.
+Proof.
+(intros t1 t2 t' H).
+(remember (TUnion t1 t2) as t eqn:Heq ).
+(induction H; try (solve [ inversion Heq ])).
+-
+(subst; split; constructor).
+-
+(specialize (IHsub_d1 Heq); destruct IHsub_d1 as [Hsub1 Hsub2]).
+(split; solve_trans).
+-
+(inversion Heq; subst).
+(split; assumption).
+-
+(inversion Heq; subst).
+(split; apply union_right_1; constructor).
+-
+(inversion Heq; subst).
+(split; apply union_right_2; constructor).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
