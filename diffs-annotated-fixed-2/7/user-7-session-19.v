@@ -202,7 +202,8 @@ Proof.
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
        |- _ <= | ?t' | =>
            assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
-            assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption)
+            assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
      end ])).
+Search -in_nf.
 (* Auto-generated comment: Failed. *)
 
