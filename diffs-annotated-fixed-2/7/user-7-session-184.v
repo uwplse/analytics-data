@@ -53,7 +53,8 @@ subst.
 Abort.
 Lemma build_v_full :
   forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
-  |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ t').
+  |-[ w] v <$ [X := tx] t ->
+  exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), fresh_in_ty X' t' -> |-[ w'] v' <$ t' -> |-[ w'] v <$ t').
 Proof.
 (intros X X').
 (induction w; induction t; intros v tx Hm).
@@ -76,30 +77,5 @@ split.
 (induction w'; induction t'; intros Hm'; try contradiction).
 +
 (apply match_ty_pair_pair__inv in Hm').
-(destruct Hm' as [Hm'1 Hm'2]).
-(apply match_ty_pair; auto).
-+
-(apply match_ty_union__inv in Hm').
-(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(apply match_ty_pair_pair__inv in Hm').
-(destruct Hm' as [Hm'1 Hm'2]).
-(apply match_ty_pair; auto).
-+
-(apply match_ty_union__inv in Hm').
-(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(apply match_ty_exist__inv in Hm').
-(destruct Hm' as [ti Hm']).
-exists ti.
-auto.
--
-admit.
--
-(pose proof (subst_exist X tx i t) as Heq).
-(destruct Heq as [Z [tz Heq]]).
-(rewrite Heq in Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
--
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
