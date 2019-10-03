@@ -63,56 +63,6 @@ reflexivity.
 specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
-Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
-Proof.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
-  try
-   match goal with
-   | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
-   | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; auto
-   | |- |-[ ?k'] ?v <$ TUnion _ _ =>
-         apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
-   end).
--
-(destruct v; try contradiction).
-(inversion Hle; subst).
-tauto.
--
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(inversion Hle; subst).
-+
-(simpl).
-(intros v Hv).
-specialize (Href v Hv).
-(split; tauto).
-+
-(destruct k').
-(simpl).
-tauto.
-(simpl).
-(intros v Hv).
-specialize (Href v Hv).
-split.
-*
-Abort.
-Lemma match_ty_i__inv_depth_stable :
-  forall (k k' : nat) (t : ty),
-  inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, inv_depth v <= k -> inv_depth v <= k' -> |-[ k] v <$ t <-> |-[ k'] v <$ t.
-Proof.
-(induction k; induction k').
--
-tauto.
--
-admit.
--
-admit.
--
-(induction t).
-admit.
-admit.
-admit.
-+
-clear IHk' IHt.
+Lemma match_ty_i_t_le_k__v_ke_t : forall (k : nat) (t : ty), | t | <= k -> forall v : ty, |-[ k] v <$ t -> | v | <= | t |.
 (* Auto-generated comment: Failed. *)
 
