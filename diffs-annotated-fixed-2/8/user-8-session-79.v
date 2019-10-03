@@ -955,6 +955,13 @@ restore_dims
 replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
 rewrite_inPar''.
 (rewrite id_circ_spec).
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
+  lia.
+revert IHi.
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
+  lia.
 show_dimensions.
 (* Auto-generated comment: Succeeded. *)
 
