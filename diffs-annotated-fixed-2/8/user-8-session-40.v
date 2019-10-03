@@ -205,10 +205,13 @@ Lemma NOT_spec :
   bool_to_matrix x \226\138\151 bool_to_matrix (\194\172 x \226\138\149 z).
 Proof.
 vector_denote.
-(destruct x, z; unfold bool_to_ket; simpl; Msimpl; solve_matrix).
+(destruct x, z; unfold bool_to_ket; simpl; Msimpl; lma).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqdiQCJg"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+Lemma XOR_spec :
+  forall x y z safe : bool,
+  denote_box safe XOR (bool_to_matrix x \226\138\151 bool_to_matrix y \226\138\151 bool_to_matrix z) =
+  bool_to_matrix x \226\138\151 bool_to_matrix y \226\138\151 bool_to_matrix ((x \226\138\149 y) \226\138\149 z).
+Proof.
+vector_denote.
 (* Auto-generated comment: Succeeded. *)
 
