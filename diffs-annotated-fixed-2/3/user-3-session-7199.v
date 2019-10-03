@@ -376,20 +376,5 @@ autorewrite with upd list in *.
 admit.
 Admitted.
 Hint Resolve append_at_ok: core.
-Theorem log_contents_ok_prefix d bs bs' :
-  log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
-Proof.
-(unfold log_contents_ok; intros).
-specialize (H a).
-(rewrite app_nth1 in H by lia).
-(apply H).
-(rewrite app_length; lia).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwUuH1g"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
