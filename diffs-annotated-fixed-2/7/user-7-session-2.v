@@ -217,6 +217,8 @@ Lemma sub_r_union_l__inv : forall t1 t2 t' : ty, |- TUnion t1 t2 << t' -> |- t1 
 Proof.
 (intros t1 t2 t' Hsub).
 (remember (TUnion t1 t2) as t eqn:Heqt ).
-(induction Hsub; inversion Heqt; subst; try tauto).
+(induction Hsub; inversion Heqt; subst).
+tauto.
+(split; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
 (* Auto-generated comment: Failed. *)
 
