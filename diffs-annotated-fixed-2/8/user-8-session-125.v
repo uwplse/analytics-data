@@ -109,5 +109,5 @@ easy.
 Timeout 1 About denote_ctrls_unitary.
 Timeout 1 Print denote_ctrls_unitary.
 Timeout 1 Print Ltac denote_ctrls_unitary.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
