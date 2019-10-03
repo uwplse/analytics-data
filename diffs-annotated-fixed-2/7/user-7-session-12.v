@@ -297,6 +297,7 @@ generalize dependent t21.
 (rewrite unite_pairs_atom_union; try assumption).
 (apply sub_r__rflxv).
 -
-(rewrite unite_pairs_union_t).
+(repeat rewrite unite_pairs_union_t).
+(constructor; eapply SD_Trans; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
 (* Auto-generated comment: Failed. *)
 
