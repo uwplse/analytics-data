@@ -136,5 +136,10 @@ clear IHt3.
 (destruct k).
 (destruct v1; contradiction || constructor).
 (apply match_ty_i_ref__inv in Hm1).
+(destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
+(apply match_ty_i_ref__inv in Hm2).
+(destruct Hm2 as [ty [Heqy Hrefy]]; inversion Heqy; subst).
+(simpl).
+(intros v; auto).
 (* Auto-generated comment: Failed. *)
 
