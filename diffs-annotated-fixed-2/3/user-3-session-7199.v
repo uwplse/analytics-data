@@ -376,23 +376,10 @@ autorewrite with upd list in *.
 admit.
 Admitted.
 Hint Resolve append_at_ok: core.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
-(apply spec_abstraction_compose).
-step_proc.
-(destruct a' as [[] bs]; simpl in *).
-intuition eauto.
-step_proc.
-(descend; intuition eauto).
-destruct matches.
--
-step_proc.
-(descend; intuition eauto).
-{
-(unfold log_size_ok; autorewrite with list; auto).
-}
-{
-(* Auto-generated comment: Succeeded. *)
+Theorem log_abstraction_preserved d bs d' :
+  log_abstraction d bs ->
+  diskGet d' len_addr = diskGet d len_addr ->
+  diskSize d' = diskSize d ->
+  log_contents_ok d' bs -> log_abstraction d' bs Proof.
+(* Auto-generated comment: Failed. *)
 
