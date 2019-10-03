@@ -628,5 +628,6 @@ Proof.
 specialize (kron_1_l (\226\168\130 l2)) as KL.
 (assert
   (Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv (\226\168\130 l2)))).
+(compute).
 (* Auto-generated comment: Succeeded. *)
 
