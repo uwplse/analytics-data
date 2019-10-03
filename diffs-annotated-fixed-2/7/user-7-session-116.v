@@ -48,7 +48,6 @@ reflexivity.
 (intros Hcontra).
 Search -IdSet.remove.
 Check IdSetFacts.remove_2.
-(apply Hfresh).
-(apply IdSetFacts.remove_2; assumption).
+symmetry in n.
 (* Auto-generated comment: Failed. *)
 
