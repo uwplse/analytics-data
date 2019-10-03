@@ -20,6 +20,7 @@ Proof.
 exists (Nat.max w21 w22).
 (intros v Hm).
 (apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_pair).
 (* Auto-generated comment: Failed. *)
 
