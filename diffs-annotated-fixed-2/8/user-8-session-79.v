@@ -623,6 +623,5 @@ Proof.
 (rewrite kron_1_l).
 (rewrite kron_1_l).
 restore_dims.
-(rewrite <- kron_1_r_inv).
 (* Auto-generated comment: Failed. *)
 
