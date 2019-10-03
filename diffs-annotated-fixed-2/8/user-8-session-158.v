@@ -335,5 +335,10 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 3: {
+econstructor.
+3: eauto.
+3: eauto.
+2: monoid.
+validate.
 (* Auto-generated comment: Succeeded. *)
 
