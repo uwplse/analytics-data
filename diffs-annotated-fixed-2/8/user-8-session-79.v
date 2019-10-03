@@ -919,6 +919,6 @@ Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
-(eapply denote_box_compat).
-(* Auto-generated comment: Failed. *)
+(erewrite denote_box_compat).
+(* Auto-generated comment: Succeeded. *)
 
