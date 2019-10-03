@@ -384,6 +384,7 @@ Check sem_eq_k_i__inv_depth_eq_2.
 (pose proof Htk' as Ht'k').
 (rewrite <- Hdepeq in Ht'k, Ht'k').
 (pose proof (IHk k' t Htk Htk' v) as Ht).
-(pose proof (IHk k' t' Htk Htk' v) as Ht').
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
+tauto.
 (* Auto-generated comment: Failed. *)
 
