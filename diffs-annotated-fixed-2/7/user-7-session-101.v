@@ -32,5 +32,11 @@ exists t'.
 (apply match_ty_value_type__reflexive).
 constructor.
 Qed.
+Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
+Proof.
+exists 1.
+(intros k; destruct k; intros v Hm).
+-
+(apply match_ty_exist__0_inv in Hm).
 (* Auto-generated comment: Failed. *)
 
