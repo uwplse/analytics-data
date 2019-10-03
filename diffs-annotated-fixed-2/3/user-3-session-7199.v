@@ -304,18 +304,13 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Hint Resolve get_at_ok: core.
 Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
 (unfold rec_wipe; simpl; intros).
 (apply spec_abstraction_compose).
 step_proc.
 (destruct a as [_ bs]; simpl in *; intuition eauto).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTrrpec"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Qed.
 Hint Resolve recover_wipe: core.
 Theorem get_upto_ok a :
@@ -332,5 +327,8 @@ Proof.
 step_proc.
 -
 step_proc.
+step_proc.
+intuition eauto.
+lia.
 (* Auto-generated comment: Succeeded. *)
 
