@@ -39,10 +39,10 @@ Lemma match_ty_pair__inv :
   forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ k, w] v1 <$ t1 /\ |-[ k, w] v2 <$ t2.
 Proof.
 (intros v t1 t2 k w Hm).
-(destruct k, w, v; simpl in Hm; try contradiction).
-exists v1,v2.
-split.
-reflexivity.
-tauto.
+(destruct k, w, v; simpl in Hm; contradiction || (exists v1,v2; split; [ reflexivity | tauto ])).
+Qed.
+Lemma match_ty_union__inv : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ TUnion t1 t2 -> |-[ k, w] v <$ t1 \/ |-[ k, w] v <$ t2.
+Proof.
+(intros v t1 t2 k w Hm).
 (* Auto-generated comment: Failed. *)
 
