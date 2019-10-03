@@ -140,8 +140,10 @@ Proof.
 tauto.
 (inversion Hnf1; subst).
 (inversion Hnf2; subst).
-(assert (Hnf : InNF( TPair (TCName c) (TPair t2_1 t2_2)))).
-constructor.
-constructor.
+(assert (Hnf : InNF( TPair (TCName c) (TPair t2_1 t2_2))) by (do 2 constructor; assumption)).
+Search -mk_nf.
+(rewrite (mk_nf_nf__equal _ Hnf) in IHHsub).
+tauto.
+(simpl in Hsub).
 (* Auto-generated comment: Failed. *)
 
