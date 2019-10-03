@@ -54,6 +54,5 @@ eassumption.
 eassumption.
 (repeat constructor).
 -
-(apply match_ty_exist__inv in Hm).
 (* Auto-generated comment: Failed. *)
 
