@@ -305,6 +305,19 @@ Lemma sem_sub_k_i__inv_depth_le_1 : forall (k : nat) (t t' : ty), | t | <= k -> 
 Proof.
 (intros k t t' Hdept Hsem).
 (rewrite <- inv_depth_mk_nf).
-(apply sem_sub_k_i_nf__inv_depth_le with k).
+(apply sem_sub_k_i_nf__inv_depth_le_1 with k).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf; assumption).
+(apply sem_sub_k__i__trans with t; try assumption).
+(pose proof (match_ty_i_nf k t) as H).
+(intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_sub_k_i__inv_depth_le_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
+(intros k t t' Hdept' Hsem).
+(rewrite <- inv_depth_mk_nf).
+(apply sem_sub_k_i_nf__inv_depth_le_1 with k).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf; assumption).
 (* Auto-generated comment: Failed. *)
 
