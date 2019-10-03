@@ -94,6 +94,9 @@ Proof.
 (unfold sem_sub in Hsem).
 (split; unfold sem_sub; intros k v Hm).
 -
-(destruct (value_type_matching_ty__exists k t2) as [pv2 Hpv2]).
+Check value_type_matching_ty__exists.
+(destruct (value_type_matching_ty__exists t2 k) as [pv2 Hpv2]).
+(remember (Nat.max k (| t2 |)) as kmax).
+(assert (Hmp : |-[ kmax] TPair v pv2 <$ TPair t1 t2)).
 (* Auto-generated comment: Failed. *)
 
