@@ -378,6 +378,9 @@ Proof.
           [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
    end).
 +
-(right; solve_not_x_sub_r_y_full).
+right.
+(match goal with
+ | |- ~ |- ?tx << ?ty => remember tx as tx eqn:Heq1 ; remember ty as ty eqn:Heq2 
+ end).
 (* Auto-generated comment: Failed. *)
 
