@@ -68,6 +68,7 @@ Proof.
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
-(apply IHk).
+(eapply IHk; eassumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
