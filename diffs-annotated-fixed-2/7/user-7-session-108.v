@@ -258,6 +258,10 @@ SearchPattern (_ <= Nat.max _ _).
 (apply Nat.le_max_r).
 -
 (destruct (IHt1 k) as [w [v Hm]]).
-exists w v.
+exists w,v.
+(apply match_ty_union_1).
+assumption.
+-
+exists w,(TRef t).
 (* Auto-generated comment: Failed. *)
 
