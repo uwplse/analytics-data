@@ -143,6 +143,7 @@ Proof.
 (induction Hsub21; inversion Heqx; subst).
 *
 clear Heqx IHHsub12_1 IHHsub12_2 IHHsub21_1 IHHsub21_2.
-(intros Hsub22; inversion Hsub12; subst).
+(intros Hsub22).
+(inversion Hsub12; subst).
 (* Auto-generated comment: Failed. *)
 
