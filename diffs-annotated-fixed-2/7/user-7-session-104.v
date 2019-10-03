@@ -50,7 +50,9 @@ Qed.
 Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
 Proof.
 (intros Hcontra).
-specialize (Hcontra 2).
-(simpl in Hcontra).
-(* Auto-generated comment: Failed. *)
+specialize (Hcontra 2 1).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ 2, 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ _ Hm).
+(* Auto-generated comment: Succeeded. *)
 
