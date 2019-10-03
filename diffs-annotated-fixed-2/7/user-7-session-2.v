@@ -138,6 +138,8 @@ Proof.
 (remember (TPair t1' t2') as ty eqn:Heqy ).
 (induction Hsub; inversion Heqx; inversion Heqy; subst).
 tauto.
-(assert (Hnf : InNF( TPair (TCName c) (TPair t2_1 t2_2))) by (do 2 constructor; assumption)).
+(assert (Hnf : InNF( TPair (TCName c) (TPair t2_1 t2_2)))).
+constructor.
+constructor.
 (* Auto-generated comment: Failed. *)
 
