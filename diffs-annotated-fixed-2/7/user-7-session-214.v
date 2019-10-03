@@ -249,5 +249,6 @@ Proof.
 -
 (rewrite b_subst_pair).
 (unfold f_free_in_ty, free).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
