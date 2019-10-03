@@ -909,6 +909,6 @@ gen n.
 (simpl in *).
 clear L1 M1 Lt.
 (rewrite strip_one_l_in_eq).
-setoid_rewrite  <- (kron_1_l (\226\168\130 l2)) at 1.
+setoid_rewrite  <- (kron_1_l (\226\168\130 l2)).
 (* Auto-generated comment: Failed. *)
 
