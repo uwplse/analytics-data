@@ -608,6 +608,5 @@ Proof.
 (intros).
 (compute).
 (intros).
-intuition.
 (* Auto-generated comment: Succeeded. *)
 
