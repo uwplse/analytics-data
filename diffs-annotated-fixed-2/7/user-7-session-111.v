@@ -111,5 +111,13 @@ exists w3.
 (intros v).
 auto.
 Qed.
-(* Auto-generated comment: Failed. *)
+Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq_k in *).
+(destruct Hsem1 as [Hsem11 Hsem12]).
+(destruct Hsem2 as [Hsem21 Hsem22]).
+(split; eapply sem_sub_k__trans; eauto).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
