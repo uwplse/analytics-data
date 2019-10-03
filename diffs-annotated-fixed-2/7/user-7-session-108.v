@@ -304,6 +304,29 @@ assumption.
 }
 (apply Hnotm).
 exists v.
-assuption.
+assumption.
+}
+(destruct Hcontra as [v Hcontra]).
+(destruct (beq_idP X i)).
++
+subst.
+(simpl in Hcontra).
+(assert (Heq : beq_id i i = true)).
+{
+admit.
+}
+(rewrite Heq in Hcontra).
+(apply Hnotm).
+exists v.
+assumption.
++
+(simpl in Hcontra).
+(assert (Heq : beq_id X i = false)).
+{
+admit.
+}
+(rewrite Heq in Hcontra).
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [tx Hcontra]).
 (* Auto-generated comment: Failed. *)
 
