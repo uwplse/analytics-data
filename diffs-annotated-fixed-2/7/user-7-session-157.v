@@ -44,7 +44,10 @@ exists (TEV X').
 reflexivity.
 +
 exists v.
-(simpl).
-Search -beq_id.
+(simpl in *).
+Check beq_id_false_iff.
+Print "<->".
+Print "/\".
+(rewrite (beq_id_false_iff X i)).
 (* Auto-generated comment: Failed. *)
 
