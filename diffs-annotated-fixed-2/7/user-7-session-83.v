@@ -340,6 +340,5 @@ Proof.
 Check match_ty_i__reflexive.
 -
 (inversion Hdept; subst).
--
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
