@@ -38,6 +38,6 @@ exists (S w1).
 (intros v Hm).
 (apply match_ty_exist).
 exists (TEV X).
-(rewrite subs_fresh_in_ty in Hm; try assumption).
+(rewrite subs_fresh_in_ty).
 (* Auto-generated comment: Failed. *)
 
