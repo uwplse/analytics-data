@@ -258,6 +258,10 @@ subst.
 {
 (assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
 {
-(intros [[v1 Hcontra'1] [v2 Hcontra'2]]).
+(intros [[v'1 Hcontra'1] [v'2 Hcontra'2]]).
+(apply Hnotm).
+exists (TPair v'1 v'2).
+(apply match_ty_pair; assumption).
+}
 (* Auto-generated comment: Failed. *)
 
