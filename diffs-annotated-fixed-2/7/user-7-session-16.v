@@ -193,6 +193,7 @@ Qed.
 Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
 (intros t t' Hsub).
-(pose proof (sub_r__sub_r_mk_nf _ _ Hsub)).
+(pose proof (sub_r__mk_nf_sub_r _ _ Hsub)).
+(apply sub_r_nf_ref__inv in H).
 (* Auto-generated comment: Failed. *)
 
