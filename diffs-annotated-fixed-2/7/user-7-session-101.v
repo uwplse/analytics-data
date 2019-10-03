@@ -42,6 +42,18 @@ Proof.
 -
 exists 1.
 (intros k v Hm).
+(apply match_ty_exist__0_inv in Hm).
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(apply match_ty_exist).
+exists t'.
+(apply match_ty_value_type__reflexive).
+constructor.
+-
+exists w1.
+(intros k v Hm).
 (apply match_ty_exist__inv in Hm).
-(* Auto-generated comment: Failed. *)
+(destruct Hm as [tx Hmx]).
+(apply match_ty_exist).
+(* Auto-generated comment: Succeeded. *)
 
