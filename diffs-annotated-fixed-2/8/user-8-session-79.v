@@ -1141,5 +1141,6 @@ clear IS.
 (repeat rewrite_inPar).
 (repeat rewrite id_circ_spec).
 (rewrite strip_one_l_in_eq).
+(erewrite denote_box_compat).
 (* Auto-generated comment: Succeeded. *)
 
