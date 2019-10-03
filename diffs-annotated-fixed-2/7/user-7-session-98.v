@@ -130,6 +130,8 @@ Proof.
 (apply match_ty_exist__0_inv in Hm).
 (destruct Hm as [Hv [tx Heqx]]; subst).
 (simpl in *).
-(split; auto).
+split.
+assumption.
+(exists tx; reflexivity).
 (* Auto-generated comment: Failed. *)
 
