@@ -68,9 +68,10 @@ Lemma match_ty_i_eq__inv_depth_eq : forall t t' : ty, forall (k : nat) (v : ty),
 Proof.
 (induction t; induction t'; intros k v Hsemeq).
 reflexivity.
-admit.
-admit.
-admit.
-admit.
+15: {
+idtac.
+clear IHt'.
+(simpl).
+constructor.
 (* Auto-generated comment: Failed. *)
 
