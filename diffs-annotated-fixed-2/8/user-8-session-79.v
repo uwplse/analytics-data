@@ -607,5 +607,6 @@ Lemma new_morphism :
 Proof.
 (intros).
 (compute).
+auto.
 (* Auto-generated comment: Succeeded. *)
 
