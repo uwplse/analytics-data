@@ -14,5 +14,14 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Lemma build_v : forall (X X' : id) (tx : ty) (w : nat) (t v : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t.
 Proof.
-(* Auto-generated comment: Failed. *)
+(intros X X' tx).
+(induction w; induction t; intros v Hm).
+-
+exists (TCName c).
+(apply match_ty_cname).
+-
+(simpl in Hm).
+(simpl).
+(apply match_ty_pair__inv in Hm).
+(* Auto-generated comment: Succeeded. *)
 
