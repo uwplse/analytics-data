@@ -125,6 +125,5 @@ Msimpl.
 Msimpl.
 (rewrite Mmult_assoc).
 easy.
-2: (subst; rewrite size_wtype_length; easy).
 (* Auto-generated comment: Succeeded. *)
 
