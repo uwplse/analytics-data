@@ -603,5 +603,6 @@ Set Printing All.
 clear.
 specialize (kron_1_l A) as KL.
 symmetry.
+(simpl in KL).
 (* Auto-generated comment: Succeeded. *)
 
