@@ -933,6 +933,9 @@ reflexivity.
 }
 (rewrite L2).
 rewrite_inPar''.
-restore_dims.
-(* Auto-generated comment: Failed. *)
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+(rewrite id_circ_spec).
+(rewrite init_spec).
+(* Auto-generated comment: Succeeded. *)
 
