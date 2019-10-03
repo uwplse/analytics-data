@@ -140,7 +140,10 @@ admit.
 admit.
 -
 (intros t X' HX HX' Hsem).
-(intros w1).
+(intros k w1).
 (induction w1).
+exists 0.
+(intros v Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
 (* Auto-generated comment: Failed. *)
 
