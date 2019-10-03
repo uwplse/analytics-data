@@ -50,6 +50,12 @@ Search -IdSet.remove.
 Check IdSetFacts.remove_2.
 (apply Hfresh).
 (apply IdSetFacts.remove_2; try assumption).
-(intros Heq; contradiction).
+(intros Heq).
+subst.
+contradiction.
+-
+(unfold fresh in Hfresh).
+(destruct (beq_idP X i)).
++
 (* Auto-generated comment: Failed. *)
 
