@@ -946,6 +946,5 @@ reflexivity.
 (destruct l1; inversion L1).
 (simpl).
 show_dimensions.
-(repeat rewrite app_length).
 (* Auto-generated comment: Succeeded. *)
 
