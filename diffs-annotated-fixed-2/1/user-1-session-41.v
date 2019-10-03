@@ -311,7 +311,15 @@ Fixpoint size_gt (G : GT) : nat :=
          | Some (_, G) => size_gt G
          | _ => 0
          end + acc) 1 l
+  | GRow l =>
+      fold_right
+        (fun x acc =>
+         match x with
+         | Some (Some (_, G)) => size_gt G
+         | _ => 0
+         end + acc) 1 l
   | _ => 0
   end.
+Module GTeq.
 (* Auto-generated comment: Succeeded. *)
 
