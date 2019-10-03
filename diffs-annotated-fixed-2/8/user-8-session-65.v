@@ -968,5 +968,13 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 (intros \207\129).
 remember_differences.
-(* Auto-generated comment: Succeeded. *)
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+(repeat rewrite Mmult_assoc).
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+Msimpl.
+(match goal with
+ | |- @Mmult ?a ?b ?c ?A (@Mmult ?d ?e ?f ?B ?C) .+ _ = _ => setoid_rewrite  <-
+   (Mmult_assoc A B C)
+ end).
+(* Auto-generated comment: Failed. *)
 
