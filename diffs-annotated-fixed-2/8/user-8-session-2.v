@@ -54,6 +54,5 @@ Proof.
 reflexivity.
 dependent destruction u.
 +
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
