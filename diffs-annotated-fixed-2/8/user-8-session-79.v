@@ -1141,6 +1141,5 @@ clear IS.
 (repeat rewrite_inPar).
 (repeat rewrite id_circ_spec).
 (rewrite strip_one_l_in_eq).
-(rewrite (kron_1_l_inv (ctx_to_matrix \206\147 f))).
 (* Auto-generated comment: Succeeded. *)
 
