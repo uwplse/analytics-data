@@ -245,11 +245,24 @@ Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2]
 Proof.
 auto with DBBetaJulia.
 Qed.
-Lemma sem_eq_k_i__sem_sub_k_i :
-  forall (k : nat) (t t' : ty),
-  ||-[ k][t]= [t'] ->
-  ||-[ k][t]<= [t'] /\ (||-[ k][t']<= [t]) / Lemma sem_sub_k_i__inv_depth_le
-  :
-  forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Proof.
+(intros k t t' H).
+(split; intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_sub_k_i__inv_depth_le : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
+(intros k t t' Hdept Hsem).
+(rewrite <- inv_depth_mk_nf).
+(apply sem_sub_k_i_nf__inv_depth_le with k).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf; assumption).
+(apply sem_sub_k__i__trans with t; try assumption).
+(pose proof (match_ty_i_nf k t) as H).
+(intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+(intros k t t' H).
 (* Auto-generated comment: Failed. *)
 
