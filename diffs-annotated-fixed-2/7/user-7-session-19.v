@@ -199,11 +199,8 @@ Proof.
            assert (Hv : value_type t) by constructor; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
             destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
             tauto || apply Max.le_max_l || apply Max.le_max_r
+     | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
+       |- _ <= | ?t' | => assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption)
      end ])).
--
-(assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption)).
-(assert (Hmp : |-[ 0] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem _ Hmp).
-contradiction.
 (* Auto-generated comment: Failed. *)
 
