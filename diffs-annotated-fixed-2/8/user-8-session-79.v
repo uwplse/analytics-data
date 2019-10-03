@@ -1020,6 +1020,5 @@ restore_dims tensor_tac.
 (apply f_equal_gen; trivial).
 (simpl).
 (apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
 (* Auto-generated comment: Succeeded. *)
 
