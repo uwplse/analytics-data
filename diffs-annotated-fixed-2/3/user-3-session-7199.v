@@ -147,6 +147,6 @@ Hint Resolve get_len_ok: core.
 Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
 (unfold rec_wipe; simpl; intros).
-step_proc.
+(unfold proc_spec).
 (* Auto-generated comment: Succeeded. *)
 
