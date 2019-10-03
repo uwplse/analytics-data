@@ -465,6 +465,9 @@ step.
 (destruct a' as [[] bs]; simpl in *).
 intuition eauto.
 step.
-(exists bs; intuition eauto).
+(exists bs; intuition).
+{
+eauto.
+}
 (* Auto-generated comment: Succeeded. *)
 
