@@ -625,6 +625,6 @@ Proof.
 restore_dims.
 specialize (kron_1_r A) as KR.
 specialize (kron_1_r_inv A) as KR'.
-(rewrite kron_1_r).
-(* Auto-generated comment: Failed. *)
+(rewrite (kron_1_r A)).
+(* Auto-generated comment: Succeeded. *)
 
