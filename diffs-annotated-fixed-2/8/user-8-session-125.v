@@ -91,5 +91,5 @@ replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by 
 (rewrite <- (Mmult_assoc _ (A \195\151 \207\129) _)).
 (rewrite <- (Mmult_assoc _ A \207\129)).
 (rewrite inv).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
