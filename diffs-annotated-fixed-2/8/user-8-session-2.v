@@ -50,5 +50,10 @@ Proof.
 (induction W; intros lb li u; try (solve [ inversion u ])).
 -
 (destruct li as [| k li]).
+(repeat rewrite ctrls_to_list_empty).
+reflexivity.
+dependent destruction u.
++
+(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
