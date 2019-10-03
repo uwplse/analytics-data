@@ -658,6 +658,5 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
-restore_dims.
 (* Auto-generated comment: Failed. *)
 
