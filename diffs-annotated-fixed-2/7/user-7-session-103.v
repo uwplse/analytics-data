@@ -58,6 +58,11 @@ Proof.
 exists v.
 split.
 reflexivity.
-auto.
+(destruct w; auto).
+Qed.
+Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ k, 0] v <$ TExist X t -> False.
+Proof.
+(intros v t k w Hm).
+(destruct k, w, v; simpl in Hm; contradiction).
 (* Auto-generated comment: Failed. *)
 
