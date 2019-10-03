@@ -101,10 +101,6 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 Next Obligation.
-(simpl).
-Search -S.
-Search -"+".
-(rewrite <- Nat.add_1_r).
 Omega.omega.
 (* Auto-generated comment: Failed. *)
 
