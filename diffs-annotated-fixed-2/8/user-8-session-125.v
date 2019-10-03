@@ -119,9 +119,5 @@ replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by 
 (rewrite <- (Mmult_assoc _ A \207\129)).
 (simpl in inv).
 (rewrite inv).
-2: {
-subst.
-(rewrite size_wtype_length).
-easy.
 (* Auto-generated comment: Succeeded. *)
 
