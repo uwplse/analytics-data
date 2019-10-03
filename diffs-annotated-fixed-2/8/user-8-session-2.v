@@ -82,6 +82,8 @@ Proof.
 -
 (destruct li as [| k li]).
 (repeat rewrite ctrls_to_list_empty).
+(simpl; Msimpl).
 reflexivity.
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
