@@ -145,8 +145,12 @@ subst.
 (unfold not_b_free_in_ty in HX).
 (simpl in HX).
 (unfold not_free in HX).
-admit.
+exfalso.
+(apply HX).
+(apply IdSetFacts.singleton_2).
+reflexivity.
 +
 subst.
+(rewrite b_subst_var_neq).
 (* Auto-generated comment: Failed. *)
 
