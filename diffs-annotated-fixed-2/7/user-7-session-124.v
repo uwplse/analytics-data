@@ -86,6 +86,6 @@ Lemma sem_sub_k_pair__inv :
 Proof.
 (intros k t1 t2 t1' t2' Hsem).
 (split; intros w1; specialize (Hsem w1); destruct Hsem as [w2 Hsem]).
-+
+-
 (* Auto-generated comment: Failed. *)
 
