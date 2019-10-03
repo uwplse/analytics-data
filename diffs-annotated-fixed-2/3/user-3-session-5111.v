@@ -160,6 +160,9 @@ step_proc.
 (destruct (r == 0)).
 -
 step_proc.
+-
+step_proc.
+(destruct (lt_dec r0 (diskSize (stateDisk state)))).
 step_proc.
 (* Auto-generated comment: Failed. *)
 
