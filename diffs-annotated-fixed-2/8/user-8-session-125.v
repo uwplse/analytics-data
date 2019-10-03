@@ -66,6 +66,24 @@ matrix_denote.
 Msimpl.
 (rewrite Mmult_assoc).
 specialize (unitary_gate_unitary U) as inv.
-(rewrite denote_unitary_transpose).
-(* Auto-generated comment: Failed. *)
+(simpl_rewrite @denote_unitary_transpose).
+(simpl in *).
+Msimpl.
+(repeat rewrite Mmult_assoc).
+(rewrite inv).
+(repeat rewrite <- Mmult_assoc).
+(rewrite inv).
+Msimpl.
+easy.
+-
+(simpl).
+(unfold denote_pat; simpl).
+Msimpl.
+(rewrite Mmult_assoc).
+(unfold super).
+(simpl).
+(remember (W1 \226\138\151 W2) as W).
+(remember (pat_to_list (add_fresh_pat W [])) as li).
+specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
+(* Auto-generated comment: Succeeded. *)
 
