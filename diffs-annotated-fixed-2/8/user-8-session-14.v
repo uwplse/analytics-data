@@ -1229,10 +1229,14 @@ Timeout 1 Print Grammar tactic.
 Lemma apply_new1_correct : forall n, WF_Superoperator (@apply_new1 n).
 Proof.
 (intros n \207\129 M\207\129).
-(unfold apply_new0, super).
+(unfold apply_new1, super).
 gen \207\129.
 (rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
 (repeat rewrite Nat.pow_add_r).
 (intros).
+(rewrite Nat.mul_1_r).
+Msimpl.
+(eapply init1_end_superoperator; trivial).
+(restore_dims; easy).
 (* Auto-generated comment: Succeeded. *)
 
