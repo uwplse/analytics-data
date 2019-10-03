@@ -32,6 +32,7 @@ Timeout 1 Print LoadPath.
 Module TermNotations.
 Declare Scope coucou_scope.
 Notation "{ f a }" := (App f a) (f  at level 0, a  at level 0) : coucou_scope.
+Notation "< a b >" := (Cons a b) (a  at level 0, b  at level 0) : coucou_scope.
 Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
 Notation "[ x ]" := (Cons x Nil) : coucou_scope.
 Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
@@ -40,5 +41,8 @@ End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
 Check [Nil (Cons (Ident "1") (Ident "2")) (Ident "a") {(Ident "myfun") (Ident "somArg")}].
+Redirect "/tmp/coqwgeDP9" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
