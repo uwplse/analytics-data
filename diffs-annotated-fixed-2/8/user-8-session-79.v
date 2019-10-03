@@ -663,6 +663,6 @@ Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
 Timeout 1 About length_app.
 restore_dims try rewrite app_length; try rewrite Nat.pow_add_r; lia.
-(rewrite kron_assoc).
+(rewrite <- kron_assoc).
 (* Auto-generated comment: Failed. *)
 
