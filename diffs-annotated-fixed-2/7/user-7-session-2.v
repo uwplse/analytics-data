@@ -61,6 +61,6 @@ Proof.
 (constructor; assumption).
 +
 (intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
-(destruct (unite_pairs_union_t t1 t0 t2') as [Heq'| [Heq1 Heq2]]).
+(destruct (unite_pairs_union_t t1 t0 t2')).
 (* Auto-generated comment: Failed. *)
 
