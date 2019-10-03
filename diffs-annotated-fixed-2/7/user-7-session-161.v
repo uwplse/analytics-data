@@ -109,6 +109,5 @@ assumption.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
 specialize (IHw' _ Hm).
-(rewrite subst_neq__permute in IHw').
 (* Auto-generated comment: Failed. *)
 
