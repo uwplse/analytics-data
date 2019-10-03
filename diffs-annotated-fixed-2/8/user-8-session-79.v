@@ -676,6 +676,6 @@ Timeout 1 About length_app.
 (apply f_equal_gen; trivial).
 (repeat rewrite app_length).
 unify_pows_two.
-(rewrite Nat.add_pow_r).
-(* Auto-generated comment: Failed. *)
+(rewrite Nat.pow_add_r).
+(* Auto-generated comment: Succeeded. *)
 
