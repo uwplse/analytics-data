@@ -409,6 +409,5 @@ contradiction.
 (do 2 constructor; assumption).
 (apply sub_r_dec__mk_nf_sub_r_dec; assumption).
 -
-*
 (* Auto-generated comment: Failed. *)
 
