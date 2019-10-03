@@ -422,6 +422,6 @@ Proof.
      end ])).
 -
 (assert (Hv : value_type (TCName c)) by constructor).
-(destruct IHt'1; try assumption).
+(destruct IHt'1).
 (* Auto-generated comment: Failed. *)
 
