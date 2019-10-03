@@ -1007,5 +1007,10 @@ Timeout 1 Print inPar_correct.
                 try dim_solve; try rewrite H
          end; clear IP
   end; try (solve [ type_check ])).
+(simpl_rewrite TRUE_spec).
+restore_dims tensor_tac.
+(rewrite id_circ_spec).
+restore_dims tensor_tac.
+(destruct t; reflexivity).
 (* Auto-generated comment: Succeeded. *)
 
