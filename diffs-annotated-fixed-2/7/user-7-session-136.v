@@ -15,5 +15,7 @@ Lemma sem_sub__sem_eq : forall t t' : ty, ||- [t]<= [t'] -> ||- [t']<= [t] -> ||
 Proof.
 (intros t t' Hsem1 Hsem2 k).
 (unfold sem_eq_k).
-(* Auto-generated comment: Failed. *)
+auto.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
