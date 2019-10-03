@@ -329,6 +329,7 @@ Proof.
 (destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
 (pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept H1)).
 (pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept H2)).
-(apply Nat.le_antisymm).
+(apply Nat.le_antisymm; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
