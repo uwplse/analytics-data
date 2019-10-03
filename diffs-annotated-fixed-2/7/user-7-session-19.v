@@ -237,7 +237,8 @@ specialize (Hsem _ Hm).
 specialize (Hsem v').
 tauto.
 Qed.
-Lemma match_ty_nf : forall k : nat, forall t : ty, ||-[ k][t]= [MkNF( t)].
+Lemma match_ty_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
 Proof.
+(induction k; induction t; intros v; split; intros Hm).
 (* Auto-generated comment: Failed. *)
 
