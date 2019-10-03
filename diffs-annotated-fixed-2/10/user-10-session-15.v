@@ -22,7 +22,7 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq23gu0W" Print Ltac
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Open Scope N_scope.
-CoFixpoint fib (a b : N) : Stream N := Cons a (print_id (fib b (a + b))).
-Eval compute in Str_nth 10 (fib 0 1).
+CoFixpoint Fib (a b : N) : Stream N := Cons a (print_id (Fib b (a + b))).
+Eval compute in Str_nth 10 (Fib 0 1).
 (* Auto-generated comment: Succeeded. *)
 
