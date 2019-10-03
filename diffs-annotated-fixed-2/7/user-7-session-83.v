@@ -284,6 +284,7 @@ clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
-(apply sem_eq_k_i__trans).
+Check sem_eq_k_i__trans.
+(eapply sem_eq_k_i__trans).
 (* Auto-generated comment: Failed. *)
 
