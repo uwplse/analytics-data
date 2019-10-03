@@ -598,6 +598,6 @@ Proof.
 -
 (intros).
 (simpl).
-restore_dims.
+Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
