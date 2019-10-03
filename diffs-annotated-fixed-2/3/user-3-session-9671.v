@@ -520,7 +520,6 @@ intuition.
 (exists bs; intuition eauto).
 }
 step.
-(unfold spec_impl; simpl; intuition).
-(descend; intuition eauto).
+intuition eauto.
 (* Auto-generated comment: Succeeded. *)
 
