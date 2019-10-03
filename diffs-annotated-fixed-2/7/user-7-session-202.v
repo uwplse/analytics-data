@@ -135,6 +135,6 @@ Proof.
 reflexivity.
 -
 (destruct (beq_idP X i); try (subst; apply b_subst_exist_eq)).
-(subst; rewrite b_subst_exist_eq).
+subst.
 (* Auto-generated comment: Failed. *)
 
