@@ -322,6 +322,6 @@ Proof.
 -
 (exfalso; lia).
 -
-(destruct d; simpl in *).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
