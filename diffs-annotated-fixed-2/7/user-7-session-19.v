@@ -265,6 +265,9 @@ Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> | t
 Proof.
 (intros k t t' Hdept Hdept' H).
 (destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
-(pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept h1)).
+(pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept H1)).
+(pose proof (sem_sub_k_i__inv_depth_le _ _ _ Hdept' H2)).
+SearchPattern (_ <= _ -> _ <= _ -> _ = _).
+(apply le_unique).
 (* Auto-generated comment: Failed. *)
 
