@@ -1139,6 +1139,6 @@ specialize inSeq_correct as IS.
 clear IS.
 (apply subset_classical_merge in H as [S1 S2]).
 (repeat rewrite_inPar).
-rewrite_inPar.
-(* Auto-generated comment: Failed. *)
+(repeat rewrite id_circ_spec).
+(* Auto-generated comment: Succeeded. *)
 
