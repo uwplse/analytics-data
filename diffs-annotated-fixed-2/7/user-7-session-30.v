@@ -81,5 +81,16 @@ Proof.
 (split; apply Nat.le_0_l).
 -
 (intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction | solve_match_ty__inv_depth_l__union_r IHt1 IHt2 ])).
++
+clear IHt1 IHt2.
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1' [v2' [Heq [Hm1 Hm2]]]]).
+(inversion Heq; subst).
+(simpl).
+(specialize (IHv1 _ _ Hm1); specialize (IHv2 _ _ Hm2)).
+split.
+(apply Nat.max_lub; tauto).
+(apply Nat.max_le_compat; tauto).
++
 (* Auto-generated comment: Failed. *)
 
