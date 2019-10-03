@@ -87,6 +87,8 @@ Search -IdSet.In.
 (destruct (beq_idP X i)).
 +
 subst.
+(apply match_ty_exist).
 exists tx.
+(apply IHw).
 (* Auto-generated comment: Failed. *)
 
