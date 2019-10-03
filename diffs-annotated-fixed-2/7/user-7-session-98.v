@@ -86,6 +86,29 @@ Proof.
    | destruct v; contradiction ])).
 -
 (apply match_ty_exist__0_inv in Hm).
-auto.
+tauto.
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(eapply IHk; eassumption).
+Qed.
+Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros k).
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_pair; auto).
+-
+(destruct k).
+constructor.
+(simpl).
+tauto.
+Qed.
+Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
+Proof.
+(intros k; destruct k; intros v Hm).
+-
+(simpl).
 (* Auto-generated comment: Failed. *)
 
