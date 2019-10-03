@@ -30,6 +30,5 @@ autorewrite with proof_db.
 (rewrite subst_pat_fresh_empty).
 (rewrite denote_pat_fresh_id).
 (rewrite super_I; auto).
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
