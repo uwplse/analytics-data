@@ -181,6 +181,7 @@ Lemma sem_eq_k__comm : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ 
 Proof.
 auto with DBBetaJulia.
 (intros k t1 t2 Hsem).
-auto with DBBetaJulia.
+(unfold sem_eq_k in *).
+auto.
 (* Auto-generated comment: Failed. *)
 
