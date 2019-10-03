@@ -355,6 +355,6 @@ admit.
 autorewrite with upd list in *.
 (simpl in *; lia).
 +
-Search -(_ ++ [_]).
-(* Auto-generated comment: Succeeded. *)
+(rewrite app_assoc in *).
+(* Auto-generated comment: Failed. *)
 
