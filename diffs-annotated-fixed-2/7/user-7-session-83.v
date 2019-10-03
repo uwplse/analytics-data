@@ -320,7 +320,7 @@ Proof.
             (Hsem _ Hm); contradiction
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
        |- _ =>
-           assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+           assert (Hv : value_type (TPair t1 t2)) by (apply pair_in_nf__value_type; assumption);
             solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
        |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2
@@ -337,7 +337,5 @@ Proof.
            destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]; destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2];
             destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]; rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
-Check match_ty_i__reflexive.
-Check in_nf_pair__value_type.
 (* Auto-generated comment: Failed. *)
 
