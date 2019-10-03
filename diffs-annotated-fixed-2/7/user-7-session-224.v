@@ -26,5 +26,22 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hwftx HX Hm;
   try (solve [ unfold b_free_in_ty, free in HX; simpl in HX; rewrite IdSetFacts.empty_iff in HX; contradiction ])).
-(* Auto-generated comment: Failed. *)
+-
+admit.
+-
+admit.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+subst.
+(rewrite b_subst_exist_neq in Hm; try assumption).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
+-
+(* Auto-generated comment: Succeeded. *)
 
