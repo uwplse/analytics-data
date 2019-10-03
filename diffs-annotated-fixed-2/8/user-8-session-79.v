@@ -1087,5 +1087,11 @@ Msimpl.
 (match goal with
  | |- ?A == ?B => replace A with B by unify_matrix_dims tensor_tac
  end).
+reflexivity.
+-
+(simpl in *).
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; compile_typing compile_WT)).
 (* Auto-generated comment: Succeeded. *)
 
