@@ -158,43 +158,11 @@ exists (TRef t).
 (apply match_ty_i__reflexive).
 constructor.
 Qed.
-Lemma value_sem_sub_k_i_union__inv :
-  forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
+Lemma sem_sub_k_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
-(intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
-(assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem _ Hm).
-(apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
-Qed.
-Lemma sem_sub_k_i_pair__inv :
-  forall (t1 t2 t1' t2' : ty) (k : nat), ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
-Proof.
-(intros t1 t2 t1' t2' k Hsem).
+(intros k t1 t2 t' Hsem).
 (unfold sem_sub_k_i in Hsem).
-(split; intros v Hm; [ destruct (match_ty_i_exists t2 k) as [v' Hm'] | destruct (match_ty_i_exists t1 k) as [v' Hm'] ];
-  [ assert (Hmp : |-[ k] TPair v v' <$ TPair t1 t2) by (apply match_ty_i_pair; assumption)
-  | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
-  apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
-Qed.
-Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
-Proof.
-(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | |- | ?t1 | <= | ?t2 | =>
-           (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-             (H _ Hm); contradiction) ||
-             (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-               (H _ Hm); contradiction)
-     end ])).
-(assert (Hv : value_type (TCName c)) by constructor).
-(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ H) as Hsemu).
-(destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
-  tauto || apply Max.le_max_l || apply Max.le_max_r).
-admit.
-admit.
-admit.
-admit.
+(split; intros v Hv Hm; assert (Hmu : |-[ k] v <$ TUnion t1 t2) by (apply match_ty_i_union_1; assumption) || (apply match_ty_i_union_2; assumption);
+  apply Hsem; assumption).
 (* Auto-generated comment: Failed. *)
 
