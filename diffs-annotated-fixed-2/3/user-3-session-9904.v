@@ -83,6 +83,6 @@ step_proc.
 intuition.
 step_proc.
 intuition.
-(simpl).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
