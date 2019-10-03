@@ -509,6 +509,7 @@ auto using match_ty_i_pair.
 (destruct Hm as [tx [Heq Href]]; subst).
 (simpl).
 (intros v; split; intros Hm; specialize (Href v)).
-specialize (IHHsub2 k Hm).
+specialize (IHHsub2 k _ Hm).
+tauto.
 (* Auto-generated comment: Failed. *)
 
