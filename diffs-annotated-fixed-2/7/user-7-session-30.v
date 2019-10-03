@@ -89,6 +89,9 @@ clear IHv1 IHv2.
   [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; try tauto; apply Max.le_max_l || apply Max.le_max_r).
 -
 (intros t k Hm).
-(apply match_ty__value_type in Hm).
+(apply match_ty__value_type_l in Hm).
+(inversion Hm).
+-
+(intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
