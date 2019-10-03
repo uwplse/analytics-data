@@ -461,6 +461,100 @@ Proof.
 (unfold log_size_ok in *; autorewrite with upd list in *).
 lia.
 -
-(apply log_contents_ok_len_change).
+(apply log_contents_ok_len_change; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkTH0AK"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve log_abstraction_commit: core.
+Theorem log_length_ok_unchanged d bs d' :
+  log_length_ok d bs ->
+  diskGet d' len_addr = diskGet d len_addr -> log_length_ok d' bs.
+Proof.
+(unfold log_length_ok; intros).
+(rewrite H0 in *).
+eauto.
+Qed.
+Hint Resolve log_length_ok_unchanged: core.
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
+Proof.
+(unfold append; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition eauto.
+step_proc.
+(descend; intuition eauto).
+destruct matches.
+-
+step_proc.
+(descend; intuition eauto).
+{
+(unfold log_size_ok; autorewrite with list; auto).
+}
+{
+(exists bs; intuition eauto using log_abstraction_preserved).
+}
+step_proc.
+intuition.
+{
+(exists bs; eauto using log_abstraction_preserved).
+}
+step_proc.
+intuition.
+{
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+}
+{
+(exists (bs ++ v); intuition).
+}
+step_proc.
+intuition.
+{
+(descend; intuition eauto).
+}
+{
+(descend; intuition eauto).
+}
+-
+step_proc.
+intuition eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqddJgaw"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+(unfold reset; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(destruct a' as [[] bs]; simpl in *).
+intuition.
+{
+(descend; intuition eauto).
+}
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
+{
+(descend; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+(rewrite diskUpd_eq; eauto).
+}
+{
+(descend; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+(rewrite diskUpd_eq; eauto).
+}
+Qed.
+End Log.
 (* Auto-generated comment: Succeeded. *)
 
