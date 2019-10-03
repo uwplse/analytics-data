@@ -18,13 +18,16 @@ Inductive term :=
   | Ident : string -> term
   | Cons : term -> term -> term
   | App : term -> term -> term.
-Definition primitive (name : string) : bool :=
+Definition oneArgCbvPrimitive (name : string) : bool :=
   if
    List.find (String.eqb name)
-     ("if" :: "fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil)
+     ("fst" :: "snd" :: "fun" :: "arg" :: "nil?" :: "app?" :: "cons?" :: nil)
   then true
   else false.
-Redirect "/tmp/coqgkuM3j" Print Ltac Signatures.
+Redirect "/tmp/coqnPJ1L1" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition primitive (name : string) : bool := String.eqb name "if" || oneArgCbvPrimitive name.
+Redirect "/tmp/coqNtQ3Ng" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Fixpoint value (t : term) : bool :=
   match t with
@@ -33,7 +36,7 @@ Fixpoint value (t : term) : bool :=
   | Cons a b => value a && value b
   | App f a => false
   end.
-Redirect "/tmp/coqfu1i2R" Print Ltac Signatures.
+Redirect "/tmp/coq5lRvou" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Module TermNotations.
 Declare Scope coucou_scope.
@@ -51,5 +54,7 @@ Check
   [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
 Fixpoint subst (x : string) (u : term) (t : term) : term := t.
-(* Auto-generated comment: Succeeded. *)
+Redirect "/tmp/coqAO7f1D" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Failed. *)
 
