@@ -626,6 +626,5 @@ Proof.
 -
 (simpl).
 Msimpl.
-(rewrite (kron_1_r u)).
 (* Auto-generated comment: Succeeded. *)
 
