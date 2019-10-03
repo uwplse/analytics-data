@@ -22,6 +22,5 @@ Print hd.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqKJ6qsn" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Fail Timeout 1 Eval compute in hd (fib2 0 1).
 (* Auto-generated comment: Succeeded. *)
 
