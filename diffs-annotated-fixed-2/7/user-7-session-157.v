@@ -64,6 +64,10 @@ exists (TPair v1' v2').
 +
 subst.
 (simpl in *).
+(rewrite <- beq_id_refl in *).
 (exists v; assumption).
++
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+specialize (Hid n).
 (* Auto-generated comment: Failed. *)
 
