@@ -162,6 +162,7 @@ Proof.
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H _ Hm); contradiction)
      end ])).
-Check value_sem_sub_k_i_union__inv.
+(assert (Hv : value_type (TCName c)) by constructor).
+(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ H)).
 (* Auto-generated comment: Failed. *)
 
