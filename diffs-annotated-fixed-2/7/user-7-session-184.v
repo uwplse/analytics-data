@@ -76,6 +76,7 @@ split.
 (induction w'; induction t'; intros Hm'; try contradiction).
 +
 (apply match_ty_pair_pair__inv in Hm').
+(destruct Hm' as [Hm'1 Hm'2]).
 (apply match_ty_pair; tauto).
 (* Auto-generated comment: Failed. *)
 
