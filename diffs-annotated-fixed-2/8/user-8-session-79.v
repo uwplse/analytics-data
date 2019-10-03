@@ -995,6 +995,8 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-evar e.
-(* Auto-generated comment: Failed. *)
+Timeout 1 About denote_box.
+Timeout 1 Print denote_box.
+Timeout 1 Print Ltac denote_box.
+(* Auto-generated comment: Succeeded. *)
 
