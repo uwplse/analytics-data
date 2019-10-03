@@ -500,5 +500,18 @@ intuition.
 (eapply log_abstraction_nil; eauto).
 (rewrite diskUpd_eq; eauto).
 }
+{
+(descend; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+(rewrite diskUpd_eq; eauto).
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1B4nvU"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 (* Auto-generated comment: Succeeded. *)
 
