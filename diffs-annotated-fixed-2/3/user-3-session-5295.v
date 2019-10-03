@@ -602,7 +602,10 @@ intuition eauto.
 {
 step.
 (destruct r; try step).
-{
++
 (destruct (a == a0); simplify; finish).
++
+(destruct (a == a0); simplify; finish).
++
 (* Auto-generated comment: Succeeded. *)
 
