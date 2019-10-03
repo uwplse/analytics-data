@@ -422,6 +422,6 @@ Proof.
      end ])).
 -
 (assert (Hv : value_type (TCName c)) by constructor).
-(destruct IHt'1).
+(destruct (IHt'1 Hnft)).
 (* Auto-generated comment: Failed. *)
 
