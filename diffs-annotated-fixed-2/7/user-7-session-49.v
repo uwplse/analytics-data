@@ -102,6 +102,8 @@ auto using match_ty_i_pair.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [tx [Heq Href]]; subst).
 (simpl).
-(assert (Heq : ||-[ k][t]= [t']) by (apply sem_sub_k_i__sem_eq_k; auto)).
+(assert (Heq : ||-[ k][t]= [t']) by (apply sem_sub_k_i__sem_eq_k_i; auto)).
+(eapply sem_eq_k_i__trans; eassumption).
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
