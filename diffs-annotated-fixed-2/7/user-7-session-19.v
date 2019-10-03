@@ -103,6 +103,6 @@ constructor.
 Qed.
 Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t'; intros H; try solve constructor).
+(induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ])).
 (* Auto-generated comment: Failed. *)
 
