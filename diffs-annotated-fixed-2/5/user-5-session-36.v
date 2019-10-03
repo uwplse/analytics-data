@@ -266,6 +266,6 @@ clear H.
 exfalso.
 (rewrite evalIfFalse in H0).
 +
-(apply evalBoolInj in H0).
+contradiction  H0.
 (* Auto-generated comment: Succeeded. *)
 
