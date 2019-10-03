@@ -395,6 +395,8 @@ Proof.
 (assert (Hdeple : | v | <= kmax)).
 {
 subst.
-(apply sem_sub_k_i__inv_depth_le_2 with kmax).
+(apply sem_sub_k_i__inv_depth_le_2 with (| TUnion ta tb |)).
+constructor.
+(apply Hsem).
 (* Auto-generated comment: Failed. *)
 
