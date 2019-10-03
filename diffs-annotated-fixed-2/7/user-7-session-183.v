@@ -103,6 +103,8 @@ exists Y,t.
 (destruct (IdSetProps.In_dec Y (FV s)) as [Hin| Hin]).
 +
 (rewrite subst_equation).
+(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
 (rewrite (false_beq_id _ _ HXY)).
+(rewrite Hmem).
 (* Auto-generated comment: Failed. *)
 
