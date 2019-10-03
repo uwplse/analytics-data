@@ -225,5 +225,30 @@ Proof.
 +
 Abort.
 Lemma value_type_sem_sub_i__inv_depth_le : forall v : ty, value_type v -> forall t : ty, ||- [v]<= [t] -> | v | <= | t |.
+Proof.
+Abort.
+Lemma match_ty_i__inv_depth_stable :
+  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Proof.
+(induction k; induction k').
+-
+tauto.
+-
+admit.
+-
+admit.
+-
+(induction t).
+admit.
+admit.
+admit.
++
+clear IHk' IHt.
+(intros Htk Htk' v).
+(simpl in Htk, Htk').
+(apply le_S_n in Htk).
+(apply le_S_n in Htk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; specialize (Href v); simpl in Hvk, Hvk';
+  apply le_S_n in Hvk; apply le_S_n in Hvk').
 (* Auto-generated comment: Failed. *)
 
