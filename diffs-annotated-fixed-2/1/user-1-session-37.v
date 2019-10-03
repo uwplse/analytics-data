@@ -344,7 +344,36 @@ Fixpoint Gamma (G : GT) : SetST :=
                      | Some T => Ensembles.In _ (Gamma G) T
                      end
                  end)) l)
-  | _ => Empty_set _
+  | GRow l =>
+      fun X =>
+      exists l',
+        X = SRec l' /\
+        Forall2
+          (fun (S' : option ST) (G' : option (Ensemble (option ST)))
+           =>
+           match S', G' with
+           | None, None => True
+           | S', Some G' => Ensembles.In _ G' S'
+           | _, _ => False
+           end) l'
+          (map
+             (option_map
+                (option_map
+                   (fun pair =>
+                    match pair return (Ensemble (option ST)) with
+                    | (R, G) =>
+                        fun OS =>
+                        match OS with
+                        | None => False
+                        | Some T => Ensembles.In _ (Gamma G) T
+                        end
+                    | (O, G) =>
+                        fun OS =>
+                        match OS with
+                        | None => True
+                        | Some T => Ensembles.In _ (Gamma G) T
+                        end
+                    end))) l)
   end.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
