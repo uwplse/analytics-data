@@ -8,5 +8,5 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import ProofIrrelevance.
 From Coq Require Export String.
 Timeout 1 Print LoadPath.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
