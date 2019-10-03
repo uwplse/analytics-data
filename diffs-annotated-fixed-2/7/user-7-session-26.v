@@ -206,5 +206,24 @@ Lemma sem_eq_k__sem_sub_k_1 : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -
 Proof.
 (apply sem_eq_k__sem_sub_k).
 Qed.
+Lemma sem_eq_k__sem_sub_k_2 : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]<= [t1].
+Proof.
+(apply sem_eq_k__sem_sub_k).
+Qed.
+Theorem sem_sub__refl : forall t : ty, ||- [t]<= [t].
+Proof.
+auto with DBBetaJulia.
+Qed.
+Theorem sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] -> ||- [t1]<= [t3].
+Proof.
+auto with DBBetaJulia.
+Qed.
+Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
+Proof.
+(intros; split; tauto).
+Qed.
+Lemma sem_eq__comm : forall t1 t2 : ty, ||- [t1]= [t2] -> ||- [t2]= [t1].
+Proof.
+auto with DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
