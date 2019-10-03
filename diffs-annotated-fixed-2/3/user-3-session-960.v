@@ -68,6 +68,7 @@ Class GoModel : Type :={byte : Type;
                         nullptr : forall ty, Ptr ty}.
 Search -"endian".
 Opaque Nat.modulo Nat.div.
+#[local]Obligation Tactic := (intros; simpl; subst).
 #[program]
 Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   match x with
@@ -76,26 +77,24 @@ Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   end.
 Next Obligation.
 Proof.
-(intros; simpl).
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqDws1m6"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqNd84Xb"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqm7cpYI"
+Next Obligation.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqsXaK0u"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqp0LSKH"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqfRsBS8"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Next Obligation.
 Proof.
-(intros; simpl; subst).
 (* Auto-generated comment: Succeeded. *)
 
