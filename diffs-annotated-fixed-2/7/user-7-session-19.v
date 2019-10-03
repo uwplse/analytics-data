@@ -200,6 +200,7 @@ Proof.
             tauto || apply Max.le_max_l || apply Max.le_max_r
      end ])).
 -
-(destruct (match_ty_i_exists t1) as [v1 Hm1]; destruct (match_ty_i_exists t2) as [v2 Hm2]).
+(destruct (match_ty_i_exists t1 0) as [v1 Hm1]; destruct (match_ty_i_exists t2 0) as [v2 Hm2]).
+(assert (Hmp : |-[ 0] TPair v1 v2 <$ TPir t1 t2) by (apply match_ty_i_pair; assumption)).
 (* Auto-generated comment: Failed. *)
 
