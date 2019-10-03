@@ -802,6 +802,9 @@ Ltac
          try rewrite Nat.mul_1_r in IP; try fold NTensor in *; 
          simpl in *; rewrite IP; clear IP
   end; try (solve [ type_check ]); eauto with wf_db.
+Timeout 1 About dim_solve.
+Timeout 1 Print dim_solve.
+Timeout 1 Print Ltac dim_solve.
 Ltac
  rewrite_inPar' :=
   fold NTensor; simpl in *;
@@ -817,13 +820,16 @@ Ltac
               ?C ->
               ?D ->
               (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
-                (@kron ?m' ?n' ?o' ?p' ?\207\1291 ?\207\1292) = ?RHS
+                (@kron ?m' ?n' ?o' ?p' ?\207\1291 ?\207\1292) == ?RHS
             |- _ =>
                 replace m with m'; try dim_solve; replace n with n'; try dim_solve;
                  replace o with o'; try dim_solve; replace p with p'; 
                  try dim_solve; try rewrite H
           end; clear IP
-   end; try (solve [ type_check ]); eauto with wf_db.
+   end; try (solve [ type_check ]).
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqVAzNmS"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Ltac
  listify_kron :=
   unfold ctx_to_matrix;
@@ -835,9 +841,6 @@ Ltac
         (simpl; rewrite ctx_to_mat_list_length;
           try rewrite size_ntensor, Nat.mul_1_r; easy)
     end.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqcRg58g"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Lemma ctx_lookup_exists :
   forall v \206\147 f,
   get_context (b_var v) \226\138\130 \206\147 ->
@@ -906,8 +909,113 @@ Ltac
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
           rewrite IP; clear IP
    end; try (solve [ type_check ]).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqveI1NK"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+Ltac
+ tensor_tac :=
+  simpl; try rewrite size_ntensor; try rewrite app_length;
+   try rewrite ctx_to_mat_list_length; simpl; unify_pows_two; lia.
+Lemma init_at_spec :
+  forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
+  length l1 = i ->
+  length l2 = n - i ->
+  (forall j, Mixed_State (nth j l1 A)) ->
+  (forall j, Mixed_State (nth j l2 B)) ->
+  i < S n ->
+  (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) == \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
+Proof.
+(intros b n i).
+gen n.
+(induction i).
+-
+(intros n l1 l2 A B L1 L2 M1 M2 Lt).
+(destruct l1; inversion L1).
+(simpl in *).
+clear L1 M1 Lt.
+(rewrite strip_one_l_in_eq).
+(rewrite Nat.sub_0_r in L2).
+(rewrite L2 in *).
+restore_dims tensor_tac.
+(erewrite denote_box_compat).
+2: {
+restore_dims tensor_tac.
+(rewrite (kron_1_l_inv (\226\168\130 l2))).
+reflexivity.
+}
+(rewrite L2).
+rewrite_inPar''.
+restore_dims tensor_tac.
+(rewrite id_circ_spec).
+(rewrite init_spec).
+restore_dims tensor_tac.
+reflexivity.
+-
+(intros n l1 l2 A B L1 L2 M1 M2 Lt).
+(destruct n; [ omega |  ]).
+(destruct l1; inversion L1).
+(simpl).
+(rewrite H0).
+restore_dims tensor_tac.
+replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
+rewrite_inPar''.
+(rewrite id_circ_spec).
+restore_dims tensor_tac.
+(simpl).
+specialize (IHi n l1 l2 A B).
+show_dimensions.
+(repeat rewrite app_length in *).
+(simpl in *).
+replace (length l1 + S (length l2)) with S n in * by lia.
+(simpl in *).
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(rewrite IHi; trivial; try lia).
+reflexivity.
+(intros j).
+(apply (M1 (S j))).
+Qed.
+Theorem compile_correct :
+  forall (b : bexp) (\206\147 : Ctx) (f : Var -> bool) (t : bool),
+  get_context b \226\138\130 \206\147 ->
+  (\226\159\166 compile b \206\147 \226\159\167) (bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f) ==
+  bool_to_matrix (t \226\138\149 \226\140\136 b | f \226\140\137) \226\138\151 ctx_to_matrix \206\147 f.
+Proof.
+(intros b).
+(induction b; intros \206\147 f t H).
+-
+(simpl in *).
+rewrite_inPar''.
+(simpl_rewrite TRUE_spec).
+restore_dims tensor_tac.
+(rewrite id_circ_spec).
+restore_dims tensor_tac.
+(destruct t; reflexivity).
+-
+(simpl in *).
+rewrite_inPar''.
+(simpl_rewrite FALSE_spec).
+restore_dims tensor_tac.
+(rewrite id_circ_spec).
+restore_dims tensor_tac.
+(destruct t; reflexivity).
+-
+(simpl).
+listify_kron.
+(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
+  try omega).
+(simpl).
+(rewrite xorb_comm).
+reflexivity.
+(apply (singleton_nth_classical \206\147 v) in H as [W H]).
+(apply position_of_lt in H).
+(simpl in *; omega).
+(apply ctx_lookup_exists; easy).
+-
+(simpl in *).
+restore_dims tensor_tac.
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; compile_typing compile_WT)).
+(unfold compose_super).
+restore_dims tensor_tac.
 (* Auto-generated comment: Succeeded. *)
 
