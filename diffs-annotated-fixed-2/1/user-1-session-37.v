@@ -349,11 +349,12 @@ Fixpoint Gamma (G : GT) : SetST :=
       exists l',
         X = SRec l' /\
         Forall2
-          (fun (S' : option ST) (G' : option (Ensemble (option ST)))
-           =>
+          (fun (S' : option ST)
+             (G' : option (option (Ensemble (option ST)))) =>
            match S', G' with
-           | None, None => True
-           | S', Some G' => Ensembles.In _ G' S'
+           | S', None => True
+           | S', Some (Some G') => Ensembles.In _ G' S'
+           | None, Some None => True
            | _, _ => False
            end) l'
           (map
@@ -375,5 +376,30 @@ Fixpoint Gamma (G : GT) : SetST :=
                         end
                     end))) l)
   end.
+Print SetPMap.
+Print Forall.
+Search -Ensemble.
+Print SetPMap.
+Inductive Alpha : SetST -> GT -> Prop :=
+  | alpha_int : Alpha (Singleton _ SInt) GInt
+  | alpha_bool : Alpha (Singleton _ SBool) GBool
+  | alpha_fun :
+      forall S G_1 G_2,
+      (forall X,
+       Ensembles.In _ S X -> exists S_1 S_2, S = SFun S_1 S_2) ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SFun S_1 S_2 => Some S_1
+            | _ => None
+            end)) G_1 ->
+      Alpha
+        (SetPMap S
+           (fun S =>
+            match S with
+            | SFun S_1 S_2 => Some S_2
+            | _ => None
+            end)) G_2 -> Alpha S (GFun G_1 G_2).
 (* Auto-generated comment: Failed. *)
 
