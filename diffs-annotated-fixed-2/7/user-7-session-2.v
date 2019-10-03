@@ -124,32 +124,8 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma eq_r_trans :
-  forall t1 t2 : ty, |- t1 << t2 -> |- t2 << t1 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
+Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
-(intros t1 t2 Hsub11).
-(induction Hsub11).
--
-(intros Hsub12 t3 Hsub21).
-(induction Hsub21; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
--
-(intros Hsub12).
-(remember (TPair t1' t2') as tx eqn:Heqx ).
-(remember (TPair t1 t2) as ty eqn:Heqy ).
-(induction Hsub12; inversion Heqx; inversion Heqy; subst; try clear Heqx Heqy).
-+
-(intros t3 Hsub21).
-(remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21; inversion Heqx; subst).
-*
-clear Heqx IHHsub12_1 IHHsub12_2 IHHsub21_1 IHHsub21_2.
-(intros Hsub22).
-(inversion Hsub22; subst).
-{
-specialize (IHHsub11_1 Hsub12_1 t1'0 Hsub21_1 H2).
-specialize (IHHsub11_2 Hsub12_2 t2'0 Hsub21_2 H4).
-(split; constructor; tauto).
-}
-{
-(* Auto-generated comment: Failed. *)
+(remember (TPair t1 t2) as tx eqn:Heqx ).
+(* Auto-generated comment: Succeeded. *)
 
