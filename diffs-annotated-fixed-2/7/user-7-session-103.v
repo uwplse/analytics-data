@@ -102,6 +102,8 @@ Proof.
 -
 (apply match_ty_pair; auto).
 -
-(destruct k, w; try (solve [ tauto ])).
+(destruct k, w; try (solve [ simpl; tauto ])).
+(simpl).
+split.
 (* Auto-generated comment: Failed. *)
 
