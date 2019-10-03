@@ -995,6 +995,5 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
