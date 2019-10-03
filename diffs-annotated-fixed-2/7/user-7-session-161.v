@@ -105,9 +105,8 @@ subst.
 (rewrite subst_exist_eq).
 assumption.
 *
-(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
-exists ([X' := tx] ti).
+(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 (* Auto-generated comment: Failed. *)
 
