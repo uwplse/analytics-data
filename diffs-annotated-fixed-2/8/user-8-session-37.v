@@ -53,5 +53,6 @@ split.
 (intros H \206\147 \206\1470 \207\129 H0 H1).
 (rewrite <- H; trivial).
 (apply mixed_state_trace_1).
-(* Auto-generated comment: Succeeded. *)
+(apply denote_circuit_correct).
+(* Auto-generated comment: Failed. *)
 
