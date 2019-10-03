@@ -457,6 +457,23 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq8oShLM"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-}
-(* Auto-generated comment: Failed. *)
+Qed.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtpaN61"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+eauto.
+(destruct a; simpl in *).
+(autounfold in *; intuition; subst; eauto).
+Qed.
+End Log.
+(* Auto-generated comment: Succeeded. *)
 
