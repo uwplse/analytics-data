@@ -94,9 +94,5 @@ Proof.
 (induction t; induction t'; intros k v Hsemeq).
 reflexivity.
 15: {
-idtac.
-clear IHt'.
-(simpl).
-(apply f_equal).
 (* Auto-generated comment: Failed. *)
 
