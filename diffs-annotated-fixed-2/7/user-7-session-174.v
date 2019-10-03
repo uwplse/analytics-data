@@ -104,6 +104,5 @@ all: (try (intros; simpl; Omega.omega)).
 -
 (intros).
 (simpl).
-Omega.omega.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
