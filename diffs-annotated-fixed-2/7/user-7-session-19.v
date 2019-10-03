@@ -343,7 +343,5 @@ Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> (
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros Hsem).
 16: {
-idtac.
-clear IHta.
 (* Auto-generated comment: Failed. *)
 
