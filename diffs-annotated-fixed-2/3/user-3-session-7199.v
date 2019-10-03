@@ -437,5 +437,7 @@ intuition.
 (exists bs; eauto using log_abstraction_preserved).
 }
 step_proc.
+intuition.
+{
 (* Auto-generated comment: Succeeded. *)
 
