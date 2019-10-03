@@ -90,5 +90,18 @@ split.
 assumption.
 (apply match_ty_cname__inv in Hm; subst).
 (induction w'; induction t'; intros Hm; try assumption || contradiction).
++
+(rewrite subst_union).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(rewrite subst_union).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
+*
+subst.
+(rewrite subst_exist_eq in *).
 (* Auto-generated comment: Failed. *)
 
