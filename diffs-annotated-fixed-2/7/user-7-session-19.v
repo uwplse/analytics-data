@@ -656,7 +656,6 @@ Proof.
 (apply nf_sem_sub_i__sub_d).
 (apply mk_nf__in_nf).
 (apply sem_sub_i__trans with t1).
-(pose proof (SemSubProps.mk_nf__sem_eq t1)).
-(intros k v Hv).
+Search -mk_nf.
 (* Auto-generated comment: Failed. *)
 
