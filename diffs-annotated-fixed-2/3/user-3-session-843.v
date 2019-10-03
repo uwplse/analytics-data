@@ -1465,6 +1465,5 @@ rewrite Heq.
 eauto.
 -
 (simpl).
-(do 2 eexists; split; econstructor).
 (* Auto-generated comment: Succeeded. *)
 
