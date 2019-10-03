@@ -1167,5 +1167,9 @@ listify_kron.
 all: (simpl; reflexivity).
 }
 3: {
-(* Auto-generated comment: Failed. *)
+rewrite_inPar'.
+rewrite_inPar'.
+(rewrite 2!id_circ_spec).
+(repeat simpl_rewrite strip_one_l_out_eq).
+(* Auto-generated comment: Succeeded. *)
 
