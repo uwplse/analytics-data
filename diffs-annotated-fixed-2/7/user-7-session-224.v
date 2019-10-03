@@ -85,6 +85,30 @@ exists w2.
 (apply match_ty_union_2; auto).
 }
 {
-(exisst 0).
+exists 0.
+(apply match_ty_union_2).
+(rewrite f_subst_not_b_free_in_ty; auto).
+}
+}
+*
+(destruct (beq_idP X' i0)).
+{
+subst.
+(split; intros Hi0).
+{
+(unfold not_f_free_in_ty, not_free in Hi0).
+(simpl in Hi0).
+exfalso.
+(apply Hi0).
+(apply IdSetFacts.singleton_2).
+reflexivity.
+}
+{
+exists 0.
+(rewrite f_subst_fvar_eq).
+assumption.
+}
+}
+{
 (* Auto-generated comment: Failed. *)
 
