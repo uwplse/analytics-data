@@ -101,11 +101,18 @@ Proof.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | apply match_ty_var__inv in Hm; subst; constructor
    | apply match_ty_ev__inv in Hm; subst; constructor
-   | apply match_ty_exist__0_inv in Hm; auto ])).
+   | apply match_ty_exist__0_inv in Hm; auto
+   | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
+Qed.
+Lemma match_ty_value_type__reflexive : forall v : ty, value_type v -> forall w k : nat, |-[ w, k] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros w k).
 -
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(eapply IHw; eassumption).
+(destruct w, k; reflexivity).
 -
+(apply match_ty_pair; auto).
+-
+(destruct k).
+constructor.
 (* Auto-generated comment: Failed. *)
 
