@@ -185,12 +185,6 @@ Proof.
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
-Lemma in_nf_pair__value_type : forall t1 t2 : ty, InNF( TPair t1 t2) -> value_type (TPair t1 t2).
-Proof.
-(intros t1 t2 Hnf).
-(inversion Hnf; subst).
-(apply atom_type__value_type; assumption).
-Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
 (induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
@@ -208,5 +202,6 @@ Proof.
      end ])).
 -
 (assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption)).
+(assert (Hmp : |-[ 0] TPair v1 v2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption)).
 (* Auto-generated comment: Failed. *)
 
