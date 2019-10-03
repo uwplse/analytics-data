@@ -85,7 +85,6 @@ assumption.
 -
 (destruct (beq_idP x i); reflexivity).
 Qed.
-Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Definition mk_subst_exist (x : id) (y : id) (t ts : ty) := TExist y (if beq_id x y then t else ts).
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
@@ -99,7 +98,6 @@ Function
        else mk_subst_exist x y t' (subst x s t')
    | TVar y => if beq_id x y then s else t
    | TEV y => t
-   end
- where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
+   end - intros.
 (* Auto-generated comment: Failed. *)
 
