@@ -43,6 +43,6 @@ clear IHv.
 Qed.
 Lemma match_ty__value_type : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
 Proof.
-(induction v; induction t; intros k Hm; try (solve [ auto with DBBetaJulia ])).
+(induction v; induction t; intros k Hm).
 (* Auto-generated comment: Failed. *)
 
