@@ -272,6 +272,7 @@ tauto.
 specialize (IHt HX).
 (destruct (beq_idP Y i)).
 +
-(subst; simpl).
+subst.
+(rewrite b_subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
