@@ -117,6 +117,6 @@ exists ([X' := tx] ti).
 admit.
 }
 {
-exists ti.
+(apply match_ty_eist).
 (* Auto-generated comment: Failed. *)
 
