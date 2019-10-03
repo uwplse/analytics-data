@@ -130,6 +130,6 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
-(simpl).
+(unfold well_dounded).
 (* Auto-generated comment: Failed. *)
 
