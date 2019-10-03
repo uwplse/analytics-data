@@ -142,19 +142,18 @@ clear IHt3.
 (simpl).
 (intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v); tauto).
 Qed.
-Lemma value_sem_sub_k_i_union__inv :
-  forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
+Lemma match_ty_i_exists : forall (t : ty) (k : nat), exists v : ty, |-[ k] v <$ t.
 Proof.
-(intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
-(assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem _ Hm).
-(apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
-Qed.
-Lemma sem_sub_k_i_pair__inv :
-  forall (t1 t2 t1' t2' : ty) (k : nat), ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
-Proof.
-(intros t1 t2 t1' t2' k Hsem).
-(unfold sem_sub_k_i in Hsem).
+(induction t; intros k).
+-
+(exists (TCName c); destruct k; reflexivity).
+-
+(destruct (IHt1 k) as [v1 Hm1]; destruct (IHt2 k) as [v2 Hm2]).
+(exists (TPair v1 v2); apply match_ty_i_pair; assumption).
+-
+(destruct (IHt1 k) as [v1 Hm1]).
+(exists v1; apply match_ty_i_union_1; assumption).
+-
+exists TRef t.
 (* Auto-generated comment: Failed. *)
 
