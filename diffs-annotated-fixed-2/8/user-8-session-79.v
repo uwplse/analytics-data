@@ -1145,5 +1145,11 @@ rewrite_inPar'.
 (erewrite kron_compat).
 3: (erewrite kron_compat).
 5: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb2 \206\147 f false); trivial).
-(* Auto-generated comment: Succeeded. *)
+3: (rewrite xorb_false_l).
+all: reflexivity.
+}
+5: {
+(rewrite (Toffoli_at_spec \226\140\136 b1 | f \226\140\137 \226\140\136 b2 | f \226\140\137 t (3 + \226\159\166 \206\147 \226\159\167) 1 2 0); trivial;
+  try omega).
+(* Auto-generated comment: Failed. *)
 
