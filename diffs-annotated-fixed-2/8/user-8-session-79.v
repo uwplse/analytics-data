@@ -1153,5 +1153,6 @@ listify_kron.
 (simpl_rewrite (Toffoli_at_spec \226\140\136 b1 | f \226\140\137 \226\140\136 b2 | f \226\140\137 t (3 + \226\159\166 \206\147 \226\159\167) 1 2 0); trivial;
   try omega).
 (simpl).
+(rewrite xorb_true_r).
 (* Auto-generated comment: Succeeded. *)
 
