@@ -64,6 +64,7 @@ Msimpl.
 (destruct W; try (solve [ inversion U ])).
 -
 (simpl).
-(unfold denote_pat; simpl).
+autounfold with den_db.
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
