@@ -361,6 +361,8 @@ Proof.
           [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ apply IHt1 | apply IHt2 ]; assumption
    end; try (solve [ destruct v; contradiction ])).
 (rewrite mk_nf_ref).
-(apply match_ty_i_ref__weak_inv in Hm; subst).
+(apply match_ty_i_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+constructor.
 (* Auto-generated comment: Failed. *)
 
