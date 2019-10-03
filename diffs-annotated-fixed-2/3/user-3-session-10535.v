@@ -158,6 +158,5 @@ step.
 step.
 (exists nil; simpl).
 (split; auto).
-(apply log_abstraction_nil with (b := r0); eauto).
 (* Auto-generated comment: Succeeded. *)
 
