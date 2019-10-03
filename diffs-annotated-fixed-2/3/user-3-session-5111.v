@@ -182,6 +182,5 @@ lia.
 {
 (exfalso; eapply disk_inbounds_not_none; [  | eauto ]; lia).
 }
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
