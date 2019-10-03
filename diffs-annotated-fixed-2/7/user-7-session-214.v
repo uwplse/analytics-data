@@ -260,6 +260,18 @@ Proof.
 -
 (rewrite b_subst_pair).
 (apply f_free_in_ty_pair).
-(apply f_free_in_ty_pair__inv).
+(apply f_free_in_ty_pair__inv in HX).
+tauto.
+-
+(rewrite b_subst_union).
+(apply f_free_in_ty_union).
+(apply f_free_in_ty_union__inv in HX).
+tauto.
+-
+(apply f_free_in_ty_exist__inv in HX).
+specialize (IHt HX).
+(destruct (beq_idP Y i)).
++
+(subst; simpl).
 (* Auto-generated comment: Failed. *)
 
