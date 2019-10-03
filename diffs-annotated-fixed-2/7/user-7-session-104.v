@@ -62,6 +62,6 @@ where "'|' t '|'" := (inv_depth t) : btjt_scope.
 Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
 (intros w k).
-(induction k).
+(induction k; induction t).
 (* Auto-generated comment: Failed. *)
 
