@@ -1250,6 +1250,6 @@ Proof.
 (induction c).
 -
 (unfold denote_box; simpl).
-Search -add_fresh -\226\136\133 -rewrite -simpl.
-(* Auto-generated comment: Failed. *)
+Search -add_fresh -\226\136\133.
+(* Auto-generated comment: Succeeded. *)
 
