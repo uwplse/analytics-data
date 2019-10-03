@@ -74,5 +74,12 @@ Lemma b_subst_union : forall (X : id) (s t1 t2 : ty), [BX := s] TUnion t1 t2 = T
 Proof.
 (intros).
 (simpl).
-(* Auto-generated comment: Failed. *)
+reflexivity.
+Qed.
+Lemma b_subst_ev : forall (X : id) (s : ty) (Y : id), [BX := s] TEV Y = TEV Y.
+Proof.
+(intros).
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
