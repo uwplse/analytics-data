@@ -162,6 +162,6 @@ Proof.
 typeclasses eauto.
 firstorder.
 (inversion H0; subst).
-(simpl).
+auto.
 (* Auto-generated comment: Succeeded. *)
 
