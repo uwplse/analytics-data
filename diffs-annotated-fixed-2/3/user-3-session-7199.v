@@ -458,6 +458,22 @@ admit.
 }
 -
 step_proc.
+intuition eauto.
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq6X1HOm"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqB5pbtF"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Theorem reset_ok : proc_spec reset_spec reset recover abstr.
+Proof.
+(unfold reset; intros).
+(apply spec_abstraction_compose).
+step_proc.
 intuition.
 (* Auto-generated comment: Succeeded. *)
 
