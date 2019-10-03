@@ -178,6 +178,6 @@ assumption.
 specialize (IHw _ _ Hm).
 (destruct IHw as [v' IHw]).
 exists v'.
-(apply match_ty_exist).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
