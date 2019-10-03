@@ -35,6 +35,6 @@ exists (TPair v1' v2').
 -
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
-(simpl in Hm).
+(destruct (beq_idP X i)).
 (* Auto-generated comment: Failed. *)
 
