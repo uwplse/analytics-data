@@ -929,6 +929,9 @@ reflexivity.
 Timeout 1 About rewrite_inPar.
 Timeout 1 Print rewrite_inPar.
 Timeout 1 Print Ltac rewrite_inPar.
+Timeout 1 About rewrite_inPar.
+Timeout 1 Print rewrite_inPar.
+Timeout 1 Print Ltac rewrite_inPar.
 (match goal with
  | |- context [ denote_box true (inPar ?f ?g) (kron ?\207\1291 ?\207\1292) ] =>
        let IP := fresh "IP" in
