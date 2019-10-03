@@ -439,5 +439,6 @@ step.
 (destruct r; try step).
 (destruct (v == v0); subst; try step).
 Unshelve.
+all: auto.
 (* Auto-generated comment: Succeeded. *)
 
