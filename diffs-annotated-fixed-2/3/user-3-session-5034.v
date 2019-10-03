@@ -248,6 +248,5 @@ Proof.
 reflexivity.
 -
 (step_proc; intuition; subst; eauto).
-(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
