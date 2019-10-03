@@ -178,5 +178,7 @@ Proof.
 (induction Hsub; intros Hnfm1 Hnfm2).
 -
 tauto.
+-
+(destruct (in_nf_pair__inv _ _ Hnfm1) as [Hnfmx Hnfmy]).
 (* Auto-generated comment: Failed. *)
 
