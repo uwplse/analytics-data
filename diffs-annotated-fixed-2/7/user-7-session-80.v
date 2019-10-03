@@ -567,6 +567,5 @@ Proof.
 (pose proof (match_ty__inv_depth_l_le_index v v' k Hm1) as Hdep1).
 (pose proof (match_ty_value_type__symmetric v v' Hv' k Hm1) as Hm2).
 (pose proof (match_ty__inv_depth_l_le_index v' v k Hm2) as Hdep2).
-(apply Nat.le_antisymm; assumption).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
