@@ -399,6 +399,12 @@ Proof.
 (assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
 +
-(apply value_sem_sub_k_i_union__inv in Hsem).
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
+-
+admit.
+-
+(intros t Hnft _ k Hdep t2).
+(assert (Hva : value_type (TRef t)) by constructor).
 (* Auto-generated comment: Failed. *)
 
