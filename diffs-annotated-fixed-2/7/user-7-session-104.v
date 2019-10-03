@@ -30,6 +30,8 @@ constructor.
 -
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
 exists t'.
+(split; intros w; exists w; tauto).
 (* Auto-generated comment: Failed. *)
 
