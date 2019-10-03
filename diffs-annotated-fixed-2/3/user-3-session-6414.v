@@ -128,6 +128,6 @@ step_proc.
 step_proc.
 step_proc.
 step_proc.
-exists nil.
+(exists nil; eauto).
 (* Auto-generated comment: Succeeded. *)
 
