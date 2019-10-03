@@ -1235,12 +1235,5 @@ Fact ancilla_free_seq :
 Admitted.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
-Require Import Setoid.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqfL4nV2"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Timeout 1 About denote_box.
-Timeout 1 Print denote_box.
 (* Auto-generated comment: Succeeded. *)
 
