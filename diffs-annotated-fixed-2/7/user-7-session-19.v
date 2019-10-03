@@ -400,6 +400,8 @@ Proof.
 (apply match_ty_i_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
 -
 (apply match_ty_i_union__inv in Hm).
-(destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]).
+(destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_i_ref__inv in Hm).
 (* Auto-generated comment: Failed. *)
 
