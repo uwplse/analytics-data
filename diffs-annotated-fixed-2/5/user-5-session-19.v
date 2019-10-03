@@ -157,6 +157,6 @@ intro x.
 (apply evalChoose).
 exists (eval L env (Int 3)).
 (apply evalEqTrue).
-(erewrite evalTimes).
+(rewrite evalTimes with (i := 3) (j := 2)).
 (* Auto-generated comment: Succeeded. *)
 
