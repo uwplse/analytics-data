@@ -144,8 +144,6 @@ Lemma match_ty__subst_neq_permute :
 Proof.
 (intros X Y sx sy w).
 (induction w; intros v t HXY; generalize dependent t; induction t; try (solve [ split; intros Hm; assumption ])).
-(split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst;
-  destruct (IHt1 _ Hm1) as [v1' Hm1']; destruct (IHt2 _ Hm2) as [v2' Hm2']; exists (TPair v1' v2'); rewrite subst_pair; 
-  apply match_ty_pair; assumption).
+(split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (* Auto-generated comment: Failed. *)
 
