@@ -143,8 +143,8 @@ clear IHt3.
 (intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v); tauto).
 Qed.
 Lemma value_sem_sub_k_union__value_sem_sub_k_component :
-  forall k : nat, forall v : ty, value_type v -> forall ta tb : ty, ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
+  forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
-(induction k; intros v Hv; induction Hv; intros ta tb Hsem; unfold sem_sub_k_i in Hsem).
+(intros v Hv; induction Hv; intros k ta tb Hsem; unfold sem_sub_k_i in Hsem).
 (* Auto-generated comment: Failed. *)
 
