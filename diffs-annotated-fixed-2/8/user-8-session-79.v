@@ -598,6 +598,5 @@ Proof.
 -
 (intros).
 (simpl).
-(rewrite kron_1_l).
 (* Auto-generated comment: Succeeded. *)
 
