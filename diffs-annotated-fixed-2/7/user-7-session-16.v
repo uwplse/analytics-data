@@ -381,7 +381,11 @@ Proof.
 right.
 (match goal with
  | |- ~ |- ?t1 << ?t2 =>
-       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ])
+       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
+        subst
+ end).
+(match goal with
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra
  end).
 (* Auto-generated comment: Failed. *)
 
