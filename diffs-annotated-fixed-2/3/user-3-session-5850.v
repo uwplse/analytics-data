@@ -81,5 +81,8 @@ Proof.
 (induction n as [| n' IHn']).
 -
 (rewrite <- plus_n_O).
-(* Auto-generated comment: Succeeded. *)
+reflexivity.
+-
+(rewrite IHn').
+(* Auto-generated comment: Failed. *)
 
