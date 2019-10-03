@@ -237,6 +237,10 @@ specialize (Hsem _ Hm).
 specialize (Hsem v').
 tauto.
 Qed.
+Ltac
+ solve__value_sem_sub_i_union__inv_depth_le_2 Hv Hsem t'1 t'2 :=
+  pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
+   [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
 Lemma sem_sub_k_i_nf__inv_depth_le_2 : forall (k : nat) (t t' : ty), InNF( t) -> | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
 (induction k; induction t; induction t'; intros Hnft Hdept' Hsem; try (solve [ simpl; constructor ]);
@@ -266,5 +270,6 @@ Proof.
             destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
+Check value_sem_sub_k_i_union__inv.
 (* Auto-generated comment: Failed. *)
 
