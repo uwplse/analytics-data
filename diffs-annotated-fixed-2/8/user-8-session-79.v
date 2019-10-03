@@ -986,5 +986,6 @@ Proof.
 (induction b; intros \206\147 f t H).
 -
 (simpl).
-(* Auto-generated comment: Failed. *)
+rewrite_inPar''.
+(* Auto-generated comment: Succeeded. *)
 
