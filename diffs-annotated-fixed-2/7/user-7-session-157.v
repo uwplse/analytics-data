@@ -40,6 +40,10 @@ exists (TPair v1' v2').
 subst.
 exists (TEV X').
 (simpl).
-(rewrite <- bew_id_refl).
+(rewrite <- beq_id_refl).
+reflexivity.
++
+exists v.
+assumption.
 (* Auto-generated comment: Failed. *)
 
