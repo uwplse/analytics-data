@@ -130,5 +130,5 @@ Proof.
 (simpl_rewrite inSeq_correct; trivial).
 (unfold compose_super).
 (rewrite E1 by easy).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
