@@ -340,6 +340,6 @@ step_proc.
 }
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
-(descend; intuition eauto).
+exists (a' ++ [a]).
 (* Auto-generated comment: Succeeded. *)
 
