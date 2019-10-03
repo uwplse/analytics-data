@@ -230,6 +230,6 @@ Proof.
 clear Heqx IHHsub21_1 IHHsub21_2.
 (intros Hsub22).
 (apply sub_r_pair__inv in Hsub22).
-(split; constructor; tauto).
+(split; constructor; auto).
 (* Auto-generated comment: Failed. *)
 
