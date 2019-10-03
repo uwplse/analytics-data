@@ -523,6 +523,6 @@ Qed.
 Theorem rev_app_distr :
   forall l1 l2 : natlist, rev (l1 ++ l2) = rev l2 ++ rev l1.
 Proof.
-(induction l1).
+(induction l1; simpl).
 (* Auto-generated comment: Succeeded. *)
 
