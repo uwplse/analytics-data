@@ -271,6 +271,7 @@ Proof.
 Qed.
 Lemma xxx : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
-(induction k; induction t; induction t'; intros Hdept Hsem).
+(induction k; induction t; induction t'; intros Hdept Hsem; try (solve [ simpl; constructor ])).
+Show 2.
 (* Auto-generated comment: Failed. *)
 
