@@ -97,6 +97,11 @@ contradiction.
 (simpl).
 (rewrite <- beq_id_refl).
 symmetry.
+(apply subst_fresh_in_ty).
+assumption.
++
+(simpl).
+(rewrite <- beq_id_refl).
 (apply subs_fresh_in_ty).
 (* Auto-generated comment: Succeeded. *)
 
