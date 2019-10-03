@@ -1036,6 +1036,7 @@ rewrite_inPar'.
 (rewrite init1_spec).
 mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with bool_to_matrix true by reflexivity.
 specialize (IHb \206\147 f true H).
+(simpl in IHb).
 (rewrite IHb).
 (* Auto-generated comment: Failed. *)
 
