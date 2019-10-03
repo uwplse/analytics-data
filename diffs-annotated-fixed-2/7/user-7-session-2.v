@@ -312,6 +312,9 @@ tauto.
 (destruct Hsub22).
 (apply SR_UnionR2; tauto).
 +
-(rewrite mk_nf_nf__equal in IHHsub21).
+(rewrite mk_nf_nf__equal in IHHsub21; try assumption).
+tauto.
+-
+(intros; auto).
 (* Auto-generated comment: Failed. *)
 
