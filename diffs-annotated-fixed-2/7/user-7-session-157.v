@@ -62,5 +62,8 @@ exists (TPair v1' v2').
 -
 (destruct (beq_idP X i)).
 +
+subst.
+(simpl in Hm).
+(rewrite <- beq_id_refl).
 (* Auto-generated comment: Failed. *)
 
