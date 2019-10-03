@@ -596,6 +596,5 @@ Proof.
 -
 (intros).
 (simpl).
-Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
