@@ -102,11 +102,9 @@ Proof.
 -
 (apply match_ty_pair; auto).
 -
-(destruct k, w; try (solve [ simpl; tauto ])).
-+
-(simpl).
-split.
-*
-(intros w1; exists w1; tauto).
-(* Auto-generated comment: Failed. *)
+(destruct k, w; try (solve [ simpl; tauto | simpl; split; intros w1; exists w1; tauto ])).
+-
+(destruct k, w; reflexivity).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
