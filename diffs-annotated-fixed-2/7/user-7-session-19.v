@@ -254,6 +254,8 @@ Proof.
 (rewrite inv_depth_mk_nf; assumption).
 (apply sem_sub_k__i__trans with t; try assumption).
 (pose proof (match_ty_i_nf k t) as H).
-auto with DBBetaJulia.
+(intros v Hm; specialize (H v); tauto).
+Qed.
+Lemma sem_eq_k_i__inv_depth_eq : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 (* Auto-generated comment: Failed. *)
 
