@@ -144,9 +144,15 @@ intuition eauto.
 (eexists; intuition eauto).
 Qed.
 Hint Resolve get_len_ok: core.
-Theorem get_ok : proc_spec get_spec get recover abstr.
+Theorem get_upto_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a <= length state;
+     post := fun r state' => state' = state /\ r = firstn a state;
+     recovered := fun _ state' => state' = state |}) 
+    (get_upto a) recover abstr.
 Proof.
-(unfold get; intros).
-step_proc.
+(unfold get_upto; intros).
 (* Auto-generated comment: Succeeded. *)
 
