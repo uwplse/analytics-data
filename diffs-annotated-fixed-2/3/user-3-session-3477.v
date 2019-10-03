@@ -260,7 +260,17 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 (unfold init_abstraction; intros).
 (eapply proc_spec_rx; [ solve [ eauto ] |  ]; cbn[pre post recovered]; intros).
-(exists tt; split; [ solve [ auto ] |  ]).
-(step_proc; intuition; simpl in *).
+(exists tt; split; [ solve [ auto ] |  ]; intuition; simpl in *).
+(descend; intuition eauto).
+(destruct r).
+-
+clear H.
+(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
+(eapply H0 in H2; eauto).
+(destruct matches in *; safe_intuition repeat deex; eauto).
+(descend; intuition eauto).
+-
+(unfold proc_spec; simpl; intros).
+(destruct matches; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
