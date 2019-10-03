@@ -54,9 +54,100 @@ Fixpoint match_ty (k : nat) :=
       | _, _, _ => False
       end
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
-Theorem match_ty__value_type_l : forall (k : nat) (t v : ty), |-[ k] v <$ t -> value_type v.
+Definition sem_sub_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 -> |-[ k] v <$ t2.
+Notation "'||-[' k ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_k k t1 t2) (at level 45) : btjm_scope.
+Definition sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> |-[ k] v <$ t2.
+Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_k k t1 t2) (at level 45) : btjm_scope.
+Definition sem_sub (t1 t2 : ty) := forall k : nat, ||-[ k][t1]<= [t2].
+Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : btjm_scope.
+Definition sem_eq (t1 t2 : ty) := forall k : nat, ||-[ k][t1]= [t2].
+Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
+Hint Unfold sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
+Inductive atom_type : ty -> Prop :=
+  | AT_CName : forall c : cname, atom_type (TCName c)
+  | AT_Pair : forall ta1 ta2 : ty, atom_type ta1 -> atom_type ta2 -> atom_type (TPair ta1 ta2)
+  | AT_Ref : forall t : ty, in_nf t -> atom_type (TRef t)
+with in_nf : ty -> Prop :=
+  | NF_Atom : forall ta : ty, atom_type ta -> in_nf ta
+  | NF_Union : forall t1 t2 : ty, in_nf t1 -> in_nf t2 -> in_nf (TUnion t1 t2).
+Scheme atom_type_mut := Induction for atom_type Sort Prop
+  with in_nf_mut := Induction for in_nf Sort Prop.
+Declare Scope btjnf_scope.
+Delimit Scope btjnf_scope with btjnf.
+Open Scope btjnf.
+Notation "'InNF(' t ')'" := (in_nf t) (at level 30) : btjnf_scope.
+Hint Constructors atom_type in_nf: DBBetaJulia.
+Example innf_1 : InNF( tint).
 Proof.
-(intros k; induction t; induction v; intros Hm; try (solve [ constructor | destruct k; contradiction ])).
-Search -le.
+(repeat constructor).
+Qed.
+Example innf_2 : InNF( TPair tint tstr).
+Proof.
+(repeat constructor).
+Qed.
+Example innf_3 : InNF( TUnion (TPair tint tstr) tint).
+Proof.
+(apply NF_Union; repeat constructor).
+Qed.
+Example innf_4 : InNF( TPair tint (TUnion tint tstr)) -> False.
+Proof.
+(intros Hcontra; inversion Hcontra).
+(inversion H).
+(inversion H4).
+Qed.
+Example innf_5 : InNF( TRef (TUnion tint tstr)).
+Proof.
+(apply NF_Atom).
+(apply AT_Ref).
+(solve [ repeat constructor ]).
+Qed.
+Example innf_6 : InNF( TRef (TPair tint (TUnion tint tstr))) -> False.
+Proof.
+(intros Hcontra).
+(inversion Hcontra; subst).
+(inversion H; subst).
+(apply innf_4; assumption).
+Qed.
+Fixpoint unite_pairs (t1 : ty) :=
+  fix unprs (t2 : ty) :=
+    match t1, t2 with
+    | TUnion t11 t12, _ => TUnion (unite_pairs t11 t2) (unite_pairs t12 t2)
+    | _, TUnion t21 t22 => TUnion (unprs t21) (unprs t22)
+    | _, _ => TPair t1 t2
+    end.
+Fixpoint mk_nf (t : ty) :=
+  match t with
+  | TCName n => t
+  | TPair t1 t2 => let t1' := mk_nf t1 in let t2' := mk_nf t2 in unite_pairs t1' t2'
+  | TUnion t1 t2 => TUnion (mk_nf t1) (mk_nf t2)
+  | TRef t' => TRef (mk_nf t')
+  end.
+Notation "'MkNF(' t ')'" := (mk_nf t) (at level 30) : btjnf_scope.
+Declare Scope btjd_scope.
+Delimit Scope btjd_scope with btjd.
+Open Scope btjd.
+Reserved Notation "'|-' t1 '<<' t2" (at level 50).
+Inductive sub_d : ty -> ty -> Prop :=
+  | SD_Refl : forall t, |- t << t
+  | SD_Trans : forall t1 t2 t3, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3
+  | SD_Pair : forall t1 t2 t1' t2', |- t1 << t1' -> |- t2 << t2' -> |- TPair t1 t2 << TPair t1' t2'
+  | SD_UnionL : forall t1 t2 t, |- t1 << t -> |- t2 << t -> |- TUnion t1 t2 << t
+  | SD_UnionR1 : forall t1 t2, |- t1 << TUnion t1 t2
+  | SD_UnionR2 : forall t1 t2, |- t2 << TUnion t1 t2
+  | SD_Distr1 : forall t11 t12 t2, |- TPair (TUnion t11 t12) t2 << TUnion (TPair t11 t2) (TPair t12 t2)
+  | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
+  | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
+ where "|- t1 '<<' t2" := (sub_d t1 t2) : btj_scope.
+Inductive sub_d : ty -> ty -> Prop :=
+  | SD_Refl : forall t, |- t << t
+  | SD_Trans : forall t1 t2 t3, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3
+  | SD_Pair : forall t1 t2 t1' t2', |- t1 << t1' -> |- t2 << t2' -> |- TPair t1 t2 << TPair t1' t2'
+  | SD_UnionL : forall t1 t2 t, |- t1 << t -> |- t2 << t -> |- TUnion t1 t2 << t
+  | SD_UnionR1 : forall t1 t2, |- t1 << TUnion t1 t2
+  | SD_UnionR2 : forall t1 t2, |- t2 << TUnion t1 t2
+  | SD_Distr1 : forall t11 t12 t2, |- TPair (TUnion t11 t12) t2 << TUnion (TPair t11 t2) (TPair t12 t2)
+  | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
+  | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
+ where "|- t1 '<<' t2" := (sub_d t1 t2) : btjd_scope.
 (* Auto-generated comment: Failed. *)
 
