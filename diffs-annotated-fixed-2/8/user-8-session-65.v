@@ -1248,6 +1248,6 @@ Lemma denote_box_compat :
 Proof.
 (intros).
 (induction c).
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+-
+(* Auto-generated comment: Failed. *)
 
