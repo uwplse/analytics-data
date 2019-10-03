@@ -149,37 +149,5 @@ exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any; split; auto).
 (constructor; intuition; autorewrite with upd in *; intuition).
 -
-(rewrite diskShrink_preserves; auto).
-(rewrite diskShrink_size; lia).
--
-(rewrite diskUpd_eq; auto).
-(rewrite diskShrink_size; lia).
--
-lia.
-}
-{
-(exfalso; eapply disk_inbounds_not_none; [  | eauto ]; lia).
-}
-+
-step_proc.
-Qed.
-Theorem read_ok :
-  forall a, proc_spec (OneDiskAPI.read_spec a) (read a) recover abstr.
-Proof.
-(unfold read).
-(intros).
-(apply spec_abstraction_compose; simpl).
-(step_proc; intros).
-(destruct a'; simpl in *; intuition).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqJ8XuEz"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqSDcIOF"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
