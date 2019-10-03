@@ -595,6 +595,6 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Add Parametric Morphism  m n : @big_kron m n with signature 
- eq ==> mat_equiv as big_kron_mor.
+ eq ==> @mat_equiv as big_kron_mor.
 (* Auto-generated comment: Failed. *)
 
