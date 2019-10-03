@@ -37,7 +37,5 @@ Timeout 1 About unitary_gate_unitary.
 Timeout 1 Print unitary_gate_unitary.
 (simpl in *).
 matrix_denote.
-setoid_rewrite denote_unitary_transpose.
-(simpl in *; Msimpl).
 (* Auto-generated comment: Succeeded. *)
 
