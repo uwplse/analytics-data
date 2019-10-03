@@ -100,6 +100,9 @@ Search -IdSet.singleton.
 subst.
 exfalso.
 (apply Hin).
-(apply IdSetFacts.singleton_1).
+Search -IdSet.singleton.
+(apply IdSetFacts.singleton_2).
+reflexivity.
+Qed.
 (* Auto-generated comment: Failed. *)
 
