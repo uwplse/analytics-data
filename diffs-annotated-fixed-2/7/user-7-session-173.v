@@ -124,6 +124,6 @@ Omega.omega.
 (intros).
 (simpl).
 Omega.omega.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
+Qed.
 (* Auto-generated comment: Failed. *)
 
