@@ -1103,6 +1103,5 @@ clear IS.
 4: (erewrite kron_compat).
 6: (erewrite denote_box_compat).
 7: (erewrite denote_box_compat).
-8: {
 (* Auto-generated comment: Succeeded. *)
 
