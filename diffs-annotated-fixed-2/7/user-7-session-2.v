@@ -127,6 +127,13 @@ Qed.
 Lemma eq_r_trans :
   forall t1 t2 : ty, |- t1 << t2 -> |- t2 << t1 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
 Proof.
-(intros t1 t2 Hsub1).
+(intros t1 t2 Hsub11).
+(induction Hsub11).
+-
+(intros Hsub12 t3 Hsub21).
+(induction Hsub21).
++
+(intros; split; constructor).
++
 (* Auto-generated comment: Failed. *)
 
