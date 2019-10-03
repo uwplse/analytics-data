@@ -394,6 +394,6 @@ step_proc.
 (exists bs; intuition eauto).
 (unfold log_abstraction; intuition eauto).
 (unfold log_length_ok).
-(rewrite H).
+(rewrite H; auto).
 (* Auto-generated comment: Succeeded. *)
 
