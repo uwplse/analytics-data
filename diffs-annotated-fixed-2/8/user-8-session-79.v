@@ -949,6 +949,10 @@ Timeout 1 About rewrite_inPar.
 Timeout 1 Print rewrite_inPar.
 Timeout 1 Print Ltac rewrite_inPar.
 (rewrite size_ntensor in *).
-(rewrite IP).
-(* Auto-generated comment: Failed. *)
+Timeout 1 About rewrite_inPar.
+Timeout 1 Print rewrite_inPar.
+Timeout 1 Print Ltac rewrite_inPar.
+(simpl in *).
+(try rewrite Nat.mul_1_r in *).
+(* Auto-generated comment: Succeeded. *)
 
