@@ -20,7 +20,6 @@ Proof.
 exists (TCName c).
 (apply match_ty_cname).
 -
-(simpl in Hm).
-(simpl).
+(rewrite subst_pair).
 (* Auto-generated comment: Failed. *)
 
