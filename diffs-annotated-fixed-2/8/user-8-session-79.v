@@ -654,6 +654,6 @@ Proof.
 (intros).
 (simpl).
 specialize (kron_1_l (\226\168\130 l2)) as KL.
-(rewrite kron_1_l_inv).
-(* Auto-generated comment: Failed. *)
+(rewrite <- kron_1_l_inv).
+(* Auto-generated comment: Succeeded. *)
 
