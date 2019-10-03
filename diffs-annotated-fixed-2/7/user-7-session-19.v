@@ -391,9 +391,9 @@ Admitted.
 Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
 Proof.
 (intros v Hv ta tb Hsem).
-(pose proof (| TUnion ta tb |) as kmax).
+(remember (| TUnion ta tb |) as kmax).
 (assert (Hdeple : | v | <= kmax)).
 {
-subst.
+(apply sem_sub_k_i__inv_depth_le_2).
 (* Auto-generated comment: Failed. *)
 
