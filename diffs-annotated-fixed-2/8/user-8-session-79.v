@@ -595,5 +595,6 @@ Proof.
 (induction l1).
 -
 (intros).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
