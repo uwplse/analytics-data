@@ -342,8 +342,7 @@ Proof.
 (intros t1 t2 Hdec).
 (destruct Hdec as [Hdec| Hdec]).
 -
-left.
-(apply sub_r__transitive with t1).
+(left; apply sub_r__transitive with t1).
 (apply mk_nf__sub_r1).
 assumption.
 (* Auto-generated comment: Failed. *)
