@@ -1134,9 +1134,5 @@ reflexivity.
 (simpl in *).
 Timeout 1 About denote_box_compat.
 Timeout 1 Print denote_box_compat.
-Set Printing All.
-Timeout 1 About denote_box_compat.
-Timeout 1 Print denote_box_compat.
-Timeout 1 Print Ltac denote_box_compat.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
