@@ -199,6 +199,5 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 (step_proc; intros).
 (destruct a'; simpl in *; intuition idtac).
--
 (* Auto-generated comment: Succeeded. *)
 
