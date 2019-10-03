@@ -313,27 +313,12 @@ step_proc.
 (destruct a as [_ bs]; simpl in *; intuition eauto).
 Qed.
 Hint Resolve recover_wipe: core.
-Opaque firstn.
-Theorem get_upto_ok a :
-  proc_spec
-    (fun (_ : unit) state =>
-     {|
-     pre := a <= length state;
-     post := fun r state' => state' = state /\ r = firstn a state;
-     recovered := fun _ state' => state' = state |}) 
-    (get_upto a) recover abstr.
+Lemma firstn_one_more :
+  forall (a : nat) (state : list block),
+  S a <= length state ->
+  firstn a state ++ [nth a state block0] = firstn (S a) state.
 Proof.
-(induction a; simpl).
--
-step_proc.
--
-step_proc.
-step_proc.
-intuition eauto.
-{
-lia.
-}
-step_proc.
-Timeout 1 Show.
+(intros a state H).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
