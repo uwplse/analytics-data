@@ -193,9 +193,9 @@ Qed.
 Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
 (intros t t' Hsub).
-(pose proof (sub_r__mk_nf_sub_r _ _ Hsub)).
+(pose proof (sub_r__mk_nf_sub_r _ _ Hsub) as Hsubnf).
 (pose proof (mk_nf__in_nf (TRef t)) as Hnf).
 (pose proof (mk_nf__in_nf (TRef t')) as Hnf').
-Check sub_r_nf_ref__inv.
+(pose proof (sub_r_nf_ref__inv _ _ Hnf Hnf' Hsubnf) as H).
 (* Auto-generated comment: Failed. *)
 
