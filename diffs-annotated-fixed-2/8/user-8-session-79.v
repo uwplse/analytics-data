@@ -1111,6 +1111,13 @@ restore_dims tensor_tac.
 (erewrite denote_box_compat).
 2: (restore_dims tensor_tac; apply (kron_1_l_inv (ctx_to_matrix \206\147 f))).
 rewrite_inPar'.
+(rewrite init0_spec).
 (rewrite id_circ_spec).
-(* Auto-generated comment: Succeeded. *)
+reflexivity.
+}
+8: {
+rewrite_inPar'.
+(rewrite id_circ_spec).
+(rewrite (IHb1 \206\147 f true)).
+(* Auto-generated comment: Failed. *)
 
