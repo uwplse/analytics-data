@@ -253,6 +253,7 @@ Proof.
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf; assumption).
 (apply sem_sub_k__i__trans with t; try assumption).
-(pose proof (match_ty_i_nf k t) as Heq).
+(pose proof (match_ty_i_nf k t) as H).
+auto with DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
