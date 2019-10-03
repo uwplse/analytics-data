@@ -117,6 +117,7 @@ Qed.
 Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
 Proof.
 (intros t1 t2 Hwf).
-(unfold wf_ty in *; simpl).
+(unfold wf_ty in *; simpl in *).
+Search -IdSet.Equal.
 (* Auto-generated comment: Failed. *)
 
