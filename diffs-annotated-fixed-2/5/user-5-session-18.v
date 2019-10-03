@@ -51,6 +51,9 @@ Fixpoint simplify (t : Term) : Term :=
   | Choose x P => Choose x (simplify P)
   end.
 Theorem simplify_correct :
-  forall (L : EpsilonLogic) (t : Term) env, isTheorem L (Eq t (simplify t)).
+  forall (L : EpsilonLogic) (t : Term), isTheorem L (Eq t (simplify t)).
+Proof.
+(unfold isTheorem).
+(induction t; intros; simpl in *; try congruence).
 (* Auto-generated comment: Succeeded. *)
 
