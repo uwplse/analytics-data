@@ -90,6 +90,10 @@ exists v.
 split.
 assumption.
 (apply match_ty_cname__inv in Hm; subst).
-(induction w'; induction t'; intros Hm; try assumption || contradiction).
+(induction w'; induction t'; intros HX' Hm; try assumption || contradiction).
++
+(rewrite subst_union).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 (* Auto-generated comment: Failed. *)
 
