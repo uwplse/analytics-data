@@ -403,6 +403,14 @@ constructor.
 {
 subst.
 (simpl).
-(apply Nat.max_le_n).
+SearchPattern (_ <= Nat.max _ _).
+(apply Nat.le_max_l).
+}
+(assert (Hdeple2 : | tb | <= kmax)).
+{
+subst.
+(simpl).
+(apply Nat.le_max_r).
+}
 (* Auto-generated comment: Failed. *)
 
