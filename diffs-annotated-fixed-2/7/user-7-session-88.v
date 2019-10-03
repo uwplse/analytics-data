@@ -453,6 +453,6 @@ Proof.
 (inversion Hnft; subst).
 (inversion H; subst).
 (simpl in Hdep).
-(apply le_S_n in Hdep).
+(apply IHk; try assumption).
 (* Auto-generated comment: Failed. *)
 
