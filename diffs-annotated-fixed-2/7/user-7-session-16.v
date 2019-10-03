@@ -361,53 +361,15 @@ Ltac
   destruct IHt2_1 as [IH1| IH1]; destruct IHt2_2 as [IH2| IH2];
    try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
    apply atom_sub_r_union__inv in Hcontra; tauto || constructor.
-Lemma nf_sub_r__decidable : forall t1 t2 : ty, InNF( t1) -> Decidable.decidable (|- t1 << t2).
+Lemma nf_sub_r__decidable2 :
+  forall t : ty, InNF( t) -> (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t)).
 Proof.
-(intros t1 t2 Hnf1).
-generalize dependent t2.
-generalize dependent Hnf1.
-generalize dependent t1.
 (apply
-  (in_nf_mut (fun (t1 : ty) (Hat : atom_type t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2))
-     (fun (t1 : ty) (Hnf : in_nf t1) => forall t2 : ty, Decidable.decidable (|- t1 << t2)))).
+  (in_nf_mut
+     (fun (t : ty) (Hat : atom_type t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t)))
+     (fun (t : ty) (Hnf : in_nf t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t))))).
 -
-(intros c t2).
-(induction t2).
-+
-(destruct (cname_eq__decidable c c0)).
-*
-(subst; left; constructor).
-*
-right.
-(intros Hcontra).
-(apply sub_r_cname__inv in Hcontra).
-contradiction.
-+
-(right; solve_not_x_sub_r_y_full).
-+
-(solve_atom_sub_r_union__decidable IHt2_1 IHt2_2).
-+
-(right; solve_not_x_sub_r_y_full).
--
-(intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
-(intros t2; induction t2).
-+
-(right; solve_not_x_sub_r_y_full).
-(apply IHHcontra; try tauto).
-(apply mk_nf_nf__equal).
-(do 2 constructor; assumption).
-+
-(destruct (IHta1 t2_1) as [IH1| IH1]; destruct (IHta2 t2_2) as [IH2| IH2]; (solve
-  [ left; constructor; assumption
-  | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
-+
-(solve_atom_sub_r_union__decidable IHt2_1 IHt2_2; assumption).
-+
-(right; solve_not_x_sub_r_y_full).
-(apply IHHcontra; try tauto).
-(apply mk_nf_nf__equal).
-(do 2 constructor; assumption).
-(apply sub_r_dec__mk_nf_sub_r_dec; assumption).
--
+(intros c).
+(split; intros t'; induction t').
 (* Auto-generated comment: Failed. *)
 
