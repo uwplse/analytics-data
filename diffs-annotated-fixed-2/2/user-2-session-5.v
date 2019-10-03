@@ -50,18 +50,16 @@ Notation "[ ]" := Nil (format "[ ]") : coucou_scope.
 Notation "[ x ]" := (Cons x Nil) : coucou_scope.
 Notation "[ x y .. z ]" := (Cons x (Cons y .. (Cons z Nil) ..))
   (x  at level 0, y  at level 0, z  at level 0) : coucou_scope.
-Notation "# s" := (Symb s) (at level 0) : coucou_scope.
+Notation "# s" := (Symb s) (at level 0, s  at level 0) : coucou_scope.
 Coercion Ident : string >-> term.
 End TermNotations.
-Redirect "/tmp/coqXBd5ga" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Import TermNotations.
-Redirect "/tmp/coqnf6w45" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
 Open Scope coucou_scope.
 Check
-  [<Nil <Nil # ("hi")>> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  [<Nil <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
+Redirect "/tmp/coqCUd7Pb" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
