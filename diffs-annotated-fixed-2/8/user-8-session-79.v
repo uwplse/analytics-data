@@ -1183,9 +1183,5 @@ reflexivity.
 (rewrite_inPar'; try tensor_tac).
 (rewrite id_circ_spec).
 (erewrite kron_compat).
-3:
- (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
-   rewrite ctx_to_mat_list_length; specialize (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137);
-   repeat rewrite Nat.add_0_r in *; apply IHb1; trivial).
 (* Auto-generated comment: Succeeded. *)
 
