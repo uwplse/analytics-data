@@ -650,6 +650,5 @@ Lemma big_kron_append :
 Proof.
 (induction l1).
 -
-(intros).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
