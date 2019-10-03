@@ -112,5 +112,6 @@ reflexivity.
 *
 (apply match_ty_union__inv in Hm').
 (destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+*
 (* Auto-generated comment: Failed. *)
 
