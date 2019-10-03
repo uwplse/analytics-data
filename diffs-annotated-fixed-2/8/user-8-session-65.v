@@ -1254,6 +1254,6 @@ Proof.
 (induction (c p)).
 -
 matrix_denote.
-(rewrite H).
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
