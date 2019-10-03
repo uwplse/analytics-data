@@ -282,43 +282,11 @@ generalize dependent t3.
 (apply SR_UnionR2; tauto).
 +
 Abort.
-Lemma weird_trans : forall t1 t2 : ty, |- t1 << t2 -> InNF( t2) -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3.
-Proof.
-(intros t1 t2 Hsub1).
-(induction Hsub1).
--
-tauto.
--
-(intros Hnf2 t3 Hsub21).
-(inversion Hnf2; subst).
-(inversion H; subst).
-(apply NF_Atom in H2).
-(apply NF_Atom in H3).
-(remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21; inversion Heqx; subst; try clear Heqx).
-+
-(intros Hsub22).
-(apply sub_r_pair__inv in Hsub22).
-(destruct Hsub22).
-(constructor; auto).
-+
-(intros Hsub22).
-(apply sub_r_union_l__inv in Hsub22).
-(destruct Hsub22).
-(apply SR_UnionR1; tauto).
-+
-(intros Hsub22).
-(apply sub_r_union_l__inv in Hsub22).
-(destruct Hsub22).
-(apply SR_UnionR2; tauto).
-+
-(rewrite mk_nf_nf__equal in IHHsub21; try assumption).
-tauto.
--
-(intros).
-(constructor; auto).
--
-Search -TUnion.
-(intros Hnf; apply union_in_nf__components_in_nf in Hnf; inversion Hnf; subst).
+Lemma weird_trans :
+  forall tm1 tm2 : ty,
+  |- tm1 << tm2 ->
+  InNF( tm12) ->
+  InNF( tm2) ->
+  (forall tl : ty, |- tl << tm1 -> InNF( tl) -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> InNF( tr) -> |- tm1 << tr).
 (* Auto-generated comment: Failed. *)
 
