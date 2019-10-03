@@ -42,5 +42,6 @@ Proof.
 (intros).
 vector_denote.
 (destruct b; unfold bool_to_ket; simpl; Msimpl).
+(rewrite kron_1_r').
 (* Auto-generated comment: Succeeded. *)
 
