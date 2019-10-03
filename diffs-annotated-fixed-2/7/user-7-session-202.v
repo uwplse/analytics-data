@@ -124,7 +124,7 @@ Proof.
 (intros t1 t2 Hwf).
 (unfold wf_ty in *; simpl in *).
 Admitted.
-Lemma b_subst_wf_ty : forall (X : id) (t : ty), not_b_free_in_ty X t -> forall s : ty, [BX := s] t = t.
+Lemma b_subst_not_b_free_in_ty : forall (X : id) (t : ty), not_b_free_in_ty X t -> forall s : ty, [BX := s] t = t.
 Proof.
 (intros X t).
 (induction t; intros HX s;
@@ -191,5 +191,17 @@ reflexivity.
 contradiction.
 +
 (simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+reflexivity.
+admit.
++
+(simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+reflexivity.
+admit.
++
+(rewrite b_subst_bvar_neq).
 (* Auto-generated comment: Failed. *)
 
