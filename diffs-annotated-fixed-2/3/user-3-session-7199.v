@@ -484,6 +484,6 @@ intuition.
 (descend; intuition eauto).
 {
 (descend; intuition eauto).
-(apply log_abstraction_nil).
-(* Auto-generated comment: Failed. *)
+(eapply log_abstraction_nil).
+(* Auto-generated comment: Succeeded. *)
 
