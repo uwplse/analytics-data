@@ -398,5 +398,8 @@ subst.
 (apply sem_sub_k_i__inv_depth_le_2 with (| TUnion ta tb |)).
 constructor.
 (apply Hsem).
+}
+(unfold sem_sub_i in Hsem).
+(assert (Hm : |-[ kamx] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 (* Auto-generated comment: Failed. *)
 
