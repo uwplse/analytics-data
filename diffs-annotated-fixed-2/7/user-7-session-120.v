@@ -19,6 +19,7 @@ Proof.
 (destruct Hsem1 as [w21 Hsem1]; destruct Hsem2 as [w22 Hsem2]).
 exists (Nat.max w21 w22).
 (intros v Hm).
-(apply match_ty_pair__inv in Hm; subst).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 (* Auto-generated comment: Failed. *)
 
