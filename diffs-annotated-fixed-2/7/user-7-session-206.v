@@ -53,6 +53,6 @@ Search -IdSet.In.
 (pose proof IdSetFacts.In_m).
 Search -Morphisms.Proper.
 Search -Morphisms.respectful.
-(destruct (IdSetFacts.empty_iff Y) as [H _]).
+(destruct (IdSetFacts.empty_iff X) as [H _]).
 (* Auto-generated comment: Failed. *)
 
