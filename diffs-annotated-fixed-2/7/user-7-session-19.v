@@ -243,5 +243,11 @@ Proof.
 Admitted.
 Lemma sem_sub_k__i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
+auto with DBBetaJulia.
+Qed.
+Lemma sem_sub_k_nf__inv_depth_le : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
+(intros k t t' Hdept Hsem).
+(rewrite <- inv_depth_mk_nf).
 (* Auto-generated comment: Failed. *)
 
