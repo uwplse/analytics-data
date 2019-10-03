@@ -83,6 +83,12 @@ Proof.
 (induction t; intros Hneq; try reflexivity).
 -
 (repeat rewrite subst_pair).
-(rewrite IHt1, IHt2; try assumption reflexivity).
+(rewrite IHt1, IHt2; try assumption).
+reflexivity.
+-
+(repeat rewrite subst_union).
+(rewrite IHt1, IHt2; try assumption).
+reflexivity.
+-
 (* Auto-generated comment: Failed. *)
 
