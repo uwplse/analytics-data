@@ -23,6 +23,5 @@ Proof.
 (induction w; induction t; intros v Hm).
 -
 exists v.
-(simpl).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
