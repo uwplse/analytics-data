@@ -27,6 +27,7 @@ Proof.
 -
 subst.
 Search -mk_nf.
-(rewrite (mk_nf_nf__equal t) in Hsub).
+(assert (Hnf : InNF( MkNF( t))) by apply mk_nf__in_nf).
+(rewrite (mk_nf_nf__equal t Hnf) in Hsub).
 (* Auto-generated comment: Failed. *)
 
