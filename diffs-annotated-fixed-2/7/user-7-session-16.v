@@ -111,5 +111,7 @@ Proof.
 (remember (TCName c1) as t1 eqn:Heq1 ).
 (remember (TCName c2) as t2 eqn:Heq2 ).
 (induction Hsub; try inversion Heq1; inversion Heq2; subst).
+reflexivity.
+(apply IHHsub).
 (* Auto-generated comment: Failed. *)
 
