@@ -111,6 +111,5 @@ Lemma ctrl_list_to_unitary_transpose :
   forall l r u, ctrl_list_to_unitary l r (u) \226\128\160 == (ctrl_list_to_unitary l r u) \226\128\160.
 Proof.
 (intros l r u).
-(induction l).
 (* Auto-generated comment: Succeeded. *)
 
