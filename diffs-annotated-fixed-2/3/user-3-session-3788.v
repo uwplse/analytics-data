@@ -43,7 +43,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtKERBA"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Notation "p" := (ProcMarker p) (at level 10, only printing).
+Notation "p" := (ProcMarker p) (at level 0, only printing).
 Theorem swapXY_ok :
   proc_spec
     (fun (_ : unit) state =>
