@@ -149,7 +149,6 @@ intro x.
 {
 admit.
 }
-(erewrite <- H).
-reflexivity.
+(erewrite <- H; reflexivity).
 (* Auto-generated comment: Succeeded. *)
 
