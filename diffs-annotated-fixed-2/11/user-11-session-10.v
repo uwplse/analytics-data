@@ -48,6 +48,5 @@ Instance showDataX : (Show (kvs_data exp)) :=
          | Kvs_BadRequest => "400"
          | Kvs_PreconditionFailed => "412"
          end |}.
-Definition kvs_get {V} (k : N) : list (N * V) -> option V := fmap snd \226\136\152 find (N.eqb k \226\136\152 fst).
 (* Auto-generated comment: Succeeded. *)
 
