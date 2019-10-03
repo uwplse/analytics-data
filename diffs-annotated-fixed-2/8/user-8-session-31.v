@@ -2812,5 +2812,13 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 (rewrite size_octx_merge by easy).
 dependent destruction p1.
 dependent destruction t.
+(apply singleton_equiv in s; subst).
+(simpl).
+(rewrite singleton_size).
+(simpl).
+(rewrite Nat.add_succ_r).
+specialize (apply_U_correct Qubit) as AUC.
+(simpl in AUC).
+(unfold process_gate_state).
 (* Auto-generated comment: Succeeded. *)
 
