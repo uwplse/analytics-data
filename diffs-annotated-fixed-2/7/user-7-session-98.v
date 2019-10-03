@@ -129,6 +129,7 @@ Proof.
 -
 (apply match_ty_exist__0_inv in Hm).
 (destruct Hm as [Hv [tx Heqx]]; subst).
-(simpl).
+(simpl in *).
+(split; auto).
 (* Auto-generated comment: Failed. *)
 
