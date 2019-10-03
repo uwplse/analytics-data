@@ -1251,6 +1251,5 @@ reflexivity.
 (apply source_symmetric_WT in H).
 (unfold valid_ancillae_box in IHsource_symmetric).
 (rewrite IHsource_symmetric; trivial).
-specialize @ancilla_free_box_valid as AV.
 (* Auto-generated comment: Succeeded. *)
 
