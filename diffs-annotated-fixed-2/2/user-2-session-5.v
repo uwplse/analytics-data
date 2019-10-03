@@ -51,23 +51,5 @@ Check
   [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
 Fixpoint subst (x : string) (u : term) (t : term) : term := t.
-Fixpoint step (t : term) : term :=
-  match t with
-  | Nil => Nil
-  | Ident _ => Nil
-  | <a b> => if value a then <a (step b)> else <(step a) b>
-  | {f a} =>
-      if value f
-      then
-       match f with
-       | [(Ident lam) (Ident x) body] => if value a then subst x a body else {f (step a)}
-       | Ident prim => t
-       | _ => Nil
-       end
-      else {(step f) a}
-  end.
-Redirect "/tmp/coq3LAWee" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
