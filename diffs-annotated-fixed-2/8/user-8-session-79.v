@@ -1017,6 +1017,6 @@ rewrite_inPar'.
 rewrite_inPar'.
 (rewrite strip_one_l_in_eq).
 restore_dims tensor_tac.
-(rewrite <- (kron_1_l (ctx_to_matrix \206\147 f))).
+(rewrite (kron_1_l_inv (ctx_to_matrix \206\147 f))).
 (* Auto-generated comment: Failed. *)
 
