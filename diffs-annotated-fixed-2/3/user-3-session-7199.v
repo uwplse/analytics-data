@@ -379,5 +379,7 @@ Proof.
 step_proc.
 (destruct a' as [[] bs]; simpl in *).
 intuition eauto.
+step_proc.
+(descend; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
