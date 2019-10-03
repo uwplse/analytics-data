@@ -278,7 +278,22 @@ exists (TRef t).
 admit.
 -
 (apply Hnotm).
-exists (TEV X).
+exists (TEV i).
 (destruct k; reflexivity).
+-
+(apply Hnotm).
+exists (TEV i).
+(destruct k; reflexivity).
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+(destruct Hcontra as [v Hcontra]).
+(destruct (dec_id X i)).
 (* Auto-generated comment: Failed. *)
 
