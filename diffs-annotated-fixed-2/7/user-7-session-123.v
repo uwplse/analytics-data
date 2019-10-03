@@ -26,6 +26,7 @@ Proof.
 -
 (apply sem_sub_union; assumption).
 -
-(apply sem_sub_union_1; assumption).
+(apply sem_sub_union_1).
+(apply sem_sub_refl).
 (* Auto-generated comment: Failed. *)
 
