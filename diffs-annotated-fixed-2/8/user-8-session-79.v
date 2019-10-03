@@ -952,6 +952,6 @@ replace (length l1 + length l2) with n by omega.
 (rewrite H0, L2).
 (simpl).
 hide_dimensions.
-rewrite_inPar''.
-(* Auto-generated comment: Failed. *)
+rewrite_inPar'.
+(* Auto-generated comment: Succeeded. *)
 
