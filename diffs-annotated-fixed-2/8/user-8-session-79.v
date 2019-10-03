@@ -1025,10 +1025,7 @@ restore_dims tensor_tac.
 (progress
   match goal with
   | H:_ -> _ -> denote_box true ?c ?A == _
-    |- context [ denote_box true ?c ?A' ] => replace A' with A
+    |- context [ denote_box true ?c ?A' ] => replace A' with A by reflexivity
   end).
-2: {
-reflexivity.
-}
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
