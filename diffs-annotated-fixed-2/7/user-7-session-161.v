@@ -96,5 +96,8 @@ subst.
 (destruct (beq_idP X i) as [HX| HX]).
 *
 subst.
+contradiction.
+*
+(rewrite subst_exist_neq).
 (* Auto-generated comment: Failed. *)
 
