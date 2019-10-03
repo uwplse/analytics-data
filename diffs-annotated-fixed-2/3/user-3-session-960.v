@@ -78,6 +78,5 @@ list {x : nat | x < S (S base)} :=
       let digit := x mod S (S base) in
       exist _ digit _ :: nat_to_le base (x / S (S base))
   end.
-Next Obligation of nat_to_le_func.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
