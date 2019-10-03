@@ -71,6 +71,5 @@ Timeout 1 Print LoadPath.
 (simpl).
 (intros).
 (destruct (lt_dec a 2)).
-intuition lia.
 (* Auto-generated comment: Succeeded. *)
 
