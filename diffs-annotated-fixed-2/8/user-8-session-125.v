@@ -53,6 +53,5 @@ Lemma unitary_transpose_id : forall W (U : Unitary W), unitary_transpose U \226\
 Proof.
 (intros W U \207\129 safe).
 matrix_denote.
-(rewrite add_fresh_split).
 (* Auto-generated comment: Succeeded. *)
 
