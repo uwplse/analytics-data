@@ -966,5 +966,6 @@ Timeout 1 Print Ltac rewrite_inPar''.
 show_dimensions.
 injection L1 as L1.
 replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
+(rewrite IP).
 (* Auto-generated comment: Succeeded. *)
 
