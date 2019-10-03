@@ -622,6 +622,6 @@ Proof.
 (intros).
 (rewrite kron_1_l).
 (rewrite kron_1_l).
-(rewrite kron_1_r).
+(rewrite kron_1_r_inv).
 (* Auto-generated comment: Failed. *)
 
