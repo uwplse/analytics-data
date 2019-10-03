@@ -921,6 +921,6 @@ restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
 (erewrite denote_box_compat).
 2: {
-setoid_rewrite (kron_1_l_inv (\226\168\130 l2)).
+restore_dims.
 (* Auto-generated comment: Failed. *)
 
