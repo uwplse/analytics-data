@@ -81,8 +81,30 @@ specialize (pf p).
 gen \207\129.
 (induction (c p)).
 -
+(intros).
 (unfold denote_u_db_box).
 (simpl).
 (rewrite pad_nothing).
+reflexivity.
+-
+(intros \207\129).
+(simpl).
+dependent destruction pf.
+(simpl).
+(unfold compose_super, super).
+(rewrite Nat.add_sub).
+(rewrite H0 by auto).
+(unfold denote_u_db_box).
+(simpl).
+(unfold apply_U, super).
+(rewrite Mmult_adjoint).
+(repeat rewrite Mmult_assoc).
+reflexivity.
+-
+(inversion pf).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqiZW50f"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
