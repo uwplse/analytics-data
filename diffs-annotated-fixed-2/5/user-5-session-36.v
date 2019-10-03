@@ -268,6 +268,6 @@ clear H.
 (rewrite <- evalEqTrue in H0).
 (assert (x0 = 3%Z)).
 {
-(rewrite evalTimes in H0).
+(erewrite evalTimes in H0).
 (* Auto-generated comment: Succeeded. *)
 
