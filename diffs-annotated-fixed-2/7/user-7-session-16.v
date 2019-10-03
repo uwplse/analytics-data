@@ -50,6 +50,6 @@ Qed.
 Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
 (intros t t' Hsub).
-(pose proof (sub_r__sub_r_mk_nf _ _ Hsub)).
+Search -sub_r.
 (* Auto-generated comment: Failed. *)
 
