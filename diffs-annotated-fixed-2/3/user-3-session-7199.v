@@ -381,6 +381,8 @@ step_proc.
 intuition eauto.
 step_proc.
 (descend; intuition eauto).
+destruct matches.
+-
 step_proc.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
