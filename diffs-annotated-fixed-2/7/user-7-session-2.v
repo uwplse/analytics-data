@@ -158,8 +158,16 @@ generalize dependent t3.
 (pose proof (sub_r_nf_union_l__inv _ _ _ Hsub2 Hnf2); tauto).
 -
 (remember (TRef t') as tx eqn:Heqx ).
-(induction Hsub2).
-6: {
-idtac.
+(inversion Hnf1; subst).
+(inversion Hnf2; subst).
+(inversion H; subst).
+(inversion H0; subst).
+(remember (TRef t') as tx eqn:Heqx ).
+(induction Hsub2; inversion Heqx; subst).
++
+(apply SR_UnionR1; tauto).
++
+(apply SR_UnionR2; tauto).
++
 (* Auto-generated comment: Failed. *)
 
