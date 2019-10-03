@@ -964,6 +964,6 @@ Timeout 1 Print Ltac rewrite_inPar''.
         rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *
  end; try (solve [ type_check ])).
 show_dimensions.
-injection L1 as L3.
+injection L1 as L1.
 (* Auto-generated comment: Succeeded. *)
 
