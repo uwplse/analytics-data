@@ -1,3 +1,3 @@
-Require Import Analytical.Analytical.
-(* Auto-generated comment: Failed. *)
+Require Import Analytical.Analytics.
+(* Auto-generated comment: Succeeded. *)
 
