@@ -248,7 +248,6 @@ clear IHk' IHt.
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
 (apply le_S_n in Htk').
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; specialize (Href v); simpl in Hvk, Hvk';
-  apply le_S_n in Hvk; apply le_S_n in Hvk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl).
 (* Auto-generated comment: Failed. *)
 
