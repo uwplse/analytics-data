@@ -589,9 +589,6 @@ constructor.
 (intros i).
 (apply (H (S i))).
 Qed.
-Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
-Proof.
-(intros).
-show_dimensions.
-(* Auto-generated comment: Succeeded. *)
+Definition mat_equiv' := mat_equiv.
+(* Auto-generated comment: Failed. *)
 
