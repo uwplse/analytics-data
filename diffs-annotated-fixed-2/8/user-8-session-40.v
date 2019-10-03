@@ -65,18 +65,34 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma assert0_spec : forall safe, denote_box safe assert0 \226\136\1630\226\159\169\226\159\1680\226\136\163 == I 1.
 Proof.
-(destruct safe).
--
-matrix_denote.
-Msimpl.
-lma.
--
-matrix_denote.
-Msimpl.
-lma.
+(destruct safe; matrix_denote; Msimpl; lma).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqXm3oVN"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqc9vsnQ"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Lemma assert1_spec : forall safe, denote_box safe assert1 \226\136\1631\226\159\169\226\159\1681\226\136\163 == I 1.
+Proof.
+(destruct safe; matrix_denote; Msimpl; lma).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqMkmEId"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma init_spec :
+  forall b safe, denote_box safe (init b) (I (2 ^ 0)) == bool_to_matrix b.
+Proof.
+(destruct b; [ apply init1_spec | apply init0_spec ]).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq4RZyDk"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma assert_spec :
+  forall b safe, denote_box safe (assert b) (bool_to_matrix b) == I 1.
+Proof.
+(destruct b; [ apply assert1_spec | apply assert0_spec ]).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq8NsR6J"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma SWAP_spec : forall \207\129 safe, denote_box safe SWAP \207\129 = swap \195\151 \207\129 \195\151 swap.
 (* Auto-generated comment: Succeeded. *)
 
