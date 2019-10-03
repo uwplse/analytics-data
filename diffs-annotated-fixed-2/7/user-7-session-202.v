@@ -202,6 +202,9 @@ admit.
 reflexivity.
 admit.
 +
-(rewrite b_subst_bvar_neq).
-(* Auto-generated comment: Failed. *)
+(rewrite b_subst_bvar_neq; try assumption).
+(rewrite b_subst_bvar_neq; try assumption).
+reflexivity.
+Admitted.
+(* Auto-generated comment: Succeeded. *)
 
