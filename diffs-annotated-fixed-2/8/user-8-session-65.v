@@ -1244,6 +1244,5 @@ Proof.
 constructor.
 constructor.
 -
-(inversion g0).
 (* Auto-generated comment: Succeeded. *)
 
