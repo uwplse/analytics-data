@@ -340,6 +340,6 @@ econstructor.
 3: eauto.
 2: monoid.
 validate.
-}
+Focus 2.
 (* Auto-generated comment: Failed. *)
 
