@@ -17,7 +17,15 @@ Lemma atom_sub_r_union__inv : forall t t1' t2' : ty, |- t << TUnion t1' t2' -> a
 Proof.
 (intros t t1' t2' Hsub).
 (remember (TUnion t1' t2') as t' eqn:Heq ).
-(induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ]); inversion Heq).
+(induction Hsub; intros Hat; try (solve [ inversion Heq | inversion Hat ]); inversion Heq; subst).
 -
+(left; assumption).
+-
+(right; assumption).
+-
+(assert (Hnf : InNF( t)) by (constructor; assumption)).
+(rewrite (mk_nf_nf__equal t Hnf) in IHHsub).
+tauto.
+Qed.
 (* Auto-generated comment: Failed. *)
 
