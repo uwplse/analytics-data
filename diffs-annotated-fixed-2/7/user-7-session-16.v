@@ -436,5 +436,12 @@ Proof.
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 +
 (right; solve_not_x_sub_r_y_full; intros Hnf''; apply sub_r_dec__mk_nf_sub_r_dec; tauto).
++
+(pose proof (in_nf_ref__inv _ Hnf') as Hnf'').
+(destruct H as [H1 H2]).
+specialize (H1 _ Hnf'').
+specialize (H2 _ Hnf'').
+(destruct H1 as [H1| H1]; destruct H2 as [H2| H2]).
+(left; constructor; assumption).
 (* Auto-generated comment: Failed. *)
 
