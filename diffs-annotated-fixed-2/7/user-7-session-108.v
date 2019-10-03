@@ -297,6 +297,13 @@ admit.
 Search -id.
 (destruct (beq_idP X i)).
 +
+subst.
 (simpl in Hcontra).
+(assert (Heq : beq_id i i = true)).
+{
+admit.
+}
+Search -beq_id_refl.
+(rewrite Heq).
 (* Auto-generated comment: Failed. *)
 
