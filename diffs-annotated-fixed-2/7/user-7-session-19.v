@@ -648,14 +648,10 @@ assumption.
 constructor.
 (apply Hsem).
 Qed.
-Theorem sub_d__semantic_complete : forall t1 t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2.
+Lemma mk_nf__sem_sub_i1 : forall t : ty, ||- [MkNF( t)]<= [t].
 Proof.
-(intros t1 t2 Hsem).
-(apply SD_Trans with (MkNF( t1))).
-(apply mk_nf__sub_d2; assumption).
-(apply nf_sem_sub_i__sub_d).
-(apply mk_nf__in_nf).
-(apply sem_sub_i__trans with t1).
-Search -mk_nf.
+(intros t k).
+(pose proof (match_ty_i_nf t k)).
+auto with DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
