@@ -65,7 +65,7 @@ specialize (Href v' Hv').
 Qed.
 Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
 Proof.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hlt Hle;
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle;
   try
    match goal with
    | |- |-[ ?k'] ?v <$ TCName _ => apply match_ty_i_cname__inv in Hm; subst; destruct k'; reflexivity
@@ -73,5 +73,18 @@ Proof.
    | |- |-[ ?k'] ?v <$ TUnion _ _ =>
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
-(* Auto-generated comment: Succeeded. *)
+-
+(destruct v; contradiction).
+-
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(inversion Hle; subst).
++
+(simpl).
+(intros v Hv).
+specialize (Href v Hv).
+(split; tauto).
++
+(simpl).
+(* Auto-generated comment: Failed. *)
 
