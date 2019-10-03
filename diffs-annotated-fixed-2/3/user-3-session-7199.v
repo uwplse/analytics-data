@@ -439,6 +439,15 @@ intuition.
 step_proc.
 intuition.
 {
-exists (bs ++ v).
+(exists (bs ++ v); intuition).
+admit.
+}
+{
+(exists (bs ++ v); intuition).
+admit.
+}
+step_proc.
+intuition.
+(descend; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
