@@ -108,6 +108,6 @@ Proof.
 (assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem _ Hm).
 (apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
+(destruct Hsem; [ left | right ]).
 (* Auto-generated comment: Failed. *)
 
