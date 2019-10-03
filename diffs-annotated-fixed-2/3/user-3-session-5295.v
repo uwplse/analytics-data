@@ -301,5 +301,7 @@ Proof.
 (unfold sizeInit).
 step.
 (destruct r).
+-
+step.
 (* Auto-generated comment: Succeeded. *)
 
