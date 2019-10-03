@@ -114,6 +114,5 @@ Proof.
 (induction l).
 (simpl).
 -
-(induction r; trivial).
 (* Auto-generated comment: Succeeded. *)
 
