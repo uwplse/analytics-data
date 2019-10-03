@@ -723,8 +723,48 @@ Proof.
 reflexivity.
 Qed.
 Ltac
- dim_solve :=
-  unify_pows_two; simpl; try rewrite size_ntensor; simpl; try rewrite Nat.mul_1_r;
-   omega.
+ tensor_dims :=
+  simpl; try rewrite size_ntensor; try rewrite app_length;
+   try rewrite ctx_to_mat_list_length; simpl; unify_pows_two; lia.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqbWcg3Y"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Ltac
+ rewrite_inPar :=
+  fold NTensor; simpl in *;
+   match goal with
+   | |-
+     context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
+                 (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
+         let IP := fresh "IP" in
+         specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
+          match goal with
+          | H:?A ->
+              ?B ->
+              (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
+                (@kron ?m' ?n' ?o' ?p' ?\207\1291 ?\207\1292) == ?RHS
+            |- _ =>
+                replace m with m'; try tensor_dims; replace n with n';
+                 try tensor_dims; replace o with o'; try tensor_dims; replace p
+                 with p'; try tensor_dims; try rewrite H
+          end; clear IP
+   end; try (solve [ type_check ]).
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqD3Zl8d"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Ltac
+ listify_kron :=
+  unfold ctx_to_matrix;
+   repeat
+    match goal with
+    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace
+      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
+      by
+        (simpl; rewrite ctx_to_mat_list_length;
+          try rewrite size_ntensor, Nat.mul_1_r; easy)
+    end.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq2FL8fD"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
