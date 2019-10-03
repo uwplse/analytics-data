@@ -286,5 +286,5 @@ Proof.
 (destruct (sub_r__trans2 _ _ Hsub1) as [_ H]).
 auto.
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
