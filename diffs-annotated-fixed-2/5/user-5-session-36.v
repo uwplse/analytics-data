@@ -277,6 +277,7 @@ clear H.
 (apply Z).
 (eapply evalIntEq).
 (erewrite evalTimes in H0).
-(apply H0).
+exact H0.
+}
 (* Auto-generated comment: Succeeded. *)
 
