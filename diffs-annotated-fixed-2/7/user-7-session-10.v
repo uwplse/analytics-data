@@ -218,6 +218,13 @@ tauto.
 (pose proof (in_nf_ref__inv _ Hnfm2) as Hnf2).
 (destruct IHHsub1 as [IHHsub11 IHHsub12]; try assumption).
 (destruct IHHsub2 as [IHHsub21 IHHsub22]; try assumption).
-(split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst).
+(split; intros tx Hsub'; [ remember (TRef t) as ty eqn:Heqy  | remember (TRef t') as ty eqn:Heqy  ]; induction Hsub'; inversion Heqy; subst;
+  try (solve [ constructor; auto ])).
++
+(apply IHHsub').
+(apply mk_nf_nf__equal; assumption).
+(apply mk_nf__in_nf).
+-
+(split; intros tx Hsub').
 (* Auto-generated comment: Failed. *)
 
