@@ -108,6 +108,9 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
+(intros).
+(simpl).
 Omega.omega.
+-
 (* Auto-generated comment: Failed. *)
 
