@@ -323,6 +323,6 @@ generalize dependent a.
 -
 (exfalso; lia).
 -
-(simpl).
+Search -firstn -cons.
 (* Auto-generated comment: Succeeded. *)
 
