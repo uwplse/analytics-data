@@ -972,6 +972,6 @@ restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (destruct b; simpl; Msimpl).
 (repeat rewrite Mmult_assoc).
 Msimpl.
-(rewrite kron_mixed_product).
+setoid_rewrite kron_mixed_product.
 (* Auto-generated comment: Failed. *)
 
