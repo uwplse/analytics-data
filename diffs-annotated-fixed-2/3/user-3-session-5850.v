@@ -80,7 +80,6 @@ Proof.
 (intros n m).
 (induction n as [| n' IHn']).
 -
-(rewrite plus_n_O).
-reflexivity.
+(rewrite <- plus_n_O).
 (* Auto-generated comment: Succeeded. *)
 
