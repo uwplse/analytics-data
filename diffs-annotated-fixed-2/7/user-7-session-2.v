@@ -213,28 +213,11 @@ Proof.
 (apply sub_r_unite_pairs_nf_l__inv in Hsub; try apply mk_nf__in_nf).
 (destruct Hsub; split; apply SR_NormalForm; assumption).
 Qed.
-Lemma eq_r_trans :
-  forall t1 t2 : ty, |- t1 << t2 -> |- t2 << t1 -> forall t3 : ty, |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3 /\ |- t3 << t1.
+Lemma sub_r_union_l__inv : forall t1 t2 t' : ty, |- TUnion t1 t2 << t' -> |- t1 << t' /\ |- t2 << t'.
 Proof.
-(intros t1 t2 Hsub11).
-(induction Hsub11).
--
-(intros Hsub12 t3 Hsub21).
-(induction Hsub21; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
--
-(intros Hsub12 t3 Hsub21).
-(apply sub_r_pair__inv in Hsub12; destruct Hsub12 as [Hsub121 Hsub122]).
-(remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21; inversion Heqx; subst).
-*
-clear Heqx IHHsub21_1 IHHsub21_2.
-(intros Hsub22).
-(apply sub_r_pair__inv in Hsub22; destruct Hsub22 as [Hsub221 Hsub222]).
-specialize (IHHsub11_1 Hsub121 _ Hsub21_1 Hsub221).
-specialize (IHHsub11_2 Hsub122 _ Hsub21_2 Hsub222).
-(split; constructor; tauto).
-*
-(intros Hsub22).
-Search -TUnion.
+(intros t1 t2 t' Hsub).
+(remember (TUnion t1 t2) as t eqn:Heqt ).
+(induction Hsub; inversion Heqt; subst).
+tauto.
 (* Auto-generated comment: Failed. *)
 
