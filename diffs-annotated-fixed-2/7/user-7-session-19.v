@@ -120,7 +120,8 @@ Proof.
 (intros k v Hv).
 specialize (H k v Hv).
 (destruct H as [H1 H2]).
-split.
+(split; intros Hm).
 +
+specialize H1.
 (* Auto-generated comment: Failed. *)
 
