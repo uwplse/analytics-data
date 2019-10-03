@@ -435,8 +435,7 @@ Proof.
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 +
 (right; solve_not_x_sub_r_y_full).
-(rewrite mk_nf_nf__equal).
-reflexivity.
+(apply mk_nf_nf__equal).
 (do 2 constructor; assumption).
 (* Auto-generated comment: Failed. *)
 
