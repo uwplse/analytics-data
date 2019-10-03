@@ -352,10 +352,12 @@ Qed.
 Ltac
  solve_not_x_sub_r_y_full :=
   match goal with
-  | |- ~ |- ?tx << ?ty =>
-        remember tx as t eqn:Heq1 ; remember ty as t' eqn:Heq2 ; intros Hcontra; induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ]);
-         subst; auto
-  end.
+  | |- ~ |- ?t1 << ?t2 =>
+        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra;
+         try (solve [ inversion Heqx | inversion Heqy ]); subst
+  end; match goal with
+       | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
+       end.
 Ltac
  solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
   destruct IHt2_1 as [IH1| IH1]; destruct IHt2_2 as [IH2| IH2];
@@ -385,7 +387,7 @@ right.
         subst
  end).
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
  end).
 (* Auto-generated comment: Failed. *)
 
