@@ -470,6 +470,6 @@ Proof.
 split.
 -
 (rew Hpe; auto).
-(intros s1 s2 t Hl Hpre).
+(rew Hpe; auto).
 (* Auto-generated comment: Succeeded. *)
 
