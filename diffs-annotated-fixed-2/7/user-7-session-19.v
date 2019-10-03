@@ -78,6 +78,14 @@ Proof.
 -
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
+(inversion Hle; subst).
++
 (simpl).
-(* Auto-generated comment: Failed. *)
+(intros v Hv).
+specialize (Href v Hv).
+(split; tauto).
++
+(simpl).
+(intros v Hv).
+(* Auto-generated comment: Succeeded. *)
 
