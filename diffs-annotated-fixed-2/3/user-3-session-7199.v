@@ -336,49 +336,12 @@ specialize (H a).
 (rewrite app_length; lia).
 Qed.
 Hint Resolve log_contents_ok_prefix: core.
-Theorem log_contents_ok_append d bs b :
+Theorem log_contents_ok_append d bs b bs' :
+  log_size_ok d (bs ++ b :: bs') ->
   log_contents_ok d bs ->
   log_contents_ok (diskUpd d (log_addr (length bs)) b) (bs ++ [b]).
 Proof.
-Abort.
-Theorem append_at_ok a bs' :
-  proc_spec
-    (fun (bs : list block) state =>
-     {|
-     pre := a = length bs /\
-            log_size_ok state (bs ++ bs') /\ log_contents_ok state bs;
-     post := fun r state' =>
-             diskGet state' len_addr = diskGet state len_addr /\
-             diskSize state' = diskSize state /\
-             log_size_ok state' (bs ++ bs') /\
-             log_contents_ok state' (bs ++ bs');
-     recovered := fun _ state' =>
-                  diskGet state' len_addr = diskGet state len_addr /\
-                  diskSize state' = diskSize state /\
-                  log_contents_ok state' bs |}) (append_at a bs') recover
-    d.abstr.
-Proof.
-generalize dependent a.
-(induction bs'; simpl; intros).
--
-step_proc.
-intuition eauto.
-(rewrite app_nil_r; auto).
--
-step_proc.
-(intuition eauto; autorewrite with upd; auto).
-{
-(apply log_contents_ok_unchanged; eauto).
-}
-(eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intuition).
-(exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
-+
-(simpl; lia).
-+
-(unfold log_size_ok in *; simpl in *).
-autorewrite with upd list in *.
-(simpl in *; lia).
-+
-(* Auto-generated comment: Succeeded. *)
+(unfold log_contents_ok; intros).
+(rewrite app_nil in *).
+(* Auto-generated comment: Failed. *)
 
