@@ -589,6 +589,11 @@ constructor.
 (intros i).
 (apply (H (S i))).
 Qed.
-Definition mat_equiv' := mat_equiv.
-(* Auto-generated comment: Failed. *)
+Definition mat_equiv' := @mat_equiv.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRShYoE"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma mat_equiv_equiv' : @mat_equiv = mat_equiv'.
+Proof.
+(* Auto-generated comment: Succeeded. *)
 
