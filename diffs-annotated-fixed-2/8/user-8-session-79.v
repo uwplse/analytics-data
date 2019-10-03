@@ -988,6 +988,7 @@ rewrite_inPar''.
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
   lia.
-(simpl_rewrite id_circ_spec).
-(* Auto-generated comment: Succeeded. *)
+(rewrite id_circ_spec).
+easy.
+(* Auto-generated comment: Failed. *)
 
