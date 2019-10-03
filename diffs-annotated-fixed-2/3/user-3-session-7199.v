@@ -23,9 +23,9 @@ Axiom
      forall State a recover abstr,
      proc_spec (@addr_to_block_spec State a) (addr_to_block a) recover abstr).
 Hint Resolve addr_to_block_ok: core.
-Notation "d [ a |-> b ]" := (diskUpd d a b) (at level 8, left associativity).
+Notation "d [ a |-> b ]" := (diskUpd d a b) (at level 12, left associativity).
 Notation "d [ a |=> bs ]" := (diskUpds d a bs)
-  (at level 8, left associativity).
+  (at level 12, left associativity).
 Opaque diskGet.
 Module Log (d: OneDiskAPI)<: LogAPI.
 Definition len_addr : addr := 0.
@@ -59,15 +59,6 @@ Definition append (bs : list block) : proc bool :=
     len_b <- addr_to_block (len + length bs);
     _ <- d.write len_addr len_b; Ret true
    else Ret false).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFFqtqH"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqdsgX9p"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 Definition reset : proc unit :=
   len0 <- addr_to_block 0; d.write len_addr len0.
 Definition recover : proc unit := d.recover.
@@ -289,9 +280,6 @@ step_proc.
 (descend; intuition eauto).
 (rewrite firstn_all; auto).
 Qed.
-Print append_at.
-Check log_contents_ok.
-Check log_size_ok.
 Theorem append_at_ok a bs' :
   proc_spec
     (fun (bs : list block) state =>
@@ -317,5 +305,7 @@ intuition eauto.
 -
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
+Theorem append_ok :
+  forall v, proc_spec (append_spec v) (append v) recover abstr.
 (* Auto-generated comment: Succeeded. *)
 
