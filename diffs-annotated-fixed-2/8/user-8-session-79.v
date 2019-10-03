@@ -1019,6 +1019,9 @@ rewrite_inPar'.
 (rewrite strip_one_l_in_eq).
 (repeat simpl_rewrite id_circ_spec).
 restore_dims tensor_tac.
-(repeat erewrite denote_box_compat).
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+3: (eapply kron_compat).
 (* Auto-generated comment: Failed. *)
 
