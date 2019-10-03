@@ -650,13 +650,8 @@ Proof.
 (intros t1 t2 Hsem).
 (apply SD_Trans with (MkNF( t1))).
 (apply mk_nf__sub_d2; assumption).
-(apply nf_sem_sub__sub_d).
+(apply nf_sem_sub_i__sub_d).
 (apply mk_nf__in_nf).
-(apply sem_sub__trans with t1).
-Search -mk_nf.
-(pose proof (SemSubProps.mk_nf__sem_eq t1)).
-(intros k v Hv).
-specialize (H k v Hv).
-tauto.
+(apply sem_sub_i__trans with t1).
 (* Auto-generated comment: Failed. *)
 
