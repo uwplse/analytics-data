@@ -650,10 +650,15 @@ Lemma big_kron_append :
 Proof.
 (induction l1).
 -
-show_dimensions.
 (intros).
 (simpl).
+(rewrite <- kron_1_l_inv).
+reflexivity.
+-
+(intros).
+(simpl).
+(erewrite IHl1; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:32:59.600000.*)
+(* Auto-generated comment: At 2019-08-14 13:33:00.190000.*)
 
