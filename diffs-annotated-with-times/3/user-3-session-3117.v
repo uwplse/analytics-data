@@ -119,5 +119,5 @@ Proof.
 (intro a; unfold nat_of_ascii).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 10:07:36.510000.*)
+(* Auto-generated comment: At 2019-08-16 10:08:13.260000.*)
 
