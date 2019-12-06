@@ -63,5 +63,5 @@ Fixpoint subst (x : id) (s t : ty) :=
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:32:12.970000.*)
+(* Auto-generated comment: At 2019-08-29 13:34:20.310000.*)
 
