@@ -92,10 +92,7 @@ Function
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
    | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
-   | TExist y t' =>
-       if IdSet.mem y (FV s)
-       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s t')
-       else TExist y (if beq_id x y then t' else subst x s t')
+   | TExist y t' => t
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
@@ -120,22 +117,11 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-Check well_founded_lt_compat.
 (apply (well_founded_lt_compat ty size)).
 (intros).
 tauto.
 Defined.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:35:19.170000.*)
+(* Auto-generated comment: At 2019-08-30 06:09:37.130000.*)
 
