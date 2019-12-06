@@ -69,5 +69,6 @@ Proof.
 -
 matrix_denote.
 Msimpl.
+lma.
 (* Auto-generated comment: Succeeded. *)
 
