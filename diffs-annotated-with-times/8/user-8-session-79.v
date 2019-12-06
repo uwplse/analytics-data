@@ -596,17 +596,12 @@ Proof.
 -
 (intros).
 (simpl).
-Set Printing All.
-(remember (\226\168\130 l2) as A).
-(remember (m ^ length l2) as m').
-(remember (n ^ length l2) as n').
-clear.
-specialize (kron_1_l A) as KL.
+specialize (kron_1_l (\226\168\130 l2)) as KL.
 symmetry.
-Timeout 1 About Init.Nat.mul.
-Timeout 1 Print Init.Nat.mul.
-Timeout 1 Print Ltac Init.Nat.mul.
+(simpl in KL).
+(repeat rewrite Nat.add_0_r in KL).
+(apply KL).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:36:34.080000.*)
+(* Auto-generated comment: At 2019-08-13 17:37:19.290000.*)
 
