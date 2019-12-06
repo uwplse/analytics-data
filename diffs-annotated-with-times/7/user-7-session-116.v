@@ -44,8 +44,11 @@ reflexivity.
 reflexivity.
 (rewrite IHt).
 reflexivity.
-(unfold fresh).
+(unfold fresh in *).
+(intros Hcontra).
+Search -IdSet.remove.
+(apply (IdSetFacts.remove_2 _ _ _ n) in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:50:28.910000.*)
+(* Auto-generated comment: At 2019-08-27 06:52:43.570000.*)
 
