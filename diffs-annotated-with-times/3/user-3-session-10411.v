@@ -109,9 +109,22 @@ inv_exec.
 (eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
 (match goal with
  | Hexec:exec (rx _) _ _
-   |- _ => eapply RExec in Hexec; eapply H4 in Hexec; eauto
+   |- _ => eapply RExec in Hexec; eapply H4 in Hexec; simpl; eauto
  end).
+-
+inv_exec.
++
+(match goal with
+ | Hexec:exec p _ _ |- _ => eapply RExec in Hexec
+ end).
+(eapply H0 in H2; repeat deex).
+(eapply H in H10; simpl in *; safe_intuition repeat deex; eauto).
+(match goal with
+ | Hexec:exec (rx _) _ _
+   |- _ => eapply RExecCrash in Hexec; eauto; eapply H4 in Hexec; eauto
+ end).
++
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:41:43.550000.*)
+(* Auto-generated comment: At 2019-09-06 06:41:46.770000.*)
 
