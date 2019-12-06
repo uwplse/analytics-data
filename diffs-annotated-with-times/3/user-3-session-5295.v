@@ -599,8 +599,11 @@ step_proc.
 (assert (a0 < a \/ a0 = a) by lia; intuition auto; simplify).
 *
 intuition eauto.
+{
 step.
+(destruct r; try step).
+(destruct (a == a0); simplify; finish).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:13:44.890000.*)
+(* Auto-generated comment: At 2019-09-03 11:14:01.620000.*)
 
