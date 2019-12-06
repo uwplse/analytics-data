@@ -263,9 +263,7 @@ clear H.
 -
 (rewrite evalIfTrue in H0; auto).
 (apply evalInInts in H).
-(destruct H).
-(erewrite evalBoolConst in H0; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:42:54.970000.*)
+(* Auto-generated comment: At 2019-09-01 10:43:06.180000.*)
 
