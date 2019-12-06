@@ -137,8 +137,7 @@ Proof.
 step_proc.
 {
 (destruct a' as [_ bs]; simpl in *; intuition).
-eauto.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:35:03.580000.*)
+(* Auto-generated comment: At 2019-09-04 10:35:07.540000.*)
 
