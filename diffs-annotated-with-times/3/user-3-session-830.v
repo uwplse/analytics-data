@@ -240,8 +240,7 @@ non_err.
 -
 (destruct p as ([], msgs); try by iFrame; eauto; try solve_err).
 iExists _.
-non_err.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:04:45.100000.*)
+(* Auto-generated comment: At 2019-08-14 13:05:11.490000.*)
 
