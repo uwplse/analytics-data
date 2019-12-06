@@ -110,7 +110,10 @@ eexists.
 eexists.
 reflexivity.
 +
+(rewrite subst_equation).
+(rewrite (false_beq_id _ _ HXY)).
+(pose proof (IdSetFacts.mem_2 Hin) as Hmem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:36:01.020000.*)
+(* Auto-generated comment: At 2019-09-02 07:36:33.390000.*)
 
