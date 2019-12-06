@@ -222,8 +222,10 @@ Lemma superdense_distant_WT : forall b1 b2, Typed_Box (superdense_distant b1 b2)
 Proof.
 type_check.
 Qed.
-Definition _R'_ (m : nat) := _R_ (2 * PI / INR (2 ^ m)).
-(* Auto-generated comment: Succeeded. *)
+Timeout 1 About PI.
+Timeout 1 Print PI.
+Timeout 1 Print Ltac PI.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 15:22:37.030000.*)
+(* Auto-generated comment: At 2019-08-13 15:22:42.670000.*)
 
