@@ -149,9 +149,9 @@ Theorem get_at_ok a :
     (fun (_ : unit) state =>
      {|
      pre := a < length state;
-     post := fun r state' => state' = state /\ r = nth state a block0;
+     post := fun r state' => state' = state /\ r = nth a state block0;
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:48:37.140000.*)
+(* Auto-generated comment: At 2019-09-04 10:48:46.620000.*)
 
