@@ -275,8 +275,8 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-Check sig2.
-(* Auto-generated comment: Succeeded. *)
+Search -"{_ : _ & _}" -Check -sigT_eq_dec.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:09:15.720000.*)
+(* Auto-generated comment: At 2019-08-16 07:09:24.310000.*)
 
