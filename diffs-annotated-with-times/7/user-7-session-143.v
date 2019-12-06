@@ -71,9 +71,12 @@ Lemma sem_sub_fresh_var__sem_sub_any :
   forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
 (intros X t).
-(induction t).
-(intros; simpl; tauto).
+(induction t; try (solve [ intros; simpl; tauto ])).
+-
+(induction t').
++
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 11:02:28.560000.*)
+(* Auto-generated comment: At 2019-08-27 11:02:30.210000.*)
 
