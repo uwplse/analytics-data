@@ -616,5 +616,7 @@ all:
    end).
 all: congruence.
 -
+(inversion H1).
+specialize (H _ H5).
 (* Auto-generated comment: Succeeded. *)
 
