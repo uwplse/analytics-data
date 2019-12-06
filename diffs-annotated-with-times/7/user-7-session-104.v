@@ -50,8 +50,8 @@ Qed.
 Lemma sem_eq_k__exists_not : forall (k : nat) (t : ty), exists t' : ty, ~ ||-[ k][t']= [t].
 Proof.
 (induction k; induction t).
--
+admit.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:22:47.840000.*)
+(* Auto-generated comment: At 2019-08-20 12:23:29.130000.*)
 
