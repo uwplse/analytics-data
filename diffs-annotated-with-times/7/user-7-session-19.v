@@ -224,8 +224,10 @@ Proof.
 -
 (simpl).
 (apply le_n_S).
-(inversion Hnf; subst).
+(inversion Hnft; subst).
+(inversion H; subst).
+(apply IHk).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:56:25.270000.*)
+(* Auto-generated comment: At 2019-08-13 08:56:50.270000.*)
 
