@@ -40,8 +40,20 @@ Proof.
 (unfold not_free in *).
 (split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
 Qed.
-Lemma not_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_free_in_ty X (TPair t1 t2) -> not_free_in_ty X t1 /\ not_free_in_ty X t2.
-(* Auto-generated comment: Failed. *)
+Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
+Proof.
+(intros X t1 t2 Hfresh).
+(unfold not_f_free_in_ty in *; simpl in Hfresh; simpl).
+(apply not_free_union__inv in Hfresh).
+assumption.
+Qed.
+Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TPair t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
+Proof.
+(intros X t1 t2 Hfresh).
+(unfold not_b_free_in_ty in *; simpl in Hfresh; simpl).
+(apply not_free_union__inv in Hfresh).
+assumption.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 09:11:11.540000.*)
+(* Auto-generated comment: At 2019-09-03 09:12:17.860000.*)
 
