@@ -249,7 +249,8 @@ Proof.
 -
 (rewrite b_subst_pair).
 (unfold f_free_in_ty, free).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:22:42.910000.*)
+(* Auto-generated comment: At 2019-09-04 09:23:26.830000.*)
 
