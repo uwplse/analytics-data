@@ -53,8 +53,8 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq1ktiSB"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Definition abstr : Abstraction State := True.
+Definition abstr : Abstraction State := fun _ _ => True.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:57:54.920000.*)
+(* Auto-generated comment: At 2019-09-04 09:58:03.200000.*)
 
