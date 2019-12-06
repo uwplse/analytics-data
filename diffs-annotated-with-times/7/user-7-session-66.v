@@ -227,8 +227,9 @@ Lemma value_type_matching_ty__exists : forall (t : ty) (k : nat), inv_depth t <=
 Proof.
 (intros t; induction t; intros k Hdep).
 -
-(exists (TCName c); split).
+exists (TCName c).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 12:48:01.720000.*)
+(* Auto-generated comment: At 2019-08-16 12:48:22.740000.*)
 
