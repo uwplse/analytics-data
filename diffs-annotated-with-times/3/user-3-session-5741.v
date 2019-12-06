@@ -611,7 +611,8 @@ Theorem identity_fn_applied_twice :
   forall f : bool -> bool,
   (forall x : bool, f x = x) -> forall b : bool, f (f b) = b.
 Proof.
+(intros f Hfix).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 06:52:43.520000.*)
+(* Auto-generated comment: At 2019-09-04 06:52:55.510000.*)
 
