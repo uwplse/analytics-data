@@ -28,8 +28,8 @@ Proof.
 subst.
 Search -mk_nf.
 (assert (Hnf : InNF( MkNF( t))) by apply mk_nf__in_nf).
-(rewrite (mk_nf_nf__equal (MkNF( t)) Hnf) in Hsub).
+Check mk_nf_nf__equal.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:47:55.410000.*)
+(* Auto-generated comment: At 2019-08-06 12:48:27.200000.*)
 
