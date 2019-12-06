@@ -8,7 +8,6 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Require Import Coq.Program.Wf.
 Require Import Recdef.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
@@ -126,5 +125,5 @@ Omega.omega.
 Defined.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:08:31.990000.*)
+(* Auto-generated comment: At 2019-08-29 15:08:36.750000.*)
 
