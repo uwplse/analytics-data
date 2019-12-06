@@ -623,8 +623,10 @@ Proof.
 (rewrite kron_1_l).
 (rewrite kron_1_l).
 restore_dims.
+specialize (kron_1_r A).
+specialize (kron_1_r_inv A).
 show_dimensions.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:54:00.680000.*)
+(* Auto-generated comment: At 2019-08-14 11:54:00.800000.*)
 
