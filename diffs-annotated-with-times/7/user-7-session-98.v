@@ -156,8 +156,14 @@ specialize (Hcontra _ Hm).
 Qed.
 Lemma sem_sub__eunion__union_e : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
 Proof.
-(intros X t1 t2 k).
+(intros X t1 t2 k v Hm).
+(destruct k).
+-
+(apply match_ty_exist__0_inv in Hm).
+(destruct Hm as [Hv [tx Heqx]]; subst).
+(simpl in Hv).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 10:06:43.340000.*)
+(* Auto-generated comment: At 2019-08-19 10:07:45.600000.*)
 
