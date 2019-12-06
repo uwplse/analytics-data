@@ -596,8 +596,8 @@ Proof.
 -
 (intros).
 (simpl).
-(repeat rewrite Nat.add_0_r in KL).
+(repeat rewrite Nat.add_0_r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:34:55.160000.*)
+(* Auto-generated comment: At 2019-08-13 17:35:05.160000.*)
 
