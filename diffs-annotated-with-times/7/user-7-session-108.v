@@ -274,8 +274,24 @@ exists (TVar i).
 admit.
 (rewrite Heq).
 assumption.
-Qed.
-(* Auto-generated comment: Failed. *)
+Admitted.
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
+Proof.
+(induction t; intros k Hdep Hcontra).
+-
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+clear Hm.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Hcontra _]]).
+(inversion Hcontra).
+-
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-21 09:43:22.360000.*)
+(* Auto-generated comment: At 2019-08-21 09:44:05.740000.*)
 
