@@ -662,8 +662,8 @@ Timeout 1 About restore_dims.
 Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
 Timeout 1 About length_app.
-Timeout 1 Print length_app.
+Timeout 1 Print Ltac length_app.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:35:44.530000.*)
+(* Auto-generated comment: At 2019-08-14 13:35:45.050000.*)
 
