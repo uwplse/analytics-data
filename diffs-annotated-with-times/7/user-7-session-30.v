@@ -83,5 +83,5 @@ Proof.
 (intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction | solve_match_ty__inv_depth_l__union_r IHt1 IHt2 ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:12:48.330000.*)
+(* Auto-generated comment: At 2019-08-16 06:15:23.740000.*)
 
