@@ -145,8 +145,8 @@ exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any).
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
 (constructor; eauto).
-(rewrite diskUpd_neq by omega).
-(* Auto-generated comment: Failed. *)
+(rewrite diskShrink_preserves; auto).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:38:05.440000.*)
+(* Auto-generated comment: At 2019-08-16 10:38:09.150000.*)
 
