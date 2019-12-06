@@ -95,8 +95,7 @@ clear Hm.
 -
 specialize (Hcontra 2).
 (assert (Hm : |-[ w, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ Hm).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:45:48.200000.*)
+(* Auto-generated comment: At 2019-08-20 08:45:50.140000.*)
 
