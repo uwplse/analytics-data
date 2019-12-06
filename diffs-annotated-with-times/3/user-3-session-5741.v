@@ -432,8 +432,9 @@ Qed.
 Theorem mult_S_1 : forall n m : nat, m = S n -> m * (1 + n) = m * m.
 Proof.
 (intros n m H).
-simp.
-(* Auto-generated comment: Failed. *)
+(rewrite H).
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 06:44:34.920000.*)
+(* Auto-generated comment: At 2019-09-04 06:44:53.110000.*)
 
