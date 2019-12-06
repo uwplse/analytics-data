@@ -202,8 +202,14 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 }
-(subst; eexists; eauto).
-(* Auto-generated comment: Failed. *)
+Qed.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkhRCD9"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:23:12.500000.*)
+(* Auto-generated comment: At 2019-09-06 05:24:06.940000.*)
 
