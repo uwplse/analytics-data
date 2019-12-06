@@ -2762,6 +2762,5 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 *
 (unfold denote_circuit in IH).
 (unfold process_gate_state).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
