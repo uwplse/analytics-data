@@ -325,8 +325,8 @@ generalize dependent a.
 -
 (destruct a0; simpl in *; auto).
 f_equal.
-(rewrite IHd).
+(rewrite IHd by lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:14:23.570000.*)
+(* Auto-generated comment: At 2019-09-04 11:14:28.660000.*)
 
