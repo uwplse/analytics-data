@@ -135,8 +135,9 @@ auto.
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
-(rewrite IHn by (apply PeanoNat.Nat.mod_small; lia)).
+Check PeanoNat.Nat.mod_small.
+(rewrite IHn by (apply PeanoNat.Nat.mod_lt; lia)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:23:56.090000.*)
+(* Auto-generated comment: At 2019-08-16 06:24:01.310000.*)
 
