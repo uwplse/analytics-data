@@ -580,8 +580,8 @@ Proof.
 reflexivity.
 -
 (destruct H).
-(simpl).
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 06:46:48.630000.*)
+(* Auto-generated comment: At 2019-09-04 06:46:51.590000.*)
 
