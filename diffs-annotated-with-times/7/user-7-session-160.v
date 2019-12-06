@@ -43,8 +43,9 @@ Search -IdSet.remove.
 (intros Hcontra).
 Search -IdSet.remove.
 Check IdSetFacts.remove_2.
-(apply (IdSetFacts.remove_2 _ _ Hneq) in Hcontra).
+Check IdSetFacts.remove_2.
+(assert (Hneq' : X' <> X) by tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 10:16:37.150000.*)
+(* Auto-generated comment: At 2019-08-29 10:17:26.350000.*)
 
