@@ -948,8 +948,7 @@ reflexivity.
 show_dimensions.
 (repeat rewrite app_length).
 (simpl).
-replace (length l1 + length l2) with n by omega.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:24:15.240000.*)
+(* Auto-generated comment: At 2019-08-14 15:24:37.160000.*)
 
