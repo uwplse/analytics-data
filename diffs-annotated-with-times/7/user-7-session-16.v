@@ -410,8 +410,9 @@ Proof.
    end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 +
 (destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
-(destruct (IHta11 _ Hnf'1) as [IH1| IH1]).
+(destruct (IHta11 _ Hnf'1) as [IH11| IH11]; destruct (IHta12 _ Hnf'1) as [IH12| IH12]; destruct (IHta21 _ Hnf'2) as [IH21| IH21];
+  destruct (IHta22 _ Hnf'2) as [IH22| IH22]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:21:54.480000.*)
+(* Auto-generated comment: At 2019-08-09 12:21:56.290000.*)
 
