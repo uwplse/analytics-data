@@ -399,7 +399,10 @@ reflexivity.
 injection H as H1 H2.
 (rewrite <- H1, <- H2).
 (simpl).
+(assert (Hc : combine x y = l')).
+{
+(apply IHl').
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 08:58:35.200000.*)
+(* Auto-generated comment: At 2019-08-16 08:59:04.310000.*)
 
