@@ -114,8 +114,7 @@ Proof.
 (induction l).
 (simpl).
 -
-(induction r; trivial).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:18:00.820000.*)
+(* Auto-generated comment: At 2019-08-09 11:18:37.140000.*)
 
