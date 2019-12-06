@@ -382,8 +382,28 @@ split.
 tauto.
 (apply sem_eq_k__comm; assumption).
 Qed.
-Lemma value_type_matching_ty__exists : forall t : ty, exists v : ty, value_type v /\ (forall k : nat, inv_depth t <= k -> |-[ k] v <$ t).
+Lemma value_type_matching_ty__exists' :
+  forall t : ty, exists v : ty, value_type v /\ inv_depth v = inv_depth t /\ (forall k : nat, inv_depth t <= k -> |-[ k] v <$ t).
+Proof.
+(intros t; induction t).
+-
+(exists (TCName c); split).
+constructor.
+split.
+reflexivity.
+(intros k Hk; destruct k; reflexivity).
+-
+(destruct IHt1 as [v1 [Hv1 [Hd1 Hm1]]]).
+(destruct IHt2 as [v2 [Hv2 [Hd2 Hm2]]]).
+(exists (TPair v1 v2); split).
+(constructor; assumption).
+split.
+(simpl; rewrite Hd1; rewrite Hd2).
+reflexivity.
+(intros k Hk).
+(simpl in Hk).
+(destruct (max_inv_depth_le__components_le _ _ _ Hk); auto using match_ty_pair).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:29:52.170000.*)
+(* Auto-generated comment: At 2019-08-16 13:30:08.280000.*)
 
