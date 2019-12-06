@@ -234,8 +234,8 @@ exists (eval L env (Int 3)).
 (eapply eq_trans).
 -
 (apply evalIfTrue).
-(apply evalInInts).
+(apply evalInInts; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 09:46:58.960000.*)
+(* Auto-generated comment: At 2019-09-01 09:47:10.110000.*)
 
