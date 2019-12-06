@@ -68,8 +68,8 @@ admit.
 -
 admit.
 -
-(apply match_ty_exist__0_inv in Hm; contradiction).
+(destruct (beq_idP X i)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:28:35.300000.*)
+(* Auto-generated comment: At 2019-09-02 07:29:58.960000.*)
 
