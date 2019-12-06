@@ -181,9 +181,17 @@ assumption.
 -
 (intros v0 t3 k w Hm1 Hm2).
 (apply match_ty_pair__inv in Hm1).
-(destruct Hm1 as [pv11 [pv12 [Heq [Hm11 Hmpv12]]]]; subst).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst).
 (induction t3; try (solve [ destruct k, w; contradiction ])).
++
+(apply match_ty_pair__inv in Hm2).
+(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
+(inversion Heq; subst).
+auto using match_ty_pair.
++
+(apply match_ty_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:55:39.120000.*)
+(* Auto-generated comment: At 2019-08-26 07:56:17.940000.*)
 
