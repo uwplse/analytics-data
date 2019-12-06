@@ -322,8 +322,8 @@ Proof.
 -
 (exfalso; lia).
 -
-(destruct d; simpl in *).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:13:18.370000.*)
+(* Auto-generated comment: At 2019-09-04 11:13:21.950000.*)
 
