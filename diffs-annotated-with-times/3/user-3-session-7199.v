@@ -343,8 +343,11 @@ step_proc.
 (unfold spec_impl; simpl; intuition).
 (exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
 +
-lia.
+(simpl; lia).
++
+(unfold log_size_ok in *; simpl in *).
+(autorewrite with upd list in *; lia).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:03:35.460000.*)
+(* Auto-generated comment: At 2019-09-04 12:04:24.940000.*)
 
