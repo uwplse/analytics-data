@@ -87,7 +87,7 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Function
- subst (x : id) (s t : ty) {measure size t : ty :=
+ subst (x : id) (s t : ty) {measure size t} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
@@ -101,5 +101,5 @@ Function
    end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:54:52.300000.*)
+(* Auto-generated comment: At 2019-08-29 14:55:00.280000.*)
 
