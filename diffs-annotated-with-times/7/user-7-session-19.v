@@ -400,8 +400,11 @@ constructor.
 (apply Hsem).
 }
 (unfold sem_sub_i in Hsem).
-(assert (Hm : |-[ kamx] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+(assert (Hm : |-[ kmax] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+specialize (Hsem _ _ Hm).
+(apply match_ty_i_union__inv in Hsem).
+(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:07:00.600000.*)
+(* Auto-generated comment: At 2019-08-13 12:07:37.630000.*)
 
