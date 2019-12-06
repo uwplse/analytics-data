@@ -38,8 +38,8 @@ exists (S w1).
 (intros v Hm).
 (apply match_ty_exist).
 exists (TEV X).
-(rewrite subs_fresh_in_ty in Hm; try assumption).
+(rewrite subs_fresh_in_ty).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:57:10.500000.*)
+(* Auto-generated comment: At 2019-08-27 08:58:15.290000.*)
 
