@@ -90,8 +90,22 @@ split.
 (destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
 (apply match_ty_exist__inv in Hm').
-(destruct Hm' as [tx Hm']).
+(destruct Hm' as [ti Hm']).
+exists ti.
+auto.
+-
+admit.
+-
+(pose proof (subst_exist X tx i t) as Heq).
+(destruct Heq as [Z [tz Heq]]).
+(rewrite Heq in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(destruct (beq_idP X i) as [HXi| HXi]).
++
+subst.
+(rewrite subst_var_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:47:37.090000.*)
+(* Auto-generated comment: At 2019-09-02 07:49:10.100000.*)
 
