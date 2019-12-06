@@ -145,5 +145,5 @@ exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:39:30.750000.*)
+(* Auto-generated comment: At 2019-08-16 10:39:42.500000.*)
 
