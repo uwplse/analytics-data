@@ -114,9 +114,8 @@ specialize (Hsem k w1).
 exists w2.
 (intros v Hm).
 (induction w1).
-2: {
-idtac.
+Abort.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 13:53:19.210000.*)
+(* Auto-generated comment: At 2019-08-27 13:53:29.210000.*)
 
