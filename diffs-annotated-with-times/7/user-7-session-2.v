@@ -124,9 +124,9 @@ Proof.
 (intros t).
 (pose proof (mk_nf__sub_r_eq t) as H; tauto).
 Qed.
-Lemma weird_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- MkNF( t2) << t3 -> |- t1 << t3.
+Lemma weird_trans : forall t1 t2 t3 : ty, InNF( t1) -> InNF( t2) -> InNF( t3) -> |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3.
 Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 13:32:38.150000.*)
+(* Auto-generated comment: At 2019-08-06 13:33:22.490000.*)
 
