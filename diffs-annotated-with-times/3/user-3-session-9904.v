@@ -121,8 +121,7 @@ lia.
 (destruct s; intuition).
 +
 (unfold statdb_abstraction in *; simpl in *).
-intuition.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:43:24.250000.*)
+(* Auto-generated comment: At 2019-09-06 05:43:24.510000.*)
 
