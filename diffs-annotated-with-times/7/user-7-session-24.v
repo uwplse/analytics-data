@@ -57,8 +57,9 @@ where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
 Theorem match_ty__value_type_l : forall (k : nat) (t v : ty), |-[ k] v <$ t -> value_type v.
 Proof.
 (intros k; induction t; induction v; intros Hm; try (solve [ constructor | destruct k; contradiction ])).
-(destruct k; simpl in Hm).
+(destruct k).
+(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 06:24:25.820000.*)
+(* Auto-generated comment: At 2019-08-15 06:27:54.160000.*)
 
