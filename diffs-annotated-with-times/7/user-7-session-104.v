@@ -27,7 +27,11 @@ Proof.
 (simpl).
 exists tint.
 constructor.
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+exists t'.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:11:15.960000.*)
+(* Auto-generated comment: At 2019-08-20 12:11:28.380000.*)
 
