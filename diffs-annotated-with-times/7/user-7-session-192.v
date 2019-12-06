@@ -113,8 +113,12 @@ admit.
 {
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
 (apply match_ty_exist).
+exists ([X' := tx] ti).
+admit.
+}
+{
 exists ti.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 12:44:25.690000.*)
+(* Auto-generated comment: At 2019-09-02 12:45:24.120000.*)
 
