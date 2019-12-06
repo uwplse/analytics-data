@@ -60,7 +60,7 @@ exfalso.
 reflexivity.
 Qed.
 Lemma subs_neq__permute :
-  forall X Y : id, X <> Y -> forall t s1 s2 : ty, fresh_in_ty X s2 -> fresh_in_ty X s1 -> [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
+  forall X Y : id, X <> Y -> forall t s1 s2 : ty, fresh_in_ty X s2 -> fresh_in_ty Y s1 -> [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
 Proof.
 (intros X Y Hneq t).
 (induction t; intros s1 s2 HXs2 HYs1;
@@ -84,7 +84,25 @@ reflexivity.
 (rewrite IHt; try assumption).
 reflexivity.
 -
+(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
++
+contradiction.
++
+(simpl).
+(rewrite <- beq_id_refl).
+symmetry.
+(apply subs_fresh_in_ty).
+assumption.
++
+(simpl).
+(rewrite <- beq_id_refl).
+(apply subs_fresh_in_ty).
+assumption.
++
+(simpl).
+Search -beq_id.
+(rewrite false_beq_id).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:00:32.770000.*)
+(* Auto-generated comment: At 2019-08-27 07:00:54.260000.*)
 
