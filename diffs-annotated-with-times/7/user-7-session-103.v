@@ -32,8 +32,9 @@ Proof.
 Qed.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k w : nat), |-[ k, w] v <$ TCName c -> v = TCName c.
 Proof.
-(intros v; induction v; try (solve [ intros c k w Hm; destruct k, w; contradiction ])).
+(intros v c k w Hm).
+(destruct k, w, v; try contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:37:57.820000.*)
+(* Auto-generated comment: At 2019-08-20 11:42:19.180000.*)
 
