@@ -598,5 +598,5 @@ Add Parametric Morphism  m n : @big_kron m n with signature
  eq ==> mat_equiv as big_kron_mor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:23:11.150000.*)
+(* Auto-generated comment: At 2019-08-13 17:23:12.800000.*)
 
