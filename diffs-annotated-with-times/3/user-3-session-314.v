@@ -158,8 +158,8 @@ Lemma recover_cok :
     recover_spec.
 Proof.
 (simpl).
-(eapply ret_hspec; firstorder).
-(* Auto-generated comment: Failed. *)
+(eapply ret_hspec).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:53:13.200000.*)
+(* Auto-generated comment: At 2019-08-07 18:53:23.260000.*)
 
