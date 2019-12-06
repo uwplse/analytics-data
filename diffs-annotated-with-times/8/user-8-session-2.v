@@ -131,8 +131,8 @@ Proof.
 (intros).
 (unfold denote_ctrls).
 Search -fst -snd.
-(rewrite surjective_pairing).
+(erewrite surjective_pairing).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:25:27.310000.*)
+(* Auto-generated comment: At 2019-08-09 11:25:28.670000.*)
 
