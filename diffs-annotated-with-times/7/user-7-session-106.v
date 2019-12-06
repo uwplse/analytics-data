@@ -186,7 +186,10 @@ subst.
 -
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto).
-(* Auto-generated comment: Failed. *)
+-
+(destruct k).
++
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-21 09:23:28.390000.*)
+(* Auto-generated comment: At 2019-08-21 09:23:38.600000.*)
 
