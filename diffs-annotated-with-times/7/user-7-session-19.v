@@ -200,8 +200,8 @@ Proof.
             tauto || apply Max.le_max_l || apply Max.le_max_r
      end ])).
 -
-(destruct (match_ty_i_exists t1 0) as [v1 Hm1]; destruct (match_ty_i_exists t2 0) as [v2 Hm2]).
+(inversion Hnft; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:29:36.070000.*)
+(* Auto-generated comment: At 2019-08-13 07:31:42.520000.*)
 
