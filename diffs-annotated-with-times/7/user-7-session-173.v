@@ -127,8 +127,9 @@ Proof.
 (unfold subst).
 (unfold subst_func).
 (rewrite fix_sub_eq).
+(simpl).
 reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:04:44.080000.*)
+(* Auto-generated comment: At 2019-08-29 15:04:56.290000.*)
 
