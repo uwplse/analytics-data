@@ -58,7 +58,14 @@ Instance var_crash_step_nonerror :
 Proof.
 (simpl).
 typeclasses eauto.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbheUZM"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:52:00.150000.*)
+(* Auto-generated comment: At 2019-08-07 18:52:02.780000.*)
 
