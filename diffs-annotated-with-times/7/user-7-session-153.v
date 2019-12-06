@@ -28,8 +28,7 @@ Proof.
 -
 (apply sem_sub_pair; assumption).
 -
-(apply sem_sub_union; assumption).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:24:40.780000.*)
+(* Auto-generated comment: At 2019-08-29 08:25:16.640000.*)
 
