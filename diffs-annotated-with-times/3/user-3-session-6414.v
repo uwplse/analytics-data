@@ -138,7 +138,7 @@ split.
 eauto using log_length_ok_nil.
 -
 (exfalso; simpl in *; lia).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:27:01.590000.*)
+(* Auto-generated comment: At 2019-09-04 10:27:08.070000.*)
 
