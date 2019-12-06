@@ -967,11 +967,8 @@ gen \207\129.
 (simpl).
 (rewrite Nat.mul_1_r).
 (intros \207\129).
-fill_differences.
-Timeout 1 About gridify.
-Timeout 1 Print gridify.
-Timeout 1 Print Ltac gridify.
+remember_differences.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:22:25.390000.*)
+(* Auto-generated comment: At 2019-08-13 11:22:27.130000.*)
 
