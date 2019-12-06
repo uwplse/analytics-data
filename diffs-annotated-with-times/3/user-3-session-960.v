@@ -139,8 +139,9 @@ Check PeanoNat.Nat.mod_small.
 Check PeanoNat.Nat.mod_le.
 (rewrite IHn).
 Search -"mod" -div.
-(rewrite (PeanoNat.Nat.div_mod n base)  at 3).
+(rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
+lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:24:38.710000.*)
+(* Auto-generated comment: At 2019-08-16 06:24:51.370000.*)
 
