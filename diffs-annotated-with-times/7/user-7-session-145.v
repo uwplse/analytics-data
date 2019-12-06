@@ -69,7 +69,7 @@ Proof.
 Qed.
 Lemma sem_sub_fresh_var__sem_sub_any :
   forall (X : id) (t t' : ty) (X' : id),
-  fresh_in_ty X t -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
+  IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
 (intros X t).
 (intros t' X' HX HX' Hsem tx).
@@ -80,5 +80,5 @@ exists w2.
 (intros v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 12:08:28.470000.*)
+(* Auto-generated comment: At 2019-08-27 12:09:42.770000.*)
 
