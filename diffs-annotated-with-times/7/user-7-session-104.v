@@ -178,8 +178,9 @@ Proof.
 -
 (apply match_ty_cname__inv in Hm).
 subst.
-(apply match_ty_cname).
-(* Auto-generated comment: Failed. *)
+(destruct k; destruct w'; reflexivity).
+-
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-21 07:54:07.870000.*)
+(* Auto-generated comment: At 2019-08-21 07:55:19.390000.*)
 
