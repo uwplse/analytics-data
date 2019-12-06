@@ -134,5 +134,5 @@ Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li (trans u)))).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:30:28.660000.*)
+(* Auto-generated comment: At 2019-08-09 11:30:39.470000.*)
 
