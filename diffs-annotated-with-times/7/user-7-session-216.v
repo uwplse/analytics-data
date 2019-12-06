@@ -427,8 +427,8 @@ subst.
 (rewrite f_subst_fvar_eq).
 assumption.
 +
-(rewrite f_subst_fvar_neq).
+(rewrite f_subst_fvar_neq; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:07:03.260000.*)
+(* Auto-generated comment: At 2019-09-04 10:07:42.360000.*)
 
