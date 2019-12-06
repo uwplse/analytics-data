@@ -361,8 +361,7 @@ intuition eauto.
 -
 step.
 (intuition eauto; autorewrite with upd; auto).
-step.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:53:17.130000.*)
+(* Auto-generated comment: At 2019-09-06 06:54:49.830000.*)
 
