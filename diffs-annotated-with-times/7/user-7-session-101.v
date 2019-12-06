@@ -50,8 +50,19 @@ exists t'.
 (apply match_ty_value_type__reflexive).
 constructor.
 -
-exists S w1.
+exists (S w1).
+(intros k v Hm).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(apply match_ty_exist).
+exists tx.
+assumption.
+Qed.
+Lemma not_sem_sub__refeXrefX_eYrefrefY :
+  (forall w1 : nat,
+   exists w2 : nat, forall (k : nat) (v : ty), |-[ w1, k] v <$ TRef (TExist vX (TRef tX)) -> |-[ w2, k] v <$ TExist vY (TRef (TRef tY))) ->
+  False Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 10:00:15.800000.*)
+(* Auto-generated comment: At 2019-08-20 10:01:31.060000.*)
 
