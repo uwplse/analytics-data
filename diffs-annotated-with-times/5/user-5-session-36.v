@@ -266,8 +266,8 @@ clear H.
 exfalso.
 (rewrite evalIfFalse in H0).
 +
-(apply evalBoolInj).
+(apply evalBoolInj in H0).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:35:25.030000.*)
+(* Auto-generated comment: At 2019-09-01 10:35:36.890000.*)
 
