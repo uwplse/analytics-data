@@ -43,8 +43,12 @@ reflexivity.
 *
 subst.
 (repeat rewrite subst_exist_eq).
-Search -idSet.mem.
+Search -IdSet.mem.
+Search -IdSet.In.
+(destruct (IdSetProps.In_dec i (FV tY))).
+{
+Search -IdSet.mem.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:51:50.500000.*)
+(* Auto-generated comment: At 2019-09-02 06:53:50.890000.*)
 
