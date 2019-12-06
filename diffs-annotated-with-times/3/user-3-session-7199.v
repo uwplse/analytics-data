@@ -443,8 +443,9 @@ Proof.
 (intros).
 (unfold log_abstraction; intuition).
 (unfold log_length_ok in *; intros).
-eq_values.
-(* Auto-generated comment: Failed. *)
+(assert (len_addr < diskSize d')).
+eauto.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:41:59.800000.*)
+(* Auto-generated comment: At 2019-09-04 12:42:01.230000.*)
 
