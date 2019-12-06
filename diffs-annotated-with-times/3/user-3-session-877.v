@@ -1366,13 +1366,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 iFrame.
-(<ssreflect_plugin::ssrtclseq@0> iDestruct "Hmbox" as "[Hmbox|Hmbox]" ; last  first).
-{
-iDestruct "Hmbox" as "(Hlocked'&Hauth)".
-iDestruct "Hauth" as ( S ? ) "(Hauth&?)".
-iExFalso.
-iDestruct "Hlockinv" as ( S' ? ) "(Hauth'&?)".
-(* Auto-generated comment: Succeeded. *)
+iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hunlocked)".
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:20:39.120000.*)
+(* Auto-generated comment: At 2019-08-14 13:20:40.560000.*)
 
