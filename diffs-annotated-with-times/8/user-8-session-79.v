@@ -601,16 +601,13 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq0uS6IR"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma big_kron_append :
+Lemma new_morphism :
+  forall {m} {n} (A : Matrix m n),
+  Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) 
+    (mat_equiv A) Lemma big_kron_append
+  :
   forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
-Proof.
-(induction l1).
--
-(intros).
-(simpl).
-specialize (kron_1_l (\226\168\130 l2)) as KL.
-setoid_rewrite kron_1_l.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 18:11:09.180000.*)
+(* Auto-generated comment: At 2019-08-13 18:13:07.250000.*)
 
