@@ -48,8 +48,8 @@ exists v.
 Check beq_id_false_iff.
 Print "<->".
 Print "/\".
-(rewrite (beq_id_false_iff X i)).
+(destruct (beq_id_false_iff X i) as [H1 H2]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:05:37.150000.*)
+(* Auto-generated comment: At 2019-08-29 09:05:59.020000.*)
 
