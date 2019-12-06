@@ -228,8 +228,31 @@ subst.
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
+(destruct w').
+(inversion Hle).
 (apply match_ty_exist).
+exists tx.
+(apply IHw).
+assumption.
+(apply le_S_n; assumption).
+-
+(apply match_ty_var__inv in Hm; subst).
+(apply match_ty_var).
+-
+(apply match_ty_ev__inv in Hm; subst).
+(apply match_ty_ev).
+Qed.
+Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Proof.
+(induction t; intros k).
+-
+exists 0,(TCName c).
+(apply match_ty_value_type__reflexive; constructor).
+-
+(destruct (IHt1 k) as [w1 [v1 Hm1]]).
+(destruct (IHt2 k) as [w2 [v2 Hm2]]).
+exists (Nat.max w1 w2),(TPair v1 v2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:30:32.380000.*)
+(* Auto-generated comment: At 2019-08-21 09:32:57.170000.*)
 
