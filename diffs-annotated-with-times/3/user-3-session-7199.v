@@ -383,8 +383,8 @@ destruct matches.
 -
 step_proc.
 (descend; intuition eauto).
-(unfold log_size_ok; lia).
-(* Auto-generated comment: Failed. *)
+(unfold log_size_ok; simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:05:22.810000.*)
+(* Auto-generated comment: At 2019-09-04 12:05:30.390000.*)
 
