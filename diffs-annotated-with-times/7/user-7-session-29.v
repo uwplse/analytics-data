@@ -226,8 +226,8 @@ Lemma sem_eq_k__comm :
 Proof.
 (intros t1 t2 k Hsem).
 (unfold sem_eq_k in *).
-(intros v).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:26:48.210000.*)
+(* Auto-generated comment: At 2019-08-15 07:26:54.770000.*)
 
