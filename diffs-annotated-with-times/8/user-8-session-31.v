@@ -2824,5 +2824,5 @@ specialize (apply_U_correct Qubit) as AUC.
 unify_pows_two.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:10:37.490000.*)
+(* Auto-generated comment: At 2019-08-09 14:11:37.350000.*)
 
