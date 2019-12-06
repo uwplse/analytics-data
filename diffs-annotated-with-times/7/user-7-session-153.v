@@ -21,10 +21,16 @@ exists (TCName c).
 (apply match_ty_cname).
 -
 (simpl in Hm).
+(simpl).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (destruct (IHt1 _ Hm1) as [v1' Hm1']).
+(destruct (IHt2 _ Hm2) as [v2' Hm2']).
+exists (TPair v1' v2').
+(apply match_ty_pair; assumption).
+-
+(simpl in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:52:25.090000.*)
+(* Auto-generated comment: At 2019-08-29 08:53:13.370000.*)
 
