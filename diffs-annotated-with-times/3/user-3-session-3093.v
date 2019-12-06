@@ -405,7 +405,7 @@ injection H as H1 H2.
 reflexivity.
 }
 (apply Hc).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 08:58:14.690000.*)
+(* Auto-generated comment: At 2019-08-16 08:58:15.100000.*)
 
