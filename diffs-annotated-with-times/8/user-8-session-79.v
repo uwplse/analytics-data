@@ -922,5 +922,5 @@ restore_dims
 setoid_rewrite  <- (kron_1_l (\226\168\130 l2)) at 1.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:21:14.980000.*)
+(* Auto-generated comment: At 2019-08-14 14:21:24.120000.*)
 
