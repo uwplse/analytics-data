@@ -397,7 +397,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
       (forall X,
        Ensembles.In _ S X ->
        X = SRec [] \/ (exists tl, X = SRec (None :: tl))) ->
-      (exists tl, X = SRec (None :: tl)) ->
+      (exists tl, Ensembles.In _ S (SRec (None :: tl))) ->
       Alpha
         (SetPMap S
            (fun S =>
@@ -537,5 +537,5 @@ Inductive Alpha : SetST -> GT -> Prop :=
             end)) Dyn -> Alpha S (GRow (FromRow :: tl)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 18:39:40.200000.*)
+(* Auto-generated comment: At 2019-09-05 18:41:57.950000.*)
 
