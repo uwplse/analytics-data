@@ -402,7 +402,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
         (SetPMap S
            (fun S =>
             match S with
-            | SRec (hd :: tl) => SRec tl
+            | SRec (hd :: tl) => Some (SRec tl)
             | _ => None
             end)) (GRec tl) ->
       Alpha
@@ -429,5 +429,5 @@ Inductive Alpha : SetST -> GT -> Prop :=
                end)) GDyn) -> Alpha S (GRow []).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 18:22:39.520000.*)
+(* Auto-generated comment: At 2019-09-05 18:30:40.900000.*)
 
