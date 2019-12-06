@@ -137,8 +137,7 @@ Search -fst -snd.
 (destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
 Opaque rev.
 (simpl).
-(rewrite <- ctrl_list_to_unitary_transpose).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 12:32:17.700000.*)
+(* Auto-generated comment: At 2019-08-09 12:32:17.840000.*)
 
