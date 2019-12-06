@@ -969,8 +969,8 @@ gen \207\129.
 (intros \207\129).
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (repeat rewrite Mmult_assoc).
-Msimpl.
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:21:16.830000.*)
+(* Auto-generated comment: At 2019-08-13 11:21:17.780000.*)
 
