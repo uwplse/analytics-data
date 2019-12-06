@@ -83,8 +83,8 @@ step_proc.
 intuition.
 step_proc.
 intuition.
-(simpl).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:36:08.560000.*)
+(* Auto-generated comment: At 2019-09-06 05:36:15.680000.*)
 
