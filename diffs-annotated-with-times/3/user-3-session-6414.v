@@ -126,12 +126,10 @@ step_proc.
 Qed.
 Lemma abstr_get_len :
   forall (bs : list block) (state : State),
-  log_abstraction state bs ->
+  log_length_ok state bs ->
   forall r : block,
   diskGet state len_addr =?= r -> block_to_addr r = length bs.
-Proof.
-(unfold log_abstraction, log_length_ok; intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:37:52.720000.*)
+(* Auto-generated comment: At 2019-09-04 10:37:56.950000.*)
 
