@@ -437,8 +437,8 @@ Proof.
 (right; solve_not_x_sub_r_y_full).
 (rewrite mk_nf_nf__equal).
 reflexivity.
-(do 2 constructor).
+(do 2 constructor; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:27:54.970000.*)
+(* Auto-generated comment: At 2019-08-09 12:28:40.660000.*)
 
