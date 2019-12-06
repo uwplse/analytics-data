@@ -1219,11 +1219,8 @@ subst.
 (repeat rewrite Nat.pow_add_r).
 (intros).
 Msimpl.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqa34QT0"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
+Set Printing Implicit.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 13:39:01.820000.*)
+(* Auto-generated comment: At 2019-08-09 13:39:04.340000.*)
 
