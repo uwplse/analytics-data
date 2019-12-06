@@ -458,8 +458,12 @@ Proof.
 specialize (Hsem _ Hm).
 (simpl in Hsem).
 (apply IHk; try assumption).
+(destruct Hdep as [Hdep| Hdep]; [ left | right ]; apply le_S_n; assumption).
+(intros v').
+specialize (Hsem v').
 tauto.
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:20:57.400000.*)
+(* Auto-generated comment: At 2019-08-18 07:21:26.660000.*)
 
