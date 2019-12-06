@@ -956,7 +956,9 @@ Timeout 1 About rewrite_inPar''.
 Timeout 1 Print rewrite_inPar''.
 Timeout 1 Print Ltac rewrite_inPar''.
 replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
-(* Auto-generated comment: Failed. *)
+rewrite_inPar''.
+(rewrite id_circ_spec).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 16:09:49.630000.*)
+(* Auto-generated comment: At 2019-08-14 16:09:57.490000.*)
 
