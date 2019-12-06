@@ -275,8 +275,8 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-Check sig.
+Check sig2.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:09:15.080000.*)
+(* Auto-generated comment: At 2019-08-16 07:09:15.720000.*)
 
