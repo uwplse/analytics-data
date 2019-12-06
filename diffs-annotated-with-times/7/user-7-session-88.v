@@ -475,8 +475,27 @@ reflexivity.
 (rewrite Heqdep).
 constructor.
 }
+(destruct (max_inv_depth_le__inv _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(split; intros Hm; apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hvq Hv2]]]]; subst).
++
+(rewrite H0).
+(apply match_ty_i_pair; [ apply IHt1 | apply IHt2 ]; assumption).
++
+(rewrite H0 in *).
+(apply match_ty_i_pair; [ apply IHt1 | apply IHt2 ]; assumption).
+-
+(simpl in Heqdep).
+(assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
+{
+(rewrite Heqdep).
+constructor.
+}
 (destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 14:48:34.630000.*)
+(* Auto-generated comment: At 2019-08-16 14:48:42.520000.*)
 
