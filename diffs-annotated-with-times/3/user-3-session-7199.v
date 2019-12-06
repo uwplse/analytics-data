@@ -367,8 +367,9 @@ Proof.
 (unfold get; intros).
 step_proc.
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intros).
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:14:53.100000.*)
+(* Auto-generated comment: At 2019-09-04 11:15:31.030000.*)
 
