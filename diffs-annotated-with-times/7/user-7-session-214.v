@@ -285,8 +285,12 @@ assumption.
 (apply f_free_in_ty_exist).
 tauto.
 -
+(unfold f_free_in_ty, free in HX).
 (simpl in HX).
+Search -IdSet.empty.
+exfalso.
+(apply IdSetFacts.empty_iff).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:33:17.170000.*)
+(* Auto-generated comment: At 2019-09-04 09:33:34.400000.*)
 
