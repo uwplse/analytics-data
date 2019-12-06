@@ -38,8 +38,18 @@ exists (S w1).
 (intros v Hm).
 (apply match_ty_exist).
 exists (TEV X).
-(rewrite subs_fresh_in_ty).
+(rewrite subs_fresh_in_ty; assumption).
+Qed.
+Lemma sem_sub_k_fresh_var__sem_sub_exist :
+  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Proof.
+(intros X t).
+(induction t).
+-
+(intros t' X' Hfresh Hsem).
+(simpl in *).
+(apply sem_sub_trans).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:58:15.290000.*)
+(* Auto-generated comment: At 2019-08-27 08:58:56.390000.*)
 
