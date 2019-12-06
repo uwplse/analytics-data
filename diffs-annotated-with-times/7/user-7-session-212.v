@@ -230,9 +230,10 @@ Qed.
 Lemma f_free_in_ty__f_free_in_b_subst : forall (Y : id) (s : ty) (X : id) (t : ty), f_free_in_ty X t -> f_free_in_ty X ([BY := s] t).
 Proof.
 (intros Y s X t HX).
-(induction t).
-(simpl).
+(induction t; try (solve [ simpl; assumption ])).
+-
+(rewrite b_subst_pair).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:14:36.780000.*)
+(* Auto-generated comment: At 2019-09-04 09:15:34.020000.*)
 
