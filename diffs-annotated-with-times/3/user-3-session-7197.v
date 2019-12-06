@@ -381,8 +381,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:42:06.810000.*)
+(* Auto-generated comment: At 2019-09-04 10:42:23.920000.*)
 
