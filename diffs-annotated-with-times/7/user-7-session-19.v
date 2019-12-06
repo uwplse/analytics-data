@@ -200,7 +200,8 @@ Proof.
 (intros t t' Hsem).
 (split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
   assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
+specialize (Hsem _ Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:14:28.590000.*)
+(* Auto-generated comment: At 2019-08-13 08:14:56.470000.*)
 
