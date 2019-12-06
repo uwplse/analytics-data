@@ -113,7 +113,7 @@ Proof.
        |- _ =>
            remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ;
             assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; inversion Heqx; 
-            inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
+            inversion Heqy; subst; tauto || (rewrite (mk_nf_nf _ Hnf) in IHHsub; tauto)
      | Hsub:|- unite_pairs _ (TUnion _ _) << TPair _ _
        |- _ =>
            rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
@@ -125,7 +125,21 @@ Proof.
             destruct Hsub as [Hsub1 Hsub2]; specialize (IHt1_1 _ _ _ Hsub1 Hnf11 Hnf2); specialize (IHt1_2 _ _ _ Hsub2 Hnf12 Hnf2); split;
             tauto || constructor; tauto
      end ])).
+Qed.
+Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
+Proof.
+(intros t1 t2 t1' t2' Hsub).
+(remember (TPair t1 t2) as tx eqn:Heqx ).
+(remember (TPair t1' t2') as ty eqn:Heqy ).
+(induction Hsub; inversion Heqx; inversion Heqy; subst).
+-
+(split; assumption).
+-
+(simpl in Hsub).
+(apply sub_r_unite_pairs_nf_l__inv in Hsub; try apply mk_nf__in_nf).
+(destruct Hsub; split; apply SR_NormalForm; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:36:25.150000.*)
+(* Auto-generated comment: At 2019-08-18 07:37:09.220000.*)
 
