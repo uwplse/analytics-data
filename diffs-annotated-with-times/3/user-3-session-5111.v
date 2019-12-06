@@ -202,8 +202,7 @@ Proof.
 {
 (destruct (a == r)).
 -
-invert_abstraction.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:04:34.990000.*)
+(* Auto-generated comment: At 2019-09-03 11:04:35.680000.*)
 
