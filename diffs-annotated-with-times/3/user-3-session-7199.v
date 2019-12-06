@@ -366,8 +366,9 @@ Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 (unfold get; intros).
 step_proc.
-(apply proc_spec_weaken; eauto).
-(* Auto-generated comment: Failed. *)
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intros).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:14:48.590000.*)
+(* Auto-generated comment: At 2019-09-04 11:14:53.100000.*)
 
