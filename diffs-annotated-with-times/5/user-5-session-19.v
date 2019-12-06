@@ -122,8 +122,34 @@ Proof.
 (unfold isTheorem).
 (induction t; intros; simpl in *).
 -
+apply -> evalEqTrue.
+reflexivity.
+-
+apply -> evalEqTrue.
+reflexivity.
+-
+apply -> evalEqTrue.
+specialize IHt1 with env.
+specialize IHt2 with env.
+apply <- evalEqTrue in IHt1.
+apply <- evalEqTrue in IHt2.
+(destruct (eval_eq_true_or_false L env t1 t2)).
++
+(rewrite H).
+(apply evalEqTrue in H).
+(rewrite H in IHt1).
+(rewrite IHt1 in IHt2).
+symmetry.
 (apply evalEqTrue).
+assumption.
++
+(rewrite H).
+(apply evalEqFalse in H).
+(assert (eval L env (identity t1) <> eval L env (identity t2)) by congruence).
+symmetry.
+(apply evalEqFalse).
+assumption.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 09:33:19.230000.*)
+(* Auto-generated comment: At 2019-08-13 09:33:37.650000.*)
 
