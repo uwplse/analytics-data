@@ -626,8 +626,9 @@ Proof.
 (intros).
 (simpl).
 specialize (kron_1_l (\226\168\130 l2)) as KL.
-setoid_rewrite kron_1_l.
-(* Auto-generated comment: Failed. *)
+(assert
+  (Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv (\226\168\130 l2)))).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 18:25:18.950000.*)
+(* Auto-generated comment: At 2019-08-13 18:25:22.710000.*)
 
