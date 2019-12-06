@@ -144,8 +144,31 @@ Proof.
 (inversion Hle).
 (apply match_ty_exist).
 exists tx.
+split.
+assumption.
 (apply IHw).
+assumption.
+(apply le_S_n; assumption).
+Qed.
+Lemma match_ty__exists_w_v : forall t : ty, exists (w : nat) (v : ty), |-[ w] v <$ t.
+Proof.
+(induction t).
+-
+exists 0,(TCName c).
+(apply match_ty_cname).
+-
+(destruct (IHt1) as [w1 [v1 Hm1]]).
+(destruct (IHt2) as [w2 [v2 Hm2]]).
+exists (Nat.max w1 w2),(TPair v1 v2).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
+(destruct (IHt1) as [w [v Hm]]).
+exists w,v.
+(apply match_ty_union_1; assumption).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:23:02.290000.*)
+(* Auto-generated comment: At 2019-09-03 09:26:19.820000.*)
 
