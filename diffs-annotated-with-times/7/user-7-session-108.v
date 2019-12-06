@@ -252,8 +252,8 @@ exists 0,(TCName c).
 (destruct (IHt1 k) as [w1 [v1 Hm1]]).
 (destruct (IHt2 k) as [w2 [v2 Hm2]]).
 exists (Nat.max w1 w2),(TPair v1 v2).
-(apply match_ty_pair; apply match_ty__ge_w).
+(apply match_ty_pair; eapply match_ty__ge_w; eassumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:34:35.310000.*)
+(* Auto-generated comment: At 2019-08-21 09:34:53.950000.*)
 
