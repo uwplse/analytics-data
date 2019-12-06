@@ -64,8 +64,25 @@ reflexivity.
 specialize (IHt'b HXt'1).
 (destruct IHt'b as [w2 IHt'b]).
 exists w2.
-(apply match_ty_union_1; auto).
-(* Auto-generated comment: Failed. *)
+(apply match_ty_union_1; assumption).
+}
+{
+exists 0.
+(apply match_ty_union_1).
+(rewrite f_subst_not_b_free_in_ty; auto).
+}
+}
+{
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_2; auto).
+}
+{
+(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
+{
+specialize (IHt'b HXt'2).
+(destruct IHt'b as [w2 IHt'b]).
+(apply match_ty_union_2; auto).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 13:17:31.970000.*)
+(* Auto-generated comment: At 2019-09-05 13:18:55.470000.*)
 
