@@ -111,8 +111,7 @@ Proof.
 (destruct (le_dec (S a) (diskSize d0))).
 -
 destruct_all.
--
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:17:22.320000.*)
+(* Auto-generated comment: At 2019-09-03 11:17:22.890000.*)
 
