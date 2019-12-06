@@ -555,8 +555,8 @@ generalize dependent G'.
 (induction H).
 -
 (intros; inversion H0; subst; eauto).
-all: (try rewrite singleton_eq in H1; congruence).
-(* Auto-generated comment: Failed. *)
+all: (try rewrite singleton_eq in H1).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 16:03:26.130000.*)
+(* Auto-generated comment: At 2019-09-06 16:04:48.810000.*)
 
