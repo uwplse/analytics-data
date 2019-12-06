@@ -22,8 +22,15 @@ exists (Nat.max w21 w22).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (specialize (Hsem1 _ Hm1); specialize (Hsem2 _ Hm2)).
-(apply match_ty_pair; eapply match_ty__ge_w).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+Qed.
+Lemma sem_sub_pair : forall t1 t2 t1' t2' : ty, ||- [t1]<= [t1'] -> ||- [t2]<= [t2'] -> ||- [TPair t1 t2]<= [TPair t1' t2'].
+Proof.
+(intros t1 t2 t1' t2' Hem1 Hsem2 k).
+(apply sem_sub_k_pair; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:17:52.680000.*)
+(* Auto-generated comment: At 2019-08-27 07:18:53.800000.*)
 
