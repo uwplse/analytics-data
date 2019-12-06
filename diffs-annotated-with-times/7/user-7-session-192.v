@@ -42,9 +42,13 @@ Proof.
 -
 (rewrite subst_equation).
 (destruct (beq_idP X i) as [HXi| HXi]; try assumption).
-(destruct (IdSet.mem i (FV s)) as [Hmem| Hmem]).
 (destruct (IdSet.mem i (FV s))).
++
+(remember (gen_fresh (IdSet.union (FV s) (IdSet.add X (FV t)))) as z).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [ti Hm]).
+exists ti.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:16:08.670000.*)
+(* Auto-generated comment: At 2019-09-02 09:16:20.530000.*)
 
