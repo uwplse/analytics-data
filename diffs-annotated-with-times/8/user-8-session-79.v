@@ -965,5 +965,5 @@ Timeout 1 Print Ltac restore_dims.
   unify_pows_two).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:26:23.370000.*)
+(* Auto-generated comment: At 2019-08-14 15:26:48.120000.*)
 
