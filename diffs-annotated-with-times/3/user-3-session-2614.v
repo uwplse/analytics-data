@@ -10,6 +10,7 @@ From Coq Require Import PeanoNat.
 From Coq Require Import Arith.
 From Coq Require Import ProofIrrelevance.
 From stdpp Require Import decidable countable.
+From Classes Require Import EqualDec.
 From Armada Require Import Goose.Machine.
 From Coq Require Import List.
 Set Implicit Arguments.
@@ -123,16 +124,6 @@ econstructor.
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
 (apply ProofIrrelevanceTheory.subset_eq_compat).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoqDPof"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqwEWGLb"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
 constructor.
@@ -143,7 +134,12 @@ admit.
 typeclasses eauto.
 -
 (simpl).
+(unfold EqualDec).
+(intros; simpl).
+(decide equality; subst).
+(decide equality; subst).
+(destruct (decide (x0 = x1)); auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:37:39.210000.*)
+(* Auto-generated comment: At 2019-08-16 07:37:46.840000.*)
 
