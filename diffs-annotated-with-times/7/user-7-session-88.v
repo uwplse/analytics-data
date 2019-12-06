@@ -410,21 +410,12 @@ specialize (Hsem _ Hm).
 specialize (Hsem v').
 tauto.
 Qed.
-Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k \/ | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
-Proof.
-(induction k; induction t; induction t'; intros Hnft Hdep Hsem; try (solve [ simpl; constructor ]);
-  try (solve
-   [ match goal with
-     | Hsem:||-[ ?k][?t]<= [?t']
-       |- | ?t | <= | ?t' | =>
-           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
-            (Hsem _ Hm); contradiction
-     end ])).
--
-(assert (Hv : value_type (TCName c)) by constructor; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
-  destruct Hsemu as [Hsemu| Hsemu]; destruct Hdep as [Hdept| Hdept']; try destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2];
-  (solve [ apply Nat.le_trans with (| t'1 |); tauto || apply Max.le_max_l | apply Nat.le_trans with (| t'2 |); tauto || apply Max.le_max_r ])).
+Ltac
+ solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2 :=
+  pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu]; destruct Hdep as [Hdept| Hdept'];
+   try destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; (solve
+   [ apply Nat.le_trans with (| t'1 |); tauto || apply Max.le_max_l | apply Nat.le_trans with (| t'2 |); tauto || apply Max.le_max_r ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:08:54.640000.*)
+(* Auto-generated comment: At 2019-08-18 07:09:45.620000.*)
 
