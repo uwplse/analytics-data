@@ -90,9 +90,7 @@ contradiction.
 +
 (simpl).
 (rewrite <- beq_id_refl).
-symmetry.
-(apply subs_fresh_in_ty).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:59:47.420000.*)
+(* Auto-generated comment: At 2019-08-27 07:00:04.750000.*)
 
