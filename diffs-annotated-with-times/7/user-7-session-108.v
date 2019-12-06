@@ -295,8 +295,8 @@ admit.
 -
 (destruct Hcontra as [v Hcontra]).
 Search -id.
-Print ec_id.
+(destruct (eq_id X i)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:38:00.390000.*)
+(* Auto-generated comment: At 2019-08-21 10:38:08.480000.*)
 
