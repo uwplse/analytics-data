@@ -32,5 +32,5 @@ autorewrite with proof_db.
 (rewrite super_I; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:26:37.240000.*)
+(* Auto-generated comment: At 2019-08-12 14:28:00.450000.*)
 
