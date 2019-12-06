@@ -917,8 +917,14 @@ Timeout 1 Print Ltac rewrite_inPar.
 Timeout 1 About restore_dims.
 Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
 (erewrite denote_box_compat).
-(* Auto-generated comment: Failed. *)
+2: {
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+setoid_rewrite (kron_1_l_inv (\226\168\130 l2)).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:23:36.830000.*)
+(* Auto-generated comment: At 2019-08-14 14:23:51.130000.*)
 
