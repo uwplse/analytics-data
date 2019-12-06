@@ -77,8 +77,23 @@ Proof.
 (intros t t1' t2').
 (unfold sem_sub).
 (intros Hsub).
-(intros k v Hv Hm).
+(intros k v Hm).
+(apply match_ty_union_1; apply Hsub; assumption).
+Qed.
+Lemma sem_sub_union_2 : forall t t1' t2' : ty, ||- [t]<= [t2'] -> ||- [t]<= [TUnion t1' t2'].
+Proof.
+(intros t t1' t2').
+(unfold sem_sub).
+(intros Hsub).
+(intros k v Hm).
+(apply match_ty_union_2; apply Hsub; assumption).
+Qed.
+Lemma sem_sub_pair__inv : forall t1 t2 t1' t2' : ty, ||- [TPair t1 t2]<= [TPair t1' t2'] -> ||- [t1]<= [t1'] /\ ||- [t2]<= [t2'].
+Proof.
+(intros t1 t2 t1' t2' Hsem).
+(unfold sem_sub in Hsem).
+(destruct (value_type_matching_ty__exists t1) as [pv1 [Hpval1 Hpv1]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:36:42.390000.*)
+(* Auto-generated comment: At 2019-08-16 13:37:03.290000.*)
 
