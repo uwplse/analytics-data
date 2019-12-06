@@ -153,8 +153,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-(intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:36:49.220000.*)
+(* Auto-generated comment: At 2019-08-16 10:36:51.100000.*)
 
