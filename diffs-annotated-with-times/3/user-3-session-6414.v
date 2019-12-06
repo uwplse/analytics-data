@@ -36,8 +36,7 @@ Hint Resolve addr_to_block_ok: core.
 Notation "d [ a |-> b ]" := (diskUpd d a b) (at level 8, left associativity).
 Notation "d [ a |=> bs ]" := (diskUpds d a bs)
   (at level 8, left associativity).
-Opaque diskGet.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:30:06.770000.*)
+(* Auto-generated comment: At 2019-09-04 10:30:10.800000.*)
 
