@@ -66,8 +66,7 @@ monad_simpl.
 (let state := fresh "state" in
  intros ? state Hpre).
 exists tt.
-split.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:58:16.920000.*)
+(* Auto-generated comment: At 2019-08-29 08:58:21.970000.*)
 
