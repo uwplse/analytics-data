@@ -133,7 +133,8 @@ Proof.
 (intros).
 (induction n as [n IHn] using lt_wf_ind).
 (destruct n; simpl).
+Print nat_to_le.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:03:27.320000.*)
+(* Auto-generated comment: At 2019-08-16 06:03:45.120000.*)
 
