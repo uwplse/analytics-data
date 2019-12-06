@@ -159,16 +159,16 @@ def main():
 
     for cmd in processed_cmds:
         try:
-            timestamp = ("TIMESTAMP " + str(datetime.fromtimestamp(get_time(cmd))))\
+            timestamp = (" TIMESTAMP " + str(datetime.fromtimestamp(get_time(cmd))))\
                 if args.times else ""
         except:
             timestamp = ""
         if get_cmd_type(cmd) == Symbol("StmAdd"):
             print("(*{}:*) {}".format(get_id(cmd), get_body(cmd)[1][2]))
         elif get_cmd_type(cmd) == Symbol("StmCancel"):
-            print("(*CANCEL {} {}*)".format(get_body(cmd)[1][1][0], timestamp))
+            print("(*CANCEL {}{}*)".format(get_body(cmd)[1][1][0], timestamp))
         elif get_cmd_type(cmd) == Symbol("Failed"):
-            print("(*FAILED {} {}*)".format(get_body(cmd)[1][1], timestamp))
+            print("(*FAILED {}{}*)".format(get_body(cmd)[1][1], timestamp))
         else:
             assert get_cmd_type(cmd) == Symbol("StmObserve")
             print("OBSERVE {}".format(get_body(cmd)[1][1]))
