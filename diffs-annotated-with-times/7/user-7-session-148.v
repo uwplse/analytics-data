@@ -92,9 +92,7 @@ tauto.
 (induction t').
 +
 Check match_ty__exists_w_v.
-(intros k).
-(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 07:44:19.720000.*)
+(* Auto-generated comment: At 2019-08-29 07:44:24.740000.*)
 
