@@ -286,8 +286,13 @@ End AGT_Spec.
 Module AGT_Bounded_Rows_Details.
 Search -unique.
 Search -uniqueness.
-Definition label := integer.
-(* Auto-generated comment: Failed. *)
+Definition label := nat.
+Inductive ST : Type :=
+  | SInt : ST
+  | SBool : ST
+  | SFun : ST -> ST -> ST
+  | SRec : forall l : list (label * ST)%type, NoDup (map fst l) -> ST.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 22:33:52.440000.*)
+(* Auto-generated comment: At 2019-09-04 22:38:08.330000.*)
 
