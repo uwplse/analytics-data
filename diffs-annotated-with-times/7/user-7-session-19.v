@@ -115,12 +115,7 @@ Proof.
                (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
      end ])).
 -
-(assert (IH1 : forall (k : nat) (v : ty), value_type v -> |-[ k] v <$ TCName c <-> |-[ k] v <$ t'1)).
-{
-(intros k v Hv).
-(split; intros Hm).
-+
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:35:54.280000.*)
+(* Auto-generated comment: At 2019-08-12 12:36:03.340000.*)
 
