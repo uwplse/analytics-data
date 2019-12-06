@@ -211,8 +211,9 @@ exists w,v.
 -
 (destruct IHt as [w [v Hm]]).
 exists (S w).
-(apply match_ty__match_ty_f_subst_int with i in Hm).
+Check match_ty__match_ty_f_subst_int.
+(apply (match_ty__match_ty_f_subst_int i) in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:57:57.550000.*)
+(* Auto-generated comment: At 2019-09-03 10:58:25.650000.*)
 
