@@ -61,8 +61,9 @@ exists w1.
 -
 Search -b_free_in_ty.
 (destruct (b_free_in_ty__dec X t) as [HX| HX]).
-+
+2: {
+Abort.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:02:06.500000.*)
+(* Auto-generated comment: At 2019-09-06 09:02:21.950000.*)
 
