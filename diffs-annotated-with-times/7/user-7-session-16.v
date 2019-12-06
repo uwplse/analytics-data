@@ -462,7 +462,10 @@ tauto.
   (IH21 _ Hnf'); specialize (IH22 _ Hnf'); try (solve [ solve_union_sub_r__decidable IH11 IH21 | solve_atom_sub_r_union__decidable IH12 IH22 ])).
 +
 (destruct IHt'1 as [IH1| IH1]; destruct IHt'2 as [IH2| IH2]; try assumption).
+(left; constructor; assumption).
+(right; intros Hcontra).
+(apply sub_r_union_l__inv in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:56:35.420000.*)
+(* Auto-generated comment: At 2019-08-09 12:56:57.720000.*)
 
