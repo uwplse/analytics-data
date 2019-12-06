@@ -101,8 +101,36 @@ Function
    end.
 -
 (intros).
+(unfold lt_size).
 (simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+-
+(intros).
+(unfold lt_size).
+(simpl).
+Omega.omega.
+Defined.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:18:52.370000.*)
+(* Auto-generated comment: At 2019-08-29 15:19:13.450000.*)
 
