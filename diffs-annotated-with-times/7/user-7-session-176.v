@@ -152,8 +152,9 @@ Proof.
       try (destruct (IHt1 v) as [Hm1 Hm2]; specialize (Hm1 Hm) || specialize (Hm2 Hm)); try destruct (IHt2 v) as [Hm1 Hm2];
       try (solve [ apply match_ty_union_1; auto | apply match_ty_union_2; auto ]) ])).
 -
-(split; intros Hm; apply match_ty_exist__0_inv in Hm; contradiction).
+(split; intros Hm).
+(rewrite subst_equation in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:24:14.750000.*)
+(* Auto-generated comment: At 2019-08-30 07:24:32.710000.*)
 
