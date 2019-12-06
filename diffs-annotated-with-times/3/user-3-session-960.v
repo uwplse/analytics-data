@@ -73,6 +73,7 @@ Theorem mod_S_lt n m : n `mod` S m < S m.
 Proof.
 (apply PeanoNat.Nat.mod_upper_bound; auto).
 Qed.
+Check mod_S_lt.
 Function
  nat_to_le base_m2 (x : nat) {wf lt x} : list {x : nat | x < S (S base_m2)}
  :=
@@ -85,5 +86,5 @@ Function
    end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:12:59.210000.*)
+(* Auto-generated comment: At 2019-08-16 06:13:10.680000.*)
 
