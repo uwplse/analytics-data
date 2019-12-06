@@ -450,8 +450,17 @@ step_proc.
 intuition.
 {
 (descend; intuition eauto).
+admit.
 }
+{
+(descend; intuition eauto).
+admit.
+}
+-
+step_proc.
+{
+(descend; intuition euuto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:19:23.710000.*)
+(* Auto-generated comment: At 2019-09-04 12:19:56.670000.*)
 
