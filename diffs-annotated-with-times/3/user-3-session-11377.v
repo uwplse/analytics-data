@@ -190,13 +190,13 @@ reflexivity.
 (rewrite plus_assoc).
 reflexivity.
 Qed.
-Theorem mult_n_Sm : forall m n, n * S m = m + n * m.
+Theorem mult_n_Sm : forall m n, n * S m = n + n * m.
 Proof.
 (induction n as [| n' IHn']).
 -
 (simpl).
 (rewrite <- plus_n_O).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-08 10:08:33.920000.*)
+(* Auto-generated comment: At 2019-09-08 10:08:36.720000.*)
 
