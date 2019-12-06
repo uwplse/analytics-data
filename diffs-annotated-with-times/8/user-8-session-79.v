@@ -964,5 +964,5 @@ Timeout 1 Print Ltac restore_dims.
 (simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:26:51.360000.*)
+(* Auto-generated comment: At 2019-08-14 15:26:51.660000.*)
 
