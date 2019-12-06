@@ -67,8 +67,8 @@ specialize IHt1 with env.
 specialize IHt2 with env.
 (apply evalEqTrue in IHt1).
 (apply evalEqTrue in IHt2).
-(apply evalEqTrue).
+Admitted.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 10:17:30.570000.*)
+(* Auto-generated comment: At 2019-08-12 10:17:37.740000.*)
 
