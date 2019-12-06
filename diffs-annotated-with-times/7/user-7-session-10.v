@@ -70,7 +70,8 @@ Lemma unite_pairs_of_nf__preserves_sub_r1 :
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros ta' tb' Hnf1 Hsub1 Hnf2 Hsub2; try (solve [ simpl; constructor; assumption ])).
 (destruct (in_nf_union__inv _ _ Hnf2) as [Hnfb1 Hnfb2]; destruct (sub_r_union_l__inv _ _ _ Hsub2) as [Hsubb1 Hsubb2]).
+(rewrite unite_pairs_atom_union).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:12:31.330000.*)
+(* Auto-generated comment: At 2019-08-08 13:13:20.150000.*)
 
