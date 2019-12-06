@@ -961,8 +961,7 @@ restore_dims
 show_dimensions.
 (simpl).
 (repeat rewrite app_length in *).
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:04:37.880000.*)
+(* Auto-generated comment: At 2019-08-14 18:04:38.810000.*)
 
