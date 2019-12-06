@@ -382,12 +382,7 @@ Proof.
 (unfold log_contents_ok; intros).
 specialize (H a).
 (assert (a < length (bs ++ bs'))).
-{
-(rewrite app_length; lia).
-}
-intuition.
-Search -nth -"++".
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:15:32.810000.*)
+(* Auto-generated comment: At 2019-09-04 12:15:45.230000.*)
 
