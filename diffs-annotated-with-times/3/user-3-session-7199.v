@@ -512,8 +512,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:24:38.930000.*)
+(* Auto-generated comment: At 2019-09-04 12:24:46.110000.*)
 
