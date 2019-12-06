@@ -566,8 +566,8 @@ Qed.
 Lemma nonzeros_app :
   forall l1 l2 : natlist, nonzeros (l1 ++ l2) = nonzeros l1 ++ nonzeros l2.
 Proof.
-(unfold nonzeros).
+(induction l1; simpl; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 10:11:13.820000.*)
+(* Auto-generated comment: At 2019-09-06 10:11:32.710000.*)
 
