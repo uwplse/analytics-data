@@ -135,8 +135,7 @@ Fixpoint step (t : term) : term :=
 Redirect "/tmp/coqfAE0Rj" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Print step.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-17 15:35:42.970000.*)
+(* Auto-generated comment: At 2019-08-17 15:44:07.900000.*)
 
