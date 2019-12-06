@@ -596,8 +596,8 @@ Proof.
 -
 (intros).
 (simpl).
-(rewrite Nat.add_0_r).
-(* Auto-generated comment: Failed. *)
+(repeat rewrite Nat.add_0_r).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:35:26.060000.*)
+(* Auto-generated comment: At 2019-08-13 17:35:50.080000.*)
 
