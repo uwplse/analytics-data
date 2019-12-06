@@ -194,8 +194,9 @@ constructor.
 *
 (apply IHk; try assumption).
 (apply sem_eq_k__sem_sub_k in Href).
-assumption.
+tauto.
+}
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 12:56:54.580000.*)
+(* Auto-generated comment: At 2019-08-16 12:56:59.640000.*)
 
