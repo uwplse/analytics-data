@@ -145,8 +145,12 @@ Proof.
 -
 (intros Hm).
 (apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(destruct (IHt1 _ Hm1) as [v1' Hm1']).
+(destruct (IHt2 _ Hm2) as [v2' Hm2']).
+exists (TPair v1' v2').
+(apply match_ty_pair).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:52:32.240000.*)
+(* Auto-generated comment: At 2019-08-30 06:53:28.130000.*)
 
