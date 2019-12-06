@@ -340,8 +340,10 @@ step_proc.
 }
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
-(exists (a' ++ [a]); intuition eauto; autorewrite with upd in *).
+(exists (a' ++ [a]); intuition eauto; autorewrite with upd in *; eauto).
++
+(rewrite app_length; simpl; lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:02:54.990000.*)
+(* Auto-generated comment: At 2019-09-04 12:03:07.200000.*)
 
