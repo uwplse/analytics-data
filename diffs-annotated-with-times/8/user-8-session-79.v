@@ -598,8 +598,8 @@ Proof.
 -
 (intros).
 (simpl).
-restore_dims.
+Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 15:55:37.770000.*)
+(* Auto-generated comment: At 2019-08-13 15:55:38.010000.*)
 
