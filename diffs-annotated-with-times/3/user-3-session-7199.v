@@ -413,7 +413,11 @@ step_proc.
 }
 {
 eauto using log_abstraction_preserved.
+}
+step_proc.
+intuition.
+{
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:12:11.720000.*)
+(* Auto-generated comment: At 2019-09-04 12:12:12.760000.*)
 
