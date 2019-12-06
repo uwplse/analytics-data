@@ -369,8 +369,7 @@ iDestruct "Hltmps" as % Hltmps.
 {
 by rewrite difference_empty_L.
 }
-iDestruct (slice_mapsto_len with "Hs") as % ->.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 08:39:43.190000.*)
+(* Auto-generated comment: At 2019-08-16 08:39:46.980000.*)
 
