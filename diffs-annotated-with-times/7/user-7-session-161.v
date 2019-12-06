@@ -83,8 +83,14 @@ Proof.
 (induction t; intros Hneq; try reflexivity).
 -
 (repeat rewrite subst_pair).
-(rewrite IHt1, IHt2; try assumption reflexivity).
+(rewrite IHt1, IHt2; try assumption).
+reflexivity.
+-
+(repeat rewrite subst_union).
+(rewrite IHt1, IHt2; try assumption).
+reflexivity.
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 11:59:40.620000.*)
+(* Auto-generated comment: At 2019-08-29 11:59:46.920000.*)
 
