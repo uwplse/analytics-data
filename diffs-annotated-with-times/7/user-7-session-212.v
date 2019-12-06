@@ -59,7 +59,41 @@ Proof.
 (intros X fvs1 fvs2).
 (unfold free).
 (apply IdSetFacts.union_1).
+Qed.
+Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_f_free_in_ty).
+Qed.
+Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TPair t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_b_free_in_ty).
+Qed.
+Lemma not_f_free_in_ty_union__inv :
+  forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TUnion t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_f_free_in_ty).
+Qed.
+Lemma not_b_free_in_ty_union__inv :
+  forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TUnion t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_b_free_in_ty).
+Qed.
+Lemma not_f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), not_f_free_in_ty X (TExist Y t) -> not_f_free_in_ty X t.
+Proof.
+(unfold not_f_free_in_ty, not_free).
+(intros X Y t HX Hcontra).
+(simpl in HX).
+contradiction.
+Qed.
+Lemma f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), f_free_in_ty X (TExist Y t) -> f_free_in_ty X t.
+Proof.
+(unfold f_free_in_ty, free).
+(intros X Y t HX).
+(simpl in HX).
+assumption.
+Qed.
+Lemma free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TPair t1 t2) -> free_in_ty X t1 \/ free_in_ty X t2.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:16:58.040000.*)
+(* Auto-generated comment: At 2019-09-04 09:17:00.650000.*)
 
