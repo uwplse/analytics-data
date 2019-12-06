@@ -21,8 +21,8 @@ exists (Nat.max w21 w22).
 (intros v Hm).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_pair).
+specialize (Hsem1 _ Hm1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:17:14.660000.*)
+(* Auto-generated comment: At 2019-08-27 07:17:29.330000.*)
 
