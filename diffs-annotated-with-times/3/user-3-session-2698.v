@@ -153,8 +153,8 @@ econstructor.
    |- _ => destruct (nat_le_dec n m); try congruence
  end).
 (inversion H; subst).
-(rewrite app_lenegth).
-(* Auto-generated comment: Failed. *)
+(rewrite app_length).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:47:23.940000.*)
+(* Auto-generated comment: At 2019-08-16 07:47:49.090000.*)
 
