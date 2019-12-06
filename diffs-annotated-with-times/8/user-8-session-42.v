@@ -684,14 +684,6 @@ Lemma kron_0_r : forall {m n o p : nat} (A : Matrix m n), A \226\138\151 @Zero o
 Proof.
 lma.
 Qed.
-Lemma kron_1_r : forall {m n : nat} (A : Matrix m n), A \226\138\151 I 1 == A.
-Proof.
-(intros m n A i j Hi Hj).
-(unfold I, kron).
-(rewrite 2!Nat.div_1_r).
-(rewrite 2!Nat.mod_1_r).
-(simpl; lca).
-Qed.
 Lemma kron_1_l : forall {m n : nat} (A : Matrix m n), I 1 \226\138\151 A == A.
 Proof.
 (intros m n A i j Hi Hj).
@@ -700,7 +692,311 @@ Proof.
 (rewrite 2!Nat.div_small by lia).
 (simpl; lca).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqMwSMS6"
+Lemma kron_1_r : forall {m n : nat} (A : Matrix m n), A \226\138\151 I 1 == A.
+Proof.
+(intros m n A i j Hi Hj).
+(unfold I, kron).
+(rewrite 2!Nat.div_1_r).
+(rewrite 2!Nat.mod_1_r).
+(simpl; lca).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqCWlSpB"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma kron_1_r' : forall {m n : nat} (A : Matrix m n), A \226\138\151 I 1 = A.
+Proof.
+(intros m n A).
+(unfold I, kron).
+(apply functional_extensionality; intros).
+(apply functional_extensionality; intros).
+(rewrite 2!Nat.div_1_r).
+(rewrite 2!Nat.mod_1_r).
+(simpl; lca).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqfWgrtS"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Theorem transpose_involutive : forall {m n : nat} (A : Matrix m n), ((A) \226\138\164) \226\138\164 == A.
+Proof.
+reflexivity.
+Qed.
+Theorem adjoint_involutive : forall {m n : nat} (A : Matrix m n), ((A) \226\128\160) \226\128\160 == A.
+Proof.
+lma.
+Qed.
+Lemma id_transpose_eq : forall {n : nat}, (I n) \226\138\164 == I n.
+Proof.
+by_cell.
+(unfold transpose, I).
+(rewrite Nat.eqb_sym).
+reflexivity.
+Qed.
+Lemma zero_transpose_eq : forall {m n : nat}, (@Zero m n) \226\138\164 == @Zero m n.
+Proof.
+reflexivity.
+Qed.
+Lemma id_adjoint_eq : forall {n : nat}, (I n) \226\128\160 == I n.
+Proof.
+by_cell.
+(unfold adjoint, I).
+(rewrite Nat.eqb_sym).
+(destruct (i =? j); lca).
+Qed.
+Lemma zero_adjoint_eq : forall {m n : nat}, (@Zero m n) \226\128\160 == @Zero n m.
+Proof.
+(unfold adjoint, Zero).
+(rewrite Cconj_0).
+reflexivity.
+Qed.
+Theorem Mplus_comm : forall {m n : nat} (A B : Matrix m n), A .+ B == B .+ A.
+Proof.
+lma.
+Qed.
+Theorem Mplus_assoc :
+  forall {m n : nat} (A B C : Matrix m n), A .+ B .+ C == A .+ (B .+ C).
+Proof.
+lma.
+Qed.
+Theorem Mmult_assoc :
+  forall {m n o p : nat} (A : Matrix m n) (B : Matrix n o) (C : Matrix o p),
+  A \195\151 B \195\151 C == A \195\151 (B \195\151 C).
+Proof.
+(intros).
+(intros i j _ _).
+(unfold Mmult).
+(induction n).
++
+(simpl).
+clear B.
+(induction o).
+reflexivity.
+(simpl).
+(rewrite IHo).
+lca.
++
+(simpl).
+(rewrite <- IHn).
+(simpl).
+(rewrite Csum_mult_l).
+(rewrite <- Csum_plus).
+(apply Csum_eq).
+(apply functional_extensionality).
+(intros z).
+(rewrite Cmult_plus_dist_r).
+(rewrite Cmult_assoc).
+reflexivity.
+Qed.
+Lemma Mmult_plus_dist_l :
+  forall {m n o : nat} (A : Matrix m n) (B C : Matrix n o),
+  A \195\151 (B .+ C) == A \195\151 B .+ A \195\151 C.
+Proof.
+(intros).
+(intros i j _ _).
+(unfold Mplus, Mmult).
+(rewrite <- Csum_plus).
+(apply Csum_eq_bounded; intros).
+(rewrite Cmult_plus_dist_l).
+reflexivity.
+Qed.
+Lemma Mmult_plus_dist_r :
+  forall {m n o : nat} (A B : Matrix m n) (C : Matrix n o),
+  (A .+ B) \195\151 C == A \195\151 C .+ B \195\151 C.
+Proof.
+(intros).
+(intros i j _ _).
+(unfold Mplus, Mmult).
+(rewrite <- Csum_plus).
+(apply Csum_eq_bounded; intros).
+(rewrite Cmult_plus_dist_r).
+reflexivity.
+Qed.
+Lemma kron_plus_dist_l :
+  forall {m n o p : nat} (A : Matrix m n) (B C : Matrix o p),
+  A \226\138\151 (B .+ C) == A \226\138\151 B .+ A \226\138\151 C.
+Proof.
+(intros m n o p A B C i j _ _).
+(unfold Mplus, kron).
+(rewrite Cmult_plus_dist_l).
+reflexivity.
+Qed.
+Lemma kron_plus_dist_r :
+  forall {m n o p : nat} (A B : Matrix m n) (C : Matrix o p),
+  (A .+ B) \226\138\151 C == A \226\138\151 C .+ B \226\138\151 C.
+Proof.
+(intros m n o p A B C i j _ _).
+(unfold Mplus, kron).
+(rewrite Cmult_plus_dist_r).
+reflexivity.
+Qed.
+Lemma Mscale_0_l : forall {m n : nat} (A : Matrix m n), 0 .* A == Zero.
+Proof.
+by_cell.
+lca.
+Qed.
+Lemma Mscale_0_r : forall {m n : nat} (c : C), c .* Zero == @Zero m n.
+Proof.
+by_cell.
+lca.
+Qed.
+Lemma Mscale_1_l : forall {m n : nat} (A : Matrix m n), 1 .* A == A.
+Proof.
+by_cell.
+lca.
+Qed.
+Lemma Mscale_1_r :
+  forall {n : nat} (c : C), c .* I n == (fun x y => if x =? y then c else C0).
+Proof.
+(intros n c i j _ _).
+(unfold I, scale; simpl).
+(destruct (i =? j); lca).
+Qed.
+Lemma Mscale_assoc :
+  forall {m n : nat} (x y : C) (A : Matrix m n), x .* (y .* A) == x * y .* A.
+Proof.
+lma.
+Qed.
+Lemma Mscale_plus_dist_l :
+  forall {m n : nat} (x y : C) (A : Matrix m n), (x + y) .* A == x .* A .+ y .* A.
+Proof.
+lma.
+Qed.
+Lemma Mscale_plus_dist_r :
+  forall {m n : nat} (x : C) (A B : Matrix m n), x .* (A .+ B) == x .* A .+ x .* B.
+Proof.
+lma.
+Qed.
+Lemma Mscale_mult_dist_l :
+  forall {m n o : nat} (x : C) (A : Matrix m n) (B : Matrix n o),
+  x .* A \195\151 B == x .* (A \195\151 B).
+Proof.
+(intros).
+(intros i j _ _).
+(unfold scale, Mmult).
+(rewrite Csum_mult_l).
+(apply Csum_eq_bounded; intros).
+lca.
+Qed.
+Lemma Mscale_mult_dist_r :
+  forall {m n o : nat} (x : C) (A : Matrix m n) (B : Matrix n o),
+  A \195\151 (x .* B) == x .* (A \195\151 B).
+Proof.
+(intros).
+(intros i j _ _).
+(unfold scale, Mmult).
+(rewrite Csum_mult_l).
+(apply Csum_eq_bounded; intros).
+lca.
+Qed.
+Lemma Mscale_kron_dist_l :
+  forall {m n o p : nat} (x : C) (A : Matrix m n) (B : Matrix o p),
+  x .* A \226\138\151 B == x .* (A \226\138\151 B).
+Proof.
+lma.
+Qed.
+Lemma Mscale_kron_dist_r :
+  forall {m n o p : nat} (x : C) (A : Matrix m n) (B : Matrix o p),
+  A \226\138\151 (x .* B) == x .* (A \226\138\151 B).
+Proof.
+lma.
+Qed.
+Lemma Mscale_trans :
+  forall {m n : nat} (x : C) (A : Matrix m n), (x .* A) \226\138\164 == x .* (A) \226\138\164.
+Proof.
+reflexivity.
+Qed.
+Lemma Mscale_adj :
+  forall {m n : nat} (x : C) (A : Matrix m n), (x .* A) \226\128\160 == x ^* .* (A) \226\128\160.
+Proof.
+lma.
+Qed.
+Definition Minv {n : nat} (A B : Square n) : Prop := (A \195\151 B == I n) /\ B \195\151 A == I n.
+Lemma Minv_unique :
+  forall {n : nat} (A B C : Square n), Minv A B -> Minv A C -> B == C.
+Proof.
+(intros n A B C [MAB MBA] [MAC MCA]).
+(rewrite <- (Mmult_1_r B)).
+(rewrite <- MAC).
+(rewrite <- (Mmult_1_l C)  at 2).
+(rewrite <- MBA).
+(rewrite Mmult_assoc).
+reflexivity.
+Qed.
+Lemma Minv_symm : forall {n : nat} (A B : Square n), Minv A B -> Minv B A.
+Proof.
+(unfold Minv; intuition).
+Qed.
+Axiom (Minv_flip : forall {n : nat} (A B : Square n), A \195\151 B == I n -> B \195\151 A == I n).
+Lemma Minv_left : forall {n : nat} (A B : Square n), A \195\151 B == I n -> Minv A B.
+Proof.
+(intros n A B H).
+(unfold Minv).
+(split; trivial).
+(apply Minv_flip).
+assumption.
+Qed.
+Lemma Minv_right : forall {n : nat} (A B : Square n), B \195\151 A == I n -> Minv A B.
+Proof.
+(intros n A B H).
+(unfold Minv).
+(split; trivial).
+(apply Minv_flip).
+assumption.
+Qed.
+Local Open Scope nat_scope.
+Lemma div_mod : forall x y z : nat, (x / y) mod z = x mod (y * z) / y.
+Admitted.
+Lemma mod_product :
+  forall x y z, y <> 0 -> z <> 0 -> (x mod (y * z)) mod z = x mod z.
+Proof.
+(intros x y z H H0).
+(repeat rewrite Nat.mod_eq; trivial).
+2: (apply Nat.neq_mul_0; easy).
+(rewrite <- Nat.sub_add_distr).
+(apply f_equal2; trivial).
+(remember (y * z) as yz).
+Admitted.
+Lemma kron_assoc :
+  forall {m n p q r s : nat} (A : Matrix m n) (B : Matrix p q) (C : Matrix r s),
+  A \226\138\151 B \226\138\151 C == A \226\138\151 (B \226\138\151 C).
+Proof.
+(intros).
+(intros i j Hi Hj).
+(remember (A \226\138\151 B \226\138\151 C) as LHS).
+(unfold kron).
+(rewrite (mult_comm p r)  at 1 2).
+(rewrite (mult_comm q s)  at 1 2).
+(assert (m * p * r <> 0) by lia).
+(assert (n * q * s <> 0) by lia).
+(apply Nat.neq_mul_0 in H as [Hmp Hr]).
+(apply Nat.neq_mul_0 in Hmp as [Hm Hp]).
+(apply Nat.neq_mul_0 in H0 as [Hnq Hs]).
+(apply Nat.neq_mul_0 in Hnq as [Hn Hq]).
+(rewrite <- 2!Nat.div_div by assumption).
+(rewrite <- 2!div_mod).
+(rewrite 2!mod_product by assumption).
+(rewrite Cmult_assoc).
+subst.
+reflexivity.
+Qed.
+Lemma kron_assoc' :
+  forall {m n p q r s : nat} (A : Matrix m n) (B : Matrix p q) (C : Matrix r s),
+  p <> O -> q <> O -> r <> O -> s <> O -> A \226\138\151 B \226\138\151 C = A \226\138\151 (B \226\138\151 C).
+Proof.
+(intros).
+(apply functional_extensionality; intros).
+(apply functional_extensionality; intros).
+(remember (A \226\138\151 B \226\138\151 C) as LHS).
+(unfold kron).
+(rewrite (mult_comm p r)  at 1 2).
+(rewrite (mult_comm q s)  at 1 2).
+(rewrite <- 2!Nat.div_div by assumption).
+(rewrite <- 2!div_mod by assumption).
+(rewrite 2!mod_product by assumption).
+(rewrite Cmult_assoc).
+subst.
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq9JxoP9"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
