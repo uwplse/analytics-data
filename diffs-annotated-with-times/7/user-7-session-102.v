@@ -61,7 +61,7 @@ Fixpoint match_ty (k : nat) :=
   fix mtyw (w : nat) :=
     fix mtyv (v : ty) :=
       fix mtyt (t : ty) :=
-        match w, k, v, t with
+        match k, w, v, t with
         | _, _, TCName c, TCName c' => c = c'
         | _, _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
         | _, _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
@@ -77,5 +77,5 @@ Fixpoint match_ty (k : nat) :=
 where "'|-[' k ',' w ']' v '<$' t" := (match_ty k w v t) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:13:28.900000.*)
+(* Auto-generated comment: At 2019-08-20 11:13:42.630000.*)
 
