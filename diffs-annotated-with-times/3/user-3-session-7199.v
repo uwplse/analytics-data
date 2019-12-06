@@ -157,8 +157,8 @@ Proof.
 (apply spec_abstraction_compose).
 (simpl).
 (unfold recover).
-Check d.read_ok.
-(* Auto-generated comment: Succeeded. *)
+proc_spec_weaken.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:50:03.760000.*)
+(* Auto-generated comment: At 2019-09-04 10:50:24.880000.*)
 
