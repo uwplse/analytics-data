@@ -393,8 +393,30 @@ right.
 (destruct Hcontra as [v Hcontra]).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
-(apply ty_empty__subs_ty_empty).
+Check ty_empty__subs_ty_empty.
+(apply (ty_empty__subs_ty_empty _ _ _ Hnotm i tx)).
+eauto.
+-
+(left; exists (TEV i); apply match_ty_var).
+-
+(left; exists (TEV i); apply match_ty_ev).
+Admitted.
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
+Proof.
+(induction t; intros k Hdep Hcontra).
+-
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+clear Hm.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Hcontra _]]).
+(inversion Hcontra).
+-
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hcontra]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:53:34.360000.*)
+(* Auto-generated comment: At 2019-08-21 10:53:59.430000.*)
 
