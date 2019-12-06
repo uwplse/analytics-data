@@ -103,8 +103,13 @@ Proof.
 (intros t t' Hsem k).
 (destruct k).
 -
-(intros w1; exists w1; intros v Hm; simpl).
+(intros w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [tx Heq]; subst).
+(destruct w1; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:27:38.590000.*)
+(* Auto-generated comment: At 2019-08-27 08:28:35.890000.*)
 
