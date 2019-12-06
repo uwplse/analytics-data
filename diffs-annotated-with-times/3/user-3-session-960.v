@@ -158,8 +158,8 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Search -Ascii.ascii.
-Print Ascii.byte_of_ascii.
+Print Ascii.ascii_of_byte.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:30:39.500000.*)
+(* Auto-generated comment: At 2019-08-16 06:31:06.310000.*)
 
