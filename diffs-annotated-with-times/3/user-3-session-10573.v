@@ -207,8 +207,7 @@ Proof.
 (unfold proc_spec; intros).
 (eapply H in H3; simpl in *; eauto).
 (eapply H0 in H2).
-(destruct r; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:48:52.500000.*)
+(* Auto-generated comment: At 2019-09-06 06:48:55.180000.*)
 
