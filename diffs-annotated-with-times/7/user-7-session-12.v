@@ -297,8 +297,8 @@ generalize dependent t21.
 (rewrite unite_pairs_atom_union; try assumption).
 (apply sub_r__rflxv).
 -
-(destruct (unite_pairs_union_t t1 t2 t21) as [Heq1| [Heq11 Heq12]]; destruct (unite_pairs_union_t t1 t2 t22) as [Heq2| [Heq21 Heq22]]).
+(rewrite unite_pairs_union_t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 07:17:02.570000.*)
+(* Auto-generated comment: At 2019-08-09 07:17:30.050000.*)
 
