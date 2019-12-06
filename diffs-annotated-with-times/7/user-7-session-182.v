@@ -35,8 +35,8 @@ subst.
 contradiction.
 *
 (rewrite subst_exist_eq).
-(rewrite subst_id).
+(unfold tX in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:46:46.530000.*)
+(* Auto-generated comment: At 2019-09-02 06:46:58.800000.*)
 
