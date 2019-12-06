@@ -258,7 +258,8 @@ Proof.
 (intros).
 (hnf in H; propositional).
 (destruct H0; propositional).
+(apply crash_step_simp in H).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:55:14.060000.*)
+(* Auto-generated comment: At 2019-08-07 18:55:18.860000.*)
 
