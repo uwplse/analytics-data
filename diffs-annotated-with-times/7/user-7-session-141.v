@@ -101,8 +101,8 @@ specialize (IHt2 _ _ Hfresh2 Hsem2).
 (apply sem_sub_exist_pair).
 (apply sem_sub_pair; assumption).
 +
-(apply sem_sub_union__inv in Hsem).
-(* Auto-generated comment: Failed. *)
+(intros k w1).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 09:44:06.260000.*)
+(* Auto-generated comment: At 2019-08-27 09:52:20.300000.*)
 
