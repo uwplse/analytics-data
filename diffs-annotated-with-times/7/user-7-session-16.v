@@ -340,7 +340,14 @@ generalize dependent t1.
 -
 (intros c t2).
 (induction t2).
++
+(destruct (cname_eq__decidable c c0)).
+*
+(subst; left; constructor).
+*
+right.
+(intros Hcontra; inversion Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 08:05:55.260000.*)
+(* Auto-generated comment: At 2019-08-09 08:07:06.230000.*)
 
