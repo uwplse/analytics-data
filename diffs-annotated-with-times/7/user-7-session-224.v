@@ -119,10 +119,7 @@ subst.
 (split; intros HX').
 {
 (unfold not_f_free_in_ty, not_free in HX').
-(simpl in HX').
-exfalso.
-(apply HX').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:23:54.950000.*)
+(* Auto-generated comment: At 2019-09-05 13:24:03.460000.*)
 
