@@ -1329,7 +1329,7 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqmp7aLJ"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma swap_list_aux_id : forall m n l, swap_list_aux m n (combine l l) = I (2 ^ n).
+Lemma swap_list_aux_id : forall m n l, swap_list_aux m n (combine l l) == I (2 ^ n).
 Proof.
 (intros m n l).
 generalize dependent m.
@@ -1345,5 +1345,131 @@ generalize dependent m.
 (rewrite IHl).
 (unfold swap_two).
 (rewrite <- beq_nat_refl).
+Msimpl.
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqCc0KgI"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma swap_list_n_id : forall n, swap_list n (seq 0 n) == I (2 ^ n).
+Proof.
+(intros).
+(unfold swap_list).
+(unfold zip_to).
+(apply swap_list_aux_id).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqbhObHV"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition get_var (p : Pat Bit) := match p with
+                                    | bit x => x
+                                    end.
+Definition denote_pat {w} (p : Pat w) : Matrix (2 ^ \226\159\166 w \226\159\167) (2 ^ \226\159\166 w \226\159\167) :=
+  swap_list (\226\159\166 w \226\159\167) (pat_to_list p).
+Instance Denote_Pat  {w}: (Denote (Pat w) (Matrix (2 ^ \226\159\166 w \226\159\167) (2 ^ \226\159\166 w \226\159\167))) := {
+ denote :=denote_pat}.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqm9w7Qf"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition denote_db_box {w1} {w2} (safe : bool) (c : DeBruijn_Box w1 w2) :=
+  match c with
+  | db_box _ c' => denote_db_circuit safe 0 (\226\159\166 w1 \226\159\167) c'
+  end.
+Definition denote_box (safe : bool) {W1 W2 : WType} (c : Box W1 W2) :
+  Superoperator (2 ^ \226\159\166 W1 \226\159\167) (2 ^ \226\159\166 W2 \226\159\167) := denote_db_box safe (hoas_to_db_box c).
+Instance Denote_Box  {W1} {W2}:
+ (Denote (Box W1 W2) (Superoperator (2 ^ \226\159\166 W1 \226\159\167) (2 ^ \226\159\166 W2 \226\159\167))) :=
+ {| denote := denote_box true |}.
+Definition denote_circuit (safe : bool) {W : WType} (c : Circuit W) 
+  (\206\1470 \206\147 : Ctx) : Superoperator (2 ^ (\226\159\166 \206\1470 \226\159\167 + \226\159\166 \206\147 \226\159\167)) (2 ^ (\226\159\166 \206\1470 \226\159\167 + \226\159\166 W \226\159\167)) :=
+  denote_db_circuit safe (\226\159\166 \206\1470 \226\159\167) (\226\159\166 \206\147 \226\159\167) (hoas_to_db \206\147 c).
+Notation "\226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169" := (denote_circuit true c \206\1470 \206\147) (at level 20).
+Notation "\226\159\168! \206\1470 | \206\147 \226\138\169 c !\226\159\169" := (denote_circuit false c \206\1470 \206\147) (at level 20).
+Lemma denote_output :
+  forall \206\1470 \206\147 {w} (p : Pat w),
+  \226\159\168 \206\1470 | \206\147 \226\138\169 output p \226\159\169 = super (pad (\226\159\166 \206\1470 \226\159\167 + \226\159\166 \206\147 \226\159\167) (denote_pat (subst_pat \206\147 p))).
+Proof.
+(intros).
+(simpl).
+(unfold subst_pat).
+reflexivity.
+Qed.
+Ltac
+ fold_denotation :=
+  repeat
+   match goal with
+   | |- context [ size_octx ?\206\147 ] => replace (size_octx \206\147) with \226\159\166 \206\147 \226\159\167; auto
+   end.
+Lemma length_fresh_state :
+  forall w \206\147 \206\147',
+  \206\147' = add_fresh_state w \206\147 -> length \206\147' = (length \206\147 + size_wtype w)%nat.
+Proof.
+(induction w; intros \206\147 \206\147' H).
+-
+(unfold add_fresh_state, add_fresh in H).
+(simpl in H).
+(rewrite H).
+(rewrite app_length).
+easy.
+-
+(unfold add_fresh_state, add_fresh in H).
+(simpl in H).
+(rewrite H).
+(rewrite app_length).
+easy.
+-
+(unfold add_fresh_state, add_fresh in H).
+(simpl in H).
+(rewrite H).
+easy.
+-
+(rewrite H).
+clear H.
+(unfold add_fresh_state in *).
+(simpl).
+(destruct (add_fresh w1 \206\147) as [p1 \206\1471] eqn:E1).
+(destruct (add_fresh w2 \206\1471) as [p2 \206\1472] eqn:E2).
+(simpl).
+specialize (IHw1 \206\147 _ eq_refl).
+(rewrite E1 in IHw1).
+(simpl in IHw1).
+specialize (IHw2 \206\1471 _ eq_refl).
+(rewrite E2 in IHw2).
+(simpl in IHw2).
+(rewrite IHw2, IHw1).
+omega.
+Qed.
+Lemma swap_fresh_seq :
+  forall w (\206\147 : Ctx),
+  pat_to_list (add_fresh_pat w \206\147) = seq (length \206\147) (size_wtype w).
+Proof.
+(induction w; intros; simpl; auto).
+(unfold add_fresh_pat).
+(simpl).
+(destruct (add_fresh w1 \206\147) as [p1 \206\1471] eqn:E1).
+(destruct (add_fresh w2 \206\1471) as [p2 \206\1472] eqn:E2).
+(simpl).
+(rewrite (surjective_pairing (add_fresh w1 \206\147)) in E1).
+(inversion E1).
+(rewrite (surjective_pairing (add_fresh w2 \206\1471)) in E2).
+(inversion E2).
+(unfold add_fresh_pat in *).
+(rewrite IHw1, IHw2).
+symmetry in H1.
+(apply length_fresh_state in H1).
+(rewrite H1).
+(rewrite <- seq_app).
+easy.
+Qed.
+Lemma denote_pat_fresh_id :
+  forall w, denote_pat (add_fresh_pat w []) = I (2 ^ \226\159\166 w \226\159\167).
+Proof.
+(intros).
+(unfold denote_pat).
+(simpl).
+(rewrite swap_fresh_seq by validate).
+(rewrite swap_list_n_id).
 (* Auto-generated comment: Succeeded. *)
 
