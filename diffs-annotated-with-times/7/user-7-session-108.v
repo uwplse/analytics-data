@@ -249,8 +249,8 @@ Proof.
 exists (TCName c).
 (apply match_ty_value_type__reflexive; constructor).
 -
-(destruct (IHt1 k) as [w1 [v1 Hm1]]).
-(* Auto-generated comment: Succeeded. *)
+(destruct IHt1 as [v1 Hm1]).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:45:44.860000.*)
+(* Auto-generated comment: At 2019-08-21 09:45:52.220000.*)
 
