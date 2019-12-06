@@ -208,8 +208,9 @@ Theorem get_len_abstr_ok :
 Proof.
 (apply spec_abstraction_compose).
 step.
-(destruct a as [[] bs]; simpl in *; intuition eauto).
-(* Auto-generated comment: Succeeded. *)
+(destruct a' as [[] bs]; simpl in *; intuition eauto).
+(exists bs; intuition eauto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 17:35:07.920000.*)
+(* Auto-generated comment: At 2019-09-05 17:35:14.570000.*)
 
