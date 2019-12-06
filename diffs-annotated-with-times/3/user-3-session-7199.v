@@ -448,8 +448,10 @@ admit.
 }
 step_proc.
 intuition.
+{
 (descend; intuition eauto).
-(* Auto-generated comment: Succeeded. *)
+}
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:19:03.110000.*)
+(* Auto-generated comment: At 2019-09-04 12:19:17.100000.*)
 
