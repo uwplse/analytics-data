@@ -166,8 +166,7 @@ Proof.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
 (intros Hm).
-(simpl).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 09:36:13.780000.*)
+(* Auto-generated comment: At 2019-09-03 09:37:06.430000.*)
 
