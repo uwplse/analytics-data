@@ -97,5 +97,3 @@ specialize (H (add_fresh_pat W []) (add_fresh_state W []) []).
 (rewrite H).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 14:22:28.600000.*)
-
