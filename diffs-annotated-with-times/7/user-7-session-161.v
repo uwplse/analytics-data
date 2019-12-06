@@ -90,8 +90,13 @@ reflexivity.
 (rewrite IHt1, IHt2).
 reflexivity.
 -
-(destruct (beq_idP Y i) as [HY HY]).
+(destruct (beq_idP Y i) as [HY| HY]).
++
+subst.
+(destruct (beq_idP X i) as [HX| HX]).
+*
+subst.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 12:00:22.320000.*)
+(* Auto-generated comment: At 2019-08-29 12:01:36.340000.*)
 
