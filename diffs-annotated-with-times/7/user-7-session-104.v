@@ -87,8 +87,9 @@ specialize (Href 1).
 (destruct (sem_eq_k__exists_not 0 t) as [t' Hnoteq]).
 (assert (Hm : |-[ 1, 1] TRef tint <$ TExist vX (TRef tX))).
 {
+exists tint.
 (simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:26:27.450000.*)
+(* Auto-generated comment: At 2019-08-20 12:26:57.540000.*)
 
