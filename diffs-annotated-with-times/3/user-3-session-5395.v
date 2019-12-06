@@ -111,8 +111,9 @@ Proof.
 (destruct (le_dec (S a) (diskSize d0))).
 -
 destruct_all.
+-
 (rewrite diskUpd_oob_noop by lia).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:17:16.160000.*)
+(* Auto-generated comment: At 2019-09-03 11:17:22.150000.*)
 
