@@ -201,7 +201,10 @@ Proof.
 (destruct a'; simpl in *; intuition idtac).
 {
 (destruct (a == r)).
+-
+invert_abstraction.
+(step_proc; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:04:36.290000.*)
+(* Auto-generated comment: At 2019-09-03 11:04:36.740000.*)
 
