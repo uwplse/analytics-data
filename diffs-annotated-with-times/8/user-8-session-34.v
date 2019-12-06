@@ -49,5 +49,5 @@ admit.
 (intros WT pf_merge1 pf_merge2).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-10 12:31:47.010000.*)
+(* Auto-generated comment: At 2019-08-10 12:31:58.080000.*)
 
