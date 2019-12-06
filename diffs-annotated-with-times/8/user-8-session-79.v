@@ -947,8 +947,7 @@ reflexivity.
 (simpl).
 show_dimensions.
 (repeat rewrite app_length).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:24:37.160000.*)
+(* Auto-generated comment: At 2019-08-14 15:24:38.490000.*)
 
