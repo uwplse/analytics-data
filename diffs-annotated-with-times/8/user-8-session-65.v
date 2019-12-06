@@ -964,12 +964,5 @@ Proof.
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
 gen \207\129.
 (rewrite size_ntensor).
-(simpl).
-(rewrite Nat.mul_1_r).
-(intros \207\129).
-remember_differences.
-restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-revert \207\129.
-(rewrite Lt).
 (* Auto-generated comment: Succeeded. *)
 
