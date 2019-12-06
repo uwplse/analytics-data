@@ -88,8 +88,10 @@ reflexivity.
 reflexivity.
 -
 (destruct (beq_idP X i); try reflexivity).
-(rewrite IHt).
+Search -IdSet.mem.
+(destruct (IdSet.mem i (IdSet.singleton X))).
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:54:19.330000.*)
+(* Auto-generated comment: At 2019-08-29 13:54:34.500000.*)
 
