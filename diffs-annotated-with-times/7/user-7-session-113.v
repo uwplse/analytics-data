@@ -19,7 +19,10 @@ Proof.
 (intros X Y Hneq t).
 (induction t; intros s1 s2;
   try (solve [ simpl; reflexivity | specialize (IHt1 s1 s2); specialize (IHt2 s1 s2); simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
+-
+(simpl).
+(rewrite IHt).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:11:31.550000.*)
+(* Auto-generated comment: At 2019-08-27 06:11:41.550000.*)
 
