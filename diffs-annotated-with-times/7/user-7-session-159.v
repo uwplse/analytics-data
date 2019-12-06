@@ -99,10 +99,17 @@ assumption.
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
-(destruct (beq_idP X i) as [Hbeq| Hbeq]).
+(destruct (beq_idP X' i) as [Hbeq| Hbeq]).
 *
 subst.
+(rewrite subst_exist_eq).
+assumption.
+*
+(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [ti Hm]).
+(rewrite subst_neq__permute in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:37:17.370000.*)
+(* Auto-generated comment: At 2019-08-29 09:38:22.860000.*)
 
