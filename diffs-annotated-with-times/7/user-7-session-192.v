@@ -35,9 +35,8 @@ assumption.
 (apply match_ty_union_1; auto).
 *
 (rewrite subst_union).
-(destruct (either_free_or_fresh_in_ty X t'1) as [HXt'1| HXt'1]; apply match_ty_union_1; auto).
-auto.
+(destruct (either_free_or_fresh_in_ty X t'1) as [HXt'1| HXt'1]; apply match_ty_union_1; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:56:58.450000.*)
+(* Auto-generated comment: At 2019-09-02 08:56:59.510000.*)
 
