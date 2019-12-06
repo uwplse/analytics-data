@@ -279,8 +279,7 @@ typeclasses eauto.
 (destruct (nat_eq_dec n n0); subst).
 left.
 Search -(existT _ _ = existT _ _).
-unshelve (eapply eq_existT_curried).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:08:18.200000.*)
+(* Auto-generated comment: At 2019-08-16 07:08:25.840000.*)
 
