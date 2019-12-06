@@ -44,8 +44,9 @@ Proof.
 Qed.
 Lemma subst_var_eq : forall (X : id) (s : ty), [X := s] TVar X = s.
 Proof.
-(intros; reflexivity).
-(* Auto-generated comment: Succeeded. *)
+(intros).
+(simpl).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:14:21.580000.*)
+(* Auto-generated comment: At 2019-08-29 09:14:44.580000.*)
 
