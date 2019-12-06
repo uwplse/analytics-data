@@ -323,8 +323,10 @@ generalize dependent a.
 -
 (exfalso; lia).
 -
-(destruct a0; simpl in *).
+(destruct a0; simpl in *; auto).
+f_equal.
+(rewrite IHd).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:14:01.950000.*)
+(* Auto-generated comment: At 2019-09-04 11:14:08.120000.*)
 
