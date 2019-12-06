@@ -27,8 +27,9 @@ exists w1.
 (simpl in Hm).
 (eapply match_ty__ge_w).
 eassumption.
-constructor.
+(repeat constructor).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:43:04.400000.*)
+(* Auto-generated comment: At 2019-08-27 08:43:27.730000.*)
 
