@@ -74,7 +74,9 @@ auto.
 Qed.
 Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty), |-[ 0] v <$ TExist X t -> |-[ 0] v <$ t.
 Proof.
+(intros v; induction v; intros X t Hm).
+(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:13:49.690000.*)
+(* Auto-generated comment: At 2019-08-19 13:15:12.770000.*)
 
