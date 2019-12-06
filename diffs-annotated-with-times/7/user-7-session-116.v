@@ -81,8 +81,8 @@ subst.
 subst.
 reflexivity.
 *
-(rewrite IHt).
+(rewrite IHt; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:58:26.720000.*)
+(* Auto-generated comment: At 2019-08-27 06:59:01.860000.*)
 
