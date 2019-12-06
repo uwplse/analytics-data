@@ -506,8 +506,11 @@ intuition.
 {
 (exists bs; intuition eauto).
 (unfold log_abstraction; intuition eauto).
+}
 {
+(exists (bs ++ v); intuition).
+(apply log_abstraction_commit).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:45:04.340000.*)
+(* Auto-generated comment: At 2019-09-04 12:46:30.860000.*)
 
