@@ -200,9 +200,11 @@ Proof.
             destruct Hsemu as [Hsemu| Hsemu]; [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ];
             tauto || apply Max.le_max_l || apply Max.le_max_r
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
-       |- _ <= | ?t' | => assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption)
+       |- _ <= | ?t' | =>
+           assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+            assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption)
      end ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:40:17.990000.*)
+(* Auto-generated comment: At 2019-08-13 07:40:29.110000.*)
 
