@@ -34,9 +34,7 @@ dependent induction TP.
 (unfold compose_super).
 (unfold denote_circuit).
 (simpl).
-(unfold pad).
-(rewrite (ctx_wtype_size w p \206\147) by easy).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-10 12:21:35.760000.*)
+(* Auto-generated comment: At 2019-08-10 12:21:51.530000.*)
 
