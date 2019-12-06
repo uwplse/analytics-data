@@ -99,8 +99,7 @@ subst.
 reflexivity.
 +
 (destruct (lt_dec a 3)).
-intuition lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:02:13.940000.*)
+(* Auto-generated comment: At 2019-09-03 11:02:15.160000.*)
 
