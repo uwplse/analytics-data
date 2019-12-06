@@ -125,8 +125,10 @@ Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair
 Proof.
 (intros X s t1 t2).
 (unfold subst).
+(unfold subst_func).
 (rewrite fix_sub_eq).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:02:41.410000.*)
+(* Auto-generated comment: At 2019-08-29 15:04:44.080000.*)
 
