@@ -242,55 +242,12 @@ assumption.
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
 Qed.
-Lemma ty__matching_ty_exists : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Lemma ty__matching_ty_exists : forall (w : nat) (t : ty) (k : nat), exists v : ty, |-[ k, w] v <$ t.
 Proof.
-(induction t; intros k).
+(induction w; induction t; intros k).
 -
-exists 0,(TCName c).
-(apply match_ty_value_type__reflexive; constructor).
--
-(destruct (IHt1 k) as [w1 [v1 Hm1]]).
-(destruct (IHt2 k) as [w2 [v2 Hm2]]).
-exists (Nat.max w1 w2),(TPair v1 v2).
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
-(apply Nat.le_max_l).
-(apply Nat.le_max_r).
--
-(destruct (IHt1 k) as [w [v Hm]]).
-exists w,v.
-(apply match_ty_union_1).
-assumption.
--
-exists 0,(TRef t).
-(destruct k).
-reflexivity.
-(split; intros w1; exists w1; auto).
--
-(destruct (IHt k) as [w [v Hm]]).
-exists (S w),v.
-(apply match_ty_exist).
-exists (TVar i).
-(assert (Heq : [i := TVar i] t = t)).
-admit.
-(rewrite Heq).
-assumption.
-Admitted.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
-Proof.
-(induction t; intros k Hdep Hcontra).
--
-specialize (Hcontra 0).
-(destruct Hcontra as [w Hcontra]).
-(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ Hm).
-clear Hm.
-(apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Hcontra _]]).
-(inversion Hcontra).
--
-specialize (Hcontra 0).
-(destruct Hcontra as [w Hcontra]).
+(TCName c).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:44:28.980000.*)
+(* Auto-generated comment: At 2019-08-21 09:45:12.630000.*)
 
