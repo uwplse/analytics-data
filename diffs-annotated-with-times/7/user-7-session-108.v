@@ -130,8 +130,11 @@ assumption.
 Qed.
 Lemma sem_sub__pair_exist_distr_1 : forall (X : id) (t1 t2 : ty), ||- [TPair (TExist X t1) t2]<= [TExist X (TPair t1 t2)].
 Proof.
-Abort.
+(intros X t1 t2 k w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_exist).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 13:33:19.870000.*)
+(* Auto-generated comment: At 2019-08-21 13:35:12.300000.*)
 
