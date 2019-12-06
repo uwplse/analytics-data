@@ -142,8 +142,10 @@ exfalso.
 assumption.
 reflexivity.
 +
-(rewrite b_subst_exist_neq in *).
+(rewrite b_subst_exist_neq in *; try assumption).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [ti Hm]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 13:50:02.310000.*)
+(* Auto-generated comment: At 2019-09-04 13:50:49.900000.*)
 
