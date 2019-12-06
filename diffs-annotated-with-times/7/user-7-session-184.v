@@ -76,8 +76,26 @@ split.
 (apply match_ty_pair; assumption).
 (induction w'; induction t'; intros HX' Hm'; try contradiction).
 +
-(destruct (fresh_in_ty_pair__inv _ _ HX') as [HX'1 HX'2]).
+(destruct (fresh_in_ty_pair__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_pair_pair__inv in Hm').
+(destruct Hm' as [Hm'1 Hm'2]).
+(apply match_ty_pair; auto).
++
+(destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]; apply match_ty_union__inv in Hm').
+(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(destruct (fresh_in_ty_pair__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_pair_pair__inv in Hm').
+(destruct Hm' as [Hm'1 Hm'2]).
+(apply match_ty_pair; auto).
++
+(destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union__inv in Hm').
+(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(apply match_ty_exist__inv in Hm').
+(destruct Hm' as [ti Hm']).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:54:51.840000.*)
+(* Auto-generated comment: At 2019-09-02 08:16:57.650000.*)
 
