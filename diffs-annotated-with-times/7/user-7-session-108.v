@@ -380,8 +380,20 @@ reflexivity.
 (destruct (IHw t k) as [Hm| Hnotm]).
 +
 (destruct Hm as [v Hm]).
-(left; v).
+(left; exists v).
+(apply match_ty_exist).
+exists (TVar i).
+(assert (Heq : [i := TVar i] t = t)).
+admit.
+(rewrite Heq).
+assumption.
++
+right.
+(intros Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [tx Hcontra]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:51:16.190000.*)
+(* Auto-generated comment: At 2019-08-21 10:53:06.370000.*)
 
