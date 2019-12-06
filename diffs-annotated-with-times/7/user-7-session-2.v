@@ -27,9 +27,9 @@ Proof.
 -
 subst.
 Search -mk_nf.
-(assert (Hnf : InNF( MkNF( t))) by apply mk_nf__in_nf).
-Check mk_nf_nf__equal.
+(assert (Hnf : InNF( t)) by (constructor; assumption)).
+(rewrite (mk_nf_nf__equal t Hnf) in Hsub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:48:27.200000.*)
+(* Auto-generated comment: At 2019-08-06 12:48:39.910000.*)
 
