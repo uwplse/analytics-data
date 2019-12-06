@@ -217,8 +217,8 @@ Proof.
 (destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]).
 (destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
 SearchPattern (Nat.max _ _ <= _).
-(simpl).
+(apply Nat.max_lub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:48:27.320000.*)
+(* Auto-generated comment: At 2019-08-13 07:48:48.640000.*)
 
