@@ -50,8 +50,8 @@ exists t'.
 (apply match_ty_value_type__reflexive).
 constructor.
 -
-exists w1.
+exists S w1.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 09:58:39.330000.*)
+(* Auto-generated comment: At 2019-08-20 10:00:15.800000.*)
 
