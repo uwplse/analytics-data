@@ -65,7 +65,7 @@ Declare Scope btjm_scope.
 Delimit Scope btjm_scope with btjm.
 Open Scope btjm.
 Reserved Notation "'|-[' k ']' v '<$' t" (at level 40).
-Fixpoint match_ty_i (k : nat) :=
+Fixpoint match_ty (k : nat) :=
   fix mty (v : ty) :=
     fix mty' (t : ty) :=
       match k, v, t with
@@ -80,7 +80,63 @@ Fixpoint match_ty_i (k : nat) :=
       | _, _, _ => False
       end
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
-(* Auto-generated comment: Failed. *)
+Definition sem_sub_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 -> |-[ k] v <$ t2.
+Notation "'||-[' k ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_k k t1 t2) (at level 45) : btjm_scope.
+Definition sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> |-[ k] v <$ t2.
+Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_k k t1 t2) (at level 45) : btjm_scope.
+Definition sem_sub (t1 t2 : ty) := forall k : nat, ||-[ k][t1]<= [t2].
+Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : btjm_scope.
+Definition sem_eq (t1 t2 : ty) := forall k : nat, ||-[ k][t1]= [t2].
+Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
+Hint Unfold sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
+Inductive atom_type : ty -> Prop :=
+  | AT_CName : forall c : cname, atom_type (TCName c)
+  | AT_Pair : forall ta1 ta2 : ty, atom_type ta1 -> atom_type ta2 -> atom_type (TPair ta1 ta2)
+  | AT_Ref : forall t : ty, in_nf t -> atom_type (TRef t)
+  | AT_Var : forall X : id, atom_type (TVar X)
+with in_nf : ty -> Prop :=
+  | NF_Atom : forall ta : ty, atom_type ta -> in_nf ta
+  | NF_Union : forall t1 t2 : ty, in_nf t1 -> in_nf t2 -> in_nf (TUnion t1 t2)
+  | NF_Exist : forall (X : id) (t : ty), in_nf (TExist X t).
+Scheme atom_type_mut := Induction for atom_type Sort Prop
+  with in_nf_mut := Induction for in_nf Sort Prop.
+Declare Scope btjnf_scope.
+Delimit Scope btjnf_scope with btjnf.
+Open Scope btjnf.
+Notation "'InNF(' t ')'" := (in_nf t) (at level 30) : btjnf_scope.
+Hint Constructors atom_type in_nf: DBBetaJulia.
+Example innf_1 : InNF( tint).
+Proof.
+(repeat constructor).
+Qed.
+Example innf_2 : InNF( TPair tint tstr).
+Proof.
+(repeat constructor).
+Qed.
+Example innf_3 : InNF( TUnion (TPair tint tstr) tint).
+Proof.
+(apply NF_Union; repeat constructor).
+Qed.
+Example innf_4 : InNF( TPair tint (TUnion tint tstr)) -> False.
+Proof.
+(intros Hcontra; inversion Hcontra).
+(inversion H).
+(inversion H4).
+Qed.
+Example innf_5 : InNF( TRef (TUnion tint tstr)).
+Proof.
+(apply NF_Atom).
+(apply AT_Ref).
+(solve [ repeat constructor ]).
+Qed.
+Example innf_6 : InNF( TRef (TPair tint (TUnion tint tstr))) -> False.
+Proof.
+(intros Hcontra).
+(inversion Hcontra; subst).
+(inversion H; subst).
+(apply innf_4; assumption).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-19 08:46:25.230000.*)
+(* Auto-generated comment: At 2019-08-19 08:46:56.320000.*)
 
