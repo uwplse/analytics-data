@@ -95,33 +95,12 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TExist y t' =>
       if IdSet.mem y (FV s)
       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
-      else TExist y (if beq_id x y then t' else subst x s t')
+      else TExist y (if beq_id x y then t' else [x := s] t')
   | TVar y => if beq_id x y then s else t
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-(rewrite rename__size).
-Omega.omega.
-Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:36:48.340000.*)
+(* Auto-generated comment: At 2019-08-29 14:36:57.220000.*)
 
