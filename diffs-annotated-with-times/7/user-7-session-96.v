@@ -14,6 +14,21 @@ Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
+Lemma match_ty_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
+Proof.
+(intros v1 v2 t1 t2 k Hm1 Hm2).
+(destruct k; split; assumption).
+Qed.
+Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ t1 -> |-[ k] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 k Hm).
+(destruct k; destruct v; left; assumption).
+Qed.
+Lemma match_ty_union_2 : forall (v t1 t2 : ty) (k : nat), |-[ k] v <$ t2 -> |-[ k] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 k Hm).
+(destruct k; destruct v; right; assumption).
+Qed.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k : nat), |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; contradiction ])).
@@ -83,7 +98,26 @@ Proof.
 -
 (destruct k; reflexivity).
 -
-(* Auto-generated comment: Failed. *)
+(apply match_ty_pair; auto).
+-
+(destruct k).
+constructor.
+(simpl).
+tauto.
+Qed.
+Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
+Proof.
+(intros k; destruct k; intros v Hm).
+2: {
+idtac.
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+exists t'.
+(apply match_ty__reflexive).
+constructor.
+}
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-19 09:29:15.590000.*)
+(* Auto-generated comment: At 2019-08-19 09:45:14.630000.*)
 
