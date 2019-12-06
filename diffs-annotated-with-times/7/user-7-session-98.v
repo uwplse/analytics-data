@@ -93,8 +93,7 @@ Proof.
 (apply match_ty_exist__0_inv in Hm).
 auto.
 -
-(apply match_ty_exist__inv in Hm).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:16:40.180000.*)
+(* Auto-generated comment: At 2019-08-19 13:16:43.080000.*)
 
