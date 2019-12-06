@@ -1466,8 +1466,9 @@ eauto.
 -
 (simpl).
 (do 2 eexists; split).
-2: constructor.
+{
+(hnf).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:10:55.070000.*)
+(* Auto-generated comment: At 2019-08-14 13:11:59.160000.*)
 
