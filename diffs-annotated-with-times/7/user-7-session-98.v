@@ -152,5 +152,5 @@ specialize (Hcontra 1).
 (assert (Hm : |-[ 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:20:55.100000.*)
+(* Auto-generated comment: At 2019-08-19 13:21:30.870000.*)
 
