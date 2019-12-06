@@ -61,7 +61,11 @@ reflexivity.
 {
 (destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
 {
+specialize (IHt'b HXt'1).
+(destruct IHt'b as [w2 IHt'b]).
+exists w2.
+(apply match_ty_union_1; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:16:08.860000.*)
+(* Auto-generated comment: At 2019-09-05 13:17:31.970000.*)
 
