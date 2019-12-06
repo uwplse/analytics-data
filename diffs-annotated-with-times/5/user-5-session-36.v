@@ -279,9 +279,7 @@ clear H.
 -
 (erewrite evalTimes in H0).
 exact H0.
--
-(rewrite evalVar).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:59:42.080000.*)
+(* Auto-generated comment: At 2019-09-01 10:59:42.780000.*)
 
