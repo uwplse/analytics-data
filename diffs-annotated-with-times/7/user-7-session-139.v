@@ -59,8 +59,8 @@ Proof.
 (unfold fresh_in_ty, fresh).
 (simpl).
 Search -IdSet.empty.
-(apply IdSetFacts.empty_iff).
+(intros Hcontra; apply IdSetFacts.empty_iff).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 09:01:20.910000.*)
+(* Auto-generated comment: At 2019-08-27 09:02:14.040000.*)
 
