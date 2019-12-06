@@ -143,7 +143,8 @@ step_proc.
 {
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any).
-(* Auto-generated comment: Succeeded. *)
+(unfold remapped_abstraction).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 10:36:56.360000.*)
+(* Auto-generated comment: At 2019-08-16 10:37:02.880000.*)
 
