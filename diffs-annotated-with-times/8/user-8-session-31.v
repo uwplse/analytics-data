@@ -3233,6 +3233,5 @@ Proof.
 (intros \207\129 b).
 (unfold HOAS_Equiv in H).
 (rewrite H).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
