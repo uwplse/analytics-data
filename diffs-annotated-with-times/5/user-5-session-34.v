@@ -129,10 +129,7 @@ Proof.
 (destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2))).
 -
 left.
-apply -> L.(evalEqTrue).
-assumption.
--
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 08:56:19.240000.*)
+(* Auto-generated comment: At 2019-09-01 08:56:26.190000.*)
 
