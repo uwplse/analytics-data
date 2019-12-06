@@ -155,8 +155,9 @@ Theorem get_at_ok a :
 Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
+(simpl).
 step_proc.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:49:08.400000.*)
+(* Auto-generated comment: At 2019-09-04 10:49:19.150000.*)
 
