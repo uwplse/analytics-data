@@ -34,6 +34,13 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqcAMjSv"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Hint Rewrite kron_1_r'.
-(* Auto-generated comment: Failed. *)
+Hint Rewrite @kron_1_r'.
+Lemma X_spec :
+  forall b safe : bool,
+  denote_box safe (boxed_gate _X) (bool_to_matrix b) == bool_to_matrix (\194\172 b).
+Proof.
+(intros).
+vector_denote.
+(destruct b; unfold bool_to_ket; simpl; Msimpl).
+(* Auto-generated comment: Succeeded. *)
 
