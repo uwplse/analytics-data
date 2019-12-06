@@ -199,9 +199,8 @@ Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]
 Proof.
 (intros t t' Hsem).
 (split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
-  assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm)).
-(simpl in Hsem).
+  assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:16:01.850000.*)
+(* Auto-generated comment: At 2019-08-13 08:16:46.150000.*)
 
