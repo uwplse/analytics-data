@@ -175,8 +175,7 @@ Lemma pair_sem_sub_k_i__sub_d :
   (forall tb2 : ty, ||-[ k][ta2]<= [tb2] -> |- ta2 << tb2) -> forall t2 : ty, ||-[ k][TPair ta1 ta2]<= [t2] -> |- TPair ta1 ta2 << t2.
 Proof.
 (intros k ta1 ta2 Hat IH1 IH2).
-(pose proof (atom_type__value_type _ Hat) as Hva).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:56:11.880000.*)
+(* Auto-generated comment: At 2019-08-16 14:00:11.860000.*)
 
