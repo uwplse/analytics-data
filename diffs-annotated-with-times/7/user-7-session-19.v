@@ -50,8 +50,8 @@ specialize (Href v' Hv').
 Qed.
 Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k] v <$ t.
 Proof.
-Abort.
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:35:16.440000.*)
+(* Auto-generated comment: At 2019-08-12 09:36:36.080000.*)
 
