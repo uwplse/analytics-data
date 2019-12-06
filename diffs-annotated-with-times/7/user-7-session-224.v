@@ -148,8 +148,12 @@ reflexivity.
 (apply b_free_in_ty_exist_neq__inv in HX; try assumption).
 Check b_free_in_ty__b_free_in_b_subst_neq.
 (apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
-specialize (IHw _ _ _ HX Hm).
+specialize (IHw _ _ Hwftx HX Hm).
+(destruct IHw as [v' [Hm' IHw]]).
+exists v'.
+split.
+exists ti.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 12:51:05.430000.*)
+(* Auto-generated comment: At 2019-09-05 12:52:14.350000.*)
 
