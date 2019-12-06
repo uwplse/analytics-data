@@ -26,8 +26,11 @@ Proof.
 exists v.
 split.
 assumption.
-(induction w'; induction t'; intros Hm'; try contradiction).
+(induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction ])).
++
+split.
+*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:26:23.620000.*)
+(* Auto-generated comment: At 2019-09-02 08:28:07.640000.*)
 
