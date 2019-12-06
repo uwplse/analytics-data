@@ -266,8 +266,10 @@ clear H.
 exfalso.
 (rewrite evalIfFalse in H0).
 +
-contradiction.
+refine (_ _).
+(apply evalBoolInj).
+(rewrite H0).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:36:06.170000.*)
+(* Auto-generated comment: At 2019-09-01 10:37:51.330000.*)
 
