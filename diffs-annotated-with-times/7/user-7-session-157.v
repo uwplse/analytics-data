@@ -32,7 +32,7 @@ exists (TPair v1' v2').
 -
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
-(destruct (beq_idP X i)).
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
 +
 subst.
 exists (TEV X').
@@ -43,7 +43,7 @@ reflexivity.
 exists v.
 (simpl in *).
 (destruct (beq_id_false_iff X i) as [_ Hid]).
-specialize (Hid n).
+specialize (Hid Hbeq).
 (rewrite Hid in *).
 assumption.
 -
@@ -67,7 +67,9 @@ subst.
 (rewrite <- beq_id_refl in *).
 (exists v; assumption).
 +
-(* Auto-generated comment: Failed. *)
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+specialize (Hid Hbeq).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 09:12:13.010000.*)
+(* Auto-generated comment: At 2019-08-29 09:14:10.850000.*)
 
