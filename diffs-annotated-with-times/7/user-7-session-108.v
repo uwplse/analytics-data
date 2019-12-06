@@ -296,7 +296,16 @@ admit.
 (assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
 {
 (intros [v [tx Hm]]).
+(assert (Hme : |-[ k, S w] v <$ TExist i t)).
+{
+(apply match_ty_exist).
+exists tx.
+assumption.
+}
+(apply Hnotm).
+exists v.
+assuption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:48:59.270000.*)
+(* Auto-generated comment: At 2019-08-21 10:49:00.470000.*)
 
