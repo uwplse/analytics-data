@@ -182,7 +182,8 @@ Proof.
 auto with DBBetaJulia.
 (intros k t1 t2 Hsem).
 (unfold sem_eq_k in *).
+(intros v Hv).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:01:47.850000.*)
+(* Auto-generated comment: At 2019-08-15 07:01:51.160000.*)
 
