@@ -194,8 +194,13 @@ subst.
 (destruct w'; constructor).
 +
 (apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]).
+(destruct Hm as [t' [Heq Href]]; subst).
+(destruct w'; assumption).
+-
+(destruct w).
++
+(apply mtch_ty_exist__0_inv in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:27:31.500000.*)
+(* Auto-generated comment: At 2019-08-21 09:28:45.370000.*)
 
