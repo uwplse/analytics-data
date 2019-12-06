@@ -78,9 +78,9 @@ specialize (IHt1 _ _ Hfresh1 Hsem1).
 specialize (IHt2 _ _ Hfresh2 Hsem2).
 (apply sem_sub__trans with (TPair (TExist X t1) (TExist X t2))).
 2: {
-idtac.
-(apply sem_sub_pair).
+(apply sem_sub_pair; assumption).
+}
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 09:38:37.920000.*)
+(* Auto-generated comment: At 2019-08-27 09:39:15.560000.*)
 
