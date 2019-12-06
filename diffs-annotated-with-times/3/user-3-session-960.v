@@ -83,11 +83,7 @@ Instance aModel : GoModel.
 Proof.
 Print uint64.
 Print Ascii.Ascii.
-refine
- {|
- byte := Ascii.ascii;
- byte0 := Ascii.Ascii false false false false false false false false |}.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:19:05.180000.*)
+(* Auto-generated comment: At 2019-08-16 05:20:20.960000.*)
 
