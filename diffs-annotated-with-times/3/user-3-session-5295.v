@@ -602,8 +602,9 @@ intuition eauto.
 {
 step.
 (destruct r; try step).
+{
 (destruct (a == a0); simplify; finish).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:14:01.620000.*)
+(* Auto-generated comment: At 2019-09-03 11:14:10.990000.*)
 
