@@ -100,8 +100,8 @@ specialize (IHw' HX').
 exists ([FX' := tx] ti).
 split.
 (apply wf_ty__wf_ty_f_subst; assumption).
-(rewrite f_b_subst__spec_permute in IHw').
+(rewrite f_b_subst__spec_permute in IHw'; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:29:42.010000.*)
+(* Auto-generated comment: At 2019-09-04 10:29:46.810000.*)
 
