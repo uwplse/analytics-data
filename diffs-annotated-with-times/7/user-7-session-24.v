@@ -141,8 +141,8 @@ Inductive sub_d : ty -> ty -> Prop :=
 Hint Constructors sub_d: DBBetaJulia.
 Lemma union_right_1 : forall t t1 t2 : ty, |- t << t1 -> |- t << TUnion t1 t2.
 Proof.
-auto with DBBetaJulia.
+eauto with DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 06:29:58.940000.*)
+(* Auto-generated comment: At 2019-08-15 06:30:25.630000.*)
 
