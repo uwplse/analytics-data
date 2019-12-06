@@ -131,13 +131,11 @@ Proof.
          apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto
    | |- |-[ _] _ <$ TUnion _ _ =>
          apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto
+   | |- |-[ _] _ <$ TBVar _ => apply match_ty_bvar__inv in Hm; contradiction
    | |- |-[ _] _ <$ TFVar _ => apply match_ty_fvar__inv in Hm; subst; apply match_ty_var
    | |- |-[ _] _ <$ TEV _ => apply match_ty_ev__inv in Hm; subst; apply match_ty_ev
    end).
--
-(apply match_ty_exist__0_inv in Hm; contradiction).
--
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:21:55.670000.*)
+(* Auto-generated comment: At 2019-09-03 09:22:46.270000.*)
 
