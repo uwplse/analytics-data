@@ -110,8 +110,9 @@ exists w1.
 (destruct Hm as [tx Heq]; subst).
 (destruct w1; simpl; tauto).
 -
-(apply sem_sub_k_ref).
-(* Auto-generated comment: Failed. *)
+(apply sem_sub_k_ref; auto).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 08:29:01.500000.*)
+(* Auto-generated comment: At 2019-08-27 08:29:16.710000.*)
 
