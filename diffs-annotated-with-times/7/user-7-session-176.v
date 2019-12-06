@@ -178,7 +178,9 @@ subst.
 (rewrite subst_var_eq).
 (destruct (beq_idP Y i)).
 subst.
+contradiction.
+(rewrite subst_var_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:28:28.030000.*)
+(* Auto-generated comment: At 2019-08-30 07:29:34.860000.*)
 
