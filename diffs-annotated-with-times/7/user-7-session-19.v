@@ -72,9 +72,10 @@ Proof.
    | |- |-[ ?k'] ?v <$ TPair _ _ => apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; tauto
    | |- |-[ ?k'] ?v <$ TUnion _ _ =>
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto
-   | |- |-[ ?k'] ?v <$ TRef _ _ => idtac
    end).
+-
+(destruct v; contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:43:02.350000.*)
+(* Auto-generated comment: At 2019-08-12 09:43:44.320000.*)
 
