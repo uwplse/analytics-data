@@ -20,8 +20,9 @@ Proof.
 -
 assumption.
 -
+(unfold sem_sub_k in *).
 auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:44:42.940000.*)
+(* Auto-generated comment: At 2019-08-16 06:44:53.360000.*)
 
