@@ -109,8 +109,9 @@ step_proc.
 (destruct (r == 0)).
 -
 (step_proc; intuition).
-exists s.
+(exists s; intuition).
+(left; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:37:08.920000.*)
+(* Auto-generated comment: At 2019-09-06 05:37:13.730000.*)
 
