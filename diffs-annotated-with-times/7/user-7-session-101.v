@@ -97,7 +97,16 @@ clear Hm.
 (simpl in Href).
 (inversion Href).
 -
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [t Hcontra]).
+(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
+(rewrite Heq in Hcontra).
+clear Heq.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Heq Href]]).
+(inversion Heq; subst).
+clear Heq.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:56:54.440000.*)
+(* Auto-generated comment: At 2019-08-20 08:56:59.520000.*)
 
