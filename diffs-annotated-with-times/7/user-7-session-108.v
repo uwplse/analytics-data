@@ -262,8 +262,14 @@ reflexivity.
 right.
 (intros Hcontra).
 (destruct Hcontra as [v Hcontra]).
-(apply match_ty_exist__0_inv; assumption).
+(eapply match_ty_exist__0_inv; eassumption).
+-
+(left; exists (TEV i); apply match_ty_var).
+-
+(left; exists (TEV i); apply match_ty_ev).
+-
+(left; exists (TCName c); apply match_ty_cname).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:48:47.500000.*)
+(* Auto-generated comment: At 2019-08-21 09:51:21.580000.*)
 
