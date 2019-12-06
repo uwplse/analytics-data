@@ -80,8 +80,9 @@ Proof.
           [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto; apply Max.le_max_l || apply Max.le_max_r
    end).
 -
-(destruct v; contradiction || constructor).
+(destruct v; try contradiction).
+constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:40:34.230000.*)
+(* Auto-generated comment: At 2019-08-12 11:42:19.050000.*)
 
