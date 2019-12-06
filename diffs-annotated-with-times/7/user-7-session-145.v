@@ -89,8 +89,8 @@ Search -IdSet.In.
 subst.
 (apply match_ty_exist).
 exists tx.
-(apply IHw).
+(apply IHw with X).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 13:27:47.290000.*)
+(* Auto-generated comment: At 2019-08-27 13:27:50.850000.*)
 
