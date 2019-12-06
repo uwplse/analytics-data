@@ -84,8 +84,11 @@ Qed.
 Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][TRef t]<= [TRef t'].
 Proof.
 (intros k t t' Hsem).
-(destruct Hsem as [hsem1 Hsem2]).
+(destruct Hsem as [Hsem1 Hsem2]).
+(intros w1).
+exists w1.
+(intros v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:17:36.890000.*)
+(* Auto-generated comment: At 2019-08-27 08:18:32.050000.*)
 
