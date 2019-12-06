@@ -137,8 +137,15 @@ split.
 -
 eauto using log_length_ok_nil.
 -
-(simpl).
+(simpl; intuition).
+lia.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqvd3z47"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:27:20.390000.*)
+(* Auto-generated comment: At 2019-09-04 10:27:22.370000.*)
 
