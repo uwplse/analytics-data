@@ -389,7 +389,14 @@ tauto.
 tauto.
 Admitted.
 Lemma match_ty_i__match_le_inv_depth : forall (k : nat) (t v : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k'] v <$ t.
+Proof.
+(induction k; induction v).
+4: {
+idtac.
+(intros Hm k' Hle).
+(inversion Hle; subst).
+asumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:52:29.210000.*)
+(* Auto-generated comment: At 2019-08-13 11:54:41.820000.*)
 
