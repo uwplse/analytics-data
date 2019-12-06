@@ -390,8 +390,8 @@ right.
  | Hcontra:|- ?t1 << ?t2
    |- False => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst
  end).
-(inversion Heqx).
+(rewrite mk_nf_pair in Heqx).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:50:21.570000.*)
+(* Auto-generated comment: At 2019-08-09 11:51:00.770000.*)
 
