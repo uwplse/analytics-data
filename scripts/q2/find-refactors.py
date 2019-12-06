@@ -36,6 +36,7 @@ with open(fpath, 'r') as f:
     groups = re.split(failure_or_cancellation, f.read())
     max_state = -1
     for group_num, group in enumerate(groups, start = 0):
+        print("group: " + group)
         cancel_match = re.match(failure_or_cancellation, group)
         failure_match = re.match(failure, group)
         if cancel_match is None:
