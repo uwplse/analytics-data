@@ -29,17 +29,16 @@ group_cancels = []
 group_failures = []
 group_lines = []
 group_times = []
-failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+)\*\)\s+)"
+failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+).*\*\)\s+)"
 failure = "(\(\*FAILED.*\*\)\s+)"
-time = "\(\*TIMESTAMP (.)\*\)"
+time = "TIMESTAMP (.)"
 with open(fpath, 'r') as f:
     groups = re.split(failure_or_cancellation, f.read())
     max_state = -1
     for group_num, group in enumerate(groups, start = 0):
         cancel_match = re.match(failure_or_cancellation, group)
         failure_match = re.match(failure, group)
-        time_match = re.match(time, group)
-        if cancel_match is None and time_match is None:
+        if cancel_match is None:
             _, *lines = re.split("\s*\(\*", group)
             line_num = 0
             lines_buff = []
@@ -62,7 +61,7 @@ with open(fpath, 'r') as f:
             if (len(lines_buff) > 0):
                 group_ends.append(state_num)
                 group_lines.append(lines_buff)
-        elif time_match is None:
+        else:
             state_num = int(re.search("([0-9]+)\*\)", group).group(1))
             if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
                 group_cancels.pop()
@@ -72,9 +71,10 @@ with open(fpath, 'r') as f:
                 group_failures.append(False)
             else:
                 group_failures.append(True)
-        else:
-            cmd_time = re.search(time, group).group(1)
-            group_times.append(cmd_time)
+            time_match = re.match(time, group).group(1)
+            if not time_match is None:
+                cmd_time = re.search(time, group).group(1)
+                group_times.append(cmd_time)        
 
 # Now go through the cancellations and find diffs
 if len(group_lines) > 0:
