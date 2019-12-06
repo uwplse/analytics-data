@@ -603,9 +603,9 @@ clear.
 specialize (kron_1_l A) as KL.
 symmetry.
 (simpl in KL).
-(rewrite Nat.add_0_r in KL).
+(repeat rewrite Nat.add_0_r in KL).
 (apply KL).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:34:34.530000.*)
+(* Auto-generated comment: At 2019-08-13 17:34:40.810000.*)
 
