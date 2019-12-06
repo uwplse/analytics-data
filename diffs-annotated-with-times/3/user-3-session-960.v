@@ -119,9 +119,12 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqP3FOAC"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Instance aModel : GoModel.
+Print FixedLengthEncoder.
+Theorem nat_le_inverse base : forall x, le_to_nat (nat_to_le base x) = x.
 Proof.
+(intros).
+Search -nat -div.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:57:11.690000.*)
+(* Auto-generated comment: At 2019-08-16 05:57:13.430000.*)
 
