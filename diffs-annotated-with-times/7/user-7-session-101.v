@@ -15,9 +15,28 @@ Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
-Lemma sem_sub__refint_eXrefX : forall w1 w2 : nat, forall (k : nat) (v : ty), |-[ w1, k] v <$ TRef tint -> |-[ w2, k] v <$ TExist vX (TRef tX).
+Lemma sem_sub__refint_eXrefX :
+  forall w1 : nat, exists w2 : nat, forall (k : nat) (v : ty), |-[ w1, k] v <$ TRef tint -> |-[ w2, k] v <$ TExist vX (TRef tX).
 Proof.
+(intros w1).
+exists 1.
+(intros k; destruct k; intros v Hm).
+-
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(simpl).
+exists tint.
+constructor.
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+exists t'.
+(apply match_ty_value_type__reflexive).
+constructor.
+Qed.
+Lemma sem_sub__eXrefX_eYrefY :
+  forall w1 : nat, exists w2 : nat, forall (k : nat) (v : ty), |-[ w1, k] v <$ TExist vX (TRef tX) -> TExist vY (TRef tY).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 09:00:03.630000.*)
+(* Auto-generated comment: At 2019-08-20 09:50:50.050000.*)
 
