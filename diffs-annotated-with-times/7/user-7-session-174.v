@@ -87,7 +87,7 @@ assumption.
 Qed.
 Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
 Function
- subst (x : id) (s t : ty) {wf lt_size t} : ty :=
+ subst (x : id) (s t : ty) {wf lt size} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
@@ -99,46 +99,7 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(intros).
-(unfold lt_size).
-(simpl).
-Omega.omega.
--
-(unfold lt_size).
-Check lt_wf.
-Print lt_wf.
-(unfold well_founded).
-(intros t; induction t; constructor; intros t' H).
-+
-constructor.
-(intros y Hy).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:30:31.880000.*)
+(* Auto-generated comment: At 2019-08-29 15:31:02.810000.*)
 
