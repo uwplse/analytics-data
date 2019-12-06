@@ -193,8 +193,8 @@ Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -
 Proof.
 (intros t1 t2 t' Hsem).
 (unfold sem_sub_i in Hsem).
-(split; intros k; specialize (Hsem k)).
+(split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:10:48.940000.*)
+(* Auto-generated comment: At 2019-08-13 08:10:57.540000.*)
 
