@@ -248,8 +248,8 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 (rewrite b_subst_pair).
-(unfold f_free_in_ty).
+(unfold f_free_in_ty, free).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:22:38.940000.*)
+(* Auto-generated comment: At 2019-09-04 09:22:42.910000.*)
 
