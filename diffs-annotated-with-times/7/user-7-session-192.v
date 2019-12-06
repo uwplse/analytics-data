@@ -16,8 +16,9 @@ Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fres
 Proof.
 (intros X s; induction w; induction t; intros v HX Hm; try (solve [ rewrite subst_cname in *; assumption | rewrite subst_ev in *; assumption ])).
 -
-(destruct (fresh_in_ty _ _ _ HX) as [HX1 HX2]).
+(destruct (fresh_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]).
+(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [heq [Hm1 Hm2]]]]; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:06:56.420000.*)
+(* Auto-generated comment: At 2019-09-02 09:07:36.020000.*)
 
