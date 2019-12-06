@@ -257,8 +257,8 @@ Proof.
 (unfold get_len; intros).
 step_proc.
 step_proc.
-intuition eauto.
+eauto.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:18:01.220000.*)
+(* Auto-generated comment: At 2019-09-04 11:18:14.720000.*)
 
