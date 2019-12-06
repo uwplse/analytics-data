@@ -161,8 +161,16 @@ exists w,v.
 exists (S w),v.
 (apply match_ty_exist).
 exists (TVar i).
-(rewrite subs_id).
+(rewrite subst_id).
+assumption.
+-
+exists 0,(TEV i).
+(apply match_ty_var).
+-
+exists 0,(TEV i).
+(apply match_ty_ev).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:59:15.440000.*)
+(* Auto-generated comment: At 2019-08-29 08:59:23.670000.*)
 
