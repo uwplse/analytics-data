@@ -135,8 +135,24 @@ Proof.
 (intros k; destruct k; intros v Hm).
 -
 (apply match_ty_exist__0_inv in Hm).
-(destruct v; simpl).
+(destruct v; simpl; try contradiction).
+constructor.
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(apply match_ty_exist).
+exists tx.
+(simpl in *).
+assumption.
+Qed.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+(intros Hcontra).
+specialize (Hcontra 0).
+(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
+specialize (Hcontra _ Hm).
+(apply match_ty_exist__0_inv in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:19:40.680000.*)
+(* Auto-generated comment: At 2019-08-19 13:20:46.040000.*)
 
