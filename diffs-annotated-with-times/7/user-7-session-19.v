@@ -154,8 +154,9 @@ Qed.
 Lemma sem_sub_k_i_pair__inv :
   forall (t1 t2 t1' t2' : ty) (k : nat), ||-[ k][TPair t1 t2]<= [TPair t1' t2'] -> ||-[ k][t1]<= [t1'] /\ ||-[ k][t2]<= [t2'].
 Proof.
-(intros t1 t2 t1' t2' k H).
+(intros t1 t2 t1' t2' k Hsem).
+(unfold sem_sub_k_i in Hsem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:05:41.400000.*)
+(* Auto-generated comment: At 2019-08-13 07:06:14.910000.*)
 
