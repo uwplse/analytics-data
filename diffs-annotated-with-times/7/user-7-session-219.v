@@ -15,6 +15,7 @@ Require Import Coq.Bool.Bool.
 Lemma build_v_full :
   forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   wf_ty tx ->
+  b_free_in_ty X t ->
   |-[ w] v <$ [BX := tx] t ->
   exists v' : ty,
     |-[ w] v' <$ [BX := TFVar X'] t /\
@@ -22,7 +23,7 @@ Lemma build_v_full :
      |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w'] v <$ [FX' := tx] t')).
 Proof.
 (intros X X' tx).
-(induction w; induction t; intros v Hwftx Hm).
+(induction w; induction t; intros v Hwftx HX Hm).
 -
 (rewrite b_subst_cname in *).
 exists v.
@@ -130,7 +131,15 @@ admit.
 -
 admit.
 -
+(destruct (beq_idP X i)).
++
+subst.
+(unfold b_free_in_ty, free in HX).
+(simpl in HX).
+Search -IdSet.remove.
+exfalso.
+(apply IdSetFacts.remove_1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 13:46:25.990000.*)
+(* Auto-generated comment: At 2019-09-04 13:48:31.350000.*)
 
