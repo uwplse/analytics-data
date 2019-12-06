@@ -8,5 +8,5 @@ Add Search Blacklist "Private_" "_subproof".
 From Coq Require Import FunInd Recdef.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:34:56.870000.*)
+(* Auto-generated comment: At 2019-08-16 07:34:57.400000.*)
 
