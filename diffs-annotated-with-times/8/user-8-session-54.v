@@ -29,5 +29,3 @@ autorewrite with proof_db.
 (rewrite subst_pat_fresh_empty).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 20:29:33.720000.*)
-
