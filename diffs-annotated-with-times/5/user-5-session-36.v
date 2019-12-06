@@ -266,8 +266,10 @@ clear H.
 (destruct H).
 (erewrite evalBoolConst in H0).
 (rewrite <- evalEqTrue in H0).
-(rewrite <- evalVar in H).
+(rewrite evalVar in H).
+(rewrite extendEnv_eq in H).
+(rewrite H).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:46:37.250000.*)
+(* Auto-generated comment: At 2019-09-01 10:47:47.230000.*)
 
