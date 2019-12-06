@@ -79,8 +79,8 @@ clear IHt1 IHt2.
 (inversion Heq; subst).
 (simpl).
 split.
-(apply Nat.max_lub; eauto).
+(apply Nat.max_lub; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:44:18.620000.*)
+(* Auto-generated comment: At 2019-08-15 07:44:21.050000.*)
 
