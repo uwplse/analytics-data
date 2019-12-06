@@ -118,7 +118,9 @@ lia.
 }
 (apply Nat.div_lt; lia).
 Qed.
+Definition bounded0 : {x | x < 256}.
+refine 0.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:15:51.280000.*)
+(* Auto-generated comment: At 2019-08-16 07:16:54.310000.*)
 
