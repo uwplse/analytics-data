@@ -195,8 +195,8 @@ Proof.
 (induction n as [| n' IHn']).
 -
 (simpl).
-(rewrite plus_n_O).
+(rewrite <- plus_n_O).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-08 10:08:14.430000.*)
+(* Auto-generated comment: At 2019-09-08 10:08:33.920000.*)
 
