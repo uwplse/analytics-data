@@ -18,13 +18,8 @@ Lemma fresh_union__inv : forall (X : id) (fvs1 fvs2 : id_set), fresh X (IdSet.un
 Proof.
 (intros X fvs1 fvs2 H).
 (unfold fresh in *).
-(split; intros Hcontra).
-SearchPattern (IdSet.In (IdSet.union _ _)).
-Search -IdSet.union.
-Check IdSetFacts.union_2.
-Check IdSetFacts.union_2.
-(apply (IdSetFacts.union_2 fvs2) in Hcontra).
+(split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:43:20.100000.*)
+(* Auto-generated comment: At 2019-08-27 06:43:36.470000.*)
 
