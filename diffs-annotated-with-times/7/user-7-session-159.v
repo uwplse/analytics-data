@@ -90,8 +90,10 @@ split.
 assumption.
 (apply match_ty_cname__inv in Hm; subst).
 (intros w' t').
-(induction t'; intros Hm; try assumption).
+(induction t'; intros Hm; try assumption || (destruct w'; contradiction)).
++
+(apply match_ty_union__inv in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:34:30.620000.*)
+(* Auto-generated comment: At 2019-08-29 09:34:44.540000.*)
 
