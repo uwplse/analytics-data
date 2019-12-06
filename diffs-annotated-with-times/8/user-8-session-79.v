@@ -631,5 +631,5 @@ specialize (kron_1_l (\226\168\130 l2)) as KL.
 (compute).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 18:25:28.170000.*)
+(* Auto-generated comment: At 2019-08-13 18:25:36.270000.*)
 
