@@ -111,8 +111,8 @@ inv_exec.
  | Hexec:exec (rx _) _ _
    |- _ => eapply RExec in Hexec; eapply H4 in Hexec; eauto
  end).
-(simpl).
+(simpl; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:41:21.620000.*)
+(* Auto-generated comment: At 2019-09-06 06:41:24.550000.*)
 
