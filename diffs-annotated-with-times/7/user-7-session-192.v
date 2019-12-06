@@ -28,8 +28,9 @@ split.
 assumption.
 (induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
 +
+(rewrite subst_union).
 (apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:59:08.790000.*)
+(* Auto-generated comment: At 2019-09-02 08:59:24.640000.*)
 
