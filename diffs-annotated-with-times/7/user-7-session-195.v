@@ -108,9 +108,36 @@ Proof.
    | apply match_ty_fvar__inv in Hm; subst; constructor
    | apply match_ty_ev__inv in Hm; subst; constructor
    | apply match_ty_exist__0_inv in Hm; contradiction
-   | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption
+   | apply match_ty_exist__inv in Hm; destruct Hm as [tx [Hwf Hmx]]; eapply IHw; eassumption
    | apply match_ty_bvar__inv in Hm; contradiction ])).
+Qed.
+Lemma match_ty_value_type__reflexive : forall v : ty, value_type v -> forall w : nat, |-[ w] v <$ v.
+Proof.
+(intros v Hv; induction Hv; intros w).
+-
+(destruct w; reflexivity).
+-
+(apply match_ty_pair; auto).
+-
+(destruct w; reflexivity).
+Qed.
+Lemma match_ty__ge_w : forall (w : nat) (t : ty) (v : ty), |-[ w] v <$ t -> forall w' : nat, w <= w' -> |-[ w'] v <$ t.
+Proof.
+(induction w; induction t; intros v Hm w' Hle;
+  try
+   match goal with
+   | |- |-[ _] _ <$ TCName _ => apply match_ty_cname__inv in Hm; subst; apply match_ty_cname
+   | |- |-[ _] _ <$ TPair _ _ =>
+         apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | |- |-[ _] _ <$ TUnion _ _ =>
+         apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto
+   | |- |-[ _] _ <$ TFVar _ => apply match_ty_fvar__inv in Hm; subst; apply match_ty_var
+   | |- |-[ _] _ <$ TEV _ => apply match_ty_ev__inv in Hm; subst; apply match_ty_ev
+   end).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:20:59.990000.*)
+(* Auto-generated comment: At 2019-09-03 09:21:55.670000.*)
 
