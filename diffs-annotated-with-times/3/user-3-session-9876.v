@@ -129,8 +129,19 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Qed.
+Theorem maybe_eq_None_holds T (v : T) : maybe_eq None v.
+Proof.
+exact I.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAJFbNU"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
 Hint Rewrite maybe_eq_None_is_True : upd.
+Hint Resolve maybe_eq_None_holds: core.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:26:28.450000.*)
+(* Auto-generated comment: At 2019-09-06 05:26:58.220000.*)
 
