@@ -129,8 +129,9 @@ Omega.omega.
 (unfold lt_size).
 (simpl).
 Omega.omega.
-Defined.
+-
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:19:13.450000.*)
+(* Auto-generated comment: At 2019-08-29 15:19:24.150000.*)
 
