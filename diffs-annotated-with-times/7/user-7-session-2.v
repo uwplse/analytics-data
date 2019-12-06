@@ -281,7 +281,10 @@ generalize dependent t3.
 +
 (apply SR_UnionR2; tauto).
 +
+Abort.
+Lemma weird_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t3 << t2 -> |- t1 << t3.
+Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 13:27:58.820000.*)
+(* Auto-generated comment: At 2019-08-07 13:36:02.020000.*)
 
