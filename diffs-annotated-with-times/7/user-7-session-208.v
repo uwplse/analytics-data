@@ -72,8 +72,10 @@ Lemma not_b_free_in_ty_union__inv :
 Proof.
 (solve_not_free_union not_b_free_in_ty).
 Qed.
-Lemma not_f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), not_f_free_in_ty X (TExist Y t) -> not_f_free_in_ty t.
+Lemma not_f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), not_f_free_in_ty X (TExist Y t) -> not_f_free_in_ty X t.
+Proof.
+(intros X Y t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:01:14.620000.*)
+(* Auto-generated comment: At 2019-09-04 09:01:28.510000.*)
 
