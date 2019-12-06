@@ -408,7 +408,10 @@ step_proc.
 {
 (step_proc; intuition; subst; eauto).
 {
+(exists s; simpl; intuition).
+(apply log_abstraction_pre_commit; auto).
+}
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:17:50.260000.*)
+(* Auto-generated comment: At 2019-09-03 13:17:56.020000.*)
 
