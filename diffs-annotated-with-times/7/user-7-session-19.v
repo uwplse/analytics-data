@@ -631,8 +631,10 @@ constructor.
 (rewrite <- Hdepeq; assumption).
 (apply sem_sub_k_i__trans with t2).
 Search -mk_nf.
-(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ (match_ty_i_nf t2 k))).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ (match_ty_i_nf t2 k)) as [_ Hsemt2]).
+assumption.
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ Href)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 06:33:55.060000.*)
+(* Auto-generated comment: At 2019-08-14 06:34:31.590000.*)
 
