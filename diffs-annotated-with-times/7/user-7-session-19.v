@@ -211,8 +211,10 @@ Proof.
      (fun (t1 : ty) (_ : in_nf t1) => forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
 -
 (intros c t2).
+(assert (Hva : value_type (TCName c)) by constructor).
 (induction t2; intros Hsem).
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:28:22.120000.*)
+(* Auto-generated comment: At 2019-08-13 08:31:43.100000.*)
 
