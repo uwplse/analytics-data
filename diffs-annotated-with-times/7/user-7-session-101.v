@@ -61,52 +61,8 @@ exists (TPair v1 v2).
 contradiction.
 -
 Abort.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
-Proof.
-(intros Hcontra).
-(destruct Hcontra as [w Hcontra]).
-(induction w).
--
-specialize (Hcontra 2).
-(assert (Hm : |-[ 0, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ Hm).
-clear Hm.
-(apply match_ty_exist__0_inv in Hcontra).
-(apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Heq Href]]).
-(inversion Heq; subst).
-clear Heq.
-(assert (Hm : |-[ 0, 1] TRef tX <$ TRef tX) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Href (TRef tX)).
-(destruct Href as [Href _]).
-specialize (Href Hm).
-clear Hm.
-(apply match_ty_ref__inv in Href).
-(destruct Href as [t' [Heq Href]]).
-(inversion Heq; subst).
-clear Heq.
-(assert (Hm : |-[ 0, 0] TEV vX <$ TEV vX) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Href (TEV vX)).
-(destruct Href as [Href _]).
-specialize (Href Hm).
-clear Hm.
-(simpl in Href).
-(inversion Href).
--
-specialize (Hcontra 2).
-(assert (Hm : |-[ S w, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ Hm).
-clear Hm.
-(apply match_ty_exist__inv in Hcontra).
-(destruct Hcontra as [t Hcontra]).
-(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
-(rewrite Heq in Hcontra).
-clear Heq.
-(apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Heq Href]]).
-(inversion Heq; subst).
-clear Heq.
+Lemma not_sem_sub__eXrefX_reft : forall (w k : nat) (t : ty), ~ ||-[ w, k][TExist vX (TRef tX)]<= [TRef t].
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:52:40.580000.*)
+(* Auto-generated comment: At 2019-08-20 08:53:13.350000.*)
 
