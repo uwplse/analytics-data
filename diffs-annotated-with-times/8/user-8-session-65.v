@@ -970,6 +970,6 @@ gen \207\129.
 (rewrite Lt).
 (rewrite Nat.pow_add_r, <- (Nat.mul_1_r (2 ^ i))).
 (intros \207\129).
-(repeat rewrite Nat.mul_1_r).
+(rewrite Nat.mul_1_r).
 (* Auto-generated comment: Succeeded. *)
 
