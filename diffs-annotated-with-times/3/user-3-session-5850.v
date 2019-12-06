@@ -244,8 +244,10 @@ Proof.
 (intros m n).
 (induction m as [| m' IHm']).
 (simpl).
-(rewrite mult_n_O).
-(* Auto-generated comment: Failed. *)
+Check mult_n_O.
+(rewrite <- mult_n_O).
+reflexivity.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:18:33.170000.*)
+(* Auto-generated comment: At 2019-09-04 07:19:02.490000.*)
 
