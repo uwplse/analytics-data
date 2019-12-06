@@ -33,7 +33,8 @@ Proof.
 (rewrite IHt1; try assumption).
 (rewrite IHt2; try assumption).
 reflexivity.
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:47:48.650000.*)
+(* Auto-generated comment: At 2019-08-27 06:48:08.820000.*)
 
