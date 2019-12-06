@@ -150,9 +150,10 @@ Proof.
 -
 reflexivity.
 -
-(simpl).
 (rewrite IHn').
+(rewrite negb_involutive).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:15:01.090000.*)
+(* Auto-generated comment: At 2019-09-04 07:15:15.920000.*)
 
