@@ -215,10 +215,7 @@ assumption.
 (destruct Hm as [tx Hm]).
 specialize (IHw _ _ Hm).
 (destruct IHw as [v' IHw]).
-exists v'.
-(apply match_ty_exist).
-exists tx.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-30 07:32:40.270000.*)
+(* Auto-generated comment: At 2019-08-30 07:32:49.980000.*)
 
