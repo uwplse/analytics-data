@@ -62,15 +62,20 @@ step_proc.
 step_proc.
 exists nil.
 (unfold statdb_abstraction, inited).
-intuition auto.
+intuition.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqig39L2"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqeWdxbn"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Theorem add_ok : forall v, proc_spec (add_spec v) (add v) recover abstr.
+Proof.
+(unfold add).
+(intros).
+(apply spec_abstraction_compose; simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:32:45.860000.*)
+(* Auto-generated comment: At 2019-09-06 05:33:26.580000.*)
 
