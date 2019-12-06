@@ -114,8 +114,12 @@ Proof.
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
      end ])).
--
+2: {
+idtac.
+clear IHt'1 IHt'2.
+(simpl).
+(apply f_equals).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:36:03.340000.*)
+(* Auto-generated comment: At 2019-08-12 12:36:28.600000.*)
 
