@@ -296,8 +296,19 @@ tauto.
 (intros Hsub22).
 (apply sub_r_pair__inv in Hsub22).
 (destruct Hsub22).
-(constructor; tauto).
+(constructor; auto).
++
+(intros Hsub22).
+(apply sub_r_union_l__inv in Hsub22).
+(destruct Hsub22).
+(apply SR_UnionR1; tauto).
++
+(intros Hsub22).
+(apply sub_r_union_l__inv in Hsub22).
+(destruct Hsub22).
+(apply SR_UnionR2; tauto).
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 13:39:38.740000.*)
+(* Auto-generated comment: At 2019-08-07 13:42:31.560000.*)
 
