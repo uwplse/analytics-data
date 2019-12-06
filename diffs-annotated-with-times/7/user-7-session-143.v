@@ -75,8 +75,11 @@ Proof.
 -
 (induction t').
 +
+admit.
++
+admit.
 +
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 11:02:30.210000.*)
+(* Auto-generated comment: At 2019-08-27 11:03:17.830000.*)
 
