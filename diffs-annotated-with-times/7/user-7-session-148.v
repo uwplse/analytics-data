@@ -80,8 +80,20 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(apply sem_sub__trans).
-(* Auto-generated comment: Failed. *)
+(apply sem_sub__trans; try assumption).
+(apply sem_sub_exist_fresh_l).
+(unfold fresh_in_ty, fresh).
+(simpl).
+(pose proof (IdSetFacts.empty_iff X) as H).
+tauto.
+-
+(intros t' X' Hfresh Hsem).
+(simpl in *).
+(induction t').
++
+(intros k; destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]; specialize (Hsem k w);
+  destruct Hsem as [w2 Hsem]; specialize (Hsem _ Hm); apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 07:43:16.570000.*)
+(* Auto-generated comment: At 2019-08-29 07:43:25.760000.*)
 
