@@ -368,6 +368,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqGsi6kl"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Hint Resolve append_at_ok: core.
 Theorem append_ok :
   forall v, proc_spec (append_spec v) (append v) recover abstr.
 Proof.
@@ -380,7 +381,10 @@ step_proc.
 (descend; intuition eauto).
 destruct matches.
 -
-(* Auto-generated comment: Succeeded. *)
+step_proc.
+(descend; intuition eauto).
+(unfold log_size_ok; lia).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:05:21.280000.*)
+(* Auto-generated comment: At 2019-09-04 12:05:22.810000.*)
 
