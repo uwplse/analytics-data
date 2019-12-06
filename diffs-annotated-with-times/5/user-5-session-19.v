@@ -142,8 +142,13 @@ Proof.
  | |- context [ Choose ?x _ ] => generalize x
  end).
 intro x.
-(rewrite evalChoose).
+(assert
+  (forall res,
+   eval L env (Choose x (Eq (Int 6) (Times (Var x) (Int 2)))) = res ->
+   res = eval L env (Int 3))).
+{
+Admitted.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 18:56:46.790000.*)
+(* Auto-generated comment: At 2019-08-12 18:59:44.540000.*)
 
