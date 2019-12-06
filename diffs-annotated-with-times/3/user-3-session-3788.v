@@ -32,9 +32,11 @@ Theorem swapXY_ok :
 Proof.
 (unfold swapXY).
 monad_simpl.
-(eapply proc_spec_rx).
+(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
 Check proc_spec_rx.
-(* Auto-generated comment: Succeeded. *)
+(cbn[pre post recovered]).
+step_proc.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:45:10.440000.*)
+(* Auto-generated comment: At 2019-08-29 08:46:37.720000.*)
 
