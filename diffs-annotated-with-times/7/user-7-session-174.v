@@ -100,8 +100,8 @@ Function
    | TEV y => t
    end.
 Proof.
-(try (solve [ intros; simpl; Omega.omega ])).
+all: (try (solve [ intros; simpl; Omega.omega ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:27:01.680000.*)
+(* Auto-generated comment: At 2019-08-30 06:27:11.620000.*)
 
