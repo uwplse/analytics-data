@@ -184,8 +184,9 @@ intuition.
 eauto using log_length_ok_nil.
 -
 (unfold log_size_ok).
-(destruct d; simpl in *).
+(destruct d; simpl in *; [  | lia ]).
+Search -diskGet -"inbounds".
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:02:49.560000.*)
+(* Auto-generated comment: At 2019-09-04 11:03:39.670000.*)
 
