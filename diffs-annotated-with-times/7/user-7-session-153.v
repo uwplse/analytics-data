@@ -15,8 +15,9 @@ Require Import Coq.Bool.Bool.
 Lemma build_v : forall (X X' : id) (w : nat) (tx v t : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v <$ [X := TVar X'] t.
 Proof.
 (intros X X' w tx v t).
-(induction t'; intros Hm).
+(induction t; intros Hm).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:49:29.720000.*)
+(* Auto-generated comment: At 2019-08-29 08:49:50.840000.*)
 
