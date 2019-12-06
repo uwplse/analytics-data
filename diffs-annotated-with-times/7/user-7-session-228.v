@@ -85,8 +85,8 @@ clear Hm'.
 (apply not_f_free_in_ty_fvar__inv in HX').
 contradiction.
 *
-(simpl; assumption).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:32:48.290000.*)
+(* Auto-generated comment: At 2019-09-06 09:32:52.210000.*)
 
