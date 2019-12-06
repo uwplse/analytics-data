@@ -46,8 +46,9 @@ contradiction.
 Qed.
 Lemma subst_pair : forall (X : id) (s t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
 Proof.
-(intros; reflexivity).
-(* Auto-generated comment: Succeeded. *)
+(intros).
+(simpl).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:41:12.760000.*)
+(* Auto-generated comment: At 2019-08-29 14:41:44.550000.*)
 
