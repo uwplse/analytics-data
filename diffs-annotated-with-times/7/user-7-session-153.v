@@ -12,15 +12,19 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Lemma build_v : forall (X X' : id) (w : nat) (tx v t : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t.
+Lemma build_v : forall (X X' : id) (w : nat) (tx t v : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v' <$ [X := TVar X'] t.
 Proof.
-(intros X X' w tx v t).
-(induction t; intros Hm).
+(intros X X' w tx t).
+(induction t; intros v Hm).
 -
 exists (TCName c).
 (apply match_ty_cname).
 -
+(simpl in Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(destruct (IHt1 _ Hm1) as [v1' Hm1']).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:51:08.690000.*)
+(* Auto-generated comment: At 2019-08-29 08:52:25.090000.*)
 
