@@ -278,8 +278,15 @@ clear H.
 (eapply evalIntEq).
 -
 (erewrite evalTimes in H0).
++
 exact H0.
++
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+assumption.
+-
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:59:42.780000.*)
+(* Auto-generated comment: At 2019-09-01 11:00:27.110000.*)
 
