@@ -87,8 +87,18 @@ constructor.
 -
 (apply match_ty_union__inv in Hm).
 (destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
-(eapply Nat.le_max_l).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+admit.
+-
+(destruct w).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
+(apply match_ty_exist in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:23:47.550000.*)
+(* Auto-generated comment: At 2019-08-20 13:24:14.510000.*)
 
