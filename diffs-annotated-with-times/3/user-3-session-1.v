@@ -454,7 +454,9 @@ Theorem spec_exec_impl `(p_hspec : Specification T unit State)
   spec_exec p_rspec ---> spec_exec p_hspec.
 Proof.
 firstorder.
-(* Auto-generated comment: Failed. *)
+(intros).
+(apply impl_spec_exec).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-06 04:43:04.790000.*)
+(* Auto-generated comment: At 2019-08-06 04:43:18.990000.*)
 
