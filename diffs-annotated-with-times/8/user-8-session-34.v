@@ -46,8 +46,9 @@ replace (size_ctx \206\1471') with size_octx \206\1471' by easy.
 (rewrite (ctx_wtype_size w p \206\147 t)).
 admit.
 -
-(intros w' h \206\1473 \206\1472 \206\1473' \206\14703 WT pf_merge1 pf_merge2).
-(* Auto-generated comment: Succeeded. *)
+(intros WT pf_merge1 pf_merge2).
+replace (compose (gate g p1 f) h) with gate g p1 (fun p2 => compose (f p2) h) by auto.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-10 12:31:01.530000.*)
+(* Auto-generated comment: At 2019-08-10 12:31:41.770000.*)
 
