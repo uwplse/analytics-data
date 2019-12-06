@@ -74,8 +74,10 @@ Theorem add_ok : forall v, proc_spec (add_spec v) (add v) recover abstr.
 Proof.
 (unfold add).
 (intros).
-(apply spec_abstraction_compose).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+(destruct a'; simpl in *; intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:33:28.030000.*)
+(* Auto-generated comment: At 2019-09-06 05:33:49.210000.*)
 
