@@ -102,12 +102,12 @@ Fixpoint match_ty (w : nat) :=
       | _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
       | _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
       | S w, v, TExist X t' => exists tx, wf_ty tx /\ |-[ w] v <$ [BX := tx] t'
-      | _, TEV X, TVar X' => X = X'
+      | _, TEV X, TFVar X => X = X'
       | _, TEV X, TEV X' => X = X'
       | _, _, _ => False
       end
 where "'|-[' w ']' v '<$' t" := (match_ty w v t) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:05:27.300000.*)
+(* Auto-generated comment: At 2019-09-03 09:05:37.170000.*)
 
