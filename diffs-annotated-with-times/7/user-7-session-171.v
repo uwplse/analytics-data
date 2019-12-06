@@ -103,7 +103,8 @@ where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 Next Obligation.
 (simpl).
 Omega.omega.
+Next Obligation.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:36:37.180000.*)
+(* Auto-generated comment: At 2019-08-29 14:36:47.160000.*)
 
