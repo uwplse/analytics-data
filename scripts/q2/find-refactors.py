@@ -28,15 +28,19 @@ group_starts = []
 group_cancels = []
 group_failures = []
 group_lines = []
+group_times = []
 failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+)\*\)\s+)"
 failure = "(\(\*FAILED.*\*\)\s+)"
+time = "TIMESTAMP (.)"
 with open(fpath, 'r') as f:
     groups = re.split(failure_or_cancellation, f.read())
     max_state = -1
     for group_num, group in enumerate(groups, start = 0):
+        print("group: " + group)
         cancel_match = re.match(failure_or_cancellation, group)
         failure_match = re.match(failure, group)
-        if cancel_match is None:
+        time_match = re.match(time, group)
+        if cancel_match is None and time_match is None:
             _, *lines = re.split("\s*\(\*", group)
             line_num = 0
             lines_buff = []
@@ -59,7 +63,7 @@ with open(fpath, 'r') as f:
             if (len(lines_buff) > 0):
                 group_ends.append(state_num)
                 group_lines.append(lines_buff)
-        else:
+        elif time_match is None:
             state_num = int(re.search("([0-9]+)\*\)", group).group(1))
             if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
                 group_cancels.pop()
@@ -69,6 +73,9 @@ with open(fpath, 'r') as f:
                 group_failures.append(False)
             else:
                 group_failures.append(True)
+        else:
+            cmd_time = re.search(time, group).group(1)
+            group_times.append(cmd_time)
 
 # Now go through the cancellations and find diffs
 if len(group_lines) > 0:
@@ -79,6 +86,10 @@ if len(group_lines) > 0:
         old_cumulative.append("(* Auto-generated comment: Failed. *)\n")
     else:
         old_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
+
+    # Write timestamp, if appropriate
+    if len(group_times) > 0:
+        old_cumulative.append("(* Auto-generated comment: At " + group_times[0] + ".*)\n")
 else:
     exit(0) # Comment below and uncomment this line when we don't include compiles
     #old_cumulative = [] # Comment above and uncomment this line when we include compiles
@@ -132,6 +143,10 @@ for i in range(len(group_ends) - 1):
         else:
             new_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
 
+        # Write timestamp, if appropriate
+        if len(group_times) > j:
+            new_cumulative.append("(* Auto-generated comment: At " + group_times[j] + ".*)\n")
+
     # Dump new version to file
     with open(outdir + "/" + fname + "-" + str(j) + fext, 'w') as f:  
         for curr_index in range(len(new_cumulative)):
@@ -158,6 +173,10 @@ if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
         new_cumulative.append("(* Auto-generated comment: Failed. *)\n")
     else:
         new_cumulative.append("(* Auto-generated comment: Succeeded. *)\n")
+
+    # Write timestamp, if appropriate
+    if len(group_times) == len(group_cancels):
+        new_cumulative.append("(* Auto-generated comment: At " + group_times[-1] + ".*)\n")
 
     # Dump new version to file
     with open(outdir + "/" + fname + "-" + str(j + 1) + fext, 'w') as f:
