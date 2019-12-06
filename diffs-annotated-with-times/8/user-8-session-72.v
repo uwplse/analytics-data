@@ -1235,7 +1235,8 @@ constructor.
 (repeat rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
   try apply source_symmetric_WT; trivial).
 (unfold compose_super).
+(simpl_rewrite inSeq_correct).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 14:59:35.880000.*)
+(* Auto-generated comment: At 2019-08-13 15:00:34.080000.*)
 
