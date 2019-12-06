@@ -463,7 +463,7 @@ tauto.
   (IH21 _ Hnf'); specialize (IH22 _ Hnf');
   try (solve [ solve_union_sub_r__decidable IH11 IH21 | solve_atom_sub_r_union__decidable IH12 IH22 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-18 07:40:52.880000.*)
+(* Auto-generated comment: At 2019-08-18 07:42:12.930000.*)
 
