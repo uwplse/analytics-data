@@ -203,8 +203,9 @@ Proof.
 (pose proof (H1 a); intuition).
 Print eq_values.
 (assert (v = nth a bs block0)).
-(eapply diskGet_eq_values).
-(* Auto-generated comment: Succeeded. *)
+(eapply diskGet_eq_values; eauto).
+lia.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:59:22.710000.*)
+(* Auto-generated comment: At 2019-09-04 10:59:41.870000.*)
 
