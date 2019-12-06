@@ -149,5 +149,5 @@ Proof.
   apply match_ty_pair; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:11:40.360000.*)
+(* Auto-generated comment: At 2019-08-30 07:12:19.140000.*)
 
