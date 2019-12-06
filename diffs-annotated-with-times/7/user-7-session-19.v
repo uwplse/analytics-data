@@ -145,8 +145,9 @@ Qed.
 Lemma value_sem_sub_k_union__value_sem_sub_k_component :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
-(intros v Hv; induction Hv; intros k ta tb Hsem; unfold sem_sub_k_i in Hsem).
+(intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
+(assert (Hmv : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 06:53:01.940000.*)
+(* Auto-generated comment: At 2019-08-13 06:53:13.370000.*)
 
