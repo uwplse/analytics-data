@@ -175,8 +175,15 @@ generalize dependent t3.
 generalize dependent v1.
 (induction Hv2).
 -
-(intros v1 t3 k Hm1 Hm2).
+(intros v1 t3 k w Hm1 Hm2).
+(apply match_ty_cname__inv in Hm1; subst).
+assumption.
+-
+(intros v0 t3 k w Hm1 Hm2).
+(apply match_ty_pair__inv in Hm1).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hm11 Hmpv12]]]]; subst).
+(induction t3; try (solve [ destruct k; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:54:53.340000.*)
+(* Auto-generated comment: At 2019-08-26 07:55:16.990000.*)
 
