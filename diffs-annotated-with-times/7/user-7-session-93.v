@@ -28,8 +28,7 @@ Definition vX := Id 1.
 Definition vY := 2.
 Definition vZ := 3.
 Definition tX := TVar vX.
-Definition tY := TVar vY.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 08:41:06.290000.*)
+(* Auto-generated comment: At 2019-08-19 08:42:41.600000.*)
 
