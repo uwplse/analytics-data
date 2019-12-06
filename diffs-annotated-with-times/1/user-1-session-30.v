@@ -54,7 +54,5 @@ Proof with (simpl; eauto with sf).
 (induction l) ...
 (destruct (a <=? a0)) ...
 Qed.
-(* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-08-26 23:28:15.010000.*)
+(* Auto-generated comment: Succeeded. *)
 
