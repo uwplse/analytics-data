@@ -25,9 +25,5 @@ Parameter
   (leb : t -> t -> bool).
 Notation "a <=? b" :=
   (leb a b).
-Notation "! a " := 
-  (negb a) (at level 10).
 (* Auto-generated comment: Succeeded. *)
-
-(* Auto-generated comment: At 2019-08-26 23:37:51.040000.*)
 
