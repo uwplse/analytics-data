@@ -1133,6 +1133,5 @@ Proof.
 (rewrite denote_box_id_circ).
 *
 (apply mixed_state_trace_1; auto).
-*
 (* Auto-generated comment: Succeeded. *)
 
