@@ -385,9 +385,9 @@ right.
         subst
  end).
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:47:37.650000.*)
+(* Auto-generated comment: At 2019-08-09 11:48:06.590000.*)
 
