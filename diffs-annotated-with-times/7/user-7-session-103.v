@@ -56,8 +56,11 @@ Proof.
 (intros v t k w Hm).
 (destruct k, w, v; simpl in Hm; try contradiction).
 -
-(repeat fold match_ty in Hm).
+exists v.
+split.
+reflexivity.
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:52:46.320000.*)
+(* Auto-generated comment: At 2019-08-20 11:53:13.320000.*)
 
