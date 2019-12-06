@@ -545,17 +545,9 @@ Inductive Alpha : SetST -> GT -> Prop :=
        Ensembles.In _ S x -> exists T1, exists T2, x = SFun T1 T2) ->
       ~ (forall x, Ensembles.In _ S x -> exists l, x = SRec l) ->
       Alpha S GDyn.
-Theorem alpha_is_partial_function :
-  forall S G G', Alpha S G -> Alpha S G' -> G = G'.
-Proof.
-(intros).
-generalize dependent G'.
-(induction H).
--
-(intros; inversion H0; subst; eauto).
-Search -Singleton.
-Search -(Singleton _ _ = Singleton _ _).
-(* Auto-generated comment: Succeeded. *)
+Create HintDb agt discriminated.
+Hint Resolve Singleton_eq: agt.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 18:55:55.190000.*)
+(* Auto-generated comment: At 2019-09-05 18:56:03.390000.*)
 
