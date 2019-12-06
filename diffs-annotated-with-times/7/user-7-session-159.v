@@ -92,8 +92,10 @@ assumption.
 (intros w' t').
 (induction t'; intros Hm; try assumption || (destruct w'; contradiction)).
 +
+(rewrite subst_union).
 (apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:34:44.540000.*)
+(* Auto-generated comment: At 2019-08-29 09:34:57.730000.*)
 
