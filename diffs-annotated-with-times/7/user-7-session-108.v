@@ -265,8 +265,8 @@ exists (TPair v'1 v'2).
 }
 admit.
 }
-(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]).
+(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]; [ apply IHt1 | apply IHt2 ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:31:53.370000.*)
+(* Auto-generated comment: At 2019-08-21 10:31:59.210000.*)
 
