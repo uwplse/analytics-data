@@ -158,10 +158,11 @@ Lemma recover_cok :
     recover_spec.
 Proof.
 (simpl).
-(eapply ret_hspec; eauto).
+(eapply ret_hspec).
 typeclasses eauto.
 firstorder.
+(hnf).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:53:43.910000.*)
+(* Auto-generated comment: At 2019-08-07 18:53:56.540000.*)
 
