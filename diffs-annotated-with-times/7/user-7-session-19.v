@@ -156,8 +156,7 @@ clear IHk' IHt.
 (apply le_S_n in Htk).
 (apply le_S_n in Htk').
 (simpl in Hvk, Hvk').
-(apply le_S_n in Hvk).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:36:49.710000.*)
+(* Auto-generated comment: At 2019-08-12 12:38:58.300000.*)
 
