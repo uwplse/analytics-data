@@ -21,8 +21,8 @@ Proof.
 -
 (specialize (IHt1 s1 s2); specialize (IHt2 s1 s2)).
 (simpl in *).
-auto.
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:09:46.030000.*)
+(* Auto-generated comment: At 2019-08-27 06:09:58.950000.*)
 
