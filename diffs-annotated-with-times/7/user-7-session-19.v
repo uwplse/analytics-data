@@ -364,8 +364,9 @@ Proof.
 (intros ta; induction ta; intros tb; induction tb; intros Hsem).
 Show 3.
 16: {
-Abort.
+idtac.
+clear IHta.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:09:18.260000.*)
+(* Auto-generated comment: At 2019-08-13 08:09:20.810000.*)
 
