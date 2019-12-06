@@ -78,12 +78,12 @@ assumption.
 assumption.
 Abort.
 Lemma build_v_full :
-  forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
+  forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
   |-[ w] v <$ [X := tx] t ->
   exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
 Proof.
-(intros X X' tx).
-(induction w; induction t; intros v Hm).
+(intros X X').
+(induction w; induction t; intros v tx Hm).
 -
 exists v.
 split.
@@ -139,7 +139,9 @@ subst.
 exists v.
 split.
 assumption.
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [ti Hm]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:38:38.940000.*)
+(* Auto-generated comment: At 2019-08-29 09:40:26.940000.*)
 
