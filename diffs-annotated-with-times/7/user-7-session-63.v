@@ -228,8 +228,13 @@ Proof.
 (intros t; induction t; intros k Hdep).
 -
 (exists (TCName c); split).
++
 constructor.
++
+(destruct k; reflexivity).
+-
+(destruct (max_inv_depth_le__inv _ _ _ Hk)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 08:25:11.670000.*)
+(* Auto-generated comment: At 2019-08-16 08:25:44.640000.*)
 
