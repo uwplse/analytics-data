@@ -371,7 +371,99 @@ Proof.
 -
 (left; apply sub_r__transitive with t1).
 (apply mk_nf__sub_r_l).
+assumption.
+-
+(right; intros Hcontra).
+(apply SR_NormalForm in Hcontra; contradiction).
+Qed.
+Ltac
+ solve_not_x_sub_r_y_full :=
+  match goal with
+  | |- ~ |- ?t1 << ?t2 =>
+        remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra;
+         try (solve [ inversion Heqx | inversion Heqy ]); subst
+  end;
+   match goal with
+   | IHHcontra:context [ _ -> False ]
+     |- False => apply IHHcontra; try tauto || (apply mk_nf_nf; assumption || (do 2 constructor; assumption)) || apply mk_nf__in_nf
+   end.
+Ltac
+ solve_atom_sub_r_union__decidable IHt2_1 IHt2_2 :=
+  destruct IHt2_1 as [IH1| IH1]; try assumption; destruct IHt2_2 as [IH2| IH2]; try assumption;
+   try (solve [ left; apply SR_UnionR1; assumption | left; apply SR_UnionR2; assumption ]); right; intros Hcontra;
+   apply atom_sub_r_union__inv in Hcontra; tauto || constructor; assumption.
+Ltac
+ solve_union_sub_r__decidable IHt'1 IHt'2 :=
+  destruct IHt'1 as [IH1| IH1]; try assumption; destruct IHt'2 as [IH2| IH2]; try assumption;
+   try (solve [ right; intros Hcontra; destruct (sub_r_union_l__inv _ _ _ Hcontra) as [Hsub1 Hsub2]; contradiction ]); left; constructor;
+   assumption.
+Lemma nf_sub_r__decidable2 :
+  forall t : ty,
+  InNF( t) -> (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)).
+Proof.
+(apply
+  (in_nf_mut
+     (fun (t : ty) (Hat : atom_type t) =>
+      (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t)))
+     (fun (t : ty) (Hnf : in_nf t) =>
+      (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t))))).
+-
+(intros c).
+(split; intros t'; induction t'; intros Hnf';
+  try
+   match goal with
+   | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ]);
+  match goal with
+  | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
+        destruct (cname_eq__decidable c1 c2);
+         [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
+  end).
+-
+(intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
+(assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
+(destruct (in_nf_pair__inv _ _ Hnf) as [Hnf1 Hnf2]).
+(destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
+(split; intros t'; induction t'; intros Hnf';
+  try
+   match goal with
+   | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ]);
+  try (solve
+   [ destruct (IHta11 _ Hnf'1) as [IH11| IH11]; destruct (IHta12 _ Hnf'1) as [IH12| IH12]; destruct (IHta21 _ Hnf'2) as [IH21| IH21];
+      destruct (IHta22 _ Hnf'2) as [IH22| IH22];
+      try (solve
+       [ left; constructor; assumption
+       | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ]) ])).
++
+(right; solve_not_x_sub_r_y_full).
+(intros Hnf'').
+(apply sub_r_dec__mk_nf_sub_r_dec; tauto).
+-
+(intros t Hnf).
+(split; intros t'; induction t'; intros Hnf';
+  try
+   match goal with
+   | Hnf':InNF( TUnion _ _) |- _ => destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   | Hnf':InNF( TPair _ _) |- _ => destruct (in_nf_pair__inv _ _ Hnf') as [Hnf'1 Hnf'2]
+   end; try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 | solve_union_sub_r__decidable IHt'1 IHt'2 ]);
+  try (solve
+   [ pose proof (in_nf_ref__inv _ Hnf') as Hnf''; destruct H as [H1 H2]; specialize (H1 _ Hnf''); specialize (H2 _ Hnf''); destruct H1 as [H1| H1];
+      destruct H2 as [H2| H2]; try (solve [ right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction ]); left;
+      constructor; assumption ])).
++
+(right; solve_not_x_sub_r_y_full; intros Hnf''; apply sub_r_dec__mk_nf_sub_r_dec; tauto).
+-
+tauto.
+-
+(intros t1 t2 Hnf1 [IH11 IH12] Hnf2 [IH21 IH22]).
+(split; intros t'; induction t'; intros Hnf'; try (inversion Hnf'; subst); specialize (IH11 _ Hnf'); specialize (IH12 _ Hnf'); specialize
+  (IH21 _ Hnf'); specialize (IH22 _ Hnf');
+  try (solve [ solve_union_sub_r__decidable IH11 IH21 | solve_atom_sub_r_union__decidable IH12 IH22 | solve_union_sub_r__decidable IHt'1 IHt'2 ])).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:40:48.390000.*)
+(* Auto-generated comment: At 2019-08-18 07:40:52.880000.*)
 
