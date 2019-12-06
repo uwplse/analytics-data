@@ -37,8 +37,15 @@ reflexivity.
 (rewrite IHt2; try assumption).
 reflexivity.
 -
-(rewrite Iht; try assumption).
+(rewrite IHt; try assumption).
+reflexivity.
+-
+(destruct (beq_idP X i)).
+reflexivity.
+(rewrite IHt).
+reflexivity.
+(unfold fresh).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:48:57.470000.*)
+(* Auto-generated comment: At 2019-08-27 06:50:28.910000.*)
 
