@@ -45,8 +45,10 @@ Search -IdSet.remove.
 Check IdSetFacts.remove_2.
 Check IdSetFacts.remove_2.
 (assert (Hneq' : X' <> X) by auto).
-(apply (IdSetFacts.remove_2 _ Hneq') in Hcontra).
-(* Auto-generated comment: Failed. *)
+(apply (IdSetFacts.remove_2 Hneq') in Hcontra).
+contradiction.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 10:17:53.100000.*)
+(* Auto-generated comment: At 2019-08-29 10:18:12.050000.*)
 
