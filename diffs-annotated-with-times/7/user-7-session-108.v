@@ -252,7 +252,10 @@ Proof.
 (simpl in Hcontra).
 (apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
+subst.
+(assert (Hcontra : ~ |-[ k, w] v1 <$ t1 \/ ~ |-[ k, w] v2 <$ t2)).
+{
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:59:20.320000.*)
+(* Auto-generated comment: At 2019-08-21 10:00:39.820000.*)
 
