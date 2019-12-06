@@ -194,8 +194,11 @@ reflexivity.
 (unfold not_b_free_in_ty, not_free).
 (intros Hcontra).
 Search -IdSet.In.
-(destruct IdSetFacts.empty_iff as [H _]).
+(destruct (IdSetFacts.empty_iff Y) as [H _]).
+(apply H).
+Search -IdSet.In.
+Search -m.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:18:26.480000.*)
+(* Auto-generated comment: At 2019-09-04 08:19:31.100000.*)
 
