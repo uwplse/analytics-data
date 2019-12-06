@@ -202,11 +202,11 @@ right.
 exists 0,(TCName c).
 (apply match_ty_cname).
 -
-(destruct IHt1 as [IHt1| [w1 [v1 IHt1]]]; destruct IHt2 as [IHt2| [w2 [v2 IHt2]]]).
+(destruct IHt1 as [IHt1| [w1 [v1 IHt1]]]; destruct IHt2 as [IHt2| [w2 [v2 IHt2]]];
+  try (solve [ left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; exfalso; eauto ])).
 +
-(left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(exfalso; eauto).
+(left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 07:51:06.900000.*)
+(* Auto-generated comment: At 2019-09-04 07:51:52.550000.*)
 
