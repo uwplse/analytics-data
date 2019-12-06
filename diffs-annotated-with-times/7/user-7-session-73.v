@@ -201,8 +201,8 @@ tauto.
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf).
 assumption.
-(apply mk_nf__sem_sub_k_l).
+(apply sem_eq_k__trans with t2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:12:16.780000.*)
+(* Auto-generated comment: At 2019-08-16 13:12:37.470000.*)
 
