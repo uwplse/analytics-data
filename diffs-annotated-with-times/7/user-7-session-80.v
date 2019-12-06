@@ -613,8 +613,24 @@ generalize dependent v.
 (rewrite Hdept'').
 split.
 tauto.
-(intros v Hv).
-(* Auto-generated comment: Failed. *)
+(intros v).
+(split; intros H).
++
+(eapply match_ty__inv_depth_stable; try assumption).
+(rewrite Hdept''; eassumption).
+eassumption.
+(apply Href; try assumption).
+(eapply match_ty__inv_depth_stable; try eassumption).
+(rewrite <- Hdept''; assumption).
++
+(eapply match_ty__inv_depth_stable; try assumption).
+(rewrite <- Hdept''; eassumption).
+(apply Href; try assumption).
+(eapply match_ty__inv_depth_stable; try assumption).
+(rewrite Hdept''; eassumption).
+assumption.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:34:39.710000.*)
+(* Auto-generated comment: At 2019-08-16 13:35:23.590000.*)
 
