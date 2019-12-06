@@ -360,8 +360,8 @@ reflexivity.
 {
 (rewrite app_length in *; simpl in *; lia).
 }
-(rewrite diskUpd_neq).
+(rewrite diskUpd_neq by auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:34:43.170000.*)
+(* Auto-generated comment: At 2019-09-04 12:34:45.600000.*)
 
