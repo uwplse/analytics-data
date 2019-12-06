@@ -2815,8 +2815,7 @@ dependent destruction t.
 (apply singleton_equiv in s; subst).
 (simpl).
 (rewrite singleton_size).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:18:38.490000.*)
+(* Auto-generated comment: At 2019-08-09 14:18:47.670000.*)
 
