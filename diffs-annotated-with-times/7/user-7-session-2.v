@@ -286,5 +286,5 @@ Lemma weird_trans : forall t1 t2 t3 : ty, |- t1 << t2 -> |- t2 << t3 -> |- t3 <<
 Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 13:36:02.020000.*)
+(* Auto-generated comment: At 2019-08-07 13:36:19.920000.*)
 
