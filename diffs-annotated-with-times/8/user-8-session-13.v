@@ -577,6 +577,10 @@ Add Parametric Morphism  m n : @adjoint m n with signature
  mat_equiv ==> mat_equiv as adjoint_mor.
 Proof.
 (intros).
-Set Printing All.
+(apply adjoint_compat; easy).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqtkTvwt"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
