@@ -106,11 +106,11 @@ Proof.
 exists (TRef t).
 (intros Hcontra).
 (destruct Hcontra as [Hsem1 Hsem2]).
-specialize (Hsem1 1).
-(destruct Hsem1 as [w2 Hsem1]).
+(pose proof (Hsem1 1) as Hm1).
+(destruct Hm1 as [w2 Hm1]).
 (assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hsem1 _ Hm).
+specialize (Hm1 _ Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:25:50.320000.*)
+(* Auto-generated comment: At 2019-08-20 13:26:06.460000.*)
 
