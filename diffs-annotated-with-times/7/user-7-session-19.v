@@ -116,8 +116,8 @@ admit.
 clear IHk'.
 (intros Htk Htk' v Hvk Hvk').
 (simpl in Htk, Htk').
-(apply le_S_n in Htk).
+(apply le_S_n in Htk').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:04:58.350000.*)
+(* Auto-generated comment: At 2019-08-12 11:05:15.630000.*)
 
