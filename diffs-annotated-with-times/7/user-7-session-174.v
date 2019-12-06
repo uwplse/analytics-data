@@ -135,8 +135,8 @@ Proof.
 (intros X s t1 t2).
 (unfold subst).
 (unfold subst_terminate).
-reflexivity.
+Search -subst_terminate.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:18:48.690000.*)
+(* Auto-generated comment: At 2019-08-30 06:18:56.410000.*)
 
