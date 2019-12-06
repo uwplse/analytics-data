@@ -135,8 +135,22 @@ Proof.
 +
 (intros; split; constructor).
 +
-(intros; split).
+(intros; split; [ constructor; assumption | assumption ]).
++
+(intros; split; [ constructor; assumption | assumption ]).
++
+(intros; split; [ apply SR_UnionR1; assumption | assumption ]).
++
+(intros; split; [ apply SR_UnionR2; assumption | assumption ]).
++
+(intros; split; [ constructor; assumption | assumption ]).
++
+(intros; split; [ constructor; assumption | assumption ]).
+-
+(intros Hsub12 t3 Hsub21).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
+(induction Hsub21'; try (solve [ inversion Heqx ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 11:42:57.810000.*)
+(* Auto-generated comment: At 2019-08-07 11:43:07.420000.*)
 
