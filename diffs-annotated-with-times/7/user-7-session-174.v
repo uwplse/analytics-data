@@ -130,8 +130,8 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
-(simpl).
+(unfold well_dounded).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:19:24.150000.*)
+(* Auto-generated comment: At 2019-08-29 15:19:29.180000.*)
 
