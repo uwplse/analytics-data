@@ -128,8 +128,8 @@ step_proc.
 step_proc.
 step_proc.
 step_proc.
-exists nil.
+(exists nil; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:24:22.620000.*)
+(* Auto-generated comment: At 2019-09-04 10:24:36.140000.*)
 
