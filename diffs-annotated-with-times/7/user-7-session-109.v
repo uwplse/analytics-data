@@ -100,5 +100,5 @@ Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btj
 Hint Unfold sem_sub_k_w sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:36:11.320000.*)
+(* Auto-generated comment: At 2019-08-26 07:38:00.290000.*)
 
