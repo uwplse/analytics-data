@@ -34,8 +34,8 @@ Proof.
 -
 (intros k w1).
 exists w1.
-(intros v).
+(intros v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:14:29.170000.*)
+(* Auto-generated comment: At 2019-08-27 08:14:41.770000.*)
 
