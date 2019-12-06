@@ -63,22 +63,7 @@ Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w 
 Proof.
 (induction k).
 -
-(induction t).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_cname__inv in Hcontra).
-(inversion Hcontra).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_pair__inv in Hcontra).
-(destruct Hcontra as [v1 [v2 [Heq _]]]).
-(inversion Heq).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_union__inv in Hcontra).
-(destruct Hcontra as [Hcontra| Hcontra]).
-*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:05:06.520000.*)
+(* Auto-generated comment: At 2019-08-20 13:06:09.860000.*)
 
