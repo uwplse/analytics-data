@@ -266,8 +266,7 @@ reflexivity.
 -
 (destruct (IHt k) as [v Hm]).
 exists v.
-(apply match_ty_exist).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:47:22.020000.*)
+(* Auto-generated comment: At 2019-08-21 09:48:34.180000.*)
 
