@@ -72,8 +72,8 @@ Fixpoint size (t : ty) :=
 Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
 Proof.
 (intros x y).
-(induction t).
+(induction t; simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:27:21.500000.*)
+(* Auto-generated comment: At 2019-08-29 14:27:44.010000.*)
 
