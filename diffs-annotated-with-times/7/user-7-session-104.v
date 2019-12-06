@@ -100,9 +100,18 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
+Lemma sem_eq_k_inv_depth__exists_not : forall (k : nat) (t : ty), | t | <= k -> exists t' : ty, ~ ||-[ k][t']= [t].
 Proof.
+(intros k t).
+exists (TRef t).
+(intros Hcontra).
+(destruct Hcontra as [Hsem1 Hsem2]).
+specialize (Hsem1 1).
+(destruct Hsem1 as [w2 Hsem1]).
+(assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hsem1 _ Hm).
+(destruct k, w2, t; try (solve [ simpl in Hsem1; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:24:26.960000.*)
+(* Auto-generated comment: At 2019-08-20 13:24:35.340000.*)
 
