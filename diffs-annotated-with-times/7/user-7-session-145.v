@@ -104,19 +104,19 @@ exists w2.
 (intros v Hm).
 Abort.
 Lemma sem_sub_fresh_var__sem_sub_exist :
-  forall (X : id) (t t' : ty) (X' : id), IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+  forall (X : id) (t t' : ty) (X' : id),
+  IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
-(intros X t t' X' HX HX' Hsem).
+(intros X t t' X' HX HX' Hsem tx).
 (intros k w1).
 specialize (Hsem k w1).
 (destruct Hsem as [w2 Hsem]).
 exists w2.
 (intros v Hm).
-(destruct w1).
-(apply match_ty_exist__0_inv in Hm; contradiction).
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
+(induction w1).
+2: {
+idtac.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 13:49:37.310000.*)
+(* Auto-generated comment: At 2019-08-27 13:53:19.210000.*)
 
