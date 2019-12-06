@@ -87,7 +87,7 @@ Proof.
 (destruct Hsem as [Hsem1 Hsem2]).
 (destruct w; simpl; tauto).
 Qed.
-Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][TRef t]<= [TRef t'].
+Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ S k][TRef t]<= [TRef t'].
 Proof.
 (intros k t t' Hsem).
 (intros w1).
@@ -95,11 +95,7 @@ exists w1.
 (intros v Hm).
 (destruct k).
 -
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [tx Heq]; subst).
-(destruct w1; simpl; tauto).
--
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:25:34.120000.*)
+(* Auto-generated comment: At 2019-08-27 08:25:40.330000.*)
 
