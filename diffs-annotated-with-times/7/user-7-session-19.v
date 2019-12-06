@@ -391,11 +391,11 @@ Admitted.
 Lemma value_sem_sub_i_union__inv : forall v : ty, value_type v -> forall ta tb : ty, ||- [v]<= [TUnion ta tb] -> ||- [v]<= [ta] \/ ||- [v]<= [tb].
 Proof.
 (intros v Hv ta tb Hsem; unfold sem_sub_i in Hsem).
-(assert (Hm : |-[ 0] v <$ v) by (apply match_ty_i__reflexive; assumption)).
-specialize (Hsem 0 _ Hm).
+(assert (Hm : |-[ | TUnion ta tb |] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+specialize (Hsem _ _ Hm).
 (apply match_ty_i_union__inv in Hsem).
 (destruct Hsem; [ left | right ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:48:52.440000.*)
+(* Auto-generated comment: At 2019-08-13 11:49:16.280000.*)
 
