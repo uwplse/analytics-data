@@ -71,8 +71,12 @@ Proof.
 (simpl).
 (split; apply Nat.le_0_l).
 -
-(intros t; induction t; intros k Hm; try (solve [ destruct k; simpl in Hm; contradiction ])).
+(intros t; induction t; intros k Hm; try (solve [ destruct k; contradiction ])).
++
+clear IHt1 IHt2.
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1' [v2' [Heqp [Hm1 Hm2]]]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:42:58.730000.*)
+(* Auto-generated comment: At 2019-08-15 07:43:36.850000.*)
 
