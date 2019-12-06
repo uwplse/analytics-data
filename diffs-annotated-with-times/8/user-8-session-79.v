@@ -654,8 +654,7 @@ show_dimensions.
 (intros).
 (simpl).
 specialize (kron_1_l (\226\168\130 l2)) as KL.
-show_dimensions.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:30:17.350000.*)
+(* Auto-generated comment: At 2019-08-14 13:30:22.430000.*)
 
