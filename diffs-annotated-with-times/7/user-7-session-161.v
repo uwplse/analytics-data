@@ -99,8 +99,10 @@ subst.
 contradiction.
 *
 (rewrite subst_exist_eq).
-(rewrite (subst_exist_neq _ HX)).
+Check subst_exist_neq.
+(rewrite (subst_exist_neq _ _ _ _ HX)).
+(rewrite subst_exist_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 12:03:36.240000.*)
+(* Auto-generated comment: At 2019-08-29 12:03:37.890000.*)
 
