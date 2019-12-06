@@ -687,8 +687,7 @@ step_proc.
 (destruct a' as [[] bs]; simpl in *).
 intuition eauto.
 step_proc.
-Print Ltac simplify.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:22:38.370000.*)
+(* Auto-generated comment: At 2019-09-05 17:22:56.660000.*)
 
