@@ -259,8 +259,8 @@ clear H.
 (rewrite evalAnd in H0).
 (rewrite evalIfTrue in H0).
 -
-(rewrite evalEqTrue in H0).
+(apply evalEqTrue in H0).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:28:18.650000.*)
+(* Auto-generated comment: At 2019-09-01 10:28:28.550000.*)
 
