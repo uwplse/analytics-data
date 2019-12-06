@@ -217,7 +217,12 @@ Proof.
            destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
+Show 2.
+-
+(simpl).
+(apply le_n_S).
+(apply IHk).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:53:15.550000.*)
+(* Auto-generated comment: At 2019-08-13 07:53:51.360000.*)
 
