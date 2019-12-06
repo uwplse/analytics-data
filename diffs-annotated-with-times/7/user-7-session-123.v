@@ -27,8 +27,12 @@ Proof.
 (apply sem_sub_union; assumption).
 -
 (apply sem_sub_union_1).
-(apply sem_sub_reflexive).
-(* Auto-generated comment: Failed. *)
+(apply sem_sub__refl).
+-
+(apply sem_sub_union_2).
+(apply sem_sub__refl).
+-
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 07:29:39.870000.*)
+(* Auto-generated comment: At 2019-08-27 07:31:16.670000.*)
 
