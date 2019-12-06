@@ -351,7 +351,12 @@ autorewrite with upd list in *.
 +
 admit.
 +
+(unfold log_size_ok in *; simpl in *).
+autorewrite with upd list in *.
+(simpl in *; lia).
++
+autorewrite with upd in *.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:04:35.280000.*)
+(* Auto-generated comment: At 2019-09-04 12:04:38.270000.*)
 
