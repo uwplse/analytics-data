@@ -186,9 +186,9 @@ eauto using log_length_ok_nil.
 (unfold log_size_ok).
 (destruct d; simpl in *; [  | lia ]).
 (assert (diskGet nil 0 = None)).
-Search -diskGet -diskSize.
 (apply disk_oob_eq).
-(* Auto-generated comment: Succeeded. *)
+lia.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:05:59.600000.*)
+(* Auto-generated comment: At 2019-09-04 11:06:12.500000.*)
 
