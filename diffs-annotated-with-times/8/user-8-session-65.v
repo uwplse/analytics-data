@@ -981,6 +981,8 @@ Msimpl.
 mat_replace \226\159\1680\226\136\163 \195\151 \226\136\1631\226\159\169 with @Zero 1 1 by lma.
 mat_replace \226\159\1681\226\136\163 \195\151 \226\136\1631\226\159\169 with I 1 by lma.
 Msimpl.
-(rewrite (id_kron (2 ^ i) (2 ^ d))).
+Timeout 1 About id_kron.
+Timeout 1 Print id_kron.
+Timeout 1 Print Ltac id_kron.
 (* Auto-generated comment: Failed. *)
 
