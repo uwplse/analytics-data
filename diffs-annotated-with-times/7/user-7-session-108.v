@@ -246,8 +246,11 @@ Lemma ty__matching_ty_exists : forall (w : nat) (t : ty) (k : nat), exists v : t
 Proof.
 (induction w; induction t; intros k).
 -
-(TCName c).
-(* Auto-generated comment: Failed. *)
+exists (TCName c).
+(apply match_ty_value_type__reflexive; constructor).
+-
+(destruct (IHt1 k) as [w1 [v1 Hm1]]).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-21 09:45:12.630000.*)
+(* Auto-generated comment: At 2019-08-21 09:45:44.860000.*)
 
