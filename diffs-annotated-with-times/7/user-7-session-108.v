@@ -262,8 +262,11 @@ exists w,v.
 (apply match_ty_union_1).
 assumption.
 -
-exists w,(TRef t).
+exists 0,(TRef t).
+(destruct k).
+reflexivity.
+split.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:36:43.120000.*)
+(* Auto-generated comment: At 2019-08-21 09:37:20.810000.*)
 
