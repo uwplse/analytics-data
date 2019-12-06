@@ -327,8 +327,20 @@ Theorem append_at_ok a bs' :
     d.abstr.
 Proof.
 generalize dependent a.
-(induction bs'; simpl).
+(induction bs'; simpl; intros).
+-
+step_proc.
+intuition eauto.
+(rewrite app_nil_r; auto).
+-
+step_proc.
+(intuition eauto; autorewrite with upd; auto).
+{
+(apply log_contents_ok_unchanged; eauto).
+}
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:59:08.670000.*)
+(* Auto-generated comment: At 2019-09-04 11:59:18.390000.*)
 
