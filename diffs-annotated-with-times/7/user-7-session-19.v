@@ -109,9 +109,9 @@ Proof.
 (match goal with
  | |- | ?t1 | = | ?t2 | =>
        assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-        (H 0 _ Hv)
+        (H 0 _ Hv); destruct H as [H _]
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:26:57.530000.*)
+(* Auto-generated comment: At 2019-08-12 12:26:57.960000.*)
 
