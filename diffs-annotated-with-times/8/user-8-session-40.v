@@ -30,8 +30,7 @@ autorewrite with proof_db.
 (rewrite subst_pat_fresh_empty).
 (rewrite denote_pat_fresh_id).
 (rewrite super_I; auto).
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:26:04.960000.*)
+(* Auto-generated comment: At 2019-08-12 14:26:37.240000.*)
 
