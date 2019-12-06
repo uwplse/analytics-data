@@ -175,11 +175,7 @@ invert_abstraction.
 *
 replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
 (exists s; intuition; intuition).
-(destruct (stateBadBlock state == diskSize s)).
-(rewrite disk_oob_eq by omega; auto).
-(rewrite <- Hremap by omega; auto).
-*
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:42:45.180000.*)
+(* Auto-generated comment: At 2019-08-16 10:42:50.190000.*)
 
