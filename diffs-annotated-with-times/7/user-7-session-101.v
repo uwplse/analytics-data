@@ -94,8 +94,19 @@ clear Hm.
 (inversion Href).
 -
 specialize (Hcontra 2).
-(assert (Hm : |-[ w, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+(assert (Hm : |-[ S w, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+clear Hm.
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [t Hcontra]).
+(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
+(rewrite Heq in Hcontra).
+clear Heq.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Heq Href]]).
+(inversion Heq; subst).
+clear Heq.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:45:50.140000.*)
+(* Auto-generated comment: At 2019-08-20 08:45:51.790000.*)
 
