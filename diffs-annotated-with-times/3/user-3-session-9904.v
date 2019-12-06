@@ -127,7 +127,8 @@ exfalso.
 intuition.
 +
 (exists (n0 :: s); intuition).
-(* Auto-generated comment: Succeeded. *)
+(lia right; intuition congruence).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 05:44:11.980000.*)
+(* Auto-generated comment: At 2019-09-06 05:44:14.620000.*)
 
