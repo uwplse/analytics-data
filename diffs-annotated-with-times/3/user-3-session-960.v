@@ -251,8 +251,8 @@ admit.
 +
 (simpl).
 (unfold nat64_from_le, nat64_to_le; intros).
-(rewrite app_length).
+Print FixedLengthEncoder.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:31:18.720000.*)
+(* Auto-generated comment: At 2019-08-16 07:31:20.820000.*)
 
