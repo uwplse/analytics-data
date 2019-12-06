@@ -7,7 +7,7 @@ Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.AltMatchDefs.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:28:15.730000.*)
+(* Auto-generated comment: At 2019-08-16 06:28:26.510000.*)
 
