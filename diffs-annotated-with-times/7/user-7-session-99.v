@@ -81,5 +81,5 @@ Definition sem_sub_w (w : nat) (t1 t2 : ty) := forall k : nat, ||-[ w, k][t1]<= 
 Notation "'||-[' w ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w w t1 t2) (at level 47) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 07:50:01.880000.*)
+(* Auto-generated comment: At 2019-08-20 07:50:53.280000.*)
 
