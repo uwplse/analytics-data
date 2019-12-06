@@ -460,8 +460,8 @@ reflexivity.
 (destruct (beq_idP Y i)).
 +
 subst.
-(rewrite b_subst_exist_beq).
+(rewrite b_subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:26:55.190000.*)
+(* Auto-generated comment: At 2019-09-04 10:26:56.960000.*)
 
