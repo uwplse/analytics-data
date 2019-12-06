@@ -119,8 +119,9 @@ Proof.
 (destruct a; simpl; intros).
 Search -"-" -(_ -> _ < _).
 (apply lt_O_minus_lt).
+(unfold "<").
 Print lt.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:05:52.460000.*)
+(* Auto-generated comment: At 2019-08-16 10:05:54.050000.*)
 
