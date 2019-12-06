@@ -162,8 +162,7 @@ Check proc_spec_weaken.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
-autorewrite with upd in *.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:51:39.990000.*)
+(* Auto-generated comment: At 2019-09-04 10:51:55.590000.*)
 
