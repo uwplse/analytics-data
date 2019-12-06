@@ -47,5 +47,5 @@ Qed.
 Lemma free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TUnion t1 t2) -> free_in_ty t1 \/ free_in_ty t2.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:36:31.370000.*)
+(* Auto-generated comment: At 2019-09-02 08:37:39.770000.*)
 
