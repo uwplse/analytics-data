@@ -184,8 +184,8 @@ intuition.
 eauto using log_length_ok_nil.
 -
 (unfold log_size_ok).
-(unfold diskSize).
+(destruct d; simpl; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:02:18.140000.*)
+(* Auto-generated comment: At 2019-09-04 11:02:45.730000.*)
 
