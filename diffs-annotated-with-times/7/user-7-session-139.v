@@ -73,8 +73,8 @@ Check Hsem.
 specialize (Hsem k w).
 (destruct Hsem as [w2 Hsem]).
 specialize (Hsem _ Hm).
-(apply match_ty_pair_inv in Hm).
+(apply match_ty_pair__inv in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 09:10:58.220000.*)
+(* Auto-generated comment: At 2019-08-27 09:11:25.790000.*)
 
