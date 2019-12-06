@@ -328,8 +328,60 @@ assumption.
 exists v0.
 assumption.
 }
-specialize (IHw _ _ Hnotm').
+specialize (IHw _ _ Hnotm' X s).
+(apply IHw).
+exists v.
+admit.
+-
+(apply Hnotm).
+exists (TEV i).
+(destruct k; reflexivity).
+-
+(apply Hnotm).
+exists (TEV i).
+(destruct k; reflexivity).
+Admitted.
+Lemma ty__empty_or_matching_ty_exists :
+  forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
+Proof.
+(induction w; induction t; intros k).
+-
+(left; exists (TCName c); apply match_ty_cname).
+-
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+(destruct k).
+reflexivity.
+(split; intros w1; exists w1; auto).
+-
+right.
+(intros Hcontra).
+(destruct Hcontra as [v Hcontra]).
+(eapply match_ty_exist__0_inv; eassumption).
+-
+(left; exists (TEV i); apply match_ty_var).
+-
+(left; exists (TEV i); apply match_ty_ev).
+-
+(left; exists (TCName c); apply match_ty_cname).
+-
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+(destruct k).
+reflexivity.
+(split; intros w1; exists w1; auto).
+-
+(destruct (IHw t k) as [Hm| Hnotm]).
++
+(destruct Hm as [v Hm]).
+(left; v).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:49:37.680000.*)
+(* Auto-generated comment: At 2019-08-21 10:51:16.190000.*)
 
