@@ -108,10 +108,9 @@ Proof.
 (induction t; induction t'; intros H; try reflexivity).
 (match goal with
  | |- | ?t1 | = | ?t2 | =>
-       assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); destruct H as [H _];
-        specialize (H _ _ Hv Hm)
+       assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); destruct H as [H _]
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:23:44.610000.*)
+(* Auto-generated comment: At 2019-08-12 12:23:59.410000.*)
 
