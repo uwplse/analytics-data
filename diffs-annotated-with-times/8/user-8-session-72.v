@@ -1351,5 +1351,101 @@ specialize (source_symmetric_noop (S n) t c) as SSN.
 (apply valid_ancillae_box_equal).
 (apply SSN; trivial).
 omega.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqk2YUMA"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition reversible {W1} {W2} (c : Box W1 W2) : Prop :=
+  exists c', c \194\183 c' \226\137\161 id_circ.
+Definition self_inverse {W} (c : Box W W) : Prop := c \194\183 c \226\137\161 id_circ.
+Fact gate_acts_on_reversible :
+  forall m g k (pf_g : @gate_acts_on m k g), g \194\183 g \226\137\161 id_circ.
+Admitted.
+Fact HOAS_Equiv_inSeq' :
+  forall (w1 w2 w3 : WType) (b1 b1' : Box w1 w2) (b2 b2' : Box w2 w3),
+  b1 \226\137\161 b1' -> b2 \226\137\161 b2' -> b1;; b2 \226\137\161 b1';; b2'.
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq0N7ywf"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma symmetric_reversible :
+  forall n t c (pf_sym : source_symmetric n t c),
+  symmetric_reverse n t c pf_sym \194\183 c \226\137\161 id_circ.
+Proof.
+(induction pf_sym; simpl).
+-
+(rewrite inSeq_id_l).
+reflexivity.
+-
+(transitivity (g \194\183 (symmetric_reverse n t c pf_sym \194\183 (g \194\183 g) \194\183 c) \194\183 g)).
+{
+(repeat rewrite inSeq_assoc; reflexivity).
+}
+(transitivity (g \194\183 (symmetric_reverse n t c pf_sym \194\183 c) \194\183 g)).
+{
+(apply HOAS_Equiv_inSeq'; [  | reflexivity ]).
+(apply HOAS_Equiv_inSeq'; [ reflexivity |  ]).
+(apply HOAS_Equiv_inSeq'; [  | reflexivity ]).
+(rewrite HOAS_Equiv_inSeq';
+  [  | reflexivity | eapply gate_acts_on_reversible; eauto ]).
+(rewrite inSeq_id_l; reflexivity).
+}
+(transitivity (g \194\183 g); [  | eapply gate_acts_on_reversible; eauto ]).
+(apply HOAS_Equiv_inSeq'; [  | reflexivity ]).
+(rewrite HOAS_Equiv_inSeq'; [  | reflexivity | apply IHpf_sym ]).
+(rewrite inSeq_id_l; reflexivity).
+-
+replace ((symmetric_reverse n t c pf_sym \194\183 g) \194\183 g \194\183 c) with
+ symmetric_reverse n t c pf_sym \194\183 (g \194\183 g) \194\183 c by (repeat rewrite inSeq_assoc; auto).
+(transitivity (symmetric_reverse n t c pf_sym \194\183 c)).
+{
+(apply HOAS_Equiv_inSeq'; [  | reflexivity ]).
+(rewrite HOAS_Equiv_inSeq';
+  [  | reflexivity | eapply gate_acts_on_reversible; eauto ]).
+(rewrite inSeq_id_l).
+reflexivity.
+}
+(apply IHpf_sym).
+-
+(transitivity (g \194\183 (symmetric_reverse n t c pf_sym \194\183 c) \194\183 g)).
+{
+(repeat rewrite inSeq_assoc; reflexivity).
+}
+(transitivity (g \194\183 g); [  | eapply gate_acts_on_reversible; eauto ]).
+(apply HOAS_Equiv_inSeq'; [  | reflexivity ]).
+(rewrite HOAS_Equiv_inSeq'; [ rewrite inSeq_id_l; reflexivity | reflexivity |  ]).
+(apply IHpf_sym).
+-
+(set (close := assert_at b (n + t) i)).
+(set (open := init_at b (n + t) i)).
+(set (c' := symmetric_reverse (S n) t c pf_sym)).
+(transitivity (close \194\183 c' \194\183 open \194\183 close \194\183 c \194\183 open)).
+{
+(repeat rewrite inSeq_assoc; reflexivity).
+}
+(transitivity (close \194\183 (c' \194\183 c) \194\183 open)).
+{
+(repeat rewrite <- inSeq_assoc).
+(apply HOAS_Equiv_inSeq'; [  | reflexivity ]).
+(apply HOAS_Equiv_inSeq'; [  | reflexivity ]).
+(apply init_assert_at_valid).
+{
+omega.
+}
+(set (H := source_symmetric_noop (S n) t c pf_sym)).
+(simpl in H).
+(apply H; auto).
+}
+(transitivity (close \194\183 id_circ \194\183 open)).
+{
+(apply HOAS_Equiv_inSeq'; [  | reflexivity ]).
+(apply HOAS_Equiv_inSeq'; [ reflexivity |  ]).
+(apply IHpf_sym).
+}
+(rewrite inSeq_id_l).
+(apply assert_init_at_id).
+omega.
+Qed.
+Close Scope circ_scope.
 (* Auto-generated comment: Succeeded. *)
 
