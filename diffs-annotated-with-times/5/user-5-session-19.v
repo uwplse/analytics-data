@@ -157,8 +157,12 @@ intro x.
 (apply evalChoose).
 exists (eval L env (Int 3)).
 (apply evalEqTrue).
-(rewrite evalTimes with (i := 3) (j := 2)).
+(rewrite evalTimes with (i := 3%Z) (j := 2%Z)).
+-
+reflexivity.
+-
+(rewrite evalVar).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 19:04:45.240000.*)
+(* Auto-generated comment: At 2019-08-12 19:05:01.730000.*)
 
