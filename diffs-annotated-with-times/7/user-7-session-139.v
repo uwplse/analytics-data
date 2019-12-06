@@ -30,7 +30,15 @@ exists w1.
 eassumption.
 (repeat constructor).
 Qed.
+Lemma sem_sub_k_exist_fresh_r : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][t]<= [TExist X t].
+Proof.
+(intros k X t Hfresh).
+(intros w1).
+exists w1.
+(intros v Hm).
+(destruct w1).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:56:42.940000.*)
+(* Auto-generated comment: At 2019-08-27 08:56:47.480000.*)
 
