@@ -104,8 +104,8 @@ admit.
 (destruct (beq_idP X i) as [HXi| HXi]).
 +
 subst.
-(rewrite subst_var_eq).
+(rewrite subst_var_eq in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:49:10.100000.*)
+(* Auto-generated comment: At 2019-09-02 07:49:32.020000.*)
 
