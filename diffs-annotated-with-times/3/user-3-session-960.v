@@ -275,8 +275,9 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-Search -sigT -"dec".
+(destruct x, y; simpl).
+(destruct (nat_eq_dec n n0); subst).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:11:06.260000.*)
+(* Auto-generated comment: At 2019-08-16 07:11:07.790000.*)
 
