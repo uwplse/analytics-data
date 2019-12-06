@@ -1889,5 +1889,38 @@ generalize dependent n.
 +
 (intros n H).
 (destruct n; simpl in H; inversion H).
++
+auto.
++
+(intros n Hi).
+(inversion m; subst).
+-
+(destruct n).
+(simpl in Hi).
+(inversion Hi).
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+-
+(destruct n).
+(simpl in *).
+assumption.
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+-
+(destruct n).
+(simpl in Hi).
+(inversion Hi).
+(simpl in *).
+(rewrite IHmerge_ind).
+reflexivity.
+assumption.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq1Bmaqv"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
