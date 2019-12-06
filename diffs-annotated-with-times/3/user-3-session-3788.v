@@ -44,9 +44,9 @@ Proof.
 (unfold swapXY).
 monad_simpl.
 (match goal with
- | |- proc_spec _ ?p _ _ => pose proof (ProcMarker p)
+ | |- proc_spec _ ?p _ _ => pose proof (AProc p)
  end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:51:15.780000.*)
+(* Auto-generated comment: At 2019-08-29 08:51:21.100000.*)
 
