@@ -234,16 +234,8 @@ Proof.
 (intros).
 reflexivity.
 Qed.
-Lemma f_subst_not_b_free_in_ty : forall (X : id) (t : ty), not_f_free_in_ty X t -> forall s : ty, [FX := s] t = t.
-Proof.
-(intros X t).
-(induction t; intros HX s;
-  try (solve
-   [ reflexivity
-   | try destruct (not_f_free_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]; try destruct (not_f_free_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; simpl;
-      rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
--
+Lemma f_subst_exist : forall (X : id) (s : ty) (Y : id) (t : id), [FX := s] TExist Y t = TExist Y ([FX := s] t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:59:16.060000.*)
+(* Auto-generated comment: At 2019-09-04 08:59:52.090000.*)
 
