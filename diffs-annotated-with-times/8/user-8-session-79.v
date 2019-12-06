@@ -933,8 +933,8 @@ reflexivity.
 }
 (rewrite L2).
 rewrite_inPar''.
-(rewrite id_circ_spec).
+restore_dims.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 15:08:48.390000.*)
+(* Auto-generated comment: At 2019-08-14 15:19:14.810000.*)
 
