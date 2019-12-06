@@ -149,9 +149,9 @@ intro x.
 {
 (intros).
 (assert
-  (eval L (extendEnv env x (Int 3)) (Eq (Int 6) (Times (Var x) (Int 2))) =
-   L.(vTrue))).
+  (eval L (extendEnv env x (eval L env (Int 3)))
+     (Eq (Int 6) (Times (Var x) (Int 2))) = L.(vTrue))).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 19:01:50.390000.*)
+(* Auto-generated comment: At 2019-08-12 19:02:10.190000.*)
 
