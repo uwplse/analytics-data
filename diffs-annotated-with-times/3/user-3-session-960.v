@@ -248,9 +248,11 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Instance aModel_wf : (GoModelWf aModel).
 Proof.
-(unfold aModel).
 econstructor.
+-
+(simpl).
+Search -pretty.pretty_nat_inj.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:58:40.150000.*)
+(* Auto-generated comment: At 2019-08-16 06:59:05.150000.*)
 
