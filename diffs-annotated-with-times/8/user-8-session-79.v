@@ -986,8 +986,11 @@ Proof.
 (induction b; intros \206\147 f t H).
 -
 (simpl).
+Timeout 1 About rewrite_inPar''.
+Timeout 1 Print rewrite_inPar''.
+Timeout 1 Print Ltac rewrite_inPar''.
 rewrite_inPar''.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 18:19:33.280000.*)
+(* Auto-generated comment: At 2019-08-14 18:19:36.650000.*)
 
