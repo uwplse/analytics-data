@@ -29,8 +29,8 @@ Qed.
 Lemma sem_sub_pair : forall t1 t2 t1' t2' : ty, ||- [t1]<= [t1'] -> ||- [t2]<= [t2'] -> ||- [TPair t1 t2]<= [TPair t1' t2'].
 Proof.
 (intros t1 t2 t1' t2' Hem1 Hsem2 k).
-(apply sem_sub_k_pair; assumption).
+(apply sem_sub_k_pair; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:18:53.800000.*)
+(* Auto-generated comment: At 2019-08-27 07:18:58.910000.*)
 
