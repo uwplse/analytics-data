@@ -549,8 +549,23 @@ tauto.
 (assert (Hdept'k : | t' | <= k) by (rewrite Hdept'; assumption)).
 (assert (Hdept'k' : | t' | <= k') by (rewrite Hdept'; assumption)).
 (pose proof (match_ty__inv_depth_stable t' k k' Hdept'k Hdept'k') as Ht').
-(intros v Hv; specialize (Href v Hv); split; intros Hm).
-(* Auto-generated comment: Succeeded. *)
+(intros v; specialize (Href v); split; intros Hm).
+*
+(apply Ht).
+(apply Href).
+(apply Ht').
+assumption.
+*
+(apply Ht').
+(apply Href).
+(apply Ht).
+assumption.
+Qed.
+Lemma match_ty_value_type__inv_depth_equal : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> inv_depth v = inv_depth v'.
+Proof.
+(intros v v' Hv' k Hm1).
+(pose proof (match_ty__inv_depth_le v v' k Hm1) as Hdep1).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:32:33.850000.*)
+(* Auto-generated comment: At 2019-08-16 13:32:52.710000.*)
 
