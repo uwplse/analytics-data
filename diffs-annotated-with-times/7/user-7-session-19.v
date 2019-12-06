@@ -74,8 +74,12 @@ Proof.
      |- _ =>
          destruct (max_inv_depth_le__components_le _ _ _ Htk) as [Htk1 Htk2]; apply match_ty_i_pair__inv in Hm;
           destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply Nat.max_le_compat; auto
+   | H:|-[ ?k'] ?v <$ TUnion _ _
+     |- _ =>
+         destruct (max_inv_depth_le__components_le _ _ _ Htk) as [Htk1 Htk2]; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2];
+          [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:25:58.110000.*)
+(* Auto-generated comment: At 2019-08-12 11:26:02.620000.*)
 
