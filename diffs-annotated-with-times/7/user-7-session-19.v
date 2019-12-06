@@ -484,8 +484,13 @@ specialize (IHHsub1 k).
 specialize (IHHsub2 k).
 (apply match_ty_i_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(inversion Hv; subst).
+auto using match_ty_i_pair.
+-
+(apply match_ty_i_union__inv in Hm).
+(destruct Hm; [ apply IHHsub1 | apply IHHsub2 ]; assumption).
+-
+(apply match_ty_union_1; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:06:00.270000.*)
+(* Auto-generated comment: At 2019-08-13 13:06:17.800000.*)
 
