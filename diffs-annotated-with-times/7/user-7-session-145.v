@@ -94,8 +94,12 @@ Proof.
 +
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
-(unfold fresh_in_ty in HX).
+(unfold fresh_in_ty, fresh in HX).
+(simpl in HX).
+Check IdSet.remove.
+Search -IdSet.remove.
+(rewrite IdSet.remove_spec in HX).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 12:24:52.730000.*)
+(* Auto-generated comment: At 2019-08-27 12:26:58.650000.*)
 
