@@ -50,8 +50,11 @@ Qed.
 Lemma not_sem_sub__refint_refflt : ~ ||- [TRef tint]<= [TRef tflt].
 Proof.
 (intros Hcontra).
-specialize (Hcontra 1).
+specialize (Hcontra 1 0).
+(destruct Hcontra as [w2 Hcontra]).
+(assert (Hm : |-[ 1, 0] TRef tint <$ TRef tint) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:26:17.580000.*)
+(* Auto-generated comment: At 2019-08-20 13:26:26.830000.*)
 
