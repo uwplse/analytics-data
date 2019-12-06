@@ -261,10 +261,9 @@ Check repeat_length.
 (rewrite nat_from_le_zeros; auto).
 (rewrite nat_le_inverse; auto).
 (generalize dependent Datatypes.length (nat_to_le 254 x); intros).
-(assert (n > 8)).
+(assert (n <= 8)).
 lia.
-(exfalso; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:29:32.500000.*)
+(* Auto-generated comment: At 2019-08-16 07:29:50.940000.*)
 
