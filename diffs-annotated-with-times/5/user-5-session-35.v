@@ -227,8 +227,7 @@ intro x.
      (Eq (Int 6) (Times (Var x) (Int 2))) = L.(eval) env (Bool true))).
 {
 (apply evalChoose).
-exists (eval L env (Int 3)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 09:41:43.260000.*)
+(* Auto-generated comment: At 2019-09-01 09:42:12.060000.*)
 
