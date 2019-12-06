@@ -224,8 +224,11 @@ type_check.
 Qed.
 Timeout 1 About PI.
 Timeout 1 Print PI.
-Definition _R'_ (m : nat) := _R_ (2 * Complex.PI / INR (2 ^ m)).
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqd1Bw0O"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition _R'_ (m : nat) := _R_ (2 * Reals.PI / INR (2 ^ m)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 15:23:03.950000.*)
+(* Auto-generated comment: At 2019-08-13 15:23:13.990000.*)
 
