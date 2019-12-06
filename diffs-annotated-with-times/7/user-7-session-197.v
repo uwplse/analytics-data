@@ -162,8 +162,9 @@ Proof.
    | intros Hm; destruct (beq_idP X i);
       [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
 (intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; destruct (IHt1 _ Hm1) as [v1' Hm1'];
-  destruct (IHt2 _ Hm2) as [v2' Hm2']; exists (TPair v1' v2'); rewrite subst_pair).
+  destruct (IHt2 _ Hm2) as [v2' Hm2']; exists (TPair v1' v2'); rewrite b_subst_pair).
+(apply match_ty_pair; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:32:10.040000.*)
+(* Auto-generated comment: At 2019-09-03 09:32:25.870000.*)
 
