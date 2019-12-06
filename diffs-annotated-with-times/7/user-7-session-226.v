@@ -63,8 +63,25 @@ reflexivity.
 (apply match_ty_union_1; auto).
 }
 {
-(rewrite f_subst_not_b_free_in_ty).
-(* Auto-generated comment: Failed. *)
+(apply match_ty_union_1; rewrite f_subst_not_b_free_in_ty; auto).
+}
+*
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_2; auto).
+*
+(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
+{
+(apply match_ty_union_2; auto).
+}
+{
+(apply match_ty_union_2; rewrite f_subst_not_b_free_in_ty; auto).
+}
++
+(apply match_ty_fvar__inv in Hm').
+(inversion Hm'; subst).
+clear Hm'.
+(split; intros HX').
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 09:25:38.810000.*)
+(* Auto-generated comment: At 2019-09-06 09:26:11.210000.*)
 
