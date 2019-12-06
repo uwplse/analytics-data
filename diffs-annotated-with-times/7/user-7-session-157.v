@@ -63,11 +63,8 @@ exists (TPair v1' v2').
 (destruct (beq_idP X i)).
 +
 subst.
-(simpl in *).
-(rewrite <- beq_id_refl in *).
 (exists v; assumption).
-+
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:10:57.460000.*)
+(* Auto-generated comment: At 2019-08-29 09:11:07.980000.*)
 
