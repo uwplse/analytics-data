@@ -29,8 +29,8 @@ autorewrite with proof_db.
 (rewrite kron_1_r').
 (rewrite subst_pat_fresh_empty).
 (rewrite denote_pat_fresh_id).
-(rewrite super_I; auto).
-(* Auto-generated comment: Succeeded. *)
+(rewrite super_I; reflexivity).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 14:28:00.450000.*)
+(* Auto-generated comment: At 2019-08-12 14:28:04.090000.*)
 
