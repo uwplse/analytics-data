@@ -256,7 +256,12 @@ Example test_oddmembers : oddmembers [0; 1; 0; 2; 3; 0; 0] = [1; 3].
 Proof.
 reflexivity.
 Qed.
+Definition countoddmembers (l : natlist) : nat :=
+  match l with
+  | [ ] => 0
+  | h :: t => (if oddb h then 1 else 0) + countoddmembers t
+  end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 10:01:23.760000.*)
+(* Auto-generated comment: At 2019-09-06 10:01:28.180000.*)
 
