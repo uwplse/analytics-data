@@ -149,7 +149,8 @@ Proof.
 (unfold rec_wipe; simpl; intros).
 (apply spec_abstraction_compose).
 step_proc.
+(destruct a as [_ bs]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:48:00.050000.*)
+(* Auto-generated comment: At 2019-09-04 10:48:15.080000.*)
 
