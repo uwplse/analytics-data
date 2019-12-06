@@ -623,8 +623,19 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqdEQYdB"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
-(* Auto-generated comment: Failed. *)
+Lemma kron_1_r_inv : forall {m} {n} (A : Matrix m n), A == A \226\138\151 I 1.
+Proof.
+(intros).
+specialize (kron_1_r A) as G.
+show_dimensions.
+(rewrite 2!Nat.mul_1_r in *).
+symmetry.
+(apply G).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqN52fsE"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:51:21.050000.*)
+(* Auto-generated comment: At 2019-08-14 11:51:21.180000.*)
 
