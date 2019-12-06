@@ -102,8 +102,7 @@ assumption.
 (destruct (beq_idP X i) as [Hbeq| Hbeq]).
 *
 subst.
-(rewrite subst_exist_eq in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:37:01.130000.*)
+(* Auto-generated comment: At 2019-08-29 09:37:17.370000.*)
 
