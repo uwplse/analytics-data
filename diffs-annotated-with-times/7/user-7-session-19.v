@@ -112,6 +112,7 @@ Proof.
              (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
                (H _ Hm); contradiction)
      end ])).
+Show 4.
 (match goal with
  | |- | ?t1 | <= | ?t2 | =>
        assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize (H _ Hm);
@@ -119,5 +120,5 @@ Proof.
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:35:56.950000.*)
+(* Auto-generated comment: At 2019-08-12 13:36:13.670000.*)
 
