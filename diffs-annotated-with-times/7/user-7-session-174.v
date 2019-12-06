@@ -133,9 +133,10 @@ Omega.omega.
 (unfold lt_size).
 Check lt_wf.
 Print lt_wf.
-(pose proof lt_wf as H).
-(unfold well_founded in *).
+(unfold well_founded).
+(intros t; induction t; constructor; intros k Hk).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:24:45.550000.*)
+(* Auto-generated comment: At 2019-08-29 15:26:33.130000.*)
 
