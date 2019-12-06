@@ -25,12 +25,13 @@ Definition tint := TCName NInt.
 Definition tflt := TCName NFlt.
 Definition tstr := TCName NStr.
 Definition tIntInt := TPair tint tint.
-Definition vx := 1.
-Definition vy := 2.
-Definition vz := 3.
-Definition tX := TVar vx.
-Definition tY := TVar vy.
+Definition vX := 1.
+Definition vY := 2.
+Definition vZ := 3.
+Definition tX := TVar vX.
+Definition tY := TVar vY.
+Definition teXX := TExist vX vX.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 08:29:58.060000.*)
+(* Auto-generated comment: At 2019-08-19 08:30:23.190000.*)
 
