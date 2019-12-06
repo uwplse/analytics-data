@@ -135,8 +135,8 @@ Proof.
 (intros X s t1 t2).
 (pose proof (subst_equation X s (TPair t1 t2))).
 (simpl in H).
-reflexivity.
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:24:50.800000.*)
+(* Auto-generated comment: At 2019-08-30 06:25:33.280000.*)
 
