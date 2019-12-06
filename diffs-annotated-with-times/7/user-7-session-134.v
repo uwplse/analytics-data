@@ -108,8 +108,10 @@ exists w1.
 (intros v Hm).
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [tx Heq]; subst).
-(destruct w1; tauto).
+(destruct w1; simpl; tauto).
+-
+(apply sem_sub_k_ref).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:28:35.890000.*)
+(* Auto-generated comment: At 2019-08-27 08:29:01.500000.*)
 
