@@ -155,8 +155,12 @@ specialize (Hcontra _ Hm).
 (destruct Hcontra as [tx Hmx]).
 (assert (Heq : [vY := tx] TRef (TRef tY) = TRef (TRef tx)) by reflexivity).
 (rewrite Heq in Hmx).
+clear Heq.
 (apply match_ty_ref__inv in Hmx).
+(destruct Hmx as [t' [Heq' Hsem']]).
+(inversion Heq'; subst).
+clear Heq'.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:25:18.620000.*)
+(* Auto-generated comment: At 2019-08-19 13:25:46.310000.*)
 
