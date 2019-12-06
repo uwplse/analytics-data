@@ -251,8 +251,9 @@ Proof.
 econstructor.
 -
 (simpl).
-Search -pretty.pretty_nat_inj.
+Check pretty.pretty_nat_inj.
+(apply pretty.pretty_nat_inj).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:59:05.150000.*)
+(* Auto-generated comment: At 2019-08-16 06:59:07.450000.*)
 
