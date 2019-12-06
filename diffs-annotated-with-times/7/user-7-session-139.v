@@ -40,17 +40,11 @@ exists (S w1).
 exists (TEV X).
 (rewrite subs_fresh_in_ty; assumption).
 Qed.
-Lemma sem_sub_k_fresh_var__sem_sub_exist :
-  forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Lemma sem_sub_exist_fresh_l : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]<= [t].
 Proof.
-(intros X t).
-(induction t).
--
-(intros t' X' Hfresh Hsem).
-(simpl in *).
-(apply sem_sub__trans with (TCName c); try assumption).
+(intros X t Hfresh k).
 (apply sem_sub_k_exist_fresh_l).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 09:00:40.570000.*)
+(* Auto-generated comment: At 2019-08-27 09:00:51.470000.*)
 
