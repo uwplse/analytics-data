@@ -100,7 +100,8 @@ Unset Search Output Name Only.
 Next Obligation.
 Proof.
 subst digit.
+(destruct base).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:39:37.620000.*)
+(* Auto-generated comment: At 2019-08-16 05:39:41.570000.*)
 
