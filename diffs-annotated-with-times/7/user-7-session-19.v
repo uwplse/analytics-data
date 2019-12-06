@@ -140,8 +140,8 @@ clear IHt3.
 (apply match_ty_i_ref__inv in Hm2).
 (destruct Hm2 as [ty [Heqy Hrefy]]; inversion Heqy; subst).
 (simpl).
-(intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v)).
+(intros v; split; intros Hm; specialize (Hrefx v); specialize (Hrefy v); tautto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 06:35:22.860000.*)
+(* Auto-generated comment: At 2019-08-13 06:35:43.440000.*)
 
