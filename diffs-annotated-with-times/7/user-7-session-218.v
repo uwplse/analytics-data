@@ -460,8 +460,44 @@ reflexivity.
 (destruct (beq_idP Y i)).
 +
 subst.
-(rewrite b_subst_exist_eq).
-(* Auto-generated comment: Failed. *)
+(repeat rewrite b_subst_exist_eq).
+(rewrite f_subst_exist).
+reflexivity.
++
+(repeat rewrite b_subst_exist_neq; try assumption).
+(rewrite f_subst_exist).
+(rewrite IHt).
+reflexivity.
+-
+(destruct (beq_idP Y i)).
++
+subst.
+(rewrite b_subst_bvar_eq).
+(rewrite f_subst_bvar).
+(rewrite b_subst_bvar_eq).
+reflexivity.
++
+(rewrite b_subst_bvar_neq; try assumption).
+(rewrite f_subst_bvar).
+(rewrite b_subst_bvar_neq; try assumption).
+reflexivity.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite f_subst_fvar_eq).
+(rewrite f_subst_fvar_eq).
+symmetry.
+(apply b_subst_not_b_free_in_ty).
+(apply wf_ty__not_b_free_in_ty).
+assumption.
++
+(rewrite f_subst_fvar_neq; try assumption).
+(repeat rewrite b_subst_fvar).
+(rewrite f_subst_fvar_neq; try assumption).
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:26:56.960000.*)
+(* Auto-generated comment: At 2019-09-04 10:27:42.550000.*)
 
