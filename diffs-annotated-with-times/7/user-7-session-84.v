@@ -174,7 +174,7 @@ Proof.
 (inversion Hdep).
 -
 (intros t Hnft IH).
-(intros Hdt t2).
+(intros Hdep t2).
 (assert (Hva : value_type (TRef t)) by constructor).
 (assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; assumption)).
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
@@ -183,7 +183,11 @@ Proof.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
 +
 clear IHt2.
-(* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-08-16 14:10:59.510000.*)
+(simpl in Hdep).
+(pose proof (le_S_n _ _ Hdep) as Hdep').
+(unfold sem_sub_k in Hsem).
+specialize (Hsem _ Hma).
+(apply match_ty_ref__inv in Hsem).
+(destruct Hsem as [t' [Heqt' [[Hk Hdt't2] Href]]]).
+(* Auto-generated comment: Succeeded. *)
 
