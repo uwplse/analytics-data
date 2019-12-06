@@ -910,8 +910,8 @@ clear L1 M1 Lt.
 (rewrite strip_one_l_in_eq).
 Timeout 1 About kron_1_l.
 Timeout 1 Print kron_1_l.
-Timeout 1 Print Ltac kron_1_l.
-(* Auto-generated comment: Failed. *)
+(rewrite <- (kron_1_l (\226\168\130 l2))  at 1).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:46:40.290000.*)
+(* Auto-generated comment: At 2019-08-14 13:47:16.820000.*)
 
