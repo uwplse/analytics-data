@@ -104,8 +104,7 @@ all: (try (intros; simpl; Omega.omega)).
 -
 (intros).
 (simpl).
-Omega.omega.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:27:27.520000.*)
+(* Auto-generated comment: At 2019-08-30 06:27:50.180000.*)
 
