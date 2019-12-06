@@ -157,8 +157,9 @@ Proof.
 (apply spec_abstraction_compose).
 (simpl).
 Check proc_spec_weaken.
-(eapply proc_spec_weaken).
+(eapply proc_spec_weaken; eauto).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:50:44.690000.*)
+(* Auto-generated comment: At 2019-09-04 10:51:08.490000.*)
 
