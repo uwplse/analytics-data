@@ -89,8 +89,9 @@ split.
 (apply match_ty_union__inv in Hm').
 (destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
-admit.
+(apply match_ty_exist__inv in Hm').
+(destruct Hm' as [tx Hm']).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:46:58.420000.*)
+(* Auto-generated comment: At 2019-09-02 07:47:37.090000.*)
 
