@@ -355,8 +355,8 @@ admit.
 autorewrite with upd list in *.
 (simpl in *; lia).
 +
-autorewrite with upd in *.
+(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:04:38.270000.*)
+(* Auto-generated comment: At 2019-09-04 12:04:39.120000.*)
 
