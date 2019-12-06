@@ -291,8 +291,8 @@ tauto.
 -
 (intros t3 Hsub21).
 (remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21).
+(induction Hsub21; try (solve [ inversion Heqx ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 13:38:07.010000.*)
+(* Auto-generated comment: At 2019-08-07 13:38:20.070000.*)
 
