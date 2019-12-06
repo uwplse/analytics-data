@@ -86,13 +86,14 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
+Definition foo (t : ty) := TExist vX t.
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
    | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
-   | TExist y t' => t
+   | TExist y t' => foo (subst x s t')
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
@@ -117,11 +118,8 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
-(apply (well_founded_lt_compat ty size)).
 (intros).
-tauto.
-Defined.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:09:37.130000.*)
+(* Auto-generated comment: At 2019-08-30 06:09:43.800000.*)
 
