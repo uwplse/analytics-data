@@ -982,5 +982,5 @@ Timeout 1 Print Ltac restore_dims.
 (rewrite size_ntensor).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:04:59.320000.*)
+(* Auto-generated comment: At 2019-08-13 11:05:09.270000.*)
 
