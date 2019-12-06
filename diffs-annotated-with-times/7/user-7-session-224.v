@@ -150,8 +150,15 @@ exists w2.
 (apply match_ty_union_2; auto).
 }
 {
-exists 0.
+exists (S w').
+(apply match_ty_union_2).
+(rewrite f_subst_not_b_free_in_ty; auto).
+}
+}
+*
+(split; intros HX').
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:27:29.850000.*)
+(* Auto-generated comment: At 2019-09-05 13:28:20.770000.*)
 
