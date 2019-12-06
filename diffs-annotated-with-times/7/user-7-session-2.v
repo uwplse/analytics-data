@@ -25,8 +25,8 @@ Proof.
 (inversion Heq; subst).
 (right; assumption).
 -
-(inversion Heq; subst).
+subst.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:44:41.940000.*)
+(* Auto-generated comment: At 2019-08-06 12:46:43.840000.*)
 
