@@ -126,8 +126,7 @@ Proof.
 (unfold subst).
 (unfold subst_func).
 (simpl).
-reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:51:35.530000.*)
+(* Auto-generated comment: At 2019-08-29 14:52:19.020000.*)
 
