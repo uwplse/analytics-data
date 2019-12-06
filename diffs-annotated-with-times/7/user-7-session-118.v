@@ -103,8 +103,13 @@ Lemma sem_sub_k__refl : forall (k : nat) (t : ty), ||-[ k][t]<= [t].
 Proof.
 (intros k t w1).
 exists w1.
-auto.
+(intros v).
+tauto.
+Qed.
+Lemma sem_eq_k__refl : forall (k : nat) (t : ty), ||-[ k][t]= [t].
+Proof.
+(intros k t w1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:07:46.560000.*)
+(* Auto-generated comment: At 2019-08-27 07:08:08.320000.*)
 
