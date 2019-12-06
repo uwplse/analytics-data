@@ -27,11 +27,10 @@ reflexivity.
 (destruct (beq_idP X i)).
 +
 subst.
-(destruct (beq_idP Y i)).
-*
-reflexivity.
-*
+(destruct (beq_idP Y i); reflexivity).
++
+(destruct (beq_idP Y i); reflexivity).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:12:46.120000.*)
+(* Auto-generated comment: At 2019-08-27 06:12:52.750000.*)
 
