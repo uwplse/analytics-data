@@ -120,8 +120,7 @@ Proof.
 Search -"-" -(_ -> _ < _).
 (apply lt_O_minus_lt).
 (unfold "<").
-Print le.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:05:59.830000.*)
+(* Auto-generated comment: At 2019-08-16 10:06:14.080000.*)
 
