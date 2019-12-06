@@ -55,9 +55,8 @@ subst.
 contradiction.
 -
 (unfold fresh in Hfresh).
-(destruct (beq_idP X i)).
-+
+(destruct (beq_idP X i); try reflexivity).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:54:22.480000.*)
+(* Auto-generated comment: At 2019-08-27 06:55:14.940000.*)
 
