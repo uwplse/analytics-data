@@ -119,6 +119,8 @@ exists tx.
 (apply match_ty_union_2).
 assumption.
 Qed.
+Definition ty_not_empty_k (t : ty) (k : nat) : Prop := exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Hint Unfold ty_not_empty_k: DBBetaJulia.
 Reserved Notation "'|' t '|'" (at level 20).
 Fixpoint inv_depth (t : ty) :=
   match t with
@@ -393,7 +395,6 @@ right.
 (destruct Hcontra as [v Hcontra]).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
-Check ty_empty__subs_ty_empty.
 (apply (ty_empty__subs_ty_empty _ _ _ Hnotm i tx)).
 eauto.
 -
@@ -401,9 +402,9 @@ eauto.
 -
 (left; exists (TEV i); apply match_ty_ev).
 Admitted.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t k -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
-(induction t; intros k Hdep Hcontra).
+(induction t; intros k Ht Hcontra).
 -
 specialize (Hcontra 0).
 (destruct Hcontra as [w Hcontra]).
@@ -413,10 +414,7 @@ clear Hm.
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
--
-specialize (Hcontra 0).
-(destruct Hcontra as [w Hcontra]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:57:40.810000.*)
+(* Auto-generated comment: At 2019-08-21 10:59:16.190000.*)
 
