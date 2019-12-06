@@ -85,8 +85,10 @@ assumption.
 -
 (destruct (beq_idP x i); reflexivity).
 Qed.
+Check lt.
+Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
 Function
- subst (x : id) (s t : ty) {wf size t} : ty :=
+ subst (x : id) (s t : ty) {wf lt_size t} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
@@ -98,7 +100,8 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
-(* Auto-generated comment: Failed. *)
+Print All.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 15:08:55.830000.*)
+(* Auto-generated comment: At 2019-08-29 15:09:13.570000.*)
 
