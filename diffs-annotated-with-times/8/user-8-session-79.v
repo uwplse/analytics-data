@@ -597,9 +597,7 @@ Proof.
 (intros).
 (simpl).
 restore_dims.
-Set Printing All.
-(rewrite kron_1_l).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 15:58:35.160000.*)
+(* Auto-generated comment: At 2019-08-13 15:58:42.920000.*)
 
