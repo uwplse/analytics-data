@@ -185,8 +185,7 @@ clear Hm.
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
 -
-specialize (Hcontra 0).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:39:03.160000.*)
+(* Auto-generated comment: At 2019-08-21 07:41:48.330000.*)
 
