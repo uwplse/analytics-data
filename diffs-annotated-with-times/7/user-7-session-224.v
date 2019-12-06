@@ -27,7 +27,14 @@ Proof.
   try (solve [ unfold b_free_in_ty, free in HX; simpl in HX; rewrite IdSetFacts.empty_iff in HX; contradiction ])).
 -
 admit.
+-
+admit.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_exist_eq in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:11:53.530000.*)
+(* Auto-generated comment: At 2019-09-05 13:12:51.040000.*)
 
