@@ -124,8 +124,7 @@ Proof.
 (apply nf_sem_sub_i__sub_d).
 (apply mk_nf__in_nf).
 (apply sem_sub_i__trans with t1).
-(apply mk_nf__sem_sub_i1).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 14:44:08.480000.*)
+(* Auto-generated comment: At 2019-08-16 14:45:16.190000.*)
 
