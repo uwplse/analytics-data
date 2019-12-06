@@ -390,8 +390,7 @@ destruct matches.
 -
 step_proc.
 (descend; intuition eauto).
-(unfold log_size_ok; autorewrite with list; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:10:56.630000.*)
+(* Auto-generated comment: At 2019-09-04 12:10:56.880000.*)
 
