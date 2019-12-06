@@ -968,9 +968,8 @@ replace (length l1 + S (length l2)) with S n in * by lia.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-(rewrite IHi; try lia).
-reflexivity.
+(rewrite IHi; trivial; try lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:09:53.310000.*)
+(* Auto-generated comment: At 2019-08-14 18:13:03.430000.*)
 
