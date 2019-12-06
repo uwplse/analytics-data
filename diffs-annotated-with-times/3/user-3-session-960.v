@@ -245,14 +245,9 @@ econstructor.
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
 constructor.
-+
-(intros).
 admit.
-+
-(simpl).
-(unfold nat64_from_le, nat64_to_le; intros).
-Print FixedLengthEncoder.
+admit.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:31:20.820000.*)
+(* Auto-generated comment: At 2019-08-16 07:31:24.780000.*)
 
