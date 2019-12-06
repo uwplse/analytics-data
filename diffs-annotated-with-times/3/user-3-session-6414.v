@@ -35,7 +35,9 @@ Axiom
 Hint Resolve addr_to_block_ok: core.
 Module Log (d: OneDiskAPI)<: LogAPI.
 Definition init : proc InitResult.
-(* Auto-generated comment: Succeeded. *)
+Print OneDiskAPI.
+Timeout 1 Locate Ltac OneDiskAPI.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:01:11.440000.*)
+(* Auto-generated comment: At 2019-09-04 10:01:37.120000.*)
 
