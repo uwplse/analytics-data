@@ -288,8 +288,8 @@ Proof.
 (specialize (H a); intuition).
 (unfold log_addr in *).
 (rewrite disk_oob_eq; simpl; auto).
-(simpl).
+autorewrite with upd.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:48:13.480000.*)
+(* Auto-generated comment: At 2019-09-04 11:48:15.090000.*)
 
