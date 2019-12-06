@@ -61,8 +61,7 @@ reflexivity.
 {
 (destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
 {
-(apply match_ty_union_1; auto).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:16:00.170000.*)
+(* Auto-generated comment: At 2019-09-05 13:16:08.860000.*)
 
