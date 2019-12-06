@@ -141,7 +141,8 @@ Proof.
 (destruct Hm as [tx Hmx]).
 (apply match_ty_exist).
 exists tx.
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:59:09.540000.*)
+(* Auto-generated comment: At 2019-08-19 10:02:06.140000.*)
 
