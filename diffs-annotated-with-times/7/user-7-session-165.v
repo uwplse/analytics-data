@@ -75,18 +75,22 @@ Proof.
 (rewrite <- beq_id_refl).
 reflexivity.
 Qed.
-Lemma subst_neq__permute :
-  forall X Y : id, X <> Y -> forall t s1 s2 : ty, fresh_in_ty X s2 -> fresh_in_ty Y s1 -> [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
+Lemma subst_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
-(intros X Y Hneq t).
-(induction t; intros s1 s2 HXs2 HYs1;
-  try (solve [ simpl; reflexivity | simpl; rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
+(intros X t; induction t; simpl; try reflexivity).
 -
-(simpl).
-(destruct (beq_idP X i)).
-+
-subst.
-(* Auto-generated comment: Failed. *)
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(destruct (beq_idP X i); try reflexivity).
+(rewrite IHt).
+reflexivity.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 13:53:58.930000.*)
+(* Auto-generated comment: At 2019-08-29 13:54:08.420000.*)
 
