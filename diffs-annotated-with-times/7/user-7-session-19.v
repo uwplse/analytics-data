@@ -89,8 +89,8 @@ idtac.
 (assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
 specialize (H _ Hm).
 (apply match_ty_i_ref__inv in H).
-(destruct H as [tx [Heq Href]]; subst).
+(destruct H as [tx [Heq Href]]; inversion Heq; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:51:51.030000.*)
+(* Auto-generated comment: At 2019-08-12 12:52:46.380000.*)
 
