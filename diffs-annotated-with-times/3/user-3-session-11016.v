@@ -523,8 +523,10 @@ Qed.
 Theorem rev_app_distr :
   forall l1 l2 : natlist, rev (l1 ++ l2) = rev l2 ++ rev l1.
 Proof.
-(induction l1; simpl).
+(induction l1; simpl; intros).
+-
+(rewrite app_nil_r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 10:09:36.100000.*)
+(* Auto-generated comment: At 2019-09-06 10:09:44.440000.*)
 
