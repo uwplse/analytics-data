@@ -6,8 +6,12 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Require Import Examples.StatDb.Impl.
-Require Import Helpers.RelationRewriting.
-(* Auto-generated comment: Failed. *)
+Require Import Spec.Hoare.
+Require Import Spec.HoareTactics.
+Require Import Spec.AbstractionSpec.
+Definition absr : relation DB.l.(State) Var.l.(State) unit :=
+  fun l s _ => fst s = fold_right plus 0 l /\ snd s = length l.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 13:59:21.370000.*)
+(* Auto-generated comment: At 2019-08-07 13:59:26.670000.*)
 
