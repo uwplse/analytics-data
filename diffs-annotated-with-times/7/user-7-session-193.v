@@ -102,12 +102,84 @@ Fixpoint match_ty (w : nat) :=
       | _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
       | _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
       | S w, v, TExist X t' => exists tx, wf_ty tx /\ |-[ w] v <$ [BX := tx] t'
-      | _, TEV X, TFVar X => X = X'
+      | _, TEV X, TFVar X' => X = X'
       | _, TEV X, TEV X' => X = X'
       | _, _, _ => False
       end
 where "'|-[' w ']' v '<$' t" := (match_ty w v t) : btjm_scope.
-(* Auto-generated comment: Failed. *)
+Definition sem_sub_w (w1 w2 : nat) (t1 t2 : ty) := forall v : ty, |-[ w1] v <$ t1 -> |-[ w2] v <$ t2.
+Notation "'||-[' w1 ',' w2 ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w w1 w2 t1 t2) (at level 45) : btjm_scope.
+Definition sem_sub (t1 t2 : ty) := forall w1 : nat, exists w2 : nat, ||-[ w1, w2][t1]<= [t2].
+Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : btjm_scope.
+Definition sem_eq (t1 t2 : ty) := ||- [t1]<= [t2] /\ ||- [t2]<= [t1].
+Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
+Hint Unfold sem_sub_w sem_sub sem_eq: DBBetaJulia.
+Lemma sem_sub__refl : forall t : ty, ||- [t]<= [t].
+Proof.
+(intros t w1).
+exists w1.
+(intros v).
+tauto.
+Qed.
+Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
+Proof.
+(intros t; split; apply sem_sub__refl).
+Qed.
+Lemma sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] -> ||- [t1]<= [t3].
+Proof.
+(intros t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_sub in *).
+(intros w1).
+specialize (Hsem1 w1).
+(destruct Hsem1 as [w2 Hsem1]).
+specialize (Hsem2 w2).
+(destruct Hsem2 as [w3 Hsem2]).
+exists w3.
+(intros v).
+auto.
+Qed.
+Lemma sem_eq__trans : forall t1 t2 t3 : ty, ||- [t1]= [t2] -> ||- [t2]= [t3] -> ||- [t1]= [t3].
+Proof.
+(intros t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq in *).
+(destruct Hsem1 as [Hsem11 Hsem12]).
+(destruct Hsem2 as [Hsem21 Hsem22]).
+(split; eapply sem_sub__trans; eauto).
+Qed.
+Declare Scope btjd_scope.
+Delimit Scope btjd_scope with btjd.
+Open Scope btjd.
+Reserved Notation "'|-' t1 '<<' t2" (at level 50).
+Inductive sub_d : ty -> ty -> Prop :=
+  | SD_Refl : forall t, |- t << t
+  | SD_Trans : forall t1 t2 t3, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3
+  | SD_Pair : forall t1 t2 t1' t2', |- t1 << t1' -> |- t2 << t2' -> |- TPair t1 t2 << TPair t1' t2'
+  | SD_UnionL : forall t1 t2 t, |- t1 << t -> |- t2 << t -> |- TUnion t1 t2 << t
+  | SD_UnionR1 : forall t1 t2, |- t1 << TUnion t1 t2
+  | SD_UnionR2 : forall t1 t2, |- t2 << TUnion t1 t2
+  | SD_Distr1 : forall t11 t12 t2, |- TPair (TUnion t11 t12) t2 << TUnion (TPair t11 t2) (TPair t12 t2)
+  | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
+  | SD_ExistL : forall (X : id) (t t' : ty) (X' : id), not_f_free_in_ty X' t' -> |- [BX := TFVar X'] t << t' -> |- TExist X t << t'
+  | SD_ExistR : forall (X : id) (t t' : ty), (exists tx : ty, wf_ty tx /\ |- t << [BX := tx] t') -> |- t << TExist X t'
+ where "|- t1 '<<' t2" := (sub_d t1 t2) : btjd_scope.
+Hint Constructors sub_d: DBBetaJulia.
+Lemma union_right_1 : forall t t1 t2 : ty, |- t << t1 -> |- t << TUnion t1 t2.
+Proof.
+(intros t t1 t2 H).
+(eapply SD_Trans).
+eassumption.
+constructor.
+Qed.
+Lemma union_right_2 : forall t t1 t2 : ty, |- t << t2 -> |- t << TUnion t1 t2.
+Proof.
+(intros t t1 t2 H).
+(eapply SD_Trans).
+eassumption.
+constructor.
+Qed.
+Hint Resolve union_right_1 union_right_2: DBBetaJulia.
+Ltac solve_trans := eapply SD_Trans; eassumption.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 09:05:37.170000.*)
+(* Auto-generated comment: At 2019-09-03 09:08:30.280000.*)
 
