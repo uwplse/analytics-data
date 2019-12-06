@@ -596,8 +596,8 @@ Proof.
 -
 (intros).
 (simpl).
-restore_dims.
+(progress restore_dims).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 15:58:49.270000.*)
+(* Auto-generated comment: At 2019-08-13 15:59:11.480000.*)
 
