@@ -78,8 +78,7 @@ Proof.
 (apply sem_eq__comm).
 (apply mk_nf__sem_eq; assumption).
 Qed.
-Theorem sem_sub_i__sem_sub_deq : forall t1 t2 : ty, (||- [t1]<= [t2])%btjmi -> (||- [t1]<= [t2])%btjmdeq.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 07:36:34.410000.*)
+(* Auto-generated comment: At 2019-08-14 07:36:41.840000.*)
 
