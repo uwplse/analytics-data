@@ -652,8 +652,8 @@ Proof.
 -
 (intros).
 (simpl).
-(rewrite <- kron_1_l_inv).
-(* Auto-generated comment: Succeeded. *)
+specialize (kron_1_l (\226\168\130 l2)) as KL.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:09:17.020000.*)
+(* Auto-generated comment: At 2019-08-14 13:09:19.840000.*)
 
