@@ -153,8 +153,9 @@ specialize (Hcontra 2).
 specialize (Hcontra _ Hm).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hmx]).
-(simpl in Hmx).
+(assert (Heq : [vY := tx] TRef (TRef tY) = TRef (TRef tx))).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:24:23.450000.*)
+(* Auto-generated comment: At 2019-08-19 13:24:58.800000.*)
 
