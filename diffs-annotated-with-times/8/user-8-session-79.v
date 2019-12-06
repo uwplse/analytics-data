@@ -598,8 +598,7 @@ Proof.
 (simpl).
 (remember (\226\168\130 l2) as A).
 clear.
-Msimpl.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:24:54.790000.*)
+(* Auto-generated comment: At 2019-08-13 17:25:11.320000.*)
 
