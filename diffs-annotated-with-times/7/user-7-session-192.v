@@ -88,7 +88,31 @@ admit.
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
+(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
+*
+specialize (IHw'b H).
+(split; intros HX').
+{
+(apply match_ty_exist).
+exists ti.
+assumption.
+}
+{
+(destruct (beq_idP X' i)).
+{
+subst.
+(unfold free_in_ty in HX').
+(simpl in HX').
+admit.
+}
+{
+(rewrite subst_equation).
+(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
+(rewrite Hbeq).
+(destruct (IdSet.mem i (FV tx))).
+{
+(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 12:37:05.150000.*)
+(* Auto-generated comment: At 2019-09-02 12:38:00.490000.*)
 
