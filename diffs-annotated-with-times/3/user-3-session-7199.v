@@ -453,9 +453,8 @@ Proof.
 (unfold log_length_ok in *; intros; autorewrite with upd list in *).
 (simpl in *; intuition).
 -
-(unfold log_size_ok; autorewrite with upd list in *).
-lia.
+(unfold log_size_ok in *; autorewrite with upd list in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:51:25.830000.*)
+(* Auto-generated comment: At 2019-09-04 12:52:45.870000.*)
 
