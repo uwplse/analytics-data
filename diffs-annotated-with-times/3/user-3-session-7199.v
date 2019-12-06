@@ -320,9 +320,11 @@ Proof.
 (intros).
 (induction d; simpl in *).
 -
-lia.
+(exfalso; lia).
 -
-(* Auto-generated comment: Succeeded. *)
+(destruct d; simpl in *).
+lia.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:11:54.590000.*)
+(* Auto-generated comment: At 2019-09-04 11:11:56.640000.*)
 
