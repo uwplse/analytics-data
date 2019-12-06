@@ -34,10 +34,10 @@ assumption.
 (destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
 (apply match_ty_union_1; auto).
 *
-(destruct (free_in_ty_union__inv _ _ _ HX') as [HX''| HX'']).
 (rewrite subst_union).
+(destruct (free_in_ty_union__inv _ _ _ HX') as [HX''| HX'']).
 (apply match_ty_union_1; auto).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-02 08:45:57.700000.*)
+(* Auto-generated comment: At 2019-09-02 08:46:19.590000.*)
 
