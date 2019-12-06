@@ -99,8 +99,8 @@ specialize (IHw' HX').
 (rewrite f_subst_exist).
 exists ([FX' := tx] ti).
 split.
-(apply wf_ty__wf_ty_f_subst).
-(* Auto-generated comment: Failed. *)
+(apply wf_ty__wf_ty_f_subst; assumption).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:11:11.010000.*)
+(* Auto-generated comment: At 2019-09-04 10:14:54.730000.*)
 
