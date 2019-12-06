@@ -92,8 +92,10 @@ Proof.
 (simpl in HX).
 assumption.
 Qed.
-Lemma free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), free_in_ty X (TPair t1 t2) -> free_in_ty X t1 \/ free_in_ty X t2.
+Lemma f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TPair t1 t2) -> f_free_in_ty X t1 \/ f_free_in_ty X t2.
+Proof.
+(unfold d_free_in_ty).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:17:00.650000.*)
+(* Auto-generated comment: At 2019-09-04 09:17:21.530000.*)
 
