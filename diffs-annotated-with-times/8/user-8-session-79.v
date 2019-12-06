@@ -962,8 +962,7 @@ restore_dims
 specialize (IHi n l1 l2 A B).
 (repeat rewrite app_length in *).
 (simpl in *).
-(rewrite IHi).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 18:05:55.790000.*)
+(* Auto-generated comment: At 2019-08-14 18:06:01.540000.*)
 
