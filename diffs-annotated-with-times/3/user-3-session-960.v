@@ -125,8 +125,8 @@ Proof.
 (intros).
 (induction n as [n IHn] using lt_wf_ind).
 (destruct n; simpl).
-(rewrite nat_to_le_func).
-(* Auto-generated comment: Failed. *)
+Search -nat_to_le_func.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:02:20.390000.*)
+(* Auto-generated comment: At 2019-08-16 06:02:30.870000.*)
 
