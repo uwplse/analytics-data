@@ -81,8 +81,12 @@ exists 0.
 {
 specialize (IHt'b HXt'2).
 (destruct IHt'b as [w2 IHt'b]).
+exists w2.
 (apply match_ty_union_2; auto).
-(* Auto-generated comment: Succeeded. *)
+}
+{
+(exisst 0).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:18:55.470000.*)
+(* Auto-generated comment: At 2019-09-05 13:19:28.520000.*)
 
