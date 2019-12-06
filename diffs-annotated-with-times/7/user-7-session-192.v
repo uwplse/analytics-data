@@ -100,8 +100,12 @@ assumption.
 (destruct (beq_idP X' i)).
 {
 subst.
-(rewrite subst_exist_eq).
+(unfold free_in_ty in HX').
+(simpl in HX').
+admit.
+}
+{
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 12:34:00.160000.*)
+(* Auto-generated comment: At 2019-09-02 12:34:02.440000.*)
 
