@@ -28,8 +28,8 @@ Definition absr : relation DB.l.(State) Var.l.(State) unit :=
   end.
 Instance absr_non_error : (NonError absr).
 Proof.
-(compute).
+(unfold NonError).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 14:01:35.350000.*)
+(* Auto-generated comment: At 2019-08-07 14:01:40.460000.*)
 
