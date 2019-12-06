@@ -220,7 +220,11 @@ reflexivity.
 (simpl).
 reflexivity.
 -
+(simpl).
+(rewrite IHm').
+(rewrite plus_swap).
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-07 06:51:28.560000.*)
+(* Auto-generated comment: At 2019-09-07 06:58:35.540000.*)
 
