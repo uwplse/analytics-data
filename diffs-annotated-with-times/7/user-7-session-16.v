@@ -383,8 +383,8 @@ right.
 (remember (TCName c) as t eqn:Heq1 ; remember (TPair t2_1 t2_2) as t' eqn:Heq2 ).
 (induction Hcontra; try (solve [ inversion Heq1 | inversion Heq2 ])).
 subst.
-(apply IHHcontra).
+(apply IHHcontra; try tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:25:24.850000.*)
+(* Auto-generated comment: At 2019-08-09 11:25:56.950000.*)
 
