@@ -261,5 +261,5 @@ subst.
 (intros [[v1 Hcontra'1] [v2 Hcontra'2]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:16:50.740000.*)
+(* Auto-generated comment: At 2019-08-21 10:16:57.680000.*)
 
