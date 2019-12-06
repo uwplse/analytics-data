@@ -37,7 +37,10 @@ Module Log (d: OneDiskAPI)<: LogAPI.
 Definition init : proc InitResult.
 Print OneDiskAPI.
 Timeout 1 Locate Ltac OneDiskAPI.
+Timeout 1 Locate OneDiskAPI.
+Timeout 1 Locate OneDiskAPI.
+Timeout 1 Locate Ltac OneDiskAPI.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:01:37.120000.*)
+(* Auto-generated comment: At 2019-09-04 10:01:46.790000.*)
 
