@@ -142,8 +142,12 @@ specialize (IHw _ _ _ Hm).
 (destruct IHw as [v' [Hm' Hprop]]).
 exists v'.
 split.
+*
+(apply match_ty_exist).
+(eexists; eassumption).
+*
 assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:40:57.330000.*)
+(* Auto-generated comment: At 2019-08-29 09:45:51.420000.*)
 
