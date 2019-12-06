@@ -115,7 +115,8 @@ Proof.
 (destruct (r == 0)).
 -
 (step_proc_basic; intros).
-(* Auto-generated comment: Succeeded. *)
+eauto.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:09:07.540000.*)
+(* Auto-generated comment: At 2019-09-03 11:09:09.380000.*)
 
