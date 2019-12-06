@@ -286,8 +286,8 @@ End AGT_Spec.
 Module AGT_Bounded_Rows_Details.
 Search -unique.
 Search -uniqueness.
-Definition label := int.
+Definition label := num.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 22:32:46.960000.*)
+(* Auto-generated comment: At 2019-09-04 22:32:48.880000.*)
 
