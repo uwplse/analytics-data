@@ -100,8 +100,8 @@ Search -IdSet.singleton.
 subst.
 exfalso.
 (apply Hin).
-(apply IdSetFacts.singleton_q).
+(apply IdSetFacts.singleton_1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:31:01.990000.*)
+(* Auto-generated comment: At 2019-09-06 09:31:04.820000.*)
 
