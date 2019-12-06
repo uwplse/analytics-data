@@ -90,8 +90,10 @@ specialize (Href v Hv).
 (simpl).
 (intros v Hv).
 specialize (Href v Hv).
-(split; auto).
+split.
+*
+Abort.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:58:04.680000.*)
+(* Auto-generated comment: At 2019-08-12 09:58:10.660000.*)
 
