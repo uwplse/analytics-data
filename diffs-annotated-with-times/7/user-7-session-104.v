@@ -139,7 +139,8 @@ contradiction.
 (apply match_ty_exist).
 exists tx.
 (apply match_ty_union_1).
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:39:06.890000.*)
+(* Auto-generated comment: At 2019-08-20 12:39:09.360000.*)
 
