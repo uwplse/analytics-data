@@ -654,8 +654,11 @@ show_dimensions.
 (intros).
 (simpl).
 specialize (kron_1_l (\226\168\130 l2)) as KL.
+specialize (kron_1_l_inv (\226\168\130 l2)) as KL'.
 show_dimensions.
+(rewrite <- kron_1_l_inv).
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:31:04.540000.*)
+(* Auto-generated comment: At 2019-08-14 13:32:59.390000.*)
 
