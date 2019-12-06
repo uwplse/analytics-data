@@ -515,8 +515,9 @@ assumption.
 (pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href) as Hdepeq).
 (rewrite <- Hdepeq; assumption).
 (apply sem_sub_k_i__trans with t2).
-(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ (match_ty_i_nf t2 k)) as [_ Hsemt2]).
-(* Auto-generated comment: Succeeded. *)
+(apply mk_nf__sem_sub_k_i_l).
+(apply sem_eq_k_i__sem_sub_k_i).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:28:03.870000.*)
+(* Auto-generated comment: At 2019-08-16 14:28:18.090000.*)
 
