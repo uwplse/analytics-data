@@ -508,8 +508,9 @@ auto using match_ty_i_pair.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [tx [Heq Href]]; subst).
 (simpl).
-(intros v; split; intros Hm; specialize (Href v); [ specialize (IHHsub2 k Hm) | specialize (IHHsub1 k Hm) ]).
+(intros v; split; intros Hm; specialize (Href v)).
+specialize (IHHsub2 k Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:12:19.940000.*)
+(* Auto-generated comment: At 2019-08-13 13:14:13.150000.*)
 
