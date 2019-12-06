@@ -395,8 +395,7 @@ Proof.
 idtac.
 (intros Hm k' Hle).
 (inversion Hle; subst).
-assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:56:13.580000.*)
+(* Auto-generated comment: At 2019-08-13 11:56:58.350000.*)
 
