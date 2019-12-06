@@ -56,8 +56,8 @@ reflexivity.
 -
 dependent destruction u.
 (simpl).
-(destruct li as [| k li]).
+(destruct li as [| k li]; trivial).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-08 12:58:34.010000.*)
+(* Auto-generated comment: At 2019-08-08 12:58:35.960000.*)
 
