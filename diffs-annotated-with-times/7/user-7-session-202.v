@@ -133,11 +133,9 @@ Proof.
    | try destruct (wf_ty_pair__inv _ _ Hwf) as [wf1 wf2]; try destruct (wf_ty_union__inv _ _ Hwf) as [wf1 wf2]; simpl; rewrite IHt1; try assumption;
       rewrite IHt2; try assumption; reflexivity ])).
 -
-(destruct (beq_idP X i)).
-subst.
-(rewrite b_subst_exist_eq).
-reflexivity.
+(destruct (beq_idP X i); try (subst; rewrite b_subst_exist_eq; reflexivity)).
+(rewrite b_subst_exist_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:58:15.160000.*)
+(* Auto-generated comment: At 2019-09-03 09:58:56.300000.*)
 
