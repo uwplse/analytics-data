@@ -51,7 +51,9 @@ Qed.
 Lemma match_ty_i_k__match_le_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k' : nat, k' <= k -> |-[ k] v <$ t.
 Proof.
 (induction k; intros v t; generalize dependent v; induction t; intros v Hm k' Hle).
+-
+(apply match_ty_i_cname__inv in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:36:42.440000.*)
+(* Auto-generated comment: At 2019-08-12 09:37:07.400000.*)
 
