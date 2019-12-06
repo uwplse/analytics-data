@@ -405,14 +405,21 @@ assumption.
 clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
-(inversion Hle; subst).
+(inversion Hle; subst; simpl).
 +
-(simpl).
 (intros v).
 specialize (Href v).
 (split; tauto).
 +
+(destruct k').
+(simpl).
+tauto.
+(simpl).
+(intros v).
+specialize (Href v).
+split.
+*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:00:44.760000.*)
+(* Auto-generated comment: At 2019-08-13 12:01:00.670000.*)
 
