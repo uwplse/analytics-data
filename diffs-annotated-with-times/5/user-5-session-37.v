@@ -212,9 +212,10 @@ assumption.
 -
 exfalso.
 refine (_ _).
-+
 (apply evalIntInj).
++
+assumption.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 11:06:08.520000.*)
+(* Auto-generated comment: At 2019-09-01 11:06:20.650000.*)
 
