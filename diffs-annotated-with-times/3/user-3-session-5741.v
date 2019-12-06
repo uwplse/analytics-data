@@ -581,8 +581,18 @@ reflexivity.
 -
 (destruct H).
 (destruct b).
++
 reflexivity.
-(* Auto-generated comment: Succeeded. *)
++
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3k1HEd"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+-
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 06:47:56.620000.*)
+(* Auto-generated comment: At 2019-09-04 06:47:59.750000.*)
 
