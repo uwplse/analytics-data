@@ -206,8 +206,8 @@ exists 0,(TCName c).
 +
 (left; intros w v Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 exfalso.
-(apply IHt1).
+(eapply IHt1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 07:50:52.580000.*)
+(* Auto-generated comment: At 2019-09-04 07:51:00.080000.*)
 
