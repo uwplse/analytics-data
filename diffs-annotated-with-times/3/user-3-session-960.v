@@ -76,5 +76,5 @@ Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
   end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 05:32:01.690000.*)
+(* Auto-generated comment: At 2019-08-16 05:32:33.830000.*)
 
