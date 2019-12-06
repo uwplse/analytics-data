@@ -967,8 +967,8 @@ gen \207\129.
 (simpl).
 (rewrite Nat.mul_1_r).
 (intros \207\129).
-gridify.
+restore_dims.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 10:40:57.920000.*)
+(* Auto-generated comment: At 2019-08-13 10:42:55.920000.*)
 
