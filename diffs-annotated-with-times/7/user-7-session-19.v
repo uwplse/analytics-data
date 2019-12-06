@@ -400,8 +400,9 @@ Proof.
 -
 (intros c k Hdep t2).
 (assert (Hva : value_type (TCName c)) by constructor).
-(assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
-(* Auto-generated comment: Succeeded. *)
+(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:28:38.490000.*)
+(* Auto-generated comment: At 2019-08-13 12:30:13.770000.*)
 
