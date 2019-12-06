@@ -133,7 +133,7 @@ Theorem get_len_ok :
      {|
      pre := True;
      post := fun r state' => state' = state /\ r = length state;
-     recovered := fun _ state' => state' = state |}) get_len d.recover abstr.
+     recovered := fun _ state' => state' = state |}) get_len recover abstr.
 Proof.
 (unfold get_len; intros).
 (apply spec_abstraction_compose).
@@ -147,7 +147,9 @@ Hint Resolve get_len_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 (unfold get; intros).
+(apply spec_abstraction_compose; simpl).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:42:34.190000.*)
+(* Auto-generated comment: At 2019-09-04 10:42:39.370000.*)
 
