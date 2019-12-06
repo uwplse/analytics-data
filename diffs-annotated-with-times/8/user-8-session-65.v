@@ -968,10 +968,7 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 (intros \207\129).
 remember_differences.
-Timeout 1 About remember_differences.
-Timeout 1 Print remember_differences.
-Timeout 1 Print Ltac remember_differences.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:22:29.600000.*)
+(* Auto-generated comment: At 2019-08-13 11:25:38.180000.*)
 
