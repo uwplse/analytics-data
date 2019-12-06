@@ -497,8 +497,8 @@ intuition.
 {
 (descend; intuition eauto).
 (eapply log_abstraction_nil; eauto).
-}
+(rewrite diskUpd_eq).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:23:12.760000.*)
+(* Auto-generated comment: At 2019-09-04 12:24:15.830000.*)
 
