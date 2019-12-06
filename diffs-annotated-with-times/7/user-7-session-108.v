@@ -247,8 +247,7 @@ Lemma ty__empty_or_matching_ty_exists :
 Proof.
 (induction w; induction t; intros k).
 -
-(left; exists (TCName c)).
-(apply match_ty_value_type__reflexive; constructor).
+(left; exists (TCName c); apply match_ty_cname).
 -
 admit.
 -
@@ -269,7 +268,18 @@ right.
 (left; exists (TEV i); apply match_ty_ev).
 -
 (left; exists (TCName c); apply match_ty_cname).
-(* Auto-generated comment: Failed. *)
+-
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+(destruct k).
+reflexivity.
+(split; intros w1; exists w1; auto).
+-
+(destruct (IHt k) as [v Hm]).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-21 09:51:21.580000.*)
+(* Auto-generated comment: At 2019-08-21 09:52:32.490000.*)
 
