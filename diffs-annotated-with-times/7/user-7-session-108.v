@@ -243,19 +243,15 @@ assumption.
 (apply match_ty_ev).
 Qed.
 Lemma not_match_ty_var__not_match_ty_subs :
-  forall (t v : ty) (k w : nat), ~ |-[ k, w] v <$ t -> forall (X : id) (s : ty), ~ |-[ k, w] v <$ [X := s] t.
+  forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
 Proof.
-(induction t; intros v k w Hnotm X S Hcontra).
+(induction t; intros k w Hnotm X S Hcontra).
 -
-(destruct k, w, v; apply Hnotm; assumption).
+(apply Hnotm; assumption).
 -
 (simpl in Hcontra).
-(apply match_ty_pair__inv in Hcontra).
 (destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
-subst.
-(assert (Hcontra : ~ |-[ k, w] v1 <$ t1 \/ ~ |-[ k, w] v2 <$ t2)).
-{
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-21 10:00:39.820000.*)
+(* Auto-generated comment: At 2019-08-21 10:03:25.650000.*)
 
