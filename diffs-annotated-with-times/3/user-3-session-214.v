@@ -63,7 +63,9 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Check puts.
 Instance nonError_puts  `(f : A -> A): (NonError (puts f)).
+Proof.
+(hnf).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 14:04:58.810000.*)
+(* Auto-generated comment: At 2019-08-07 14:05:03.820000.*)
 
