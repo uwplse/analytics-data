@@ -151,9 +151,10 @@ Proof.
   | Hsem:forall v, value_type v -> |-[ ?k] v <$ TCName ?c -> _
     |- _ =>
         assert (Hvv : value_type (TCName c)) by constructor;
-         assert (Hmv : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hvv Hmv)
+         assert (Hmv : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hvv Hmv);
+         apply match_ty_i_union__inv in Hsem; destruct Hsem; [ left | right ]
   end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 06:48:41.150000.*)
+(* Auto-generated comment: At 2019-08-13 06:48:46.480000.*)
 
