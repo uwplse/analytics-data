@@ -46,10 +46,7 @@ Fixpoint simplify (t : Term) : Term :=
   | Eq a b => Eq (simplify a) (simplify b)
   | Choose x P => Choose x (simplify P)
   end.
-Theorem simplify_correct :
-  forall (L : EpsilonLogic) (t : Term),
-  isTheorem L t <-> isTheorem L (simplify t).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 10:08:24.490000.*)
+(* Auto-generated comment: At 2019-08-12 10:09:20.610000.*)
 
