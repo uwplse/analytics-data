@@ -590,27 +590,15 @@ constructor.
 (apply (H (S i))).
 Qed.
 Definition mat_equiv' := @mat_equiv.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRShYoE"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 About show_dimensions.
-Timeout 1 Print show_dimensions.
-Timeout 1 Print Ltac show_dimensions.
 Definition mat_equiv_shadow : @mat_equiv = mat_equiv' := eq_refl.
 Ltac
  show_dimensions :=
   try rewrite mat_equiv_shadow in *; try rewrite kron_shadow in *;
    try rewrite Mmult_shadow in *.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqxnjtrZ"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Ltac
  hide_dimensions :=
   try rewrite <- mat_equiv_shadow in *; try rewrite <- kron_shadow in *;
    try rewrite <- Mmult_shadow in *.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq0rIRFh"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
 Proof.
 (intros).
@@ -620,9 +608,6 @@ show_dimensions.
 symmetry.
 (apply G).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqdEQYdB"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Lemma kron_1_r_inv : forall {m} {n} (A : Matrix m n), A == A \226\138\151 I 1.
 Proof.
 (intros).
@@ -632,10 +617,11 @@ show_dimensions.
 symmetry.
 (apply G).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqN52fsE"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-(* Auto-generated comment: Succeeded. *)
+Goal _ forall m n (A B : Matrix m n), A == B -> I 1 \226\138\151 A \226\138\151 I 1 == I 1 \226\138\151 B \226\138\151 I 1.
+Proof.
+(intros).
+(rewrite <- kron_1_l_inv).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 11:51:21.180000.*)
+(* Auto-generated comment: At 2019-08-14 11:51:22.190000.*)
 
