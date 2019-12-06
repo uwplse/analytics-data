@@ -622,8 +622,8 @@ Proof.
 (intros).
 (rewrite kron_1_l).
 (rewrite kron_1_l).
-(rewrite kron_1_r).
+(rewrite kron_1_r_inv).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 11:51:24.190000.*)
+(* Auto-generated comment: At 2019-08-14 11:52:01.150000.*)
 
