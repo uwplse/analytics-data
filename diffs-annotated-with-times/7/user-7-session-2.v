@@ -55,8 +55,11 @@ Proof.
 *
 (intros Hnf2'; intros Hsub1 Hsub2).
 (rewrite unite_pairs_atom_union; try assumption).
-(apply union_nf_sub_r__components_sub_r in Hsub2; try assumption).
+(apply sub_r_nf_union_l__inv in Hsub2; try assumption).
+(inversion Hsub2).
+(constructor; [ apply IHHnf2_1 | apply IHHnf2_2 ]; assumption).
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:50:49.540000.*)
+(* Auto-generated comment: At 2019-08-06 12:50:50.130000.*)
 
