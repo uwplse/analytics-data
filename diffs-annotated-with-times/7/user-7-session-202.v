@@ -134,8 +134,8 @@ Proof.
 (rewrite IHt).
 reflexivity.
 -
-(destruct (beq_idP X i); try reflexivity).
+(destruct (beq_idP X i); try apply b_subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:00:22.840000.*)
+(* Auto-generated comment: At 2019-09-03 10:00:38.330000.*)
 
