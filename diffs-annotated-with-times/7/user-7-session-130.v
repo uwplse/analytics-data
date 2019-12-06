@@ -99,8 +99,8 @@ tauto.
 -
 (assert (Hmp : |-[ k, w1'] TPair v1 v <$ TPair t1 t2)).
 {
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:11:52.630000.*)
+(* Auto-generated comment: At 2019-08-27 08:12:12.190000.*)
 
