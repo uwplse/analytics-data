@@ -426,8 +426,7 @@ Proof.
 (assert (Hm : |-[ | TUnion ta tb |] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem _ _ Hm).
 (apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:01:20.020000.*)
+(* Auto-generated comment: At 2019-08-13 12:01:59.250000.*)
 
