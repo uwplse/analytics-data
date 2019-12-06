@@ -48,8 +48,8 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(apply sem_sub_trans).
+(apply sem_sub_trans with (TCName c)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:58:56.390000.*)
+(* Auto-generated comment: At 2019-08-27 08:59:07.130000.*)
 
