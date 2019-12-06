@@ -216,8 +216,8 @@ invert_abstraction.
 {
 (exists s; split; eauto).
 (destruct (a == diskSize s); subst).
-*
++
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:22:30.460000.*)
+(* Auto-generated comment: At 2019-09-03 13:22:36.500000.*)
 
