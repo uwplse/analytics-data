@@ -163,8 +163,9 @@ Proof.
                (H _ Hm); contradiction)
      end ])).
 (assert (Hv : value_type (TCName c)) by constructor).
-(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ H)).
+(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ H) as Hsemu).
+(destruct Hsemu as [Hsemu1| Hsemu2]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:01:35.290000.*)
+(* Auto-generated comment: At 2019-08-13 07:01:53.100000.*)
 
