@@ -195,8 +195,15 @@ Definition ty_empty (t : ty) := forall (w : nat) (v : ty), |-[ w] v <$ t -> Fals
 Definition ty_not_empty (t : ty) := exists (w : nat) (v : ty), |-[ w] v <$ t.
 Lemma match_ty__prop : forall t : ty, ty_empty t \/ ty_not_empty t.
 Proof.
+(unfold ty_empty, ty_not_empty).
 (induction t).
+-
+right.
+exists 0,(TCName c).
+(apply match_ty_cname).
+-
+(destruct (IHt1) as [IHt1| [w1 [v1 Hm1]]]; destruct (IHt2) as [IHt2| [w2 [v2 Hm2]]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 14:27:37.270000.*)
+(* Auto-generated comment: At 2019-09-04 07:48:41.760000.*)
 
