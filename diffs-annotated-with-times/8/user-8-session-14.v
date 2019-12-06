@@ -1221,6 +1221,19 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 Msimpl.
 (eapply init0_end_superoperator; trivial).
-easy.
-(* Auto-generated comment: Failed. *)
+(restore_dims; easy).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqoi4Fe2"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma apply_new1_correct : forall n, WF_Superoperator (@apply_new1 n).
+Proof.
+(intros n \207\129 M\207\129).
+(unfold apply_new0, super).
+gen \207\129.
+(rewrite <- (Nat.mul_1_r (2 ^ n)%nat)).
+(repeat rewrite Nat.pow_add_r).
+(intros).
+(rewrite Nat.mul_1_r).
+(* Auto-generated comment: Succeeded. *)
 
