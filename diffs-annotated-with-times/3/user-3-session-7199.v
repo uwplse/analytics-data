@@ -387,8 +387,7 @@ specialize (H a).
 }
 intuition.
 Search -nth -"++".
-(rewrite app_nth1 in H by lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:15:32.650000.*)
+(* Auto-generated comment: At 2019-09-04 12:15:32.810000.*)
 
