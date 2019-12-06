@@ -170,8 +170,7 @@ generalize dependent t3.
 +
 constructor.
 auto.
--
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 13:33:35.050000.*)
+(* Auto-generated comment: At 2019-08-06 13:33:37.130000.*)
 
