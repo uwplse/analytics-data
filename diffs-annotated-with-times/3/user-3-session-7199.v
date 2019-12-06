@@ -323,8 +323,8 @@ Proof.
 (exfalso; lia).
 -
 (destruct d; simpl in *).
-lia.
-(* Auto-generated comment: Failed. *)
+(inversion H).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:11:56.640000.*)
+(* Auto-generated comment: At 2019-09-04 11:12:01.470000.*)
 
