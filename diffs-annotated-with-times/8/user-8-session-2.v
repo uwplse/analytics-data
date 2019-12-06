@@ -114,9 +114,12 @@ Proof.
 (induction l).
 (simpl).
 -
-(induction r; trivial).
-reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(induction r; try reflexivity).
+(simpl).
+(destruct a).
++
+(rewrite IHr).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:21:08.240000.*)
+(* Auto-generated comment: At 2019-08-09 11:21:08.880000.*)
 
