@@ -80,8 +80,8 @@ Proof.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 (intros v Hv).
-(split; tauto).
+(split; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:46:35.550000.*)
+(* Auto-generated comment: At 2019-08-12 09:47:36.280000.*)
 
