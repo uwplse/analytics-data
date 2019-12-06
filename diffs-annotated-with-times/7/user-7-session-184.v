@@ -76,13 +76,11 @@ admit.
 -
 admit.
 -
-admit.
--
-admit.
--
-admit.
--
+exists v.
+split.
+assumption.
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:40:48.530000.*)
+(* Auto-generated comment: At 2019-09-02 07:40:59.550000.*)
 
