@@ -253,5 +253,75 @@ easy.
 (erewrite VA).
 easy.
 (eapply t0; [  | constructor; apply singleton_singleton ]).
+dependent destruction p.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+(inversion pf_merge).
+subst.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(rewrite merge_comm, merge_singleton_append).
+easy.
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+reflexivity.
+(eapply t0).
+2: (constructor; apply singleton_singleton).
+dependent destruction p.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+(inversion pf_merge).
+subst.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(rewrite merge_comm, merge_singleton_append).
+easy.
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+(eapply t0; [  | constructor; apply singleton_singleton ]).
+dependent destruction p.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+(inversion pf_merge).
+subst.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(rewrite merge_comm, merge_singleton_append).
+easy.
+-
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+easy.
+(eapply t0; [  | constructor; apply singleton_singleton ]).
+dependent destruction p.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+(inversion pf_merge).
+subst.
+(unfold process_gate_state).
+(simpl).
+split.
+validate.
+(rewrite merge_comm, merge_singleton_append).
+easy.
+-
+dependent destruction p.
+dependent destruction t.
 (* Auto-generated comment: Succeeded. *)
 
