@@ -144,8 +144,14 @@ exists tx.
 (simpl in *).
 assumption.
 Qed.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [Exist vY (TRef (TRef tY))].
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+(intros Hcontra).
+specialize (Hcontra 0).
+(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX)))).
+{
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 10:03:06.870000.*)
+(* Auto-generated comment: At 2019-08-19 10:05:22.010000.*)
 
