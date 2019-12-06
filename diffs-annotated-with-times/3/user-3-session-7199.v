@@ -270,8 +270,9 @@ Theorem get_len_abstr_ok :
 Proof.
 (apply spec_abstraction_compose).
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl; intuition).
+(unfold spec_impl; simpl; intuition).
+(destruct a as [[] bs]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:29:53.840000.*)
+(* Auto-generated comment: At 2019-09-04 11:29:58.970000.*)
 
