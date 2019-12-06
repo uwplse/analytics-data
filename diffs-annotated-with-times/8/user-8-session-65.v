@@ -1247,7 +1247,5 @@ constructor.
 (inversion g0).
 +
 (unfold valid_ancillae_box).
-(intros TB).
-(apply functional_extensionality).
 (* Auto-generated comment: Succeeded. *)
 
