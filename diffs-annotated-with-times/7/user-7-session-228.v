@@ -21,7 +21,7 @@ Lemma build_v_full :
     |-[ w] v' <$ [BX := TFVar X'] t /\
     (forall w' : nat,
      exists w2 : nat,
-       forall t' : ty, |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w'] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w2] v <$ [FX' := tx] t')).
+       forall t' : ty, |-[ w'] v' <$ t' -> (not_f_free_in_ty X' t' -> |-[ w2] v <$ t') /\ (f_free_in_ty X' t' -> |-[ w2] v <$ [FX' := tx] t')).
 Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hwftx HX Hm;
@@ -91,7 +91,31 @@ assumption.
 admit.
 +
 (rewrite f_subst_union).
+(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
+  destruct IHt' as [IHt'a IHt'b]; split; intros HX').
+*
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_1; auto).
+*
+(destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
+{
+(apply match_ty_union_1; auto).
+}
+{
+(apply match_ty_union_1; rewrite f_subst_not_b_free_in_ty; auto).
+}
+*
+(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union_2; auto).
+*
+(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
+{
+(apply match_ty_union_2; auto).
+}
+{
+(apply match_ty_union_2; rewrite f_subst_not_b_free_in_ty; auto).
+}
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:34:19.170000.*)
+(* Auto-generated comment: At 2019-09-06 09:34:40.160000.*)
 
