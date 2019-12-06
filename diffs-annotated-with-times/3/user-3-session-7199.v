@@ -441,8 +441,9 @@ Lemma log_abstraction_commit :
   log_abstraction d' (bs ++ bs').
 Proof.
 (intros).
-(unfold log_abstraction in *; intuition).
+(unfold log_abstraction; intuition).
+(unfold log_length_ok; intros).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:40:28.030000.*)
+(* Auto-generated comment: At 2019-09-04 12:40:32.680000.*)
 
