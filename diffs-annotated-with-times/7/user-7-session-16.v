@@ -346,8 +346,9 @@ generalize dependent t1.
 (subst; left; constructor).
 *
 right.
-(intros Hcontra; inversion Hcontra).
+(intros Hcontra; inversion Hcontra; subst).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 08:07:06.230000.*)
+(* Auto-generated comment: At 2019-08-09 08:07:28.620000.*)
 
