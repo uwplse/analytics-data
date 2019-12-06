@@ -256,7 +256,16 @@ tauto.
 }
 (apply sem_eq_k__trans with t; assumption).
 Qed.
-(* Auto-generated comment: Failed. *)
+Theorem nf_exists : forall t : ty, exists tn : ty, InNF( tn) /\ |- tn << t /\ |- t << tn.
+Proof.
+(intros t).
+exists (MkNF( t)).
+(pose proof (mk_nf__sub_d_eq t)).
+split.
+(apply mk_nf__in_nf; assumption).
+assumption.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:26:29.960000.*)
+(* Auto-generated comment: At 2019-08-16 13:28:05.070000.*)
 
