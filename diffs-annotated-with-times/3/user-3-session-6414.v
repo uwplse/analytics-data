@@ -124,7 +124,11 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqmw0vc8"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Definition append (bs : list block) : proc bool :=
+  size <- d.size;
+  len <- get_len;
+  (if le_dec (1 + len + length bs) size then append_at len bs else Ret false).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:14:38.280000.*)
+(* Auto-generated comment: At 2019-09-04 10:14:48.540000.*)
 
