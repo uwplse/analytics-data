@@ -134,8 +134,7 @@ Omega.omega.
 (induction a).
 +
 (unfold lt_size).
-constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:21:18.660000.*)
+(* Auto-generated comment: At 2019-08-29 15:21:38.780000.*)
 
