@@ -100,8 +100,40 @@ specialize (IHw' HX').
 exists ([FX' := tx] ti).
 split.
 (apply wf_ty__wf_ty_f_subst; assumption).
-(rewrite f_b_subst__spec_permute in IHw'; try assumption).
+(rewrite f_b_subst__spec_permute in IHw'; assumption).
+-
+admit.
+-
+admit.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+subst.
+(rewrite b_subst_exist_neq in Hm; try assumption).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+(destruct (beq_idP X i)).
++
+subst.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:29:46.810000.*)
+(* Auto-generated comment: At 2019-09-04 10:32:50.750000.*)
 
