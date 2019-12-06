@@ -377,11 +377,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
-Theorem append_ok :
-  forall v, proc_spec (append_spec v) (append v) recover abstr.
-Proof.
-(unfold append; intros).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:17:33.060000.*)
+(* Auto-generated comment: At 2019-09-04 11:17:35.500000.*)
 
