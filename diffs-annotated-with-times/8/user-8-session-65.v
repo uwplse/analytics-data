@@ -952,7 +952,14 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Lemma assert_init_at_id :
   forall b m i, i < S m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
+Proof.
+(intros b m i Lt \207\129 safe).
+(simpl).
+(simpl_rewrite id_circ_spec).
+(simpl_rewrite inSeq_correct; [  | apply assert_at_WT | apply init_at_WT ]).
+(unfold compose_super).
+(rewrite size_ntensor, Nat.mul_1_r in M).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 10:32:37.520000.*)
+(* Auto-generated comment: At 2019-08-13 10:33:22.890000.*)
 
