@@ -19,8 +19,9 @@ Proof.
 (simpl in H).
 (destruct (beq_idP X Y)).
 -
-(pose proof (IdSetFacts.singleton_2 _ _ e)).
+Check IdSetFacts.singleton_2.
+(pose proof (IdSetFacts.singleton_2 e)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:11:04.170000.*)
+(* Auto-generated comment: At 2019-09-02 09:12:56.040000.*)
 
