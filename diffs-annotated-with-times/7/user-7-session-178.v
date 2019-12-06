@@ -75,8 +75,7 @@ Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = 
 Proof.
 (intros).
 (simpl).
-(rewrite <- beq_id_refl).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:28:15.550000.*)
+(* Auto-generated comment: At 2019-09-02 06:28:18.530000.*)
 
