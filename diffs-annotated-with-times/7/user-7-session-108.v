@@ -440,8 +440,7 @@ clear Hm.
 (inversion Hcontra).
 -
 (destruct Hcontra as [Hcontra _]).
-(destruct Ht as [w1 [v Hm]]).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 12:30:29.810000.*)
+(* Auto-generated comment: At 2019-08-21 12:30:47.610000.*)
 
