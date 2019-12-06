@@ -118,8 +118,12 @@ contradiction.
 (rewrite IHt).
 reflexivity.
 -
-(destruct (beq_idP X i)).
-(* Auto-generated comment: Failed. *)
+(rewrite subst_equation).
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-02 06:34:36.680000.*)
+(* Auto-generated comment: At 2019-09-02 06:36:33.790000.*)
 
