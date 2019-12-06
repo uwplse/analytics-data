@@ -78,8 +78,10 @@ Fixpoint match_ty (w : nat) :=
       | _, TEV X, TEV X' => X = X'
       | _, _, _ => False
       end
-where "'|-[' w ']' v '<$' t" := (match_ty k w v t) : btjm_scope.
+where "'|-[' w ']' v '<$' t" := (match_ty w v t) : btjm_scope.
+Definition sem_sub_w (w1 w2 : nat) (t1 t2 : ty) := forall v : ty, |-[ w1] v <$ t1 -> |-[ w2] v <$ t2.
+Notation "'||-['w1 ',' w2 ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w w1 w2 t1 t2) (at level 45) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:03:26.910000.*)
+(* Auto-generated comment: At 2019-08-29 08:04:00.350000.*)
 
