@@ -13,7 +13,7 @@ from typing import List, TypeVar, Callable
 
 from split_sessions import split_sessions
 
-logdir = "../raw/logs"
+logdir = "../../raw/logs"
 
 class More:
     def __init__(self, num_lines):
@@ -154,6 +154,8 @@ def main():
                                 get_body(msgs[0])[1][1][0]]]),
                       msgs[1]])
 
+    #print(f"{dumps(get_session_module(processed_cmds[0]))}")
+
     for cmd in processed_cmds:
         if get_cmd_type(cmd) == Symbol("StmAdd"):
             print("(*{}:*) {}".format(get_id(cmd), get_body(cmd)[1][2]))
@@ -163,7 +165,7 @@ def main():
             print("(*FAILED {}*)".format(get_body(cmd)[1][1]))
         else:
             assert get_cmd_type(cmd) == Symbol("StmObserve")
-            # print("OBSERVE {}".format(get_body(cmd)[1][1]))
+            print("OBSERVE {}".format(get_body(cmd)[1][1]))
 
 def isUnsetSilent(entry):
     return get_cmd_type(entry) == Symbol("StmAdd") and \
