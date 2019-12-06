@@ -552,8 +552,9 @@ Proof.
 generalize dependent G'.
 (induction H).
 -
-(intros; inversion H0; eauto).
+(intros; inversion H0; subst; eauto).
+intuition.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 18:51:42.450000.*)
+(* Auto-generated comment: At 2019-09-05 18:52:33.350000.*)
 
