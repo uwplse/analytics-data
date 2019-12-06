@@ -201,8 +201,7 @@ Proof.
 (destruct a'; simpl in *; intuition idtac).
 {
 (destruct (a == r)).
--
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:04:35.680000.*)
+(* Auto-generated comment: At 2019-09-03 11:04:36.290000.*)
 
