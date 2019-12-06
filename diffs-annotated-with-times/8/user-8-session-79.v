@@ -596,8 +596,8 @@ Proof.
 -
 (intros).
 (simpl).
-(progress restore_dims).
+Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 15:59:11.480000.*)
+(* Auto-generated comment: At 2019-08-13 15:59:16.610000.*)
 
