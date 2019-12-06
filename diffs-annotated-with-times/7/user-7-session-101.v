@@ -46,8 +46,11 @@ Lemma match_ty__exists_not_matching : forall (t : ty) (w k : nat), exists v : ty
 Proof.
 (induction t; intros w k).
 -
-exists (TCName c, TCName c).
+exists (TPair (TCName c) (TCName c)).
+(intros Hcontra).
+(apply match_ty_cname__inv in Hcontra).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:23:07.740000.*)
+(* Auto-generated comment: At 2019-08-20 08:24:37.360000.*)
 
