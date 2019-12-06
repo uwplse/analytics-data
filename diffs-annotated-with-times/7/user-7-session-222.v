@@ -361,8 +361,8 @@ Search -IdSet.remove.
 contradiction.
 reflexivity.
 *
-(apply b_free_in_ty_exist_neq__inv in HX).
+(apply b_free_in_ty_exist_neq__inv in HX; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 14:05:15.600000.*)
+(* Auto-generated comment: At 2019-09-05 12:37:43.280000.*)
 
