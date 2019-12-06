@@ -327,7 +327,8 @@ Proof.
 (apply sub_r__transitive with (MkNF( t'))).
 assumption.
 (apply mk_nf__sub_r1).
-(* Auto-generated comment: Failed. *)
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 07:52:10.760000.*)
+(* Auto-generated comment: At 2019-08-09 07:53:23.380000.*)
 
