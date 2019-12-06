@@ -133,8 +133,9 @@ Omega.omega.
 Check well_founded_lt_compat.
 (apply (well_founded_lt_compat ty size)).
 (intros).
-trivial.
+tauto.
+Defined.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:32:00.770000.*)
+(* Auto-generated comment: At 2019-08-29 15:35:19.170000.*)
 
