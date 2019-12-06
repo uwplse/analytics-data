@@ -58,5 +58,5 @@ where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
 Definition sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> |-[ k] v <$ t2.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 08:59:33.560000.*)
+(* Auto-generated comment: At 2019-08-14 08:59:53.630000.*)
 
