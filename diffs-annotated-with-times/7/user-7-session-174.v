@@ -136,8 +136,9 @@ Print lt_wf.
 (unfold well_founded).
 (intros t; induction t; constructor; intros k Hk).
 +
-(inversion Hk).
+(inversion Hk; subst).
+Search -Acc.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:27:24.150000.*)
+(* Auto-generated comment: At 2019-08-29 15:28:26.810000.*)
 
