@@ -206,8 +206,18 @@ reflexivity.
 (destruct (beq_idP X' i0)).
 {
 subst.
-(split; intros i0).
+(split; intros Hi0).
+{
+(unfold not_f_free_in_ty, not_free in Hi0).
+(simpl in Hi0).
+exfalso.
+(apply Hi0).
+Search -IdSet.singleton.
+(apply IdSetFacts.singleton_2).
+reflexivity.
+}
+{
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:04:36.140000.*)
+(* Auto-generated comment: At 2019-09-05 13:04:48.080000.*)
 
