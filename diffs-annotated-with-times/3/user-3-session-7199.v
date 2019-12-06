@@ -441,9 +441,9 @@ Lemma log_abstraction_extend :
   log_abstraction d' (bs ++ bs').
 Proof.
 (intros).
-(unfold log_abstraction; intuition).
+(unfold log_abstraction in *; intuition).
 (unfold log_length_ok; intros).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:40:14.760000.*)
+(* Auto-generated comment: At 2019-09-04 12:40:21.920000.*)
 
