@@ -97,8 +97,13 @@ contradiction.
 (simpl).
 (rewrite <- beq_id_refl).
 symmetry.
+(apply subst_fresh_in_ty).
+assumption.
++
+(simpl).
+(rewrite <- beq_id_refl).
 (apply subs_fresh_in_ty).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:58:49.070000.*)
+(* Auto-generated comment: At 2019-08-29 08:58:53.290000.*)
 
