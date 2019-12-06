@@ -114,8 +114,9 @@ idtac.
 specialize (H _ Hm).
 (apply match_ty_i_ref__inv in H).
 (destruct H as [tx [Heq Href]]; inversion Heq; subst).
-(intros v Hmv; apply Href).
+(intros v Hmv; apply Href; assumption).
+}
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:21:27.220000.*)
+(* Auto-generated comment: At 2019-08-12 13:22:26.320000.*)
 
