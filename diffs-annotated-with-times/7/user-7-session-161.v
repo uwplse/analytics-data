@@ -108,8 +108,9 @@ assumption.
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
-specialize (IHw' _ Hm).
+exists ([X' := tx] ti).
+(apply IHw').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 11:49:02.390000.*)
+(* Auto-generated comment: At 2019-08-29 11:51:13.360000.*)
 
