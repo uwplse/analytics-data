@@ -387,7 +387,16 @@ step_proc.
 (step_proc; intuition; subst; eauto).
 -
 (step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
+{
+(step_proc; intuition; subst; eauto).
+*
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 10:59:37.700000.*)
+(* Auto-generated comment: At 2019-09-03 10:59:40.310000.*)
 
