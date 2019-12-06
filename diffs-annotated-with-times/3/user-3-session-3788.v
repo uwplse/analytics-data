@@ -58,7 +58,10 @@ Proof.
  end).
 (unfold swapXY).
 monad_simpl.
+(match goal with
+ | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
+ end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:57:25.970000.*)
+(* Auto-generated comment: At 2019-08-29 08:58:15.900000.*)
 
