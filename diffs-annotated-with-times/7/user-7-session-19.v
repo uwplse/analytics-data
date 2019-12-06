@@ -75,19 +75,7 @@ Proof.
    end).
 -
 (destruct v; contradiction).
--
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(inversion Hle; subst).
-+
-(simpl).
-(intros v Hv).
-specialize (Href v Hv).
-(split; tauto).
-+
-(destruct k').
-(simpl).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 10:00:15.940000.*)
+(* Auto-generated comment: At 2019-08-12 10:01:30.290000.*)
 
