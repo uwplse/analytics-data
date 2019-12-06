@@ -86,7 +86,7 @@ Proof.
 (unfold hoas_to_db_box).
 split.
 -
-(intros H T).
+(intros H \207\129 T).
 specialize (H (add_fresh_pat W []) (add_fresh_state W []) []).
 (simpl in *).
 (rewrite size_fresh_ctx in H).
@@ -94,5 +94,144 @@ specialize (H (add_fresh_pat W []) (add_fresh_state W []) []).
 (unfold add_fresh_state, add_fresh_pat in *).
 (destruct (add_fresh W []) as [p \206\147] eqn:E).
 (simpl in *).
+(rewrite H).
+easy.
+(unfold Typed_Box in T).
+(simpl in T).
+(apply T).
+admit.
+-
+(intros H p \206\147 \206\1470 T).
+(simpl in *).
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq9u3YT1"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Proposition valid_ancillae_unbox' :
+  forall W W' (c : Box W W') (p : Pat W),
+  valid_ancillae (unbox c p) <-> valid_ancillae_box c.
+Proof.
+(intros W W' c p).
+(unfold valid_ancillae, valid_ancillae_box).
+(unfold denote_box).
+(unfold denote_db_box).
+(destruct c).
+(simpl).
+(unfold denote_circuit).
+(simpl).
+split.
+-
+(intros H).
+admit.
+Abort.
+Lemma id_correct : forall W p, valid_ancillae (@output W p).
+Proof.
+(intros W p).
+(unfold valid_ancillae).
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqyFPGK4"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma update_merge :
+  forall (\206\147 \206\147' : Ctx) W W' v,
+  \206\147' \226\169\181 singleton v W \226\136\153 \206\147 -> Valid (update_at \206\147' v (Some W')) \226\169\181 singleton v W' \226\136\153 \206\147.
+Proof.
+(intros \206\147 \206\147' W W' v H).
+generalize dependent \206\147.
+generalize dependent \206\147'.
+(induction v).
+-
+(intros \206\147' \206\147 H).
+(simpl in *).
+(apply merge_fun_ind in H).
+(inversion H; subst).
+(simpl).
+constructor.
+(apply valid_valid).
+reflexivity.
+(inversion H5; subst).
+(inversion H4; subst).
+constructor.
+(apply valid_valid).
+reflexivity.
+(inversion H4; subst).
+constructor.
+(apply valid_valid).
+reflexivity.
+-
+(intros \206\147' \206\147 H).
+(simpl).
+(destruct \206\147).
++
+(destruct H).
+(rewrite merge_nil_r in pf_merge).
+(inversion pf_merge).
+(simpl).
+(edestruct IHv).
+constructor.
+2: (rewrite merge_nil_r; easy).
+(apply valid_valid).
+(rewrite merge_nil_r in pf_merge0).
+(inversion pf_merge0).
+constructor.
+(apply valid_valid).
+(rewrite merge_nil_r).
+easy.
++
+(destruct H).
+constructor.
+(apply valid_valid).
+unlock_merge.
+(simpl in *).
+(destruct (merge' (singleton v W) \206\147) eqn:E).
+(rewrite pf_merge in pf_valid).
+invalid_contradiction.
+(simpl).
+(edestruct IHv).
+constructor.
+2: (symmetry in E; unlock_merge; apply E).
+(apply valid_valid).
+unlock_merge.
+(rewrite <- pf_merge0).
+(inversion pf_merge).
+(simpl).
+easy.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqxL0sFY"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma change_type_singleton :
+  forall v W W', change_type v W' (singleton v W) = singleton v W'.
+Proof.
+(intros v W W').
+(unfold change_type).
+(erewrite update_at_singleton).
+reflexivity.
+(apply singleton_singleton).
+(apply singleton_singleton).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq6fTVwn"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma ancilla_free_valid :
+  forall W (c : Circuit W), ancilla_free c -> valid_ancillae c.
+Proof.
+(intros W c AF).
+(induction c).
++
+(unfold valid_ancillae).
+reflexivity.
++
+(assert (VA : forall p : Pat w2, valid_ancillae (c p))).
+(intros p').
+(apply H).
+dependent destruction AF.
+(apply H1).
+clear H.
+(unfold valid_ancillae in *).
+(intros \206\1470 \206\1471 WT).
+dependent destruction WT.
+(destruct \206\147 as [| \206\147], \206\1472 as [| \206\1472]; try invalid_contradiction).
 (* Auto-generated comment: Succeeded. *)
 
