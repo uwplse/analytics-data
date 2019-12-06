@@ -457,7 +457,9 @@ Proof.
 (assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
 specialize (Hsem _ Hm).
 (simpl in Hsem).
+(apply IHk; try assumption).
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:20:27.390000.*)
+(* Auto-generated comment: At 2019-08-18 07:20:57.400000.*)
 
