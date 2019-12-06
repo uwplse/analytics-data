@@ -27,8 +27,7 @@ Fact denote_compose :
   compose_super (denote_circuit safe (f (add_fresh_pat w \206\1471)) \206\1470 (add_fresh_state w \206\1471)) (denote_circuit safe c \206\14701 \206\147) \207\129.
 Proof.
 (intros safe w c \206\147 TP).
-dependent induction TP.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-10 12:25:23.620000.*)
+(* Auto-generated comment: At 2019-08-10 12:26:40.290000.*)
 
