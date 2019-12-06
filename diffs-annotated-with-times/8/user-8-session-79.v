@@ -601,14 +601,12 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq0uS6IR"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma new_morphism :
+Lemma morphism_test :
   forall {m} {n} (A : Matrix m n),
   Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv A).
 Proof.
 (intros).
 (unfold Morphisms.Proper).
-Timeout 1 About Morphisms.Proper.
-Timeout 1 Print Morphisms.Proper.
 (unfold Morphisms.respectful).
 (unfold flip).
 (unfold impl).
@@ -617,10 +615,19 @@ Timeout 1 Print Morphisms.Proper.
 (rewrite H).
 reflexivity.
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRAFm7C"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqkU0iNP"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-(* Auto-generated comment: Succeeded. *)
+Lemma big_kron_append :
+  forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
+Proof.
+(induction l1).
+-
+(intros).
+(simpl).
+specialize (kron_1_l (\226\168\130 l2)) as KL.
+setoid_rewrite kron_1_l.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 18:25:13.950000.*)
+(* Auto-generated comment: At 2019-08-13 18:25:18.950000.*)
 
