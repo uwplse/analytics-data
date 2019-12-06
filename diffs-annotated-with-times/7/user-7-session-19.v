@@ -448,8 +448,15 @@ constructor.
 (apply mk_nf__in_nf).
 (rewrite inv_depth_mk_nf).
 Check sem_eq_k_i__inv_depth_eq_1.
-(pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href)).
+(pose proof (sem_eq_k_i__inv_depth_eq_1 _ _ _ Hdep' Href) as Hdepeq).
+(rewrite <- Hdepeq; assumption).
+admit.
+}
+Admitted.
+Theorem nf_sem_sub__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+Proof.
+(intros t Hnf t' Hsem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:34:28.660000.*)
+(* Auto-generated comment: At 2019-08-13 12:34:30.770000.*)
 
