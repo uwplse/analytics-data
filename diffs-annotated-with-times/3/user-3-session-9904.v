@@ -121,8 +121,8 @@ lia.
 (step_proc; intuition).
 (exists s; intuition).
 (right; intuition).
-congruence.
-(* Auto-generated comment: Failed. *)
+(destruct state).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:40:16.700000.*)
+(* Auto-generated comment: At 2019-09-06 05:40:23.550000.*)
 
