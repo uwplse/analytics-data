@@ -394,7 +394,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
             end)) G_2 -> Alpha S (GFun G_1 G_2)
   | alpha_rec_mt : Alpha (Singleton _ (SRec [])) (GRec [])
   | alpha_rec_cons_req :
-      forall S tl,
+      forall S hd tl,
       Inhabited _ S ->
       (forall X,
        Ensembles.In _ S X -> exists hd tl, X = SRec (Some hd :: tl)) ->
@@ -429,5 +429,5 @@ Inductive Alpha : SetST -> GT -> Prop :=
                end)) GDyn) -> Alpha S (GRow []).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 18:30:40.900000.*)
+(* Auto-generated comment: At 2019-09-05 18:30:54.940000.*)
 
