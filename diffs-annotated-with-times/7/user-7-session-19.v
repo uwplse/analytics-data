@@ -657,8 +657,8 @@ Search -mk_nf.
 (pose proof (SemSubProps.mk_nf__sem_eq t1)).
 (intros k v).
 specialize (H k).
-auto.
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 06:41:02.230000.*)
+(* Auto-generated comment: At 2019-08-14 06:41:29.720000.*)
 
