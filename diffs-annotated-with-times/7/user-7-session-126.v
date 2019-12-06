@@ -119,9 +119,11 @@ reflexivity.
 (rewrite IHt).
 reflexivity.
 -
-(destruct (beq_idP X i)).
-+
+(destruct (beq_idP X i); try reflexivity).
+(rewrite IHt).
+reflexivity.
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:51:35.770000.*)
+(* Auto-generated comment: At 2019-08-27 07:51:36.840000.*)
 
