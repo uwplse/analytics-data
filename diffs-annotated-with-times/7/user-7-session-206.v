@@ -204,8 +204,19 @@ contradiction.
 (rewrite <- beq_id_refl).
 (rewrite b_subst_not_b_free_in_ty).
 reflexivity.
-(apply wf_ty__not_b_free_in_ty).
-(* Auto-generated comment: Failed. *)
+(apply wf_ty__not_b_free_in_ty; assumption).
++
+(simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+reflexivity.
+(apply wf_ty__not_b_free_in_ty; assumption).
++
+(rewrite b_subst_bvar_neq; try assumption).
+(rewrite b_subst_bvar_neq; try assumption).
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 08:51:57.580000.*)
+(* Auto-generated comment: At 2019-09-04 08:52:05.630000.*)
 
