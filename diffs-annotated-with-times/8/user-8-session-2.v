@@ -150,5 +150,5 @@ Timeout 1 Print Ltac restore_dims.
 (rewrite <- ctrl_list_to_unitary_transpose).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 13:02:32.160000.*)
+(* Auto-generated comment: At 2019-08-09 13:02:53.630000.*)
 
