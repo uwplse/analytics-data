@@ -366,9 +366,19 @@ Search -IdSet.union.
 Admitted.
 Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
 Proof.
-(unfold wf_ty; simpl).
+(intros t1 t2 Hwf).
+(unfold wf_ty in *; simpl in *).
 (apply union_empty__inv).
+assumption.
+Qed.
+Lemma wf_ty_union__inv : forall t1 t2 : ty, wf_ty (TUnion t1 t2) -> wf_ty t1 /\ wf_ty t2.
+Proof.
+(intros t1 t2 Hwf).
+(unfold wf_ty in *; simpl in *).
+(apply union_empty__inv).
+assumption.
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:52:11.400000.*)
+(* Auto-generated comment: At 2019-09-04 09:52:19.480000.*)
 
