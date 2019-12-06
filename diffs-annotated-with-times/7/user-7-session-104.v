@@ -173,7 +173,8 @@ contradiction.
 (destruct Hm as [tx Hmx]).
 Abort.
 Lemma not_sem_eq__reft_t : forall (k : nat) (t : ty), | t | <= k -> ~ ||-[ S k][TRef t]= [t].
+Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:36:26.650000.*)
+(* Auto-generated comment: At 2019-08-21 07:36:37.260000.*)
 
