@@ -152,8 +152,15 @@ reflexivity.
 -
 (rewrite IHn').
 (rewrite negb_involutive).
-(simpl).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqOtw1A1"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:15:15.920000.*)
+(* Auto-generated comment: At 2019-09-04 07:15:20.150000.*)
 
