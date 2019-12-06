@@ -942,7 +942,8 @@ Timeout 1 Print Ltac rewrite_inPar.
         try rewrite Nat.mul_1_r in IP; try fold NTensor in *; 
         simpl in *
  end).
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:35:13.610000.*)
+(* Auto-generated comment: At 2019-08-14 14:35:14.140000.*)
 
