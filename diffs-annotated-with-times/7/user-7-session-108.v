@@ -143,8 +143,12 @@ Lemma match_ty_value_type__inv_depth :
 Proof.
 (induction k; intros v' Hv'; induction Hv'; intros Hdep v w Hm).
 -
-(apply match_ty__cname in Hm; subst).
+(apply match_ty_cname__inv in Hm; subst).
+reflexivity.
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1' [v2' [Heq [Hm1' Hm2']]]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 12:31:12.800000.*)
+(* Auto-generated comment: At 2019-08-21 12:31:37.180000.*)
 
