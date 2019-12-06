@@ -255,8 +255,7 @@ reflexivity.
 -
 (step_proc; intuition; subst; eauto).
 {
-(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:16:36.820000.*)
+(* Auto-generated comment: At 2019-09-03 13:16:46.220000.*)
 
