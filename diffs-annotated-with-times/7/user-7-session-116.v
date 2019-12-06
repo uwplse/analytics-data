@@ -84,13 +84,7 @@ reflexivity.
 (rewrite IHt; try assumption).
 reflexivity.
 -
-(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
-+
-contradiction.
-+
-(simpl).
-(rewrite <- beq_id_refl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:00:04.750000.*)
+(* Auto-generated comment: At 2019-08-27 07:00:32.770000.*)
 
