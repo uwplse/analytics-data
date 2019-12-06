@@ -203,8 +203,7 @@ Proof.
 (destruct (a == r)).
 -
 invert_abstraction.
-(step_proc; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:04:33.510000.*)
+(* Auto-generated comment: At 2019-09-03 11:04:34.990000.*)
 
