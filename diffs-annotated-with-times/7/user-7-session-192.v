@@ -119,7 +119,14 @@ admit.
 {
 (apply match_ty_exist).
 exists ([X' := tx] ti).
+admit.
+}
+}
+}
+*
+specialize (IHw'a H).
+split.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 12:57:36.330000.*)
+(* Auto-generated comment: At 2019-09-02 13:04:19.190000.*)
 
