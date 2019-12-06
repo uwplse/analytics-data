@@ -100,6 +100,5 @@ Record EpsilonLogic :=
            eval env P = eval env (Bool true) <->
            eval env Q = eval env (Bool true) ->
            eval env (Choose x P) = eval env (Choose x Q)}.
-Definition isTheorem (L : EpsilonLogic) (t : Term) := forall env, L.
 (* Auto-generated comment: Succeeded. *)
 
