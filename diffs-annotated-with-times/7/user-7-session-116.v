@@ -40,14 +40,11 @@ reflexivity.
 (rewrite IHt; try assumption).
 reflexivity.
 -
-(destruct (beq_idP X i)).
-reflexivity.
+(destruct (beq_idP X i); try reflexivity).
 (rewrite IHt).
 reflexivity.
 (unfold fresh in *).
 (intros Hcontra).
-Search -IdSet.remove.
-Check IdSetFacts.remove_2.
 (apply Hfresh).
 (apply IdSetFacts.remove_2; try assumption).
 (intros Heq).
@@ -58,5 +55,5 @@ contradiction.
 (destruct (beq_idP X i); try reflexivity).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:55:14.940000.*)
+(* Auto-generated comment: At 2019-08-27 06:55:20.510000.*)
 
