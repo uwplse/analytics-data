@@ -162,8 +162,8 @@ exists (S w').
 (destruct Hm' as [ti [Hwfti Hm']]).
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw' _]).
-(apply not_f_free_in_ty_exist_inv in HX').
+(apply not_f_free_in_ty_exist__inv in HX').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:28:23.210000.*)
+(* Auto-generated comment: At 2019-09-05 13:57:46.750000.*)
 
