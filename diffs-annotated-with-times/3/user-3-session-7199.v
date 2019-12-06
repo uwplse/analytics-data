@@ -473,8 +473,8 @@ Theorem abstr_length_sz_bound d bs :
   log_size_ok d bs -> len_addr < diskSize d.
 Proof.
 (unfold log_size_ok).
-lia.
-(* Auto-generated comment: Failed. *)
+(intros; lia).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:22:33.940000.*)
+(* Auto-generated comment: At 2019-09-04 12:22:48.970000.*)
 
