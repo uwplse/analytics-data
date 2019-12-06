@@ -350,8 +350,7 @@ lia.
 }
 (destruct (a == length bs)).
 -
-autorewrite with upd.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:32:36.320000.*)
+(* Auto-generated comment: At 2019-09-04 12:33:01.240000.*)
 
