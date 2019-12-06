@@ -120,7 +120,9 @@ Proof.
 -
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [t' Heq]; subst).
+(simpl).
+split.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:18:27.890000.*)
+(* Auto-generated comment: At 2019-08-19 13:18:39.520000.*)
 
