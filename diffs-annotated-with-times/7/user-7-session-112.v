@@ -176,8 +176,13 @@ Proof.
 -
 (intros v1 t3 k w1 w2 Hm1 Hm2).
 (apply match_ty_cname__inv in Hm1; subst).
-assumption.
+admit.
+-
+(intros v0 t3 k w1 w2 Hm1 Hm2).
+(apply match_ty_pair__inv in Hm1).
+(destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst).
+(induction t3; try (solve [ destruct k; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 08:26:31.720000.*)
+(* Auto-generated comment: At 2019-08-26 08:28:10.490000.*)
 
