@@ -60,8 +60,7 @@ dependent destruction u.
 (destruct li as [| k li]; trivial).
 (destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
 (assert (E' : fst (ctrls_to_list lb li (trans u)) = (j, l))).
-(rewrite IHW2).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-08 13:06:35.150000.*)
+(* Auto-generated comment: At 2019-08-08 13:06:36.150000.*)
 
