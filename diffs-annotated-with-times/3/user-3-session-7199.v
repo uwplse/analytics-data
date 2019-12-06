@@ -147,8 +147,7 @@ Hint Resolve get_len_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 (unfold get; intros).
-(apply spec_abstraction_compose; simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:42:30.550000.*)
+(* Auto-generated comment: At 2019-09-04 10:42:34.190000.*)
 
