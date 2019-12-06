@@ -17,8 +17,8 @@ Proof.
 (intros X X' w tx v t).
 (induction t; intros Hm).
 -
-(apply match_ty_cname__inv in Hm).
+(apply match_ty_cname__inv in Hm; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:50:24.390000.*)
+(* Auto-generated comment: At 2019-08-29 08:50:35.300000.*)
 
