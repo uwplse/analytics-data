@@ -293,9 +293,52 @@ clear IHt.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 (eapply sem_eq_k_i__trans; eauto).
-(apply sem_eq_k_i__comm).
-assumption.
+(apply sem_eq_k_i__comm; auto).
+Qed.
+Theorem mk_nf__sem_eq_k_i : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Proof.
+(apply match_ty_i_nf).
+Qed.
+Lemma mk_nf__sem_sub_k_i_l : forall (k : nat) (t : ty), ||-[ k][MkNF( t)]<= [t].
+Proof.
+(intros k t).
+(apply sem_eq_k_i__sem_sub_k_i).
+(apply mk_nf__sem_eq_k_i).
+Qed.
+Ltac
+ solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2 :=
+  pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu; destruct Hsemu as [Hsemu| Hsemu];
+   [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
+Lemma sem_sub_k_i_nf__inv_depth_le_1 : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+Proof.
+(induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
+  try (solve
+   [ match goal with
+     | Hsem:||-[ ?k][?t]<= [?t']
+       |- | ?t | <= | ?t' | =>
+           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
+            (Hsem _ Hm); contradiction
+     | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
+       |- _ =>
+           assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+            solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+     | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
+       |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+     | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
+       |- _ <= | ?t' | =>
+           assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
+            assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
+     | Hsem:||-[ ?k][TPair _ _]<= [TPair _ _]
+       |- _ =>
+           destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (max_inv_depth_le__components_le _ _ _ Hdept) as [Hdept1 Hdept2];
+            destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl; apply Nat.max_le_compat; auto
+     | Hsem:||-[ ?k][TUnion _ _]<= [_], Hnft:InNF( TUnion _ _), Hdept:| TUnion _ _ | <= _
+       |- _ =>
+           destruct (max_inv_depth_le__components_le _ _ _ Hdept) as [Hdept1 Hdept2];
+            destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
+            rewrite inv_depth_union; apply Nat.max_lub; auto
+     end ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:13:16.840000.*)
+(* Auto-generated comment: At 2019-08-16 14:15:57.430000.*)
 
