@@ -1498,6 +1498,7 @@ Timeout 1 About bit.
 Timeout 1 Print bit.
 Timeout 1 About qubit.
 Timeout 1 Print qubit.
-Timeout 1 Print Ltac qubit.
-(* Auto-generated comment: Failed. *)
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+(* Auto-generated comment: Succeeded. *)
 
