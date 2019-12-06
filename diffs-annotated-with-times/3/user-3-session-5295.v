@@ -690,8 +690,14 @@ lia.
 +
 (exists d,(OutOfSync a0 b); simplify; finish).
 intuition eauto.
+{
 lia.
+}
+{
+(destruct r; step).
+intuition.
+(exists d,(OutOfSync a0 b); simplify; finish).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:15:09.150000.*)
+(* Auto-generated comment: At 2019-09-03 11:15:22.410000.*)
 
