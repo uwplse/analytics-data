@@ -89,8 +89,13 @@ Proof.
 (simpl in HX).
 contradiction.
 Qed.
-Lemma not_f_free_in_ty_fvar_eq__inv : forall X Y : id, not_f_free_in_ty X (TFVar Y) -> X <> Y.
+Lemma not_f_free_in_ty_fvar__inv : forall X Y : id, not_f_free_in_ty X (TFVar Y) -> X <> Y.
+Proof.
+(unfold not_f_free_in_ty, not_free).
+(simpl).
+Search -IdSet.singleton.
+(intros X Y).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:29:20.620000.*)
+(* Auto-generated comment: At 2019-09-06 09:30:10.190000.*)
 
