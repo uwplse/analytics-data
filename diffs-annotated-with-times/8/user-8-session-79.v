@@ -944,8 +944,8 @@ Timeout 1 Print Ltac rewrite_inPar.
  end).
 show_dimensions.
 (simpl in *).
-(rewrite IP).
-(* Auto-generated comment: Failed. *)
+(rewrite L2).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:35:51.740000.*)
+(* Auto-generated comment: At 2019-08-14 14:36:01.530000.*)
 
