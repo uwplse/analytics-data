@@ -568,8 +568,8 @@ Lemma nonzeros_app :
 Proof.
 (induction l1; simpl; auto; intros).
 (destruct (beq_nat n 0); auto).
-(rewrite IHl1).
+(rewrite IHl1; simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 10:11:35.790000.*)
+(* Auto-generated comment: At 2019-09-06 10:12:27.370000.*)
 
