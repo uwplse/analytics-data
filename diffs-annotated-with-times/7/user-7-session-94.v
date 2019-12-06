@@ -58,8 +58,11 @@ Proof.
 Qed.
 Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
 Proof.
-(induction k; intros v t; generalize dependent v; induction t; intros v Hm; try (solve [ apply match_ty_cname__inv in Hm; subst; constructor ])).
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm;
+  try (solve
+   [ apply match_ty_cname__inv in Hm; subst; constructor
+   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:05:28.540000.*)
+(* Auto-generated comment: At 2019-08-19 09:05:47.430000.*)
 
