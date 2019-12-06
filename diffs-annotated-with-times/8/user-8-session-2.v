@@ -132,7 +132,9 @@ Proof.
 (unfold denote_ctrls).
 Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li (trans u)))).
+(rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:30:39.470000.*)
+(* Auto-generated comment: At 2019-08-09 11:30:54.780000.*)
 
