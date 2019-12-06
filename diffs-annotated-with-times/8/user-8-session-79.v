@@ -674,8 +674,8 @@ Timeout 1 About length_app.
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
-(repeat rewrite app_length; unify_pows_two).
+(repeat rewrite app_length).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:36:28.620000.*)
+(* Auto-generated comment: At 2019-08-14 13:36:47.590000.*)
 
