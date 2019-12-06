@@ -140,8 +140,8 @@ Proof.
 -
 (right; simpl; apply Nat.le_0_l).
 -
-(inversion Hv; subst).
+(specialize (IHHv1 k H1); specialize (IHHv2 k H2)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:55:37.300000.*)
+(* Auto-generated comment: At 2019-08-16 07:56:00.650000.*)
 
