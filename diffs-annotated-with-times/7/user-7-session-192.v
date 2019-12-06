@@ -88,9 +88,10 @@ admit.
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
-(split; intros HX').
+(destruct (either_free_or_fresh_in_ty X' ([i := ti] t'))).
 *
+specialize (IHw'a H).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:36:12.270000.*)
+(* Auto-generated comment: At 2019-09-02 09:41:46.520000.*)
 
