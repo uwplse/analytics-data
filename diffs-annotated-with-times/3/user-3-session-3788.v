@@ -35,8 +35,9 @@ monad_simpl.
 (eapply proc_spec_rx; [ solve [ eauto ] |  ]).
 Check proc_spec_rx.
 (cbn[pre post recovered]).
-(intros).
+(let state := fresh "state" in
+ intros ? state Hpre).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:47:08.780000.*)
+(* Auto-generated comment: At 2019-08-29 08:47:30.880000.*)
 
