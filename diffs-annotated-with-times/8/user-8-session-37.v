@@ -66,8 +66,36 @@ subst.
 (apply (t0 \206\1473); trivial).
 Abort.
 Fact valid_ancillae_box_equal :
-  forall W1 W2 (c : Box W1 W2) \207\129, valid_ancillae_box c <-> valid_ancillae_box' c.
+  forall W1 W2 (c : Box W1 W2), valid_ancillae_box c <-> valid_ancillae_box' c.
+Proof.
+(intros).
+(destruct c).
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqSdZ1Lg"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fact valid_ancillae_unbox :
+  forall W W' (c : Pat W -> Circuit W'),
+  (forall p, valid_ancillae (c p)) <-> valid_ancillae_box (box (fun p => c p)).
+Proof.
+(intros).
+(unfold valid_ancillae, valid_ancillae_box).
+(unfold denote_box).
+(unfold denote_circuit).
+(unfold denote_db_box).
+(unfold hoas_to_db_box).
+split.
+-
+(intros H T).
+specialize (H (add_fresh_pat W []) (add_fresh_state W []) []).
+(simpl in *).
+(rewrite size_fresh_ctx in H).
+(simpl in H).
+(unfold add_fresh_state, add_fresh_pat in *).
+(destruct (add_fresh W []) as [p \206\147] eqn:E).
+(simpl in *).
+(rewrite H).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 14:22:25.820000.*)
+(* Auto-generated comment: At 2019-08-12 14:22:28.600000.*)
 
