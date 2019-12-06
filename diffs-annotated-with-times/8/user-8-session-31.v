@@ -3249,33 +3249,5 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqR1bMEs"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma inSeq_assoc :
-  forall {w1} {w2} {w3} {w4} (c1 : Box w1 w2) (c2 : Box w2 w3) (c3 : Box w3 w4),
-  c3 \194\183 c2 \194\183 c1 = (c3 \194\183 c2) \194\183 c1.
-Proof.
-(intros w1 w2 w3 w4 [c1] [c2] [c3]).
-(unfold inSeq).
-(simpl).
-(apply f_equal; apply functional_extensionality; intros p1).
-(simpl).
-(remember (c1 p1) as c).
-clear c1 p1 Heqc.
-dependent induction c.
--
-reflexivity.
--
-(simpl).
-(apply f_equal; apply functional_extensionality; intros p2).
-(rewrite H).
-reflexivity.
--
-(simpl).
-(apply f_equal; apply functional_extensionality; intros p2).
-(rewrite H).
-reflexivity.
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqFqTC9s"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
