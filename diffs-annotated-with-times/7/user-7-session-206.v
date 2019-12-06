@@ -63,8 +63,8 @@ Search -Morphisms.Proper.
 Search -Morphisms.Proper.
 Check Hfact.
 Print Morphisms.Proper.
-specialize (Hfact _ _ _ (FBV t) Ht).
+specialize (Hfact _ _ _ (FBV t) IdSet.empty Ht).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:51:25.250000.*)
+(* Auto-generated comment: At 2019-09-04 08:51:30.720000.*)
 
