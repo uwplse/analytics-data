@@ -229,7 +229,21 @@ Proof.
 (rewrite plus_comm).
 reflexivity.
 }
+(rewrite H).
+(rewrite plus_assoc).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqjz4HSm"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem mult_comm : forall m n : nat, m * n = n * m.
+Proof.
+(intros m n).
+(induction m).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:15:35.600000.*)
+(* Auto-generated comment: At 2019-09-04 07:16:15.240000.*)
 
