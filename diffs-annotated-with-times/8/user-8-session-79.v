@@ -930,7 +930,8 @@ Timeout 1 Print Ltac restore_dims.
 (apply f_equal_gen; trivial).
 (apply f_equal_gen; trivial).
 (simpl).
-(* Auto-generated comment: Failed. *)
+(rewrite size_ntensor; simpl; unify_pows_two; lia).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:16:49.230000.*)
+(* Auto-generated comment: At 2019-08-14 14:17:11.550000.*)
 
