@@ -403,8 +403,8 @@ constructor.
 {
 subst.
 (simpl).
-(apply Nat.max_le_l).
+(apply Nat.max_le_n).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:07:49.550000.*)
+(* Auto-generated comment: At 2019-08-13 12:07:58.430000.*)
 
