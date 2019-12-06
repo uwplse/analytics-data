@@ -66,8 +66,9 @@ Proof.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | destruct v; contradiction ])).
 -
-(apply match_ty_exist_inv in Hm).
+(apply match_ty_exist__inv in Hm).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:08:14.860000.*)
+(* Auto-generated comment: At 2019-08-19 09:08:33.370000.*)
 
