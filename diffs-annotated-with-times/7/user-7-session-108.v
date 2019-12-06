@@ -172,7 +172,7 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma match_ty__match_ge_world : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
 (induction w; induction t; intros k v Hm w' Hle).
 -
@@ -252,7 +252,8 @@ exists 0,(TCName c).
 (destruct (IHt1 k) as [w1 [v1 Hm1]]).
 (destruct (IHt2 k) as [w2 [v2 Hm2]]).
 exists (Nat.max w1 w2),(TPair v1 v2).
+(apply match_ty_pair; apply match_ty__ge_w).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:32:57.170000.*)
+(* Auto-generated comment: At 2019-08-21 09:34:35.310000.*)
 
