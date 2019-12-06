@@ -41,9 +41,7 @@ Redirect
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Check 1 + 2 + aReallyBigIdentifier + 4 + anotherLongName
-  === 6 + anotherLongName + 8 + 9.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 04:38:06.520000.*)
+(* Auto-generated comment: At 2019-09-03 04:38:10.750000.*)
 
