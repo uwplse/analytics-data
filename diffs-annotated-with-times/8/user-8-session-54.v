@@ -28,6 +28,7 @@ autorewrite with proof_db.
 (rewrite kron_1_r').
 (rewrite subst_pat_fresh_empty).
 (rewrite denote_pat_fresh_id).
-(rewrite super_I; easy).
+(rewrite super_I).
+easy.
 (* Auto-generated comment: Succeeded. *)
 
