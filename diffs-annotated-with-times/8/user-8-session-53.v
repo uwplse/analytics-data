@@ -946,7 +946,9 @@ Lemma assert_init_at_id :
   forall b m i, i < S m -> (assert_at b m i \194\183 init_at b m i \226\137\161 id_circ)%qc.
 Proof.
 (intros b m i Lt \207\129 safe M).
+(simpl).
+(simpl_rewrite id_circ_spec; auto with wf_db).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 20:26:06.270000.*)
+(* Auto-generated comment: At 2019-08-12 20:26:49.940000.*)
 
