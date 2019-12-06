@@ -100,8 +100,8 @@ Unset Search Output Name Only.
 Next Obligation.
 Proof.
 subst digit.
-(destruct base).
+(apply PeanoNat.Nat.div_lt).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:39:41.570000.*)
+(* Auto-generated comment: At 2019-08-16 05:39:47.490000.*)
 
