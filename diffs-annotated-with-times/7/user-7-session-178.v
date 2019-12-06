@@ -84,8 +84,37 @@ Proof.
 (rewrite subst_equation).
 (destruct (beq_id_false_iff X Y) as [_ Hid]).
 specialize (Hid Hneq).
-(simpl).
+(rewrite Hid).
+(unfold fresh_in_ty, fresh in HY).
+(destruct (IdSetFacts.not_mem_iff (FV s) Y) as [Hmem _]).
+specialize (Hmem HY).
+(rewrite Hmem).
+reflexivity.
+Qed.
+Lemma subst_id : forall (X : id) (t : ty), [X := TVar X] t = t.
+Proof.
+(intros X t; induction t; simpl; try reflexivity).
+-
+(rewrite subst_pair).
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(rewrite subst_union).
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(rewrite subst_equation).
+(destruct (beq_idP X i); try reflexivity).
+(destruct (IdSet.mem i (IdSet.singleton X)) eqn:Heq).
++
+(apply IdSetFacts.mem_2 in Heq).
+(apply IdSetFacts.singleton_1 in Heq).
+contradiction.
++
+(rewrite IHt).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:29:12.530000.*)
+(* Auto-generated comment: At 2019-09-02 06:33:46.370000.*)
 
