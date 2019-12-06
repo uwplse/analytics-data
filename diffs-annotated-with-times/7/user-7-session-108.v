@@ -415,9 +415,11 @@ clear Hm.
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
 -
-(destruct Ht as [w [v Hm]]).
-specialize (Hcontra w).
+(destruct Ht as [w1 [v Hm]]).
+specialize (Hcontra w1).
+(destruct Hcontra as [w2 Hcontra]).
+specialize (Hcontra _ Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 11:01:25.140000.*)
+(* Auto-generated comment: At 2019-08-21 11:02:23.060000.*)
 
