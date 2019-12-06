@@ -409,8 +409,8 @@ tauto.
 tauto.
 -
 (rewrite f_subst_exist).
-(unfold wf_ty; simpl).
+(unfold wf_ty in *; simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:55:08.200000.*)
+(* Auto-generated comment: At 2019-09-04 09:59:22.490000.*)
 
