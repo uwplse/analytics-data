@@ -157,8 +157,9 @@ econstructor.
 lia.
 +
 (inversion H; subst).
-(rewrite nat_from_le_zeros).
+(rewrite nat_from_le_zeros; auto).
+(rewrite nat_le_inverse).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:59:15.980000.*)
+(* Auto-generated comment: At 2019-08-16 08:00:05.730000.*)
 
