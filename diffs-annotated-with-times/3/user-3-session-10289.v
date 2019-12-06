@@ -71,9 +71,9 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-Inductive Marker : string -> Type :=
+Inductive Marker : String.string -> Type :=
     mark : _.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 06:29:54.980000.*)
+(* Auto-generated comment: At 2019-09-06 06:29:58.570000.*)
 
