@@ -129,8 +129,9 @@ exists w1.
 (destruct Hm as [Hm| Hm]).
 -
 (destruct w1).
-(v Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:34:41.780000.*)
+(* Auto-generated comment: At 2019-08-20 12:38:36.380000.*)
 
