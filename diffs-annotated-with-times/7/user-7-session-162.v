@@ -46,8 +46,9 @@ Definition fresh (X : id) (fvs : id_set) := ~ IdSet.In X fvs.
 Definition fresh_in_ty (X : id) (t : ty) := fresh X (FV t).
 Definition free_in_ty (X : id) (t : ty) := IdSet.In X (FV t).
 Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
-Variable (gen_fresh : id_set -> id).
+Axiom (gen_fresh : id_set -> id).
+Axiom (gen_fresh__fresh : forall fvs : id_set, fresh (gen_fresh Z) fvs).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:31:29.940000.*)
+(* Auto-generated comment: At 2019-08-29 13:31:31.300000.*)
 
