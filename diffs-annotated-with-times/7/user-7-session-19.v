@@ -107,8 +107,8 @@ specialize (H Hmt).
 (apply match_ty_i_ref__inv in H).
 (destruct H as [tx [Heq Href]]).
 (inversion Heq; subst).
-tauto.
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:59:13.960000.*)
+(* Auto-generated comment: At 2019-08-12 12:00:15.640000.*)
 
