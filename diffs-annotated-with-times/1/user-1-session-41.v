@@ -555,8 +555,11 @@ generalize dependent G'.
 (induction H).
 -
 (intros; inversion H0; subst; eauto).
-all: (try apply singleton_eq in H1; congruence).
+all: (try (apply singleton_eq in H1; congruence)).
+Search -(Ensembles.In _ (Singleton _ _) _).
+all: (try specialize (H1 _ (In_singleton _ _ _))).
+specialize (H1 _ (In_singleton _ _ _)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 16:05:29.670000.*)
+(* Auto-generated comment: At 2019-09-06 16:05:40.390000.*)
 
