@@ -247,8 +247,11 @@ Proof.
 -
 (destruct Hsem as [Hsem _]).
 specialize (Hsem 0).
+(destruct Hsem as [w2 Hsem]).
 (assert (Hm : |-[ 0, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hsem _ Hm).
+(destruct w2; simpl in Hsem; contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 12:57:35.970000.*)
+(* Auto-generated comment: At 2019-08-21 13:08:01.140000.*)
 
