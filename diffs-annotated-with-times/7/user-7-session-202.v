@@ -117,8 +117,8 @@ Qed.
 Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
 Proof.
 (intros t1 t2 Hwf).
-(unfold wf_ty in *).
+(unfold wf_ty in *; simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:50:54.920000.*)
+(* Auto-generated comment: At 2019-09-03 09:51:04.250000.*)
 
