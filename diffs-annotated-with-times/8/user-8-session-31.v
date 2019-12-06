@@ -2768,6 +2768,5 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 (eapply (IH p1); trivial).
 (eapply t0).
 split.
-easy.
 (* Auto-generated comment: Succeeded. *)
 
