@@ -179,7 +179,8 @@ Proof.
 (apply match_ty_cname__inv in Hm).
 subst.
 (apply match_ty_cname).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:19:14.770000.*)
+(* Auto-generated comment: At 2019-08-21 09:20:18.770000.*)
 
