@@ -146,10 +146,8 @@ Qed.
 Hint Resolve get_len_ok: core.
 Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
-(unfold recover).
-(unfold abstr).
-(apply rec_wipe_compose).
+(unfold rec_wipe; simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:47:14.310000.*)
+(* Auto-generated comment: At 2019-09-04 10:47:23.640000.*)
 
