@@ -134,7 +134,9 @@ Proof.
 (induction Hsub21).
 +
 (intros; split; constructor).
++
+(intros).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 11:38:10.270000.*)
+(* Auto-generated comment: At 2019-08-07 11:38:15.340000.*)
 
