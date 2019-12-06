@@ -158,7 +158,10 @@ Proof.
 (eapply then_init_compose; eauto).
 step_proc.
 (destruct (r == 0)).
-(* Auto-generated comment: Succeeded. *)
+-
+step_proc.
+step_proc.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:02:26.780000.*)
+(* Auto-generated comment: At 2019-09-03 11:02:33.590000.*)
 
