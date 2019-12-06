@@ -696,8 +696,10 @@ lia.
 {
 (destruct r; step).
 intuition.
+*
 (exists d,(OutOfSync a0 b); simplify; finish).
-(* Auto-generated comment: Failed. *)
+lia.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:15:22.410000.*)
+(* Auto-generated comment: At 2019-09-03 11:15:28.460000.*)
 
