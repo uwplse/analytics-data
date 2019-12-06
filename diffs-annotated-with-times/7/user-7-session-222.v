@@ -319,8 +319,7 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 (rewrite b_subst_pair).
-(apply b_free_in_ty_pair).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 14:01:19.820000.*)
+(* Auto-generated comment: At 2019-09-04 14:01:30.650000.*)
 
