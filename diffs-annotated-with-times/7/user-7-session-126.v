@@ -107,9 +107,9 @@ Qed.
 Lemma subs_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
 (intros X t; induction t; try reflexivity).
-(simpl).
-auto.
+-
+(rewrite IHt1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:50:10.820000.*)
+(* Auto-generated comment: At 2019-08-27 07:50:20.510000.*)
 
