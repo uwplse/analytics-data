@@ -183,8 +183,8 @@ auto with DBBetaJulia.
 (intros k t1 t2 Hsem).
 (unfold sem_eq_k in *).
 (intros v).
-(split; auto).
+auto with Hsem.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:02:14.770000.*)
+(* Auto-generated comment: At 2019-08-15 07:02:20.840000.*)
 
