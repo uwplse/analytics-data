@@ -84,8 +84,11 @@ clear Heq.
 (destruct Href as [Href _]).
 specialize (Href 1).
 (destruct Href as [w2 Hsem]).
-(pose proof (sem_eq_k__exists_not 0 t)).
+(destruct (sem_eq_k__exists_not 0 t) as [t' Hnoteq]).
+(assert (Hm : |-[ 1, 1] TRef tint <$ TExist vX (TRef tX))).
+{
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:26:13.910000.*)
+(* Auto-generated comment: At 2019-08-20 12:26:27.450000.*)
 
