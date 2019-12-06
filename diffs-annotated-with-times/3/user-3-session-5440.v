@@ -254,8 +254,18 @@ Proof.
 reflexivity.
 -
 (step_proc; intuition; subst; eauto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYtIJAx"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 {
+(exists 0; simpl; auto).
+}
+{
+(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:16:46.220000.*)
+(* Auto-generated comment: At 2019-09-03 13:16:49.330000.*)
 
