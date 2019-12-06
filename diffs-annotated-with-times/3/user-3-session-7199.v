@@ -381,7 +381,8 @@ step_proc.
 intuition eauto.
 step_proc.
 (descend; intuition eauto).
-(* Auto-generated comment: Succeeded. *)
+step_proc.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:31:56.300000.*)
+(* Auto-generated comment: At 2019-09-04 11:31:58.900000.*)
 
