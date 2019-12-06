@@ -374,8 +374,8 @@ clear IHt.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
-tauto.
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:51:03.550000.*)
+(* Auto-generated comment: At 2019-08-13 13:51:23.460000.*)
 
