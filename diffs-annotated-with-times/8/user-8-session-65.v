@@ -1131,6 +1131,123 @@ Lemma valid_id_circ : forall w, valid_ancillae_box' (@id_circ w).
 Proof.
 (intros w \207\129 T H\207\129).
 (rewrite denote_box_id_circ).
+(apply mixed_state_trace_1; auto).
+Qed.
+Fact symmetric_gate_noop_source :
+  forall n t k g c,
+  gate_acts_on k g -> noop_source n t c -> noop_source n t (g \194\183 c \194\183 g).
+Proof.
+Admitted.
+Fact init_at_noop :
+  forall b m i j,
+  valid_ancillae_box' (assert_at b (S m) i \194\183 init_at b (S m) j \194\183 init_at b m i).
+Proof.
+Admitted.
+Fact symmetric_ancilla_noop_source :
+  forall n t k c b,
+  k < S n ->
+  noop_source (S n) t c ->
+  noop_source n t (assert_at b (n + t) k \194\183 c \194\183 init_at b (n + t) k).
+Proof.
+Admitted.
+Lemma source_symmetric_noop :
+  forall n t c, source_symmetric n t c -> noop_source n t c.
+Proof.
+(intros n t c pf_c).
+(induction pf_c).
 *
+(destruct n as [| n]; simpl; auto; intros x pf_x b).
+(fold plus).
+(rewrite inSeq_id_l).
+(apply valid_ancillae_box'_equiv with (b2 := id_circ)).
++
+(apply assert_init_at_id).
+omega.
++
+(apply valid_id_circ).
+*
+(assert (Typed_Box g) by (eapply gate_acts_on_WT; eauto)).
+(assert (Typed_Box c) by (apply source_symmetric_WT; auto)).
+(apply symmetric_gate_noop_source with (k := k); auto).
+*
+(apply noop_source_inSeq; auto).
++
+(apply source_symmetric_WT; auto).
++
+(eapply gate_acts_on_WT; eauto).
++
+(destruct n as [| n]; simpl; auto; intros i pf_i).
+(fold plus).
+(apply gate_acts_on_noop_at with (k := k); auto).
+++
+omega.
+++
+omega.
+*
+(apply noop_source_inSeq; auto).
++
+(eapply gate_acts_on_WT; eauto).
++
+(apply source_symmetric_WT; auto).
++
+(destruct n as [| n]; simpl; auto; intros i pf_i).
+(fold plus).
+(apply gate_acts_on_noop_at with (k := k); auto).
+++
+omega.
+++
+omega.
+*
+(apply symmetric_ancilla_noop_source; auto).
+Qed.
+Ltac
+ show_ancilla_free :=
+  repeat
+   match goal with
+   | |- ancilla_free_box _ => apply af_box; intros
+   | |- ancilla_free (letpair _ _ ?p _) => dependent destruction p; simpl
+   | |- ancilla_free (comp _ (output ?p) _) => dependent destruction p; simpl
+   | |- ancilla_free (gate _ _ _) => apply af_gate; intros
+   | |- ancilla_free (output _) => apply af_output; intros
+   | |- not_assert _ => constructor
+   end.
+Fact ancilla_free_X_at : forall n i pf_i, ancilla_free_box (X_at n i pf_i).
+Proof.
+(intros n i).
+gen n.
+(induction i as [| i]; intros n pf).
+-
+(unfold X_at, unitary_at1; simpl).
+(destruct n; try omega).
+show_ancilla_free.
+-
+(destruct n; try omega).
+(unshelve (epose (pf' := _ : i < n)); try omega).
+specialize (IHi n pf').
+Admitted.
+Fact ancilla_free_CNOT_at : forall n a b, ancilla_free_box (CNOT_at n a b).
+Admitted.
+Fact ancilla_free_Toffoli_at : forall n a b c, ancilla_free_box (Toffoli_at n a b c).
+Admitted.
+Fact ancilla_free_seq :
+  forall W W' W'' (c1 : Box W W') (c2 : Box W' W''),
+  ancilla_free_box c1 -> ancilla_free_box c2 -> ancilla_free_box (c1;; c2).
+Admitted.
+Theorem source_symmetric_valid :
+  forall (n t : nat) (c : Square_Box ((n + t) \226\168\130 Qubit)),
+  source_symmetric n t c -> valid_ancillae_box c.
+Proof.
+(intros n t c H).
+(induction H).
+-
+(apply ancilla_free_box_valid).
+constructor.
+constructor.
+-
+(inversion g0).
++
+(unfold valid_ancillae_box).
+(intros TB).
+(apply functional_extensionality).
 (* Auto-generated comment: Succeeded. *)
 
