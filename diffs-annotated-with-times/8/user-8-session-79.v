@@ -606,8 +606,8 @@ Lemma new_morphism :
   Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv A).
 Proof.
 (intros).
-(unfold Morphisms.Proper).
+(compute).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 18:16:26.400000.*)
+(* Auto-generated comment: At 2019-08-13 18:17:24.040000.*)
 
