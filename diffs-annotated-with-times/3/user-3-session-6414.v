@@ -109,7 +109,13 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2gZaVH"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Definition append_at (a : addr) (bs : list block) : 
+  proc unit :=
+  match bs with
+  | [] => Ret tt
+  | b :: bs => _ <- d.write (log_addr a) b; append_at (S a) bs
+  end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:14:15.530000.*)
+(* Auto-generated comment: At 2019-09-04 10:14:28.640000.*)
 
