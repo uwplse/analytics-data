@@ -113,8 +113,8 @@ step_proc.
 left.
 intuition.
 (unfold statdb_abstraction in *).
-(destruct s; intuition; try congruence).
+(destruct s; simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:37:45.820000.*)
+(* Auto-generated comment: At 2019-09-06 05:37:48.020000.*)
 
