@@ -401,9 +401,9 @@ right.
         subst
  end).
 (match goal with
- | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || apply mk_nf_nf__equal
+ | IHHcontra:context [ _ -> False ] |- False => apply IHHcontra; try tauto || (apply mk_nf_nf__equal; assumption)
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:07:58.100000.*)
+(* Auto-generated comment: At 2019-08-09 12:08:40.950000.*)
 
