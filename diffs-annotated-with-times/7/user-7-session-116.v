@@ -27,8 +27,11 @@ Proof.
 -
 (simpl).
 (unfold fresh_in_ty in *).
+(simpl in Hfresh).
 (apply fresh_union__inv in Hfresh).
+(destruct Hfresh as [Hfresh1 Hfresh2]).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:45:02.030000.*)
+(* Auto-generated comment: At 2019-08-27 06:45:32.900000.*)
 
