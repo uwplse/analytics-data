@@ -319,6 +319,8 @@ Fixpoint Gamma (G : GT) : SetST :=
   | _ => Empty_set _
   end
 with GammaPair (x : option (Ann * GT)) :
+SetST
+:
 match x as m return (x = m -> SetST) with
 | None => fun _ => Empty_set _
 | Some P =>
@@ -330,5 +332,5 @@ match x as m return (x = m -> SetST) with
 end eq_refl.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 23:25:19.240000.*)
+(* Auto-generated comment: At 2019-09-04 23:34:28.530000.*)
 
