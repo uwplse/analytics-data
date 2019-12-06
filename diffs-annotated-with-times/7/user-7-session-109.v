@@ -119,5 +119,5 @@ Inductive sub_d : ty -> ty -> Prop :=
  where "|- t1 '<<' t2" := (sub_d t1 t2) : btjd_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:42:03.800000.*)
+(* Auto-generated comment: At 2019-08-26 07:42:06.490000.*)
 
