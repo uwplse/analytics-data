@@ -967,8 +967,7 @@ gen \207\129.
 (simpl).
 (rewrite Nat.mul_1_r).
 (intros \207\129 M).
-(repeat rewrite Mmult_assoc).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 10:34:23.690000.*)
+(* Auto-generated comment: At 2019-08-13 10:35:01.080000.*)
 
