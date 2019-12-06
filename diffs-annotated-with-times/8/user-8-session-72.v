@@ -1265,6 +1265,20 @@ reflexivity.
 (rewrite IHsource_symmetric; trivial).
 specialize @ancilla_free_box_valid as AV.
 (unfold valid_ancillae_box in AV).
-(do 2 (rewrite AV; [  | apply ancilla_free_CNOT_at | type_check ])).
+(do 2 (rewrite AV; [  | apply ancilla_free_Toffoli_at | type_check ])).
+reflexivity.
+-
+(inversion g0).
++
+(unfold valid_ancillae_box).
+(intros \207\129 TB).
+(repeat (rewrite inSeq_correct; try unfold compose_super); try apply inSeq_WT;
+  try apply unitary_at1_WT; try apply source_symmetric_WT; trivial).
+(apply source_symmetric_WT in H).
+(unfold valid_ancillae_box in IHsource_symmetric).
+(rewrite IHsource_symmetric; trivial).
+specialize @ancilla_free_box_valid as AV.
+(unfold valid_ancillae_box in AV).
+(do 2 (rewrite AV; [  | apply ancilla_free_X_at | type_check ])).
 (* Auto-generated comment: Succeeded. *)
 
