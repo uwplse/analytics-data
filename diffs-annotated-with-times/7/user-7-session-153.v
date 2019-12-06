@@ -20,8 +20,8 @@ Proof.
 exists (TCName c).
 (apply match_ty_cname).
 -
-Check subs.
-(* Auto-generated comment: Failed. *)
+Check subst.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:56:11.660000.*)
+(* Auto-generated comment: At 2019-08-29 08:57:57.320000.*)
 
