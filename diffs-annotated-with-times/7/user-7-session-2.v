@@ -222,8 +222,8 @@ Proof.
 (intros Hsub12 t3 Hsub21).
 (induction Hsub21; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
 -
-(intros Hsub12).
+(intros Hsub12 intros t3 Hsub21).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:37:07.910000.*)
+(* Auto-generated comment: At 2019-08-07 12:38:33.240000.*)
 
