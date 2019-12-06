@@ -215,8 +215,11 @@ intro x.
   (forall res,
    eval L env
      (Choose x (And (In (Var x) Ints) (Eq (Int 6) (Times (Var x) (Int 2))))) =
-   res -> res = eval L env (Int 3))).
+   res -> exists i, res = eval L env (Int i))).
+{
+(intros).
+(eapply evalInInts).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 09:31:48.660000.*)
+(* Auto-generated comment: At 2019-09-01 09:33:34.810000.*)
 
