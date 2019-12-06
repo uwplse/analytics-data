@@ -259,10 +259,8 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 (rewrite b_subst_pair).
-(unfold f_free_in_ty, free).
-(simpl).
 (destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:27:31.370000.*)
+(* Auto-generated comment: At 2019-09-04 09:28:48.850000.*)
 
