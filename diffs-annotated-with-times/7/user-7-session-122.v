@@ -40,8 +40,13 @@ Proof.
 exists (Nat.max w21 w22).
 (intros v Hm).
 (apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; eapply match_ty__ge_w).
+(destruct Hm as [Hm| Hm]; [ specialize (Hsem1 _ Hm) | specialize (Hsem2 _ Hm) ]; eapply match_ty__ge_w; try eassumption).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+Qed.
+Lemma sem_sub_union : forall t1 t2 t' : ty, ||- [t1]<= [t'] -> ||- [t2]<= [t'] -> ||- [TUnion t1 t2]<= [t'].
+Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:23:35.270000.*)
+(* Auto-generated comment: At 2019-08-27 07:24:23.630000.*)
 
