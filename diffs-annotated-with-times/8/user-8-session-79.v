@@ -593,13 +593,14 @@ Definition mat_equiv' := @mat_equiv.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRShYoE"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma mat_equiv_equiv' : @mat_equiv = mat_equiv'.
-reflexivity.
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqlTTxBw"
+Definition mat_equiv_equiv' : @mat_equiv = mat_equiv' := eq_refl.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqqRCKQW"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Timeout 1 About show_dimensions.
+Timeout 1 Print show_dimensions.
+Timeout 1 Print Ltac show_dimensions.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:43:47.820000.*)
+(* Auto-generated comment: At 2019-08-14 11:44:29.420000.*)
 
