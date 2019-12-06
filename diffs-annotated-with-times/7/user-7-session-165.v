@@ -89,8 +89,7 @@ reflexivity.
 -
 (destruct (beq_idP X i); try reflexivity).
 (rewrite IHt).
-reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:54:08.420000.*)
+(* Auto-generated comment: At 2019-08-29 13:54:19.330000.*)
 
