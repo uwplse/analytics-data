@@ -294,8 +294,8 @@ generalize dependent t22.
 generalize dependent t21.
 (induction Hnf1; intros t21 t22).
 -
-(rewrite unite_pairs_atom_union).
+(rewrite unite_pairs_atom_union; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 07:15:21.950000.*)
+(* Auto-generated comment: At 2019-08-09 07:15:27.140000.*)
 
