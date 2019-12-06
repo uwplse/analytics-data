@@ -76,9 +76,10 @@ list {x : nat | x < S (S base)} :=
   | 0 => nil
   | _ =>
       let digit := x mod S (S base) in
-      exist _ digit _ :: nat_to_le base (x / S (S base))
+      exist _ digit (PeanoNat.Nat.mod_upper_bound _)
+      :: nat_to_le base (x / S (S base))
   end.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 05:43:17.250000.*)
+(* Auto-generated comment: At 2019-08-16 05:43:53.620000.*)
 
