@@ -162,9 +162,9 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
-Search -diskGet -"<".
-(apply disk_inbounds_exists in H).
+(apply disk_inbounds_exists in H; intuition eauto).
+(rewrite H in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:52:04.120000.*)
+(* Auto-generated comment: At 2019-09-04 10:52:24.730000.*)
 
