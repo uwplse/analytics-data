@@ -139,8 +139,20 @@ reflexivity.
 *
 subst.
 (rewrite b_subst_exist_eq).
+(rewrite b_subst_exist_neq; try assumption).
 reflexivity.
+*
+(repeat rewrite b_subst_exist_neq; try assumption).
+(rewrite IHt).
+reflexivity.
+-
+(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
++
+contradiction.
++
+(simpl).
+(rewrite <- beq_id_refl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:47:14.220000.*)
+(* Auto-generated comment: At 2019-09-03 09:48:41.130000.*)
 
