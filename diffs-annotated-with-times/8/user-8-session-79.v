@@ -962,7 +962,8 @@ restore_dims
 specialize (IHi n l1 l2 A B).
 (repeat rewrite app_length in *).
 (simpl in *).
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:06:13.440000.*)
+(* Auto-generated comment: At 2019-08-14 18:06:27.570000.*)
 
