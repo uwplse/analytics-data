@@ -88,6 +88,6 @@ Theorem insertion_sort_permutation :
 Proof with (simpl; eauto with sf).
 (induction l) ...
 Qed.
-Search -Sorted.
-(* Auto-generated comment: Succeeded. *)
+Show Sorted.
+(* Auto-generated comment: Failed. *)
 
