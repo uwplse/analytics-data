@@ -13,6 +13,15 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Close Scope btjm.
 Open Scope btjmi.
+Lemma sem_eq_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Proof.
+(intros k t1 t2 t3 Hsem1 Hsem2).
+(unfold sem_eq_k in *).
+(intros v).
+specialize (Hsem1 v).
+specialize (Hsem2 v).
+tauto.
+Qed.
 Lemma match_ty_i_pair : forall (v1 v2 t1 t2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ TPair t1 t2.
 Proof.
 (intros v1 v2 t1 t2 k Hm1 Hm2).
@@ -137,5 +146,5 @@ clear IHt3.
 (apply sem_eq_i__trans with t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:54:22.810000.*)
+(* Auto-generated comment: At 2019-08-16 13:55:31.380000.*)
 
