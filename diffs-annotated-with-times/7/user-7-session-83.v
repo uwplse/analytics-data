@@ -146,6 +146,22 @@ clear IHt3.
 (simpl in Hm2).
 (apply sem_eq_k_i__trans with t; assumption).
 Qed.
+Lemma match_ty_i_exists : forall (t : ty) (k : nat), exists v : ty, |-[ k] v <$ t.
+Proof.
+(induction t; intros k).
+-
+(exists (TCName c); destruct k; reflexivity).
+-
+(destruct (IHt1 k) as [v1 Hm1]; destruct (IHt2 k) as [v2 Hm2]).
+(exists (TPair v1 v2); apply match_ty_i_pair; assumption).
+-
+(destruct (IHt1 k) as [v1 Hm1]).
+(exists v1; apply match_ty_i_union_1; assumption).
+-
+exists (TRef t).
+(apply match_ty_i__reflexive).
+constructor.
+Qed.
 Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
 auto with DBBetaJulia.
@@ -168,7 +184,8 @@ Proof.
   [ assert (Hmp : |-[ k] TPair v v' <$ TPair t1 t2) by (apply match_ty_i_pair; assumption)
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:01:38.770000.*)
+(* Auto-generated comment: At 2019-08-16 14:01:51.390000.*)
 
