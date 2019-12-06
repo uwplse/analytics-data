@@ -941,8 +941,8 @@ Timeout 1 Print Ltac rewrite_inPar.
        specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP;
         rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
         rewrite IP
- end).
+ end; try (solve [ type_check ])).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:38:06.910000.*)
+(* Auto-generated comment: At 2019-08-14 14:38:07.030000.*)
 
