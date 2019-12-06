@@ -148,6 +148,6 @@ Timeout 1 Print Ltac restore_dims.
             A'
  end).
 (rewrite <- ctrl_list_to_unitary_transpose).
-(rewrite ctrls_to_list_transpose_snd).
+(rewrite <- ctrls_to_list_transpose_snd).
 (* Auto-generated comment: Failed. *)
 
