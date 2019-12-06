@@ -78,10 +78,15 @@ clear Hm.
 clear Heq.
 (assert (Hm : |-[ 0, 1] TRef tX <$ TRef tX) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Href (TRef tX)).
-(destruct Href as [Href1 Href2]).
-specialize (Href1 Hm).
+(destruct Href as [Href _]).
+specialize (Href Hm).
 clear Hm.
+(apply match_ty_ref__inv in Href).
+(destruct Href as [t' [Heq Href]]).
+(inversion Heq; subst).
+clear Heq.
+(assert (Hm : |-[ 0, 0] TEV vX <$ TEV vX)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:33:13.960000.*)
+(* Auto-generated comment: At 2019-08-20 08:33:16.300000.*)
 
