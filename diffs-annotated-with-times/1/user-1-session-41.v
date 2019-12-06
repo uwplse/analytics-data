@@ -552,8 +552,8 @@ Proof.
 generalize dependent G'.
 (induction H).
 -
-(intros).
-(* Auto-generated comment: Succeeded. *)
+(intros; inversion H; eauto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 18:49:31.030000.*)
+(* Auto-generated comment: At 2019-09-05 18:50:08.280000.*)
 
