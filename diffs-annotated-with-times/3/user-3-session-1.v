@@ -456,7 +456,8 @@ Proof.
 firstorder.
 (intros).
 (apply impl_spec_exec).
+(apply impl_spec_exec; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-06 04:43:18.990000.*)
+(* Auto-generated comment: At 2019-08-06 04:43:31.340000.*)
 
