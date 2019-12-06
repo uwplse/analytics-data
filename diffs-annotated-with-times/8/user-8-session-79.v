@@ -589,14 +589,16 @@ constructor.
 (intros i).
 (apply (H (S i))).
 Qed.
-Require Import Setoid.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqR3qmlT"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Add Parametric Morphism  m n : @big_kron m n with signature 
- eq ==> @mat_equiv as big_kron_mor.
+Lemma big_kron_append :
+  forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
+Proof.
+(induction l1).
+-
+(intros).
+(simpl).
+(remember (\226\168\130 l2) as A).
+clear.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:23:27.400000.*)
+(* Auto-generated comment: At 2019-08-13 17:23:36.410000.*)
 
