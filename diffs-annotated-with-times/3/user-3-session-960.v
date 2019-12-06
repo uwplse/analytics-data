@@ -102,8 +102,10 @@ lia.
 Qed.
 Next Obligation of nat_to_le_func.
 Proof.
-(simpl).
+(unfold MR).
+Search -wf.
+(apply wf_projected).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:45:13.300000.*)
+(* Auto-generated comment: At 2019-08-16 05:45:30.730000.*)
 
