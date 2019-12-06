@@ -91,10 +91,7 @@ dependent destruction u.
 (simpl).
 (destruct li as [| k li]; simpl; try lma).
 specialize (IHW2 lb li u).
-(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
-(destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:11:58.230000.*)
+(* Auto-generated comment: At 2019-08-09 11:12:49.630000.*)
 
