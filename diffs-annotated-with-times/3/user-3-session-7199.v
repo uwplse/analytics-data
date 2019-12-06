@@ -192,9 +192,9 @@ eauto using log_length_ok_nil.
 }
 congruence.
 -
-(simpl; intuition).
+(unfold log_contents_ok; intuition).
 (exfalso; lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:06:32.140000.*)
+(* Auto-generated comment: At 2019-09-04 11:06:57.580000.*)
 
