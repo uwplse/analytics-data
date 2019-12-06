@@ -162,8 +162,9 @@ Theorem regex_match_is_explicit :
   forall (r : regex) (s : string),
   regex_match r s <-> regex_match_length r s (String.length s).
 Proof.
-(split; intros).
+split.
+(induction 1).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-09 12:10:04.590000.*)
+(* Auto-generated comment: At 2019-09-09 12:10:10.320000.*)
 
