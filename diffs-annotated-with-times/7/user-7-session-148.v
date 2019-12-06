@@ -92,8 +92,17 @@ tauto.
 (induction t').
 +
 (intros k).
-(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k)).
-(* Auto-generated comment: Failed. *)
+(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]).
+(specialize (Hsem k w); destruct Hsem as [w2 Hsem]; specialize (Hsem _ Hm); apply match_ty_pair__inv in Hm;
+  destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_cname__inv in Hsem).
+(inversion Hsem).
++
+clear IHt'1 IHt'2.
+(apply sem_sub_pair__inv in Hsem).
+(destruct Hsem as [Hsem1 Hsem2]).
+(destruct (fresh_in_ty_pair__inv _ _ _ Hfresh) as [Hfresh1 Hfresh2]).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 07:44:53.830000.*)
+(* Auto-generated comment: At 2019-08-29 07:45:07.930000.*)
 
