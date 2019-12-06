@@ -601,9 +601,10 @@ Proof.
 (remember (n ^ length l2) as n').
 clear.
 specialize (kron_1_l A) as KL.
+symmetry.
 (simpl in KL).
 (apply KL).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:34:26.900000.*)
+(* Auto-generated comment: At 2019-08-13 17:34:27.340000.*)
 
