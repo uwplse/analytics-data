@@ -110,9 +110,15 @@ assumption.
 }
 }
 {
-(split; intros HX').
+(simpl in Hm').
+contradiction.
+}
+*
+(simpl in Hm').
+subst.
+split.
 {
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:22:07.390000.*)
+(* Auto-generated comment: At 2019-09-05 13:23:17.030000.*)
 
