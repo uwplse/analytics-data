@@ -158,5 +158,5 @@ idtac.
   apply match_ty_i__transitive_on_value_type with (TRef t); assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 06:44:29.660000.*)
+(* Auto-generated comment: At 2019-08-13 06:44:56.990000.*)
 
