@@ -150,10 +150,13 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Theorem nat_from_le_zeros base_m2 digits zero_v n :
-  proj1_sig zero_v 0 ->
+  proj1_sig zero_v = 0 ->
   @nat_from_le base_m2 (digits ++ repeat zero_v n) =
   @nat_from_le base_m2 digits.
-(* Auto-generated comment: Failed. *)
+Proof.
+(intros).
+(induction digits; simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:20:07.590000.*)
+(* Auto-generated comment: At 2019-08-16 07:20:52.880000.*)
 
