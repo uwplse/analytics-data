@@ -31,8 +31,7 @@ dependent induction TP.
 -
 (intros w' f \206\1470 \206\1471 \206\1471' \206\14701 WT pf_merge1 pf_merge2).
 (simpl).
-(unfold compose_super).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-10 12:23:31.120000.*)
+(* Auto-generated comment: At 2019-08-10 12:23:31.570000.*)
 
