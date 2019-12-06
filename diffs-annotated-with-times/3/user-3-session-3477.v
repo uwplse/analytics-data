@@ -250,9 +250,9 @@ Proof.
 (eapply init_abstraction_any_rec with rec).
 (unfold init_abstraction; intros).
 (eapply proc_spec_rx; [ solve [ eauto ] |  ]; cbn[pre post recovered]; intros).
-(exists tt; intuition; simpl in *).
+(descend; intuition eauto).
 (destruct r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 07:17:21.710000.*)
+(* Auto-generated comment: At 2019-08-29 07:17:38.410000.*)
 
