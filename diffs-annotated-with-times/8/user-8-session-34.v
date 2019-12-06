@@ -48,7 +48,7 @@ admit.
 -
 (intros WT pf_merge1 pf_merge2).
 replace (compose (gate g p1 f) h) with gate g p1 (fun p2 => compose (f p2) h) by auto.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-10 12:31:41.770000.*)
+(* Auto-generated comment: At 2019-08-10 12:31:41.930000.*)
 
