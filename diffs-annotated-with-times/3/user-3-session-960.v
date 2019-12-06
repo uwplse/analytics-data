@@ -261,8 +261,8 @@ econstructor.
 -
 (simpl).
 (destruct b; simpl).
-Search -ascii_to_bounded.
+(unfold ascii_to_bounded, bounded_to_ascii).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:01:47.550000.*)
+(* Auto-generated comment: At 2019-08-16 07:01:50.680000.*)
 
