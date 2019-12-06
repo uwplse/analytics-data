@@ -59,8 +59,10 @@ exists w2.
 Qed.
 Lemma sem_sub_k_union_2 : forall t t1' t2' : ty, ||- [t]<= [t2'] -> ||- [t]<= [TUnion t1' t2'].
 Proof.
-(intros w1 t1' t2' Hsem).
-(* Auto-generated comment: Failed. *)
+(intros t1' t2' Hsem).
+(intros w1).
+specialize (Hsem w1).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:20:58.900000.*)
+(* Auto-generated comment: At 2019-08-29 08:21:00.760000.*)
 
