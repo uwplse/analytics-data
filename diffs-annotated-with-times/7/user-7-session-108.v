@@ -266,9 +266,21 @@ exists (TPair v'1 v'2).
 }
 admit.
 }
-(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k w Hcontra X s) | specialize (IHt2 k w Hcontra X s) ]; [ apply IHt1 | apply IHt2 ];
-  eauto).
+(destruct Hcontra as [Hcontra| Hcontra]; [ specialize (IHt1 k Hcontra X s) | specialize (IHt2 k Hcontra X s) ]; [ apply IHt1 | apply IHt2 ]; eauto).
+-
+admit.
+-
+(apply Hnotm).
+exists (TRef t).
+(apply match_ty_value_type__reflexive; constructor).
+-
+(destruct Hcontra as [v Hcontra]).
+admit.
+-
+(apply Hnotm).
+exists (TEV X).
+(destruct k; reflexivity).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:34:42.990000.*)
+(* Auto-generated comment: At 2019-08-21 10:34:58.640000.*)
 
