@@ -170,7 +170,7 @@ Proof.
 (rewrite <- mk_nf__idempotent).
 assumption.
 Qed.
-Lemma sub_r_nf__trans :
+Lemma sub_r_nf__trans2 :
   forall tm1 tm2 : ty,
   |- tm1 << tm2 -> InNF( tm1) -> InNF( tm2) -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
 Proof.
@@ -228,7 +228,11 @@ tauto.
 (split; intros tx Hsub'; apply SR_NormalForm; apply IHHsub; try tauto || apply mk_nf__in_nf).
 (apply sub_r__mk_nf_sub_r; assumption).
 Qed.
+Lemma sub_r__trans2 :
+  forall tm1 tm2 : ty, |- tm1 << tm2 -> (forall tl : ty, |- tl << tm1 -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> |- tm1 << tr).
+Proof.
+Abort.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:48:24.420000.*)
+(* Auto-generated comment: At 2019-08-08 13:48:53.460000.*)
 
