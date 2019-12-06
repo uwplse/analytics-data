@@ -74,8 +74,8 @@ Fixpoint match_ty (k : nat) :=
         | _, _, TEV X, TEV X' => X = X'
         | _, _, _, _ => False
         end
-where "'|-[' k ',' w ']' v '<$' t" := (match_ty w k v t) : btjm_scope.
+where "'|-[' k ',' w ']' v '<$' t" := (match_ty k w v t) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:12:00.620000.*)
+(* Auto-generated comment: At 2019-08-20 11:12:07.100000.*)
 
