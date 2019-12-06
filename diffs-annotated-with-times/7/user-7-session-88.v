@@ -420,9 +420,10 @@ Proof.
            assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
             (Hsem _ Hm); contradiction
      end ])).
+-
 (assert (Hv : value_type (TCName c)) by constructor).
 (destruct IHt'1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 06:54:55.370000.*)
+(* Auto-generated comment: At 2019-08-18 06:55:33.170000.*)
 
