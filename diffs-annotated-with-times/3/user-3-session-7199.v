@@ -407,8 +407,10 @@ congruence.
 }
 }
 step_proc.
-intuition eauto.
+intuition.
+{
+(exists bs; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:11:15.410000.*)
+(* Auto-generated comment: At 2019-09-04 12:11:24.910000.*)
 
