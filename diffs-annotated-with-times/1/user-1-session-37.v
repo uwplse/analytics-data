@@ -308,5 +308,5 @@ Definition R (e : evidence) : SetST2 :=
   In _ (Gamma (fst e)) T1 /\ In _ (Gamma (snd e)) T2.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 22:38:10.340000.*)
+(* Auto-generated comment: At 2019-09-04 22:39:05.270000.*)
 
