@@ -661,7 +661,255 @@ reflexivity.
 (erewrite IHl1; auto).
 restore_dims try rewrite app_length; try rewrite Nat.pow_add_r; lia.
 (rewrite kron_assoc'; try apply Nat.pow_nonzero; try lia).
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqwTWq3g"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma pure_ctx_to_matrix : forall \206\147 f, Pure_State (ctx_to_matrix \206\147 f).
+Proof.
+(intros).
+(unfold ctx_to_matrix).
+specialize (pure_big_kron 2) as PBK.
+(rewrite <- (ctx_to_mat_list_length \206\147 f)).
+(eapply PBK).
+clear.
+revert f.
+(induction \206\147).
+(intros f [| i]).
+(simpl).
+(apply pure0).
+(simpl).
+(apply pure0).
+(destruct i, a; simpl; [ apply pure_bool_to_matrix |  |  |  ]; apply IH\206\147).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqFWeai8"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma is_valid_singleton_merge :
+  forall W (\206\147 : Ctx) n, (length \206\147 <= n)%nat -> is_valid (\206\147 \226\139\147 singleton n W).
+Proof.
+(induction \206\147; intros).
+-
+unlock_merge.
+(simpl).
+(apply valid_valid).
+-
+(destruct n).
+(simpl in H; omega).
+unlock_merge.
+(simpl).
+(simpl in H).
+(destruct IH\206\147 with (n := n)).
+omega.
+(rewrite H0).
+(destruct a; simpl; apply valid_valid).
+Qed.
+Lemma size_ctx_app :
+  forall \206\1471 \206\1472 : Ctx, size_ctx (\206\1471 ++ \206\1472) = (size_ctx \206\1471 + size_ctx \206\1472)%nat.
+Proof.
+(induction \206\1471; trivial).
+(intros).
+(simpl).
+(rewrite IH\206\1471).
+(destruct a; reflexivity).
+Qed.
+Lemma singleton_length : forall n W, length (singleton n W) = (n + 1)%nat.
+Proof.
+(induction n; trivial).
+(intros W).
+(simpl).
+(rewrite IHn).
+reflexivity.
+Qed.
+Ltac
+ dim_solve :=
+  unify_pows_two; simpl; try rewrite size_ntensor; simpl; try rewrite Nat.mul_1_r;
+   omega.
+Ltac
+ unify_dim_solve :=
+  match goal with
+  | |- @kron ?m ?n ?o ?p ?A ?B = @kron ?m' ?n' ?o' ?p' ?A' ?B' =>
+        replace A with A' by unify_dim_solve; replace B with B' by unify_dim_solve;
+         replace m with m' by dim_solve; replace n with n' 
+         by dim_solve; replace o with o' by dim_solve; replace p with p'
+         by dim_solve; reflexivity
+  | |- _ = _ => reflexivity
+  end.
+Ltac
+ show_static :=
+  repeat
+   match goal with
+   | |- Static_Box ?c => constructor; intros
+   | |- Static_Circuit ?c => constructor; intros
+   end.
+Ltac
+ show_pure :=
+  repeat
+   match goal with
+   | |- Pure_State (\226\168\130 ctx_to_mat_list ?\206\147 ?f) => replace 
+     (\226\168\130 ctx_to_mat_list \206\147 f) with ctx_to_matrix \206\147 f by easy
+   | |- @Pure_State ?W (ctx_to_matrix ?\206\147 ?f) =>
+         let H := fresh "H" in
+         specialize (pure_ctx_to_matrix \206\147 f) as H;
+          match type of H with
+          | @Pure_State ?W' (ctx_to_matrix ?\206\147 ?f) =>
+              replace W with W' by dim_solve; apply H
+          end; clear H
+   | |- @Pure_State ?W (@kron ?a ?b ?c ?d ?A ?B) =>
+         let H := fresh "H" in
+         specialize (pure_state_kron a c A B) as H;
+          match type of H
+          with
+          | ?H1 -> ?H2 -> @Pure_State ?W' (@kron ?a' ?b' ?c' ?d' ?A ?B) =>
+              replace W with W' by dim_solve; replace a with a' by dim_solve;
+               replace b with b' by dim_solve; replace c with c' 
+               by dim_solve; replace d with d' by dim_solve; 
+               apply H
+          end; clear H
+   | _ => apply pure_bool_to_matrix
+   | _ => apply pure0
+   | _ => apply pure1
+   | _ => apply pure_id1
+   end.
+Ltac
+ show_mixed :=
+  repeat
+   match goal with
+   | |- @Mixed_State ?W (@denote_box true ?W1 ?W2 ?c ?\207\129) =>
+         let H := fresh "H" in
+         let S := fresh "S" in
+         let T := fresh "T" in
+         specialize (@denote_static_box_correct W1 W2 c) as H;
+          unfold WF_Superoperator in H; assert (S : Static_Box c) by show_static;
+          assert (T : Typed_Box c) by (compile_typing compile_WT; type_check);
+          specialize (H S T \207\129); simpl in H;
+          match type of H with
+          | _ -> @Mixed_State ?W' (denote_box true ?c' ?\207\129') =>
+              replace \207\129 with \207\129' by easy; replace W with W' by dim_solve; try apply H
+          end; clear H S T
+   end; try (solve [ apply Pure_S; show_pure ]).
+Hint Extern 2 (Mixed_State _) => show_mixed: wf_db.
+Ltac
+ rewrite_inPar :=
+  match goal with
+  | |-
+    context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
+                (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
+        let IP := fresh "IP" in
+        specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in IP;
+         try rewrite ctx_to_mat_list_length in *; try rewrite size_ntensor in IP;
+         try rewrite Nat.mul_1_r in IP; try fold NTensor in *; 
+         simpl in *; rewrite IP; clear IP
+  end; try (solve [ type_check ]); eauto with wf_db.
+Ltac
+ rewrite_inPar' :=
+  fold NTensor; simpl in *;
+   match goal with
+   | |-
+     context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
+                 (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
+         let IP := fresh "IP" in
+         specialize (inPar_correct W1 W1' W2 W2' f g \207\1291 \207\1292) as IP; simpl in *;
+          match goal with
+          | H:?A ->
+              ?B ->
+              ?C ->
+              ?D ->
+              (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
+                (@kron ?m' ?n' ?o' ?p' ?\207\1291 ?\207\1292) = ?RHS
+            |- _ =>
+                replace m with m'; try dim_solve; replace n with n'; try dim_solve;
+                 replace o with o'; try dim_solve; replace p with p'; 
+                 try dim_solve; try rewrite H
+          end; clear IP
+   end; try (solve [ type_check ]); eauto with wf_db.
+Ltac
+ listify_kron :=
+  unfold ctx_to_matrix;
+   repeat
+    match goal with
+    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace
+      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
+      by
+        (simpl; Msimpl; rewrite ctx_to_mat_list_length;
+          try rewrite size_ntensor, Nat.mul_1_r; easy)
+    end.
+Lemma ctx_lookup_exists :
+  forall v \206\147 f,
+  get_context (b_var v) \226\138\130 \206\147 ->
+  ctx_to_mat_list \206\147 f !! position_of v \206\147 = Some (bool_to_matrix (f v)).
+Proof.
+(induction v; intros \206\147 f H).
+-
+(destruct \206\147).
+(inversion H).
+(destruct o).
+(simpl).
+reflexivity.
+(inversion H).
+-
+(destruct \206\147).
+(simpl).
+(inversion H).
+(simpl).
+(destruct o).
+(simpl).
+(apply IHv).
+(simpl in H).
+(inversion H).
+subst.
+(simpl).
+easy.
+(apply IHv).
+(simpl in H).
+(inversion H).
+subst.
+(simpl).
+easy.
+Qed.
+Fact CNOT_at_spec :
+  forall (b1 b2 : bool) (n x y : nat) (li : list (Matrix 2 2)),
+  x < n ->
+  y < n ->
+  x <> y ->
+  nth_error li x = Some (bool_to_matrix b1) ->
+  nth_error li y = Some (bool_to_matrix b2) ->
+  (\226\159\166 CNOT_at n x y \226\159\167) (\226\168\130 li) = \226\168\130 update_at li y (bool_to_matrix (b1 \226\138\149 b2)).
+Admitted.
+Fact Toffoli_at_spec :
+  forall (b1 b2 b3 : bool) (n x y z : nat) (li : list (Matrix 2 2)),
+  x < n ->
+  y < n ->
+  z < n ->
+  x <> y ->
+  x <> z ->
+  y <> z ->
+  nth_error li x = Some (bool_to_matrix b1) ->
+  nth_error li y = Some (bool_to_matrix b2) ->
+  nth_error li z = Some (bool_to_matrix b3) ->
+  (\226\159\166 Toffoli_at n x y z \226\159\167) (\226\168\130 li) =
+  \226\168\130 update_at li z (bool_to_matrix ((b1 && b2) \226\138\149 b3)).
+Admitted.
+Lemma init_at_spec :
+  forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
+  length l1 = i ->
+  length l2 = n - i ->
+  (forall j, Mixed_State (nth j l1 A)) ->
+  (forall j, Mixed_State (nth j l2 B)) ->
+  i < S n -> (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) = \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
+Proof.
+(intros b n i).
+gen n.
+(induction i).
+-
+(intros n l1 l2 A B L1 L2 M1 M2 Lt).
+(destruct l1; inversion L1).
+(simpl in *).
+clear L1 M1 Lt.
+(rewrite strip_one_l_in_eq).
+(rewrite <- (kron_1_l _ _ (\226\168\130 l2))  at 1; auto with wf_db).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:43:16.980000.*)
+(* Auto-generated comment: At 2019-08-14 13:44:36.220000.*)
 
