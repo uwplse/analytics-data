@@ -136,7 +136,10 @@ admit.
 +
 subst.
 (rewrite subst_exist_eq in *).
+exists v.
+split.
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:51:04.850000.*)
+(* Auto-generated comment: At 2019-08-29 09:54:43.590000.*)
 
