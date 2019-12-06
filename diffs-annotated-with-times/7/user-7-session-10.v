@@ -205,8 +205,8 @@ tauto.
 (split; intros tx Hsub'; try (solve [ constructor; auto ])).
 +
 (apply sub_r_union_l__inv in Hsub').
-(destruct Hsub'; auto).
+(destruct Hsub'; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:43:31.340000.*)
+(* Auto-generated comment: At 2019-08-08 13:44:18.370000.*)
 
