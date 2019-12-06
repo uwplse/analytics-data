@@ -183,8 +183,12 @@ exists (Nat.max w1 w2),(TPair v1 v2).
 -
 (destruct (IHt1 k) as [w [v Hm]]).
 exists w,v.
-(apply match_ty_union_1).
+(apply match_ty_union_1; assumption).
+-
+exists 0,(TRef t).
+(apply match_ty_value_type__reflexive; constructor).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:46:47.270000.*)
+(* Auto-generated comment: At 2019-08-27 07:47:35.140000.*)
 
