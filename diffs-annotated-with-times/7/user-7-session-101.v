@@ -77,8 +77,8 @@ clear Hm.
 (inversion Heq; subst).
 clear Heq.
 (assert (Hm : |-[ 0, 1] TRef tX <$ TRef tX) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Href Hm).
+specialize (Href _ Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:26:23.880000.*)
+(* Auto-generated comment: At 2019-08-20 08:28:15.600000.*)
 
