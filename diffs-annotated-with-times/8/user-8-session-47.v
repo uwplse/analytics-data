@@ -626,8 +626,7 @@ Proof.
 -
 (simpl).
 Msimpl.
-(rewrite (kron_1_r u)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:49:34.620000.*)
+(* Auto-generated comment: At 2019-08-12 15:03:15.480000.*)
 
