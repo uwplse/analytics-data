@@ -56,12 +56,9 @@ End TermNotations.
 Import TermNotations.
 Open Scope coucou_scope.
 Check
-  [<Nil <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  [<# hello <Nil # "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
-Redirect "/tmp/coqCUd7Pb" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-17 16:09:19.920000.*)
+(* Auto-generated comment: At 2019-08-17 16:09:28.140000.*)
 
