@@ -197,8 +197,11 @@ Search -IdSet.In.
 (destruct (IdSetFacts.empty_iff Y) as [H _]).
 (apply H).
 Search -IdSet.In.
-Search -m.
+Search -IdSet.Empty.
+(apply IdSetProps.empty_is_empty_1 in Hs1).
+Search -IdSet.Equal.
+Search -IdSet.empty.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:19:31.100000.*)
+(* Auto-generated comment: At 2019-09-04 08:21:56.700000.*)
 
