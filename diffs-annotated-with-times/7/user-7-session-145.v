@@ -82,10 +82,9 @@ admit.
 admit.
 -
 (destruct (beq_idP X i)).
++
 subst.
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hm]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 13:16:06.700000.*)
+(* Auto-generated comment: At 2019-08-27 13:16:11.970000.*)
 
