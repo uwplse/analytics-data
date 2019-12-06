@@ -23,9 +23,15 @@ Qed.
 Lemma subs_fresh : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
 Proof.
 (intros X t).
-(induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh).
+(induction t; intros Hfresh s; try (solve [ reflexivity ]); unfold fresh_in_ty in *; simpl in Hfresh; simpl).
 -
+(apply fresh_union__inv in Hfresh).
+(destruct Hfresh as [Hfresh1 Hfresh2]).
+(simpl).
+(rewrite IHt1; try assumption).
+(rewrite IHt2; try assumption).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:48:19.910000.*)
+(* Auto-generated comment: At 2019-08-27 06:48:33.470000.*)
 
