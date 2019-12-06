@@ -293,31 +293,8 @@ admit.
 -
 admit.
 -
-(destruct Hcontra as [v Hcontra]).
-Search -id.
-(destruct (beq_idP X i)).
-+
-subst.
-(simpl in Hcontra).
-(assert (Heq : beq_id i i = true)).
-{
-admit.
-}
-Search -beq_id_refl.
-(rewrite Heq in Hcontra).
-(apply Hnotm).
-exists v.
-assumption.
-+
-(simpl in Hcontra).
-(assert (Heq : beq_id X i = false)).
-{
-admit.
-}
-(rewrite Heq in Hcontra).
-(apply match_ty_exist__inv in Hcontra).
-(destruct Hcontra as [tx Hcontra]).
+(assert (Hnotm' : ~ (exists v, tx, |-[ k, w] v <$ [i := tx] t))).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:42:44.160000.*)
+(* Auto-generated comment: At 2019-08-21 10:43:06.270000.*)
 
