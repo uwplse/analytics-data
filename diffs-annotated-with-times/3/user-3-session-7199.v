@@ -341,8 +341,8 @@ step_proc.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
 (exists (a' ++ [a]); intuition eauto).
-(simpl).
+(rewrite app_length).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:59:54.510000.*)
+(* Auto-generated comment: At 2019-09-04 12:00:01.350000.*)
 
