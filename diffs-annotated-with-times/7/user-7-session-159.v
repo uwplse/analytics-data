@@ -87,8 +87,11 @@ Proof.
 -
 exists v.
 split.
++
 assumption.
++
+(apply match_ty_cname_inv in Hm; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:26:42.280000.*)
+(* Auto-generated comment: At 2019-08-29 09:31:26.040000.*)
 
