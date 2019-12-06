@@ -381,8 +381,9 @@ Theorem log_contents_ok_prefix d bs bs' :
 Proof.
 (unfold log_contents_ok; intros).
 specialize (H a).
-(assert (a < length bs ++ bs')).
-(* Auto-generated comment: Failed. *)
+(assert (a < length (bs ++ bs'))).
+(rewrite app_length; lia).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:13:27.870000.*)
+(* Auto-generated comment: At 2019-09-04 12:13:29.330000.*)
 
