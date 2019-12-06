@@ -95,5 +95,5 @@ specialize (H (add_fresh_pat W []) (add_fresh_state W []) []).
 (destruct (add_fresh W []) as [p \206\147] eqn:E).
 (simpl in *).
 (rewrite H).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
