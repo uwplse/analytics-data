@@ -62,9 +62,15 @@ reflexivity.
 Qed.
 Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ k, 0] v <$ TExist X t -> False.
 Proof.
-(intros v t k w Hm).
-(destruct k, w, v; simpl in Hm; contradiction).
+(intros v X t k Hm).
+(destruct k, v; simpl in Hm; contradiction).
+Qed.
+Lemma match_ty_exist__inv :
+  forall (v : ty) (X : id) (t : ty) (k w : nat), |-[ k, S w] v <$ TExist X t -> exists tx : ty, |-[ k, w] v <$ [X := tx] t.
+Proof.
+(intros v X t k w).
+(destruct k, v; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:55:09.590000.*)
+(* Auto-generated comment: At 2019-08-20 11:56:08.520000.*)
 
