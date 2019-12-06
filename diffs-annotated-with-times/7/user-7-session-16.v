@@ -36,7 +36,7 @@ Proof.
 reflexivity.
 (apply IHHsub; tauto).
 Qed.
-Lemma sub_r_nf_ref__inv : forall t t' : ty, InNF( t') -> InNF( t') -> |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
+Lemma sub_r_nf_ref__inv : forall t t' : ty, InNF( t) -> InNF( t') -> |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
 Proof.
 (intros t t' Hnf Hnf' Hsub).
 (remember (TRef t) as t1 eqn:Heq1 ).
@@ -45,7 +45,8 @@ Proof.
 tauto.
 (apply IHHsub; try tauto).
 (apply mk_nf_nf__equal).
+constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:36:00.910000.*)
+(* Auto-generated comment: At 2019-08-09 12:36:41.680000.*)
 
