@@ -318,7 +318,12 @@ Proof.
 }
 (eexists; split; eauto).
 (rewrite diskUpd_oob_noop; auto).
-(* Auto-generated comment: Succeeded. *)
+(invert_abstraction; lia).
+-
+(step_proc; intuition subst; eauto).
+(destruct (a == r); subst; eauto).
+(step_proc; intuition subst; eauto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:07:30.250000.*)
+(* Auto-generated comment: At 2019-09-03 11:07:43.930000.*)
 
