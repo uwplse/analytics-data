@@ -47,33 +47,11 @@ Proof.
 exists tx.
 assumption.
 Qed.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Lemma sem_eq_k__exists_not : forall (k : nat) (t : ty), exists t' : ty, ~ ||-[ k][t']= [t].
 Proof.
-(intros Hcontra).
-specialize (Hcontra 2 1).
-(destruct Hcontra as [w Hcontra]).
-(assert (Hm : |-[ 2, 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-(unfold sem_sub_k_w in Hcontra).
-specialize (Hcontra _ Hm).
-clear Hm.
-(destruct w).
+(induction k; induction t).
 -
-(apply Hcontra).
--
-(apply match_ty_exist__inv in Hcontra).
-(destruct Hcontra as [t Hcontra]).
-(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
-(rewrite Heq in Hcontra).
-clear Heq.
-(apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Heq Href]]).
-(inversion Heq; subst).
-clear Heq.
-(unfold sem_eq_k in Href).
-(destruct Href as [Href _]).
-specialize (Href 1).
-(destruct Href as [w2 Hsem]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:21:43.190000.*)
+(* Auto-generated comment: At 2019-08-20 12:22:47.840000.*)
 
