@@ -51,7 +51,8 @@ Lemma sem_eq_k__exists_not : forall (k : nat) (t : ty), exists t' : ty, ~ ||-[ k
 Proof.
 (induction k; induction t).
 admit.
+admit.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:23:29.130000.*)
+(* Auto-generated comment: At 2019-08-20 12:24:36.180000.*)
 
