@@ -233,8 +233,8 @@ constructor.
 +
 (destruct k; reflexivity).
 -
-(destruct (max_inv_depth_le__inv _ _ _ Hk)).
+(destruct (max_inv_depth_le__inv _ _ _ Hdep)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 08:25:44.640000.*)
+(* Auto-generated comment: At 2019-08-16 08:25:52.050000.*)
 
