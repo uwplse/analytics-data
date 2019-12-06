@@ -1880,5 +1880,5 @@ Proof.
 Abort.
 Lemma index_merge_l :
   forall \206\147 \206\1471 \206\1472 n w, \206\147 \226\137\136 \206\1471 \226\136\153 \206\1472 -> index \206\1471 n = Some w -> index \206\147 n = Some w.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
