@@ -153,8 +153,9 @@ Proof.
       try (solve [ apply match_ty_union_1; auto | apply match_ty_union_2; auto ]) ])).
 -
 (split; intros Hm).
-(rewrite subst_equation in Hm).
+(rewrite (subst_equation X sx) in Hm).
+(destruct (IdSet.mem i (FV sx))).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:24:32.710000.*)
+(* Auto-generated comment: At 2019-08-30 07:25:02.750000.*)
 
