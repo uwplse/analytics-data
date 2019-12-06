@@ -82,12 +82,11 @@ Proof.
 (intros v X t w Hm).
 (destruct v; assumption).
 Qed.
-Lemma match_ty_fvar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TFVar X -> v = TEV X.
+Lemma match_ty_fbar__inv : forall (v : ty) (X : id) (w : nat), |-[ w] v <$ TBVar X -> False.
 Proof.
 (intros v X w Hm).
-(destruct w, v; simpl in Hm; subst; reflexivity || contradiction).
-Qed.
+(destruct w, v; simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:19:04.440000.*)
+(* Auto-generated comment: At 2019-09-03 09:19:23.460000.*)
 
