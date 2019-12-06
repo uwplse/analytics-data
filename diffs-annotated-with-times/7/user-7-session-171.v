@@ -69,8 +69,11 @@ Fixpoint size (t : ty) :=
   | TVar z => 1
   | TEV z => 1
   end.
-Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = t.
+Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
+Proof.
+(intros x y).
+(induction t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:24:48.670000.*)
+(* Auto-generated comment: At 2019-08-29 14:27:21.500000.*)
 
