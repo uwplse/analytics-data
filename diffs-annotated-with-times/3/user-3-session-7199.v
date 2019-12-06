@@ -326,6 +326,16 @@ lia.
 Qed.
 Hint Resolve log_size_ok_shrink: core.
 Hint Rewrite app_length : list.
+Theorem log_contents_ok_prefix d bs bs' :
+  log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
+Proof.
+(unfold log_contents_ok; intros).
+specialize (H a).
+(rewrite app_nth1 in H by lia).
+(apply H).
+(rewrite app_length; lia).
+Qed.
+Hint Resolve log_contents_ok_prefix: core.
 Theorem append_at_ok a bs' :
   proc_spec
     (fun (bs : list block) state =>
@@ -373,10 +383,7 @@ autorewrite with upd list in *.
 +
 (rewrite <- app_assoc in *; simpl in *; auto).
 +
-admit.
-Admitted.
-Hint Resolve append_at_ok: core.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:16:24.290000.*)
+(* Auto-generated comment: At 2019-09-04 12:16:26.440000.*)
 
