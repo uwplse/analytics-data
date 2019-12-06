@@ -177,5 +177,5 @@ Proof.
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:10:55.620000.*)
+(* Auto-generated comment: At 2019-08-13 07:12:44.560000.*)
 
