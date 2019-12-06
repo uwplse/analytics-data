@@ -479,8 +479,8 @@ intuition.
 {
 (descend; intuition eauto).
 }
-step_proc.
+(apply proc_spec_weaken).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:21:37.480000.*)
+(* Auto-generated comment: At 2019-09-04 12:21:39.240000.*)
 
