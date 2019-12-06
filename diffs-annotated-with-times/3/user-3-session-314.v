@@ -258,8 +258,7 @@ Proof.
 (intros).
 (hnf in H; propositional).
 (destruct H0; propositional).
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:55:05.220000.*)
+(* Auto-generated comment: At 2019-08-07 18:55:08.560000.*)
 
