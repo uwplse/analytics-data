@@ -65,11 +65,7 @@ subst.
 (rewrite subst_exist_eq).
 assumption.
 *
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [ti Hm]).
-(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
-exists ([X' := tx] ti).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 14:11:04.860000.*)
+(* Auto-generated comment: At 2019-08-29 14:24:22.460000.*)
 
