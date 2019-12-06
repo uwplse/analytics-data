@@ -17,9 +17,8 @@ Qed.
 Lemma subs_neq__permute : forall X Y : id, X <> Y -> forall t s1 s2 : ty, [X := s1] ([Y := s2] t) = [Y := s2] ([X := s1] t).
 Proof.
 (intros X Y Hneq t).
-(induction t; intros s1 s2).
--
+(induction t; intros s1 s2; try (solve [ simpl; reflexivity ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 08:39:13.010000.*)
+(* Auto-generated comment: At 2019-08-26 08:39:14.510000.*)
 
