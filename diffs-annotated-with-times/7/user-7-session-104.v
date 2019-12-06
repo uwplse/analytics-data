@@ -20,10 +20,14 @@ Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : b
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
 (intros k).
-(destruct k; intros w1; exists 1).
+(destruct k; intros w1; exists 1; intros v Hm).
 -
-(intros v Hm).
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(simpl).
+exists tint.
+constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:10:45.450000.*)
+(* Auto-generated comment: At 2019-08-20 12:11:15.960000.*)
 
