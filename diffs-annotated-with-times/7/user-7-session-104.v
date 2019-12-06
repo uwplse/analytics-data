@@ -187,8 +187,7 @@ clear Hm.
 -
 specialize (Hcontra 0).
 (destruct Hcontra as [w Hcontra]).
-(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:38:15.310000.*)
+(* Auto-generated comment: At 2019-08-21 07:38:22.500000.*)
 
