@@ -558,8 +558,9 @@ generalize dependent G'.
 all: (try (apply singleton_eq in H1; congruence)).
 Search -(Ensembles.In _ (Singleton _ _) _).
 all: (try specialize (H1 _ (In_singleton _ _ _))).
-specialize (H1 _ (In_singleton _ _)).
+Show Intros.
+all: (try specialize (H1 _ (In_singleton _))).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 16:06:18.880000.*)
+(* Auto-generated comment: At 2019-09-06 16:06:21.240000.*)
 
