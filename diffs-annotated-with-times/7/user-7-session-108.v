@@ -244,19 +244,19 @@ Abort.
 Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
 (induction k; induction t; induction t'; intros Hdep Hsem; try reflexivity;
-  try
-   match goal with
-   | Hsem:||-[ ?k][?t]= [?t']
-     |- | ?t | = | ?t' | =>
+  match goal with
+  | Hsem:||-[ ?k][?t]= [?t']
+    |- | ?t | = | ?t' | =>
+        try
          (assert (Hv : value_type t) by constructor; destruct Hsem as [Hsem _]; specialize (Hsem 0); destruct Hsem as [w2 Hsem];
            assert (Hm : |-[ 0, 0] t <$ t) by (apply match_ty_value_type__reflexive; assumption); specialize (Hsem _ Hm); 
-           destruct w2; simpl in Hsem; contradiction) ||
-           (assert (Hv : value_type t') by constructor; destruct Hsem as [_ Hsem]; specialize (Hsem 0); destruct Hsem as [w2 Hsem];
-             assert (Hm : |-[ 0, 0] t' <$ t') by (apply match_ty_value_type__reflexive; assumption); specialize (Hsem _ Hm); 
-             destruct w2; simpl in Hsem; contradiction)
-   end).
--
+           destruct w2; simpl in Hsem; contradiction);
+         try
+          (assert (Hv : value_type t') by constructor; destruct Hsem as [_ Hsem]; specialize (Hsem 0); destruct Hsem as [w2 Hsem];
+            assert (Hm : |-[ 0, 0] t' <$ t') by (apply match_ty_value_type__reflexive; assumption); specialize (Hsem _ Hm); 
+            destruct w2; simpl in Hsem; contradiction)
+  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 13:30:17.240000.*)
+(* Auto-generated comment: At 2019-08-21 13:30:30.060000.*)
 
