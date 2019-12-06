@@ -251,9 +251,8 @@ Proof.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
 +
 clear IHt2.
-(simpl in Hdep).
-(pose proof (le_S_n _ _ Hdep) as Hdt').
+(simpl in Hdt).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:04:21.150000.*)
+(* Auto-generated comment: At 2019-08-16 14:05:06.950000.*)
 
