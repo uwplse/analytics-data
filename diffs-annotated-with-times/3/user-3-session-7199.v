@@ -352,8 +352,10 @@ lia.
 -
 autorewrite with upd.
 (simpl).
-(rewrite app_nth2).
+(rewrite app_nth2 by lia).
+replace (length bs - length bs) with 0 by lia.
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:34:20.050000.*)
+(* Auto-generated comment: At 2019-09-04 12:34:22.910000.*)
 
