@@ -54,8 +54,7 @@ Proof.
 reflexivity.
 dependent destruction u.
 +
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-08 12:55:46.740000.*)
+(* Auto-generated comment: At 2019-08-08 12:55:47.940000.*)
 
