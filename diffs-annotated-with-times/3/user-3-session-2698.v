@@ -146,8 +146,12 @@ econstructor.
 (apply ProofIrrelevanceTheory.subset_eq_compat).
 (rewrite Ascii.nat_ascii_embedding; auto).
 -
-constructor.
+(simpl; constructor).
+(unfold nat64_to_le; intros).
+(match goal with
+ | H:context [ nat_le_dec ?n ?m ] |- _ => destruct (nat_le_dec n m)
+ end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:46:21.130000.*)
+(* Auto-generated comment: At 2019-08-16 07:46:22.670000.*)
 
