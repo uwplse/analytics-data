@@ -210,8 +210,8 @@ Proof.
 -
 assumption.
 -
-H.
+contradiction  H.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 11:04:01.280000.*)
+(* Auto-generated comment: At 2019-09-01 11:04:04.560000.*)
 
