@@ -950,8 +950,7 @@ show_dimensions.
 (simpl).
 replace (length l1 + length l2) with n by omega.
 (rewrite H0, L2).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:23:55.640000.*)
+(* Auto-generated comment: At 2019-08-14 15:24:07.110000.*)
 
