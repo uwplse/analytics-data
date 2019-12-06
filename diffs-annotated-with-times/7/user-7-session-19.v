@@ -367,8 +367,7 @@ clear IHk' IHt.
 (apply le_S_n in Htk).
 (apply le_S_n in Htk').
 (split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
-(pose proof (IHk k' t Htk Htk' v) as Ht).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:29:27.300000.*)
+(* Auto-generated comment: At 2019-08-13 11:29:34.310000.*)
 
