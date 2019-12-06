@@ -98,8 +98,9 @@ subst.
 subst.
 contradiction.
 *
+(rewrite subst_exist_eq).
 (rewrite subst_exist_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 12:02:25.370000.*)
+(* Auto-generated comment: At 2019-08-29 12:03:01.370000.*)
 
