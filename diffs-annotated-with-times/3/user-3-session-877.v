@@ -1366,8 +1366,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 iFrame.
-iSplitL "Hm Hmsgs Hdircontents Hstatus Hrootdir Hinit".
-(* Auto-generated comment: Succeeded. *)
+iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hstatus)".
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:17:28.510000.*)
+(* Auto-generated comment: At 2019-08-14 13:17:33.450000.*)
 
