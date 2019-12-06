@@ -247,8 +247,12 @@ Lemma not_match_ty_var__not_match_ty_subs :
 Proof.
 (induction t; intros v k w Hnotm X S Hcontra).
 -
-(destruct k; destruct v; destruct v; apply Hnotm; assumption).
+(destruct k, w, v; apply Hnotm; assumption).
+-
+(simpl in Hcontra).
+(apply match_ty_pair__inv in Hcontra).
+(destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:56:29.290000.*)
+(* Auto-generated comment: At 2019-08-21 09:59:20.320000.*)
 
