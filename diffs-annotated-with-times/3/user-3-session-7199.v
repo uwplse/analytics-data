@@ -161,9 +161,9 @@ Proof.
 (destruct a0 as [_ bs]; simpl in *; intuition eauto).
 (descend; intuition eauto).
 (descend; intuition eauto).
-(apply disk_inbounds_exists in H; intuition eauto).
 (unfold log_abstraction in H0; intuition).
+(apply H1 in H).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:52:30.860000.*)
+(* Auto-generated comment: At 2019-09-04 10:52:42.680000.*)
 
