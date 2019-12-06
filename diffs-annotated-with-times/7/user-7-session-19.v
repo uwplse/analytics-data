@@ -186,8 +186,8 @@ Proof.
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ])).
+(induction k; induction t; induction t'; intros Hnft Hsem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:15:25.920000.*)
+(* Auto-generated comment: At 2019-08-13 07:15:37.470000.*)
 
