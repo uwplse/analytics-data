@@ -911,5 +911,5 @@ clear L1 M1 Lt.
 (rewrite <- (kron_1_l (\226\168\130 l2))).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:52:17.310000.*)
+(* Auto-generated comment: At 2019-08-14 13:52:47.460000.*)
 
