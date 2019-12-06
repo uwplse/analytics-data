@@ -67,9 +67,9 @@ Proof.
    | destruct v; contradiction ])).
 -
 (apply match_ty_exist__inv in Hm).
-(eapply IHk).
-(eapply Hm).
+(destruct Hm as [tx Hmx]).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:09:28.130000.*)
+(* Auto-generated comment: At 2019-08-19 09:09:29.700000.*)
 
