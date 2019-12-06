@@ -276,8 +276,12 @@ clear H.
 {
 (apply Z).
 (eapply evalIntEq).
+-
 (erewrite evalTimes in H0).
+exact H0.
+-
+(rewrite evalVar).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:59:12.240000.*)
+(* Auto-generated comment: At 2019-09-01 10:59:42.080000.*)
 
