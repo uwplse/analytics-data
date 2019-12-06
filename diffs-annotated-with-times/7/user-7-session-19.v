@@ -366,12 +366,7 @@ Proof.
 (destruct v; try contradiction).
 (inversion Htk).
 -
-clear IHt.
-(simpl in Htk).
-(apply le_S_n in Htk).
-(apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 09:35:59.700000.*)
+(* Auto-generated comment: At 2019-08-13 09:36:13.640000.*)
 
