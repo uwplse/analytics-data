@@ -75,8 +75,10 @@ Proof.
    end).
 -
 (destruct v; try contradiction).
-(inversion Hle).
+(inversion Hle; subst).
+(simpl).
+constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:02:56.480000.*)
+(* Auto-generated comment: At 2019-08-12 11:04:08.410000.*)
 
