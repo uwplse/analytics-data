@@ -112,8 +112,7 @@ Lemma ctrl_list_to_unitary_transpose :
 Proof.
 (intros l r u).
 (induction l).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:19:11.780000.*)
+(* Auto-generated comment: At 2019-08-09 11:19:28.700000.*)
 
