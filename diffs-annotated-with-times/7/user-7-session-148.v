@@ -91,9 +91,8 @@ tauto.
 (simpl in *).
 (induction t').
 +
-(intros k).
-Check match_ty__exists_w_v.
+(intros k; destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 07:43:51.880000.*)
+(* Auto-generated comment: At 2019-08-29 07:43:54.830000.*)
 
