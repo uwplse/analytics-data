@@ -1024,10 +1024,115 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq5MmfEP"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Open Scope circ_scope.
 Fact init_assert_at_valid :
   forall b m i W1 (c : Box W1 (S m \226\168\130 Qubit)),
   i < S m ->
   valid_ancillae_box' (assert_at b m i \194\183 c) ->
   init_at b m i \194\183 assert_at b m i \194\183 c \226\137\161 c.
-(* Auto-generated comment: Failed. *)
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqu6aG1Y"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fact valid_ancillae_box'_equiv :
+  forall W1 W2 (b1 b2 : Box W1 W2),
+  b1 \226\137\161 b2 -> valid_ancillae_box' b1 <-> valid_ancillae_box' b2.
+Admitted.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqvxjUb0"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Fact valid_inSeq :
+  forall w1 w2 w3 (c1 : Box w1 w2) (c2 : Box w2 w3),
+  Typed_Box c1 ->
+  Typed_Box c2 ->
+  valid_ancillae_box' c1 -> valid_ancillae_box' c2 -> valid_ancillae_box' (c2 \194\183 c1).
+Proof.
+(intros w1 w2 w3 c1 c2 pf_c1 pf_c2 valid1 valid2).
+(unfold valid_ancillae_box).
+Admitted.
+Ltac
+ simple_typing lem :=
+  repeat
+   match goal with
+   | _ => apply inSeq_WT
+   | _ => apply inPar_WT
+   | _ => apply id_circ_WT
+   | _ => apply boxed_gate_WT
+   | _ => apply init_at_WT
+   | _ =>
+       apply assert_at_WT
+   | |- Typed_Box (CNOT_at ?n ?x ?y) => specialize (CNOT_at_WT n x y); simpl; easy
+   | |- Typed_Box (Toffoli_at ?n ?x ?y ?z) =>
+         specialize (Toffoli_at_WT n x y z); simpl; easy
+   | _ => apply TRUE_WT
+   | _ =>
+       apply FALSE_WT
+   | H:forall \206\147 : Ctx, Typed_Box _ |- _ => apply H
+   | H:Typed_Box _ |- _ => apply H
+   | _ => apply lem
+   end.
+Lemma noop_source_inSeq :
+  forall n t c1 c2,
+  Typed_Box c1 ->
+  Typed_Box c2 ->
+  noop_source n t c1 -> noop_source n t c2 -> noop_source n t (c2 \194\183 c1).
+Proof.
+(intros n t c1 c2 typed_c1 typed_c2 H_c1 H_c2).
+(destruct n as [| n]; simpl in *; auto).
+(fold (n + t) in *).
+(intros x pf_x b).
+(set (INIT := init_at b (n + t) x)).
+(set (ASSERT := assert_at b (n + t) x)).
+(assert (H' : c1 \194\183 INIT \226\137\161 INIT \194\183 ASSERT \194\183 c1 \194\183 INIT)).
+{
+symmetry.
+(apply init_assert_at_valid).
++
+omega.
++
+(apply H_c1; auto).
+}
+(apply valid_ancillae_box'_equiv with
+   (b2 := (ASSERT \194\183 c2 \194\183 INIT) \194\183 ASSERT \194\183 c1 \194\183 INIT)).
+{
+(repeat rewrite <- inSeq_assoc).
+(apply HOAS_Equiv_inSeq; simple_typing False; try easy).
+(apply HOAS_Equiv_inSeq; simple_typing False; try easy).
+}
+(assert (x < S (n + t)) by omega).
+(assert (typed_init : Typed_Box INIT) by simple_typing False).
+(assert (typed_assert : Typed_Box ASSERT) by simple_typing False).
+(apply valid_inSeq).
+-
+(repeat apply inSeq_WT; auto).
+-
+(repeat apply inSeq_WT; auto).
+-
+(apply H_c1; auto).
+-
+(apply H_c2; auto).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq4B133U"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma denote_box_id_circ : forall b w \207\129, denote_box b (id_circ : Box w w) \207\129 == \207\129.
+Proof.
+(intros b w \207\129).
+(simpl).
+autounfold with den_db.
+(simpl).
+(rewrite add_fresh_split; simpl).
+(rewrite subst_pat_fresh_empty).
+(rewrite denote_pat_fresh_id).
+(rewrite pad_nothing).
+(apply super_I).
+Qed.
+Lemma valid_id_circ : forall w, valid_ancillae_box' (@id_circ w).
+Proof.
+(intros w \207\129 T H\207\129).
+(rewrite denote_box_id_circ).
+*
+(apply mixed_state_trace_1; auto).
+*
+(* Auto-generated comment: Succeeded. *)
 
