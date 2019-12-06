@@ -102,9 +102,8 @@ Proof.
 -
 (apply match_ty_pair; auto).
 -
-(destruct k, w).
-(simpl).
+(destruct k, w; simpl; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:59:53.220000.*)
+(* Auto-generated comment: At 2019-08-20 12:02:37.980000.*)
 
