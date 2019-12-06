@@ -937,8 +937,8 @@ restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
 (rewrite id_circ_spec).
 (rewrite init_spec).
-easy.
-(* Auto-generated comment: Failed. *)
+reflexivity.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:19:25.550000.*)
+(* Auto-generated comment: At 2019-08-14 15:19:27.530000.*)
 
