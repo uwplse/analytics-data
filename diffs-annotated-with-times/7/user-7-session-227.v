@@ -94,8 +94,9 @@ Proof.
 (unfold not_f_free_in_ty, not_free).
 (simpl).
 Search -IdSet.singleton.
-(intros X Y).
+(intros X Y Hin).
+(destruct (beq_idP X Y) as HXY).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:30:10.190000.*)
+(* Auto-generated comment: At 2019-09-06 09:30:21.880000.*)
 
