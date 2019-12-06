@@ -1240,7 +1240,9 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqfL4nV2"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Add Parametric Morphism  n : @denote_box b W1 W2 c with signature
+Add Parametric Morphism  b W1 W2 c : @denote_box b W1 W2 c with signature
  mat_equiv ==> mat_equiv as denote_box_mor.
-(* Auto-generated comment: Failed. *)
+Proof.
+(intros).
+(* Auto-generated comment: Succeeded. *)
 
