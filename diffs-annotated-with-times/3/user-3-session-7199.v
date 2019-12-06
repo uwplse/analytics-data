@@ -395,11 +395,7 @@ step_proc.
 (unfold log_abstraction; intuition eauto).
 (unfold log_length_ok).
 (rewrite H).
-Admitted.
-Theorem reset_ok : proc_spec reset_spec reset recover abstr.
-Proof.
-Admitted.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:09:30.350000.*)
+(* Auto-generated comment: At 2019-09-04 12:09:33.100000.*)
 
