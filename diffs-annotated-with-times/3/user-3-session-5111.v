@@ -204,8 +204,7 @@ Proof.
 -
 invert_abstraction.
 (step_proc; intuition idtac).
-(step_proc; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:04:01.830000.*)
+(* Auto-generated comment: At 2019-09-03 11:04:33.510000.*)
 
