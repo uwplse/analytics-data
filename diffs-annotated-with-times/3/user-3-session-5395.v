@@ -112,8 +112,7 @@ Proof.
 -
 destruct_all.
 -
-(rewrite diskUpd_oob_noop by lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:17:22.150000.*)
+(* Auto-generated comment: At 2019-09-03 11:17:22.320000.*)
 
