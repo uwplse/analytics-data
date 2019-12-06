@@ -78,17 +78,7 @@ Function
        exist (fun x => x < S (S base)) digit _
        :: nat_to_le base (x / S (S base))
    end.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqzFl6bk"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqXJczSx"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:07:05.770000.*)
+(* Auto-generated comment: At 2019-08-16 06:07:18.110000.*)
 
