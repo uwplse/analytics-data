@@ -509,8 +509,8 @@ intuition.
 }
 {
 (exists (bs ++ v); intuition).
-(apply log_abstraction_commit).
-(* Auto-generated comment: Failed. *)
+(eapply log_abstraction_commit; eauto).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:46:30.860000.*)
+(* Auto-generated comment: At 2019-09-04 12:46:35.330000.*)
 
