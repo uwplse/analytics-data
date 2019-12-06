@@ -206,10 +206,86 @@ Proof.
   | assert (Hmp : |-[ k] TPair v' v <$ TPair t1 t2) by (apply match_ty_i_pair; assumption) ]; specialize (Hsem _ Hmp);
   apply match_ty_i_pair__inv in Hsem; destruct Hsem as [v1 [v2 [Heq [Hm1 Hm2]]]]; inversion Heq; subst; assumption).
 Qed.
-Lemma sem_eq_k_i__inv_depth_eq_1 : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Lemma match_ty_i__pair_unite_pairs :
+  forall (t1 t2 v1 v2 : ty) (k : nat), |-[ k] v1 <$ t1 -> |-[ k] v2 <$ t2 -> |-[ k] TPair v1 v2 <$ unite_pairs t1 t2.
 Proof.
-(intros k t t' Hdept H).
+(intros ta; induction ta; intros tb; induction tb; intros v1 v2 k Hm1 Hm2; try (solve [ simpl; apply match_ty_i_pair; assumption ]);
+  try
+   match goal with
+   | |- |-[ k] TPair ?v1 ?v2 <$ unite_pairs ?tx (TUnion ?tb1 ?tb2) =>
+         change_no_check (|-[ k] TPair v1 v2 <$ TUnion (unite_pairs tx tb1) (unite_pairs tx tb2)); apply match_ty_i_union__inv in Hm2;
+          destruct Hm2 as [Hm2| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
+   end;
+  try
+   match goal with
+   | |- |-[ k] TPair ?v1 ?v2 <$ unite_pairs (TUnion ?tb1 ?tb2) ?tx =>
+         change_no_check (|-[ k] TPair v1 v2 <$ TUnion (unite_pairs tb1 tx) (unite_pairs tb2 tx)); apply match_ty_i_union__inv in Hm1;
+          destruct Hm1 as [Hm1| Hm1]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
+   end).
+Qed.
+Lemma match_ty_i__unite_pairs_pair : forall (t1 t2 v : ty) (k : nat), |-[ k] v <$ unite_pairs t1 t2 -> |-[ k] v <$ TPair t1 t2.
+Proof.
+(intros ta; induction ta; intros tb; induction tb; intros v k Hm; try (solve [ simpl; assumption ]);
+  try
+   match goal with
+   | Hm:|-[ k] ?v <$ unite_pairs ?tx (TUnion ?tb1 ?tb2)
+     |- _ =>
+         change_no_check (|-[ k] v <$ TUnion (unite_pairs tx tb1) (unite_pairs tx tb2)) in Hm; apply match_ty_i_union__inv in Hm;
+          destruct Hm as [Hm| Hm]; [ specialize (IHtb1 _ _ Hm) | specialize (IHtb2 _ _ Hm) ];
+          match goal with
+          | IHtb:|-[ k] v <$ TPair tx ?tb
+            |- _ =>
+                apply match_ty_i_pair__inv in IHtb; destruct IHtb as [v1' [v2' [Heq [Hm1' Hm2]]]]; subst; apply match_ty_i_pair; try assumption;
+                 try (solve [ apply match_ty_i_union_1; assumption | apply match_ty_i_union_2; assumption ])
+          end
+   end;
+  try
+   match goal with
+   | Hm:|-[ k] ?v <$ unite_pairs (TUnion ?tb1 ?tb2) ?tx
+     |- _ =>
+         change_no_check (|-[ k] v <$ TUnion (unite_pairs tb1 tx) (unite_pairs tb2 tx)) in Hm; apply match_ty_i_union__inv in Hm;
+          destruct Hm as [Hm| Hm]; [ specialize (IHta1 _ _ _ Hm) | specialize (IHta2 _ _ _ Hm) ];
+          match goal with
+          | IHtb:|-[ k] v <$ TPair ?tb tx
+            |- _ =>
+                apply match_ty_i_pair__inv in IHtb; destruct IHtb as [v1' [v2' [Heq [Hm1' Hm2]]]]; subst; apply match_ty_i_pair; try assumption;
+                 try (solve [ apply match_ty_i_union_1; assumption | apply match_ty_i_union_2; assumption ])
+          end
+   end).
+Qed.
+Lemma match_ty_i_nf : forall (k : nat) (t : ty), ||-[ k][t]= [MkNF( t)].
+Proof.
+(induction k; induction t; intros v; split; intros Hm; try (solve [ simpl; assumption ]);
+  try
+   match goal with
+   | Hm:|-[ _] ?v <$ TPair ?t1 ?t2
+     |- |-[ _] ?v <$ MkNF( TPair ?t1 ?t2) =>
+         apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; rewrite mk_nf_pair; apply match_ty_i__pair_unite_pairs;
+          [ apply IHt1 | apply IHt2 ]; assumption
+   | Hm:|-[ _] ?v <$ MkNF( TPair ?t1 ?t2)
+     |- |-[ _] ?v <$ TPair ?t1 ?t2 =>
+         rewrite mk_nf_pair in Hm; apply match_ty_i__unite_pairs_pair in Hm; apply match_ty_i_pair__inv in Hm;
+          destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_i_pair; [ apply IHt1 | apply IHt2 ]; assumption
+   end;
+  try
+   match goal with
+   | Hm:|-[ _] ?v <$ TUnion ?t1 ?t2
+     |- |-[ _] ?v <$ MkNF( TUnion ?t1 ?t2) =>
+         rewrite mk_nf_union; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ];
+          [ apply IHt1 | apply IHt2 ]; assumption
+   | Hm:|-[ _] ?v <$ MkNF( TUnion ?t1 ?t2)
+     |- |-[ _] ?v <$ TUnion ?t1 ?t2 =>
+         rewrite mk_nf_union in Hm; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm| Hm];
+          [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ apply IHt1 | apply IHt2 ]; assumption
+   end; try (solve [ rewrite mk_nf_ref in *; apply match_ty_i_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor ])).
+-
+clear IHt.
+(rewrite mk_nf_ref).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+(apply sem_eq_k_i__trans).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:12:30.160000.*)
+(* Auto-generated comment: At 2019-08-16 14:12:35.720000.*)
 
