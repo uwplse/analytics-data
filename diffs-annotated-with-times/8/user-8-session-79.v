@@ -621,7 +621,10 @@ Goal _ forall m n (A B : Matrix m n), A == B -> I 1 \226\138\151 A \226\138\151 
 Proof.
 (intros).
 (rewrite kron_1_l).
-(* Auto-generated comment: Succeeded. *)
+(rewrite kron_1_l).
+restore_dims.
+(rewrite kron_1_r).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 11:52:25.110000.*)
+(* Auto-generated comment: At 2019-08-14 11:52:32.060000.*)
 
