@@ -7,6 +7,7 @@ Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
+Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -279,8 +280,11 @@ constructor.
 assumption.
 *
 (apply SD_Trans with (MkNF( t2))).
-(apply mk_nf__sub_d_2; assumption).
+(apply mk_nf__sub_d_r; assumption).
+(apply IHk).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:11:51.470000.*)
+(* Auto-generated comment: At 2019-08-16 14:11:57.540000.*)
 
