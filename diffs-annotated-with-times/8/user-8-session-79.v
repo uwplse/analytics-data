@@ -594,9 +594,9 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqR3qmlT"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Add Parametric Morphism  m n : @big_kron with signature 
+Add Parametric Morphism  m n : @big_kron m n with signature 
  eq ==> mat_equiv as big_kron_mor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:23:08.170000.*)
+(* Auto-generated comment: At 2019-08-13 17:23:11.150000.*)
 
