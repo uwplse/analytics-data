@@ -54,8 +54,15 @@ specialize (Hcontra 1 0).
 (destruct Hcontra as [w2 Hcontra]).
 (assert (Hm : |-[ 1, 0] TRef tint <$ TRef tint) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hcontra _ Hm).
+clear Hm.
 (apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Heq Hcontra]]).
+(inversion Heq; subst).
+clear Heq.
+(destruct Hcontra as [Hcontra _]).
+(assert (Hm : |-[ 1, 0] tint <$ tint) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ _ Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:32:39.130000.*)
+(* Auto-generated comment: At 2019-08-21 07:34:03.450000.*)
 
