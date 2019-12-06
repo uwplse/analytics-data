@@ -87,8 +87,12 @@ Proof.
 (step_proc_basic; intros).
 (exists tt; simpl; intuition idtac).
 (step_proc_basic; intros).
+{
 eauto.
+}
+(simpl in *; intuition subst).
+(eexists; intuition auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:08:43.640000.*)
+(* Auto-generated comment: At 2019-09-03 11:08:46.100000.*)
 
