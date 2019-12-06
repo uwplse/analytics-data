@@ -393,7 +393,30 @@ step_proc.
 (step_proc; intuition; subst; eauto).
 {
 (step_proc; intuition; subst; eauto).
++
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
+(erewrite log_abstraction_len in * by eauto).
+(rewrite app_length).
+lia.
++
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
+(erewrite log_abstraction_len in * by eauto).
+(rewrite app_length).
+lia.
+}
++
+(exists s; simpl; intuition).
+(apply log_abstraction_pre_commit; auto).
++
+(exists (s ++ v); simpl; intuition).
+(apply log_abstraction_post_commit; auto).
+(erewrite log_abstraction_len in * by eauto).
+(rewrite app_length).
+lia.
+*
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:00:11.610000.*)
+(* Auto-generated comment: At 2019-09-03 11:00:12.030000.*)
 
