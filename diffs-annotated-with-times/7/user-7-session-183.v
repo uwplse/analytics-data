@@ -94,7 +94,7 @@ Qed.
 Lemma subst_exist : forall (X : id) (s : ty) (Y : id) (t : ty), exists (Z : id) (tz : ty), [X := s] TExist Y t = TExist Z tz.
 Proof.
 (intros X s Y t).
-(destruct (beq_idP X Y)).
+(destruct (beq_idP X Y) as [HXY| HXY]).
 -
 subst.
 exists Y,t.
@@ -103,7 +103,8 @@ exists Y,t.
 (destruct (IdSetProps.In_dec Y (FV s)) as [Hin| Hin]).
 +
 (rewrite subst_equation).
+(rewrite (false_beq_id _ _ HXY)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:34:59.740000.*)
+(* Auto-generated comment: At 2019-09-02 07:35:25.580000.*)
 
