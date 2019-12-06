@@ -699,7 +699,16 @@ intuition.
 *
 (exists d,(OutOfSync a0 b); simplify; finish).
 lia.
+*
+(exists (diskUpd d a0 b),FullySynced; simplify; finish).
+lia.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqXSCN0n"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:15:28.460000.*)
+(* Auto-generated comment: At 2019-09-03 11:15:33.600000.*)
 
