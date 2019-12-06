@@ -96,7 +96,8 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Proof.
+Search -"div" -"smaller".
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:35:19.910000.*)
+(* Auto-generated comment: At 2019-08-16 05:35:40.130000.*)
 
