@@ -43,8 +43,8 @@ Search -IdSet.remove.
 (intros Hcontra).
 Search -IdSet.remove.
 Check IdSetFacts.remove_2.
-(apply (IdSetFacts.remove_2 _ _ _ Hneq) in Hcontra).
+(apply (IdSetFacts.remove_2 _ _ Hneq) in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 10:16:27.960000.*)
+(* Auto-generated comment: At 2019-08-29 10:16:37.150000.*)
 
