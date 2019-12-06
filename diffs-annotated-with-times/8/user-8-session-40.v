@@ -108,6 +108,5 @@ Lemma SWAP_spec_sep :
   WF_Matrix \207\1291 -> WF_Matrix \207\1292 -> denote_box safe SWAP (\207\1291 \226\138\151 \207\1292) = \207\1292 \226\138\151 \207\1291.
 Proof.
 (intros).
-(rewrite SWAP_spec).
 (* Auto-generated comment: Succeeded. *)
 
