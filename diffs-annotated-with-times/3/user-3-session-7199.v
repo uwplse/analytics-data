@@ -328,5 +328,5 @@ f_equal.
 (rewrite IHd).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:14:08.120000.*)
+(* Auto-generated comment: At 2019-09-04 11:14:23.570000.*)
 
