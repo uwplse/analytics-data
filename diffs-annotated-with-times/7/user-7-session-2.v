@@ -157,11 +157,11 @@ generalize dependent t3.
 (apply IHHsub1; try assumption).
 (pose proof (sub_r_nf_union_l__inv _ _ _ Hsub2 Hnf2); tauto).
 -
-(inversion Hnf1; subst).
-(inversion Hnf2; subst).
-(inversion H; subst).
-(inversion H0; subst).
+(remember (TRef t') as tx eqn:Heqx ).
+(induction Hsub2).
+6: {
+idtac.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 13:38:23.370000.*)
+(* Auto-generated comment: At 2019-08-06 13:39:47.130000.*)
 
