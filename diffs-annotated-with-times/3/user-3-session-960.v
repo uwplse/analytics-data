@@ -103,8 +103,8 @@ lia.
 Qed.
 Next Obligation of nat_to_le_func.
 Proof.
-auto.
+Search -wf.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:42:55.830000.*)
+(* Auto-generated comment: At 2019-08-16 05:43:11.990000.*)
 
