@@ -101,9 +101,15 @@ Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] 
 Proof.
 auto with DBBetaJulia.
 Qed.
-Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Lemma value_sem_sub_k_i_union__inv :
+  forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
+(intros v Hv k ta tb Hsem; unfold sem_sub_k_i in Hsem).
+(assert (Hm : |-[ k] v <$ v) by (apply match_ty_i__reflexive; assumption)).
+specialize (Hsem _ Hm).
+(apply match_ty_i_union__inv in Hsem).
+(destruct Hsem; [ left | right ]; unfold sem_sub_k_i; intros v' Hm'; apply match_ty_i__transitive_on_value_type with v; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:49:20.740000.*)
+(* Auto-generated comment: At 2019-08-16 13:49:51.930000.*)
 
