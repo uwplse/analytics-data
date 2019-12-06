@@ -69,7 +69,13 @@ clear IHv.
 (intros Hm).
 (pose proof Hm as Href).
 (simpl in Href).
+exists v.
+split.
+reflexivity.
+(intros v').
+specialize (Href v').
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:04:22.390000.*)
+(* Auto-generated comment: At 2019-08-12 13:04:33.790000.*)
 
