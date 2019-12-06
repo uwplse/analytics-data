@@ -1214,9 +1214,11 @@ Lemma apply_new0_correct : forall n, WF_Superoperator (@apply_new0 n).
 Proof.
 (intros n \207\129 M\207\129).
 (unfold apply_new0, super).
+Set Printing All.
 gen \207\129.
 subst.
+(repeat rewrite Nat.pow_add_r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 13:40:57.600000.*)
+(* Auto-generated comment: At 2019-08-09 13:41:24.660000.*)
 
