@@ -123,8 +123,7 @@ Proof.
 (apply mk_nf__sub_d_r; assumption).
 (apply nf_sem_sub_i__sub_d).
 (apply mk_nf__in_nf).
-(apply sem_sub_i__trans with t1).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:43:21.370000.*)
+(* Auto-generated comment: At 2019-08-16 14:44:05.790000.*)
 
