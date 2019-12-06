@@ -129,9 +129,14 @@ Theorem get_len_ok :
     (fun (_ : unit) state =>
      {|
      pre := True;
-     post := fun r state' => state' = state /\ block_to_addr r = a;
-     recovered := fun _ state' => state' = state |}) get_len d.recover.
-(* Auto-generated comment: Failed. *)
+     post := fun r state' => state' = state /\ r = length state;
+     recovered := fun _ state' => state' = state |}) get_len d.recover abstr.
+Proof.
+(unfold get_len; intros).
+(apply spec_abstraction_compose).
+step_proc.
+(intros).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:32:11.320000.*)
+(* Auto-generated comment: At 2019-09-04 10:32:15.850000.*)
 
