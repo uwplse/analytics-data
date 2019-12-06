@@ -124,8 +124,16 @@ Proof.
 (intros t1 t2 Hwf).
 (unfold wf_ty in *; simpl in *).
 Admitted.
-Lemma b_subst_wf_ty : forall (X : id) (t : ty), not_b_free_in_t X t -> forall s : ty, [BX := s] t = t.
+Lemma b_subst_wf_ty : forall (X : id) (t : ty), not_b_free_in_ty X t -> forall s : ty, [BX := s] t = t.
+Proof.
+(intros X t).
+(induction t; intros HX s;
+  try (solve
+   [ reflexivity
+   | try destruct (not_b_free_in_ty_pair__inv _ _ HX) as [HX1 HX2]; try destruct (not_b_free_in_ty_union__inv _ _ HX) as [HX1 HX2]; simpl;
+      rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
+(destruct (not_b_free_in_ty_pair__inv _ _ HX) as [HX1 HX2]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:45:41.480000.*)
+(* Auto-generated comment: At 2019-09-03 10:47:33.330000.*)
 
