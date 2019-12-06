@@ -596,16 +596,8 @@ Proof.
 -
 (intros).
 (simpl).
-(remember (\226\168\130 l2) as A).
-(remember (m ^ length l2) as m').
-(remember (n ^ length l2) as n').
-clear.
-specialize (kron_1_l A) as KL.
-symmetry.
-(simpl in KL).
 (repeat rewrite Nat.add_0_r in KL).
-(apply KL).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:34:40.810000.*)
+(* Auto-generated comment: At 2019-08-13 17:34:55.160000.*)
 
