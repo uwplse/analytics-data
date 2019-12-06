@@ -89,8 +89,12 @@ reflexivity.
 dependent destruction u.
 +
 (simpl).
-(destruct li as [| k li]; simpl; Msimpl; trivial).
+(destruct li as [| k li]; simpl; try lma).
+specialize (IHW2 lb li u).
+(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
+(destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
+(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:11:38.070000.*)
+(* Auto-generated comment: At 2019-08-09 11:11:49.550000.*)
 
