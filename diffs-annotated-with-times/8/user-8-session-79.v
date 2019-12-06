@@ -926,5 +926,5 @@ restore_dims
 setoid_rewrite (kron_1_l_inv (\226\168\130 l2)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:26:10.900000.*)
+(* Auto-generated comment: At 2019-08-14 14:27:15.270000.*)
 
