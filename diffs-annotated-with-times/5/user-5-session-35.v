@@ -241,8 +241,10 @@ reflexivity.
 eexists.
 (rewrite evalVar).
 (rewrite extendEnv_eq).
-(erewrite evalIntConst).
+(apply evalIntConst).
+-
+(apply evalEqTrue).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 09:49:04.560000.*)
+(* Auto-generated comment: At 2019-09-01 09:50:02.930000.*)
 
