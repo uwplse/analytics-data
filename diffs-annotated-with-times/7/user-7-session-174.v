@@ -101,7 +101,11 @@ Function
    end.
 Proof.
 all: (try (intros; simpl; Omega.omega)).
-(* Auto-generated comment: Failed. *)
+-
+(intros).
+(simpl).
+Omega.omega.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-30 06:27:22.020000.*)
+(* Auto-generated comment: At 2019-08-30 06:27:27.520000.*)
 
