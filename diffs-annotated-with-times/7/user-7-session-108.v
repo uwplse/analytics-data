@@ -249,8 +249,21 @@ Proof.
 exists (TCName c).
 (apply match_ty_value_type__reflexive; constructor).
 -
-(destruct IHt1 as [v1 Hm1]).
+(destruct (IHt1 k) as [v1 Hm1]).
+(destruct (IHt2 k) as [v2 Hm2]).
+exists (TPair v1 v2).
+(apply match_ty_pair; assumption).
+-
+(destruct (IHt1 k) as [v Hm]).
+exists v.
+(apply match_ty_union_1).
+assumption.
+-
+exists (TRef t).
+(destruct k).
+reflexivity.
+(split; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:45:52.220000.*)
+(* Auto-generated comment: At 2019-08-21 09:46:10.760000.*)
 
