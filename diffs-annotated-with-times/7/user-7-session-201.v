@@ -178,8 +178,8 @@ assumption.
 specialize (IHw _ _ Hm).
 (destruct IHw as [v' IHw]).
 exists v'.
-(simpl).
+(rewrite b_subst_exist_neq; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:40:43.760000.*)
+(* Auto-generated comment: At 2019-09-03 09:40:59.450000.*)
 
