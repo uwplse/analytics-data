@@ -158,8 +158,11 @@ def main():
     #print(f"{dumps(get_session_module(processed_cmds[0]))}")
 
     for cmd in processed_cmds:
-        timestamp = ("TIMESTAMP " + str(datetime.fromtimestamp(get_time(cmd))))\
-            if args.times else ""
+        try:
+            timestamp = ("TIMESTAMP " + str(datetime.fromtimestamp(get_time(cmd))))\
+                if args.times else ""
+        except:
+            timestamp = ""
         if get_cmd_type(cmd) == Symbol("StmAdd"):
             print("(*{}:*) {}".format(get_id(cmd), get_body(cmd)[1][2]))
         elif get_cmd_type(cmd) == Symbol("StmCancel"):
