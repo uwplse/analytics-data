@@ -133,8 +133,9 @@ Omega.omega.
 (unfold lt_size).
 Check lt_wf.
 Print lt_wf.
-(pose proof lt_wf).
+(pose proof lt_wf as H).
+(unfold well_founded in H).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:23:27.750000.*)
+(* Auto-generated comment: At 2019-08-29 15:24:24.510000.*)
 
