@@ -88,8 +88,17 @@ Proof.
 (rewrite <- beq_id_refl).
 reflexivity.
 Qed.
-Lemma b_subst_bvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [BX := s] TVar Y = TVar Y.
-(* Auto-generated comment: Failed. *)
+Lemma b_subst_bvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [BX := s] TBVar Y = TBVar Y.
+Proof.
+(intros X s Y Hneq).
+(simpl).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
+(simpl).
+(rewrite Hid).
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 09:34:51.860000.*)
+(* Auto-generated comment: At 2019-09-03 09:35:34.640000.*)
 
