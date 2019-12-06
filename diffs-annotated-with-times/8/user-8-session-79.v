@@ -893,5 +893,5 @@ Fact Toffoli_at_spec :
 Admitted.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:55:51.650000.*)
+(* Auto-generated comment: At 2019-08-14 14:57:55.880000.*)
 
