@@ -301,8 +301,7 @@ Proof.
 (unfold sizeInit).
 step.
 (destruct r).
-step.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:12:35.540000.*)
+(* Auto-generated comment: At 2019-09-03 11:12:36.090000.*)
 
