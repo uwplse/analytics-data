@@ -963,8 +963,7 @@ specialize (IHi n l1 l2 A B).
 show_dimensions.
 (repeat rewrite app_length in *).
 (simpl in *).
-replace (length l1 + S (length l2)) with S n in * by lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:13:52.460000.*)
+(* Auto-generated comment: At 2019-08-14 18:14:22.440000.*)
 
