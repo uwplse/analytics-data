@@ -964,8 +964,7 @@ show_dimensions.
 (repeat rewrite app_length in *).
 (simpl in *).
 replace (length l1 + S (length l2)) with S n in * by lia.
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:13:22.810000.*)
+(* Auto-generated comment: At 2019-08-14 18:13:52.460000.*)
 
