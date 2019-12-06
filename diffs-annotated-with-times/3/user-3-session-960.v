@@ -80,7 +80,15 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Search -nat -string.
+Eval compute in pretty.pretty_nat 3.
+Instance aModel : GoModel.
+Proof.
+refine
+ {|
+ byte := Ascii.ascii;
+ byte0 := Ascii.Ascii false false false false false false false false;
+ uint64_to_string := pretty.pretty_nat |}.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:21:04.150000.*)
+(* Auto-generated comment: At 2019-08-16 05:21:57.200000.*)
 
