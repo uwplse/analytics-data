@@ -972,8 +972,8 @@ restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (destruct b; simpl; Msimpl).
 (repeat rewrite Mmult_assoc).
 Msimpl.
-show_dimensions.
+Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 14:15:28.030000.*)
+(* Auto-generated comment: At 2019-08-13 14:17:22.810000.*)
 
