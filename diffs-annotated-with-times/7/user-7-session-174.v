@@ -85,6 +85,7 @@ assumption.
 -
 (destruct (beq_idP x i); reflexivity).
 Qed.
+Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Definition mk_subst_exist (x : id) (y : id) (t ts : ty) := TExist y (if beq_id x y then t else ts).
 Function
  subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
@@ -98,44 +99,9 @@ Function
        else mk_subst_exist x y t' (subst x s t')
    | TVar y => if beq_id x y then s else t
    | TEV y => t
-   end.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-(rewrite rename__size).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(apply (well_founded_lt_compat ty size)).
-(intros).
-tauto.
-Defined.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
-Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
-Proof.
-(intros X s t1 t2).
-(apply subst_equation).
-Qed.
+   end
+ where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:26:06.180000.*)
+(* Auto-generated comment: At 2019-08-30 06:26:14.210000.*)
 
