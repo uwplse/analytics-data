@@ -125,8 +125,11 @@ Proof.
 (intros w1).
 exists w1.
 (intros v Hm).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]).
+-
 (destruct w1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:31:59.830000.*)
+(* Auto-generated comment: At 2019-08-20 12:32:40.310000.*)
 
