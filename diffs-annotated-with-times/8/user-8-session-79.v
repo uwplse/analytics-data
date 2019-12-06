@@ -902,10 +902,37 @@ Ltac
          rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
          rewrite IP
   end; try (solve [ type_check ]).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqhtYRWs"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-(* Auto-generated comment: Succeeded. *)
+Lemma init_at_spec :
+  forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
+  length l1 = i ->
+  length l2 = n - i ->
+  (forall j, Mixed_State (nth j l1 A)) ->
+  (forall j, Mixed_State (nth j l2 B)) ->
+  i < S n ->
+  (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) == \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
+Proof.
+(intros b n i).
+gen n.
+(induction i).
+-
+(intros n l1 l2 A B L1 L2 M1 M2 Lt).
+(destruct l1; inversion L1).
+(simpl in *).
+clear L1 M1 Lt.
+(rewrite strip_one_l_in_eq).
+(rewrite Nat.sub_0_r in L2).
+(rewrite L2 in *).
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+(erewrite denote_box_compat).
+2: {
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+(rewrite (kron_1_l_inv (\226\168\130 l2))).
+reflexivity.
+}
+(rewrite L2).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:59:04.660000.*)
+(* Auto-generated comment: At 2019-08-14 14:59:06.810000.*)
 
