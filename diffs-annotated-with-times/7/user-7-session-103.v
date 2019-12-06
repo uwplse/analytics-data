@@ -19,9 +19,8 @@ Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t1 ->
 Proof.
 (intros v t1 t2 k w Hm).
 (destruct k, w).
-(destruct v).
-(left; assumption).
+(destruct v; left; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:37:22.800000.*)
+(* Auto-generated comment: At 2019-08-20 11:37:25.740000.*)
 
