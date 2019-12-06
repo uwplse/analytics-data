@@ -119,7 +119,8 @@ Next Obligation.
 (rewrite rename__size).
 Omega.omega.
 Qed.
+Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:50:01.110000.*)
+(* Auto-generated comment: At 2019-08-29 14:50:05.210000.*)
 
