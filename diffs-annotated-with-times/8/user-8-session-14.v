@@ -1217,8 +1217,5 @@ Proof.
 Set Printing All.
 gen \207\129.
 subst.
-(repeat rewrite Nat.pow_add_r).
 (* Auto-generated comment: Succeeded. *)
-
-(* Auto-generated comment: At 2019-08-09 13:53:42.220000.*)
 
