@@ -62,10 +62,11 @@ where "'|' t '|'" := (inv_depth t) : btjt_scope.
 Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
 Proof.
 (intros w k).
-(induction k; induction t; intros Hdep Hm).
-(apply match_ty_cname__inv in Hm).
-subst.
+(induction k; induction t; intros Hdep Hm; try (solve [ apply match_ty_cname__inv in Hm; subst; constructor ])).
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:12:17.510000.*)
+(* Auto-generated comment: At 2019-08-20 13:13:30.550000.*)
 
