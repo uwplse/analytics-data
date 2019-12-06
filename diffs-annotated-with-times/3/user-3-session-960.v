@@ -106,12 +106,9 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Print projT1.
-Fixpoint le_to_nat base (digits : list {x : nat | x < S (S base)}) : nat :=
-  match digits with
-  | nil => 0
-  | digit :: digits' => proj1 digit * base + le_to_nat base digits'
-  end.
-(* Auto-generated comment: Failed. *)
+Print sig.
+Search -(sig _ _ -> _).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:56:41.300000.*)
+(* Auto-generated comment: At 2019-08-16 05:56:41.480000.*)
 
