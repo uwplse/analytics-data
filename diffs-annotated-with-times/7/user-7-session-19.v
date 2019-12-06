@@ -108,8 +108,7 @@ Proof.
 idtac.
 (simpl).
 (apply le_n_S).
-(apply IHk).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:29:19.320000.*)
+(* Auto-generated comment: At 2019-08-12 13:29:21.210000.*)
 
