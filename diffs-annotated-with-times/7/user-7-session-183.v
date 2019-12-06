@@ -98,8 +98,8 @@ Proof.
 -
 subst.
 exists Y,t.
-(rewrite subst_eq_id).
+(rewrite subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:33:28.120000.*)
+(* Auto-generated comment: At 2019-09-02 07:33:38.700000.*)
 
