@@ -49,8 +49,36 @@ Proof.
 exists (TPair (TCName c) (TCName c)).
 (intros Hcontra).
 (apply match_ty_cname__inv in Hcontra).
+(inversion Hcontra).
+-
+(destruct (IHt1 w k) as [v1 Hcontra1]).
+(destruct (IHt2 w k) as [v2 Hcontra2]).
+exists (TPair v1 v2).
+(intros Hcontra).
+(apply match_ty_pair__inv in Hcontra).
+(destruct Hcontra as [v1' [v2' [Heq [Hmq Hmw]]]]).
+(inversion Heq; subst).
 contradiction.
+-
+Abort.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+(intros Hcontra).
+(destruct Hcontra as [w Hcontra]).
+specialize (Hcontra 2).
+(assert (Hm : |-[ w, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+clear Hm.
+(destruct w).
+-
+(apply match_ty_exist__0_inv in Hcontra).
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Heq Href]]).
+(inversion Heq; subst).
+clear Heq.
+(assert (Hm : |-[ 0, 1] TRef tX <$ TRef tX) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Href Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:24:37.360000.*)
+(* Auto-generated comment: At 2019-08-20 08:26:23.880000.*)
 
