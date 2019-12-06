@@ -118,8 +118,13 @@ intuition.
 lia.
 -
 (step_proc; intuition).
-(step_proc; intuition).
+(destruct s; intuition).
++
+(unfold statdb_abstraction in *; simpl in *).
+intuition.
++
+(exists (n0 :: s); intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:43:07.020000.*)
+(* Auto-generated comment: At 2019-09-06 05:43:11.170000.*)
 
