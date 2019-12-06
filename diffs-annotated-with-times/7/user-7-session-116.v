@@ -19,8 +19,16 @@ Proof.
 (intros X fvs1 fvs2 H).
 (unfold fresh in *).
 (split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
-Qedt.
+Qed.
+Lemma subs_fresh : forall (X : id) (t : ty), fresh_in_ty X t -> forall s : ty, [X := s] t = t.
+Proof.
+(intros X t).
+(induction t; intros Hfresh s; try (solve [ reflexivity ])).
+-
+(simpl).
+(unfold fresh_in_ty in *).
+(apply fresh_union__inv in Hfresh).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:43:43.410000.*)
+(* Auto-generated comment: At 2019-08-27 06:45:02.030000.*)
 
