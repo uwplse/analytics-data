@@ -104,8 +104,7 @@ exists w1.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
-(rewrite subst_fresh_in_ty in Hm; try assumption).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 13:57:37.210000.*)
+(* Auto-generated comment: At 2019-08-29 14:02:11.350000.*)
 
