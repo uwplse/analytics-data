@@ -293,5 +293,5 @@ Inductive ST : Type :=
   | SRec : forall l : list (label * ST)%type, NoDup (map fst l) -> ST.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 22:38:08.540000.*)
+(* Auto-generated comment: At 2019-09-04 22:38:08.710000.*)
 
