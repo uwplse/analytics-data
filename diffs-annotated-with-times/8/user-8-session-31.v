@@ -2172,28 +2172,7 @@ easy.
 dependent destruction TP.
 easy.
 Qed.
-Lemma denote_gate_circuit :
-  forall {w1} {w2} {w'} (safe : bool) (g : Gate w1 w2) p1 
-    (f : Pat w2 -> Circuit w') (\206\1470 \206\147 \206\1471 \206\1472 : Ctx),
-  \206\147 \226\169\181 \206\1471 \226\136\153 \206\1472 ->
-  \206\1471 \226\138\162 p1 :Pat ->
-  denote_circuit safe (gate g p1 f) \206\1470 \206\147 =
-  compose_super
-    (denote_circuit safe (f (process_gate_pat g p1 \206\147)) \206\1470
-       (process_gate_state g p1 \206\147))
-    (apply_gate safe g (pat_to_list (subst_pat \206\147 p1))).
-Proof.
-(intros).
-(unfold denote_circuit).
-(simpl; fold_denotation).
-Timeout 1 About process_gate.
-Timeout 1 Print process_gate.
-Timeout 1 About process_gate_state.
-Timeout 1 Print process_gate_state.
-Timeout 1 About process_gate.
-Timeout 1 Print process_gate.
-Timeout 1 Print Ltac process_gate.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:04:56.070000.*)
+(* Auto-generated comment: At 2019-08-09 14:05:29.770000.*)
 
