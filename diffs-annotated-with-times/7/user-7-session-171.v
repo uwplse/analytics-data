@@ -73,7 +73,33 @@ Lemma rename__size : forall (x y : id) (t : ty), size ([x @ y] t) = size t.
 Proof.
 (intros x y).
 (induction t; simpl; try (solve [ reflexivity | rewrite IHt1; rewrite IHt2; reflexivity ])).
+-
+(apply f_equal).
+(destruct (beq_idP x i)).
++
+subst.
+reflexivity.
++
+assumption.
+-
+(destruct (beq_idP x i); reflexivity).
+Qed.
+Reserved Notation "'[' x ':=' s ']' t" (at level 30).
+#[program]
+Fixpoint subst (x : id) (s t : ty) {measure size t :=
+  match t with
+  | TCName _ => t
+  | TPair t1 t2 => TPair ([x := s] t1) ([x := s] t2)
+  | TUnion t1 t2 => TUnion ([x := s] t1) ([x := s] t2)
+  | TExist y t' =>
+      if IdSet.mem y (FV s)
+      then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else [x := s] tz)
+      else TExist y (if beq_id x y then t' else [x := s] t')
+  | TVar y => if beq_id x y then s else t
+  | TEV y => t
+  end
+where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:28:09.740000.*)
+(* Auto-generated comment: At 2019-08-29 14:28:39.470000.*)
 
