@@ -275,8 +275,8 @@ typeclasses eauto.
 (simpl).
 (unfold EqualDec).
 (intros; simpl).
-(destruct x, y; simpl).
+decide equality.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:11:09.940000.*)
+(* Auto-generated comment: At 2019-08-16 07:11:14.080000.*)
 
