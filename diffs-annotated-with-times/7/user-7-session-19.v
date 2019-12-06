@@ -202,8 +202,8 @@ Proof.
 -
 (assert (Hvp : value_type (TPair t1 t2))).
 constructor.
-solve_by_inverts.
+baseTactics.solve_by_inverts.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:32:06.620000.*)
+(* Auto-generated comment: At 2019-08-13 07:33:23.270000.*)
 
