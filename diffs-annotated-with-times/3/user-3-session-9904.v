@@ -119,8 +119,7 @@ lia.
 -
 (step_proc; intuition).
 (destruct s; intuition).
-+
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:43:25.340000.*)
+(* Auto-generated comment: At 2019-09-06 05:43:27.530000.*)
 
