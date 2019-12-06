@@ -18,7 +18,20 @@ Lemma subs_neq__permute : forall X Y : id, X <> Y -> forall t s1 s2 : ty, [X := 
 Proof.
 (intros X Y Hneq t).
 (induction t; intros s1 s2; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
+-
+(simpl).
+(rewrite IHt).
+reflexivity.
+-
+(simpl).
+(destruct (beq_idP X i)).
++
+subst.
+(destruct (beq_idP Y i)).
+*
+reflexivity.
+*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:12:25.130000.*)
+(* Auto-generated comment: At 2019-08-27 06:12:46.120000.*)
 
