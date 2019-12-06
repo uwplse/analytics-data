@@ -148,9 +148,9 @@ step_proc.
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
-          end _) |- _ => idtac H y a
+          end _) |- _ => destruct a as [x y]
  end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:45:48.330000.*)
+(* Auto-generated comment: At 2019-09-06 05:45:49.990000.*)
 
