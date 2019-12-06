@@ -564,8 +564,11 @@ Qed.
 Lemma match_ty_value_type__inv_depth_equal : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> inv_depth v = inv_depth v'.
 Proof.
 (intros v v' Hv' k Hm1).
-(pose proof (match_ty__inv_depth_l_le v v' k Hm1) as Hdep1).
-(* Auto-generated comment: Failed. *)
+(pose proof (match_ty__inv_depth_l_le_index v v' k Hm1) as Hdep1).
+(pose proof (match_ty_value_type__symmetric v v' Hv' k Hm1) as Hm2).
+(pose proof (match_ty__inv_depth_l_le_index v' v k Hm2) as Hdep2).
+(apply Nat.le_antisymm; assumption).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:33:21.750000.*)
+(* Auto-generated comment: At 2019-08-16 13:33:54.620000.*)
 
