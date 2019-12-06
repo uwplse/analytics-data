@@ -499,8 +499,8 @@ Proof.
 -
 (intros ta1 ta2 Hat1 IH1 Hat2 IH2 Hdep).
 (assert (Hat : atom_type (TPair ta1 ta2)) by (constructor; assumption)).
-(apply pair_sem_sub_k_i__sub_d).
+(apply pair_sem_sub_k_i__sub_d; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:39:43.150000.*)
+(* Auto-generated comment: At 2019-08-13 13:40:20.620000.*)
 
