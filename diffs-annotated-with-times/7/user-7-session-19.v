@@ -74,8 +74,9 @@ Proof.
    | |- |-[ ?k'] ?v <$ TRef _ _ => idtac
    end).
 -
-(apply match_ty_i_pair__union in Hm).
+(apply match_ty_i_union__inv in Hm).
+(destruct Hm as [Hm1| Hm2]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:41:17.360000.*)
+(* Auto-generated comment: At 2019-08-12 09:42:03.020000.*)
 
