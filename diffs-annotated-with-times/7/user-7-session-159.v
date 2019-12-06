@@ -94,8 +94,8 @@ assumption.
 +
 (rewrite subst_union).
 (apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:34:57.730000.*)
+(* Auto-generated comment: At 2019-08-29 09:35:49.310000.*)
 
