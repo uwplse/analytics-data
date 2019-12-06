@@ -61,8 +61,8 @@ exists (TPair v1 v2).
 contradiction.
 -
 Abort.
-Lemma not_sem_sub__eXrefX_reft : forall (w k : nat) (t : ty), ~ ||-[ w, k][TExist vX (TRef tX)]<= [TRef t].
+Lemma not_sem_sub__eXrefX_reft : forall (w k : nat) (t : ty), ~ ||-[ S w, k][TExist vX (TRef tX)]<= [TRef t].
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:53:13.350000.*)
+(* Auto-generated comment: At 2019-08-20 08:54:02.400000.*)
 
