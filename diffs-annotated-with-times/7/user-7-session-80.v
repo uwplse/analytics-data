@@ -402,8 +402,52 @@ split.
 reflexivity.
 (intros k Hk).
 (simpl in Hk).
-(destruct (max_inv_depth_le__components_le _ _ _ Hk); auto using match_ty_pair).
+(destruct (max_inv_depth_le__inv _ _ _ Hk); auto using match_ty_pair).
+-
+(destruct IHt1 as [v1 [Hv1 [Hd1 Hm1]]]).
+(destruct IHt2 as [v2 [Hv2 [Hd2 Hm2]]]).
+(destruct (dec_le (| t1 |) (| t2 |)); [ exists v2 | exists v1 ]; split; try assumption; simpl).
++
+split.
+(rewrite Max.max_r; assumption).
+(intros k Hk).
+(simpl in Hk).
+(destruct (max_inv_depth_le__inv _ _ _ Hk); auto using match_ty_union_2).
++
+split.
+(rewrite Max.max_l; try assumption).
+{
+(apply Nat.lt_le_incl).
+(apply not_le__gt).
+assumption.
+}
+(intros k Hk).
+(simpl in Hk).
+(destruct (max_inv_depth_le__inv _ _ _ Hk); auto using match_ty_union_1).
+-
+(exists (TRef t); split).
+constructor.
+split.
+reflexivity.
+(intros).
+(apply match_ty_value_type__reflexive; constructor || assumption).
+Qed.
+Lemma match_ty__inv_depth_0_stable : forall t : ty, inv_depth t = 0 -> forall (k : nat) (v : ty), |-[ k] v <$ t <-> |-[ 0] v <$ t.
+Proof.
+(induction t; intros Heqdep k v).
+-
+(split; intros Hm; apply match_ty_cname__inv in Hm; subst).
+reflexivity.
+(destruct k; reflexivity).
+-
+(simpl in Heqdep).
+(assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
+{
+(rewrite Heqdep).
+constructor.
+}
+(destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:30:08.280000.*)
+(* Auto-generated comment: At 2019-08-16 13:30:45.690000.*)
 
