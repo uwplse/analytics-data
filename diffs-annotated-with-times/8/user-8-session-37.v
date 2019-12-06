@@ -238,5 +238,5 @@ dependent destruction WT.
 -
 (simpl).
 (erewrite VA).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
