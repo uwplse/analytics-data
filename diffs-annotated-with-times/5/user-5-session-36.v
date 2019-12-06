@@ -258,9 +258,9 @@ reflexivity.
 clear H.
 (rewrite evalAnd in H0).
 (match goal with
- | H:eval ?L ?env (If (In ?x ?S) _ _) |- _ => idtac
+ | H:eval ?L ?env (If (In ?x ?S) _ _) = _ |- _ => idtac
  end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:33:01.100000.*)
+(* Auto-generated comment: At 2019-09-01 10:33:08.660000.*)
 
