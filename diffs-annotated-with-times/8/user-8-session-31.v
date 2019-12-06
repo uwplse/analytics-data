@@ -3178,10 +3178,8 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOW491C"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Definition HOAS_Equiv {W1} {W2} (c1 c2 : Box W1 W2) :=
-  forall \207\129 b, denote_box b c1 \207\129 = denote_box b c2 \207\129.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq7rZL5j"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
+Timeout 1 About denote_box.
+Timeout 1 Print denote_box.
+Timeout 1 Print Ltac denote_box.
 (* Auto-generated comment: Succeeded. *)
 
