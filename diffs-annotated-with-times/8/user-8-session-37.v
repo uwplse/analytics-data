@@ -61,7 +61,16 @@ replace (gate g p c) with compose (gate g p (fun p' => output p')) c by auto.
 dependent destruction H'.
 (destruct \206\1471 as [| \206\1471]; try invalid_contradiction).
 (erewrite denote_compose with (\206\1471 := []); trivial).
-(* Auto-generated comment: Succeeded. *)
+Focus 3.
+(intros \206\1473 \206\1470' p0 H0 H1).
+(destruct H0).
+(rewrite merge_nil_r in pf_merge).
+subst.
+(apply (t0 \206\1473); trivial).
+Abort.
+Fact valid_ancillae_box_equal :
+  forall W1 W2 (c : Box W1 W2), valid_ancillae_box c <-> valid_ancillae_box' c.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 14:19:18.010000.*)
+(* Auto-generated comment: At 2019-08-12 14:19:29.960000.*)
 
