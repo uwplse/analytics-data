@@ -69,7 +69,11 @@ Proof.
 clear IHv.
 (intros t w k Hm).
 (destruct w; simpl in Hm; exists v; auto).
+Qed.
+Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ 0, k] v <$ TExist X t -> |-[ 0, k] v <$ t.
+Proof.
+(intros v; induction v; intros X t k Hm; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:00:08.100000.*)
+(* Auto-generated comment: At 2019-08-20 08:00:19.020000.*)
 
