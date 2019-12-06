@@ -2193,5 +2193,5 @@ replace (process_gate g p1 \206\147) with
  by (symmetry; apply surjective_pairing).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 14:04:47.880000.*)
+(* Auto-generated comment: At 2019-08-09 14:04:48.620000.*)
 
