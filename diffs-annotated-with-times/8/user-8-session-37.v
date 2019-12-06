@@ -340,5 +340,45 @@ validate.
 (simpl).
 (unfold compose_super).
 (erewrite VA).
-(* Auto-generated comment: Succeeded. *)
+easy.
+(eapply t0; [ apply pf1 | apply t ]).
+-
+dependent destruction p.
+dependent destruction t.
+(simpl).
+(unfold compose_super).
+(erewrite VA).
+reflexivity.
+(unfold process_gate_state).
+(simpl).
+(unfold process_gate_pat).
+(simpl).
+(apply singleton_equiv in s).
+subst.
+(erewrite remove_bit_merge').
+(apply trim_types_circ).
+(eapply t0; [  | constructor ]).
+split.
+validate.
+(rewrite merge_nil_l).
+easy.
+easy.
+-
+dependent destruction AF.
+(inversion H).
+-
+dependent destruction AF.
+(inversion H).
++
+dependent destruction AF.
+(assert (VA : forall b, valid_ancillae (c b))).
+(intros; apply H; apply H0).
+clear H.
+(unfold valid_ancillae in *).
+(intros \206\147 \206\1470 WT).
+(unfold denote_circuit in *).
+(simpl in *).
+replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
+(erewrite VA).
+(* Auto-generated comment: Failed. *)
 
