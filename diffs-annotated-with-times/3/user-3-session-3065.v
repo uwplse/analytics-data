@@ -108,5 +108,5 @@ Definition CrashInner : iProp \206\163 :=
 End refinement_recovery_defs.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 08:40:16.060000.*)
+(* Auto-generated comment: At 2019-08-16 08:40:16.560000.*)
 
