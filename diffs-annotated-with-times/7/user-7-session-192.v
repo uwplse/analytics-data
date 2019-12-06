@@ -109,7 +109,11 @@ admit.
 (rewrite subst_equation).
 Search -beq_id.
 (assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
+(rewrite Hbeq).
+(destruct (IdSet.mem i (FV tx))).
+{
+(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 12:35:03.930000.*)
+(* Auto-generated comment: At 2019-09-02 12:35:09.590000.*)
 
