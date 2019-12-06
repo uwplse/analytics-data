@@ -145,8 +145,9 @@ Qed.
 Lemma sem_sub_pair__inv : forall t1 t2 t1' t2' : ty, ||- [TPair t1 t2]<= [TPair t1' t2'] -> ||- [t1]<= [t1'] /\ ||- [t2]<= [t2'].
 Proof.
 (intros t1 t2 t1' t2' Hsem).
-(split; intros k; specialize (Hsem k); pose proof (sem_sub_k_pair__inv _ _ _ _ _ Hsem)).
-(* Auto-generated comment: Failed. *)
+(split; intros k; specialize (Hsem k); pose proof (sem_sub_k_pair__inv _ _ _ _ _ Hsem); tauto).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 09:18:06.710000.*)
+(* Auto-generated comment: At 2019-08-27 09:18:13.890000.*)
 
