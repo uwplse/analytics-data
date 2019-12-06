@@ -248,9 +248,10 @@ clear IHk' IHt.
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
 (apply le_S_n in Htk').
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; specialize (Href v)).
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
 (pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Htk Htk' v) as Ht').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:54:48.920000.*)
+(* Auto-generated comment: At 2019-08-13 08:55:02.360000.*)
 
