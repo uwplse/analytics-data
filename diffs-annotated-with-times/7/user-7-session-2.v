@@ -26,8 +26,7 @@ Proof.
 (right; assumption).
 -
 (inversion Heq; subst).
-(rewrite (mk_nf_atomty__equal _ Hat) in *).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:44:00.750000.*)
+(* Auto-generated comment: At 2019-08-06 12:44:41.940000.*)
 
