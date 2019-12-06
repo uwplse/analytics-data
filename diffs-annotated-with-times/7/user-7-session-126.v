@@ -123,7 +123,11 @@ reflexivity.
 (rewrite IHt).
 reflexivity.
 -
-(* Auto-generated comment: Failed. *)
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 07:51:36.840000.*)
+(* Auto-generated comment: At 2019-08-27 07:52:09.240000.*)
 
