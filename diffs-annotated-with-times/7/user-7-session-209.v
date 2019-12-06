@@ -86,12 +86,11 @@ assumption.
 (rewrite f_subst_not_b_free_in_ty; assumption).
 }
 +
-(apply match_ty_exist__inv in Hm').
-(destruct Hm' as [ti [Hwf Hm']]).
 (split; intros HX').
 *
-exists ti.
+assumption.
+*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:09:00.550000.*)
+(* Auto-generated comment: At 2019-09-04 09:09:28.020000.*)
 
