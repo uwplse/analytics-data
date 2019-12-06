@@ -318,8 +318,8 @@ Proof.
 (intros).
 (eapply init_abstraction_any_rec with rec).
 (unfold init_abstraction; intros).
-(step_proc; intuition; simpl in *).
+step_proc_basic.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 17:29:45.830000.*)
+(* Auto-generated comment: At 2019-09-05 17:29:46.920000.*)
 
