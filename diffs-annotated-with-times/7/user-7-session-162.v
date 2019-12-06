@@ -62,5 +62,5 @@ Fixpoint rename (x y : id) (t : ty) :=
 where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:37:19.390000.*)
+(* Auto-generated comment: At 2019-08-29 13:38:18.640000.*)
 
