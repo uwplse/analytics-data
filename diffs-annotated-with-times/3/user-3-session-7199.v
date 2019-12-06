@@ -388,8 +388,8 @@ replace (diskGet d' len_addr) in *.
 auto.
 -
 congruence.
-Qed.
-(* Auto-generated comment: Failed. *)
+-
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:12:41.840000.*)
+(* Auto-generated comment: At 2019-09-04 12:12:55.810000.*)
 
