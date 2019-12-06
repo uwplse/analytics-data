@@ -103,8 +103,7 @@ admit.
 }
 {
 (apply match_ty_union_1; rewrite f_subst_not_b_free_in_ty; auto).
-}
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:33:53.550000.*)
+(* Auto-generated comment: At 2019-09-06 09:33:58.750000.*)
 
