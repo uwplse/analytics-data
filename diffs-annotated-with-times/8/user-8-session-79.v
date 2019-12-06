@@ -616,8 +616,9 @@ Proof.
 (intros).
 specialize (kron_1_l A) as G.
 show_dimensions.
-(rewrite Nat.mul_1_l in *).
+(rewrite 2!Nat.mul_1_l in *).
+symmetry.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:46:43.270000.*)
+(* Auto-generated comment: At 2019-08-14 11:46:43.360000.*)
 
