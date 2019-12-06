@@ -360,11 +360,8 @@ Proof.
          rewrite mk_nf_union in Hm; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm| Hm];
           [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ apply IHt1 | apply IHt2 ]; assumption
    end; try (solve [ destruct v; contradiction ])).
-(rewrite mk_nf_ref).
-(apply match_ty_i_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]; subst).
-constructor.
+(rewrite mk_nf_ref in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:50:00.990000.*)
+(* Auto-generated comment: At 2019-08-13 13:50:36.010000.*)
 
