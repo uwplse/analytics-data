@@ -450,8 +450,7 @@ Proof.
 (unfold log_abstraction; intuition).
 -
 (unfold log_length_ok in *; intros).
-(rewrite diskUpd_eq in H2).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:48:56.360000.*)
+(* Auto-generated comment: At 2019-09-04 12:49:06.740000.*)
 
