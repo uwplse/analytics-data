@@ -40,9 +40,8 @@ Redirect
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Check 1 + 2 + aReallyBigIdentifier + 4 + anotherLongName
-  === 6 + anotherLongName + 8 + 9.
+Check 3=== 3.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 04:36:37.980000.*)
+(* Auto-generated comment: At 2019-09-03 04:37:52.630000.*)
 
