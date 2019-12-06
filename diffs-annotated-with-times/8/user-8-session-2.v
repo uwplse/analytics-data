@@ -118,8 +118,9 @@ Proof.
 (simpl).
 (destruct a).
 +
+Msimpl.
 (rewrite IHr).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:21:08.880000.*)
+(* Auto-generated comment: At 2019-08-09 11:21:09.740000.*)
 
