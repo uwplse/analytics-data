@@ -190,18 +190,7 @@ contradiction.
 (rewrite <- beq_id_refl).
 (rewrite b_subst_not_b_free_in_ty).
 reflexivity.
-(unfold wf_ty in *).
-(unfold not_b_free_in_ty, not_free).
-(intros Hcontra).
-Search -IdSet.In.
-(destruct (IdSetFacts.empty_iff Y) as [H _]).
-(apply H).
-Search -IdSet.In.
-Search -IdSet.Empty.
-(apply IdSetProps.empty_is_empty_1 in Hs1).
-Search -IdSet.Equal.
-Search -IdSet.empty.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:21:56.700000.*)
+(* Auto-generated comment: At 2019-09-04 08:22:15.980000.*)
 
