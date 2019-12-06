@@ -205,8 +205,7 @@ refine
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii |}.
 Search -(0 < _).
-constructor.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:52:25.100000.*)
+(* Auto-generated comment: At 2019-08-16 06:52:57.830000.*)
 
