@@ -214,8 +214,8 @@ Proof.
 (assert (Hva : value_type (TCName c)) by constructor).
 (induction t2; intros Hsem).
 +
-(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; assumption)).
+(assert (Hma : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:42:56.060000.*)
+(* Auto-generated comment: At 2019-08-13 08:42:59.220000.*)
 
