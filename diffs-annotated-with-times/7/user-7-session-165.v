@@ -83,10 +83,7 @@ Proof.
    [ apply fresh_union__inv in Hfresh; destruct Hfresh as [Hfresh1 Hfresh2]; rewrite IHt1; try assumption; rewrite IHt2; try assumption;
       reflexivity ])).
 -
-(destruct (beq_idP X i); try reflexivity).
-(destruct (IdSet.mem i (FV s))).
-+
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:51:15.740000.*)
+(* Auto-generated comment: At 2019-08-29 13:51:50.830000.*)
 
