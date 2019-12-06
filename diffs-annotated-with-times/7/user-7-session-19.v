@@ -202,8 +202,8 @@ Proof.
 (assert (Hm : |-[ 0] v <$ v) by (apply match_ty_i__reflexive; assumption)).
 specialize (Hsem 0 _ Hm).
 (apply match_ty_i_union__inv in Hsem).
-(destruct Hsem; [ left | right ]).
+(destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:46:50.310000.*)
+(* Auto-generated comment: At 2019-08-13 08:48:43.660000.*)
 
