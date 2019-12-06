@@ -431,8 +431,9 @@ specialize (IHt'2 Hnft).
 *
 Check left.
 Print "\/".
-specialize (IHt'1 (or_introl Hdept)).
+(apply Nat.le_trans with (| t'1 |)).
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:02:21.990000.*)
+(* Auto-generated comment: At 2019-08-18 07:03:26.290000.*)
 
