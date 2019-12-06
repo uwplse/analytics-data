@@ -628,5 +628,5 @@ specialize (kron_1_r_inv A) as KR'.
 (rewrite KR).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:54:38.350000.*)
+(* Auto-generated comment: At 2019-08-14 11:54:53.530000.*)
 
