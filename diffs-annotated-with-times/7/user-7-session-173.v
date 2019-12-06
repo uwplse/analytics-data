@@ -86,53 +86,20 @@ assumption.
 -
 (destruct (beq_idP x i); reflexivity).
 Qed.
-#[program]
-Fixpoint subst (x : id) (s t : ty) {measure size t : ty :=
-  match t with
-  | TCName _ => t
-  | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
-  | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
-  | TExist y t' =>
-      if IdSet.mem y (FV s)
-      then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
-      else TExist y (if beq_id x y then t' else subst x s t')
-  | TVar y => if beq_id x y then s else t
-  | TEV y => t
-  end.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-Omega.omega.
-Qed.
-Next Obligation.
-(simpl).
-(rewrite rename__size).
-Omega.omega.
-Qed.
-Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
-Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := t2] t2).
-Proof.
-(intros X s t1 t2).
-(unfold subst).
-(unfold subst_func).
-Check fix_sub_eq.
-(rewrite fix_sub_eq).
-(fold (subst X s t1)).
-(fold (subst X s t2)).
-(simpl).
-reflexivity.
+Function
+ subst (x : id) (s t : ty) {measure size t} : ty :=
+   match t with
+   | TCName _ => t
+   | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
+   | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
+   | TExist y t' =>
+       if IdSet.mem y (FV s)
+       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
+       else TExist y (if beq_id x y then t' else subst x s t')
+   | TVar y => if beq_id x y then s else t
+   | TEV y => t
+   end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:07:45.320000.*)
+(* Auto-generated comment: At 2019-08-29 15:07:49.180000.*)
 
