@@ -93,6 +93,16 @@ refine (exist _ (Ascii.nat_of_ascii a) _).
 Defined.
 Instance aModel : GoModel.
 Proof.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqL12NWu"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqoLzvEp"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Timeout 1 Print LoadPath.
 refine
  {|
  byte := {x | x < 256};
@@ -108,5 +118,5 @@ refine
  nullptr := fun _ => 0 |}.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:45:04.510000.*)
+(* Auto-generated comment: At 2019-08-16 07:45:12.300000.*)
 
