@@ -58,7 +58,14 @@ specialize (Hid Hneq).
 (rewrite Hid).
 reflexivity.
 Qed.
+Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
+Proof.
+(intros).
+(simpl).
+(rewrite <- beq_id_refl).
+reflexivity.
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:17:07.190000.*)
+(* Auto-generated comment: At 2019-08-29 09:18:21.440000.*)
 
