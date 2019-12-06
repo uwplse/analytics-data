@@ -18,8 +18,8 @@ Qed.
 Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t1 -> |-[ k, w] v <$ TUnion t1 t2.
 Proof.
 (intros v t1 t2 k w Hm).
-(destruct k, w, v; left; assumption).
+(destruct k, w; destruct v; left; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:32:13.530000.*)
+(* Auto-generated comment: At 2019-08-20 11:32:30.040000.*)
 
