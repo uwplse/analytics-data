@@ -594,8 +594,8 @@ Proof.
 (intros).
 (rewrite <- (Nat.mul_1_l m), <- (Nat.mul_1_l n)).
 symmetry.
-(apply kron_1_l).
-(* Auto-generated comment: Failed. *)
+(rewrite kron_1_l).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:42:09.290000.*)
+(* Auto-generated comment: At 2019-08-14 11:42:10.120000.*)
 
