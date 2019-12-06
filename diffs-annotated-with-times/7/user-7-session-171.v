@@ -130,20 +130,7 @@ Declare Scope btjm_scope.
 Delimit Scope btjm_scope with btjm.
 Open Scope btjm.
 Reserved Notation "'|-[' w ']' v '<$' t" (at level 40).
-Fixpoint match_ty (w : nat) :=
-  fix mtyv (v : ty) :=
-    fix mtyt (t : ty) :=
-      match w, v, t with
-      | _, TCName c, TCName c' => c = c'
-      | _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
-      | _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
-      | S w, v, TExist X t' => exists tx, |-[ w] v <$ [X := tx] t'
-      | _, TEV X, TVar X' => X = X'
-      | _, TEV X, TEV X' => X = X'
-      | _, _, _ => False
-      end
-where "'|-[' w ']' v '<$' t" := (match_ty w v t) : btjm_scope.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:37:05.730000.*)
+(* Auto-generated comment: At 2019-08-29 14:39:05.380000.*)
 
