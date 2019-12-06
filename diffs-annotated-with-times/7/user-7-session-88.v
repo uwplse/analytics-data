@@ -451,7 +451,6 @@ Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -
 Proof.
 (intros t1 t2 t' Hsem).
 (unfold sem_sub_i in Hsem).
-Check sem_sub_k_union_l__inv.
 (split; intros k; specialize (Hsem k); destruct (sem_sub_k_i_union_l__inv _ _ _ _ Hsem); assumption).
 Qed.
 Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
@@ -460,6 +459,14 @@ Proof.
 (split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
   assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem; 
   intros v' Hm'; specialize (Hsem v'); tauto).
+Qed.
+Lemma sem_eq_k_i__inv_depth_eq_2 : forall (k : nat) (t t' : ty), | t' | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+(intros k t t' Hdept' H).
+(destruct (sem_eq_k_i__sem_sub_k_i _ _ _ H) as [H1 H2]).
+(pose proof (sem_sub_k_i__inv_depth_le_2 _ _ _ Hdept' H1)).
+(pose proof (sem_sub_k_i__inv_depth_le_1 _ _ _ Hdept' H2)).
+(apply Nat.le_antisymm; assumption).
 Qed.
 Lemma match_ty__inv_depth_0_stable : forall t : ty, inv_depth t = 0 -> forall k v, |-[ k] v <$ t <-> |-[ 0] v <$ t.
 Proof.
@@ -551,7 +558,19 @@ clear IHk' IHt.
 (apply le_S_n in Htk').
 (split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
 *
+(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Href)).
+(pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k').
+(pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
+tauto.
+*
+(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk' Href)).
+(pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k').
+(pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
+tauto.
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:49:17.780000.*)
+(* Auto-generated comment: At 2019-08-16 14:50:11.160000.*)
 
