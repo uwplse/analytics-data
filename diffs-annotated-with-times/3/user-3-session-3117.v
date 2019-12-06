@@ -121,8 +121,8 @@ Proof.
 (rewrite <- Nat.compare_lt_iff, <- N2Nat.inj_compare, N.compare_lt_iff).
 (destruct a).
 (apply N.ltb_lt).
-(destruct b, b0, b1, b2, b3, b4, b5, b6; simpl).
+(destruct b, b0, b1, b2, b3, b4, b5, b6; compute).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:09:59.810000.*)
+(* Auto-generated comment: At 2019-08-16 10:10:12.900000.*)
 
