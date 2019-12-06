@@ -130,5 +130,5 @@ intuition.
 (right; intuition congruence).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:44:16.660000.*)
+(* Auto-generated comment: At 2019-09-06 05:44:17.120000.*)
 
