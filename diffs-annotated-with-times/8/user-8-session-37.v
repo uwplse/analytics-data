@@ -380,5 +380,5 @@ clear H.
 (simpl in *).
 replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
 (erewrite VA).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
