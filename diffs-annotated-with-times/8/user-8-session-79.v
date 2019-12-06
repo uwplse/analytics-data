@@ -651,8 +651,7 @@ Proof.
 (induction l1).
 -
 (intros).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:17:40.020000.*)
+(* Auto-generated comment: At 2019-08-14 13:19:02.340000.*)
 
