@@ -106,7 +106,10 @@ exists Y,t.
 (pose proof (IdSetFacts.mem_1 Hin) as Hmem).
 (rewrite (false_beq_id _ _ HXY)).
 (rewrite Hmem).
+eexists.
+eexists.
+ereflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:35:34.720000.*)
+(* Auto-generated comment: At 2019-09-02 07:35:49.140000.*)
 
