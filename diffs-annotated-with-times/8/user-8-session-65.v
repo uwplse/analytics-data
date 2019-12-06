@@ -979,8 +979,8 @@ gen \207\129.
 (apply f_equal_gen; trivial).
 (rewrite size_ntensor; unify_pows_two; simpl; try lia).
 (rewrite size_ntensor; unify_pows_two; simpl; try lia).
-(unify_matrix_dims idtac).
+(unify_matrix_dims unify_pows_two; simpl; try lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:16:14.080000.*)
+(* Auto-generated comment: At 2019-08-13 11:19:27.440000.*)
 
