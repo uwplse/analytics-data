@@ -250,8 +250,9 @@ assumption.
 -
 (exists (TRef t); split).
 constructor.
-(apply match_ty_value_type__reflexive).
-(* Auto-generated comment: Failed. *)
+(apply match_ty_value_type__reflexive; constructor || assumption).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 08:28:47.930000.*)
+(* Auto-generated comment: At 2019-08-16 08:29:14.200000.*)
 
