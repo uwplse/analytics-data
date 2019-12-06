@@ -80,12 +80,12 @@ Function
    match x with
    | 0 => nil
    | _ =>
-       let base := base_m2 in
+       let base := S (S base_m2) in
        let digit := x `mod` base in
        exist (fun x => x < S (S base_m2)) digit _
        :: nat_to_le base_m2 (x / base)
    end.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:13:38.650000.*)
+(* Auto-generated comment: At 2019-08-16 06:13:55.980000.*)
 
