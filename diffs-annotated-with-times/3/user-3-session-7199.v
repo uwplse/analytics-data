@@ -200,9 +200,9 @@ Proof.
 (descend; intuition eauto).
 (descend; intuition eauto).
 (unfold log_abstraction in H0; intuition).
-(apply H1 in H).
+(pose proof (H1 a); intuition).
 eq_values.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:55:34.920000.*)
+(* Auto-generated comment: At 2019-09-04 10:55:54.420000.*)
 
