@@ -256,8 +256,11 @@ econstructor.
 (simpl).
 (unfold bounded_to_ascii, ascii_to_bounded).
 (intros).
+(destruct c; simpl).
 (rewrite Ascii.ascii_nat_embedding; auto).
-(* Auto-generated comment: Failed. *)
+-
+(unfold ascii_to_byte, byte_to_ascii).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:59:42.590000.*)
+(* Auto-generated comment: At 2019-08-16 06:59:51.180000.*)
 
