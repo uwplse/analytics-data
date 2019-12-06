@@ -451,8 +451,32 @@ Lemma sem_sub_i_union_l__inv : forall t1 t2 t' : ty, ||- [TUnion t1 t2]<= [t'] -
 Proof.
 (intros t1 t2 t' Hsem).
 (unfold sem_sub_i in Hsem).
-(split; intros k; specialize (Hsem k); destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem); assumption).
+Check sem_sub_k_union_l__inv.
+(split; intros k; specialize (Hsem k); destruct (sem_sub_k_i_union_l__inv _ _ _ _ Hsem); assumption).
+Qed.
+Lemma sem_sub_i_ref__inv : forall t t' : ty, ||- [TRef t]<= [TRef t'] -> ||- [t]<= [t'] /\ ||- [t']<= [t].
+Proof.
+(intros t t' Hsem).
+(split; intros k; specialize (Hsem (S k)); assert (Hvref : value_type (TRef t)) by constructor;
+  assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hm); simpl in Hsem; 
+  intros v' Hm'; specialize (Hsem v'); tauto).
+Qed.
+Lemma match_ty__inv_depth_0_stable : forall t : ty, inv_depth t = 0 -> forall k v, |-[ k] v <$ t <-> |-[ 0] v <$ t.
+Proof.
+(induction t; intros Heqdep k v).
+-
+(split; intros Hm; apply match_ty_i_cname__inv in Hm; subst).
+reflexivity.
+(destruct k; reflexivity).
+-
+(simpl in Heqdep).
+(assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
+{
+(rewrite Heqdep).
+constructor.
+}
+(destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 14:47:52.430000.*)
+(* Auto-generated comment: At 2019-08-16 14:48:34.630000.*)
 
