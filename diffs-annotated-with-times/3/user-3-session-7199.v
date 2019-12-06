@@ -412,7 +412,8 @@ step_proc.
 (unfold log_size_ok; autorewrite with list; auto).
 }
 {
+eauto using log_abstraction_preserved.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:12:10.940000.*)
+(* Auto-generated comment: At 2019-09-04 12:12:11.720000.*)
 
