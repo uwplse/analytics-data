@@ -23,5 +23,5 @@ Module Exercises (vars: VarsAPI).
 Check vars.read.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-09 13:39:47.310000.*)
+(* Auto-generated comment: At 2019-09-09 13:39:47.650000.*)
 
