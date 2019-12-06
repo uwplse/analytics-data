@@ -97,8 +97,7 @@ Proof.
 Check value_type_matching_ty__exists.
 (destruct (value_type_matching_ty__exists t2 k) as [pv2 Hpv2]).
 (remember (Nat.max k (| t2 |)) as kmax).
-(assert (Hmp : |-[ kmax] TPair v pv2 <$ TPair t1 t2)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:39:54.530000.*)
+(* Auto-generated comment: At 2019-08-16 13:40:06.170000.*)
 
