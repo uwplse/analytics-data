@@ -1247,12 +1247,7 @@ Lemma denote_box_compat :
   \207\129 == \207\129' -> denote_box safe c \207\129 == denote_box safe c \207\129'.
 Proof.
 (intros).
-(induction c).
--
+(destruct c).
 (unfold denote_box; simpl).
-(rewrite add_fresh_split).
-(simpl).
-(unfold denote_db_circuit).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
