@@ -56,11 +56,11 @@ Fixpoint rename (x y : id) (t : ty) :=
   | TPair t1 t2 => TPair ([x @ y] t1) ([x @ y] t2)
   | TUnion t1 t2 => TUnion ([x @ y] t1) ([x @ y] t2)
   | TExist z t' => TExist z (if beq_id x z then t' else [x @ y] t')
-  | TVar z => if beq_id x z then s else t
+  | TVar z => if beq_id x z then y else t
   | TEV z => t
   end
 where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:35:19.850000.*)
+(* Auto-generated comment: At 2019-08-29 13:37:19.390000.*)
 
