@@ -382,8 +382,8 @@ Check sem_eq_k_i__inv_depth_eq_2.
 }
 (pose proof Htk as Ht'k).
 (pose proof Htk' as Ht'k').
-(rewrite Hdepeq in Ht'k).
+(rewrite <- Hdepeq in Ht'k).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:31:37.110000.*)
+(* Auto-generated comment: At 2019-08-13 11:32:35.650000.*)
 
