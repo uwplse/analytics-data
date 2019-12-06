@@ -29,7 +29,7 @@ group_cancels = []
 group_failures = []
 group_lines = []
 group_times = []
-failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+).*\*\)\s+)"
+failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+)\s*.*\*\)\s+)"
 failure = "(\(\*FAILED.*\*\)\s+)"
 time = "TIMESTAMP (.)"
 with open(fpath, 'r') as f:
@@ -62,7 +62,7 @@ with open(fpath, 'r') as f:
                 group_ends.append(state_num)
                 group_lines.append(lines_buff)
         else:
-            state_num = int(re.search("([0-9]+)\*\)", group).group(1))
+            state_num = int(re.search("([0-9]+)(\s.*)?\*\)", group).group(1))
             if (len(group_cancels) > 0 and len(group_cancels) == len(group_starts)):
                 group_cancels.pop()
                 group_failures.pop()
@@ -103,6 +103,9 @@ with open(outdir + "/" + fname + "-" + str(0) + fext, 'w') as f:
         if old_cumulative[curr_index] != "":
             old = old_cumulative[curr_index]
             f.write(old + "\n")
+
+print(old_cumulative)
+print(group_cancels)
 
 for i in range(len(group_ends) - 1):
     j = i + 1
