@@ -72,7 +72,18 @@ Lemma match_ty_ev__match_ty_any :
 Proof.
 (intros k w X t HX Hm v Hv).
 (induction t).
+-
+(apply match_ty_cname__inv in Hm).
+(inversion Hm).
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq _]]]).
+(inversion Heq).
+-
+(apply match_ty_union__inv in Hm).
+(destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 12:13:28.820000.*)
+(* Auto-generated comment: At 2019-08-27 12:21:32.600000.*)
 
