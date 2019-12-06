@@ -81,9 +81,12 @@ assumption.
 (destruct Hm as [ti Hm]).
 (destruct (IdSetProps.In_dec i (FV tx)) as [Hin| Hin]).
 {
-(rewrite subst_exist_neq).
-Print fresh_in_ty.
+(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
+(rewrite subst_equation).
+Search -beq_id.
+(pose proof (false_beq_id _ _ Hbeq) as Hneq).
+(rewrite Hneq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:00:08.600000.*)
+(* Auto-generated comment: At 2019-09-02 07:02:10.280000.*)
 
