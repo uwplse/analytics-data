@@ -106,7 +106,8 @@ Proof.
      end ])).
 Qed.
 Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
+Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 08:07:41.880000.*)
+(* Auto-generated comment: At 2019-08-09 08:08:09.110000.*)
 
