@@ -128,8 +128,9 @@ Proof.
 -
 auto.
 -
-generalize dependent S (S base).
+(assert (1 < S (S base)) by lia).
+(generalize dependent S (S base); intros base).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:19:03.700000.*)
+(* Auto-generated comment: At 2019-08-16 06:19:32.010000.*)
 
