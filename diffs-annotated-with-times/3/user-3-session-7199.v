@@ -345,9 +345,8 @@ step_proc.
 (rewrite app_length; simpl; lia).
 +
 (unfold log_size_ok in *; simpl in *).
-(rewrite ?app_length in *; simpl in *).
-autorewrite with upd.
+autorewrite with upd in *.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:02:07.880000.*)
+(* Auto-generated comment: At 2019-09-04 12:02:12.110000.*)
 
