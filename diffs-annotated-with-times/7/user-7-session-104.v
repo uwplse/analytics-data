@@ -177,8 +177,11 @@ Proof.
 (induction t; intros k).
 -
 exists 0,(TCName c).
-(apply match_ty_value_type__reflexive; constructor Abort).
+(apply match_ty_value_type__reflexive; constructor).
+-
+(destruct (IHt1 k) as [w1 [v1 Hm1]]).
+(destruct (IHt2 k) as [w2 [v2 Hm2]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:49:15.490000.*)
+(* Auto-generated comment: At 2019-08-21 07:50:13.210000.*)
 
