@@ -186,8 +186,9 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
 (rewrite <- Hremap by eauto; auto).
 -
 invert_abstraction.
+(step_proc; intuition eauto).
 (step_proc; intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:22:44.530000.*)
+(* Auto-generated comment: At 2019-09-06 05:22:48.720000.*)
 
