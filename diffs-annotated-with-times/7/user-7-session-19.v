@@ -118,8 +118,8 @@ clear IHk'.
 (simpl in Htk, Htk').
 (apply le_S_n in Htk).
 (apply le_S_n in Htk').
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]).
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:13:04.170000.*)
+(* Auto-generated comment: At 2019-08-12 11:15:28.180000.*)
 
