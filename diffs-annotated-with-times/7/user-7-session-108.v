@@ -173,8 +173,11 @@ reflexivity.
 Abort.
 Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
-(induction k; induction t; induction t'; intros Hdep Hsem).
+(induction k; induction t; induction t'; intros Hdep Hsem; try reflexivity).
+-
+(destruct Hsem as [Hsem _]).
+specialize (Hsem 0).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 12:56:07.750000.*)
+(* Auto-generated comment: At 2019-08-21 12:57:11.960000.*)
 
