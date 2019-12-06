@@ -126,9 +126,8 @@ Proof.
 Qed.
 Lemma sub_r_unite_pairs_l__inv : forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
-(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; simpl in Hsub; inversion Hsub; subst;
-  try (solve [ split; tauto ])).
+(intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; simpl in Hsub; inversion Hsub; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:03:00.150000.*)
+(* Auto-generated comment: At 2019-08-07 12:04:16.010000.*)
 
