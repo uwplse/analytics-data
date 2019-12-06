@@ -48,8 +48,9 @@ Proof.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(apply sem_sub__trans with (TCName c)).
+(apply sem_sub__trans with (TCName c); try assumption).
+(apply sem_sub_k_exist_fresh_l).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 09:00:25.130000.*)
+(* Auto-generated comment: At 2019-08-27 09:00:40.570000.*)
 
