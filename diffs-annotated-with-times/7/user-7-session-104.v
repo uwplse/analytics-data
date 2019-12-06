@@ -57,51 +57,7 @@ admit.
 (destruct IHt1 as [t'1 Hnot1]).
 exists t'1.
 (intros Hcontra).
-Admitted.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
-Proof.
-(intros Hcontra).
-specialize (Hcontra 2 1).
-(destruct Hcontra as [w Hcontra]).
-(assert (Hm : |-[ 2, 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-(unfold sem_sub_k_w in Hcontra).
-specialize (Hcontra _ Hm).
-clear Hm.
-(destruct w).
--
-(apply Hcontra).
--
-(apply match_ty_exist__inv in Hcontra).
-(destruct Hcontra as [t Hcontra]).
-(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
-(rewrite Heq in Hcontra).
-clear Heq.
-(apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Heq Href]]).
-(inversion Heq; subst).
-clear Heq.
-(unfold sem_eq_k in Href).
-(destruct Href as [Href _]).
-specialize (Href 1).
-(destruct Href as [w2 Hsem]).
-(destruct (sem_eq_k__exists_not 0 t) as [t' Hnoteq]).
-(assert (Hm : |-[ 1, 1] TRef t' <$ TExist vX (TRef tX))).
-{
-(apply match_ty_exist).
-exists t'.
-(apply match_ty_value_type__reflexive).
-constructor.
-}
-specialize (Hsem _ Hm).
-(destruct w2).
-contradiction.
-(apply match_ty_ref__inv in Hsem).
-(destruct Hsem as [tx [Heqx Href]]).
-(inversion Heqx; subst).
-clear Heqx.
-contradiction.
-Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:31:41.770000.*)
+(* Auto-generated comment: At 2019-08-20 12:31:42.250000.*)
 
