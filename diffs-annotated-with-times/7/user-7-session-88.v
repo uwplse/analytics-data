@@ -412,8 +412,17 @@ tauto.
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k \/ | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ])).
+(induction k; induction t; induction t'; intros Hnft Hdept Hsem; try (solve [ simpl; constructor ]);
+  try (solve
+   [ match goal with
+     | Hsem:||-[ ?k][?t]<= [?t']
+       |- | ?t | <= | ?t' | =>
+           assert (Hv : value_type t) by constructor; assert (Hm : |-[ k] t <$ t) by (apply match_ty_i__reflexive; assumption); specialize
+            (Hsem _ Hm); contradiction
+     end ])).
+(assert (Hv : value_type (TCName c)) by constructor).
+(solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 06:52:09.690000.*)
+(* Auto-generated comment: At 2019-08-18 06:52:13.440000.*)
 
