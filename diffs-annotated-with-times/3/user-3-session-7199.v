@@ -383,5 +383,5 @@ Theorem log_abstraction_preserved d bs d' :
   log_contents_ok d' bs -> log_abstraction d' bs Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:11:35.660000.*)
+(* Auto-generated comment: At 2019-09-04 12:11:42.330000.*)
 
