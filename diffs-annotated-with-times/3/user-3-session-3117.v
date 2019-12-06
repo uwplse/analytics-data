@@ -120,7 +120,9 @@ Proof.
 (change_no_check 256 with (N.to_nat 256)).
 (rewrite <- Nat.compare_lt_iff, <- N2Nat.inj_compare, N.compare_lt_iff).
 (destruct a).
+Search -N.lt.
+Check N.ltb.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:09:36.810000.*)
+(* Auto-generated comment: At 2019-08-16 10:09:39.810000.*)
 
