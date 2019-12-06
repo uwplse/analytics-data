@@ -464,7 +464,8 @@ firstorder.
 firstorder.
 (apply H1).
 (destruct ret; firstorder).
+(destruct ret; simpl in *; firstorder).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-06 04:44:42.880000.*)
+(* Auto-generated comment: At 2019-08-06 04:44:53.090000.*)
 
