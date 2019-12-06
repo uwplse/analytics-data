@@ -971,7 +971,9 @@ remember_differences.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (destruct b; simpl; Msimpl).
 (repeat rewrite Mmult_assoc).
-(* Auto-generated comment: Succeeded. *)
+Msimpl.
+(rewrite kron_mixed_product).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:54:00.200000.*)
+(* Auto-generated comment: At 2019-08-13 13:54:00.380000.*)
 
