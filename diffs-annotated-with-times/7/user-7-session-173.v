@@ -86,7 +86,7 @@ assumption.
 (destruct (beq_idP x i); reflexivity).
 Qed.
 Function
- subst (x : id) (s t : ty) {measure size t} : ty :=
+ subst (x : id) (s t : ty) {wf size t} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
@@ -98,32 +98,7 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
--
-(intros).
-(simpl).
-Omega.omega.
-Defined.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:08:36.750000.*)
+(* Auto-generated comment: At 2019-08-29 15:08:55.830000.*)
 
