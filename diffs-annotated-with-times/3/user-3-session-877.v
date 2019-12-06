@@ -1370,7 +1370,7 @@ iFrame.
 {
 iDestruct "Hmbox" as "(Hlocked'&Hauth)".
 iDestruct "Hauth" as ( S ) "(Hauth&%)".
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:20:22.480000.*)
+(* Auto-generated comment: At 2019-08-14 13:20:24.070000.*)
 
