@@ -971,5 +971,5 @@ remember_differences.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 13:49:35.030000.*)
+(* Auto-generated comment: At 2019-08-13 13:50:21.670000.*)
 
