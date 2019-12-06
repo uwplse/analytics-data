@@ -134,8 +134,11 @@ Proof.
 (simpl).
 (intros X Y t HXY Hin).
 Search -IdSet.remove.
-(apply IdSetFacts.remove_3).
-(* Auto-generated comment: Failed. *)
+Check IdSetFacts.remove_3.
+(apply IdSetFacts.remove_3 with Y).
+assumption.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 13:57:22.260000.*)
+(* Auto-generated comment: At 2019-09-04 13:58:20.140000.*)
 
