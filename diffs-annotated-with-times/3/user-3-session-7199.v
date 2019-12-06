@@ -280,13 +280,13 @@ step_proc.
 (descend; intuition eauto).
 (rewrite firstn_all; auto).
 Qed.
-Theorem log_contents_ok_unchanged d bs a b :
+Theorem log_contents_ok_unchanged d bs a0 b :
   log_contents_ok d bs ->
-  log_addr a >= length bs -> log_contents_ok (diskUpd d a b) bs.
+  log_addr a0 >= length bs -> log_contents_ok (diskUpd d a0 b) bs.
 Proof.
 (unfold log_contents_ok; intros).
 specialize (H a).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:45:41.650000.*)
+(* Auto-generated comment: At 2019-09-04 11:46:06.040000.*)
 
