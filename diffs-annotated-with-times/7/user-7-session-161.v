@@ -83,8 +83,12 @@ Proof.
 (induction t; intros tx ty; try reflexivity).
 -
 (repeat rewrite subst_pair).
-(rewrite IHt1).
-(* Auto-generated comment: Failed. *)
+(rewrite IHt1, IHt2).
+reflexivity.
+-
+(repeat rewrite subst_pair).
+(rewrite IHt1, IHt2).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 11:58:09.550000.*)
+(* Auto-generated comment: At 2019-08-29 11:58:28.720000.*)
 
