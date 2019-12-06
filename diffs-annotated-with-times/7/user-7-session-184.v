@@ -79,8 +79,8 @@ split.
 (apply match_ty_pair_pair__inv in Hm').
 (destruct Hm' as [Hm'1 Hm'2]).
 (apply match_ty_pair; auto).
-+
-(* Auto-generated comment: Succeeded. *)
+Search -fresh_in_ty.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:53:36.760000.*)
+(* Auto-generated comment: At 2019-09-02 07:54:06.440000.*)
 
