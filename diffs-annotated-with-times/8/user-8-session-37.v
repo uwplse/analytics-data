@@ -380,8 +380,7 @@ clear H.
 (simpl in *).
 replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
 (unfold compose_super, Splus).
-(erewrite VA).
-(erewrite VA).
+(erewrite 2!VA).
 reflexivity.
 *
 dependent destruction WT.
@@ -408,5 +407,35 @@ easy.
 *
 dependent destruction WT.
 dependent destruction p.
+dependent destruction t.
+(apply singleton_equiv in s).
+subst.
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(rewrite (remove_bit_pred \206\1472 \206\147)).
+easy.
+easy.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqSngkDQ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma ancilla_free_box_valid :
+  forall W W' (c : Box W W'), ancilla_free_box c -> valid_ancillae_box c.
+Proof.
+(intros).
+(destruct H).
+(apply valid_ancillae_unbox).
+(intros p).
+(apply ancilla_free_valid).
+(apply H).
+Qed.
+Lemma valid_denote_true :
+  forall W W' (c : Box W W') (\207\129 : Square (2 ^ \226\159\166 W \226\159\167)) (\207\129' : Square (2 ^ \226\159\166 W \226\159\167))
+    (safe : bool),
+  Typed_Box c ->
+  valid_ancillae_box c -> denote_box true c \207\129 = \207\129' -> denote_box safe c \207\129 = \207\129'.
+Proof.
+(intros W W' c \207\129 \207\129' safe T H D).
+(destruct safe; trivial).
+(rewrite <- H; assumption).
 (* Auto-generated comment: Succeeded. *)
 
