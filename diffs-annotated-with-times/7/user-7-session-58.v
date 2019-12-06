@@ -19,8 +19,8 @@ Proof.
 (destruct (match_ty_value_type_r v Hv k) as [Hcontra| Hm]).
 -
 (left; intros v' Hm').
-contradiction.
+(exfalso; apply Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 08:05:42.960000.*)
+(* Auto-generated comment: At 2019-08-16 08:06:26.480000.*)
 
