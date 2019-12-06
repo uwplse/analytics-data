@@ -215,9 +215,8 @@ reflexivity.
 (simpl).
 (assert (H1 : m * S n' = m + m * n')).
 {
-(rewrite <- mult_n_Sm).
-About mult_n_Sm.
+Print nat.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-07 07:02:43.910000.*)
+(* Auto-generated comment: At 2019-09-07 07:03:07.990000.*)
 
