@@ -2846,6 +2846,153 @@ subst.
 (apply compose_super_correct).
 *
 (unfold denote_circuit in IH).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new0_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
 (unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Qubit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new1_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Bit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new0_correct).
++
+(simpl).
+dependent destruction p1.
+dependent destruction t.
+(destruct pf1).
+(rewrite merge_nil_l in pf_merge).
+subst.
+(unfold subst_pat).
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.sub_0_r).
+replace (size_ctx \206\147 + 1)%nat with size_octx (Valid (\206\147 ++ [Some Bit])).
+2: (simpl; rewrite size_ctx_app; simpl; omega).
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(rewrite merge_comm).
+(rewrite merge_singleton_append).
+easy.
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.sub_0_r).
+(rewrite Nat.add_assoc).
+(apply apply_new1_correct).
++
+(simpl).
+dependent destruction p1.
+(simpl).
+(apply compose_super_correct).
+*
+(unfold denote_circuit in IH).
+(unfold process_gate_state).
+(simpl).
+(rewrite Nat.add_sub).
+replace (size_ctx \206\147) with size_octx (Valid (update_at \206\147 v (Some Bit))).
+Focus 2.
+(simpl).
+(rewrite denote_index_update_some with (w := Qubit)).
+reflexivity.
+(eapply index_merge_l).
+(apply pf1).
+(destruct \206\1471).
+invalid_contradiction.
+(apply singleton_index).
+(inversion t).
+easy.
+(eapply IH).
+(apply STAT).
+(eapply t0).
+split.
+validate.
+(inversion t; subst).
+(eapply update_at_merge; [ apply H1 | apply singleton_singleton | easy ]).
+(constructor; apply singleton_singleton).
+*
+(rewrite Nat.add_sub).
+(apply apply_meas_correct).
+(apply Nat.lt_lt_add_l).
+(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
+(eapply subst_qubit_bounded; [ apply t | apply pf1 ]).
++
+(simpl).
+(apply compose_super_correct).
+*
+(rewrite Nat.add_sub).
+(unfold denote_circuit in IH).
 (* Auto-generated comment: Succeeded. *)
 
