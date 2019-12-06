@@ -263,8 +263,9 @@ econstructor.
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
 Check Ascii.nat_ascii_embedding.
-Search -(@eq (sig _)).
+(apply subset_eq_compat).
+(rewrite Ascii.nat_ascii_embedding).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:02:12.860000.*)
+(* Auto-generated comment: At 2019-08-16 07:02:33.820000.*)
 
