@@ -203,8 +203,8 @@ Proof.
 -
 (assert (Hvp : value_type (TPair t1 t2))).
 constructor.
-solve_by_inverts.
+solve_by_invert.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:34:27.610000.*)
+(* Auto-generated comment: At 2019-08-13 07:36:15.030000.*)
 
