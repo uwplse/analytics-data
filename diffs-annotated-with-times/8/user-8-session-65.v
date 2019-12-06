@@ -958,8 +958,11 @@ Proof.
 (simpl_rewrite id_circ_spec).
 (simpl_rewrite inSeq_correct; [  | apply assert_at_WT | apply init_at_WT ]).
 (unfold compose_super).
-(rewrite size_ntensor, Nat.mul_1_r in M).
+(rewrite (init_at_spec_strong b m i); [  | omega ]).
+(destruct safe).
+-
+(simpl_rewrite (assert_at_spec_safe b m i); [  | omega ]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 10:33:22.890000.*)
+(* Auto-generated comment: At 2019-08-13 10:34:00.130000.*)
 
