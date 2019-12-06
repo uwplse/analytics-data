@@ -158,8 +158,9 @@ Proof.
 (simpl).
 Check proc_spec_weaken.
 (eapply proc_spec_weaken; eauto).
-(compute).
+(unfold spec_impl; simpl; intros).
+(destruct a0 as [_ bs]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:51:13.210000.*)
+(* Auto-generated comment: At 2019-09-04 10:51:17.180000.*)
 
