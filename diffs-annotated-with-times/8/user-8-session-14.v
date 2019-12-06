@@ -1216,6 +1216,6 @@ Proof.
 (unfold apply_new0, super).
 Set Printing All.
 gen \207\129.
-subst.
+(rewrite Nat.mul_1_r).
 (* Auto-generated comment: Succeeded. *)
 
