@@ -156,8 +156,9 @@ Proof.
 (unfold get_at; intros).
 (apply spec_abstraction_compose).
 (simpl).
-step_proc_basic.
-(* Auto-generated comment: Failed. *)
+(unfold recover).
+Check d.read_ok.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:49:56.630000.*)
+(* Auto-generated comment: At 2019-09-04 10:50:03.760000.*)
 
