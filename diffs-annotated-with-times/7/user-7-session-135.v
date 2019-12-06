@@ -49,8 +49,8 @@ exists w1.
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
 -
 (apply sem_sub_ref).
-(simpl).
-(* Auto-generated comment: Failed. *)
+(unfold sem_eq).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 08:29:37.850000.*)
+(* Auto-generated comment: At 2019-08-27 08:30:47.070000.*)
 
