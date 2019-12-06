@@ -432,7 +432,9 @@ specialize (IHt'2 Hnft).
 Check left.
 Print "\/".
 (apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_l ]).
+*
+(apply Nat.le_trans with (| t'2 |); [ tauto | apply Max.le_max_r ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:04:05.570000.*)
+(* Auto-generated comment: At 2019-08-18 07:04:21.080000.*)
 
