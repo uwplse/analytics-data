@@ -26,12 +26,19 @@ Proof.
 (unfold f_free_in_ty).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
 Qed.
-Lemma f_free_in_ty__dec : forall (X : id) (t : ty), {f_free_in_ty X t} + {not_f_free_in_ty X t}.
+Lemma f_free_in_ty__dec : forall (X : id) (t : ty), f_free_in_ty X t \/ not_f_free_in_ty X t.
 Proof.
 (intros X t).
 (unfold f_free_in_ty).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Qed.
+Lemma b_free_in_ty__dec : forall (X : id) (t : ty), b_free_in_ty X t \/ not_b_free_in_ty X t.
+Proof.
+(intros X t).
+(unfold f_free_in_ty).
+(apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:10:31.160000.*)
+(* Auto-generated comment: At 2019-09-03 09:10:39.910000.*)
 
