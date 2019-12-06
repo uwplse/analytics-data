@@ -318,17 +318,15 @@ Fixpoint Gamma (G : GT) : SetST :=
           (map GammaPair l)
   | _ => Empty_set _
   end
-with GammaPair (x : option (Ann * GT)) :
-SetST
-:
-match x as m return (x = m -> SetST) with
-| None => fun _ => Empty_set _
-| Some P =>
-    fun H =>
-    match P with
-    | (R, G) => Empty_set _
-    | (O, G) => Empty_set _
-    end
-end eq_refl.
-(* Auto-generated comment: Failed. *)
+with GammaPair (x : option (Ann * GT)) : SetST :=
+  match x as m return (x = m -> SetST) with
+  | None => fun _ => Empty_set _
+  | Some P =>
+      fun H =>
+      match P with
+      | (R, G) => Empty_set _
+      | (O, G) => Empty_set _
+      end
+  end eq_refl.
+(* Auto-generated comment: Succeeded. *)
 
