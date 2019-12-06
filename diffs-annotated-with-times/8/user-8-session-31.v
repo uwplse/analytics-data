@@ -2190,8 +2190,10 @@ Timeout 1 About process_gate.
 Timeout 1 Print process_gate.
 Timeout 1 About process_gate_state.
 Timeout 1 Print process_gate_state.
-Timeout 1 Print Ltac process_gate_state.
-(* Auto-generated comment: Failed. *)
+Timeout 1 About process_gate.
+Timeout 1 Print process_gate.
+Timeout 1 Print Ltac process_gate.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:04:52.140000.*)
+(* Auto-generated comment: At 2019-08-09 14:04:56.070000.*)
 
