@@ -93,6 +93,11 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq8NsR6J"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma SWAP_spec : forall \207\129 safe, denote_box safe SWAP \207\129 = swap \195\151 \207\129 \195\151 swap.
+Lemma SWAP_spec : forall \207\129 safe, denote_box safe SWAP \207\129 == swap \195\151 \207\129 \195\151 swap.
+Proof.
+(intros).
+matrix_denote.
+Msimpl.
+setoid_rewrite swap_sa.
 (* Auto-generated comment: Succeeded. *)
 
