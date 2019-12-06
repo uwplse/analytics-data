@@ -111,9 +111,12 @@ Proof.
 specialize (Hsem k w1).
 (destruct Hsem as [w2 Hsem]).
 exists w2.
-(intros v Hv).
+(intros v Hm).
 (destruct w1).
+(apply match_ty_exist__0_inv in Hm; contradiction).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 13:43:53.610000.*)
+(* Auto-generated comment: At 2019-08-27 13:49:37.310000.*)
 
