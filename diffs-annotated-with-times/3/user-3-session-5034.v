@@ -248,7 +248,10 @@ Proof.
 reflexivity.
 -
 (step_proc; intuition; subst; eauto).
-(* Auto-generated comment: Succeeded. *)
+{
+(step_proc; intuition; subst; eauto).
+(step_proc; intuition; subst; eauto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:57:42.780000.*)
+(* Auto-generated comment: At 2019-09-03 10:57:45.350000.*)
 
