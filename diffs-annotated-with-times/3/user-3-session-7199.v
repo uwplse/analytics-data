@@ -337,8 +337,7 @@ step_proc.
 {
 (apply log_contents_ok_unchanged; eauto).
 }
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:58:39.210000.*)
+(* Auto-generated comment: At 2019-09-04 11:58:57.250000.*)
 
