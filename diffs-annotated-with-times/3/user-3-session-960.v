@@ -211,8 +211,7 @@ refine
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
 constructor.
-Search -(_ <= _).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:56:51.450000.*)
+(* Auto-generated comment: At 2019-08-16 06:56:56.030000.*)
 
