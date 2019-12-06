@@ -53,8 +53,18 @@ split.
 (intros H \206\147 \206\1470 \207\129 H0 H1).
 (rewrite <- H; trivial).
 (apply mixed_state_trace_1).
-(apply denote_circuit_correct).
-(* Auto-generated comment: Failed. *)
+admit.
+-
+(induction c as [| W' W0 g p c IH| IH]).
++
+reflexivity.
++
+(intros H \206\147 \206\1470 H').
+replace (gate g p c) with compose (gate g p (fun p' => output p')) c by auto.
+dependent destruction H'.
+(destruct \206\1471 as [| \206\1471]; try invalid_contradiction).
+(erewrite denote_compose with (\206\1471 := []); trivial).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:09:14.350000.*)
+(* Auto-generated comment: At 2019-08-12 14:09:50.240000.*)
 
