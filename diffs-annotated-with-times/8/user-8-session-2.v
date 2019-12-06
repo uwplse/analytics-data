@@ -45,33 +45,7 @@ Timeout 1 Print LoadPath.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqToWrV3"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Lemma ctrls_to_list_transpose : forall W lb li (u : Unitary W), fst (ctrls_to_list lb li u) = fst (ctrls_to_list lb li (trans u)).
-Proof.
-(induction W; intros lb li u; try (solve [ inversion u ])).
--
-(destruct li as [| k li]).
-(repeat rewrite ctrls_to_list_empty).
-reflexivity.
-(dependent destruction u; simpl; reflexivity).
--
-dependent destruction u.
-+
-(simpl).
-(destruct li as [| k li]; trivial).
-specialize (IHW2 lb li u).
-(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
-(destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
-(inversion IHW2; subst).
-reflexivity.
-+
-(simpl).
-(destruct li as [| k li]; trivial).
-specialize (IHW2 lb li u).
-(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
-(destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
-(inversion IHW2; subst).
-reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 10:15:33.600000.*)
+(* Auto-generated comment: At 2019-08-09 10:15:52.180000.*)
 
