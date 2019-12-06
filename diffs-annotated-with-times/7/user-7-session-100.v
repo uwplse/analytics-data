@@ -32,8 +32,19 @@ Qed.
 Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (w k : nat), (exists tx : ty, |-[ w, k] v <$ [X := tx] t) -> |-[ S w, k] v <$ TExist X t.
 Proof.
 (intros v X t w k Hex).
-(destruct v; assumption).
+(destruct k; destruct v; assumption).
+Qed.
+Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (w k : nat), |-[ w, k] v <$ TCName c -> v = TCName c.
+Proof.
+(intros v; induction v; try (solve [ intros c w k Hm; destruct w; destruct k; contradiction ])).
+(intros c0 w k Hm).
+(destruct w; destruct k; simpl in Hm; subst; reflexivity).
+Qed.
+Lemma match_ty_pair__inv :
+  forall (v t1 t2 : ty) (w k : nat), |-[ w, k] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ w, k] v1 <$ t1 /\ |-[ w, k] v2 <$ t2.
+Proof.
+(intros v; induction v; try (solve [ intros t1 t2 k Hm; destruct w; destruct k; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 07:55:37.820000.*)
+(* Auto-generated comment: At 2019-08-20 07:57:10.650000.*)
 
