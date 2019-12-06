@@ -307,8 +307,8 @@ Theorem plus_ble_compat_l :
 Proof.
 (intros).
 (induction p as [| p' IHp']).
-reflexivity.
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:21:32.440000.*)
+(* Auto-generated comment: At 2019-09-04 07:22:00.370000.*)
 
