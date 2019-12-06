@@ -183,8 +183,7 @@ Proof.
 (destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
 +
 clear IHt2.
-(simpl in Hdep).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:10:48.900000.*)
+(* Auto-generated comment: At 2019-08-16 14:10:59.510000.*)
 
