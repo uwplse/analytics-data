@@ -58,9 +58,9 @@ Proof.
 (unfold swapXY).
 monad_simpl.
 (match goal with
- | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
+ | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
  end).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:52:56.100000.*)
+(* Auto-generated comment: At 2019-08-29 08:53:05.640000.*)
 
