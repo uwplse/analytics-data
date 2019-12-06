@@ -172,9 +172,9 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma match_ty__match_ge_world : forall (t : ty) (w k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
+Lemma match_ty__match_ge_world : forall (t : ty) (k w : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-(induction t; intros w k v Hm w' Hle).
+(induction t; intros k w v Hm w' Hle).
 -
 (apply match_ty_cname__inv in Hm).
 subst.
@@ -184,7 +184,9 @@ subst.
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
 -
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:23:20.030000.*)
+(* Auto-generated comment: At 2019-08-21 09:23:28.390000.*)
 
