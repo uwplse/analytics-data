@@ -520,11 +520,15 @@ intuition.
 (exists bs; intuition eauto).
 }
 step.
-intuition.
+intuition eauto.
 {
-eauto.
+(exists []; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+(rewrite diskUpd_eq; eauto).
 }
+{
+(exists []; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:34:00.160000.*)
+(* Auto-generated comment: At 2019-09-05 17:34:04.760000.*)
 
