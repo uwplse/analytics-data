@@ -241,8 +241,7 @@ Proof.
 (apply le_eq_or_S_le in H1; intuition subst).
 +
 (destruct (lt_dec a' (diskSize d_0)); autorewrite with upd).
-(assert (a' < diskSize d_1) by congruence; autorewrite with upd; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:12:25.560000.*)
+(* Auto-generated comment: At 2019-09-03 11:12:30.350000.*)
 
