@@ -137,9 +137,7 @@ auto.
 (generalize dependent S n; clear n; intros n **).
 (rewrite IHn).
 Search -"mod" -div.
-(rewrite (PeanoNat.Nat.div_mod n base)  at 4 by lia).
-lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:26:23.340000.*)
+(* Auto-generated comment: At 2019-08-16 06:26:35.780000.*)
 
