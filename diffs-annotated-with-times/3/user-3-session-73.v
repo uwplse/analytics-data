@@ -13,8 +13,7 @@ Require Import Layer.
 Section Abstraction.
 Context (AState CState : Type).
 Context (absr : relation AState CState unit).
-Context (absr_ok : NonError absr).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 13:53:56.960000.*)
+(* Auto-generated comment: At 2019-08-07 13:54:02.390000.*)
 
