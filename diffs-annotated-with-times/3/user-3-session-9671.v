@@ -521,8 +521,9 @@ intuition.
 }
 step.
 (unfold spec_impl; simpl; intuition).
-(descend; intuition eauto).
+(exists []; intuition eauto).
+{
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:32:49.410000.*)
+(* Auto-generated comment: At 2019-09-05 17:33:09.690000.*)
 
