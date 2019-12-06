@@ -136,8 +136,7 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqFNw7z8"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Check repeat.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:14:03.220000.*)
+(* Auto-generated comment: At 2019-08-16 07:15:08.280000.*)
 
