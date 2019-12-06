@@ -164,8 +164,7 @@ Proof.
 -
 constructor.
 assumption.
--
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:27:01.430000.*)
+(* Auto-generated comment: At 2019-08-08 13:28:49.620000.*)
 
