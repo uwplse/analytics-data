@@ -589,19 +589,8 @@ constructor.
 (intros i).
 (apply (H (S i))).
 Qed.
-Lemma big_kron_append :
-  forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
-Proof.
-(induction l1).
--
-(intros).
-(simpl).
-specialize (kron_1_l (\226\168\130 l2)) as KL.
-symmetry.
-(simpl in KL).
-(repeat rewrite Nat.add_0_r in KL).
-(apply KL).
+Goal _ forall m n (A B : Matrix m n), A == B -> I 1 \226\138\151 A \226\138\151 I 1 = I 1 \226\138\151 B \226\138\151 I 1.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:37:19.290000.*)
+(* Auto-generated comment: At 2019-08-13 17:39:59.080000.*)
 
