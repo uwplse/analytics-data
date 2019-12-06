@@ -268,8 +268,7 @@ Theorem get_len_abstr_ok :
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
 Proof.
 (apply spec_abstraction_compose).
-(eapply proc_spec_weaken).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:29:05.970000.*)
+(* Auto-generated comment: At 2019-09-04 11:29:08.280000.*)
 
