@@ -393,7 +393,8 @@ right.
 (destruct Hcontra as [v Hcontra]).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
+(apply ty_empty__subs_ty_empty).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:53:06.370000.*)
+(* Auto-generated comment: At 2019-08-21 10:53:34.360000.*)
 
