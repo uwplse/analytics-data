@@ -478,8 +478,13 @@ subst.
 (rewrite f_subst_fvar_eq).
 symmetry.
 (apply b_subst_not_b_free_in_ty).
-(unfold not_b_free_in_ty, not_free).
+(apply wf_ty__not_b_free_in_ty).
+assumption.
++
+(rewrite f_subst_fvar_neq; try assumption).
+(rewrite b_subst_fvar).
+(rewrite f_subst_fvar_neq; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:24:58.150000.*)
+(* Auto-generated comment: At 2019-09-04 10:25:19.540000.*)
 
