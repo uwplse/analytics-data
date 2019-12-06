@@ -165,8 +165,8 @@ clear Hm.
 specialize (Hsem' (TRef tx)).
 (destruct Hsem' as [Hsem'1 Hsem'2]).
 specialize (Hsem'2 Hm).
-(apply match_ty_exist_inv in Hsem'2).
+(apply match_ty_exist__inv in Hsem'2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:32:04.410000.*)
+(* Auto-generated comment: At 2019-08-19 13:32:26.810000.*)
 
