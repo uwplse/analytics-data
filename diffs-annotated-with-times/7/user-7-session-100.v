@@ -43,8 +43,30 @@ Qed.
 Lemma match_ty_pair__inv :
   forall (v t1 t2 : ty) (w k : nat), |-[ w, k] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ w, k] v1 <$ t1 /\ |-[ w, k] v2 <$ t2.
 Proof.
-(intros v; induction v; try (solve [ intros t1 t2 k Hm; destruct w; destruct k; contradiction ])).
+(intros v; induction v; try (solve [ intros t1 t2 w k Hm; destruct w; destruct k; contradiction ])).
+(intros t1 t2 w k Hm).
+exists v1,v2.
+(split; try reflexivity).
+(destruct w; destruct k; simpl in Hm; assumption).
+Qed.
+Lemma match_ty_union__inv : forall (v t1 t2 : ty) (w k : nat), |-[ w, k] v <$ TUnion t1 t2 -> |-[ w, k] v <$ t1 \/ |-[ w, k] v <$ t2.
+Proof.
+(intros v t1 t2 w k Hm).
+(destruct w; destruct k; destruct v; assumption).
+Qed.
+Lemma match_ty_ref__weak_inv : forall (v t : ty) (w k : nat), |-[ w, k] v <$ TRef t -> exists t' : ty, v = TRef t'.
+Proof.
+(intros v; induction v; try (solve [ intros t w k Hm; destruct w; destruct k; contradiction ])).
+clear IHv.
+(intros t w k).
+(intros Hm).
+exists v.
+reflexivity.
+Qed.
+Lemma match_ty_ref__inv : forall (v t : ty) (w k : nat), |-[ w, S k] v <$ TRef t -> exists t' : ty, v = TRef t' /\ ||-[ w, k][t']= [t].
+Proof.
+(intros v; induction v; try (solve [ intros t w k Hm; destruct k; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 07:57:10.650000.*)
+(* Auto-generated comment: At 2019-08-20 07:58:54.780000.*)
 
