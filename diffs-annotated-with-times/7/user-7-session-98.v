@@ -162,8 +162,11 @@ clear Heq.
 clear Heq'.
 clear Hm.
 (assert (Hm : |-[ 1] TRef tx <$ TRef tx) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hsem' _ Hm).
+specialize (Hsem' (TRef tx)).
+(destruct Hsem' as [Hsem'1 Hsem'2]).
+specialize (Hsem'2 Hm).
+(simpl in Hsem'2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:27:30.230000.*)
+(* Auto-generated comment: At 2019-08-19 13:28:17.100000.*)
 
