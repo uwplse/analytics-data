@@ -380,8 +380,9 @@ Qed.
 Lemma match_ty_i_nf : forall (t : ty) (k : nat), ||-[ k][t]= [MkNF( t)].
 Proof.
 (intros t k).
-(apply match_ty_i_nf').
+(pose proof (match_ty_i_nf' k t) as H).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:52:21.120000.*)
+(* Auto-generated comment: At 2019-08-13 13:52:22.870000.*)
 
