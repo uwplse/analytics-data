@@ -919,8 +919,8 @@ Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
-setoid_rewrite (kron_1_l_inv (\226\168\130 l2)).
+setoid_rewrite  <- (kron_1_l (\226\168\130 l2)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:21:08.680000.*)
+(* Auto-generated comment: At 2019-08-14 14:21:14.740000.*)
 
