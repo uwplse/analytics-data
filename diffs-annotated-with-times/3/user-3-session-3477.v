@@ -271,8 +271,7 @@ clear H.
 (descend; intuition eauto).
 -
 (unfold proc_spec; simpl; intros).
-(destruct matches; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 07:16:29.890000.*)
+(* Auto-generated comment: At 2019-08-29 07:16:42.380000.*)
 
