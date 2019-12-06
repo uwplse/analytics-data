@@ -323,8 +323,9 @@ Proof.
 (exfalso; lia).
 -
 (destruct d; simpl in *).
-(assert (a = 0) by lia).
+(assert (a = 0) by lia; subst).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:12:40.700000.*)
+(* Auto-generated comment: At 2019-09-04 11:13:04.440000.*)
 
