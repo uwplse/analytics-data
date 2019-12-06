@@ -113,8 +113,7 @@ Proof.
 (apply match_ty_pair; auto).
 -
 (destruct k).
-constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:10:44.330000.*)
+(* Auto-generated comment: At 2019-08-20 08:11:46.600000.*)
 
