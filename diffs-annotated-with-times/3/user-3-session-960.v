@@ -258,8 +258,10 @@ Check repeat_length.
 (match goal with
  | |- context [ nat_eq_dec ?n ?m ] => destruct (nat_eq_dec n m); try lia
  end).
-(rewrite nat_from_le_zeros).
+(rewrite nat_from_le_zeros; auto).
+Search -nat_from_le.
+(rewrite nat_le_inverse).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:24:29.810000.*)
+(* Auto-generated comment: At 2019-08-16 07:26:20.130000.*)
 
