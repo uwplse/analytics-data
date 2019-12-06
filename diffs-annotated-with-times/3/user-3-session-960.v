@@ -191,13 +191,13 @@ refine
  uint64_to_string := pretty.pretty_nat;
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii;
- uint64_to_le := nat64_from_le;
+ uint64_to_le := nat64_to_le;
  uint64_from_le := nat64_from_le;
  File := Z;
  nilFile := (- 1)%Z;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:18:17.570000.*)
+(* Auto-generated comment: At 2019-08-16 07:18:26.700000.*)
 
