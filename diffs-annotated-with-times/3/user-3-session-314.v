@@ -230,9 +230,36 @@ Lemma crash_step_simp s s' r :
   Var.dynamics.(crash_step) s (Val s' r) ->
   s' = (0, 0).
 Proof.
-(compute; auto).
+(compute; inversion 1; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqpCC0b4"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYtQkZu"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqAO66We"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Lemma op_step_crash T (op : Var.Op T) 
+  u s' r :
+  (op_spec Var.dynamics op u).(alternate) s' r ->
+  s' = (0, 0).
+Proof.
+(intros).
+(hnf in H; propositional).
+(destruct H0; propositional).
 Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:54:59.170000.*)
+(* Auto-generated comment: At 2019-08-07 18:55:05.220000.*)
 
