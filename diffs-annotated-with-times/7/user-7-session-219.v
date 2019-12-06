@@ -145,8 +145,8 @@ reflexivity.
 (rewrite b_subst_exist_neq in *; try assumption).
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti [Hwfi Hm]]).
-(rewrite b_subst_neq__permute in Hm; try assumption).
+(rewrite b_subst_neq__permute in Hm; try assumption || tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 13:53:19.080000.*)
+(* Auto-generated comment: At 2019-09-04 13:54:57.370000.*)
 
