@@ -5,8 +5,7 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
-Require Export LF.Induction.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 09:55:32.660000.*)
+(* Auto-generated comment: At 2019-09-06 09:55:50.120000.*)
 
