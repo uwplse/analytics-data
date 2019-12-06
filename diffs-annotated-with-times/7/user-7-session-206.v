@@ -129,8 +129,12 @@ Proof.
 reflexivity.
 (unfold not_b_free_in_ty, not_free in *).
 (simpl in HX).
-(intros Hcontra admit).
+(intros Hcontra).
+(apply HX).
+Search -IdSet.remove.
+(apply IdSetFacts.remove_iff).
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:14:43.390000.*)
+(* Auto-generated comment: At 2019-09-04 08:16:07.860000.*)
 
