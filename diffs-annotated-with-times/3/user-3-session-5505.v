@@ -70,28 +70,13 @@ intuition eauto.
 (simpl write).
 step_proc.
 intuition eauto.
-+
+{
 (exists 0; simpl; auto).
-+
+}
+{
 (exists 1; simpl; auto).
-+
-specialize (IHblocks (off + 1)).
-step_proc.
-intuition subst; eauto.
-*
-(f_equal; lia).
-*
-(repeat deex).
-(exists (S nwritten); simpl).
-(f_equal; lia).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqYoLYaG"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Qed.
+}
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:20:02.930000.*)
+(* Auto-generated comment: At 2019-09-03 13:20:20.390000.*)
 
