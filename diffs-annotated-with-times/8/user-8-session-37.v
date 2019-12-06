@@ -381,5 +381,32 @@ clear H.
 replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
 (unfold compose_super, Splus).
 (erewrite VA).
+(erewrite VA).
+reflexivity.
+*
+dependent destruction WT.
+dependent destruction p.
+dependent destruction t.
+(apply singleton_equiv in s).
+subst.
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(erewrite remove_bit_merge').
+(apply trim_types_circ).
+(apply t0).
+easy.
+*
+dependent destruction WT.
+dependent destruction p.
+dependent destruction t.
+(apply singleton_equiv in s).
+subst.
+(destruct \206\1472 as [| \206\1472]; try invalid_contradiction).
+(erewrite remove_bit_merge').
+(apply trim_types_circ).
+(apply t0).
+easy.
+*
+dependent destruction WT.
+dependent destruction p.
 (* Auto-generated comment: Succeeded. *)
 
