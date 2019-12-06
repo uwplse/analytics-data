@@ -58,8 +58,11 @@ Proof.
 (apply sub_r_nf_union_l__inv in Hsub2; try assumption).
 (inversion Hsub2).
 (constructor; [ apply IHHnf2_1 | apply IHHnf2_2 ]; assumption).
+(constructor; assumption).
 +
+(intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
+(destruct (unite_pairs_union_t t1 t0 t2') as [Heq'| [Heq1 Heq2]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:51:10.240000.*)
+(* Auto-generated comment: At 2019-08-06 12:51:40.860000.*)
 
