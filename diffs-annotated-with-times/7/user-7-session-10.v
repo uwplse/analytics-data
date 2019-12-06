@@ -196,8 +196,8 @@ tauto.
 (split; intros tx Hsub').
 +
 (remember (TUnion t1 t2) as ty eqn:Heqy ).
-(induction Hsub'; inversion Heqy; subst; try (solve [ auto ])).
+(induction Hsub'; inversion Heqy; subst; try (solve [ auto || constructor; tauto ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:40:04.400000.*)
+(* Auto-generated comment: At 2019-08-08 13:40:44.830000.*)
 
