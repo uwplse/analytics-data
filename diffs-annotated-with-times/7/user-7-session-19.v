@@ -271,9 +271,9 @@ Proof.
             destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
             rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
-(destruct (max_inv_depth_le__components_le _ _ _ Hdept') as [Hdept'1 Hdept'2]; destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2];
-  destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
+(destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
+(rewrite inv_depth_union; apply Nat.max_lub; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:09:46.790000.*)
+(* Auto-generated comment: At 2019-08-13 11:10:02.850000.*)
 
