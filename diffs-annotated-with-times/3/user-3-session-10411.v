@@ -312,7 +312,8 @@ clear H.
 (eapply H0 in H2; eauto).
 (destruct matches in *; safe_intuition repeat deex; eauto).
 (descend; intuition eauto).
+intuition eauto.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:42:00.140000.*)
+(* Auto-generated comment: At 2019-09-06 06:42:23.690000.*)
 
