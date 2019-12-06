@@ -370,8 +370,8 @@ Proof.
 (destruct Hdec as [Hdec| Hdec]).
 -
 (left; apply sub_r__transitive with t1).
-(apply mk_nf__sub_r1).
-(* Auto-generated comment: Succeeded. *)
+(apply mk_nf__sub_r_l).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:40:15.940000.*)
+(* Auto-generated comment: At 2019-08-18 07:40:48.390000.*)
 
