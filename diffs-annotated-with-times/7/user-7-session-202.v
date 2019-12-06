@@ -151,8 +151,8 @@ exfalso.
 reflexivity.
 +
 subst.
-(rewrite b_subst_var_neq).
+(rewrite b_subst_bvar_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:49:49.920000.*)
+(* Auto-generated comment: At 2019-09-03 10:50:20.670000.*)
 
