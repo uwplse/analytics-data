@@ -452,8 +452,16 @@ Proof.
 (unfold log_length_ok in *; intros).
 (assert (len_addr < diskSize d') by eauto).
 eq_values.
-eauto.
+(rewrite app_length; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq3UtkMr"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Hint Resolve log_abstraction_commit.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:42:12.660000.*)
+(* Auto-generated comment: At 2019-09-04 12:42:31.860000.*)
 
