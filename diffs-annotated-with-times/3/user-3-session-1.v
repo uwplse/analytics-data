@@ -460,7 +460,9 @@ firstorder.
 (apply impl_spec_exec; intros; auto).
 (apply impl_spec_exec; firstorder).
 (apply H in H1).
-(* Auto-generated comment: Failed. *)
+(unfold spec_exec in H1).
+firstorder.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-06 04:44:11.900000.*)
+(* Auto-generated comment: At 2019-08-06 04:44:26.520000.*)
 
