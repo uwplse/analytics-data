@@ -592,8 +592,10 @@ Qed.
 Goal _ forall m n (A B : Matrix m n), A == B -> I 1 \226\138\151 A \226\138\151 I 1 = I 1 \226\138\151 B \226\138\151 I 1.
 Proof.
 (intros).
-setoid_rewrite kron_1_r.
-(* Auto-generated comment: Failed. *)
+Timeout 1 About kron_1_r.
+Timeout 1 Print kron_1_r.
+Timeout 1 Print Ltac kron_1_r.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:49:17.740000.*)
+(* Auto-generated comment: At 2019-08-13 17:50:18.220000.*)
 
