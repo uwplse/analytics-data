@@ -144,8 +144,9 @@ admit.
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
 lia.
 }
-lia.
-(* Auto-generated comment: Failed. *)
+Search -"div" -"lt".
+(apply Nat.div_lt; lia).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:28:37.140000.*)
+(* Auto-generated comment: At 2019-08-16 06:29:10.650000.*)
 
