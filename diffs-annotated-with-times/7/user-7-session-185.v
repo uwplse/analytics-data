@@ -44,8 +44,27 @@ Proof.
 (apply (IdSetFacts.remove_2 Hneq') in Hcontra).
 contradiction.
 Qed.
-Lemma subst_cname : forall (X : id) (s : ty) (c : cname), [X := s] TCName c = TCname c.
-(* Auto-generated comment: Failed. *)
+Lemma subst_cname : forall (X : id) (s : ty) (c : cname), [X := s] TCName c = TCName c.
+Proof.
+(intros).
+(apply subst_equation).
+Qed.
+Lemma subst_pair : forall (X : id) (s t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
+Proof.
+(intros).
+(apply subst_equation).
+Qed.
+Lemma subst_union : forall (X : id) (s t1 t2 : ty), [X := s] TUnion t1 t2 = TUnion ([X := s] t1) ([X := s] t2).
+Proof.
+(intros).
+(apply subst_equation).
+Qed.
+Lemma subst_ev : forall (X : id) (s : ty) (Y : id), [X := s] TEV Y = TEV Y.
+Proof.
+(intros).
+(apply subst_equation).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-02 08:21:58.450000.*)
+(* Auto-generated comment: At 2019-09-02 08:23:16.310000.*)
 
