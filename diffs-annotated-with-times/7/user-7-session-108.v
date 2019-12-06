@@ -244,10 +244,10 @@ Abort.
 Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
 Proof.
 (induction k; induction t; induction t'; intros Hdep Hsem; try reflexivity).
-(try match goal with
-     | Hsem:||-[ ?k][?t]<= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
-     end).
+(match goal with
+ | Hsem:||-[ ?k][?t]<= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
+ end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 13:13:52.150000.*)
+(* Auto-generated comment: At 2019-08-21 13:23:54.020000.*)
 
