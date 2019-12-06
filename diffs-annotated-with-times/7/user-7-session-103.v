@@ -4,7 +4,7 @@ Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
-Require Import BetaJulia.Sub0270a.BaseDefs.
+Require Import BetaJulia.Sub0280a.BaseDefs.
 Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
@@ -14,7 +14,12 @@ Lemma match_ty_pair : forall (v1 v2 t1 t2 : ty) (k w : nat), |-[ k, w] v1 <$ t1 
 Proof.
 (intros v1 v2 t1 t2 k w Hm1 Hm2).
 (destruct k, w; split; assumption).
+Qed.
+Lemma match_ty_union_1 : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ t1 -> |-[ k, w] v <$ TUnion t1 t2.
+Proof.
+(intros v t1 t2 k w Hm).
+(destruct k, w; destruct v; left; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:25:07.880000.*)
+(* Auto-generated comment: At 2019-08-20 11:26:05.380000.*)
 
