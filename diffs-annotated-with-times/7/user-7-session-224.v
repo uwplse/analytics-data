@@ -152,8 +152,8 @@ specialize (IHw _ _ Hwftx HX Hm).
 (destruct IHw as [v' [Hm' IHw]]).
 exists v'.
 split.
-exists ti.
+(apply match_ty_exist).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 12:52:14.350000.*)
+(* Auto-generated comment: At 2019-09-05 12:52:52.080000.*)
 
