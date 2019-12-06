@@ -2188,10 +2188,10 @@ Proof.
 (simpl; fold_denotation).
 Timeout 1 About process_gate.
 Timeout 1 Print process_gate.
-replace (process_gate g p1 \206\147) with
- (process_gate_pat g p1 \206\147, process_gate_state g p1 \206\147)
- by (symmetry; apply surjective_pairing).
+Timeout 1 About process_gate_state.
+Timeout 1 Print process_gate_state.
+Timeout 1 Print Ltac process_gate_state.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 14:04:48.620000.*)
+(* Auto-generated comment: At 2019-08-09 14:04:52.140000.*)
 
