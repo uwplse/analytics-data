@@ -150,11 +150,12 @@ step_proc.
           | (x, y) => _
           end _)
    |- _ =>
-       let x := fresh x in
-       let y := fresh y in
-       idtac x y; destruct a as [x y]; cbn[pre post recovered] in *
+       idtac x y;
+        (let x := fresh x in
+         let y := fresh y in
+         destruct a as [x y]; cbn[pre post recovered] in *)
  end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:49:00.880000.*)
+(* Auto-generated comment: At 2019-09-06 05:50:26.900000.*)
 
