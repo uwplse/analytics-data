@@ -528,7 +528,19 @@ intuition eauto.
 }
 {
 (exists []; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+(rewrite diskUpd_eq; eauto).
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect
+"/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgWxRc5"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+End Log.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:34:46.920000.*)
+(* Auto-generated comment: At 2019-09-05 17:35:05.890000.*)
 
