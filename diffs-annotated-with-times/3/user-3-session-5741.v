@@ -405,7 +405,11 @@ Qed.
 Theorem plus_id_exercise :
   forall n m o : nat, n = m -> m = o -> n + m = m + o.
 Proof.
+(intros n m o).
+(intros Hnm Hmo).
+(rewrite Hnm).
+(rewrite Hnm).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 06:43:17.140000.*)
+(* Auto-generated comment: At 2019-09-04 06:43:48.760000.*)
 
