@@ -946,8 +946,7 @@ reflexivity.
 (destruct l1; inversion L1).
 (simpl).
 show_dimensions.
-(repeat rewrite app_length).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:24:38.490000.*)
+(* Auto-generated comment: At 2019-08-14 15:24:39.310000.*)
 
