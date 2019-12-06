@@ -90,7 +90,9 @@ split.
 +
 assumption.
 +
+(apply match_ty_cname__inv in Hm; subst).
+(intros w' t').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:32:30.100000.*)
+(* Auto-generated comment: At 2019-08-29 09:33:36.200000.*)
 
