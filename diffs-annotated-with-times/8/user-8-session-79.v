@@ -666,5 +666,5 @@ restore_dims try rewrite app_length; try rewrite Nat.pow_add_r; lia.
 (rewrite kron_assoc'; try apply Nat.pow_nonzero; try lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:42:49.250000.*)
+(* Auto-generated comment: At 2019-08-14 13:42:50.070000.*)
 
