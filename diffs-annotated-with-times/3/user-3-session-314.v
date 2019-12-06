@@ -161,8 +161,9 @@ Proof.
 (eapply ret_hspec).
 typeclasses eauto.
 firstorder.
-(inversion H0).
+(inversion H0; subst).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:54:01.760000.*)
+(* Auto-generated comment: At 2019-08-07 18:54:06.760000.*)
 
