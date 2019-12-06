@@ -463,9 +463,8 @@ specialize (H1 _ Hnf'').
 specialize (H2 _ Hnf'').
 (destruct H1 as [H1| H1]; destruct H2 as [H2| H2]).
 (left; constructor; assumption).
-(right; intros Hcontra; apply sub_r_ref__inv in Hcontra).
-contradiction.
+(right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:45:19.290000.*)
+(* Auto-generated comment: At 2019-08-09 12:45:27.510000.*)
 
