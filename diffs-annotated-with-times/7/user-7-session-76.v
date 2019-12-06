@@ -7,6 +7,7 @@ Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.MatchProps.
+Require Import BetaJulia.Sub0250a.SemSubProps.
 Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
 Require Import BetaJulia.Sub0250a.AltMatchProps.
@@ -73,5 +74,5 @@ Proof.
 (apply mk_nf__sem_sub_k_l).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:18:10.060000.*)
+(* Auto-generated comment: At 2019-08-16 13:18:30.150000.*)
 
