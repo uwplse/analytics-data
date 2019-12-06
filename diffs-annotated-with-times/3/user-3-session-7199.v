@@ -287,8 +287,8 @@ Proof.
 (unfold log_contents_ok; intros).
 (specialize (H a); intuition).
 (unfold log_addr in *).
-lia.
+(rewrite diskUpd_oob_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:46:58.760000.*)
+(* Auto-generated comment: At 2019-09-04 11:47:09.590000.*)
 
