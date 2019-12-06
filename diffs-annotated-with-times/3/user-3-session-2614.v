@@ -141,8 +141,9 @@ econstructor.
 (simpl).
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
-Search -"subset_eq_compat".
+(apply ProofIrrelevance.ProofIrrelevanceTheory.subset_eq_compat).
+(rewrite Ascii.nat_ascii_embedding; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:37:05.740000.*)
+(* Auto-generated comment: At 2019-08-16 07:37:07.360000.*)
 
