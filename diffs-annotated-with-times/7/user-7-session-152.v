@@ -119,8 +119,23 @@ exists (S w1).
 exists (TEV X).
 (rewrite subs_fresh_in_ty; assumption).
 Qed.
-Lemma sem_sub_exist_fresh_l : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]<= [t].
-(* Auto-generated comment: Failed. *)
+Lemma sem_sub_exist_pair : forall (X : id) (t1 t2 : ty), ||- [TExist X (TPair t1 t2)]<= [TPair (TExist X t1) (TExist X t2)].
+Proof.
+(intros X t1 t2 w1).
+exists w1.
+(intros v Hm).
+(destruct w1).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_pair; apply match_ty_exist; exists tx; assumption).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:22:57.360000.*)
+(* Auto-generated comment: At 2019-08-29 08:23:34.730000.*)
 
