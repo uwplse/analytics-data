@@ -622,10 +622,38 @@ Proof.
 (intros).
 (rewrite kron_1_l).
 (rewrite kron_1_l).
-specialize (kron_1_r A) as KR.
-specialize (kron_1_r_inv A) as KR'.
+restore_dims.
 (rewrite (kron_1_r A)).
+(rewrite (kron_1_r B)).
+restore_dims.
+(apply H).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqIzkxlr"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma morphism_test :
+  forall {m} {n} (A : Matrix m n),
+  Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv A).
+Proof.
+(intros).
+(unfold Morphisms.Proper).
+(unfold Morphisms.respectful).
+(unfold flip).
+(unfold impl).
+(intros).
+(rewrite H0).
+(rewrite H).
+reflexivity.
+Qed.
+Lemma big_kron_append :
+  forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
+Proof.
+(induction l1).
+-
+(intros).
+(simpl).
+specialize (kron_1_l (\226\168\130 l2)) as KL.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:07:54.730000.*)
+(* Auto-generated comment: At 2019-08-14 13:07:54.860000.*)
 
