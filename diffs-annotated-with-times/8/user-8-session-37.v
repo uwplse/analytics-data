@@ -63,5 +63,5 @@ dependent destruction H'.
 (erewrite denote_compose with (\206\1471 := []); trivial).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:19:17.690000.*)
+(* Auto-generated comment: At 2019-08-12 14:19:18.010000.*)
 
