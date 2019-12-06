@@ -29,5 +29,5 @@ autorewrite with proof_db.
 (rewrite kron_1_r').
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:24:23.930000.*)
+(* Auto-generated comment: At 2019-08-12 14:24:35.140000.*)
 
