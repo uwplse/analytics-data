@@ -226,8 +226,9 @@ Proof.
 (apply le_n_S).
 (inversion Hnft; subst).
 (inversion H; subst).
-(apply IHk).
+(simpl in Hdept).
+(apply le_S_m in Hdept).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:56:50.270000.*)
+(* Auto-generated comment: At 2019-08-13 08:57:08.800000.*)
 
