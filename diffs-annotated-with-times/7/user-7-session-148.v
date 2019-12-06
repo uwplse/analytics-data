@@ -87,9 +87,13 @@ Proof.
 (pose proof (IdSetFacts.empty_iff X) as H).
 tauto.
 -
-(intros t' X' Hfresh Hsem).
+(intros t' X' Hfresh Hfresh' Hsem).
 (simpl in *).
+(induction t').
++
+(intros k).
+(destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 07:44:41.940000.*)
+(* Auto-generated comment: At 2019-08-29 07:44:53.830000.*)
 
