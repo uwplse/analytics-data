@@ -2820,8 +2820,7 @@ dependent destruction t.
 specialize (apply_U_correct Qubit) as AUC.
 (simpl in AUC).
 (unfold process_gate_state).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:14:29.560000.*)
+(* Auto-generated comment: At 2019-08-09 14:15:23.330000.*)
 
