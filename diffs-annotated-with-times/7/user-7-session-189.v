@@ -21,9 +21,11 @@ Proof.
 Search -IdSet.In.
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
 Qed.
-Lemma fresh_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (fresh_in_ty X t).
+Lemma not_fresh_and_free_in_ty : forall (X : id) (t : ty), free_in_ty X t -> fresh_in_ty X t -> False.
 Proof.
-(* Auto-generated comment: Failed. *)
+(unfold free_in_ty, fresh_in_ty, fresh).
+contradiction.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-02 08:49:34.820000.*)
+(* Auto-generated comment: At 2019-09-02 08:51:06.760000.*)
 
