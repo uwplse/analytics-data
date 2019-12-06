@@ -555,8 +555,8 @@ generalize dependent G'.
 (induction H).
 -
 (intros; inversion H0; subst; eapply singleton_eq; eauto).
-subst.
+eauto.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 15:47:51.700000.*)
+(* Auto-generated comment: At 2019-09-06 15:47:54.890000.*)
 
