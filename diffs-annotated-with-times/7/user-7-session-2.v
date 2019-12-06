@@ -144,8 +144,10 @@ Proof.
 *
 clear Heqx IHHsub12_1 IHHsub12_2 IHHsub21_1 IHHsub21_2.
 (intros Hsub22).
-(inversion Hsub12; subst).
+(inversion Hsub22; subst).
+{
+(split; constructor; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 11:51:51.050000.*)
+(* Auto-generated comment: At 2019-08-07 11:52:11.900000.*)
 
