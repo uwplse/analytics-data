@@ -598,8 +598,8 @@ Proof.
 (intros).
 (simpl).
 restore_dims.
-show_dimensions.
+Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 15:56:10.420000.*)
+(* Auto-generated comment: At 2019-08-13 15:58:07.510000.*)
 
