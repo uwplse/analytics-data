@@ -129,7 +129,8 @@ exists w1.
 (destruct Hm as [Hm| Hm]).
 -
 (destruct w1).
-(* Auto-generated comment: Failed. *)
+(v Hm).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-20 12:32:40.310000.*)
+(* Auto-generated comment: At 2019-08-20 12:34:18.410000.*)
 
