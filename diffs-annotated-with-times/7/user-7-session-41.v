@@ -26,8 +26,8 @@ auto.
 -
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(inversion Hv; subst).
+auto using match_ty_pair.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:46:08.160000.*)
+(* Auto-generated comment: At 2019-08-16 06:46:23.080000.*)
 
