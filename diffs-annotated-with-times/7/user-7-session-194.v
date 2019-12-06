@@ -52,8 +52,7 @@ Proof.
 (intros X t1 t2 Hfresh).
 (unfold not_b_free_in_ty in *; simpl in Hfresh; simpl).
 (apply not_free_union__inv in Hfresh).
-assumption.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:12:17.860000.*)
+(* Auto-generated comment: At 2019-09-03 09:13:11.520000.*)
 
