@@ -614,11 +614,9 @@ Timeout 1 Print Grammar tactic.
 Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
 Proof.
 (intros).
-specialize (kron_1_l A) as G.
-show_dimensions.
-(rewrite 2!Nat.mul_1_l in *).
 symmetry.
+(change (I 1 \226\138\151 A == A)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:46:43.360000.*)
+(* Auto-generated comment: At 2019-08-14 11:47:10.960000.*)
 
