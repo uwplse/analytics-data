@@ -89,8 +89,8 @@ reflexivity.
 dependent destruction u.
 +
 (simpl).
-(destruct li as [| k li]; trivial).
-(* Auto-generated comment: Succeeded. *)
+(destruct li as [| k li]; simpl; lma).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:09:44.520000.*)
+(* Auto-generated comment: At 2019-08-09 11:10:33.180000.*)
 
