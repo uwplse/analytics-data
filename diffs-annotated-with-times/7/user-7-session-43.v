@@ -7,6 +7,7 @@ Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.MatchProps.
+Require Import BetaJulia.Sub0250a.DeclSubProps.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -56,5 +57,5 @@ split.
 (pose proof (sub_d_eq__inv_depth_eq _ _ Hsub1 Hsub2) as Heq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:54:55.620000.*)
+(* Auto-generated comment: At 2019-08-16 06:55:02.450000.*)
 
