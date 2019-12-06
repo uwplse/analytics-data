@@ -277,8 +277,7 @@ typeclasses eauto.
 (intros; simpl).
 (decide equality; subst).
 (decide equality; subst).
-(decide equality; subst).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:11:48.480000.*)
+(* Auto-generated comment: At 2019-08-16 07:11:56.750000.*)
 
