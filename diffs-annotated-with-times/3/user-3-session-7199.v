@@ -381,8 +381,8 @@ Theorem log_abstraction_preserved d bs d' :
   diskGet d' len_addr = diskGet d len_addr ->
   diskSize d' = diskSize d -> log_contents_ok d' bs -> log_abstraction d' bs.
 Proof.
-(unfold log_abstraction, log_size_ok; intros).
+(unfold log_abstraction, log_length_ok, log_size_ok; intros).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:11:44.490000.*)
+(* Auto-generated comment: At 2019-09-04 12:11:46.030000.*)
 
