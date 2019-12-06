@@ -146,8 +146,8 @@ clear Heqx IHHsub12_1 IHHsub12_2 IHHsub21_1 IHHsub21_2.
 (intros Hsub22).
 (inversion Hsub22; subst).
 {
-specialize (IHHsub11_1 _ t1'0 _ _).
+specialize (IHHsub11_1 Hsub12_1 t1'0 _ _).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 11:52:53.690000.*)
+(* Auto-generated comment: At 2019-08-07 11:53:10.810000.*)
 
