@@ -155,16 +155,25 @@ Proof.
 (split; intros Hm).
 +
 (rewrite (subst_equation X sx) in Hm).
-(destruct (IdSet.mem i (FV sx))).
+(destruct (IdSet.mem i (FV sx)); unfold mk_subst_exist in Hm; rewrite (subst_equation Y sy) in Hm).
 *
-(unfold mk_subst_exist in Hm).
-(rewrite (subst_equation Y sy) in Hm).
 (destruct (IdSet.mem (gen_fresh (IdSet.union (FV sx) (FV t))) (FV sy)); unfold mk_subst_exist in Hm; apply match_ty_exist__0_inv in Hm;
   contradiction).
 *
-(unfold mk_subst_exist in Hm).
+(destruct (IdSet.mem i (FV sy)) in Hm; unfold mk_subst_exist in Hm; apply match_ty_exist__0_inv in Hm; contradiction).
++
 (rewrite (subst_equation Y sy) in Hm).
+(destruct (IdSet.mem i (FV sy)); unfold mk_subst_exist in Hm; rewrite (subst_equation X sx) in Hm).
+*
+(destruct (IdSet.mem (gen_fresh (IdSet.union (FV sy) (FV t))) (FV sx)); unfold mk_subst_exist in Hm; apply match_ty_exist__0_inv in Hm;
+  contradiction).
+*
+(destruct (IdSet.mem i (FV sx)) in Hm; unfold mk_subst_exist in Hm; apply match_ty_exist__0_inv in Hm; contradiction).
+-
+split.
++
+(destruct (beq_idP X i) eqn:Heq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:25:42.300000.*)
+(* Auto-generated comment: At 2019-08-30 07:27:12.110000.*)
 
