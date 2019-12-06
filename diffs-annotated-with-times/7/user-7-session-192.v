@@ -41,11 +41,10 @@ Proof.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
 (rewrite subst_equation).
-(destruct (beq_idP X i) as [HXi| HXi]).
-+
-subst.
-assumption.
+(destruct (beq_idP X i) as [HXi| HXi]; try assumption).
+(destruct (IdSet.mem i (FV s)) as [Hmem| Hmem]).
+(destruct (IdSet.mem i (FV s))).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:16:02.710000.*)
+(* Auto-generated comment: At 2019-09-02 09:16:08.670000.*)
 
