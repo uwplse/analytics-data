@@ -61,8 +61,18 @@ exists (TPair v1 v2).
 contradiction.
 -
 Abort.
-Lemma not_sem_sub__eXrefX_reft : forall (w k : nat) (t : ty), ~ ||-[ S w, k][TExist vX (TRef tX)]<= [TRef t].
-(* Auto-generated comment: Failed. *)
+Lemma not_sem_sub__eXrefX_reft : forall (w : nat) (t : ty), ~ ||-[ w][TExist vX (TRef tX)]<= [TRef t].
+Proof.
+(induction w).
+Abort.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+(intros Hcontra).
+(destruct Hcontra as [w Hcontra]).
+specialize (Hcontra 2).
+(assert (Hm : |-[ 0, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-20 08:54:02.400000.*)
+(* Auto-generated comment: At 2019-08-20 08:54:53.620000.*)
 
