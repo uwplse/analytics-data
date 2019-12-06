@@ -424,10 +424,13 @@ Proof.
 (assert (Hv : value_type (TCName c)) by constructor).
 specialize (IHt'1 Hnft).
 specialize (IHt'2 Hnft).
-(destruct Hdep as [Hdept| Hdept']).
+(pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu).
+(destruct Hsemu as [Hsemu| Hsemu]).
 +
-(destruct IHt'1 as [IHt'1| IHt'1]).
+(destruct Hdep as [Hdept| Hdept']).
+*
+specialize (IHt'1 (left Hdept)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:00:22.980000.*)
+(* Auto-generated comment: At 2019-08-18 07:00:45.230000.*)
 
