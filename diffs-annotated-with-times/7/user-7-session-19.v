@@ -95,8 +95,8 @@ Proof.
 -
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair; auto).
+(apply match_ty_i_pair; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:17:01.430000.*)
+(* Auto-generated comment: At 2019-08-12 12:17:17.310000.*)
 
