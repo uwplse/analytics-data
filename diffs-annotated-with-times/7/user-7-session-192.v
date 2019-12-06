@@ -104,62 +104,7 @@ subst.
 (unfold free_in_ty in HX').
 (simpl in HX').
 admit.
-}
-{
-(rewrite subst_equation).
-(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
-(rewrite Hbeq).
-(destruct (IdSet.mem i (FV tx)) eqn:Hmem).
-{
-(remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
-(apply match_ty_exist).
-exists ([X' := tx] ti).
-admit.
-}
-{
-(apply match_ty_exist).
-exists ([X' := tx] ti).
-admit.
-}
-}
-}
-*
-specialize (IHw'a H).
-(split; intros HX').
-{
-(apply match_ty_exist).
-exists ti.
-assumption.
-}
-{
-(destruct (beq_idP X' i)).
-{
-subst.
-(rewrite subst_exist_eq).
-(apply match_ty_exist).
-exists ti.
-assumption.
-}
-admit.
-}
--
-admit.
--
-admit.
--
-admit.
--
-admit.
--
-admit.
--
-admit.
--
-admit.
--
-admit.
--
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 13:11:46.740000.*)
+(* Auto-generated comment: At 2019-09-02 13:11:51.150000.*)
 
