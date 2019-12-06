@@ -382,8 +382,8 @@ clear IHk' IHt.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 *
-(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_1 _ _ _ Htk Href)).
+(assert (Hdepeq : | t' | = | t |)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:42:58.950000.*)
+(* Auto-generated comment: At 2019-08-13 11:46:04.920000.*)
 
