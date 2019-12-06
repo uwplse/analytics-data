@@ -151,7 +151,9 @@ intro x.
 (assert
   (eval L (extendEnv env x (eval L env (Int 3)))
      (Eq (Int 6) (Times (Var x) (Int 2))) = L.(vTrue))).
+{
+(apply evalChoose).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 19:02:10.190000.*)
+(* Auto-generated comment: At 2019-08-12 19:02:44.690000.*)
 
