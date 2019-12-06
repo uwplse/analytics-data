@@ -64,5 +64,5 @@ specialize (IHW2 lb li u).
 (inversion IHW2).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 10:13:21.480000.*)
+(* Auto-generated comment: At 2019-08-09 10:14:24.740000.*)
 
