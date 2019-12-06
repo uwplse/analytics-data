@@ -287,8 +287,8 @@ Proof.
 (unfold log_contents_ok; intros).
 (specialize (H a); intuition).
 (unfold log_addr in *).
-(destruct (a0 == S a); try lia).
+(destruct (a0 == S a); subst; try lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:46:29.430000.*)
+(* Auto-generated comment: At 2019-09-04 11:46:55.870000.*)
 
