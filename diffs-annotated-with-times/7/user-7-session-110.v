@@ -190,8 +190,12 @@ assumption.
 auto using match_ty_pair.
 +
 (apply match_ty_union__inv in Hm2).
-(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(destruct w).
+(apply match_ty_exist__0_inv in Hm2).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:56:17.940000.*)
+(* Auto-generated comment: At 2019-08-26 07:57:32.890000.*)
 
