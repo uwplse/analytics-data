@@ -87,7 +87,7 @@ assumption.
 Qed.
 Definition lt_size (t1 t2 : ty) := lt (size t1) (size t2).
 Function
- subst (x : id) (s t : ty) {measure size t} : ty :=
+ subst (x : id) (s t : ty) {wf fun t1 t2 : ty => size t1 < size t2 t} : ty :=
    match t with
    | TCName _ => t
    | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
@@ -129,8 +129,12 @@ Omega.omega.
 (unfold lt_size).
 (simpl).
 Omega.omega.
-Defined.
+-
+Check well_founded_lt_compat.
+(apply (well_founded_lt_compat ty size)).
+(intros).
+trivial.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:31:31.040000.*)
+(* Auto-generated comment: At 2019-08-29 15:32:00.770000.*)
 
