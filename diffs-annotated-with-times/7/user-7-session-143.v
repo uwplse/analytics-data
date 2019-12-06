@@ -84,8 +84,8 @@ admit.
 +
 admit.
 +
-(intros X' HX HX' Hsem).
-(* Auto-generated comment: Failed. *)
+(intros X' HX HX' Hsem tx).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 11:04:55.360000.*)
+(* Auto-generated comment: At 2019-08-27 11:05:28.740000.*)
 
