@@ -589,11 +589,10 @@ constructor.
 (intros i).
 (apply (H (S i))).
 Qed.
-Goal _ forall m n (A B : Matrix m n), A == B -> A \226\138\151 I 1 = B \226\138\151 I 1.
+Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A = I 1 \226\138\151 A.
 Proof.
 (intros).
-setoid_rewrite kron_1_r.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:50:28.530000.*)
+(* Auto-generated comment: At 2019-08-13 17:50:30.400000.*)
 
