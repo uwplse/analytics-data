@@ -126,7 +126,7 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma denote_ctrls_transpose :
   forall W (n : nat) (u : Unitary W) li,
-  denote_ctrls n (trans u) li = (denote_ctrls n u li) \226\128\160.
+  denote_ctrls n (trans u) li == (denote_ctrls n u li) \226\128\160.
 Proof.
 (intros).
 (unfold denote_ctrls).
@@ -134,10 +134,8 @@ Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li (trans u)))).
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
 (rewrite <- ctrls_to_list_transpose_fst).
-Timeout 1 About denote_ctrls.
-Timeout 1 Print denote_ctrls.
-Timeout 1 Print Ltac denote_ctrls.
-(* Auto-generated comment: Succeeded. *)
+(rewrite <- ctrls_to_list_transpose_snd).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:08:27.060000.*)
+(* Auto-generated comment: At 2019-08-09 12:08:47.110000.*)
 
