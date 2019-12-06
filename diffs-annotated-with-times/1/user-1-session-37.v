@@ -305,8 +305,13 @@ Definition R (e : evidence) : SetST2 :=
   fun pair =>
   let (T1, T2) := pair in
   static_pred T1 T2 /\
-  Ensembles.In _ (Gamma (fst e)) T1 /\ In _ (Gamma (snd e)) T2.
+  Ensembles.In _ (Gamma (fst e)) T1 /\
+  Ensembles.In _ (Gamma (snd e)) T2.
+Definition Gamma2 (e : evidence) : SetST2 :=
+  fun pair =>
+  let (T1, T2) := pair in
+  In _ (Gamma (fst e)) T1 /\ In _ (Gamma (snd e)) T2.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 22:39:17.990000.*)
+(* Auto-generated comment: At 2019-09-04 22:39:20.940000.*)
 
