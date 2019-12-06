@@ -598,8 +598,7 @@ Proof.
 (simpl).
 (remember (\226\168\130 l2) as A).
 clear.
-(apply kron_1_l).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:26:02.390000.*)
+(* Auto-generated comment: At 2019-08-13 17:26:02.450000.*)
 
