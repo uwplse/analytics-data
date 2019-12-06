@@ -186,14 +186,15 @@ Proof.
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ])).
-(match goal with
- | Hsem:||-[ ?k][?t1]<= [?t2]
-   |- | ?t1 | <= | ?t2 | =>
-       assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-        (Hsem _ Hm); contradiction
- end).
+(induction k; induction t; induction t'; intros Hnft Hsem; try (solve [ simpl; constructor ]);
+  try (solve
+   [ match goal with
+     | Hsem:||-[ ?k][?t1]<= [?t2]
+       |- | ?t1 | <= | ?t2 | =>
+           assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
+            (Hsem _ Hm); contradiction
+     end ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:20:08.750000.*)
+(* Auto-generated comment: At 2019-08-13 07:21:27.590000.*)
 
