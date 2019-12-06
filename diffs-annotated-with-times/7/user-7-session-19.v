@@ -397,8 +397,11 @@ Proof.
 -
 (apply match_ty_i_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_i_pair; [ eapply IHt1 | eapply IHt2 ]; etauto).
+(apply match_ty_i_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_i_union__inv in Hm).
+(destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:16:13.430000.*)
+(* Auto-generated comment: At 2019-08-13 12:17:56.310000.*)
 
