@@ -80,7 +80,10 @@ Lemma ctrls_to_list_transpose_snd :
 Proof.
 (induction W; intros lb li u; try (solve [ inversion u ])).
 -
-(* Auto-generated comment: Succeeded. *)
+(destruct li as [| k li]).
+(repeat rewrite ctrls_to_list_empty).
+reflexivity.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 10:16:38.490000.*)
+(* Auto-generated comment: At 2019-08-09 10:18:54.530000.*)
 
