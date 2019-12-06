@@ -295,8 +295,13 @@ admit.
 -
 (destruct Hcontra as [v Hcontra]).
 Search -id.
-(destruct (beq_id X i)).
+(destruct (beq_idP X i)).
++
+subst.
+(apply Hnotm).
+exists v.
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:40:44.540000.*)
+(* Auto-generated comment: At 2019-08-21 10:41:50.670000.*)
 
