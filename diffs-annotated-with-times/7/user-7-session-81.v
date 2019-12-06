@@ -96,8 +96,9 @@ Proof.
 -
 Check value_type_matching_ty__exists.
 Check value_type_matching_ty__exists.
+(remember (Nat.max k (| t2 |)) as kmax).
 (destruct (value_type_matching_ty__exists t2 k) as [pv2 Hpv2]).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:40:28.130000.*)
+(* Auto-generated comment: At 2019-08-16 13:41:43.220000.*)
 
