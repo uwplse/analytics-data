@@ -371,8 +371,11 @@ Proof.
 -
 (intros c).
 (split; intros t'; induction t').
-+
+(match goal with
+ | |- Decidable.decidable (|- TCName ?c1 << TCName ?c2) =>
+       destruct (cname_eq__decidable c1 c2); [ subst; left; constructor | right; intros Hcontra; apply sub_r_cname__inv in Hcontra; contradiction ]
+ end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:38:09.500000.*)
+(* Auto-generated comment: At 2019-08-09 11:41:17.630000.*)
 
