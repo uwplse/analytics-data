@@ -42,8 +42,9 @@ Proof.
 Search -IdSet.remove.
 (intros Hcontra).
 Search -IdSet.remove.
-(apply IdSetFacts.remove_2 with X' in Hcontra).
+Check IdSetFacts.remove_2.
+(apply (IdSetFacts.remove_2 _ _ _ Hneq) in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 10:16:04.690000.*)
+(* Auto-generated comment: At 2019-08-29 10:16:27.960000.*)
 
