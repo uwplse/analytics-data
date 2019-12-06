@@ -133,8 +133,9 @@ Proof.
 (intros X t1 t2 k w1).
 exists w1.
 (intros v Hm).
-(apply match_ty_exist).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 13:35:12.300000.*)
+(* Auto-generated comment: At 2019-08-21 13:36:19.300000.*)
 
