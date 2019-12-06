@@ -98,8 +98,11 @@ auto using match_ty_i_pair.
 (destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_i_pair).
 -
 (destruct k).
-(destruct v; contradiction).
-(* Auto-generated comment: Failed. *)
+(destruct v; contradiction || constructor).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [tx [Heq Href]]; subst).
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:26:02.310000.*)
+(* Auto-generated comment: At 2019-08-16 07:28:07.180000.*)
 
