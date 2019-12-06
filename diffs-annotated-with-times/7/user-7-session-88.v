@@ -439,12 +439,15 @@ Proof.
            destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct Hdep as [Hdep| Hdep];
             destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]; destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; 
             simpl; apply Nat.max_le_compat; auto
-     | Hsem:||-[ ?k][TUnion _ _]<= [_], Hnft:InNF( TUnion _ _), Hdept:| TUnion _ _ | <= _
+     | Hsem:||-[ ?k][TUnion _ _]<= [_]
        |- _ =>
-           destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]; destruct (sem_sub_k_i_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2];
-            destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]; rewrite inv_depth_union; apply Nat.max_lub; auto
+           destruct Hdep as [Hdep| Hdep]; destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2];
+            destruct (sem_sub_k_i_union_l__inv _ _ _ _ Hsem) as [Hsem1 Hsem2]; destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2];
+            rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
+-
+(destruct Hdep as [Hdep| Hdep]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:15:42.860000.*)
+(* Auto-generated comment: At 2019-08-18 07:16:34.660000.*)
 
