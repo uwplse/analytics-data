@@ -3232,6 +3232,5 @@ Proof.
 (intros).
 (intros \207\129 b).
 (unfold HOAS_Equiv in H).
-(rewrite H).
 (* Auto-generated comment: Succeeded. *)
 
