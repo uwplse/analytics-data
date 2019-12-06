@@ -383,9 +383,8 @@ Theorem log_abstraction_preserved d bs d' :
 Proof.
 (unfold log_abstraction, log_length_ok, log_size_ok; intuition).
 -
-(rewrite H0 in *).
-auto.
-(* Auto-generated comment: Succeeded. *)
+replace (diskGet d' len addr) in *.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:12:09.430000.*)
+(* Auto-generated comment: At 2019-09-04 12:12:09.840000.*)
 
