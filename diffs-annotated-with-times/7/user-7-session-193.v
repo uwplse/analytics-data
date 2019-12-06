@@ -68,12 +68,46 @@ Fixpoint f_subst (X : id) (s : ty) (t : ty) :=
   | TCName _ => t
   | TPair t1 t2 => TPair (f_subst X s t1) (f_subst X s t2)
   | TUnion t1 t2 => TPair (f_subst X s t1) (f_subst X s t2)
-  | TExist y t' => TExist y (f_subst X s t')
+  | TExist Y t' => TExist Y (f_subst X s t')
   | TBVar _ => t
-  | TFVar y => if beq_id x y then s else t
+  | TFVar Y => if beq_id X Y then s else t
   | TEV _ => t
   end.
+Fixpoint b_subst (X : id) (s : ty) (t : ty) :=
+  match t with
+  | TCName _ => t
+  | TPair t1 t2 => TPair (b_subst X s t1) (b_subst X s t2)
+  | TUnion t1 t2 => TPair (b_subst X s t1) (b_subst X s t2)
+  | TExist Y t' => if beq_id X Y then t else TExist Y (b_subst X s t')
+  | TBVar Y => if beq_id X Y then s else t
+  | TFVar _ => t
+  | TEV _ => t
+  end.
+Notation "'[F' x ':=' s ']' t" := (f_subst x s t) (at level 30) : btjt_scope.
+Notation "'[B' x ':=' s ']' t" := (b_subst x s t) (at level 30) : btjt_scope.
+Inductive value_type : ty -> Prop :=
+  | VT_CName : forall cn, value_type (TCName cn)
+  | VT_Pair : forall v1 v2, value_type v1 -> value_type v2 -> value_type (TPair v1 v2)
+  | VT_EV : forall X : id, value_type (TEV X).
+Hint Constructors value_type: DBBetaJulia.
+Declare Scope btjm_scope.
+Delimit Scope btjm_scope with btjm.
+Open Scope btjm.
+Reserved Notation "'|-[' w ']' v '<$' t" (at level 40).
+Fixpoint match_ty (w : nat) :=
+  fix mtyv (v : ty) :=
+    fix mtyt (t : ty) :=
+      match w, v, t with
+      | _, TCName c, TCName c' => c = c'
+      | _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
+      | _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
+      | S w, v, TExist X t' => exists tx, wf_ty tx /\ |-[ w] v <$ [BX := tx] t'
+      | _, TEV X, TVar X' => X = X'
+      | _, TEV X, TEV X' => X = X'
+      | _, _, _ => False
+      end
+where "'|-[' w ']' v '<$' t" := (match_ty w v t) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:00:28.390000.*)
+(* Auto-generated comment: At 2019-09-03 09:05:27.300000.*)
 
