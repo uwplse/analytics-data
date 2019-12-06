@@ -28,9 +28,11 @@ constructor.
 -
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
-exists tint.
+exists t'.
 (apply match_ty_value_type__reflexive).
+constructor.
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:19:18.560000.*)
+(* Auto-generated comment: At 2019-08-20 08:19:24.480000.*)
 
