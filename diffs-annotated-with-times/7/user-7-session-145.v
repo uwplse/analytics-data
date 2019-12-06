@@ -142,8 +142,10 @@ admit.
 (intros t X' HX HX' Hsem).
 (intros w1).
 (induction w1).
-(intros k Hm).
+(intros k).
+exists 0.
+(intros v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 14:06:06.310000.*)
+(* Auto-generated comment: At 2019-08-27 14:06:37.780000.*)
 
