@@ -76,8 +76,9 @@ Proof.
 (intros k w1).
 specialize (Hsem k w1).
 (destruct Hsem as [w2 Hsem]).
-(exist w2).
+exists w2.
+(intros v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 12:01:57.530000.*)
+(* Auto-generated comment: At 2019-08-27 12:04:30.460000.*)
 
