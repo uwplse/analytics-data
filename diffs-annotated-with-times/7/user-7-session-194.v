@@ -35,10 +35,10 @@ Qed.
 Lemma b_free_in_ty__dec : forall (X : id) (t : ty), b_free_in_ty X t \/ not_b_free_in_ty X t.
 Proof.
 (intros X t).
-(unfold f_free_in_ty).
+(unfold b_free_in_ty).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
 Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:10:39.910000.*)
+(* Auto-generated comment: At 2019-09-03 09:11:05.800000.*)
 
