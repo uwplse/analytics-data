@@ -39,8 +39,8 @@ Proof.
 -
 (apply SR_UnionR2; apply sub_r__reflexive).
 -
-(apply mk_nf_sub_r__sub_r).
+(apply mk_nf__distr11).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 07:49:14.670000.*)
+(* Auto-generated comment: At 2019-08-09 07:49:26.200000.*)
 
