@@ -138,10 +138,12 @@ Proof.
 (remember (TPair t1' t2') as ty eqn:Heqy ).
 (induction Hsub; inversion Heqx; inversion Heqy; subst).
 tauto.
+(inversion Hnf1; subst).
+(inversion Hnf2; subst).
 (assert (Hnf : InNF( TPair (TCName c) (TPair t2_1 t2_2)))).
 constructor.
 constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:15:32.490000.*)
+(* Auto-generated comment: At 2019-08-07 12:16:58.300000.*)
 
