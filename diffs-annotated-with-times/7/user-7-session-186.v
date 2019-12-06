@@ -28,9 +28,8 @@ split.
 assumption.
 (induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction ])).
 +
-split.
-*
+(split; try tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:28:07.640000.*)
+(* Auto-generated comment: At 2019-09-02 08:28:14.260000.*)
 
