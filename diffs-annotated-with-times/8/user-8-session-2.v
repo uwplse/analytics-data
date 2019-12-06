@@ -61,8 +61,9 @@ dependent destruction u.
 (destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
 (assert (E' : fst (ctrls_to_list lb li (trans u)) = (j, l))).
 (rewrite IHW2).
+(simpl).
 easy.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-08 13:03:57.970000.*)
+(* Auto-generated comment: At 2019-08-08 13:06:12.350000.*)
 
