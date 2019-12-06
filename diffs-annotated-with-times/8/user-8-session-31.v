@@ -2770,6 +2770,5 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 split.
 easy.
 (apply pf_merge).
-easy.
 (* Auto-generated comment: Succeeded. *)
 
