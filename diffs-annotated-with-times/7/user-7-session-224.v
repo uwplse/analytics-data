@@ -62,8 +62,10 @@ exists w1.
 Search -b_free_in_ty.
 (destruct (b_free_in_ty__dec X t) as [HX| HX]).
 2: {
-Abort.
+idtac.
+Search -not_b_free_in_ty.
+(rewrite b_subst_not_b_free_in_ty in IHHsub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:02:21.950000.*)
+(* Auto-generated comment: At 2019-09-06 09:02:26.500000.*)
 
