@@ -68,7 +68,8 @@ admit.
 admit.
 -
 (pose proof (subst_exist X tx i t) as Heq).
+(destruct Heq as [X [tz Heq]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:39:00.100000.*)
+(* Auto-generated comment: At 2019-09-02 07:39:10.760000.*)
 
