@@ -135,8 +135,8 @@ auto.
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
-(rewrite IHn by lia).
-(* Auto-generated comment: Failed. *)
+(rewrite IHn).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:23:28.140000.*)
+(* Auto-generated comment: At 2019-08-16 06:23:32.560000.*)
 
