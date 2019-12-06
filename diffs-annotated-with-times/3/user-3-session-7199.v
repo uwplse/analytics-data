@@ -342,8 +342,11 @@ Theorem log_contents_ok_append d bs b bs' :
   log_contents_ok (diskUpd d (log_addr (length bs)) b) (bs ++ [b]).
 Proof.
 (unfold log_contents_ok; intros).
-(rewrite app_length in *).
-(* Auto-generated comment: Succeeded. *)
+(rewrite app_length in *; simpl in *).
+(assert (log_addr (length bs) < diskSize d)).
+{
+lia.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:25:02.900000.*)
+(* Auto-generated comment: At 2019-09-04 12:25:11.700000.*)
 
