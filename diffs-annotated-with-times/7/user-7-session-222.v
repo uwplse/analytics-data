@@ -371,8 +371,13 @@ contradiction.
 reflexivity.
 *
 (apply b_free_in_ty_exist_neq__inv in HX; try assumption).
-(apply b_free_in_ty_exist_neq).
+(apply b_free_in_ty_exist_neq; try assumption).
+tauto.
+-
+(destruct (beq_idP Y i)).
++
+subst.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 12:41:54.490000.*)
+(* Auto-generated comment: At 2019-09-05 12:42:56.480000.*)
 
