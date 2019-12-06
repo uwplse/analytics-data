@@ -31,7 +31,7 @@ group_lines = []
 group_times = []
 failure_or_cancellation = "(\(\*(CANCEL|FAILED|BACKTO).*([0-9]+)\s*.*\*\)\s+)"
 failure = "(\(\*FAILED.*\*\)\s+)"
-time = "TIMESTAMP (.)"
+time = "TIMESTAMP (.*)\*\)"
 with open(fpath, 'r') as f:
     groups = re.split(failure_or_cancellation, f.read())
     max_state = -1
