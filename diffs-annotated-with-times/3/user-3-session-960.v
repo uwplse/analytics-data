@@ -130,8 +130,8 @@ Proof.
 auto.
 -
 (assert (1 < S (S base_m2)) by lia).
-(generalize dependent S (S base_m2); intros base).
-(* Auto-generated comment: Succeeded. *)
+(assert (base_m2 = S (S base_m2) - 2) by auto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:19:47.310000.*)
+(* Auto-generated comment: At 2019-08-16 06:20:14.380000.*)
 
