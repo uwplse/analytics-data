@@ -181,9 +181,8 @@ subst.
 (apply match_ty_cname).
 -
 (apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 v2 [Heq [Hmq Hm2]]]; subst).
 (destruct Hm as [v1 [v2 [Heq [Hmq Hm2]]]]; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:21:51.090000.*)
+(* Auto-generated comment: At 2019-08-21 09:22:04.170000.*)
 
