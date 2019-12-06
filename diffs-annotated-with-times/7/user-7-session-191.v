@@ -162,8 +162,10 @@ Qed.
 Lemma either_free_or_fresh_in_ty : forall (X : id) (t : ty), free_in_ty X t \/ fresh_in_ty X t.
 Proof.
 (unfold free_in_ty, fresh_in_ty, fresh).
+(intros X t).
 (apply IdSetProps.Dec.MSetDecideAuxiliary.dec_In).
-(* Auto-generated comment: Failed. *)
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-02 08:55:45.060000.*)
+(* Auto-generated comment: At 2019-09-02 08:56:21.800000.*)
 
