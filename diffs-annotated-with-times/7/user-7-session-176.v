@@ -161,8 +161,17 @@ Search -IdSet.mem.
 (simpl in Hmem).
 Search -IdSet.empty.
 (rewrite IdSetFacts.empty_b in Hmem).
-contradiction.
+(inversion Hmem).
+(unfold mk_subst_exist).
+clear Hmem.
+(destruct (beq_idP X i)).
++
+subst.
+exists v.
+assumption.
++
+(apply match_ty_exist__inv in IHw).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:02:35.730000.*)
+(* Auto-generated comment: At 2019-08-30 07:02:48.640000.*)
 
