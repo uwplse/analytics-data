@@ -19,8 +19,16 @@ Proof.
 (intros X fvs1 fvs2 H).
 (unfold not_fresh in *).
 Search -IdSet.union.
-(simpl in H).
+Search -IdSet.union.
+Abort.
+Lemma subs_not_in_FV : forall (X : id) (t : ty), not_fresh_in_ty X t -> forall s : ty, [X := s] t = t.
+Proof.
+(intros X t).
+(induction t; intros Hnfresh s; try (solve [ reflexivity ])).
+-
+(simpl).
+(unfold fresh_in_ty in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:21:01.740000.*)
+(* Auto-generated comment: At 2019-08-27 06:21:44.030000.*)
 
