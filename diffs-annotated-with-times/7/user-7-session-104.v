@@ -56,9 +56,10 @@ Fixpoint inv_depth (t : ty) :=
   | TRef t' => 1 + | t' |
   | TExist _ t' => | t' |
   | TVar _ => 0
+  | TEV _ => 0
   end
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:45:03.720000.*)
+(* Auto-generated comment: At 2019-08-20 12:46:56.480000.*)
 
