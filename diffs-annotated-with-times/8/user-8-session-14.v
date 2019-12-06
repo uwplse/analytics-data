@@ -1464,11 +1464,35 @@ symmetry in H1.
 easy.
 Qed.
 Lemma denote_pat_fresh_id :
-  forall w, denote_pat (add_fresh_pat w []) = I (2 ^ \226\159\166 w \226\159\167).
+  forall w, denote_pat (add_fresh_pat w []) == I (2 ^ \226\159\166 w \226\159\167).
 Proof.
 (intros).
 (unfold denote_pat).
 (simpl).
 (rewrite swap_fresh_seq by validate).
-(* Auto-generated comment: Succeeded. *)
+(rewrite swap_list_n_id).
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqaZ38oV"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma maps_to_app :
+  forall \206\147 w, maps_to (length \206\147) (\206\147 ++ [Some w]) = Some (size_ctx \206\147).
+Proof.
+(intros \206\147 w).
+(induction \206\147; simpl; eauto).
+(destruct a; simpl).
+(rewrite IH\206\147).
+easy.
+(rewrite IH\206\147).
+easy.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqdTB5HC"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+(* Auto-generated comment: Failed. *)
 
