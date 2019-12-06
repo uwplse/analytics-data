@@ -306,7 +306,7 @@ Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 (eapply proc_spec_weaken;
   [ solve [ eauto ] | unfold spec_impl; cbn[pre post recovered] ]).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:27:46.720000.*)
+(* Auto-generated comment: At 2019-09-05 17:27:46.830000.*)
 
