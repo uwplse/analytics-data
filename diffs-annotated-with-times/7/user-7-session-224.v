@@ -185,8 +185,7 @@ reflexivity.
 }
 {
 (apply match_ty_union_1).
-(rewrite f_subst_not_b_free_in_ty; assumption).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:01:07.010000.*)
+(* Auto-generated comment: At 2019-09-05 13:01:34.770000.*)
 
