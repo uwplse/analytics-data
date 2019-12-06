@@ -900,8 +900,11 @@ Ltac
         let IP := fresh "IP" in
         specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP;
          rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
-         rewrite IP
+         rewrite IP; clear IP
   end; try (solve [ type_check ]).
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqYGfOYF"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Lemma init_at_spec :
   forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
   length l1 = i ->
@@ -946,19 +949,14 @@ reflexivity.
 (destruct l1; inversion L1).
 (simpl).
 (rewrite H0).
-Timeout 1 About restore_dims.
-Timeout 1 Print restore_dims.
-Timeout 1 Print Ltac restore_dims.
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
   lia.
-Timeout 1 About rewrite_inPar''.
-Timeout 1 Print rewrite_inPar''.
-Timeout 1 Print Ltac rewrite_inPar''.
 replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
 rewrite_inPar''.
 (rewrite id_circ_spec).
-(* Auto-generated comment: Succeeded. *)
+(rewrite IHi).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 16:09:57.490000.*)
+(* Auto-generated comment: At 2019-08-14 16:11:18.580000.*)
 
