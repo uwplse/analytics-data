@@ -270,7 +270,11 @@ refine (_ _).
 (apply evalBoolInj).
 (rewrite H0).
 (apply evalBoolConst).
++
+assumption.
+}
+(erewrite <- H; reflexivity).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:38:38.900000.*)
+(* Auto-generated comment: At 2019-09-01 10:39:03.630000.*)
 
