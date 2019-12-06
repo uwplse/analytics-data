@@ -394,8 +394,8 @@ Proof.
 (pose proof (| TUnion ta tb |) as kmax).
 (assert (Hdeple : | v | <= kmax)).
 {
-(apply sem_sub_k_i__inv_depth_le_2).
+subst.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:04:30.720000.*)
+(* Auto-generated comment: At 2019-08-13 12:05:41.710000.*)
 
