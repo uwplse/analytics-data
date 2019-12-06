@@ -255,7 +255,34 @@ reflexivity.
 +
 (autorewrite with upd; auto).
 +
+(exists (S (length blocks)); simpl).
+(rewrite firstn_all).
+(autorewrite with upd; auto).
+}
+(destruct H).
+(exists (S n); simpl).
+(autorewrite with upd; auto).
+}
+{
+(exists 0; simpl; auto).
+}
+{
+(exists 1; simpl; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqTKl2We"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+}
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coquJ5xfY"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 10:57:59.230000.*)
+(* Auto-generated comment: At 2019-09-03 10:58:11.410000.*)
 
