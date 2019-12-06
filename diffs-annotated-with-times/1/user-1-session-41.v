@@ -491,7 +491,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
             match S with
             | SRec (hd :: tl) => hd
             | _ => None
-            end)) hd -> Alpha S (GRow (Some (R, hd) :: tl))
+            end)) hd -> Alpha S (GRow (Some (Some (R, hd)) :: tl))
   | alpha_row_cons_opt :
       forall S hd tl,
       Inhabited _ S ->
@@ -513,7 +513,7 @@ Inductive Alpha : SetST -> GT -> Prop :=
             | SRec (hd :: tl) => hd
             | _ => None
             end)) hd ->
-      hd <> GDyn -> Alpha S (GRow (Some (O, hd) :: tl))
+      hd <> GDyn -> Alpha S (GRow (Some (Some (O, hd)) :: tl))
   | alpha_row_cons_row_skip_hd :
       forall S tl,
       Inhabited _ S ->
@@ -537,5 +537,5 @@ Inductive Alpha : SetST -> GT -> Prop :=
             end)) Dyn -> Alpha S (GRow (FromRow :: tl)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 18:41:57.950000.*)
+(* Auto-generated comment: At 2019-09-05 18:42:53.190000.*)
 
