@@ -61,5 +61,5 @@ replace (gate g p c) with compose (gate g p (fun p' => output p')) c by auto.
 dependent destruction H'.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:13:17.820000.*)
+(* Auto-generated comment: At 2019-08-12 14:13:22.210000.*)
 
