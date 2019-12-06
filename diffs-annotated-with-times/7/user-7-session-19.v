@@ -73,8 +73,8 @@ idtac.
 clear IHt'.
 (simpl).
 (apply f_equal).
-(apply IHt).
+(eapply IHt).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:48:22.150000.*)
+(* Auto-generated comment: At 2019-08-12 11:48:32.670000.*)
 
