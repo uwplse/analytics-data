@@ -143,9 +143,7 @@ assumption.
 (rewrite subst_equation).
 (assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
 (rewrite Hbeq).
-{
-(rewrite Hmem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 13:04:24.190000.*)
+(* Auto-generated comment: At 2019-09-02 13:05:45.040000.*)
 
