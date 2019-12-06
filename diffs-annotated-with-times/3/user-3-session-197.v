@@ -59,8 +59,9 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 Proof.
+(simpl).
 typeclasses eauto.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 14:03:06.070000.*)
+(* Auto-generated comment: At 2019-08-07 14:03:14.370000.*)
 
