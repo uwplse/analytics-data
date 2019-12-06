@@ -1252,5 +1252,6 @@ Proof.
 (unfold denote_box; simpl).
 (rewrite add_fresh_split).
 (simpl).
-(* Auto-generated comment: Failed. *)
+(unfold denote_db_circuit).
+(* Auto-generated comment: Succeeded. *)
 
