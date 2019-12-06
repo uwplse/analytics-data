@@ -250,8 +250,9 @@ Proof.
 (intros k t t' Hdept Hsem).
 (rewrite <- inv_depth_mk_nf).
 (apply sem_sub_k_i_nf__inv_depth_le with k).
-(apply mk_nf__in_f).
+(apply mk_nf__in_nf).
+(rewrite inv_depth_mk_nf; assumotion).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 09:10:05.780000.*)
+(* Auto-generated comment: At 2019-08-13 09:10:08.240000.*)
 
