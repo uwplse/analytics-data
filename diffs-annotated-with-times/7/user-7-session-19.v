@@ -208,9 +208,8 @@ Proof.
 (destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
 (destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
 (simpl).
-(apply Nat.max_le_compat).
-auto.
+(apply Nat.max_le_compat; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:42:43.290000.*)
+(* Auto-generated comment: At 2019-08-13 07:43:36.310000.*)
 
