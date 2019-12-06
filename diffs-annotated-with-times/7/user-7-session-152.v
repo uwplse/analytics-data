@@ -80,8 +80,36 @@ Proof.
 (apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
 }
 specialize (Hsem _ Hmp).
-(apply match_ty_pairir_pair__inv in Hsem).
+(apply match_ty_pair_pair__inv in Hsem).
+tauto.
+-
+(assert (Hmp : |-[ w1'] TPair v1 v <$ TPair t1 t2)).
+{
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_r | apply Nat.le_max_l ]).
+}
+specialize (Hsem _ Hmp).
+(apply match_ty_pair_pair__inv in Hsem).
+tauto.
+Qed.
+Lemma sem_sub_k_exist_fresh_l : forall (X : id) (t : ty), fresh_in_ty X t -> ||- [TExist X t]<= [t].
+Proof.
+(intros X t Hfresh).
+(intros w1).
+exists w1.
+(intros v Hm).
+(destruct w1).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
+(rewrite subs_fresh_in_ty in Hm; try assumption).
+(eapply match_ty__ge_w).
+eassumption.
+(repeat constructor).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:22:01.090000.*)
+(* Auto-generated comment: At 2019-08-29 08:22:35.240000.*)
 
