@@ -210,8 +210,15 @@ refine
  nilFile := (0 - 1)%Z;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-constructor.
+Search -(0 < S _).
+(apply Nat.lt_0_succ).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqvJ5kcp"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:56:56.030000.*)
+(* Auto-generated comment: At 2019-08-16 06:57:10.780000.*)
 
