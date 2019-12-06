@@ -136,8 +136,9 @@ Proof.
 (apply spec_abstraction_compose).
 step_proc.
 {
-(destruct a' as [_ bs]; simpl in *; intuition).
+(destruct a' as [_ bs]; simpl in *; intuition eauto).
+}
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:35:07.540000.*)
+(* Auto-generated comment: At 2019-09-04 10:35:11.930000.*)
 
