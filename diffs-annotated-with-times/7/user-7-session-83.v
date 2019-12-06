@@ -226,12 +226,12 @@ Proof.
    | |- context [ |- TCName _ << _ ] => intros c Hdep; apply cname_sem_sub_k_i__sub_d; assumption
    | |- context [ |- TPair _ _ << _ ] =>
          intros ta1 ta2 Hat1 IH1 Hat2 IH2 Hdep; assert (Hat : atom_type (TPair ta1 ta2)) by (constructor; assumption);
-          destruct (max_inv_depth_le__components_le _ _ _ Hdep) as [Hdep1 Hdep2]; apply pair_sem_sub_k_i__sub_d; tauto
+          destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]; apply pair_sem_sub_k_i__sub_d; tauto
    | |- context [ |- TUnion _ _ << _ ] =>
-         intros t1 t2 Hnf1 IH1 Hnf2 IH2 Hdep; destruct (max_inv_depth_le__components_le _ _ _ Hdep) as [Hdep1 Hdep2]; intros t' Hsem;
-          apply sem_sub_k_union_l__inv in Hsem; destruct Hsem as [Hsem1 Hsem2]; constructor; auto
+         intros t1 t2 Hnf1 IH1 Hnf2 IH2 Hdep; destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]; intros t' Hsem;
+          apply sem_sub_k_i_union_l__inv in Hsem; destruct Hsem as [Hsem1 Hsem2]; constructor; auto
    end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:02:57.750000.*)
+(* Auto-generated comment: At 2019-08-16 14:03:07.650000.*)
 
