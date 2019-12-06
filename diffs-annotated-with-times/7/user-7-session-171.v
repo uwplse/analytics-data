@@ -95,12 +95,55 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   | TExist y t' =>
       if IdSet.mem y (FV s)
       then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else subst x s tz)
-      else TExist y (if beq_id x y then t' else [x := s] t')
+      else TExist y (if beq_id x y then t' else subst x s t')
   | TVar y => if beq_id x y then s else t
   | TEV y => t
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
-(* Auto-generated comment: Failed. *)
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+Omega.omega.
+Qed.
+Next Obligation.
+(simpl).
+(rewrite rename__size).
+Omega.omega.
+Qed.
+Inductive value_type : ty -> Prop :=
+  | VT_CName : forall cn, value_type (TCName cn)
+  | VT_Pair : forall v1 v2, value_type v1 -> value_type v2 -> value_type (TPair v1 v2)
+  | VT_EV : forall X : id, value_type (TEV X).
+Hint Constructors value_type: DBBetaJulia.
+Declare Scope btjm_scope.
+Delimit Scope btjm_scope with btjm.
+Open Scope btjm.
+Reserved Notation "'|-[' w ']' v '<$' t" (at level 40).
+Fixpoint match_ty (w : nat) :=
+  fix mtyv (v : ty) :=
+    fix mtyt (t : ty) :=
+      match w, v, t with
+      | _, TCName c, TCName c' => c = c'
+      | _, TPair v1 v2, TPair t1 t2 => mtyv v1 t1 /\ mtyv v2 t2
+      | _, _, TUnion t1 t2 => mtyt t1 \/ mtyt t2
+      | S w, v, TExist X t' => exists tx, |-[ w] v <$ [X := tx] t'
+      | _, TEV X, TVar X' => X = X'
+      | _, TEV X, TEV X' => X = X'
+      | _, _, _ => False
+      end
+where "'|-[' w ']' v '<$' t" := (match_ty w v t) : btjm_scope.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 14:36:57.220000.*)
+(* Auto-generated comment: At 2019-08-29 14:37:05.730000.*)
 
