@@ -1252,6 +1252,5 @@ Proof.
 (unfold denote_box; simpl).
 (rewrite add_fresh_split).
 (simpl).
-Search -add_fresh_state.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
