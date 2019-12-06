@@ -399,8 +399,7 @@ Admitted.
 Theorem reset_ok : proc_spec reset_spec reset recover abstr.
 Proof.
 Admitted.
-Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:09:24.110000.*)
+(* Auto-generated comment: At 2019-09-04 12:09:30.350000.*)
 
