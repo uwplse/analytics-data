@@ -309,8 +309,13 @@ Theorem append_at_ok a bs' :
     d.abstr.
 Proof.
 Print append_at.
-(induction bs; simpl).
-(* Auto-generated comment: Failed. *)
+(induction bs'; simpl).
+-
+step_proc.
+intuition eauto.
++
+(rewrite app_nil_r).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:32:54.900000.*)
+(* Auto-generated comment: At 2019-09-04 11:33:22.250000.*)
 
