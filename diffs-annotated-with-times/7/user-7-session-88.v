@@ -429,7 +429,7 @@ Proof.
            assert (Hv : value_type (TPair t1 t2)) by (apply pair_in_nf__value_type; assumption);
             solve__value_sem_sub_i_union__inv_depth_le Hv Hsem Hdep t'1 t'2
      | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
-       |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2
+       |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le Hv Hsem Hdep t'1 t'2
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
        |- _ <= | ?t' | =>
            assert (Hvp : value_type (TPair t1 t2)) by (apply pair_in_nf__value_type; assumption);
@@ -443,7 +443,15 @@ Proof.
            destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]; destruct (sem_sub_k_i_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2];
             destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]; rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
+-
+(destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
+(destruct Hdep as [Hdept| Hdept']).
++
+(destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]).
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+(simpl; apply Nat.max_le_compat; auto).
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:11:24.770000.*)
+(* Auto-generated comment: At 2019-08-18 07:11:37.350000.*)
 
