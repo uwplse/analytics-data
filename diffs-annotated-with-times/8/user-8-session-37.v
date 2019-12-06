@@ -379,6 +379,8 @@ clear H.
 (unfold denote_circuit in *).
 (simpl in *).
 replace (size_ctx \206\147 - 1)%nat with size_ctx (DBCircuits.remove_pat p \206\147).
-(unfold compose_super).
+(unfold compose_super, Splus).
+(erewrite VA).
+(erewrite VA).
 (* Auto-generated comment: Succeeded. *)
 
