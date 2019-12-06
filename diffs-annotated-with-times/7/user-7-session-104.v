@@ -86,9 +86,9 @@ constructor.
 (apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; assumption).
 -
 (apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]).
-auto.
+(destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
+(apply Nat.max_lub_l).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:18:29.160000.*)
+(* Auto-generated comment: At 2019-08-20 13:19:46.520000.*)
 
