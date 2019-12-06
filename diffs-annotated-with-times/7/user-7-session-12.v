@@ -298,8 +298,8 @@ generalize dependent t21.
 (apply sub_r__rflxv).
 -
 (repeat rewrite unite_pairs_union_t).
-(constructor; eapply SD_Trans; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
+(constructor; eapply sub_r__trans; [ apply IHHnf1_1 | apply IHHnf1_2 ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 07:37:34.380000.*)
+(* Auto-generated comment: At 2019-08-09 07:37:47.770000.*)
 
