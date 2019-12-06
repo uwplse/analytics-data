@@ -197,8 +197,8 @@ intro x.
 {
 (apply evalChoose).
 exists (eval L env (Int 3)).
-(apply evalEqTrue).
+apply -> evalEqTrue.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 09:34:19.520000.*)
+(* Auto-generated comment: At 2019-08-13 09:34:20.950000.*)
 
