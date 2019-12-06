@@ -242,28 +242,43 @@ assumption.
 (apply match_ty_ev__inv in Hm; subst).
 (apply match_ty_ev).
 Qed.
-Lemma not_match_ty_var__not_match_ty_subs :
-  forall (t : ty) (k w : nat), ~ (exists v, |-[ k, w] v <$ t) -> forall (X : id) (s : ty), ~ (exists v, |-[ k, w] v <$ [X := s] t).
+Lemma ty__empty_or_matching_ty_exists :
+  forall (w : nat) (t : ty) (k : nat), (exists v : ty, |-[ k, w] v <$ t) \/ ~ (exists v : ty, |-[ k, w] v <$ t).
 Proof.
-(induction t; intros k w Hnotm X S Hcontra).
+(induction w; induction t; intros k).
 -
-(apply Hnotm; assumption).
+(left; exists (TCName c); apply match_ty_cname).
 -
-(simpl in Hcontra).
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+(destruct k).
+reflexivity.
+(split; intros w1; exists w1; auto).
+-
+right.
+(intros Hcontra).
 (destruct Hcontra as [v Hcontra]).
-(apply match_ty_pair__inv in Hcontra).
-(destruct Hcontra as [v1 [v2 [Heq [Hm1 Hm2]]]]).
-subst.
-(assert (Hcontra : ~ (exists v1 : ty, |-[ k, w] v1 <$ t1) \/ ~ (exists v2 : ty, |-[ k, w] v2 <$ t2))).
-{
-(assert (Hcontra' : ~ ((exists v1 : ty, |-[ k, w] v1 <$ t1) /\ (exists v2 : ty, |-[ k, w] v2 <$ t2)))).
-{
-(intros [[v'1 Hcontra'1] [v'2 Hcontra'2]]).
-(apply Hnotm).
-exists (TPair v'1 v'2).
-(apply match_ty_pair; assumption).
-}
+(eapply match_ty_exist__0_inv; eassumption).
+-
+(left; exists (TEV i); apply match_ty_var).
+-
+(left; exists (TEV i); apply match_ty_ev).
+-
+(left; exists (TCName c); apply match_ty_cname).
+-
+admit.
+-
+admit.
+-
+(left; exists (TRef t)).
+(destruct k).
+reflexivity.
+(split; intros w1; exists w1; auto).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:17:09.300000.*)
+(* Auto-generated comment: At 2019-08-21 10:19:45.750000.*)
 
