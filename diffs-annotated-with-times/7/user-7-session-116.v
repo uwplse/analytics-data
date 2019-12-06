@@ -53,7 +53,8 @@ contradiction.
 -
 (unfold fresh in Hfresh).
 (destruct (beq_idP X i); try reflexivity).
+subst.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:55:20.510000.*)
+(* Auto-generated comment: At 2019-08-27 06:55:36.140000.*)
 
