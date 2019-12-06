@@ -177,11 +177,10 @@ Proof.
 (destruct Hcontra as [v' Hm]).
 (destruct k).
 (destruct v'; contradiction).
-(assert (Hdep : | TRef t | <= S k)).
-(eapply match_ty_value_type_r__inv_depth_r_le_index).
-constructor.
-eassumption.
-(* Auto-generated comment: Failed. *)
+(assert (Hdep : | TRef t | <= S k) by (eapply match_ty_value_type_r__inv_depth_r_le_index; constructor || eassumption)).
+contradiction.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:59:04.920000.*)
+(* Auto-generated comment: At 2019-08-16 07:59:37.500000.*)
 
