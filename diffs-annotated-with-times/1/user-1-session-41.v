@@ -629,10 +629,5 @@ congruence.
 (inversion H1).
 specialize (H _ H4).
 specialize (H2 _ H4).
-(repeat
-  match goal with
-  | H:exists _, _ |- _ => destruct H
-  | H:_ \/ _ |- _ => inversion H; clear H
-  end).
 (* Auto-generated comment: Succeeded. *)
 
