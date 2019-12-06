@@ -117,8 +117,12 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlIIL2F"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Theorem log_length_ok_nil d : diskGet d 0 = Some 0 -> log_length_ok d [].
-(* Auto-generated comment: Failed. *)
+Theorem log_length_ok_nil d b :
+  diskGet d 0 = Some b -> block_to_addr b = 0 -> log_length_ok d [].
+Proof.
+(unfold log_length_ok; intros).
+(rewrite H).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:25:25.430000.*)
+(* Auto-generated comment: At 2019-09-04 10:25:27.900000.*)
 
