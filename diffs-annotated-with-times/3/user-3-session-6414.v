@@ -120,8 +120,13 @@ Unset Search Output Name Only.
 Theorem init_ok : init_abstraction init recover abstr inited_any.
 Proof.
 (eapply then_init_compose; eauto).
-step.
-(* Auto-generated comment: Failed. *)
+step_proc.
+(destruct (lt_dec r 1)).
+-
+step_proc.
+-
+step_proc.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:23:56.490000.*)
+(* Auto-generated comment: At 2019-09-04 10:23:57.280000.*)
 
