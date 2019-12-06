@@ -134,8 +134,10 @@ Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li (trans u)))).
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
 (rewrite <- ctrls_to_list_transpose_fst).
-(rewrite <- ctrls_to_list_transpose_snd).
-(* Auto-generated comment: Failed. *)
+Timeout 1 About denote_ctrls.
+Timeout 1 Print denote_ctrls.
+Timeout 1 Print Ltac denote_ctrls.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 12:07:38.660000.*)
+(* Auto-generated comment: At 2019-08-09 12:08:27.060000.*)
 
