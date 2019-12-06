@@ -972,6 +972,11 @@ gen \207\129.
 (intros \207\129).
 (repeat rewrite Nat.mul_1_r).
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+(repeat rewrite Mmult_assoc).
+Msimpl.
+(repeat rewrite <- Mmult_assoc).
+Msimpl.
 (destruct b; simpl; Msimpl).
-(* Auto-generated comment: Succeeded. *)
+-
+(* Auto-generated comment: Failed. *)
 
