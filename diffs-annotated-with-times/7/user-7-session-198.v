@@ -81,8 +81,15 @@ Proof.
 (intros).
 reflexivity.
 Qed.
-Lemma b_subst_var_eq : forall (X : id) (s : ty), [BX := s] TVar X = s.
+Lemma b_subst_bvar_eq : forall (X : id) (s : ty), [BX := s] TBVar X = s.
+Proof.
+(intros).
+(simpl).
+(rewrite <- beq_id_refl).
+reflexivity.
+Qed.
+Lemma b_subst_bvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [BX := s] TVar Y = TVar Y.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:34:23.780000.*)
+(* Auto-generated comment: At 2019-09-03 09:34:51.860000.*)
 
