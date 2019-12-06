@@ -607,8 +607,7 @@ Lemma new_morphism :
 Proof.
 (intros).
 (compute).
-(intros).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 18:19:40.450000.*)
+(* Auto-generated comment: At 2019-08-13 18:19:54.550000.*)
 
