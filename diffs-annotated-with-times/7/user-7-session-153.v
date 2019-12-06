@@ -22,8 +22,7 @@ exists (TCName c).
 -
 (simpl in Hm).
 (simpl).
-(apply match_ty_pair__inv in Hm).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:55:27.120000.*)
+(* Auto-generated comment: At 2019-08-29 08:55:31.320000.*)
 
