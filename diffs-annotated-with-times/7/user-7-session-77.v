@@ -56,8 +56,10 @@ Proof.
 (intros t k).
 (apply mk_nf__sem_eq_k).
 Qed.
-Lemma mk_nf__sem_sub_k_l : forall t : ty, ||- [MkNF( t)]<= [t].
-(* Auto-generated comment: Failed. *)
+Lemma mk_nf__sem_sub_l : forall t : ty, ||- [MkNF( t)]<= [t].
+Proof.
+(apply sem_eq__sem_sub).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:20:32.290000.*)
+(* Auto-generated comment: At 2019-08-16 13:20:55.360000.*)
 
