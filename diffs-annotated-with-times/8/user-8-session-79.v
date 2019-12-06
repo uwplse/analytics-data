@@ -653,7 +653,8 @@ Proof.
 (intros).
 (simpl).
 specialize (kron_1_l (\226\168\130 l2)) as KL.
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:09:19.930000.*)
+(* Auto-generated comment: At 2019-08-14 13:09:51.020000.*)
 
