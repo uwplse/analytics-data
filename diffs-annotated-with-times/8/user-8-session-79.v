@@ -658,8 +658,7 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
-restore_dims.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:34:15.130000.*)
+(* Auto-generated comment: At 2019-08-14 13:34:15.300000.*)
 
