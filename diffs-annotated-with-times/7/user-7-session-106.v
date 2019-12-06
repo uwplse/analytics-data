@@ -182,8 +182,9 @@ subst.
 -
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_pair; eauto).
+(apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:23:15.580000.*)
+(* Auto-generated comment: At 2019-08-21 09:23:20.030000.*)
 
