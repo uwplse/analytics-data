@@ -51,8 +51,8 @@ Qed.
 Lemma sub_d_eq__inv_depth_eq : forall t t' : ty, |- t << t' -> |- t' << t -> | t | = | t' |.
 Proof.
 (intros t t' Hsub1 Hsub2).
-(apply Nat.le_antisymm).
+(apply Nat.le_antisymm; apply sub_d__inv_depth_le).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:52:46.940000.*)
+(* Auto-generated comment: At 2019-08-16 06:52:52.850000.*)
 
