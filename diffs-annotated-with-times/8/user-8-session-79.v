@@ -607,7 +607,10 @@ Lemma new_morphism :
 Proof.
 (intros).
 (unfold Morphisms.Proper).
-(* Auto-generated comment: Succeeded. *)
+Timeout 1 About Morphisms.Proper.
+Timeout 1 Print Morphisms.Proper.
+Timeout 1 Print Ltac Morphisms.Proper.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 18:20:34.700000.*)
+(* Auto-generated comment: At 2019-08-13 18:20:40.350000.*)
 
