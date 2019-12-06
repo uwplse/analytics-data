@@ -54,9 +54,10 @@ auto using match_ty_pair.
 (simpl).
 split.
 +
-(assert (Heq : | t' | = | t |)).
-(apply sub_d_eq__inv_depth_eq).
+(assert (Heq : | t' | = | t |) by (apply sub_d_eq__inv_depth_eq; assumption)).
+(rewrite Heq).
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:55:15.070000.*)
+(* Auto-generated comment: At 2019-08-16 06:55:42.690000.*)
 
