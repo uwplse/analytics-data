@@ -115,8 +115,8 @@ Proof.
                (H 0 _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
      end ])).
 (assert (Hv : value_type (TCName c)) by constructor; assert (Hm : |-[ 0] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption);
-  specialize (H 0 _ Hv); destruct H as [H _]; specialize (H Hm)).
+  specialize (H 0 _ Hv); destruct H as [H1 H2]; specialize (H1 Hm)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:32:39.310000.*)
+(* Auto-generated comment: At 2019-08-12 12:34:08.060000.*)
 
