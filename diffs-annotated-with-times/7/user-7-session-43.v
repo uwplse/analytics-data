@@ -54,8 +54,9 @@ auto using match_ty_pair.
 (simpl).
 split.
 +
-(pose proof (sub_d_eq__inv_depth_eq _ _ Hsub1 Hsub2) as Heq).
+(assert (Heq : | t' | = | t |)).
+(apply sub_d_eq__inv_depth_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:55:02.450000.*)
+(* Auto-generated comment: At 2019-08-16 06:55:15.070000.*)
 
