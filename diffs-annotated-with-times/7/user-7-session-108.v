@@ -199,8 +199,10 @@ subst.
 -
 (destruct w).
 +
-(apply match_ty_exist__0_inv in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
++
+(apply match_ty_exist__in in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:28:56.610000.*)
+(* Auto-generated comment: At 2019-08-21 09:29:42.060000.*)
 
