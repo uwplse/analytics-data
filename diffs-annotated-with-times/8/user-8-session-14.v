@@ -1216,8 +1216,8 @@ Proof.
 (unfold apply_new0, super).
 gen \207\129.
 subst.
-(repeat rewrite Nat.pow_add_r).
+(rewrite Nat.pow_add_r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 13:39:26.500000.*)
+(* Auto-generated comment: At 2019-08-09 13:39:38.680000.*)
 
