@@ -99,12 +99,7 @@ exists w1.
 (destruct Hm as [tx Heq]; subst).
 (destruct w1; simpl; tauto).
 -
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [tx [Heq Href]]; subst).
-(apply match_ty_ref).
-(apply sem_eq_k__trans with t).
-assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:24:17.210000.*)
+(* Auto-generated comment: At 2019-08-27 08:25:34.120000.*)
 
