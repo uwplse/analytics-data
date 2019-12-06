@@ -188,7 +188,11 @@ step.
 }
 (destruct (lt_dec a (diskSize a'))).
 -
-(* Auto-generated comment: Succeeded. *)
+eauto.
+-
+simplify.
+(destruct r; step).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:11:49.590000.*)
+(* Auto-generated comment: At 2019-09-03 11:11:54.640000.*)
 
