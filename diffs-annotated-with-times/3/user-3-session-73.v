@@ -109,10 +109,14 @@ Lemma proc_rspec_recovery_refines_crash_step (rec : proc C_Op unit)
    absr sA (Val sC tt) ->
    crash_step c_sem sC (Val sCcrash tt) ->
    (spec sA sCcrash).(post) sC' tt \/ (spec sA sCcrash).(alternate) sC' tt ->
-   exists sA', absr sA' sC' tt /\ crash_step a_sem sA (Val sA' tt)) ->
+   exists sA', absr sA' (Val sC' tt) /\ crash_step a_sem sA (Val sA' tt)) ->
   refines absr (_ <- c_sem.(crash_step); exec_recover c_sem rec)
     a_sem.(crash_step).
-(* Auto-generated comment: Failed. *)
+Proof.
+(intros Hprspec Hpre Hpost_crash).
+(unfold refines).
+(intros sA sC' [] Hl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 13:58:00.480000.*)
+(* Auto-generated comment: At 2019-08-07 13:58:17.860000.*)
 
