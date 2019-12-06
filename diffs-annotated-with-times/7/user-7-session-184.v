@@ -105,7 +105,14 @@ admit.
 +
 subst.
 (rewrite subst_var_eq in *).
+exists (TEV X').
+split.
+reflexivity.
+(induction w'; induction t'; intros Hm'; try contradiction).
+*
+(apply match_ty_union__inv in Hm').
+(destruct Hm' as [Hm'| Hm']; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:49:32.020000.*)
+(* Auto-generated comment: At 2019-09-02 07:51:02.170000.*)
 
