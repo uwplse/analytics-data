@@ -408,8 +408,8 @@ clear IHt.
 (inversion Hle; subst).
 +
 (simpl).
-auto.
+(intros v Hv).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:59:34.410000.*)
+(* Auto-generated comment: At 2019-08-13 11:59:36.170000.*)
 
