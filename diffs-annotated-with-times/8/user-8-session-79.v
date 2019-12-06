@@ -597,8 +597,7 @@ Proof.
 (intros).
 (simpl).
 (remember (\226\168\130 l2) as A).
-gen A.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:28:50.270000.*)
+(* Auto-generated comment: At 2019-08-13 17:29:28.980000.*)
 
