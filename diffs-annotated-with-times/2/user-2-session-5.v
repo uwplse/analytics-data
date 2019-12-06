@@ -61,9 +61,9 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Open Scope coucou_scope.
 Check
-  [<Nil <Nil "hi">> (Cons (Ident "1") (Ident "2")) (Ident "a")
+  [<Nil <Nil # ("hi")>> (Cons (Ident "1") (Ident "2")) (Ident "a")
   {(Ident "myfun") (Ident "somArg")}].
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-17 16:07:54.480000.*)
+(* Auto-generated comment: At 2019-08-17 16:08:59.040000.*)
 
