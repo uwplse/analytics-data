@@ -118,8 +118,8 @@ Show 4.
        assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize (H _ Hm);
         apply match_ty_i_union__inv in H; rewrite inv_depth_union; destruct H as [Hm1| Hm2]
  end).
-(apply Nat.le_trans with (| t1 |)).
+(apply Nat.le_trans with (| t'1 |)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:38:50.330000.*)
+(* Auto-generated comment: At 2019-08-12 13:39:48.500000.*)
 
