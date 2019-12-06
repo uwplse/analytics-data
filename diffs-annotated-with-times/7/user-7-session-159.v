@@ -136,12 +136,14 @@ admit.
 +
 subst.
 (rewrite subst_exist_eq in *).
-exists v.
-split.
-assumption.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
+specialize (IHw _ _ _ Hm).
+(destruct IHw as [v' [Hm' Hprop]]).
+exists v'.
+split.
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:40:26.940000.*)
+(* Auto-generated comment: At 2019-08-29 09:40:57.330000.*)
 
