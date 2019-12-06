@@ -17,5 +17,5 @@ Qed.
 Lemma free_in_type__decidable : forall (X : id) (t : ty), Decidable.decidable (free_in_type X t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:47:48.340000.*)
+(* Auto-generated comment: At 2019-09-02 08:47:54.080000.*)
 
