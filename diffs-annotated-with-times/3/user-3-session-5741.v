@@ -579,8 +579,9 @@ Proof.
 -
 reflexivity.
 -
-reflexivity.
-(* Auto-generated comment: Failed. *)
+(destruct H).
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 06:46:33.790000.*)
+(* Auto-generated comment: At 2019-09-04 06:46:48.630000.*)
 
