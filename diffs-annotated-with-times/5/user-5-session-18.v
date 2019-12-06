@@ -48,8 +48,8 @@ Fixpoint simplify (t : Term) : Term :=
   end.
 Theorem simplify_correct :
   forall (L : EpsilonLogic) (t : Term),
-  L.(isTheorem) t <-> L.(isTheorem) (simplify t).
+  isTheorem L t <-> isTheorem L (simplify t).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 10:06:51.890000.*)
+(* Auto-generated comment: At 2019-08-12 10:08:24.490000.*)
 
