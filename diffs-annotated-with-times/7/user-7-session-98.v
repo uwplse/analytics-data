@@ -91,8 +91,9 @@ Proof.
    | destruct v; contradiction ])).
 -
 (apply match_ty_exist__0_inv in Hm).
-tauto.
+auto.
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:16:52.740000.*)
+(* Auto-generated comment: At 2019-08-19 13:17:04.410000.*)
 
