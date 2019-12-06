@@ -172,9 +172,13 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma not_sem_eq__reft_t : forall (k : nat) (t : ty), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
+(induction t; intros k Hdep Hcontra).
+-
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hconttra]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:37:46.240000.*)
+(* Auto-generated comment: At 2019-08-21 07:37:53.570000.*)
 
