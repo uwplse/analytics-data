@@ -76,7 +76,24 @@ Proof.
 (intros v X k w Hm).
 (destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
 Qed.
+Lemma match_ty_ev__inv : forall (v : ty) (X : id) (k w : nat), |-[ k, w] v <$ TEV X -> v = TEV X.
+Proof.
+(intros v X k w Hm).
+(destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
+Qed.
+Theorem match_ty__value_type_l : forall (k w : nat) (v t : ty), |-[ k, w] v <$ t -> value_type v.
+Proof.
+(induction k, w; intros v t; generalize dependent v; induction t; intros v Hm;
+  try (solve
+   [ apply match_ty_cname__inv in Hm; subst; constructor
+   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
+   | apply match_ty_var__inv in Hm; subst; constructor
+   | apply match_ty_ev__inv in Hm; subst; constructor
+   | apply match_ty_exist__0_inv in Hm; auto
+   | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:56:24.020000.*)
+(* Auto-generated comment: At 2019-08-20 11:57:45.430000.*)
 
