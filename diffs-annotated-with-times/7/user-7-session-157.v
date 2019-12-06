@@ -48,8 +48,12 @@ exists v.
 Check beq_id_false_iff.
 Print "<->".
 Print "/\".
-(destruct (beq_id_false_iff X i) as [_ Hbeq]).
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+specialize (Hid n).
+(rewrite Hid in *).
+assumption.
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:06:04.030000.*)
+(* Auto-generated comment: At 2019-08-29 09:06:43.460000.*)
 
