@@ -179,8 +179,9 @@ Proof.
 (destruct Hm as [Hm| Hm]).
 (apply match_ty_exist__0_inv in Hm).
 (destruct Hm as [Hv [tx Heqx]]; subst).
-(simpl).
++
+Abort.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 11:57:18.420000.*)
+(* Auto-generated comment: At 2019-08-19 11:59:13.620000.*)
 
