@@ -441,52 +441,7 @@ assumption.
 +
 (rewrite f_subst_fvar_neq; assumption).
 Admitted.
-Lemma f_b_subst__spec_permute :
-  forall (X Y : id) (sx sy t : ty), wf_ty sx -> wf_ty sy -> [FX := sx] ([BY := sy] t) = [BY := [FX := sx] sy] ([FX := sx] t).
-Proof.
-(intros X Y sx sy t Hwfx Hwfy).
-generalize dependent t.
-(induction t; try (solve [ simpl; reflexivity ])).
--
-(repeat rewrite f_subst_pair, b_subst_pair).
-(rewrite IHt1, IHt2).
-reflexivity.
--
-(repeat rewrite f_subst_union, b_subst_union).
-(rewrite IHt1, IHt2).
-reflexivity.
--
-admit.
--
-(destruct (beq_idP Y i)).
-+
-subst.
-(rewrite b_subst_bvar_eq).
-(rewrite f_subst_bvar).
-(rewrite b_subst_bvar_eq).
-reflexivity.
-+
-(rewrite b_subst_bvar_neq; try assumption).
-(rewrite f_subst_bvar).
-(rewrite b_subst_bvar_neq; try assumption).
-reflexivity.
--
-(destruct (beq_idP X i)).
-+
-subst.
-(rewrite f_subst_fvar_eq).
-(rewrite f_subst_fvar_eq).
-symmetry.
-(apply b_subst_not_b_free_in_ty).
-(apply wf_ty__not_b_free_in_ty).
-assumption.
-+
-(rewrite f_subst_fvar_neq; try assumption).
-(repeat rewrite b_subst_fvar).
-(rewrite f_subst_fvar_neq; try assumption).
-reflexivity.
-Admitted.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:25:29.500000.*)
+(* Auto-generated comment: At 2019-09-04 10:26:39.870000.*)
 
