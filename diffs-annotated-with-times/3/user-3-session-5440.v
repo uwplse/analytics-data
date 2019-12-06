@@ -425,8 +425,7 @@ lia.
 {
 (step_proc; intuition; subst; eauto).
 +
-(exists (s ++ v); simpl; intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:18:01.350000.*)
+(* Auto-generated comment: At 2019-09-03 13:18:07.890000.*)
 
