@@ -156,8 +156,7 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 -
-(rewrite diskShrink_preserves; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 11:05:56.400000.*)
+(* Auto-generated comment: At 2019-08-16 11:08:04.410000.*)
 
