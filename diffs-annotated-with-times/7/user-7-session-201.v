@@ -183,7 +183,7 @@ exists v'.
 exists tx.
 split.
 assumption.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 09:41:14.060000.*)
+(* Auto-generated comment: At 2019-09-03 09:41:51.760000.*)
 
