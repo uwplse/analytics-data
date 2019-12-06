@@ -243,8 +243,10 @@ eexists.
 (rewrite extendEnv_eq).
 (apply evalIntConst).
 -
-(apply evalEqTrue).
+apply -> evalEqTrue.
+(rewrite evalTimes with (i := 3%Z) (j := 2%Z)).
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 09:50:02.930000.*)
+(* Auto-generated comment: At 2019-09-01 09:50:26.750000.*)
 
