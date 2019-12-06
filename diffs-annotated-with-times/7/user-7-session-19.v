@@ -501,8 +501,15 @@ auto using match_ty_i_pair.
 (apply match_ty_i_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (apply match_ty_i_union__inv in Hm2).
-(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_pair).
+(destruct Hm2; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto using match_ty_i_pair).
+-
+(destruct k).
+(destruct v; contradiction || constructor).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [tx [Heq Href]]; subst).
+(simpl).
+(intros v; split; specialize (Href v); tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:06:20.600000.*)
+(* Auto-generated comment: At 2019-08-13 13:06:44.280000.*)
 
