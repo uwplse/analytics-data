@@ -146,5 +146,5 @@ exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 constructor.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:37:30.310000.*)
+(* Auto-generated comment: At 2019-08-16 10:37:37.610000.*)
 
