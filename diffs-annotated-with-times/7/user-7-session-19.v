@@ -658,8 +658,7 @@ Proof.
 (apply sem_sub_i__trans with t1).
 (pose proof (SemSubProps.mk_nf__sem_eq t1)).
 (intros k v Hv).
-specialize (H k v Hv).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 06:44:35.250000.*)
+(* Auto-generated comment: At 2019-08-14 06:45:38.210000.*)
 
