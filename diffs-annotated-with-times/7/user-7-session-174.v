@@ -104,7 +104,21 @@ all: (try (intros; simpl; Omega.omega)).
 -
 (intros).
 (simpl).
+(rewrite rename__size).
+Omega.omega.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+tauto.
+Defined.
+Notation "'[' x ':=' s ']' t" := (subst x s t) (at level 30) : btjt_scope.
+Lemma triv : forall (X : id) (s : ty) (t1 t2 : ty), [X := s] TPair t1 t2 = TPair ([X := s] t1) ([X := s] t2).
+Proof.
+(intros X s t1 t2).
+(unfold subst).
+(unfold subst_terminate).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:27:50.180000.*)
+(* Auto-generated comment: At 2019-08-30 06:27:53.010000.*)
 
