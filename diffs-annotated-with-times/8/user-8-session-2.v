@@ -61,8 +61,17 @@ dependent destruction u.
 specialize (IHW2 lb li u).
 (destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
 (destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
-(inversion IHW2).
+(inversion IHW2; subst).
+reflexivity.
++
+(simpl).
+(destruct li as [| k li]; trivial).
+specialize (IHW2 lb li u).
+(destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
+(destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
+(inversion IHW2; subst).
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 10:14:24.740000.*)
+(* Auto-generated comment: At 2019-08-09 10:15:33.600000.*)
 
