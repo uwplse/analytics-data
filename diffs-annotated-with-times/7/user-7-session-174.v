@@ -130,9 +130,9 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
-(unfold well_founded).
-Search -well_founded.
+(unfold lt_size).
+(apply lt_wf).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:22:36.520000.*)
+(* Auto-generated comment: At 2019-08-29 15:23:08.540000.*)
 
