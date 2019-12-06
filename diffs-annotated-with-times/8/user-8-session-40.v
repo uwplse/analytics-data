@@ -170,5 +170,9 @@ Search -length -add_fresh_state.
 (erewrite length_fresh_state by reflexivity).
 (simpl).
 Abort.
+Lemma CNOT_spec :
+  forall b1 b2 safe : bool,
+  denote_box safe CNOT (bool_to_matrix b1 \226\138\151 bool_to_matrix b2) =
+  bool_to_matrix b1 \226\138\151 bool_to_matrix (b1 \226\138\149 b2).
 (* Auto-generated comment: Succeeded. *)
 
