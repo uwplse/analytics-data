@@ -144,8 +144,7 @@ eauto using log_length_ok_nil.
 (apply disk_oob_eq).
 (simpl; lia).
 }
-congruence.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:07:43.950000.*)
+(* Auto-generated comment: At 2019-09-04 12:08:06.650000.*)
 
