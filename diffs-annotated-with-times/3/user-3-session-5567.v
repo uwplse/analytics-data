@@ -173,8 +173,7 @@ step.
 {
 (descend; intuition eauto).
 {
-step.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:23:32.240000.*)
+(* Auto-generated comment: At 2019-09-03 13:23:38.370000.*)
 
