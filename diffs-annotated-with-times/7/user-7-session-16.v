@@ -401,8 +401,11 @@ contradiction.
   [ left; constructor; assumption
   | right; intros Hcontra; apply sub_r_pair__inv in Hcontra; try assumption; destruct Hcontra as [Hsub1 Hsub2]; contradiction ])).
 +
-(solve_atom_sub_r_union__decidable IHt2_1 IHt2_2).
+(solve_atom_sub_r_union__decidable IHt2_1 IHt2_2; assumption).
++
+(right; solve_not_x_sub_r_y_full).
+(apply IHHcontra; try tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:32:32.170000.*)
+(* Auto-generated comment: At 2019-08-09 11:33:37.710000.*)
 
