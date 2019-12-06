@@ -409,8 +409,7 @@ contradiction.
 (do 2 constructor; assumption).
 (apply sub_r_dec__mk_nf_sub_r_dec; assumption).
 -
-*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:35:11.290000.*)
+(* Auto-generated comment: At 2019-08-09 11:35:14.760000.*)
 
