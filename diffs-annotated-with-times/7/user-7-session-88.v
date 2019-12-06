@@ -433,8 +433,8 @@ Check left.
 Print "\/".
 (apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_l ]).
 *
-(apply Nat.le_trans with (| t'2 |); [ tauto | apply Max.le_max_r ]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; apply Nat.le_trans with (| t'1 |); [ tauto | apply Max.le_max_r ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:04:21.080000.*)
+(* Auto-generated comment: At 2019-08-18 07:04:31.510000.*)
 
