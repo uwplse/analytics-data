@@ -82,8 +82,29 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKp0FVe"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Check gets.
+Check reads.
+Instance nonError_reads  `(f : A -> T): (NonError (reads f)).
+Proof.
+(unfold NonError, not, reads; intros).
+congruence.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqbPqPYD"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqq7Bakj"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqtVIxsc"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Instance nonError_none : (NonError none).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 14:05:30.970000.*)
+(* Auto-generated comment: At 2019-08-07 14:06:23.430000.*)
 
