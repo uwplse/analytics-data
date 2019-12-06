@@ -158,8 +158,8 @@ Proof.
 (intros X Y t HXY HX).
 (simpl).
 Search -IdSet.remove.
-(apply IdSetFacts.remove_2).
+(apply IdSetFacts.remove_2; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 12:40:10.930000.*)
+(* Auto-generated comment: At 2019-09-05 12:41:46.990000.*)
 
