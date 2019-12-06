@@ -479,8 +479,9 @@ intuition.
 {
 (descend; intuition eauto).
 }
-(apply proc_spec_weaken).
-(* Auto-generated comment: Failed. *)
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:21:39.240000.*)
+(* Auto-generated comment: At 2019-09-04 12:21:47.470000.*)
 
