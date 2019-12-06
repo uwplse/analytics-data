@@ -5,6 +5,7 @@ Add Search Blacklist "Private_" "_subproof".
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
+Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.AltMatchDef.
 Require Import BetaJulia.BasicTactics.
 Require Import Coq.Lists.List.
@@ -175,7 +176,12 @@ Lemma pair_sem_sub_k_i__sub_d :
   (forall tb2 : ty, ||-[ k][ta2]<= [tb2] -> |- ta2 << tb2) -> forall t2 : ty, ||-[ k][TPair ta1 ta2]<= [t2] -> |- TPair ta1 ta2 << t2.
 Proof.
 (intros k ta1 ta2 Hat IH1 IH2).
-(* Auto-generated comment: Failed. *)
+(pose proof (atom_type__value_type _ Hat) as Hva).
+(assert (Hma : |-[ k] TPair ta1 ta2 <$ TPair ta1 ta2) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
+-
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 14:00:11.860000.*)
+(* Auto-generated comment: At 2019-08-16 14:00:51.420000.*)
 
