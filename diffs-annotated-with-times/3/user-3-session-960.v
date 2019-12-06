@@ -67,8 +67,20 @@ Class GoModel : Type :={byte : Type;
                         Ptr : Ptr.ty -> Type;
                         nullptr : forall ty, Ptr ty}.
 Search -"endian".
-Opaque Nat.modulo.
+Opaque Nat.modulo Nat.div.
+#[program]
+Fixpoint nat_to_le base (x : nat) {measure x : list {x : nat | x < S base} :=
+  match x with
+  | 0 => nil
+  | _ => exist _ (x mod S base) _ :: nat_to_le base (x / S base)
+  end.
+Next Obligation.
+Proof.
+(intros).
+(simpl).
+Search -Nat.modulo -"<".
+(apply PeanoNat.Nat.mod_upper_bound).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:33:40.950000.*)
+(* Auto-generated comment: At 2019-08-16 05:33:55.870000.*)
 
