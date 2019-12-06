@@ -93,8 +93,8 @@ specialize (IHw' _ Hm').
 specialize (IHw'b H).
 (split; intros HX').
 {
-exists ti.
+(appy match_ty_exist).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 12:32:41.800000.*)
+(* Auto-generated comment: At 2019-09-02 12:33:10.730000.*)
 
