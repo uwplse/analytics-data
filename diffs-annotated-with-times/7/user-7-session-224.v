@@ -122,8 +122,7 @@ subst.
 (simpl in HX').
 exfalso.
 (apply HX').
-(apply IdSetFacts.singleton_2).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:23:46.370000.*)
+(* Auto-generated comment: At 2019-09-05 13:23:54.950000.*)
 
