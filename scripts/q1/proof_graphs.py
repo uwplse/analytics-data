@@ -78,6 +78,8 @@ def main():
                             for attempt in node.children[:-1]:
                                 if attempt.command.strip() == solution.strip():
                                     continue
+                                if re.fullmatch("\s*[*+-{}]\s*", attempt.command):
+                                    continue
                                 period_match = \
                                     re.match("(.*)\.", attempt.command, re.DOTALL)
                                 attempt_minus_period = period_match.group(1) if period_match else attempt.command
@@ -307,7 +309,9 @@ def sanitizeTactic(tac):
 def escape_as_re(s):
     return s.replace("+", "\\+")\
         .replace("(", "\(")\
-        .replace(")", "\)")
+        .replace(")", "\)")\
+        .replace("[", "\[")\
+        .replace("]", "\]")
 
 def shouldFilterCommand(cmd):
     return any([re.match(pat, getAddBody(cmd), re.DOTALL)
