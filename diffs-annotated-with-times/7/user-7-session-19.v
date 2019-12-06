@@ -106,8 +106,9 @@ Lemma value_sem_sub_k_union__value_sem_sub_k_component :
 Proof.
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem).
 6: {
-idtac Abort.
+idtac.
+(unfold sem_sub_i_k).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:52:31.710000.*)
+(* Auto-generated comment: At 2019-08-12 13:52:45.500000.*)
 
