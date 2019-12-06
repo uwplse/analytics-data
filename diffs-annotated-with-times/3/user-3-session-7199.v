@@ -122,5 +122,5 @@ Proof.
 (unfold log_length_ok; intros).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:06:32.600000.*)
+(* Auto-generated comment: At 2019-09-04 12:06:49.700000.*)
 
