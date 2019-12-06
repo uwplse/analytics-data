@@ -61,8 +61,10 @@ Proof.
 (constructor; assumption).
 +
 (intros Hnf2; intros Hnf2'; intros Hsub1 Hsub2).
-(destruct (unite_pairs_union_t t1 t0 t2')).
+Check unite_pairs_union_t.
+(rewrite (unite_pairs_union_t t1 t0 t2')).
+(apply sub_r_nf_union_l__inv in Hsub1; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:52:51.560000.*)
+(* Auto-generated comment: At 2019-08-06 12:53:40.110000.*)
 
