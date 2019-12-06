@@ -201,8 +201,7 @@ Proof.
      end ])).
 -
 (destruct (match_ty_i_exists t1 0) as [v1 Hm1]; destruct (match_ty_i_exists t2 0) as [v2 Hm2]).
-(assert (Hmp : |-[ 0] TPair v1 v2 <$ TPair t1 t2) by (apply match_ty_i_pair; assumption)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:29:02.180000.*)
+(* Auto-generated comment: At 2019-08-13 07:29:36.070000.*)
 
