@@ -327,7 +327,7 @@ End GoModel.
 End Data.
 Arguments Data.newPtr {model} {Op'} {i} T {GoZero}.
 Arguments Data.newSlice {model} {Op'} {i} T {GoZero} len.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 08:04:22.060000.*)
+(* Auto-generated comment: At 2019-08-16 08:04:22.180000.*)
 
