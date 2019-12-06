@@ -77,19 +77,10 @@ Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_t
 Proof.
 (solve_not_free_union not_f_free_in_ty).
 Qed.
-Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TPair t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
-Proof.
-(solve_not_free_union not_b_free_in_ty).
-Qed.
 Lemma not_f_free_in_ty_union__inv :
   forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TUnion t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
 Proof.
 (solve_not_free_union not_f_free_in_ty).
-Qed.
-Lemma not_b_free_in_ty_union__inv :
-  forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TUnion t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
-Proof.
-(solve_not_free_union not_b_free_in_ty).
 Qed.
 Lemma not_f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), not_f_free_in_ty X (TExist Y t) -> not_f_free_in_ty X t.
 Proof.
@@ -98,12 +89,14 @@ Proof.
 (simpl in HX).
 contradiction.
 Qed.
-Lemma f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), f_free_in_ty X (TExist Y t) -> f_free_in_ty X t.
+Lemma not_b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TPair t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
 Proof.
-(unfold f_free_in_ty, free).
-(intros X Y t HX).
-(simpl in HX).
-assumption.
+(solve_not_free_union not_b_free_in_ty).
+Qed.
+Lemma not_b_free_in_ty_union__inv :
+  forall (X : id) (t1 t2 : ty), not_b_free_in_ty X (TUnion t1 t2) -> not_b_free_in_ty X t1 /\ not_b_free_in_ty X t2.
+Proof.
+(solve_not_free_union not_b_free_in_ty).
 Qed.
 Lemma f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TPair t1 t2) -> f_free_in_ty X t1 \/ f_free_in_ty X t2.
 Proof.
@@ -113,13 +106,12 @@ Lemma f_free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), f_free_in_ty X (TU
 Proof.
 (solve_free_union_inv f_free_in_ty).
 Qed.
-Lemma f_free_in_ty_pair : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_free_in_ty X t2 -> f_free_in_ty X (TPair t1 t2).
+Lemma f_free_in_ty_exist__inv : forall (X Y : id) (t : ty), f_free_in_ty X (TExist Y t) -> f_free_in_ty X t.
 Proof.
-(solve_free_union f_free_in_ty).
-Qed.
-Lemma f_free_in_ty_union : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_free_in_ty X t2 -> f_free_in_ty X (TUnion t1 t2).
-Proof.
-(solve_free_union f_free_in_ty).
+(unfold f_free_in_ty, free).
+(intros X Y t HX).
+(simpl in HX).
+assumption.
 Qed.
 Lemma b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), b_free_in_ty X (TPair t1 t2) -> b_free_in_ty X t1 \/ b_free_in_ty X t2.
 Proof.
@@ -129,13 +121,13 @@ Lemma b_free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), b_free_in_ty X (TU
 Proof.
 (solve_free_union_inv b_free_in_ty).
 Qed.
-Lemma b_free_in_ty_pair : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TPair t1 t2).
+Lemma f_free_in_ty_pair : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_free_in_ty X t2 -> f_free_in_ty X (TPair t1 t2).
 Proof.
-(solve_free_union b_free_in_ty).
+(solve_free_union f_free_in_ty).
 Qed.
-Lemma b_free_in_ty_union : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TUnion t1 t2).
+Lemma f_free_in_ty_union : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_free_in_ty X t2 -> f_free_in_ty X (TUnion t1 t2).
 Proof.
-(solve_free_union b_free_in_ty).
+(solve_free_union f_free_in_ty).
 Qed.
 Lemma f_free_in_ty_exist : forall (X Y : id) (t : ty), f_free_in_ty X t -> f_free_in_ty X (TExist Y t).
 Proof.
@@ -143,6 +135,14 @@ Proof.
 (intros X Y t HX).
 (simpl).
 assumption.
+Qed.
+Lemma b_free_in_ty_pair : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TPair t1 t2).
+Proof.
+(solve_free_union b_free_in_ty).
+Qed.
+Lemma b_free_in_ty_union : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TUnion t1 t2).
+Proof.
+(solve_free_union b_free_in_ty).
 Qed.
 Lemma b_free_in_ty_exist_neq__inv : forall (X Y : id) (t : ty), X <> Y -> b_free_in_ty X (TExist Y t) -> b_free_in_ty X t.
 Proof.
@@ -356,7 +356,6 @@ assumption.
 subst.
 (unfold b_free_in_ty, free in HX).
 (simpl in HX).
-Search -IdSet.remove.
 (apply IdSetFacts.remove_1 in HX).
 contradiction.
 reflexivity.
@@ -364,5 +363,5 @@ reflexivity.
 (apply b_free_in_ty_exist_neq__inv in HX; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 12:37:43.280000.*)
+(* Auto-generated comment: At 2019-09-05 12:40:03.430000.*)
 
