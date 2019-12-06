@@ -85,8 +85,8 @@ Proof.
 (repeat rewrite subst_pair).
 (rewrite IHt1, IHt2).
 reflexivity.
--
-(* Auto-generated comment: Succeeded. *)
+assumption.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 11:59:29.080000.*)
+(* Auto-generated comment: At 2019-08-29 11:59:39.480000.*)
 
