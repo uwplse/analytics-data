@@ -279,8 +279,8 @@ typeclasses eauto.
 (destruct (nat_eq_dec n n0); subst).
 left.
 Search -(existT _ _ = existT _ _).
-(apply subsetT_eq_compat).
-(* Auto-generated comment: Failed. *)
+Check subsetT_eq_compat.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:06:28.480000.*)
+(* Auto-generated comment: At 2019-08-16 07:06:35.710000.*)
 
