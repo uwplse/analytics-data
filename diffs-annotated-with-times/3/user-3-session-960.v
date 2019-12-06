@@ -246,8 +246,7 @@ econstructor.
 -
 constructor.
 admit.
-admit.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:31:24.780000.*)
+(* Auto-generated comment: At 2019-08-16 07:31:26.360000.*)
 
