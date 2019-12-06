@@ -43,14 +43,44 @@ reflexivity.
 *
 subst.
 (repeat rewrite subst_exist_eq).
-Search -IdSet.mem.
-Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
 (pose proof (IdSetFacts.mem_1 Hin) as Hmem).
 (rewrite (subst_exist_neq _ _ _ _ HY)).
 (rewrite subst_exist_eq).
+Abort.
+Lemma build_v_full :
+  forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
+  |-[ w] v <$ [X := tx] t ->
+  exists v' : ty, |-[ w] v' <$ [X := TVar X'] t /\ (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> |-[ w'] v <$ [X' := tx] t').
+Proof.
+(intros X X').
+(induction w; induction t; intros v tx Hm).
+-
+exists v.
+split.
+assumption.
+(apply match_ty_cname__inv in Hm; subst).
+(induction w'; induction t'; intros Hm; try assumption || contradiction).
++
+(rewrite subst_union).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(rewrite subst_union).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(destruct (beq_idP X' i) as [Hbeq| Hbeq]).
+*
+subst.
+(rewrite subst_exist_eq).
+assumption.
+*
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [ti Hm]).
+(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:57:15.530000.*)
+(* Auto-generated comment: At 2019-09-02 06:58:17.830000.*)
 
