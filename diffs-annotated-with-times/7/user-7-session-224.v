@@ -25,8 +25,9 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hwftx HX Hm).
 -
-(rewrite b_subst_cname in *).
+(unfold b_free_in_ty, free in HX).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:09:53.490000.*)
+(* Auto-generated comment: At 2019-09-05 13:10:29.450000.*)
 
