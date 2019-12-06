@@ -456,8 +456,8 @@ Proof.
 (unfold log_size_ok in *; autorewrite with upd list in *).
 lia.
 -
-eauto.
+Search -log_contents_ok.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:52:51.970000.*)
+(* Auto-generated comment: At 2019-09-04 12:53:21.870000.*)
 
