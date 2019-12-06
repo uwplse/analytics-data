@@ -116,8 +116,26 @@ Inductive sub_d : ty -> ty -> Prop :=
   | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
   | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
   | SD_ExistL : forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> |- [X := TVar X'] t << t' -> |- TExist X t << t'
+  | SD_ExistR : forall (X : id) (t t' : ty), (exists tx : ty, |- t << [X := tx] t') -> |- t << TExist X t'
  where "|- t1 '<<' t2" := (sub_d t1 t2) : btjd_scope.
-(* Auto-generated comment: Failed. *)
+Hint Constructors sub_d: DBBetaJulia.
+Lemma union_right_1 : forall t t1 t2 : ty, |- t << t1 -> |- t << TUnion t1 t2.
+Proof.
+(intros t t1 t2 H).
+(eapply SD_Trans).
+eassumption.
+constructor.
+Qed.
+Lemma union_right_2 : forall t t1 t2 : ty, |- t << t2 -> |- t << TUnion t1 t2.
+Proof.
+(intros t t1 t2 H).
+(eapply SD_Trans).
+eassumption.
+constructor.
+Qed.
+Hint Resolve union_right_1 union_right_2: DBBetaJulia.
+Ltac solve_trans := eapply SD_Trans; eassumption.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-26 07:42:06.490000.*)
+(* Auto-generated comment: At 2019-08-26 07:43:13.990000.*)
 
