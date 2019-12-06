@@ -937,8 +937,23 @@ restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
 (rewrite id_circ_spec).
 (rewrite init_spec).
-restore_dims.
-(* Auto-generated comment: Failed. *)
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+reflexivity.
+-
+(intros n l1 l2 A B L1 L2 M1 M2 Lt).
+(destruct n; [ omega |  ]).
+(destruct l1; inversion L1).
+(simpl).
+show_dimensions.
+(repeat rewrite app_length).
+(simpl).
+replace (length l1 + length l2) with n by omega.
+(rewrite H0, L2).
+(simpl).
+hide_dimensions.
+rewrite_inPar.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:22:42.700000.*)
+(* Auto-generated comment: At 2019-08-14 15:23:44.480000.*)
 
