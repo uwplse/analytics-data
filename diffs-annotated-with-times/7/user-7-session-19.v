@@ -394,8 +394,8 @@ Proof.
 specialize (H v).
 tauto.
 Qed.
-Search -sem_sub_nf.
+Search -sem_eq_nf.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 06:39:51.060000.*)
+(* Auto-generated comment: At 2019-08-14 06:40:31.330000.*)
 
