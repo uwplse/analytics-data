@@ -127,8 +127,13 @@ exfalso.
 intuition.
 +
 (exists (n0 :: s); intuition).
-(right; intuition congruence).
+(right; intuition).
+{
+congruence.
+}
+(simpl).
+(unfold statdb_abstraction in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:44:17.120000.*)
+(* Auto-generated comment: At 2019-09-06 05:44:23.250000.*)
 
