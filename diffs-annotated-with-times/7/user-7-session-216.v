@@ -418,8 +418,11 @@ Search -IdSet.In.
 admit.
 admit.
 -
+(destruct (beq_idP X i)).
++
+subst.
 (simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:05:48.750000.*)
+(* Auto-generated comment: At 2019-09-04 10:06:29.810000.*)
 
