@@ -426,8 +426,9 @@ specialize (IHt'1 Hnft).
 specialize (IHt'2 Hnft).
 (destruct Hdep as [Hdept| Hdept']).
 +
-(destruct IHt'1).
+(destruct IHt'1 as [IHt'1| IHt'1]).
+specialize (IHt'1 (left Hdept)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 06:58:57.580000.*)
+(* Auto-generated comment: At 2019-08-18 06:59:06.990000.*)
 
