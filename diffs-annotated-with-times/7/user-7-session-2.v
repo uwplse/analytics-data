@@ -135,8 +135,8 @@ Proof.
 +
 (intros; split; constructor).
 +
-(intros).
+(intros; split).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 11:38:15.340000.*)
+(* Auto-generated comment: At 2019-08-07 11:42:57.810000.*)
 
