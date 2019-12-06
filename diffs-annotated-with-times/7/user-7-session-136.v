@@ -14,8 +14,8 @@ Open Scope btjm.
 Lemma sem_sub__sem_eq : forall t t' : ty, ||- [t]<= [t'] -> ||- [t']<= [t] -> ||- [t]= [t'].
 Proof.
 (intros t t' Hsem1 Hsem2 k).
-(simpl).
+(unfold sem_eq_k).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:31:12.920000.*)
+(* Auto-generated comment: At 2019-08-27 08:31:33.610000.*)
 
