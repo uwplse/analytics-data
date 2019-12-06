@@ -140,12 +140,12 @@ assumption.
 (apply le_S_n; assumption).
 Qed.
 Lemma match_ty__subst_neq_permute :
-  forall (X Y : id) (sx sy : ty) (w : nat) (v t : ty), X <> Y -> |-[ w] v <$ [Y := sy] ([X := sx] t) <-> |-[ w] v <$ [X := sx] ([Y := sy] t).
+  forall (X Y : id) (sx sy : ty) (w : nat) (t v : ty), X <> Y -> |-[ w] v <$ [Y := sy] ([X := sx] t) <-> |-[ w] v <$ [X := sx] ([Y := sy] t).
 Proof.
 (intros X Y sx sy w).
-(induction w; intros v t HXY; generalize dependent t; induction t; try (solve [ split; intros Hm; assumption ])).
+(induction w; intros t HXY; generalize dependent t; induction t; intros v; try (solve [ split; intros Hm; assumption ])).
 (split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:12:26.260000.*)
+(* Auto-generated comment: At 2019-08-30 07:13:02.890000.*)
 
