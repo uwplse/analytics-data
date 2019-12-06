@@ -951,7 +951,7 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Lemma assert_init_at_id :
-  forall b m i, i < S m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
+  forall b m i, i <= m -> assert_at b m i \194\183 init_at b m i \226\137\161 id_circ.
 Proof.
 (intros b m i Lt \207\129 safe).
 (simpl).
@@ -968,7 +968,10 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 (intros \207\129).
 remember_differences.
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
+(repeat rewrite Mmult_assoc).
+restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:26:15.690000.*)
+(* Auto-generated comment: At 2019-08-13 11:26:27.360000.*)
 
