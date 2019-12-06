@@ -76,8 +76,17 @@ Proof.
 (intros X t; induction t; simpl; try reflexivity).
 -
 (rewrite subst_pair).
-(rwrite IHt1).
-(* Auto-generated comment: Succeeded. *)
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(rewrite subst_union).
+(rewrite IHt1).
+(rewrite IHt2).
+reflexivity.
+-
+(rewrite subst_exist).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:40:17.640000.*)
+(* Auto-generated comment: At 2019-08-30 06:40:38.120000.*)
 
