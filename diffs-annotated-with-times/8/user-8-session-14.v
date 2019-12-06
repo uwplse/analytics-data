@@ -1492,7 +1492,8 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
-Please report at http://coq.inria.fr/bugs/.
+Timeout 1 About qubit.
+Timeout 1 Print qubit.
+Timeout 1 Print Ltac qubit.
 (* Auto-generated comment: Failed. *)
 
