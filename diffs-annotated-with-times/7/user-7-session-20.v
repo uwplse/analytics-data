@@ -24,8 +24,8 @@ Qed.
 Lemma in_nf_union__inv : forall t1 t2 : ty, InNF( TUnion t1 t2) -> InNF( t1) /\ InNF( t2).
 Proof.
 (intros t1 t2 Hnf).
-(inversion Hnf; subst).
+(inversion Hnf; subst; inversion H; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:08:25.830000.*)
+(* Auto-generated comment: At 2019-08-13 08:08:31.340000.*)
 
