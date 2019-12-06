@@ -127,8 +127,24 @@ eauto.
 (step_proc_basic; intros).
 (exists tt; simpl; intuition idtac).
 (step_proc_basic; intros).
+{
+eauto.
+}
+(simpl in *; intuition subst).
+2: (autounfold in *; intuition).
+(unfold statdb_abstraction in *).
+(destruct s; intuition).
+(eexists; intuition auto).
+(right; intuition congruence).
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_crash.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc_basic; intros).
 eauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:09:24.050000.*)
+(* Auto-generated comment: At 2019-09-03 11:09:33.300000.*)
 
