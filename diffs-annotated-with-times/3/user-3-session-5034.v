@@ -247,8 +247,8 @@ Proof.
 (exists 0; simpl).
 reflexivity.
 -
-(step_proc; intuition).
+(step_proc; intuition; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 10:59:20.920000.*)
+(* Auto-generated comment: At 2019-09-03 10:59:23.950000.*)
 
