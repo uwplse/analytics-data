@@ -53,13 +53,8 @@ Search -IdSet.In.
 (pose proof IdSetFacts.In_m as Hfact).
 (destruct (IdSetFacts.empty_iff X) as [H _]).
 (apply H).
-auto.
-Search -Morphisms.respectful.
-Print iff.
-Print Morphisms.respectful.
-Search -IdSet.Equal.
-Print Morphisms.Proper.
+(apply hfact).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:30:39.540000.*)
+(* Auto-generated comment: At 2019-09-04 08:30:46.560000.*)
 
