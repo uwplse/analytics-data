@@ -423,17 +423,20 @@ Proof.
 (intros n m p).
 (rewrite plus_assoc).
 replace (n + m) with m + n.
+{
 (rewrite plus_assoc).
 reflexivity.
+}
 (rewrite plus_comm).
 reflexivity.
 Add Search Blacklist "Raw" "Proofs".
 Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqhJgA5"
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqC5FCC3"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:26:48.820000.*)
+(* Auto-generated comment: At 2019-09-04 07:27:23.840000.*)
 
