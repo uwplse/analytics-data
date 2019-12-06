@@ -200,8 +200,7 @@ Proof.
 (step_proc; intros).
 (destruct a'; simpl in *; intuition idtac).
 {
-(destruct (a == r)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:03:17.970000.*)
+(* Auto-generated comment: At 2019-09-03 11:03:18.460000.*)
 
