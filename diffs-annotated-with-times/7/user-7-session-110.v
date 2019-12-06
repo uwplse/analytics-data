@@ -190,7 +190,11 @@ generalize dependent v0.
 (destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
 (inversion Heq; subst).
 auto using match_ty_pair.
++
+(apply match_ty_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 08:03:05.440000.*)
+(* Auto-generated comment: At 2019-08-26 08:03:33.950000.*)
 
