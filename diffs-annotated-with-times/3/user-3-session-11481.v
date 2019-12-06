@@ -42,8 +42,8 @@ Theorem incX_test :
      recovered := fun _ state' => False |}) incX vars.recover vars.abstr.
 Proof.
 (unfold incX).
-step_proc.
+step_proc_basic.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-09 13:40:02.020000.*)
+(* Auto-generated comment: At 2019-09-09 13:40:06.620000.*)
 
