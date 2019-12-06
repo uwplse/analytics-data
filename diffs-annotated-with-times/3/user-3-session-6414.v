@@ -83,8 +83,7 @@ Admitted.
 Axiom
   (append_ok : forall v, proc_spec (append_spec v) (append v) recover abstr).
 Proof.
-Admitted.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 09:58:56.770000.*)
+(* Auto-generated comment: At 2019-09-04 09:59:00.730000.*)
 
