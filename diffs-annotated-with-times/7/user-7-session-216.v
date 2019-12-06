@@ -378,7 +378,13 @@ Proof.
 (apply union_empty__inv).
 assumption.
 Qed.
+Lemma wf_ty__wf_ty_f_subst : forall (X : id) (s t : ty), wf_ty s -> wf_ty t -> wf_ty ([FX := s] t).
+Proof.
+(intros X s t Hwfs).
+generalize dependent t.
+(induction t; intros Hwft; try (solve [ simpl; assumption ])).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:52:19.480000.*)
+(* Auto-generated comment: At 2019-09-04 09:52:40.130000.*)
 
