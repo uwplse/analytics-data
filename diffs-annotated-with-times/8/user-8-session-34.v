@@ -28,8 +28,7 @@ Fact denote_compose :
 Proof.
 (intros safe w c \206\147 TP).
 dependent induction TP.
--
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-10 12:25:00.320000.*)
+(* Auto-generated comment: At 2019-08-10 12:25:17.580000.*)
 
