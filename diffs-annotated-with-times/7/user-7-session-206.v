@@ -127,9 +127,10 @@ Proof.
 (rewrite b_subst_exist_neq; try assumption).
 (rewrite IHt).
 reflexivity.
-(unfold not_b_free_in_ty in *).
+(unfold not_b_free_in_ty, not_free in *).
 (simpl in HX).
+(intros Hcontra admit).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:14:34.570000.*)
+(* Auto-generated comment: At 2019-09-04 08:14:43.390000.*)
 
