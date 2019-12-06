@@ -364,9 +364,13 @@ Qed.
 Hint Resolve get_upto_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
-(unfold get; intros).
+(unfold get, get_spec; intros).
 step_proc.
-(* Auto-generated comment: Succeeded. *)
+(eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
+(rewrite firstn_length).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:15:46.800000.*)
+(* Auto-generated comment: At 2019-09-04 11:15:56.170000.*)
 
