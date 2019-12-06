@@ -70,7 +70,8 @@ Proof.
   try match goal with
       | Hm:|-[ ?k'] ?v <$ TCName _ |- _ => apply match_ty_i_cname__inv in Hm; subst; constructor
       end).
+(destruct (max_inv_depth_le__components_le _ _ Htk) as [Htk1 Htk2]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:21:57.100000.*)
+(* Auto-generated comment: At 2019-08-12 11:22:15.070000.*)
 
