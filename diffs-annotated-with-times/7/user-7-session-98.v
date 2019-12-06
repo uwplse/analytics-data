@@ -128,8 +128,9 @@ Proof.
 (intros k; destruct k; intros v Hm).
 -
 (apply match_ty_exist__0_inv in Hm).
-(destruct Hm as [Hv [tx Heqx]]).
+(destruct Hm as [Hv [tx Heqx]]; subst).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:52:11.660000.*)
+(* Auto-generated comment: At 2019-08-19 09:55:14.250000.*)
 
