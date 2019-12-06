@@ -116,9 +116,14 @@ contradiction.
 *
 (simpl in Hm').
 subst.
-split.
+(split; intros HX').
 {
-(* Auto-generated comment: Failed. *)
+(unfold not_f_free_in_ty, not_free in HX').
+(simpl in HX').
+exfalso.
+(apply HX').
+(apply IdSetFacts.singleton_2).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 13:23:17.030000.*)
+(* Auto-generated comment: At 2019-09-05 13:23:46.370000.*)
 
