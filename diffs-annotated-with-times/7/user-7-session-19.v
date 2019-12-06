@@ -72,9 +72,8 @@ Proof.
 -
 (apply match_ty_i_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_i_pair).
-auto.
+(apply match_ty_i_pair; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:38:26.390000.*)
+(* Auto-generated comment: At 2019-08-12 09:39:10.970000.*)
 
