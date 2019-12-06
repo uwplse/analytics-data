@@ -163,8 +163,8 @@ Theorem regex_match_is_explicit :
   regex_match r s <-> regex_match_length r s (String.length s).
 Proof.
 split.
-(induction 1).
+(induction 1; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-09 12:10:10.320000.*)
+(* Auto-generated comment: At 2019-09-09 12:52:02.400000.*)
 
