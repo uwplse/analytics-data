@@ -923,8 +923,11 @@ restore_dims
 2: {
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
-(rewrite <- (kron_1_l (\226\168\130 l2))).
+(rewrite (kron_1_l_inv (\226\168\130 l2))).
+reflexivity.
+}
+rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:28:00.070000.*)
+(* Auto-generated comment: At 2019-08-14 14:28:12.420000.*)
 
