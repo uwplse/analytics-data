@@ -589,44 +589,10 @@ constructor.
 (intros i).
 (apply (H (S i))).
 Qed.
-Goal _ forall m n (A B : Matrix m n), A == B -> I 1 \226\138\151 A \226\138\151 I 1 == I 1 \226\138\151 B \226\138\151 I 1.
+Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
 Proof.
 (intros).
-(rewrite kron_1_l).
-(rewrite kron_1_l).
-Msimpl.
-restore_dims.
-(apply H).
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq0uS6IR"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Lemma morphism_test :
-  forall {m} {n} (A : Matrix m n),
-  Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv A).
-Proof.
-(intros).
-(unfold Morphisms.Proper).
-(unfold Morphisms.respectful).
-(unfold flip).
-(unfold impl).
-(intros).
-(rewrite H0).
-(rewrite H).
-reflexivity.
-Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqkU0iNP"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Lemma big_kron_append :
-  forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
-Proof.
-(induction l1).
--
-(intros).
-(simpl).
-specialize (kron_1_l (\226\168\130 l2)) as KL.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 18:25:53.230000.*)
+(* Auto-generated comment: At 2019-08-13 18:25:55.790000.*)
 
