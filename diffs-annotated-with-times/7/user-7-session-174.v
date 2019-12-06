@@ -131,8 +131,10 @@ Omega.omega.
 Omega.omega.
 -
 (unfold lt_size).
-(apply lt_wf).
+Check lt_wf.
+Print lt_wf.
+(pose proof lt_wf).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:23:08.540000.*)
+(* Auto-generated comment: At 2019-08-29 15:23:27.750000.*)
 
