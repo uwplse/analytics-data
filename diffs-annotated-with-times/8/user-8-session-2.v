@@ -135,9 +135,8 @@ Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
 (rewrite <- ctrls_to_list_transpose_fst).
 (destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
-(simpl).
 (rewrite <- ctrl_list_to_unitary_transpose).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:29:16.500000.*)
+(* Auto-generated comment: At 2019-08-09 12:30:00.720000.*)
 
