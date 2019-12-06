@@ -26,8 +26,11 @@ Proof.
 (induction w; induction t; intros v Hwftx HX Hm).
 -
 (unfold b_free_in_ty, free in HX).
-(simpl).
+(simpl in HX).
+Search -IdSet.empty.
+(rewrite IdSetFacts.empty_iff in HX).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:10:29.450000.*)
+(* Auto-generated comment: At 2019-09-05 13:10:58.530000.*)
 
