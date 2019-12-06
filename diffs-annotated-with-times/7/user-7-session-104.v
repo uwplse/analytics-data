@@ -110,8 +110,7 @@ specialize (Hsem1 1).
 (destruct Hsem1 as [w2 Hsem1]).
 (assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hsem1 _ Hm).
-(destruct k, w2, t; try (solve [ simpl in Hsem1; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:24:35.340000.*)
+(* Auto-generated comment: At 2019-08-20 13:25:50.320000.*)
 
