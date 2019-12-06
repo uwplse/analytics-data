@@ -92,8 +92,7 @@ assumption.
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as Z).
 exists ([X' := tx] ti).
 specialize (IHw' _ Hm).
--
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:19:00.850000.*)
+(* Auto-generated comment: At 2019-09-02 07:20:45.950000.*)
 
