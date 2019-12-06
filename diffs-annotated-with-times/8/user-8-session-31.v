@@ -2763,53 +2763,5 @@ replace (size_ctx \206\147) with size_octx \206\147 by easy.
 (unfold denote_circuit in IH).
 (unfold process_gate_state).
 (simpl).
-(rewrite Nat.add_sub).
-(rewrite <- size_octx_merge by easy).
-(rewrite <- pf_merge in *).
-(simpl).
-(eapply (IH p1); trivial).
-(eapply t0).
-split.
-easy.
-(apply pf_merge).
-easy.
-*
-(rewrite Nat.add_sub).
-(apply apply_U_correct).
-(rewrite size_wtype_length).
-reflexivity.
-(unfold subst_pat).
-replace (size_wtype W) with \226\159\166 W \226\159\167 by easy.
-(rewrite <- size_octx_merge by easy).
-(intros x IN).
-(apply Nat.lt_lt_add_l).
-(rewrite <- pf_merge in *).
-(destruct \206\1471 as [| \206\1471], \206\1472 as [| \206\1472]; try invalid_contradiction).
-(eapply pat_to_list_bounded).
-split.
-assumption.
-(apply pf_merge).
-(apply t).
-(apply IN).
-+
-(simpl).
-(destruct pf1).
-(rewrite pf_merge in *).
-(rewrite Nat.add_sub).
-(apply compose_super_correct).
-*
-(eapply IH).
-(apply STAT).
-(eapply t0).
-split.
-(rewrite pf_merge).
-(apply pf_valid).
-(apply pf_merge).
-easy.
-*
-replace (size_ctx \206\147) with size_octx \206\147 by easy.
-(rewrite pf_merge).
-(rewrite size_octx_merge by easy).
-dependent destruction p1.
 (* Auto-generated comment: Succeeded. *)
 
