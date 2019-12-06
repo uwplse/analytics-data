@@ -357,8 +357,12 @@ subst.
 (unfold b_free_in_ty, free in HX).
 (simpl in HX).
 Search -IdSet.remove.
-exfalso.
+(apply IdSetFacts.remove_1 in HX).
+contradiction.
+reflexivity.
+*
+(apply b_free_in_ty_exist_neq__inv in HX).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 14:04:44.720000.*)
+(* Auto-generated comment: At 2019-09-04 14:05:15.600000.*)
 
