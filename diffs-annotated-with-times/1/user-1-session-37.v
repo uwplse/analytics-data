@@ -285,8 +285,10 @@ Qed.
 End AGT_Spec.
 Module AGT_Bounded_Rows_Details.
 Inductive ST : Type :=
-    SInt : ST.
+  | SInt : ST
+  | SBool : ST
+  | SFun : ST -> ST -> ST.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 22:32:41.260000.*)
+(* Auto-generated comment: At 2019-09-04 22:32:43.610000.*)
 
