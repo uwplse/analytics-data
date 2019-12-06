@@ -138,8 +138,12 @@ subst.
 (simpl in HX).
 Search -IdSet.remove.
 exfalso.
-(apply IdSetFacts.remove_1).
+(apply IdSetFacts.remove_1 in HX).
+assumption.
+reflexivity.
++
+(rewrite b_subst_exist_neq in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 13:48:31.350000.*)
+(* Auto-generated comment: At 2019-09-04 13:50:02.310000.*)
 
