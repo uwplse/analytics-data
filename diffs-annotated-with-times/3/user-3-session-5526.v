@@ -200,8 +200,30 @@ invert_abstraction.
 replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
 (exists s; repeat split; auto).
 (destruct (stateBadBlock state == diskSize s)).
-*
-(* Auto-generated comment: Succeeded. *)
++
+(rewrite disk_oob_eq by lia; simpl; auto).
++
+(rewrite <- Hremap by eauto; auto).
+}
+{
+(eexists; eauto).
+}
+-
+invert_abstraction.
+(step_proc; intuition idtac).
+{
+(subst; eexists; eauto).
+}
+(step_proc; intuition idtac).
+{
+(exists s; split; eauto).
+(destruct (a == diskSize s); subst).
++
+(rewrite disk_oob_eq by lia; simpl; auto).
++
+(rewrite <- Hgoodsec; auto).
++
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 13:22:41.070000.*)
+(* Auto-generated comment: At 2019-09-03 13:22:45.470000.*)
 
