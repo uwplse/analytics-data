@@ -92,8 +92,8 @@ Lemma sem_sub_pair__inv : forall t1 t2 t1' t2' : ty, ||- [TPair t1 t2]<= [TPair 
 Proof.
 (intros t1 t2 t1' t2' Hsem).
 (unfold sem_sub in Hsem).
-(destruct (value_type_matching_ty__exists t1) as [pv1 [Hpval1 Hpv1]]).
-(* Auto-generated comment: Failed. *)
+(destruct (value_type_matching_ty__exists t1) as [pv1 Hpv1]).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:37:03.290000.*)
+(* Auto-generated comment: At 2019-08-16 13:37:18.910000.*)
 
