@@ -13,13 +13,15 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Lemma build_v_full :
-  forall (X X' : id) (w : nat) (t v : ty) (tx : ty),
+  forall (X X' : id) (tx : ty) (w : nat) (t v : ty),
   |-[ w] v <$ [X := tx] t ->
   exists v' : ty,
     |-[ w] v' <$ [X := TVar X'] t /\
     (forall (w' : nat) (t' : ty), |-[ w'] v' <$ t' -> (fresh_in_ty X' t' -> |-[ w'] v <$ t') /\ (free_in_ty X' t' -> |-[ w'] v <$ [X' := tx] t')).
 Proof.
+(intros X X' tx).
+(induction w; induction t; intros v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:17:08.050000.*)
+(* Auto-generated comment: At 2019-09-02 08:20:05.030000.*)
 
