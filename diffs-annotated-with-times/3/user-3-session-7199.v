@@ -286,8 +286,9 @@ Theorem log_contents_ok_unchanged d bs a0 b :
   a0 >= length bs -> log_contents_ok (diskUpd d (log_addr a0) b) bs.
 Proof.
 (unfold log_size_ok, log_contents_ok; intros).
-(destruct (log_addr a == a0); subst; autorewrite with upd; auto).
-(* Auto-generated comment: Succeeded. *)
+(destruct (a == a0); subst; autorewrite with upd; auto).
+(rewrite diskUpd_oob_eq; simpl; auto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:56:12.540000.*)
+(* Auto-generated comment: At 2019-09-04 11:56:17.600000.*)
 
