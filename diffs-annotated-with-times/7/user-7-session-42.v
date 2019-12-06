@@ -19,7 +19,15 @@ Lemma sub_d__inv_depth_le : forall t t' : ty, |- t << t' -> | t | <= | t' |.
 Proof.
 (intros t t' Hsub).
 (induction Hsub).
+-
+constructor.
+-
+(apply Nat.le_trans with (| t2 |); assumption).
+-
+(simpl).
+(apply Nat.max_le_compat; assumption).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:51:33.600000.*)
+(* Auto-generated comment: At 2019-08-16 06:52:00.320000.*)
 
