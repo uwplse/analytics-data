@@ -315,8 +315,12 @@ tauto.
 (rewrite mk_nf_nf__equal in IHHsub21; try assumption).
 tauto.
 -
-(intros; auto).
+(intros).
+(constructor; auto).
+-
+Search -TUnion.
+(intros Hnf; apply union_in_nf__components_in_nf in Hnf; inversion Hnf; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 13:44:26.420000.*)
+(* Auto-generated comment: At 2019-08-07 13:45:16.330000.*)
 
