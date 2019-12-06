@@ -326,7 +326,18 @@ clear IHt.
 split.
 tauto.
 (eapply sem_eq_k__trans; eauto).
+-
+clear IHt.
+(rewrite mk_nf_ref in Hm).
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq [[Hdept Hdept'] Href]]]; subst).
+(rewrite inv_depth_mk_nf in Hdept, Hdept').
+split.
+tauto.
+(eapply sem_eq_k__trans; eauto).
+(apply sem_eq_k__comm).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:00:57.260000.*)
+(* Auto-generated comment: At 2019-08-16 13:04:55.260000.*)
 
