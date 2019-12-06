@@ -16,8 +16,11 @@ Lemma value_sem_sub_k_i_union__inv :
   forall v : ty, value_type v -> forall (k : nat) (ta tb : ty), ||-[ k][v]<= [TUnion ta tb] -> ||-[ k][v]<= [ta] \/ ||-[ k][v]<= [tb].
 Proof.
 (intros v Hv k ta tb Hsem).
-(pose proof (match_ty_value_type_r v Hv k)).
+(destruct (match_ty_value_type_r v Hv k) as [Hcontra| Hm]).
+-
+(left; intros v' Hm').
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 08:04:23.540000.*)
+(* Auto-generated comment: At 2019-08-16 08:05:42.960000.*)
 
