@@ -494,8 +494,65 @@ specialize (IHt2 H1 k).
 (rewrite Heqdep).
 constructor.
 }
-(destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
+(destruct (max_inv_depth_le__inv _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(rewrite H0 in *).
+(split; intros Hm; apply match_ty_i_union__inv in Hm; destruct Hm; (solve
+  [ apply match_ty_i_union_1; apply IHt1; assumption | apply match_ty_i_union_2; apply IHt2; assumption ])).
+-
+(inversion Heqdep).
+Qed.
+Lemma match_ty_i__inv_depth_stable :
+  forall (k k' : nat) (t : ty), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Proof.
+(induction k; induction k').
+-
+tauto.
+-
+(intros).
+symmetry.
+(apply match_ty__inv_depth_0_stable).
+(inversion H).
+reflexivity.
+-
+(intros).
+(apply match_ty__inv_depth_0_stable).
+(inversion H0).
+reflexivity.
+-
+(induction t).
++
+(intros; split; intros Hm; apply match_ty_i_cname__inv in Hm; subst; reflexivity).
++
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k').
+specialize (IHt2 Ht2k Ht2k').
+(split; intros Hm; apply match_ty_i_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hv1 Hv2]]]]; subst; specialize (IHt1 v1); specialize (IHt2 v2);
+  apply match_ty_i_pair; tauto).
++
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k' v).
+specialize (IHt2 Ht2k Ht2k' v).
+(split; intros Hm; apply match_ty_i_union__inv in Hm; destruct Hm; (apply match_ty_i_union_1; tauto) || (apply match_ty_i_union_2; tauto)).
++
+clear IHk' IHt.
+(intros Htk Htk' v).
+(simpl in Htk, Htk').
+(apply le_S_n in Htk).
+(apply le_S_n in Htk').
+(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v; pose proof (Href v) as Hrefv).
+*
+(assert (Hdepeq : | t' | = | t |) by apply (sem_eq_k_i__inv_depth_eq_2 _ _ _ Htk Href)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 14:48:42.520000.*)
+(* Auto-generated comment: At 2019-08-16 14:49:07.110000.*)
 
