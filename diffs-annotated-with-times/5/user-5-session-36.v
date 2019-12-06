@@ -262,9 +262,10 @@ clear H.
  end).
 -
 (rewrite evalIfTrue in H0; auto).
-(apply evalInInts in H; auto).
-(destruct H).
+(apply evalInInts in H).
++
+admit.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:43:29.480000.*)
+(* Auto-generated comment: At 2019-09-01 10:43:43.530000.*)
 
