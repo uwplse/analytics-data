@@ -338,9 +338,8 @@ Proof.
             destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]; rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
 Check match_ty_i__reflexive.
--
-(inversion Hdept; subst).
+Check in_nf_pair__value_type.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:18:49.500000.*)
+(* Auto-generated comment: At 2019-08-16 14:19:09.520000.*)
 
