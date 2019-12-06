@@ -596,8 +596,7 @@ Proof.
 -
 (intros).
 (simpl).
-Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 16:09:07.260000.*)
+(* Auto-generated comment: At 2019-08-13 16:09:12.830000.*)
 
