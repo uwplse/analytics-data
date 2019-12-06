@@ -133,8 +133,10 @@ Omega.omega.
 (unfold well_founded).
 (intros a).
 (unfold lt_size).
-(unfold Acc).
+Search -Acc.
+Check Acc.
+(intros).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:20:00.390000.*)
+(* Auto-generated comment: At 2019-08-29 15:20:32.590000.*)
 
