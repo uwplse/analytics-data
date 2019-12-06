@@ -103,7 +103,8 @@ Proof.
 reflexivity.
 -
 (intros m p).
-(* Auto-generated comment: Succeeded. *)
+(rewrite IHn').
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 07:12:55.780000.*)
+(* Auto-generated comment: At 2019-09-04 07:13:30.720000.*)
 
