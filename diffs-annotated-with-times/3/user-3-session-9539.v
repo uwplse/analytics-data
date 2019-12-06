@@ -517,8 +517,7 @@ Proof.
 (unfold get, get_spec; intros).
 step.
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:23:55.290000.*)
+(* Auto-generated comment: At 2019-09-05 17:23:57.140000.*)
 
