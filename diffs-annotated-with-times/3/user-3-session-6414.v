@@ -159,8 +159,9 @@ step_proc.
 step_proc.
 step_proc.
 (exists nil; simpl).
+(split; auto).
 (eapply log_abstraction_nil).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:27:57.390000.*)
+(* Auto-generated comment: At 2019-09-04 10:28:02.720000.*)
 
