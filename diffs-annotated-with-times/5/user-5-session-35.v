@@ -230,8 +230,12 @@ intro x.
 (apply evalChoose).
 exists (eval L env (Int 3)).
 (erewrite evalBoolConst).
-apply -> evalEqTrue.
+(rewrite evalAnd).
+(eapply eq_trans).
+-
+(apply evalIfTrue).
+(apply evalInInts).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 09:42:30.600000.*)
+(* Auto-generated comment: At 2019-09-01 09:46:58.960000.*)
 
