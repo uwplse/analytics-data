@@ -122,8 +122,25 @@ generalize dependent t.
 (induction t; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
 -
 (simpl).
+(destruct (beq_idP Y i)).
++
+subst.
 (destruct (beq_idP X i)).
+*
+subst.
+(repeat rewrite b_subst_exist_eq).
+reflexivity.
+*
+(rewrite b_subst_exist_neq; try assumption).
+(rewrite b_subst_exist_eq).
+reflexivity.
++
+(destruct (beq_idP X i)).
+*
+subst.
+(rewrite b_subst_exist_eq).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:44:49.190000.*)
+(* Auto-generated comment: At 2019-09-03 09:47:14.220000.*)
 
