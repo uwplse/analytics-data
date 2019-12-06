@@ -120,7 +120,18 @@ Proof.
 +
 Msimpl.
 (rewrite IHr).
+reflexivity.
++
+Msimpl.
+(rewrite IHr).
+reflexivity.
+-
+(simpl).
+(destruct a).
++
+Msimpl.
+(rewrite IHl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:21:09.740000.*)
+(* Auto-generated comment: At 2019-08-09 11:21:11.600000.*)
 
