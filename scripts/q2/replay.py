@@ -77,7 +77,7 @@ def main():
         except:
             selected_user = -2
 
-    with open("../raw/users.txt", 'r') as usersfile:
+    with open("../../raw/users.txt", 'r') as usersfile:
         profiles = loads(usersfile.read())
 
     if selected_user == -1:
