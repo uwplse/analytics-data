@@ -945,15 +945,9 @@ reflexivity.
 (destruct n; [ omega |  ]).
 (destruct l1; inversion L1).
 (simpl).
-show_dimensions.
-(repeat rewrite app_length).
-(simpl).
-replace (length l1 + length l2) with n by omega.
-(rewrite H0, L2).
-(simpl).
-hide_dimensions.
-rewrite_inPar'.
-(* Auto-generated comment: Succeeded. *)
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 15:24:40.500000.*)
+(* Auto-generated comment: At 2019-08-14 15:24:40.730000.*)
 
