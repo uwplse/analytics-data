@@ -138,8 +138,7 @@ Print lt_wf.
 +
 constructor.
 (intros y Hy).
-constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:29:23.370000.*)
+(* Auto-generated comment: At 2019-08-29 15:30:31.880000.*)
 
