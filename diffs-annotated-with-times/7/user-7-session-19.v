@@ -359,9 +359,23 @@ Proof.
      |- |-[ _] ?v <$ TUnion ?t1 ?t2 =>
          rewrite mk_nf_union in Hm; apply match_ty_i_union__inv in Hm; destruct Hm as [Hm| Hm];
           [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ apply IHt1 | apply IHt2 ]; assumption
-   end; try (solve [ destruct v; contradiction ])).
-(rewrite mk_nf_ref in *).
+   end; try (solve [ rewrite mk_nf_ref in *; apply match_ty_i_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor ])).
+-
+clear IHt.
+(rewrite mk_nf_ref).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+(intros v; specialize (IHk v t); specialize (Href v)).
+tauto.
+-
+clear IHt.
+(rewrite mk_nf_ref in Hm).
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:50:36.010000.*)
+(* Auto-generated comment: At 2019-08-13 13:51:03.550000.*)
 
