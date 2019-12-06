@@ -107,7 +107,10 @@ Proof.
 Qed.
 Lemma sub_r_cname__inv : forall c1 c2 : cname, |- TCName c1 << TCName c2 -> c1 = c2.
 Proof.
+(intros c1 c2 Hsub).
+(remember (TCName c1) as t1 eqn:Heq1 ).
+(remember (TCName c1) as t2 eqn:Heq2 ).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 08:08:09.110000.*)
+(* Auto-generated comment: At 2019-08-09 08:08:11.900000.*)
 
