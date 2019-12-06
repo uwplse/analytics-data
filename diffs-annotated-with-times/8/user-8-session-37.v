@@ -446,11 +446,29 @@ Lemma valid_denote_false :
   forall W W' (c : Box W W') (\207\129 : Square (2 ^ \226\159\166 W \226\159\167)) (\207\129' : Square (2 ^ \226\159\166 W \226\159\167))
     (safe : bool),
   Typed_Box c ->
-  valid_ancillae_box c -> denote_box false c \207\129 = \207\129' -> denote_box safe c \207\129 = \207\129'.
+  valid_ancillae_box c -> denote_box false c \207\129 == \207\129' -> denote_box safe c \207\129 == \207\129'.
 Proof.
 (intros W W' c \207\129 \207\129' safe T H D).
 (destruct safe; trivial).
 (unfold valid_ancillae_box in H).
 (rewrite H; assumption).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqonEDnl"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Ltac
+ case_safe :=
+  apply valid_denote_true;
+   try (solve [ type_check; apply ancilla_free_box_valid; repeat constructor ]).
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq4N9kIZ"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Ltac
+ case_unsafe :=
+  apply valid_denote_false;
+   try (solve [ type_check; apply ancilla_free_box_valid; repeat constructor ]).
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqphESXA"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
