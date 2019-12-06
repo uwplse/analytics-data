@@ -408,8 +408,8 @@ Proof.
 -
 admit.
 -
-(intros).
+(intros t Hnft Hdep t2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:31:48.750000.*)
+(* Auto-generated comment: At 2019-08-13 12:32:02.580000.*)
 
