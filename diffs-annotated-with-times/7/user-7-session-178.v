@@ -74,8 +74,18 @@ Qed.
 Lemma subst_exist_eq : forall (X : id) (s : ty) (t : ty), [X := s] TExist X t = TExist X t.
 Proof.
 (intros).
+(rewrite subst_equation).
+(rewrite <- beq_id_refl).
+reflexivity.
+Qed.
+Lemma subst_exist_neq : forall (X : id) (s : ty) (Y : id) (t : ty), X <> Y -> fresh_in_ty Y s -> [X := s] TExist Y t = TExist Y ([X := s] t).
+Proof.
+(intros X s Y t Hneq HY).
+(rewrite subst_equation).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
 (simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:28:27.500000.*)
+(* Auto-generated comment: At 2019-09-02 06:29:12.530000.*)
 
