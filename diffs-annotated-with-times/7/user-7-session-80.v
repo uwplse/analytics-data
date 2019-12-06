@@ -446,8 +446,7 @@ reflexivity.
 (rewrite Heqdep).
 constructor.
 }
-(destruct (max_inv_depth_le__components_le _ _ _ Hledep) as [Hdep1 Hdep2]).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:30:45.690000.*)
+(* Auto-generated comment: At 2019-08-16 13:31:02.380000.*)
 
