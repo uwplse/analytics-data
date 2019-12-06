@@ -92,8 +92,9 @@ exists w1.
 -
 (apply match_ty_ref__weak_inv in Hm).
 (destruct Hm as [tx Heq]; subst).
-(destruct w1; simpl).
+(destruct w1; simpl; tauto).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:20:07.010000.*)
+(* Auto-generated comment: At 2019-08-27 08:21:02.230000.*)
 
