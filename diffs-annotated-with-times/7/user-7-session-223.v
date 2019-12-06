@@ -383,8 +383,8 @@ Search -IdSet.singleton.
 subst.
 contradiction.
 +
-(rewrite b_subst_bvar_neq).
+(rewrite b_subst_bvar_neq; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 12:47:13.310000.*)
+(* Auto-generated comment: At 2019-09-05 12:47:20.120000.*)
 
