@@ -145,9 +145,8 @@ Proof.
 (intros X Y sx sy w).
 (induction w; intros t v HXY; generalize dependent v; induction t; intros v; try (solve [ split; intros Hm; assumption ])).
 (split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst;
-  destruct (IHt1 v1) as [Hm1' _]; destruct (IHt2 v2) as [Hm2' _]).
-(apply match_ty_pair; tauto).
+  destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:16:06.380000.*)
+(* Auto-generated comment: At 2019-08-30 07:16:27.270000.*)
 
