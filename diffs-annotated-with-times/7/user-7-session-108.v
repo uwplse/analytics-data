@@ -293,19 +293,6 @@ admit.
 -
 admit.
 -
-(assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
-{
-(intros [v [tx Hm]]).
-(assert (Hme : |-[ k, S w] v <$ TExist i t)).
-{
-(apply match_ty_exist).
-exists tx.
-assumption.
-}
-(apply Hnotm).
-exists v.
-assumption.
-}
 (destruct Hcontra as [v Hcontra]).
 (destruct (beq_idP X i)).
 +
@@ -328,7 +315,10 @@ admit.
 (rewrite Heq in Hcontra).
 (apply match_ty_exist__inv in Hcontra).
 (destruct Hcontra as [tx Hcontra]).
+(assert (Hnotm' : ~ (exists v, |-[ k, w] v <$ [i := tx] t))).
+{
+(intros [v Hm]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:49:14.830000.*)
+(* Auto-generated comment: At 2019-08-21 10:49:25.090000.*)
 
