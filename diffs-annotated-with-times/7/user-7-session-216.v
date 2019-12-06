@@ -409,8 +409,12 @@ tauto.
 tauto.
 -
 (rewrite f_subst_exist).
-(unfold wf_ty in *; simpl).
+(unfold wf_ty in *; simpl in *).
+Search -IdSet.Empty.
+Search -IdSet.Empty.
+Search -IdSet.remove.
+admit.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:59:22.490000.*)
+(* Auto-generated comment: At 2019-09-04 09:59:25.970000.*)
 
