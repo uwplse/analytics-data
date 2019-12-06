@@ -118,8 +118,11 @@ intuition.
 lia.
 -
 (step_proc; intros).
-(exists tt; simpl; intuition idtac).
-(* Auto-generated comment: Failed. *)
+intuition.
+(step_proc; intros).
+{
+eauto.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:40:44.050000.*)
+(* Auto-generated comment: At 2019-09-06 05:40:47.680000.*)
 
