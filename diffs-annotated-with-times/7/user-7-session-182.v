@@ -94,8 +94,8 @@ specialize (IHw' _ Hm).
 exists ([X' := tx] ti).
 admit.
 }
--
-(* Auto-generated comment: Succeeded. *)
+{
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:22:17.330000.*)
+(* Auto-generated comment: At 2019-09-02 07:22:43.860000.*)
 
