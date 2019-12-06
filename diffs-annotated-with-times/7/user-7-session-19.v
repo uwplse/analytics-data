@@ -380,8 +380,7 @@ clear IHk' IHt.
 (pose proof Htk as Ht'k; pose proof Htk' as Ht'k'; rewrite <- Hdepeq in Ht'k, Ht'k').
 (pose proof (IHk k' t Htk Htk' v) as Ht).
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
-tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:37:49.860000.*)
+(* Auto-generated comment: At 2019-08-13 11:39:37.720000.*)
 
