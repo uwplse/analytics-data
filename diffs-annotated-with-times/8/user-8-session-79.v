@@ -965,8 +965,7 @@ show_dimensions.
 (simpl in *).
 replace (length l1 + S (length l2)) with S n in * by lia.
 (simpl in *).
-(rewrite size_ntensor).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:13:19.890000.*)
+(* Auto-generated comment: At 2019-08-14 18:13:22.810000.*)
 
