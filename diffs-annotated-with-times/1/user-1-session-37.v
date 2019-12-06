@@ -321,5 +321,5 @@ Definition transitive_closure (left right : SetST2) : SetST2 :=
   exists T2, In _ left (T1, T2) /\ In _ right (T2, T3).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 22:44:45.940000.*)
+(* Auto-generated comment: At 2019-09-04 22:45:42.590000.*)
 
