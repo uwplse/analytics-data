@@ -89,8 +89,7 @@ Lemma read_op_ok :
 Proof.
 (intros).
 (eapply op_spec_sound).
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 14:01:50.510000.*)
+(* Auto-generated comment: At 2019-08-07 14:01:53.690000.*)
 
