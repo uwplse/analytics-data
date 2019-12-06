@@ -96,9 +96,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Next Obligation.
 Proof.
-(intros; simpl).
-subst.
+(intros; simpl; subst).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:34:37.980000.*)
+(* Auto-generated comment: At 2019-08-16 05:34:50.360000.*)
 
