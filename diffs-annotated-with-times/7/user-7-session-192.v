@@ -23,8 +23,11 @@ Proof.
       [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto
    | rewrite subst_ev in *; assumption ])).
 -
-(apply match_ty_exist__0_inv in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(unfold fresh_in_ty, fresh in HX).
+Search -IdSet.In.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:10:18.190000.*)
+(* Auto-generated comment: At 2019-09-02 09:10:30.420000.*)
 
