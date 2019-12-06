@@ -972,5 +972,5 @@ restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:21:15.220000.*)
+(* Auto-generated comment: At 2019-08-13 11:21:16.830000.*)
 
