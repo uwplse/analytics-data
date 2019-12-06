@@ -204,8 +204,8 @@ Proof.
 Print eq_values.
 (assert (v = nth a bs block0)).
 (eapply diskGet_eq_values; eauto).
-lia.
-(* Auto-generated comment: Failed. *)
+(unfold log_addr).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:59:41.870000.*)
+(* Auto-generated comment: At 2019-09-04 10:59:46.320000.*)
 
