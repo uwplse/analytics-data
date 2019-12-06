@@ -45,10 +45,10 @@ subst.
 (repeat rewrite subst_exist_eq).
 Search -IdSet.mem.
 Search -IdSet.In.
-(destruct (IdSetProps.In_dec i (FV tY))).
+(destruct (IdSetProps.In_dec i (FV tY)) eqn:Hin).
 {
-Search -IdSet.mem.
+(apply IdSetFacts.mem_1 in Hin).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:53:50.890000.*)
+(* Auto-generated comment: At 2019-09-02 06:54:30.570000.*)
 
