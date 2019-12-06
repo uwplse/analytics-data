@@ -83,8 +83,10 @@ Proof.
 2: {
 idtac.
 (apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]).
+(destruct Hm as [t' [Heq Href]]; subst).
+(simpl).
+exists t'.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:27:59.210000.*)
+(* Auto-generated comment: At 2019-08-19 09:28:40.860000.*)
 
