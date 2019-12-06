@@ -155,7 +155,9 @@ specialize (Hcontra _ Hm).
 (inversion Heqx).
 Qed.
 Lemma sem_sub__eunion__union_e : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
+Proof.
+(intros X t1 t2 k).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 10:06:41.830000.*)
+(* Auto-generated comment: At 2019-08-19 10:06:43.340000.*)
 
