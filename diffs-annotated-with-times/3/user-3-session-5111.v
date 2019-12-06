@@ -182,8 +182,7 @@ lia.
 {
 (exfalso; eapply disk_inbounds_not_none; [  | eauto ]; lia).
 }
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:02:47.890000.*)
+(* Auto-generated comment: At 2019-09-03 11:02:51.900000.*)
 
