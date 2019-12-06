@@ -36,8 +36,23 @@ Proof.
 (apply sem_sub_union_2).
 (apply sem_sub__refl).
 -
-(intros k w1).
+(intros w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_union__inv in Hm1).
+(destruct Hm1; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
+-
+(intros w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:25:20.630000.*)
+(* Auto-generated comment: At 2019-08-29 08:26:18.330000.*)
 
