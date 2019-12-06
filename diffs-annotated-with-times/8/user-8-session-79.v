@@ -945,9 +945,8 @@ reflexivity.
 (destruct n; [ omega |  ]).
 (destruct l1; inversion L1).
 (simpl).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
-(* Auto-generated comment: Failed. *)
+(rewrite H0, L2).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:24:40.730000.*)
+(* Auto-generated comment: At 2019-08-14 15:24:40.960000.*)
 
