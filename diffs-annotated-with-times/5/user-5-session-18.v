@@ -54,8 +54,9 @@ Theorem simplify_correct :
   forall (L : EpsilonLogic) (t : Term),
   isTheorem L t <-> isTheorem L (simplify t).
 Proof.
+(unfold isTheorem).
 (induction t; split; intros; simpl in *; intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 10:10:56.350000.*)
+(* Auto-generated comment: At 2019-08-12 10:11:06.140000.*)
 
