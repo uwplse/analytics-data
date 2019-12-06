@@ -28,8 +28,9 @@ Proof.
 subst.
 Search -mk_nf.
 (assert (Hnf : InNF( t)) by (constructor; assumption)).
-(rewrite (mk_nf_nf__equal t Hnf) in Hsub).
+(rewrite (mk_nf_nf__equal t Hnf) in IHHsub).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:48:39.910000.*)
+(* Auto-generated comment: At 2019-08-06 12:49:26.460000.*)
 
