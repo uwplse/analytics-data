@@ -9,6 +9,7 @@ Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Require Import Coq.Program.Wf.
+Require Import Recdef.
 Create HintDb DBBetaJulia.
 Declare Scope btjt_scope.
 Delimit Scope btjt_scope with btjt.
@@ -100,5 +101,5 @@ Function
    end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:52:26.600000.*)
+(* Auto-generated comment: At 2019-08-29 14:54:52.300000.*)
 
