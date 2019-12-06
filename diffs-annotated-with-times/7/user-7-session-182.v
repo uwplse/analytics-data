@@ -68,8 +68,11 @@ admit.
 -
 admit.
 -
-(destruct (beq_idP X i)).
+(destruct (beq_idP X i) as [HXi| HXi]).
++
+subst.
+(rewrite subst_exist_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:29:58.960000.*)
+(* Auto-generated comment: At 2019-09-02 07:30:23.570000.*)
 
