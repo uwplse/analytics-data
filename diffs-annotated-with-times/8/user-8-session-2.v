@@ -150,6 +150,8 @@ Timeout 1 Print Ltac restore_dims.
 (rewrite <- ctrl_list_to_unitary_transpose).
 Timeout 1 About trans.
 Timeout 1 Print trans.
-Timeout 1 Print Ltac trans.
-(* Auto-generated comment: Failed. *)
+Timeout 1 About ctrls_to_list.
+Timeout 1 Print ctrls_to_list.
+Timeout 1 Print Ltac ctrls_to_list.
+(* Auto-generated comment: Succeeded. *)
 
