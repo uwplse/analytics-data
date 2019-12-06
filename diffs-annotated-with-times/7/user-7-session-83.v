@@ -267,8 +267,8 @@ constructor.
 *
 (apply IHk; try assumption).
 (apply sem_eq_k_i__sem_sub_k_i).
-assumption.
+(apply sem_eq_k_i__comm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:10:12.870000.*)
+(* Auto-generated comment: At 2019-08-16 14:11:31.610000.*)
 
