@@ -23,8 +23,7 @@ Proof.
 (induction w; induction t; intros v Hm).
 -
 exists v.
-(simpl).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-02 08:20:59.910000.*)
+(* Auto-generated comment: At 2019-09-02 08:21:14.950000.*)
 
