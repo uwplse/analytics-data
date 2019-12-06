@@ -419,8 +419,16 @@ admit.
 -
 admit.
 -
-(intros t Hnft _ k Hdep t2).
+(intros t Hnft _ Hdep t2).
+(assert (Hva : value_type (TRef t)) by constructor).
+(assert (Hma : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); contradiction ])).
++
+(apply value_sem_sub_k_i_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; auto).
++
+(simpl in Hdt).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:32:19.190000.*)
+(* Auto-generated comment: At 2019-08-13 12:32:50.460000.*)
 
