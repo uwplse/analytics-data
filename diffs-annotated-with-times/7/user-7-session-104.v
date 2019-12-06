@@ -102,24 +102,7 @@ contradiction.
 Abort.
 Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
 Proof.
-(induction k).
--
-(induction t).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_cname__inv in Hcontra).
-(inversion Hcontra).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_pair__inv in Hcontra).
-(destruct Hcontra as [v1 [v2 [Heq _]]]).
-(inversion Heq).
-+
-(intros Hdep w Hcontra).
-(apply match_ty_union__inv in Hcontra).
-(destruct Hcontra as [Hcontra| Hcontra]).
-*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:24:16.100000.*)
+(* Auto-generated comment: At 2019-08-20 13:24:26.960000.*)
 
