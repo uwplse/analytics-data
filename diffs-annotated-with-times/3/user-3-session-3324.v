@@ -181,7 +181,8 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
 (constructor; eauto).
 *
 (subst; eexists; intuition eauto).
+(constructor; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:43:50.140000.*)
+(* Auto-generated comment: At 2019-08-16 10:44:03.110000.*)
 
