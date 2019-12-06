@@ -353,8 +353,18 @@ Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
 Proof.
 (intros t t' Hsub).
 (apply sub_r__transitive with t; try assumption).
-(apply mk_nf__sub_r_r).
+(apply mk_nf__sub_r_l).
+Qed.
+Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
+Proof.
+(intros t t' Hsub).
+(pose proof (sub_r__mk_nf_sub_r _ _ Hsub) as Hsubnf).
+(pose proof (mk_nf__in_nf t) as Hnf).
+(pose proof (mk_nf__in_nf t') as Hnf').
+(pose proof (sub_r_nf_ref__inv _ _ Hnf Hnf' Hsubnf) as H).
+(split; apply mk_nf_sub_r__sub_r; tauto).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:39:13.940000.*)
+(* Auto-generated comment: At 2019-08-18 07:39:30.530000.*)
 
