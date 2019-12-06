@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from sexpdata import Symbol, loads
+from sexpdata import Symbol, loads, dumps
 from typing import Any, Tuple
 import re
 import functools
@@ -32,8 +32,8 @@ def getAddBody(entry):
     return get_body(entry)[1][2]
 
 def mkEntry(time : float, user : int, module : str, session : float, body : Any):
-    return [['time', time], ['user', user], ['session-module', module],
-            ['session', session], body]
+    return [[Symbol('time'), time], [Symbol('user'), user], [Symbol('session-module'), module],
+            [Symbol('session'), session], body]
 
 def get_cmd_type(entry):
     body = get_body(entry)
