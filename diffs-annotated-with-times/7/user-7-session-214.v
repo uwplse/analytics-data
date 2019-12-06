@@ -249,7 +249,8 @@ Proof.
 -
 (rewrite b_subst_pair).
 (destruct (f_free_in_ty_pair__inv _ _ _ HX) as [HXt| HXt]).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:22:03.480000.*)
+(* Auto-generated comment: At 2019-09-04 09:22:11.610000.*)
 
