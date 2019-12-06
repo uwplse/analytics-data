@@ -147,8 +147,9 @@ Hint Resolve get_len_ok: core.
 Theorem recover_wipe : rec_wipe recover abstr no_wipe.
 Proof.
 (unfold rec_wipe; simpl; intros).
-(unfold proc_spec).
+(apply spec_abstraction_compose).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:47:54.880000.*)
+(* Auto-generated comment: At 2019-09-04 10:48:00.050000.*)
 
