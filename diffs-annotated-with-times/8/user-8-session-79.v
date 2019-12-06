@@ -653,7 +653,10 @@ Proof.
 show_dimensions.
 (intros).
 (simpl).
+specialize (kron_1_l (\226\168\130 l2)) as KL.
+show_dimensions.
+(rewrite <- kron_1_l_inv).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:30:33.760000.*)
+(* Auto-generated comment: At 2019-08-14 13:30:33.890000.*)
 
