@@ -83,8 +83,21 @@ Proof.
 (rewrite <- plus_n_O).
 reflexivity.
 -
+(simpl).
 (rewrite IHn').
-(* Auto-generated comment: Failed. *)
+(rewrite plus_n_Sm).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq47VNZe"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem plus_assoc : forall n m p : nat, n + (m + p) = n + m + p.
+Proof.
+(intros n m p).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:12:14.970000.*)
+(* Auto-generated comment: At 2019-09-04 07:12:26.890000.*)
 
