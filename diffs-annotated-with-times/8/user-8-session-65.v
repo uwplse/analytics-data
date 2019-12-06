@@ -1243,7 +1243,7 @@ Timeout 1 Print LoadPath.
 Timeout 1 About denote_box.
 Timeout 1 Print denote_box.
 Lemma denote_box_compat :
-  forall (safe : bool) (W1 W2 : WType) (c : Box W1 W2) \207\129,
+  forall (safe : bool) (W1 W2 : WType) (c : Box W1 W2) \207\129 \207\129',
   \207\129 == \207\129' -> denote_box safe c \207\129 == denote_box safe c \207\129'.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
