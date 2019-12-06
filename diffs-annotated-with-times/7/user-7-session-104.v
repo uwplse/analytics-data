@@ -61,8 +61,11 @@ clear Hm.
 clear Heq.
 (destruct Hcontra as [Hcontra _]).
 (assert (Hm : |-[ 0, 0] tint <$ tint) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra 0).
+(destruct Hcontra as [w2' Hcontra]).
 specialize (Hcontra _ Hm).
+(apply match_ty_cname__inv in hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:36:13.020000.*)
+(* Auto-generated comment: At 2019-08-21 07:36:16.640000.*)
 
