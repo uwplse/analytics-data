@@ -311,8 +311,7 @@ Proof.
 (destruct (a == r - 1); subst).
 -
 (step_proc; intuition subst).
-(eexists; split; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:07:06.420000.*)
+(* Auto-generated comment: At 2019-09-03 11:07:27.750000.*)
 
