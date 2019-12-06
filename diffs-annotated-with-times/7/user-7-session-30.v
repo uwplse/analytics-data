@@ -51,8 +51,9 @@ generalize dependent v.
 constructor.
 -
 (apply match_ty_pair__inv in Hm).
-(destruct Hm as [[v1 v2] [Heq [Hm1 Hm2]]]; subst).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(constructor; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:40:39.150000.*)
+(* Auto-generated comment: At 2019-08-15 07:40:53.930000.*)
 
