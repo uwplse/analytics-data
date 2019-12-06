@@ -133,13 +133,14 @@ Proof.
 (intros Hsub12 t3 Hsub21).
 (induction Hsub21; try (solve [ intros; split; [ constructor; assumption | assumption ] ])).
 -
-(intros Hsub12 t3 Hsub21).
+(intros Hsub12).
 (remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21; inversion Heqx; subst).
+(remember (TPair t1 t2) as ty eqn:Heqy ).
+(induction Hsub12; inversion Heqx; inversion Heqy; subst).
 +
-clear Heqx IHHsub21_1 IHHsub21_2.
-(inversion Hsub12; subst).
-(* Auto-generated comment: Failed. *)
+(intros t3 Hsub21).
+(remember (TPair t1' t2') as tx eqn:Heqx ).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 11:49:19.770000.*)
+(* Auto-generated comment: At 2019-08-07 11:49:28.950000.*)
 
