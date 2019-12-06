@@ -143,10 +143,12 @@ Lemma match_ty__subst_neq_permute :
   forall (X Y : id) (sx sy : ty) (w : nat) (t v : ty), X <> Y -> |-[ w] v <$ [Y := sy] ([X := sx] t) <-> |-[ w] v <$ [X := sx] ([Y := sy] t).
 Proof.
 (intros X Y sx sy w).
-(induction w; intros t v HXY; generalize dependent v; induction t; intros v; try (solve [ split; intros Hm; assumption ])).
-(split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst;
-  destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]; apply match_ty_pair; tauto).
+(induction w; intros t v HXY; generalize dependent v; induction t; intros v;
+  try (solve
+   [ split; intros Hm; assumption
+   | split; repeat rewrite subst_pair; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst;
+      destruct (IHt1 v1) as [Hm11 Hm12]; destruct (IHt2 v2) as [Hm21 Hm22]; apply match_ty_pair; tauto ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 07:16:37.590000.*)
+(* Auto-generated comment: At 2019-08-30 07:16:52.680000.*)
 
