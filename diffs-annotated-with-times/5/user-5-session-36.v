@@ -262,8 +262,12 @@ clear H.
  end).
 -
 (rewrite evalIfTrue in H0; auto).
-(apply evalInInts in H).
+(apply evalInInts in H; auto).
+(destruct H).
+(erewrite evalBoolConst in H0).
++
+(rewrite <- evalEqTrue in H0).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:43:45.210000.*)
+(* Auto-generated comment: At 2019-09-01 10:44:22.270000.*)
 
