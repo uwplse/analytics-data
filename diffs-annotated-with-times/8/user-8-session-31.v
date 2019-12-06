@@ -2185,11 +2185,15 @@ Lemma denote_gate_circuit :
 Proof.
 (intros).
 (unfold denote_circuit).
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq7RSfdD"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (simpl; fold_denotation).
 replace (process_gate g p1 \206\147) with
  (process_gate_pat g p1 \206\147, process_gate_state g p1 \206\147)
  by (symmetry; apply surjective_pairing).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:02:45.700000.*)
+(* Auto-generated comment: At 2019-08-09 14:02:48.320000.*)
 
