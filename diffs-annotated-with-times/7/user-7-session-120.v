@@ -22,8 +22,8 @@ exists (Nat.max w21 w22).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (specialize (Hsem1 _ Hm1); specialize (Hsem2 _ Hm2)).
-(apply match_ty_pair; apply match_ty__ge_w).
+(apply match_ty_pair; epply match_ty__ge_w).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:17:43.030000.*)
+(* Auto-generated comment: At 2019-08-27 07:17:48.960000.*)
 
