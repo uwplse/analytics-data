@@ -37,7 +37,8 @@ dependent induction TP.
 (rewrite (ctx_wtype_size w p \206\147) by easy).
 (rewrite Nat.add_sub).
 (rewrite size_fresh_ctx).
+(destruct pf_merge1 as [V1 M1]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-10 12:30:37.680000.*)
+(* Auto-generated comment: At 2019-08-10 12:30:39.410000.*)
 
