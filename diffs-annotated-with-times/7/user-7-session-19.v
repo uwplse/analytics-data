@@ -305,7 +305,7 @@ Proof.
           destruct Hm1 as [Hm1| Hm1]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; auto
    end).
 Qed.
-Lemma match_ty__unite_pairs_pair : forall t1 t2 : ty, forall (v : ty) (k : nat), |-[ k] v <$ unite_pairs t1 t2 -> |-[ k] v <$ TPair t1 t2.
+Lemma match_ty_i__unite_pairs_pair : forall t1 t2 : ty, forall (v : ty) (k : nat), |-[ k] v <$ unite_pairs t1 t2 -> |-[ k] v <$ TPair t1 t2.
 Proof.
 (intros ta; induction ta; intros tb; induction tb; intros v k Hm; try (solve [ simpl; assumption ]);
   try
@@ -362,5 +362,5 @@ Proof.
    end; try (solve [ destruct v; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:48:13.190000.*)
+(* Auto-generated comment: At 2019-08-13 13:48:32.430000.*)
 
