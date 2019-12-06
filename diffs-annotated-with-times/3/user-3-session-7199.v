@@ -323,8 +323,8 @@ generalize dependent a.
 -
 (exfalso; lia).
 -
-Search -firstn -cons.
+(destruct a0; simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:13:53.880000.*)
+(* Auto-generated comment: At 2019-09-04 11:14:01.950000.*)
 
