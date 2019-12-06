@@ -92,8 +92,9 @@ Lemma sem_sub_pair__inv : forall t1 t2 t1' t2' : ty, ||- [TPair t1 t2]<= [TPair 
 Proof.
 (intros t1 t2 t1' t2' Hsem).
 (unfold sem_sub in Hsem).
-(split; intros k).
+(split; unfold sem_sub; intros k Hm).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:38:36.990000.*)
+(* Auto-generated comment: At 2019-08-16 13:38:55.540000.*)
 
