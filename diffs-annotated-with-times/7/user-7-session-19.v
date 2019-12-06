@@ -417,5 +417,5 @@ Proof.
      (fun (t1 : ty) (_ : in_nf t1) => forall k : nat, | t1 | <= k -> forall t2 : ty, ||- [t1]<= [t2] -> |- t1 << t2))).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:21:18.150000.*)
+(* Auto-generated comment: At 2019-08-13 12:22:50.600000.*)
 
