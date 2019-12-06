@@ -511,8 +511,9 @@ auto using match_ty_i_pair.
 (intros v; split; intros Hm; specialize (Href v)).
 specialize (IHHsub2 k _ Hm).
 tauto.
-(apply IHHsub1; auto).
+(apply IHHsub1; tauto).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:26:45.580000.*)
+(* Auto-generated comment: At 2019-08-13 13:27:06.140000.*)
 
