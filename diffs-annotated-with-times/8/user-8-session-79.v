@@ -952,8 +952,16 @@ Timeout 1 Print Ltac restore_dims.
 restore_dims
  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
   lia.
-rewrite_inPar''.
+Timeout 1 About rewrite_inPar''.
+Timeout 1 Print rewrite_inPar''.
+Timeout 1 Print Ltac rewrite_inPar''.
+(match goal with
+ | |- context [ denote_box true (inPar ?f ?g) (kron ?\207\1291 ?\207\1292) ] =>
+       let IP := fresh "IP" in
+       specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP;
+        rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *
+ end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 15:29:09.480000.*)
+(* Auto-generated comment: At 2019-08-14 15:29:16.880000.*)
 
