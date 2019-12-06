@@ -321,9 +321,9 @@ Proof.
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [TUnion ?t'1 ?t'2]
        |- _ =>
            assert (Hv : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
-            solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+            solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][?t]<= [TUnion ?t'1 ?t'2]
-       |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le Hv Hsem t'1 t'2
+       |- | ?t | <= _ => assert (Hv : value_type t) by constructor; solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2
      | Hsem:||-[ ?k][TPair ?t1 ?t2]<= [?t']
        |- _ <= | ?t' | =>
            assert (Hvp : value_type (TPair t1 t2)) by (apply in_nf_pair__value_type; assumption);
@@ -340,5 +340,5 @@ Proof.
      end ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:15:57.430000.*)
+(* Auto-generated comment: At 2019-08-16 14:16:07.140000.*)
 
