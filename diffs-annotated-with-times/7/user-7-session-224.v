@@ -65,8 +65,22 @@ Search -b_free_in_ty.
 idtac.
 Search -not_b_free_in_ty.
 (rewrite b_subst_not_b_free_in_ty in IHHsub; try assumption).
-(induction w1).
+(intros w1; induction w1).
++
+exists 0.
+(intros v Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+specialize (IHHsub w1).
+(destruct IHHsub as [w2 IHHsub]).
+exists w2.
+(intros v Hm).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx [Hwftx Hm]]).
+(rewrite b_subst_not_b_free_in_ty in Hm; try assumption).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 09:04:12.630000.*)
+(* Auto-generated comment: At 2019-09-06 09:04:16.720000.*)
 
