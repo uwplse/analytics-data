@@ -421,8 +421,8 @@ Proof.
             (Hsem _ Hm); contradiction
      end ])).
 (assert (Hv : value_type (TCName c)) by constructor).
-(solve__value_sem_sub_i_union__inv_depth_le_1 Hv Hsem t'1 t'2).
+(destruct IHt'1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 06:52:13.440000.*)
+(* Auto-generated comment: At 2019-08-18 06:54:55.370000.*)
 
