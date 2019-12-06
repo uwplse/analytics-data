@@ -626,7 +626,9 @@ restore_dims.
 specialize (kron_1_r A) as KR.
 specialize (kron_1_r_inv A) as KR'.
 (rewrite (kron_1_r A)).
-(* Auto-generated comment: Succeeded. *)
+(rewrite (kron_1_r B)).
+(apply H).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:04:27.360000.*)
+(* Auto-generated comment: At 2019-08-14 13:05:07.780000.*)
 
