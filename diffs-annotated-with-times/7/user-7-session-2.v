@@ -159,8 +159,8 @@ specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (destruct (union_in_nf__components_in_nf _ _ Hnf1) as [Hnf11 Hnf12]).
 (apply sub_r_nf_union_l__inv in Hsub).
 (destruct Hsub as [Hsub1 Hsub2]).
-specialize (IHt1_1 _ _ Hsub1 Hnf11 Hnf2).
+specialize (IHt1_1 _ _ Hsub2 Hnf11 Hnf2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:33:01.670000.*)
+(* Auto-generated comment: At 2019-08-07 12:34:45.850000.*)
 
