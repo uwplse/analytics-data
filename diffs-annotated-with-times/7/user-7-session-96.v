@@ -77,16 +77,14 @@ auto.
 (destruct Hm as [tx Hmx]).
 (eapply IHk; eassumption).
 Qed.
-Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
+Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
 Proof.
-(intros k; destruct k; intros v Hm).
-2: {
-idtac.
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(simpl).
-exists t'.
-(* Auto-generated comment: Failed. *)
+(intros v Hv; induction Hv; intros k).
+-
+(destruct k; reflexivity).
+-
+(apply match_ty_i_pair; auto).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-19 09:28:40.860000.*)
+(* Auto-generated comment: At 2019-08-19 09:29:02.180000.*)
 
