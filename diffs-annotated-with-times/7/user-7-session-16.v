@@ -194,10 +194,11 @@ Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |
 Proof.
 (intros t t' Hsub).
 (pose proof (sub_r__mk_nf_sub_r _ _ Hsub) as Hsubnf).
-(pose proof (mk_nf__in_nf (TRef t)) as Hnf).
-(pose proof (mk_nf__in_nf (TRef t')) as Hnf').
+(pose proof (mk_nf__in_nf t) as Hnf).
+(pose proof (mk_nf__in_nf t') as Hnf').
 (pose proof (sub_r_nf_ref__inv _ _ Hnf Hnf' Hsubnf) as H).
+Search -sub_r.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:43:24.680000.*)
+(* Auto-generated comment: At 2019-08-09 12:43:48.220000.*)
 
