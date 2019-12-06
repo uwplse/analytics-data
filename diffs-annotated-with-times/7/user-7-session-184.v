@@ -74,13 +74,8 @@ specialize (IHt2 _ _ Hm2).
 exists (TPair v1' v2').
 split.
 (apply match_ty_pair; assumption).
-(induction w'; induction t'; intros HX' Hm'; try contradiction).
-+
-(apply match_ty_pair_pair__inv in Hm').
-(destruct Hm' as [Hm'1 Hm'2]).
-(apply match_ty_pair; auto).
-Search -fresh_in_ty.
+(induction w'; induction t'; intros HX' Hm'; destruct (fresh_in_ty_pair__inv _ _ HX') as [HX'1 HX'2]; try contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:54:06.440000.*)
+(* Auto-generated comment: At 2019-09-02 07:54:25.390000.*)
 
