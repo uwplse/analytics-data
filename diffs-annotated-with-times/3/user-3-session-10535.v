@@ -158,8 +158,7 @@ step.
 step.
 (exists nil; simpl).
 (split; auto).
-(apply log_abstraction_nil with (b := r0); eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:47:39.220000.*)
+(* Auto-generated comment: At 2019-09-06 06:47:39.490000.*)
 
