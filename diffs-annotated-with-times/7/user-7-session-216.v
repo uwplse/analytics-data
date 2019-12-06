@@ -359,8 +359,8 @@ Lemma union_empty__inv : forall s1 s2, IdSet.Empty (IdSet.union s1 s2) -> IdSet.
 Proof.
 (intros s1 s2 H).
 Check IdSetProps.empty_union_1.
-(pose proof (IdSetProps.empty_union_1 _ s1 H) as H1).
+(pose proof (IdSetProps.empty_union_1 H) as H1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:48:53.030000.*)
+(* Auto-generated comment: At 2019-09-04 09:49:01.640000.*)
 
