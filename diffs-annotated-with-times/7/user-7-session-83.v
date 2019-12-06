@@ -275,9 +275,7 @@ tauto.
 (apply mk_nf__sub_d_r; assumption).
 (apply IHk).
 (apply mk_nf__in_nf).
-(rewrite inv_depth_mk_nf).
-assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:09:50.550000.*)
+(* Auto-generated comment: At 2019-08-16 14:10:06.930000.*)
 
