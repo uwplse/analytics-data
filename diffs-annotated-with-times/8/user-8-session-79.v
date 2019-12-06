@@ -968,5 +968,5 @@ injection L1 as L1.
 replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 16:02:42.400000.*)
+(* Auto-generated comment: At 2019-08-14 16:05:44.190000.*)
 
