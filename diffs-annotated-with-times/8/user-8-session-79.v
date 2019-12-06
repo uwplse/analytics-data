@@ -598,8 +598,8 @@ Proof.
 (simpl).
 Set Printing All.
 (remember (length l2) as L).
-Msimpl.
-(* Auto-generated comment: Succeeded. *)
+Msimpl_light.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 15:59:40.650000.*)
+(* Auto-generated comment: At 2019-08-13 16:02:47.040000.*)
 
