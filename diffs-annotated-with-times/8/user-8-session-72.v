@@ -1278,7 +1278,5 @@ reflexivity.
 (unfold valid_ancillae_box in IHsource_symmetric).
 (rewrite IHsource_symmetric; trivial).
 specialize @ancilla_free_box_valid as AV.
-(unfold valid_ancillae_box in AV).
-(do 2 (rewrite AV; [  | apply ancilla_free_X_at | type_check ])).
 (* Auto-generated comment: Succeeded. *)
 
