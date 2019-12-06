@@ -143,8 +143,21 @@ Lemma match_ty__exists_w_v : forall t : ty, exists (w : nat) (v : ty), |-[ w] v 
 Proof.
 (induction t).
 -
-exists (TCName c).
-(* Auto-generated comment: Succeeded. *)
+exists 0,(TCName c).
+(apply match_ty_cname).
+-
+(destruct (IHt1) as [w1 [v1 Hm1]]).
+(destruct (IHt2) as [w2 [v2 Hm2]]).
+exists (Nat.max w1 w2),(TPair v1 v2).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
+(destruct (IHt1) as [w [v Hm]]).
+exists w,v.
+(apply match_ty_union_1; assumption).
+-
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:18:08.770000.*)
+(* Auto-generated comment: At 2019-08-29 08:18:29.980000.*)
 
