@@ -962,8 +962,23 @@ Proof.
 (destruct safe).
 -
 (rewrite (assert_at_spec_safe b m i); [  | omega ]).
-restore_dims.
+gen \207\129.
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(intros \207\129).
+(match goal with
+ | |- ?A => let A' := restore_dims_rec tac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+(do 4 (apply f_equal_gen; trivial)).
+(rewrite size_ntensor).
+(unify_pows_two; lia).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:08:15.370000.*)
+(* Auto-generated comment: At 2019-08-13 11:09:23.040000.*)
 
