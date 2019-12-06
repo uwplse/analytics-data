@@ -102,10 +102,12 @@ specialize (Hsem1 v).
 specialize (Hsem2 v).
 tauto.
 Qed.
-Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname) (t2 : ty), ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
 Proof.
-(intros t Hnf t' Hsem).
+(intros k c t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+(assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:46:55.370000.*)
+(* Auto-generated comment: At 2019-08-16 13:48:32.250000.*)
 
