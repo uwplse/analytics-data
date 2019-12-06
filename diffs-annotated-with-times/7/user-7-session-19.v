@@ -104,15 +104,15 @@ Qed.
 Lemma aaa : forall (k : nat) (t t' : ty), (forall v : ty, |-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Proof.
 (induction k; induction t; induction t'; intros H; try (solve [ simpl; constructor ])).
-(try (solve
-  [ match goal with
-    | |- | ?t1 | <= | ?t2 | =>
-          (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
-            (H _ Hv); destruct H as [H _]; specialize (H Hm); contradiction) ||
-            (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
-              (H _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
-    end ])).
+(try
+  match goal with
+  | |- | ?t1 | <= | ?t2 | =>
+        (assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize
+          (H _ Hv); destruct H as [H _]; specialize (H Hm); contradiction) ||
+          (assert (Hv : value_type t2) by constructor; assert (Hm : |-[ 0] t2 <$ t2) by (apply match_ty_i__reflexive; assumption); specialize
+            (H _ Hv); destruct H as [_ H]; specialize (H Hm); contradiction)
+  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:23:12.620000.*)
+(* Auto-generated comment: At 2019-08-12 13:23:16.780000.*)
 
