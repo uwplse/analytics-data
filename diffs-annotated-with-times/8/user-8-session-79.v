@@ -932,8 +932,8 @@ restore_dims
 reflexivity.
 }
 (rewrite L2).
-rewrite_inPar'.
+rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 15:00:29.700000.*)
+(* Auto-generated comment: At 2019-08-14 15:01:07.380000.*)
 
