@@ -938,7 +938,7 @@ restore_dims
 (rewrite id_circ_spec).
 (rewrite init_spec).
 reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 15:19:27.530000.*)
+(* Auto-generated comment: At 2019-08-14 15:19:27.810000.*)
 
