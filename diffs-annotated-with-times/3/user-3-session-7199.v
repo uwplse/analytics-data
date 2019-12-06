@@ -380,8 +380,8 @@ Theorem log_contents_ok_prefix d bs bs' :
   log_contents_ok d (bs ++ bs') -> log_contents_ok d bs.
 Proof.
 (unfold log_contents_ok; intros).
-specialize (H a).
-(* Auto-generated comment: Succeeded. *)
+(apply H).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:12:58.190000.*)
+(* Auto-generated comment: At 2019-09-04 12:13:10.470000.*)
 
