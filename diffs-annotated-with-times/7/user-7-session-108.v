@@ -425,9 +425,9 @@ specialize (Hcontra v Hm).
 (destruct Hcontra as [t' [Heq _]]; inversion Heq).
 -
 Abort.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]= [TRef t].
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ty_not_empty_k t (S k) -> ~ ||-[ S k][t]= [TRef t].
 Proof.
-(induction t; intros k Hdep Hcontra).
+(induction t; intros k Hdep Ht Hcontra).
 -
 (destruct Hcontra as [Hcontra _]).
 specialize (Hcontra 0).
@@ -440,7 +440,16 @@ clear Hm.
 (inversion Hcontra).
 -
 (destruct Hcontra as [Hcontra _]).
+(destruct Ht as [w1 [v Hm]]).
+specialize (Hcontra w1).
+(destruct Hcontra as [w2 Hcontra]).
+specialize (Hcontra v Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq _]]]; subst).
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Heq _]]; inversion Heq).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 12:30:47.610000.*)
+(* Auto-generated comment: At 2019-08-21 12:30:52.090000.*)
 
