@@ -129,8 +129,8 @@ Proof.
      end ])).
 -
 (rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (in_nf_union__inv _ _ Hnf2) as [Hnf21 Hnf22];
-  apply sub_r_nf_union_l__inv in Hsub).
+  apply sub_r_union_l__inv in Hsub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:20:22.460000.*)
+(* Auto-generated comment: At 2019-08-08 13:21:16.200000.*)
 
