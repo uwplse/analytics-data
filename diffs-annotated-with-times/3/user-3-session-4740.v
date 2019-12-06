@@ -15,9 +15,9 @@ Timeout 1 Print LoadPath.
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
-Notation "a === b" := (a = b) (at level 10).
-Check 1 + 2 + 3 + 4 + 5 === 6 + 7 + 8 + 9.
+Notation "a === b" := (a = b) (at level 0).
+Check 1 + 2 + 3 + 4 + (5) === (6) + 7 + 8 + 9.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 04:35:43.110000.*)
+(* Auto-generated comment: At 2019-09-03 04:35:45.950000.*)
 
