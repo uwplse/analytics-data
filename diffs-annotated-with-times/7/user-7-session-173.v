@@ -127,11 +127,9 @@ Proof.
 (unfold subst).
 (unfold subst_func).
 Check fix_sub_eq.
-(repeat rewrite fix_sub_eq).
-(simpl).
-(repeat rewrite fix_sub_eq).
-reflexivity.
+(rewrite fix_sub_eq).
+(fold (subst X s t1)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:06:47.390000.*)
+(* Auto-generated comment: At 2019-08-29 15:07:40.370000.*)
 
