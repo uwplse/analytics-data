@@ -370,8 +370,9 @@ Proof.
      (fun (t : ty) (Hnf : in_nf t) => (forall t' : ty, Decidable.decidable (|- t << t')) /\ (forall t' : ty, Decidable.decidable (|- t' << t))))).
 -
 (intros c).
-(split; intros t'; induction t'; try (solve [ right; solve_not_x_sub_r_y_full ])).
+(split; intros t'; induction t').
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:36:48.930000.*)
+(* Auto-generated comment: At 2019-08-09 11:38:09.500000.*)
 
