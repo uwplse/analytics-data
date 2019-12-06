@@ -304,8 +304,8 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
-step.
-(* Auto-generated comment: Failed. *)
+(eapply proc_spec_weaken; [ solve [ eauto ] | unfold spec_impl ]).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:26:16.430000.*)
+(* Auto-generated comment: At 2019-09-05 17:26:48.700000.*)
 
