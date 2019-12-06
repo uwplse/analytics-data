@@ -572,7 +572,12 @@ step_proc.
 *
 intuition eauto.
 {
+(destruct (a == a0); simplify; finish).
+}
+step.
+(destruct r; try step).
++
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:24:51.750000.*)
+(* Auto-generated comment: At 2019-09-03 13:25:07.040000.*)
 
