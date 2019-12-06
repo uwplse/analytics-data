@@ -408,8 +408,7 @@ step_proc.
 {
 (step_proc; intuition; subst; eauto).
 {
-(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:17:43.730000.*)
+(* Auto-generated comment: At 2019-09-03 13:17:50.260000.*)
 
