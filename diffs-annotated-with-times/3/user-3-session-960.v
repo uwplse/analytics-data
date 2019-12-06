@@ -138,8 +138,7 @@ auto.
 (rewrite IHn).
 {
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
-lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:27:19.600000.*)
+(* Auto-generated comment: At 2019-08-16 06:27:20.260000.*)
 
