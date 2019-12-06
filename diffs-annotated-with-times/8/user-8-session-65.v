@@ -984,6 +984,6 @@ Msimpl.
 Timeout 1 About id_kron.
 Timeout 1 Print id_kron.
 restore_dims.
-(rewrite id_kron).
-(* Auto-generated comment: Failed. *)
+(rewrite id_kron').
+(* Auto-generated comment: Succeeded. *)
 
