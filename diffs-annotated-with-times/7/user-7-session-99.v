@@ -32,6 +32,9 @@ Definition tX := TVar vX.
 Definition tY := TVar vY.
 Definition teXX := TExist vX tX.
 Definition tyXRefX := TExist vX (TRef tX).
+Declare Scope btjt_scope.
+Delimit Scope btjt_scope with btjt.
+Open Scope btjt.
 Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Fixpoint subst (x : id) (s t : ty) :=
   match t with
@@ -46,5 +49,5 @@ Fixpoint subst (x : id) (s t : ty) :=
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 07:39:44.450000.*)
+(* Auto-generated comment: At 2019-08-20 07:40:15.240000.*)
 
