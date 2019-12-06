@@ -69,8 +69,10 @@ Proof.
 -
 (intros k Hdep w Hcontra).
 (apply match_ty_pair__inv in Hcontra).
-(inversion Hcontra).
+(destruct Hcontra as [v1 [v2 [Heq _]]]).
+(inversion Heq).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:04:36.480000.*)
+(* Auto-generated comment: At 2019-08-20 13:04:53.960000.*)
 
