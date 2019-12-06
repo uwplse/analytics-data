@@ -99,27 +99,30 @@ Function
    end.
 -
 (intros).
-(unfold lt_size).
 (simpl).
 Omega.omega.
 -
 (intros).
-(unfold lt_size).
 (simpl).
 Omega.omega.
 -
 (intros).
-(unfold lt_size).
 (simpl).
 Omega.omega.
 -
 (intros).
-(unfold lt_size).
 (simpl).
 Omega.omega.
 -
 (intros).
+(simpl).
+Omega.omega.
+-
+(apply (well_founded_lt_compat ty size)).
+(intros).
+tauto.
+Defined.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:09:43.800000.*)
+(* Auto-generated comment: At 2019-08-30 06:11:29.630000.*)
 
