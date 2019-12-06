@@ -622,14 +622,10 @@ Proof.
 (intros).
 (rewrite kron_1_l).
 (rewrite kron_1_l).
-restore_dims.
 specialize (kron_1_r A) as KR.
 specialize (kron_1_r_inv A) as KR'.
 (rewrite (kron_1_r A)).
-(rewrite (kron_1_r B)).
-restore_dims.
-(apply H).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:07:54.040000.*)
+(* Auto-generated comment: At 2019-08-14 13:07:54.170000.*)
 
