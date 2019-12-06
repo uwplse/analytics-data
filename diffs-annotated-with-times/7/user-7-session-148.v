@@ -89,10 +89,7 @@ tauto.
 -
 (intros t' X' Hfresh Hsem).
 (simpl in *).
-(induction t').
-+
-Check match_ty__exists_w_v.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 07:44:24.740000.*)
+(* Auto-generated comment: At 2019-08-29 07:44:41.940000.*)
 
