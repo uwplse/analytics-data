@@ -85,14 +85,23 @@ clear Heq.
 specialize (Href 1).
 (destruct Href as [w2 Hsem]).
 (destruct (sem_eq_k__exists_not 0 t) as [t' Hnoteq]).
-(assert (Hm : |-[ 1, 1] TRef tint <$ TExist vX (TRef tX))).
+(assert (Hm : |-[ 1, 1] TRef t' <$ TExist vX (TRef tX))).
 {
 (apply match_ty_exist).
-exists tint.
+exists t'.
 (apply match_ty_value_type__reflexive).
 constructor.
 }
+specialize (Hsem _ Hm).
+(destruct w2).
+contradiction.
+(apply match_ty_ref__inv in Hsem).
+(destruct Hsem as [tx [Heqx Href]]).
+(inversion Heqx; subst).
+clear Heqx.
+contradiction.
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:31:21.750000.*)
+(* Auto-generated comment: At 2019-08-20 12:31:41.770000.*)
 
