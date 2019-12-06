@@ -658,8 +658,8 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
-(rewrite kron_assoc; try apply Nat.pow_nonzero; try lia).
+restore_dims.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:33:06.910000.*)
+(* Auto-generated comment: At 2019-08-14 13:34:15.130000.*)
 
