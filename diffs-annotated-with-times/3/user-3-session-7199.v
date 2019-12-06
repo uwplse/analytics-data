@@ -393,8 +393,7 @@ step_proc.
 (unfold log_size_ok; autorewrite with list; auto).
 (exists bs; intuition eauto).
 (unfold log_abstraction; intuition eauto).
-(unfold log_length_ok).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:10:40.550000.*)
+(* Auto-generated comment: At 2019-09-04 12:10:45.760000.*)
 
