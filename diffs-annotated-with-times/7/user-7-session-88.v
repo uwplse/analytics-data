@@ -445,13 +445,16 @@ Proof.
      end ])).
 -
 (destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
-(destruct Hdep as [Hdept| Hdept']).
+(destruct Hdep as [Hdep| Hdep]).
 +
-(destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
 (destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
 (simpl; apply Nat.max_le_compat; auto).
 +
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
+(simpl; apply Nat.max_le_compat; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:11:37.350000.*)
+(* Auto-generated comment: At 2019-08-18 07:14:11.850000.*)
 
