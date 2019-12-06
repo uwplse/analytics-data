@@ -19,8 +19,9 @@ Proof.
 -
 (apply sem_sub__refl).
 -
-(apply sem_sub__trans with t2).
-(* Auto-generated comment: Failed. *)
+(apply sem_sub__trans with t2; assumption).
+-
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 07:12:07.580000.*)
+(* Auto-generated comment: At 2019-08-27 07:12:09.750000.*)
 
