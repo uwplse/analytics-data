@@ -313,9 +313,12 @@ Proof.
 -
 step_proc.
 intuition eauto.
-+
 (rewrite app_nil_r; auto).
+-
+step_proc.
+intuition eauto.
+autorewrite with upd.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:34:14.710000.*)
+(* Auto-generated comment: At 2019-09-04 11:34:44.810000.*)
 
