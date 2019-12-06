@@ -22,8 +22,9 @@ Proof.
 SearchPattern (IdSet.In (IdSet.union _ _)).
 Search -IdSet.union.
 Check IdSetFacts.union_2.
-(apply (IdSetFacts.union_2 fvs1 fvs2 X) in Hcontra).
+Check IdSetFacts.union_2.
+(apply (IdSetFacts.union_2 fvs1 fvs2) in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:42:53.320000.*)
+(* Auto-generated comment: At 2019-08-27 06:43:09.600000.*)
 
