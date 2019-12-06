@@ -80,9 +80,8 @@ Proof.
 (intros n m).
 (induction n as [| n' IHn']).
 -
-(rewrite plus_n_O).
-reflexivity.
+(rewrite <- plus_n_O).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:12:11.360000.*)
+(* Auto-generated comment: At 2019-09-04 07:12:12.630000.*)
 
