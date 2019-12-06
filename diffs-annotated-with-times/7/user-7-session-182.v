@@ -46,9 +46,8 @@ subst.
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
 (pose proof (IdSetFacts.mem_1 Hin) as Hmem).
-(rewrite (subst_exist_neq _ _ _ _ HY)).
-(rewrite subst_exist_eq).
+(rewrite subst_equation).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:12:44.450000.*)
+(* Auto-generated comment: At 2019-09-02 07:13:23.610000.*)
 
