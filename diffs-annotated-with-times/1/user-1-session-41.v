@@ -559,8 +559,9 @@ all: (try (apply singleton_eq in H1; congruence)).
 Search -(Ensembles.In _ (Singleton _ _) _).
 all: (try specialize (H1 _ (In_singleton _ _ _))).
 Show Intros.
-all: (try specialize (H1 _ (In_singleton _))).
+all: (try specialize (H1 _ (In_singleton _ _))).
+all: (try congruence).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 16:06:21.240000.*)
+(* Auto-generated comment: At 2019-09-06 16:17:11.380000.*)
 
