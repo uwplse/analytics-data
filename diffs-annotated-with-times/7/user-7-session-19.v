@@ -107,8 +107,8 @@ Proof.
 (induction k; intros v Hv; induction Hv; intros ta tb Hsem).
 6: {
 idtac.
-(unfold sem_sub_k_i).
+(unfold sem_sub_k_i in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:53:02.760000.*)
+(* Auto-generated comment: At 2019-08-12 13:53:30.200000.*)
 
