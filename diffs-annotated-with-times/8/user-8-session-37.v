@@ -23,8 +23,13 @@ Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqJ4AsTz"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Definition valid_ancillae {W} (c : Circuit W) : Prop :=
-  forall \206\147 \206\1470 : Ctx, \206\147 \226\138\162 c :Circ -> \226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169 \226\137\161 \226\159\168! \206\1470 | \206\147 \226\138\169 c !\226\159\169.
+  forall (\206\147 \206\1470 : Ctx) \207\129, \206\147 \226\138\162 c :Circ -> (\226\159\168 \206\1470 | \206\147 \226\138\169 c \226\159\169) \207\129 = (\226\159\168! \206\1470 | \206\147 \226\138\169 c !\226\159\169) \207\129.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOzxL2O"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Definition valid_ancillae_box {W1} {W2} (c : Box W1 W2) :=
+  Typed_Box c -> denote_box true c \226\137\161 denote_box false c.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 14:10:43.760000.*)
+(* Auto-generated comment: At 2019-08-12 14:10:46.740000.*)
 
