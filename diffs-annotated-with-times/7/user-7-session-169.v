@@ -82,8 +82,11 @@ Proof.
 specialize (Hid Hneq).
 (simpl).
 (rewrite Hid).
-(unfold fresh_in_ty, freh in HY).
+(unfold fresh_in_ty, fresh in HY).
+Search -IdSet.mem.
+Check IdSetFacts.not_mem_iff.
+(destruct (IdSetFacts.not_mem_iff Y (FV s)) as [_ Hmem]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:06:04.410000.*)
+(* Auto-generated comment: At 2019-08-29 14:07:12.260000.*)
 
