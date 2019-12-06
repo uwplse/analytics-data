@@ -58,8 +58,8 @@ Proof.
 exists v.
 split.
 reflexivity.
-(simpl in Hm).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:54:11.720000.*)
+(* Auto-generated comment: At 2019-08-20 11:54:40.230000.*)
 
