@@ -152,8 +152,13 @@ tauto.
 specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21).
 specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (split; tauto || constructor; tauto).
-(apply NF_Union; apply unite_pairs__preserves_nf).
+(apply NF_Union; apply unite_pairs__preserves_nf; assumption).
+-
+(match goal with
+ | Hsub:|- ?t1 << ?t2
+   |- _ => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hsub; inversion Heqx; inversion Heqy; subst; try tauto
+ end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:26:09.620000.*)
+(* Auto-generated comment: At 2019-08-07 12:28:58.280000.*)
 
