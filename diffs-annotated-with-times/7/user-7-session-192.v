@@ -40,8 +40,8 @@ Proof.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
 (pose proof (fresh_in_ty_var__neq _ _ HX) as HXi).
-(rewrite subst_var_neq; try assumption).
+(apply subst_var_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:14:50.540000.*)
+(* Auto-generated comment: At 2019-09-02 09:14:54.780000.*)
 
