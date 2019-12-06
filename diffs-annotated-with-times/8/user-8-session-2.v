@@ -52,8 +52,7 @@ Proof.
 (destruct li as [| k li]).
 (repeat rewrite ctrls_to_list_empty).
 reflexivity.
-(inversion u; subst).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-08 12:51:20.300000.*)
+(* Auto-generated comment: At 2019-08-08 12:52:10.580000.*)
 
