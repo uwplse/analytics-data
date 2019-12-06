@@ -63,8 +63,8 @@ Search -Morphisms.Proper.
 Search -Morphisms.Proper.
 Check Hfact.
 Print Morphisms.Proper.
-specialize (Hfact _ _ Ht).
+specialize (Hfact _ _ _ Ht).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:51:18.870000.*)
+(* Auto-generated comment: At 2019-09-04 08:51:22.210000.*)
 
