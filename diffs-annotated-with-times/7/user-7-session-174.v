@@ -131,10 +131,8 @@ Omega.omega.
 Omega.omega.
 -
 (unfold well_founded).
-(induction a).
-+
-(unfold lt_size).
+Search -well_founded.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:21:38.780000.*)
+(* Auto-generated comment: At 2019-08-29 15:22:36.520000.*)
 
