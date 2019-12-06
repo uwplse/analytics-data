@@ -560,8 +560,6 @@ Search -(Ensembles.In _ (Singleton _ _) _).
 all: (try specialize (H1 _ (In_singleton _ _ _))).
 Show Intros.
 all: (try specialize (H1 _ (In_singleton _ _))).
-all: (try congruence).
-(* Auto-generated comment: Succeeded. *)
-
-(* Auto-generated comment: At 2019-09-06 16:17:11.380000.*)
+destruct_pairs.
+(* Auto-generated comment: Failed. *)
 
