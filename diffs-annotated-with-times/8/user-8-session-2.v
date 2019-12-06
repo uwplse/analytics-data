@@ -54,8 +54,9 @@ Proof.
 reflexivity.
 (dependent destruction u; simpl; reflexivity).
 -
+dependent destruction u.
 (simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-08 12:56:22.830000.*)
+(* Auto-generated comment: At 2019-08-08 12:58:08.600000.*)
 
