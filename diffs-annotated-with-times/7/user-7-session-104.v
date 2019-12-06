@@ -177,8 +177,8 @@ Proof.
 (induction t; intros k).
 -
 exists 0,(TCName c).
-(destruct k; reflexivity).
+(apply match_ty_value_type__reflexive; constructor Abort).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:48:11.870000.*)
+(* Auto-generated comment: At 2019-08-21 07:49:15.490000.*)
 
