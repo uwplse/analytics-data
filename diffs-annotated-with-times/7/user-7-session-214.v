@@ -283,8 +283,10 @@ assumption.
 +
 (rewrite b_subst_exist_neq; try assumption).
 (apply f_free_in_ty_exist).
-auto.
+tauto.
+-
+(simpl in HX).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:32:59.100000.*)
+(* Auto-generated comment: At 2019-09-04 09:33:17.170000.*)
 
