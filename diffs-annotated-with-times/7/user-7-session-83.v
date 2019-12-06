@@ -279,8 +279,8 @@ constructor.
 assumption.
 *
 (apply SD_Trans with (MkNF( t2))).
-(apply mk_nf__sub_d_r; assumption).
+(apply mk_nf__sub_d_2; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:11:48.690000.*)
+(* Auto-generated comment: At 2019-08-16 14:11:51.470000.*)
 
