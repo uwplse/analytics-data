@@ -908,8 +908,8 @@ gen n.
 (simpl in *).
 clear L1 M1 Lt.
 (rewrite strip_one_l_in_eq).
-(rewrite <- (kron_1_l _ _ (\226\168\130 l2))  at 1; auto with wf_db).
-(* Auto-generated comment: Succeeded. *)
+(rewrite <- (kron_1_l _ _ (\226\168\130 l2))  at 1).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:44:36.220000.*)
+(* Auto-generated comment: At 2019-08-14 13:45:52.040000.*)
 
