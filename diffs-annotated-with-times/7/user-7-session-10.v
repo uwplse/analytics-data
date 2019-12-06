@@ -121,5 +121,5 @@ Proof.
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; intros Hnf1 Hnf2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:16:48.100000.*)
+(* Auto-generated comment: At 2019-08-08 13:17:44.590000.*)
 
