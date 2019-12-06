@@ -59,6 +59,9 @@ Fixpoint FV (t : ty) : id_set :=
   | TVar y => IdSet.singleton y
   | TEV _ => IdSet.empty
   end.
+Print IdSet.
+Definition fresh (X : id) (fvs : id_set) := ~ IdSet.In X fvs.
+Definition fresh_in_ty (X : id) (t : ty) := fresh X (FV t).
 Inductive value_type : ty -> Prop :=
   | VT_CName : forall cn, value_type (TCName cn)
   | VT_Pair : forall v1 v2, value_type v1 -> value_type v2 -> value_type (TPair v1 v2)
@@ -98,7 +101,23 @@ Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : b
 Definition sem_eq (t1 t2 : ty) := forall k : nat, ||-[ k][t1]= [t2].
 Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
 Hint Unfold sem_sub_k_w sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
+Declare Scope btjd_scope.
+Delimit Scope btjd_scope with btjd.
+Open Scope btjd.
+Reserved Notation "'|-' t1 '<<' t2" (at level 50).
+Inductive sub_d : ty -> ty -> Prop :=
+  | SD_Refl : forall t, |- t << t
+  | SD_Trans : forall t1 t2 t3, |- t1 << t2 -> |- t2 << t3 -> |- t1 << t3
+  | SD_Pair : forall t1 t2 t1' t2', |- t1 << t1' -> |- t2 << t2' -> |- TPair t1 t2 << TPair t1' t2'
+  | SD_UnionL : forall t1 t2 t, |- t1 << t -> |- t2 << t -> |- TUnion t1 t2 << t
+  | SD_UnionR1 : forall t1 t2, |- t1 << TUnion t1 t2
+  | SD_UnionR2 : forall t1 t2, |- t2 << TUnion t1 t2
+  | SD_Distr1 : forall t11 t12 t2, |- TPair (TUnion t11 t12) t2 << TUnion (TPair t11 t2) (TPair t12 t2)
+  | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
+  | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
+  | SD_ExistL : forall (X : id) (t t' : ty) (X' : ty), fresh_in_ty X' t' -> |- [X := X'] t << t' -> |- TExist X t << t'
+ where "|- t1 '<<' t2" := (sub_d t1 t2) : btjd_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:38:00.290000.*)
+(* Auto-generated comment: At 2019-08-26 07:41:45.960000.*)
 
