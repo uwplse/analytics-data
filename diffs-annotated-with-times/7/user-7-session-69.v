@@ -335,9 +335,9 @@ clear IHt.
 split.
 tauto.
 (eapply sem_eq_k__trans; eauto).
-(apply sem_eq_k__comm).
-auto.
-(* Auto-generated comment: Failed. *)
+(apply sem_eq_k__comm; auto).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:04:55.260000.*)
+(* Auto-generated comment: At 2019-08-16 13:06:05.370000.*)
 
