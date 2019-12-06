@@ -58,8 +58,8 @@ Proof.
 Qed.
 Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
 Proof.
-(induction k).
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:04:36.090000.*)
+(* Auto-generated comment: At 2019-08-19 09:05:03.110000.*)
 
