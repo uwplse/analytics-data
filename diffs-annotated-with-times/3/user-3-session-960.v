@@ -207,10 +207,10 @@ refine
  uint64_to_le := nat_to_le 254;
  uint64_from_le := fun digits => Some (le_to_nat digits);
  File := Z;
- nilFile := - 1;
+ nilFile := - 1%Z;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:55:17.370000.*)
+(* Auto-generated comment: At 2019-08-16 06:55:30.250000.*)
 
