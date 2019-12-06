@@ -290,8 +290,9 @@ Inductive ST : Type :=
   | SInt : ST
   | SBool : ST
   | SFun : ST -> ST -> ST
-  | SRec : forall l : list (label * ST)%type, NoDup (map fst l) -> ST.
-(* Auto-generated comment: Failed. *)
+  | SRec : (label -> option ST) -> ST.
+Print ST_rec.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 22:38:08.710000.*)
+(* Auto-generated comment: At 2019-09-04 22:38:08.910000.*)
 
