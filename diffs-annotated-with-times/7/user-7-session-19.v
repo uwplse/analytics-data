@@ -77,7 +77,8 @@ specialize (Href v').
 (destruct Href; split; assumption).
 Qed.
 Lemma match_ty_i__value_type : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
+Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:04:41.380000.*)
+(* Auto-generated comment: At 2019-08-12 13:05:04.280000.*)
 
