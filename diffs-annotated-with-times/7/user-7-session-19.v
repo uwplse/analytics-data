@@ -117,9 +117,9 @@ Show 4.
  | |- | ?t1 | <= | ?t2 | =>
        assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize (H _ Hm);
         apply match_ty_i_union__inv in H; rewrite inv_depth_union; destruct H as [Hm1| Hm2];
-        [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]
+        [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; try apply Max.le_max_l || apply Max.le_max_r
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:41:10.470000.*)
+(* Auto-generated comment: At 2019-08-12 13:42:13.610000.*)
 
