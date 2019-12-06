@@ -176,10 +176,39 @@ Lemma CNOT_spec :
   bool_to_matrix b1 \226\138\151 bool_to_matrix (b1 \226\138\149 b2).
 Proof.
 vector_denote.
-(destruct b1, b2; unfold bool_to_ket; simpl; Msimpl; solve_matrix).
+(destruct b1, b2; unfold bool_to_ket; simpl; Msimpl; lma).
 Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqdOHO0k"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Lemma TRUE_spec :
   forall z safe,
   denote_box safe TRUE (bool_to_matrix z) == bool_to_matrix (true \226\138\149 z).
+Proof.
+vector_denote.
+(destruct z; unfold bool_to_ket; simpl; Msimpl; reflexivity).
+Qed.
+Lemma FALSE_spec :
+  forall z safe,
+  denote_box safe FALSE (bool_to_matrix z) == bool_to_matrix (false \226\138\149 z).
+Proof.
+vector_denote.
+(destruct z; unfold bool_to_ket; simpl; Msimpl; reflexivity).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqHPDlh3"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma NOT_spec :
+  forall x z : bool,
+  forall safe,
+  denote_box safe NOT (bool_to_matrix x \226\138\151 bool_to_matrix z) ==
+  bool_to_matrix x \226\138\151 bool_to_matrix (\194\172 x \226\138\149 z).
+Proof.
+vector_denote.
+(destruct x, z; unfold bool_to_ket; simpl; Msimpl; solve_matrix).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqdiQCJg"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
