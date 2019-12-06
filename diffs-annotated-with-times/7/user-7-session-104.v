@@ -59,8 +59,9 @@ Fixpoint inv_depth (t : ty) :=
   | TEV _ => 0
   end
 where "'|' t '|'" := (inv_depth t) : btjt_scope.
-Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | < k -> forall w : nat, ~ |-[ k, w] TRef t <$ t.
+Lemma not__ref_t_match_ty_t : forall (k : nat) (t : ty), | t | <= k -> forall w : nat, ~ |-[ S k, w] TRef t <$ t.
+Proof.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:58:53.980000.*)
+(* Auto-generated comment: At 2019-08-20 12:59:31.780000.*)
 
