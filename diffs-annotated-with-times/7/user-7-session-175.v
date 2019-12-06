@@ -75,8 +75,9 @@ Lemma subst_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
 (intros X t; induction t; simpl; try reflexivity).
 -
-(rewrite IHt1).
+(rewrite subst_pair).
+(rwrite IHt1).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-30 06:40:03.280000.*)
+(* Auto-generated comment: At 2019-08-30 06:40:17.640000.*)
 
