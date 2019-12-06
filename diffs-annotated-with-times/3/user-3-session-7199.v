@@ -186,7 +186,7 @@ Theorem get_at_ok a :
   proc_spec
     (fun (_ : unit) state =>
      {|
-     pre := a < length state;
+     pre := log_addr a < length state;
      post := fun r state' => state' = state /\ nth a state block0 = r;
      recovered := fun _ state' => state' = state |}) 
     (get_at a) recover abstr.
@@ -204,5 +204,5 @@ Proof.
 eq_values.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:55:54.420000.*)
+(* Auto-generated comment: At 2019-09-04 10:56:11.410000.*)
 
