@@ -432,8 +432,9 @@ step_proc.
 (unfold log_size_ok; autorewrite with list; auto).
 }
 {
-eauto using log_abstraction_preserved.
-(* Auto-generated comment: Succeeded. *)
+(exists bs; intuition).
+(apply log_abstraction_preserved).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:16:42.310000.*)
+(* Auto-generated comment: At 2019-09-04 12:17:08.710000.*)
 
