@@ -135,7 +135,15 @@ Fixpoint step (t : term) : term :=
 Redirect "/tmp/coqfAE0Rj" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
+Fixpoint multistep (n : nat) : term -> term :=
+  match n with
+  | O => id
+  | S m => fun t => multistep m (step t)
+  end.
+Redirect "/tmp/coq1McSmJ" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Example t1 := {"if" ({"pair?" <<[] []> <[] []>>} {"fst" <<[] []> []>} [])}.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-17 15:50:43.720000.*)
+(* Auto-generated comment: At 2019-08-17 15:50:46.100000.*)
 
