@@ -972,10 +972,8 @@ restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (destruct b; simpl; Msimpl).
 (repeat rewrite Mmult_assoc).
 Msimpl.
-(match goal with
- | |- context [ ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) ] => setoid_rewrite (kron_mixed_product A B C D)
- end).
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 13:56:42.240000.*)
+(* Auto-generated comment: At 2019-08-13 14:15:28.030000.*)
 
