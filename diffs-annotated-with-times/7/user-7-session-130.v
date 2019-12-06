@@ -87,7 +87,7 @@ Proof.
 (intros k t1 t2 t1' t2' Hsem).
 (split; intros w1; destruct (match_ty__exists_w_v t1 k) as [w11 [v1 Hm1]]; destruct (match_ty__exists_w_v t2 k) as [w12 [v2 Hm2]];
   [ specialize (Hsem (Nat.max w1 w12)) | specialize (Hsem (Nat.max w1 w11)) ]; destruct Hsem as [w2 Hsem]; exists w2; intros v Hm;
-  remember (Nat.max w1 w12) as w1' eqn:Heqw1' ).
+  [ remember (Nat.max w1 w12) as w1' eqn:Heqw1'  | remember (Nat.max w1 w11) as w1' eqn:Heqw1'  ]).
 -
 (assert (Hmp : |-[ k, w1'] TPair v v2 <$ TPair t1 t2)).
 {
@@ -99,8 +99,8 @@ tauto.
 -
 (assert (Hmp : |-[ k, w1'] TPair v1 v <$ TPair t1 t2)).
 {
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_r | apply Nat.le_max_l ]).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; subst; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:11:37.650000.*)
+(* Auto-generated comment: At 2019-08-27 08:11:52.630000.*)
 
