@@ -191,8 +191,8 @@ tauto.
 (apply mk_nf__in_nf).
 -
 (destruct (in_nf_union__inv _ _ Hnfm1) as [Hnfm11 Hnfm12]).
-(destruct IHHsub1 as [IHHsub11 IHHsub12]).
+(destruct IHHsub1 as [IHHsub11 IHHsub12]; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:36:23.080000.*)
+(* Auto-generated comment: At 2019-08-08 13:37:41.850000.*)
 
