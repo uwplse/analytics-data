@@ -87,8 +87,8 @@ clear IHt.
 (simpl in Htk).
 (apply le_S_n in Htk).
 (apply match_ty_i_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]).
+(destruct Hm as [t' [Heq Href]]; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:44:34.800000.*)
+(* Auto-generated comment: At 2019-08-12 11:44:44.440000.*)
 
