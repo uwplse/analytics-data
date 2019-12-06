@@ -146,9 +146,22 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Example test_nandb1 : nandb true false = true.
+Proof.
 reflexivity.
 Qed.
-(* Auto-generated comment: Succeeded. *)
+Example test_nandb2 : nandb false false = true.
+Proof.
+reflexivity.
+Qed.
+Example test_nandb3 : nandb false true = true.
+Proof.
+reflexivity.
+Qed.
+Example test_nandb4 : nandb true true = false.
+Proof.
+reflexivity.
+Qed.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 06:39:07.780000.*)
+(* Auto-generated comment: At 2019-09-04 06:39:38.970000.*)
 
