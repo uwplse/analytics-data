@@ -288,9 +288,9 @@ Proof.
 (unfold log_size_ok, log_contents_ok; intros).
 Check diskUpd_oob_eq.
 (rewrite diskUpd_oob_noop; eauto).
-(unfold log_addr in *).
-(unfold diskSize in *).
+(unfold log_addr, diskSize in *).
+lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:55:33.360000.*)
+(* Auto-generated comment: At 2019-09-04 11:55:37.980000.*)
 
