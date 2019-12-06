@@ -200,7 +200,8 @@ Proof.
 (descend; intuition eauto).
 (descend; intuition eauto).
 (unfold log_abstraction in H0; intuition).
+(pose proof (H1 (log_addr a)); intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:56:45.480000.*)
+(* Auto-generated comment: At 2019-09-04 10:57:15.160000.*)
 
