@@ -41,8 +41,8 @@ Redirect "/tmp/coqixcG4d" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Open Scope coucou_scope.
-Check [Nil].
+Check [Nil Nil].
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-17 14:31:49.620000.*)
+(* Auto-generated comment: At 2019-08-17 14:31:50.640000.*)
 
