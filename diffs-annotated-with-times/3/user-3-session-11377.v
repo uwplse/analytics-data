@@ -195,8 +195,12 @@ Proof.
 (induction n as [| n' IHn']).
 -
 (simpl).
-(rewrite <- plus_n_O).
+reflexivity.
+-
+(simpl).
+(rewrite IHn').
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-08 10:08:36.720000.*)
+(* Auto-generated comment: At 2019-09-08 10:08:55.480000.*)
 
