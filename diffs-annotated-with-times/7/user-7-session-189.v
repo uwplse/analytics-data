@@ -14,8 +14,11 @@ Lemma cname_eq__decidable : forall n1 n2 : cname, Decidable.decidable (n1 = n2).
 Proof.
 (intros n1 n2; destruct n1; destruct n2; (left; reflexivity) || (right; intros H; inversion H)).
 Qed.
-Lemma free_in_type__decidable : forall (X : id) (t : ty), Decidable.decidable (free_in_type X t).
+Lemma free_in_ty__decidable : forall (X : id) (t : ty), Decidable.decidable (free_in_ty X t).
+Proof.
+(intros X t).
+(unfold free).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:47:54.080000.*)
+(* Auto-generated comment: At 2019-09-02 08:48:14.310000.*)
 
