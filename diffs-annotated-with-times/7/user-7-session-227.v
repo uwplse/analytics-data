@@ -103,8 +103,10 @@ exfalso.
 Search -IdSet.singleton.
 (apply IdSetFacts.singleton_2).
 reflexivity.
+-
+assumption.
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 09:31:47.150000.*)
+(* Auto-generated comment: At 2019-09-06 09:32:17.180000.*)
 
