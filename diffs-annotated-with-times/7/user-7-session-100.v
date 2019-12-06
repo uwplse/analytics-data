@@ -93,16 +93,12 @@ Proof.
    | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
    | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
-   | apply match_ty_var__inv in Hm; constructor ])).
+   | apply match_ty_var__inv in Hm; subst; constructor ])).
 -
 (apply match_ty_exist__0_inv in Hm).
 auto.
 -
-(apply match_ty_var__inv in Hm).
-subst.
-constructor.
--
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:05:24.490000.*)
+(* Auto-generated comment: At 2019-08-20 08:06:49.590000.*)
 
