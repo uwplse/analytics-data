@@ -492,7 +492,13 @@ intuition.
 (descend; intuition eauto).
 }
 (eapply proc_spec_weaken; eauto).
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
+{
+(descend; intuition eauto).
+(eapply log_abstraction_nil; eauto).
+}
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:22:59.870000.*)
+(* Auto-generated comment: At 2019-09-04 12:23:12.760000.*)
 
