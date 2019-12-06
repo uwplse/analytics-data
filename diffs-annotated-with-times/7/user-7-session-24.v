@@ -36,8 +36,8 @@ Fixpoint inv_depth (t : ty) :=
   | TUnion t1 t2 => Nat.max (| t1 |) (| t2 |)
   | TRef t' => 1 + | t' |
   end
-where "'|' t '|'" := (inv_depth t) : btjm_scope.
+where "'|'t'|'" := (inv_depth t) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 08:41:45.790000.*)
+(* Auto-generated comment: At 2019-08-14 08:41:47.540000.*)
 
