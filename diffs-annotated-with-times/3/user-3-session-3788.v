@@ -41,8 +41,10 @@ Theorem swapXY_ok :
              state' = mkState (StateY state) (StateX state) (StateZ state);
      recovered := fun _ state' => True |}) swapXY vars.recover vars.abstr.
 Proof.
-(unfold swapXY).
+(match goal with
+ | |- proc_spec _ ?p _ _ => pose proof (AProc p) as Hbefore
+ end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:51:35.550000.*)
+(* Auto-generated comment: At 2019-08-29 08:52:08.110000.*)
 
