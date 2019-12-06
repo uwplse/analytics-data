@@ -112,7 +112,13 @@ Omega.omega.
 (simpl).
 Omega.omega.
 -
-(* Auto-generated comment: Failed. *)
+(intros).
+(simpl).
+Omega.omega.
+-
+(simpl).
+(rewrite rename__size).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 14:57:19.250000.*)
+(* Auto-generated comment: At 2019-08-29 14:57:28.800000.*)
 
