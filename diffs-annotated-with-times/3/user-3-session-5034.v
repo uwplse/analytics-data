@@ -394,8 +394,7 @@ step_proc.
 {
 (step_proc; intuition; subst; eauto).
 *
-(exists (s ++ v); simpl; intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:00:11.050000.*)
+(* Auto-generated comment: At 2019-09-03 11:00:11.260000.*)
 
