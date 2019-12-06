@@ -214,12 +214,7 @@ Proof.
             apply Nat.max_le_compat; auto
      end ])).
 -
-(destruct (sem_sub_k_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2]).
-(destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
-SearchPattern (Nat.max _ _ <= _).
-(rewrite inv_depth_union).
-(apply Nat.max_lub; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:49:23.420000.*)
+(* Auto-generated comment: At 2019-08-13 07:49:25.820000.*)
 
