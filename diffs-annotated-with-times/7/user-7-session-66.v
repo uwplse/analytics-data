@@ -228,8 +228,11 @@ Proof.
 (intros t; induction t; intros k Hdep).
 -
 exists (TCName c).
-reflexivity.
+(destruct k; reflexivity).
+-
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(destruct (IHt1 k Hdep1) as [v1 [Hv1 Hm1]]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 12:48:22.740000.*)
+(* Auto-generated comment: At 2019-08-16 12:48:35.930000.*)
 
