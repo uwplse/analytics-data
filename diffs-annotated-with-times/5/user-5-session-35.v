@@ -234,8 +234,13 @@ exists (eval L env (Int 3)).
 (eapply eq_trans).
 -
 (apply evalIfTrue).
-(apply evalInInts; auto).
+(apply evalInInts).
++
+reflexivity.
++
+eexists.
+(apply evalVar).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 09:47:10.110000.*)
+(* Auto-generated comment: At 2019-09-01 09:47:45.830000.*)
 
