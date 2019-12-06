@@ -21,8 +21,7 @@ Proof.
 -
 Check IdSetFacts.singleton_2.
 (pose proof (IdSetFacts.singleton_2 e)).
-contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:14:21.840000.*)
+(* Auto-generated comment: At 2019-09-02 09:14:38.750000.*)
 
