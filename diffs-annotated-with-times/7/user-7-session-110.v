@@ -129,8 +129,22 @@ Proof.
    | |- |-[ _, _] _ <$ TCName _ => apply match_ty_cname__inv in Hm; subst; apply match_ty_cname
    | |- |-[ _, _] _ <$ TPair _ _ =>
          apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | |- |-[ _, _] _ <$ TUnion _ _ =>
+         apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto
    end).
+-
+(destruct k).
++
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+(destruct w'; constructor).
++
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(destruct w'; assumption).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:51:21.510000.*)
+(* Auto-generated comment: At 2019-08-26 07:52:19.090000.*)
 
