@@ -966,8 +966,9 @@ gen \207\129.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-(intros \207\129 M).
+(intros \207\129).
+(repeat rewrite Mmult_assoc).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 10:35:01.080000.*)
+(* Auto-generated comment: At 2019-08-13 10:35:58.350000.*)
 
