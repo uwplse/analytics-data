@@ -79,8 +79,8 @@ Proof.
 (apply match_ty_i_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
-tauto.
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:45:11.870000.*)
+(* Auto-generated comment: At 2019-08-12 09:45:41.060000.*)
 
