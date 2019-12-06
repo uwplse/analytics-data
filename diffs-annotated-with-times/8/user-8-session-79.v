@@ -965,7 +965,8 @@ Timeout 1 Print Ltac rewrite_inPar''.
  end; try (solve [ type_check ])).
 show_dimensions.
 injection L1 as L1.
+replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 16:02:38.620000.*)
+(* Auto-generated comment: At 2019-08-14 16:02:42.400000.*)
 
