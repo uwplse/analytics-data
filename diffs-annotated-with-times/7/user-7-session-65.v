@@ -139,8 +139,13 @@ Proof.
 (induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); destruct k; simpl in Hsem; subst; constructor || contradiction ])).
 -
 clear IHt2_1 IHt2_2.
-(destruct (sem_sub_k_pair__inv _ _ _ _ _ Hdep Hsem') as [Hsem1 Hsem2]).
-(* Auto-generated comment: Failed. *)
+(destruct (sem_sub_k_pair__inv _ _ _ _ _ Hdep Hsem) as [Hsem1 Hsem2]).
+(constructor; [ apply IH1 | apply IH2 ]; tauto).
+-
+(apply value_sem_sub_k_union__inv in Hsem; try assumption).
+(destruct Hsem as [Hsem| Hsem]; [ apply union_right_1 | apply union_right_2 ]; tauto).
+-
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:53:38.880000.*)
+(* Auto-generated comment: At 2019-08-16 10:54:11.460000.*)
 
