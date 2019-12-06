@@ -94,23 +94,10 @@ exists 0.
 (destruct (beq_idP X' i0)).
 {
 subst.
-(split; intros Hi0).
+(split; intros HX').
 {
 (unfold not_f_free_in_ty, not_free in Hi0).
-(simpl in Hi0).
-exfalso.
-(apply Hi0).
-(apply IdSetFacts.singleton_2).
-reflexivity.
-}
-{
-exists 0.
-(rewrite f_subst_fvar_eq).
-assumption.
-}
-}
-{
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 13:21:01.570000.*)
+(* Auto-generated comment: At 2019-09-05 13:21:06.790000.*)
 
