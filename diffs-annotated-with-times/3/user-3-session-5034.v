@@ -191,8 +191,7 @@ step_proc.
 (destruct a'; simpl in *; try lia).
 exists a'.
 intuition eauto.
-lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 10:57:21.860000.*)
+(* Auto-generated comment: At 2019-09-03 10:57:31.670000.*)
 
