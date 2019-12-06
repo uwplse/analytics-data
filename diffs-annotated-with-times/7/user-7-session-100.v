@@ -68,11 +68,8 @@ Proof.
 (intros v; induction v; try (solve [ intros t w k Hm; destruct w; destruct k; contradiction ])).
 clear IHv.
 (intros t w k Hm).
-(simpl in Hm).
-exists v.
-split.
-reflexivity.
+(destruct w; simpl in Hm; exists v; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 07:59:46.550000.*)
+(* Auto-generated comment: At 2019-08-20 08:00:08.100000.*)
 
