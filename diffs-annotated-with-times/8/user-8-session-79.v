@@ -609,7 +609,8 @@ Proof.
 (intros).
 (simpl).
 specialize (kron_1_l (\226\168\130 l2)) as KL.
+(rewrite kron_1_l).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 18:10:38.190000.*)
+(* Auto-generated comment: At 2019-08-13 18:11:09.080000.*)
 
