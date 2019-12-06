@@ -418,5 +418,5 @@ specialize (Hsem _ _ Hm).
 (destruct Hsem; [ left | right ]; unfold sem_sub_i; intros k v' Hm').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:08:50.710000.*)
+(* Auto-generated comment: At 2019-08-13 12:08:57.910000.*)
 
