@@ -257,8 +257,8 @@ Proof.
 (unfold get_len; intros).
 step_proc.
 step_proc.
-(eapply abstr_get_len).
+(eapply abstr_get_len; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:25:11.940000.*)
+(* Auto-generated comment: At 2019-09-04 11:25:39.370000.*)
 
