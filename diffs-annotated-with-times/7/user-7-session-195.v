@@ -150,25 +150,18 @@ assumption.
 assumption.
 (apply le_S_n; assumption).
 Qed.
-Lemma match_ty__exists_w_v : forall t : ty, exists (w : nat) (v : ty), |-[ w] v <$ t.
+Lemma match_ty__match_ty_f_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [BX := tint] t.
 Proof.
-(induction t).
--
-exists 0,(TCName c).
-(apply match_ty_cname).
--
-(destruct (IHt1) as [w1 [v1 Hm1]]).
-(destruct (IHt2) as [w2 [v2 Hm2]]).
-exists (Nat.max w1 w2),(TPair v1 v2).
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
-(apply Nat.le_max_l).
-(apply Nat.le_max_r).
--
-(destruct (IHt1) as [w [v Hm]]).
-exists w,v.
-(apply match_ty_union_1; assumption).
--
-(* Auto-generated comment: Failed. *)
+(intros X; induction w; induction t; intros v;
+  try (solve
+   [ intros Hm; exists v; assumption
+   | intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; destruct (IHt1 _ Hm1) as [v1' Hm1'];
+      destruct (IHt2 _ Hm2) as [v2' Hm2']; exists (TPair v1' v2'); rewrite subst_pair; apply match_ty_pair; assumption
+   | intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ];
+      exists v'; rewrite subst_union; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption
+   | intros Hm; destruct (beq_idP X i);
+      [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 09:26:19.820000.*)
+(* Auto-generated comment: At 2019-09-03 09:29:16.610000.*)
 
