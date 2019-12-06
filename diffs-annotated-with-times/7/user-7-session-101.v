@@ -35,10 +35,13 @@ Qed.
 Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
 Proof.
 exists 1.
-(intros k; destruct k; intros v Hm).
--
-(apply match_ty_exist__0_inv in Hm).
+(intros k v Hm).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(apply match_ty_exist).
+exists tx.
+(simpl in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:19:32.930000.*)
+(* Auto-generated comment: At 2019-08-20 08:20:04.340000.*)
 
