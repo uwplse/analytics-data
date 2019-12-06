@@ -90,8 +90,8 @@ assumption.
 (destruct Hm' as [ti [Hwf Hm']]).
 (split; intros HX').
 *
-exists ti'.
+exists ti.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:08:53.050000.*)
+(* Auto-generated comment: At 2019-09-04 09:09:00.550000.*)
 
