@@ -158,8 +158,221 @@ Proof.
 (intros X Y t HXY HX).
 (simpl).
 Search -IdSet.remove.
-(apply IdSetFacts.remove_2; tauto).
+(apply IdSetFacts.remove_2).
+auto.
+assumption.
+Qed.
+Lemma b_subst_cname : forall (X : id) (s : ty) (c : cname), [BX := s] TCName c = TCName c.
+Proof.
+(intros).
+reflexivity.
+Qed.
+Lemma b_subst_pair : forall (X : id) (s t1 t2 : ty), [BX := s] TPair t1 t2 = TPair ([BX := s] t1) ([BX := s] t2).
+Proof.
+(intros).
+reflexivity.
+Qed.
+Lemma b_subst_union : forall (X : id) (s t1 t2 : ty), [BX := s] TUnion t1 t2 = TUnion ([BX := s] t1) ([BX := s] t2).
+Proof.
+(intros).
+(simpl).
+reflexivity.
+Qed.
+Lemma b_subst_ev : forall (X : id) (s : ty) (Y : id), [BX := s] TEV Y = TEV Y.
+Proof.
+(intros).
+reflexivity.
+Qed.
+Lemma b_subst_fvar : forall (X : id) (s : ty) (Y : id), [BX := s] TFVar Y = TFVar Y.
+Proof.
+(intros).
+(simpl).
+reflexivity.
+Qed.
+Lemma b_subst_bvar_eq : forall (X : id) (s : ty), [BX := s] TBVar X = s.
+Proof.
+(intros).
+(simpl).
+(rewrite <- beq_id_refl).
+reflexivity.
+Qed.
+Lemma b_subst_bvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [BX := s] TBVar Y = TBVar Y.
+Proof.
+(intros X s Y Hneq).
+(simpl).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
+(simpl).
+(rewrite Hid).
+reflexivity.
+Qed.
+Lemma b_subst_exist_eq : forall (X : id) (s : ty) (t : ty), [BX := s] TExist X t = TExist X t.
+Proof.
+(intros).
+(simpl).
+(rewrite <- beq_id_refl).
+reflexivity.
+Qed.
+Lemma b_subst_exist_neq : forall (X : id) (s : ty) (Y : id) (t : ty), X <> Y -> [BX := s] TExist Y t = TExist Y ([BX := s] t).
+Proof.
+(intros X s Y t Hneq).
+(simpl).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
+(rewrite Hid).
+reflexivity.
+Qed.
+Lemma b_subst_not_b_free_in_ty : forall (X : id) (t : ty), not_b_free_in_ty X t -> forall s : ty, [BX := s] t = t.
+Proof.
+(intros X t).
+(induction t; intros HX s;
+  try (solve
+   [ reflexivity
+   | try destruct (not_b_free_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]; try destruct (not_b_free_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; simpl;
+      rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
+-
+(destruct (beq_idP X i); try (subst; rewrite b_subst_exist_eq; reflexivity)).
+(rewrite b_subst_exist_neq; try assumption).
+(rewrite IHt).
+reflexivity.
+(unfold not_b_free_in_ty, not_free in *).
+(simpl in HX).
+(intros Hcontra).
+(apply HX).
+(apply IdSetFacts.remove_iff).
+auto.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(unfold not_b_free_in_ty in HX).
+(simpl in HX).
+(unfold not_free in HX).
+exfalso.
+(apply HX).
+(apply IdSetFacts.singleton_2).
+reflexivity.
++
+subst.
+(rewrite b_subst_bvar_neq; try assumption).
+reflexivity.
+Qed.
+Lemma b_subst_neq__permute :
+  forall X Y : id, X <> Y -> forall s1 s2 t : ty, wf_ty s1 -> wf_ty s2 -> [BX := s1] ([BY := s2] t) = [BY := s2] ([BX := s1] t).
+Proof.
+(intros X Y Hneq s1 s2 t Hs1 Hs2).
+generalize dependent t.
+(induction t; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
+-
+(simpl).
+(destruct (beq_idP Y i)).
++
+subst.
+(destruct (beq_idP X i)).
+*
+subst.
+(repeat rewrite b_subst_exist_eq).
+reflexivity.
+*
+(rewrite b_subst_exist_neq; try assumption).
+(rewrite b_subst_exist_eq).
+reflexivity.
++
+(destruct (beq_idP X i)).
+*
+subst.
+(rewrite b_subst_exist_eq).
+(rewrite b_subst_exist_neq; try assumption).
+reflexivity.
+*
+(repeat rewrite b_subst_exist_neq; try assumption).
+(rewrite IHt).
+reflexivity.
+-
+(simpl; destruct (beq_idP X i); destruct (beq_idP Y i); subst).
++
+contradiction.
++
+(simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+reflexivity.
+(apply wf_ty__not_b_free_in_ty; assumption).
++
+(simpl).
+(rewrite <- beq_id_refl).
+(rewrite b_subst_not_b_free_in_ty).
+reflexivity.
+(apply wf_ty__not_b_free_in_ty; assumption).
++
+(rewrite b_subst_bvar_neq; try assumption).
+(rewrite b_subst_bvar_neq; try assumption).
+reflexivity.
+Qed.
+Lemma f_free_in_ty__f_free_in_b_subst : forall (Y : id) (s : ty) (X : id) (t : ty), f_free_in_ty X t -> f_free_in_ty X ([BY := s] t).
+Proof.
+(intros Y s X t HX).
+(induction t; try (solve [ simpl; assumption ])).
+-
+(rewrite b_subst_pair).
+(apply f_free_in_ty_pair).
+(apply f_free_in_ty_pair__inv in HX).
+tauto.
+-
+(rewrite b_subst_union).
+(apply f_free_in_ty_union).
+(apply f_free_in_ty_union__inv in HX).
+tauto.
+-
+(destruct (beq_idP Y i)).
++
+subst.
+(rewrite b_subst_exist_eq).
+assumption.
++
+(rewrite b_subst_exist_neq; try assumption).
+(apply f_free_in_ty_exist).
+tauto.
+-
+(unfold f_free_in_ty, free in HX).
+(simpl in HX).
+(rewrite IdSetFacts.empty_iff in HX).
+contradiction.
+Qed.
+Lemma b_free_in_ty__b_free_in_b_subst_neq : forall (Y : id) (s : ty) (X : id) (t : ty), X <> Y -> b_free_in_ty X t -> b_free_in_ty X ([BY := s] t).
+Proof.
+(intros Y s X t HXY HX).
+(induction t; try (solve [ simpl; assumption ])).
+-
+(rewrite b_subst_pair).
+(apply b_free_in_ty_pair).
+(apply b_free_in_ty_pair__inv in HX).
+tauto.
+-
+(rewrite b_subst_union).
+(apply b_free_in_ty_union).
+(apply b_free_in_ty_union__inv in HX).
+tauto.
+-
+(destruct (beq_idP Y i)).
++
+subst.
+(rewrite b_subst_exist_eq).
+assumption.
++
+(rewrite b_subst_exist_neq; try assumption).
+(destruct (beq_idP X i)).
+*
+subst.
+(unfold b_free_in_ty, free in HX).
+(simpl in HX).
+(apply IdSetFacts.remove_1 in HX).
+contradiction.
+reflexivity.
+*
+(apply b_free_in_ty_exist_neq__inv in HX; try assumption).
+(apply b_free_in_ty_exist_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 12:41:50.030000.*)
+(* Auto-generated comment: At 2019-09-05 12:41:54.490000.*)
 
