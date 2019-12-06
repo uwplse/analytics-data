@@ -248,8 +248,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Instance aModel_wf : (GoModelWf aModel).
 Proof.
-econstructor.
-(* Auto-generated comment: Succeeded. *)
+constructor.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:58:06.250000.*)
+(* Auto-generated comment: At 2019-08-16 06:58:08.230000.*)
 
