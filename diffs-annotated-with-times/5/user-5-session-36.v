@@ -268,8 +268,8 @@ clear H.
 (rewrite <- evalEqTrue in H0).
 (rewrite evalVar in H).
 (rewrite extendEnv_eq in H).
-(assert (Z : forall z : Z, 6 = z * 2 -> z = 3) by admit).
+(assert (Z : (forall z : Z, 6 = z * 2 -> z = 3)%Z) by admit).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:53:37.090000.*)
+(* Auto-generated comment: At 2019-09-01 10:53:43.060000.*)
 
