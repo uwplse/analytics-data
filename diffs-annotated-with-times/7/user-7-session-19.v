@@ -101,10 +101,9 @@ constructor.
 (destruct Hm as [t' Heq]; subst).
 constructor.
 Qed.
-Lemma bbb : forall (k : nat) (t t' v : ty), |-[ k] v <$ t -> |-[ k] v <$ t' -> | t | <= | t' |.
+Lemma bbb : forall (k : nat) (t t' v : ty), (|-[ k] v <$ t -> |-[ k] v <$ t') -> | t | <= | t' |.
 Proof.
-(induction k; induction t; induction t'; intros v Hmt Hmt').
-Show 2.
+(induction k; induction t; induction t'; intros v H).
 32: {
 idtac.
 (simpl).
@@ -112,5 +111,5 @@ idtac.
 (apply IHk).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:29:10.090000.*)
+(* Auto-generated comment: At 2019-08-12 13:29:19.320000.*)
 
