@@ -85,8 +85,9 @@ Proof.
 specialize (Href v Hv).
 (split; tauto).
 +
+(destruct k').
 (simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:59:57.010000.*)
+(* Auto-generated comment: At 2019-08-12 10:00:15.940000.*)
 
