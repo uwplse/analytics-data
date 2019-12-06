@@ -156,8 +156,7 @@ step.
 step.
 step.
 step.
-(exists nil; simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:47:41.150000.*)
+(* Auto-generated comment: At 2019-09-06 06:48:31.900000.*)
 
