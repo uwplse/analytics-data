@@ -240,8 +240,8 @@ typeclasses eauto.
 Print EqualDec.
 Print EqualDec.
 Print EqDecision.
-(destruct (decide (x = x1))).
-(* Auto-generated comment: Failed. *)
+(destruct (decide (x0 = x1))).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:13:17.680000.*)
+(* Auto-generated comment: At 2019-08-16 07:13:28.420000.*)
 
