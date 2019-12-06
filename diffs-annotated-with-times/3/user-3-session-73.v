@@ -89,9 +89,7 @@ Lemma proc_rspec_crash_refines_op T (p : proc C_Op T)
 Proof.
 (intros Hprspec Hpre Hpost Halt).
 (unfold crash_refines, refines; split).
--
-setoid_rewrite  <- op_spec_complete1.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 13:56:34.460000.*)
+(* Auto-generated comment: At 2019-08-07 13:57:25.600000.*)
 
