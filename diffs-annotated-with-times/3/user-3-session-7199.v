@@ -433,8 +433,8 @@ step_proc.
 }
 {
 (exists bs; intuition).
-(apply (log_abstraction_preserved state' nil)).
-(* Auto-generated comment: Failed. *)
+(pose proof (log_abstraction_preserved state' nil)).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:17:18.770000.*)
+(* Auto-generated comment: At 2019-09-04 12:17:19.610000.*)
 
