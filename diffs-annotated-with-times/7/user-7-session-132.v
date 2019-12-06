@@ -88,7 +88,10 @@ Proof.
 (intros w1).
 exists w1.
 (intros v Hm).
+(destruct k).
+-
+(apply match_ty_ref__weak_inv in Hm; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:18:32.050000.*)
+(* Auto-generated comment: At 2019-08-27 08:19:35.270000.*)
 
