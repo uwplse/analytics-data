@@ -224,8 +224,10 @@ Qed.
 Lemma sem_eq_k__comm :
   forall (t1 t2 : ty) (k : nat), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t1].
 Proof.
-auto with DBBetaJulia.
+(intros t1 t2 k Hsem).
+(unfold sem_eq_k in *).
+(intros v).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:26:32.340000.*)
+(* Auto-generated comment: At 2019-08-15 07:26:48.210000.*)
 
