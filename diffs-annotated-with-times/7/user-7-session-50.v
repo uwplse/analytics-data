@@ -96,8 +96,7 @@ Proof.
 (split; simpl; constructor).
 -
 (destruct IHt1; destruct IHt2).
-(split; simpl; apply unite_pairs__preserves_sub_d_l; assumption).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:34:10.880000.*)
+(* Auto-generated comment: At 2019-08-16 07:34:16.310000.*)
 
