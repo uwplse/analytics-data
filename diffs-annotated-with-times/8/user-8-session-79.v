@@ -608,8 +608,7 @@ Proof.
 (intros).
 (compute).
 (intros).
-intuition.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 18:19:36.490000.*)
+(* Auto-generated comment: At 2019-08-13 18:19:40.450000.*)
 
