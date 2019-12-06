@@ -151,5 +151,3 @@ Timeout 1 Print Ltac restore_dims.
 (rewrite ctrls_to_list_transpose_snd).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 13:16:18.200000.*)
-
