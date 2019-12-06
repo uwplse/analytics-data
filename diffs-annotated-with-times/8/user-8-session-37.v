@@ -69,8 +69,8 @@ subst.
 (apply (t0 \206\1473); trivial).
 Abort.
 Fact valid_ancillae_box_equal :
-  forall W1 W2 (c : Box W1 W2), valid_ancillae_box c <-> valid_ancillae_box' c.
+  forall W1 W2 (c : Box W1 W2) \207\129, valid_ancillae_box c \207\129 <-> valid_ancillae_box' c \207\129.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 14:19:29.960000.*)
+(* Auto-generated comment: At 2019-08-12 14:20:37.250000.*)
 
