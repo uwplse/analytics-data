@@ -388,8 +388,8 @@ Inductive Alpha : SetST -> GT -> Prop :=
             | SFun S_1 S_2 => Some S_2
             | _ => None
             end)) G_2 -> Alpha S (GFun G_1 G_2)
-  | alpha_rec_mt : Alpha (Singleton _ (SRec nil)) (GRec []).
+  | alpha_rec_mt : Alpha (Singleton _ (SRec [])) (GRec []).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 18:16:27.840000.*)
+(* Auto-generated comment: At 2019-09-05 18:16:37.960000.*)
 
