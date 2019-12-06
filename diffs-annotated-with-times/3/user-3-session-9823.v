@@ -148,8 +148,7 @@ step_proc.
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any; split; auto).
 (constructor; intuition; autorewrite with upd in *; intuition).
--
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:21:15.800000.*)
+(* Auto-generated comment: At 2019-09-06 05:21:16.260000.*)
 
