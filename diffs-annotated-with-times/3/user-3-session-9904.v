@@ -127,8 +127,8 @@ intuition.
 +
 (exists (n0 :: s); intuition).
 (right; intuition congruence).
-(simpl).
+intuition.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:43:33.580000.*)
+(* Auto-generated comment: At 2019-09-06 05:43:38.310000.*)
 
