@@ -67,8 +67,8 @@ Proof.
 Qed.
 Lemma sub_r__mk_nf_sub_r : forall t t' : ty, |- t << t' -> |- MkNF( t) << MkNF( t').
 Proof.
-(intros t t' Hsub; induction Hsub; try (solve [ simpl; do 4 constructor ])).
+(intros t t' Hsub; induction Hsub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:40:15.010000.*)
+(* Auto-generated comment: At 2019-08-06 12:40:54.140000.*)
 
