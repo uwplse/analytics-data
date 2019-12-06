@@ -973,9 +973,9 @@ restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (repeat rewrite Mmult_assoc).
 Msimpl.
 (match goal with
- | |- context [ ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) ] => idtac A; idtac B; idtac C; idtac D
+ | |- context [ ?A \226\138\151 ?B \195\151 (?C \226\138\151 ?D) ] => rewrite (kron_mixed_product A B C D)
  end).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:54:02.020000.*)
+(* Auto-generated comment: At 2019-08-13 13:56:12.010000.*)
 
