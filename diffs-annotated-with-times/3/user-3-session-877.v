@@ -1358,8 +1358,7 @@ iExists _.
 (simpl open).
 rewrite Hopen.
 iFrame.
-iDestruct "Hmbox" as "(Hwlock&Hlockinv&Hstatus)".
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:16:44.350000.*)
+(* Auto-generated comment: At 2019-08-14 13:16:49.300000.*)
 
