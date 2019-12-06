@@ -168,9 +168,7 @@ generalize dependent t3.
 +
 (apply SR_UnionR2; tauto).
 +
-constructor.
-auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 13:33:37.130000.*)
+(* Auto-generated comment: At 2019-08-06 13:35:31.510000.*)
 
