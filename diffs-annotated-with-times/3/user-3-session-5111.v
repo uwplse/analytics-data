@@ -158,8 +158,7 @@ Proof.
 (eapply then_init_compose; eauto).
 step_proc.
 (destruct (r == 0)).
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:02:24.810000.*)
+(* Auto-generated comment: At 2019-09-03 11:02:26.780000.*)
 
