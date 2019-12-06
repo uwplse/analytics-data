@@ -199,8 +199,8 @@ subst.
 -
 (destruct w).
 +
-(apply mtch_ty_exist__0_inv in Hm).
+(apply mactch_ty_exist__0_inv in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:28:45.370000.*)
+(* Auto-generated comment: At 2019-08-21 09:28:47.710000.*)
 
