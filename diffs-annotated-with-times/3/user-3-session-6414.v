@@ -161,8 +161,8 @@ step_proc.
 (exists nil; simpl).
 (split; auto).
 (eapply log_abstraction_nil; eauto).
-autorewrite with disk.
-(* Auto-generated comment: Failed. *)
+autorewrite with core.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:28:09.370000.*)
+(* Auto-generated comment: At 2019-09-04 10:28:17.500000.*)
 
