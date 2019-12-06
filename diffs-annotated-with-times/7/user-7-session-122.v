@@ -44,12 +44,17 @@ exists (Nat.max w21 w22).
 (apply Nat.le_max_l).
 (apply Nat.le_max_r).
 Qed.
-Lemma sem_sub_union : forall t1 t2 t' : ty, ||- [t1]<= [t'] -> ||- [t2]<= [t'] -> ||- [TUnion t1 t2]<= [t'].
+Lemma sem_sub_k_union_1 : forall (k : nat) (t t1' t2' : ty), ||-[ k][t]<= [t1'] -> ||-[ k][t]<= [TUnion t1' t2'].
 Proof.
-(intros t1 t2 t' Hem1 Hsem2 k).
-(apply sem_sub_k_union; auto).
-Qed.
+(intros k t t1' t2' Hsem).
+(intros w1).
+specialize (Hsem w1).
+(destruct Hsem as [w2 Hsem]).
+exists w2.
+(intros v Hm).
+(apply match_ty_union_1).
+(apply Hsem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:24:34.110000.*)
+(* Auto-generated comment: At 2019-08-27 07:24:52.970000.*)
 
