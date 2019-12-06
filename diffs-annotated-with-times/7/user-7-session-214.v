@@ -268,13 +268,14 @@ tauto.
 (apply f_free_in_ty_union__inv in HX).
 tauto.
 -
-(apply f_free_in_ty_exist__inv in HX).
-specialize (IHt HX).
 (destruct (beq_idP Y i)).
 +
 subst.
 (rewrite b_subst_exist_eq).
+assumption.
++
+(rewrite b_subst_exist_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:31:24.380000.*)
+(* Auto-generated comment: At 2019-09-04 09:31:42.440000.*)
 
