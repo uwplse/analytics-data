@@ -516,8 +516,15 @@ assumption.
 (rewrite <- Hdepeq; assumption).
 (apply sem_sub_k_i__trans with t2).
 (apply mk_nf__sem_sub_k_i_l).
-(apply sem_eq_k_i__sem_sub_k_i).
-(* Auto-generated comment: Failed. *)
+(apply sem_eq_k_i__sem_sub_k_i; assumption).
+Qed.
+Theorem nf_sem_sub_i__sub_d : forall t : ty, InNF( t) -> forall t' : ty, ||- [t]<= [t'] -> |- t << t'.
+Proof.
+(intros t Hnf t' Hsem).
+(apply nf_sem_sub_k_i__sub_d with (| t |); auto).
+Qed.
+Close Scope btjmi.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 14:28:18.090000.*)
+(* Auto-generated comment: At 2019-08-16 14:28:20.620000.*)
 
