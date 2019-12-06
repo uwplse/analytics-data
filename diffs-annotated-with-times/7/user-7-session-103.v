@@ -38,9 +38,13 @@ Qed.
 Lemma match_ty_pair__inv :
   forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ TPair t1 t2 -> exists v1 v2 : ty, v = TPair v1 v2 /\ |-[ k, w] v1 <$ t1 /\ |-[ k, w] v2 <$ t2.
 Proof.
-(intros v c k w Hm).
+(intros v t1 t2 k w Hm).
 (destruct k, w, v; simpl in Hm; try contradiction).
+exists v1,v2.
+split.
+reflexivity.
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:44:28.460000.*)
+(* Auto-generated comment: At 2019-08-20 11:45:10.370000.*)
 
