@@ -152,7 +152,10 @@ step.
 (destruct (lt_dec r 1)).
 -
 step.
+-
+step.
+step.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:36:16.610000.*)
+(* Auto-generated comment: At 2019-09-06 06:37:30.510000.*)
 
