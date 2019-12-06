@@ -82,8 +82,22 @@ Proof.
 Qed.
 Lemma match_ty_var__inv : forall (v : ty) (X : id) (k : nat), |-[ k] v <$ TVar X -> value_type v.
 Proof.
-(intros v; induction v; intros X k Hm; assumption).
+(intros v; induction v; intros X k Hm; destruct k; assumption).
+Qed.
+Theorem match_ty__value_type_l : forall (k : nat) (v t : ty), |-[ k] v <$ t -> value_type v.
+Proof.
+(induction k; intros v t; generalize dependent v; induction t; intros v Hm;
+  try (solve
+   [ apply match_ty_cname__inv in Hm; subst; constructor
+   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; constructor; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
+   | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
+   | apply match_ty_var__inv in Hm; assumption ])).
+-
+(apply match_ty_exist__0_inv in Hm).
+auto.
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:17:53.040000.*)
+(* Auto-generated comment: At 2019-08-19 13:18:00.660000.*)
 
