@@ -213,7 +213,10 @@ exists (Nat.max w1 w2),(TPair v1 v2).
 (destruct IHt1 as [IHt1| [w1 [v1 IHt1]]]; destruct IHt2 as [IHt2| [w2 [v2 IHt2]]]).
 +
 (left; intros w v Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; exfalso; eauto).
++
+(right; eexists; eexists).
+(apply match_ty_union_1; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 07:54:52.590000.*)
+(* Auto-generated comment: At 2019-09-04 07:54:59.850000.*)
 
