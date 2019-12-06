@@ -139,8 +139,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Definition nat64_to_le (x : nat) : list byte :=
   let digits := nat_to_le 254 x in
-  digits ++ repeat (8 - length digits) bounded0.
+  digits ++ repeat bounded0 (8 - length digits).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:17:40.250000.*)
+(* Auto-generated comment: At 2019-08-16 07:18:00.440000.*)
 
