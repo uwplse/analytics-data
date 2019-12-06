@@ -1237,5 +1237,6 @@ constructor.
 (apply source_symmetric_WT in H).
 (unfold valid_ancillae_box in IHsource_symmetric).
 (rewrite IHsource_symmetric; trivial).
-(* Auto-generated comment: Succeeded. *)
+(rewrite ancilla_free_box_valid; [  | apply ancilla_free_X_at | type_check ]).
+(* Auto-generated comment: Failed. *)
 
