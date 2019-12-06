@@ -189,6 +189,5 @@ Proof.
 (simpl).
 (rewrite Nat.mul_1_r).
 (apply mixed_unitary; trivial).
-(rewrite kron_1_r').
 (* Auto-generated comment: Succeeded. *)
 
