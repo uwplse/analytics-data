@@ -160,8 +160,9 @@ Search -IdSet.mem.
 (destruct (IdSet.mem i (FV tint)) eqn:Hmem).
 (simpl in Hmem).
 Search -IdSet.empty.
-(rewrite IdSetFacts.empty_b).
+(rewrite IdSetFacts.empty_b in Hmem).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:58:36.960000.*)
+(* Auto-generated comment: At 2019-08-30 07:02:35.730000.*)
 
