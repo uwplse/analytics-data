@@ -166,6 +166,11 @@ Lemma sem_sub_k_i__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] 
 Proof.
 auto with DBBetaJulia.
 Qed.
+Lemma sem_eq_k_i__sem_sub_k_i : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][t]<= [t'] /\ ||-[ k][t']<= [t].
+Proof.
+(intros k t t' H).
+(split; intros v Hm; specialize (H v); tauto).
+Qed.
 Lemma sem_sub_k_i_union_l__inv : forall (k : nat) (t1 t2 t' : ty), ||-[ k][TUnion t1 t2]<= [t'] -> ||-[ k][t1]<= [t'] /\ ||-[ k][t2]<= [t'].
 Proof.
 (intros k t1 t2 t' Hsem).
@@ -262,7 +267,8 @@ constructor.
 *
 (apply IHk; try assumption).
 (apply sem_eq_k_i__sem_sub_k_i).
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:10:10.880000.*)
+(* Auto-generated comment: At 2019-08-16 14:10:12.870000.*)
 
