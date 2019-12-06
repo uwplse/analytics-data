@@ -248,11 +248,11 @@ Proof.
    match goal with
    | Hsem:||-[ ?k][?t]= [?t']
      |- | ?t | = | ?t' | =>
-         destruct Hsem as [Hsem _]; specialize (Hsem 0); destruct Hsem as [w2 Hsem];
-          assert (Hm : |-[ 0, 0] t <$ t) by (apply match_ty_value_type__reflexive; constructor); specialize (Hsem _ Hm); 
+         assert (Hv : value_type t) by constructor; destruct Hsem as [Hsem _]; specialize (Hsem 0); destruct Hsem as [w2 Hsem];
+          assert (Hm : |-[ 0, 0] t <$ t) by (apply match_ty_value_type__reflexive; assumption); specialize (Hsem _ Hm); 
           destruct w2; simpl in Hsem; contradiction
    end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 13:27:43.990000.*)
+(* Auto-generated comment: At 2019-08-21 13:30:07.720000.*)
 
