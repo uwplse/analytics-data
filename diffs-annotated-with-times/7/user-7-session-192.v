@@ -75,7 +75,17 @@ assumption.
 *
 (destruct (either_free_or_fresh_in_ty X' t'1) as [HXt'1| HXt'1]).
 (apply match_ty_union_1; auto).
+(apply match_ty_union_1).
+admit.
+*
+admit.
+*
+admit.
++
+admit.
++
+(apply match_ty_exist__iv in Hm').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:16:23.790000.*)
+(* Auto-generated comment: At 2019-09-02 09:18:12.080000.*)
 
