@@ -136,8 +136,11 @@ auto.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
 Check PeanoNat.Nat.mod_small.
-(rewrite IHn by (apply PeanoNat.Nat.mod_le; lia)).
-(* Auto-generated comment: Failed. *)
+Check PeanoNat.Nat.mod_le.
+(rewrite IHn).
+Search -"mod" -div.
+(rewrite (PeanoNat.Nat.div_mod n base)).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:24:08.780000.*)
+(* Auto-generated comment: At 2019-08-16 06:24:31.840000.*)
 
