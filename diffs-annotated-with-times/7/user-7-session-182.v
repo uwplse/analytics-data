@@ -71,8 +71,10 @@ admit.
 (destruct (beq_idP X i) as [HXi| HXi]).
 +
 subst.
-(rewrite subst_exist_eq).
-(* Auto-generated comment: Failed. *)
+(rewrite subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm; contradiction).
++
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-02 07:30:23.570000.*)
+(* Auto-generated comment: At 2019-09-02 07:30:57.180000.*)
 
