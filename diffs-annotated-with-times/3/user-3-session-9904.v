@@ -117,8 +117,12 @@ intuition.
 (simpl in *).
 lia.
 -
-(step_proc; intros).
+(step_proc; intuition).
+(step_proc; intuition).
+(destruct s; intuition).
++
+exists [].
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:41:06.120000.*)
+(* Auto-generated comment: At 2019-09-06 05:41:11.900000.*)
 
