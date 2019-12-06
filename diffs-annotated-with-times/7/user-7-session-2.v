@@ -290,13 +290,9 @@ Proof.
 tauto.
 -
 (intros Hnf2 t3 Hsub21).
-(remember (TPair t1' t2') as tx eqn:Heqx ).
-(induction Hsub21; inversion Heqx; subst; try clear Heqx).
-+
-(intros Hsub22).
-(apply sub_r_pair__inv in Hsub22).
 (inversion Hnf2; subst).
+(inversion H; remember (TPair t1' t2') as tx eqn:Heqx ).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 13:43:18.780000.*)
+(* Auto-generated comment: At 2019-08-07 13:43:24.820000.*)
 
