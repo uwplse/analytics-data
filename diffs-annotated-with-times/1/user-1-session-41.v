@@ -553,8 +553,9 @@ generalize dependent G'.
 (induction H).
 -
 (intros; inversion H0; subst; eauto).
-congruence.
-(* Auto-generated comment: Failed. *)
+Search -Singleton.
+Search -(Singleton _ _ = Singleton _ _).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 18:53:11.360000.*)
+(* Auto-generated comment: At 2019-09-05 18:55:55.190000.*)
 
