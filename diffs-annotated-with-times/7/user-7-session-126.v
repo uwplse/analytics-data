@@ -106,8 +106,9 @@ reflexivity.
 Qed.
 Lemma subs_id : forall (X : id) (t : ty), [X := TVar X] t = t.
 Proof.
-(intros X t; induction t).
+(intros X t; induction t; try reflexivity).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:49:49.660000.*)
+(* Auto-generated comment: At 2019-08-27 07:50:04.910000.*)
 
