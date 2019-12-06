@@ -436,25 +436,15 @@ Proof.
             assert (Hmp : |-[ k] TPair t1 t2 <$ TPair t1 t2) by (apply match_ty_i__reflexive; assumption); specialize (Hsem _ Hmp); contradiction
      | Hsem:||-[ ?k][TPair _ _]<= [TPair _ _]
        |- _ =>
-           destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2];
-            destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; simpl; apply Nat.max_le_compat; auto
+           destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]; destruct Hdep as [Hdep| Hdep];
+            destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]; destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]; 
+            simpl; apply Nat.max_le_compat; auto
      | Hsem:||-[ ?k][TUnion _ _]<= [_], Hnft:InNF( TUnion _ _), Hdept:| TUnion _ _ | <= _
        |- _ =>
            destruct (max_inv_depth_le__inv _ _ _ Hdept) as [Hdept1 Hdept2]; destruct (sem_sub_k_i_union_l__inv _ _ _ _ Hsem) as [HSem1 Hsem2];
             destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]; rewrite inv_depth_union; apply Nat.max_lub; auto
      end ])).
--
-(destruct (in_nf_pair__inv _ _ Hnft) as [Hnft1 Hnft2]).
-(destruct Hdep as [Hdep| Hdep]).
-+
-(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
-(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
-(simpl; apply Nat.max_le_compat; auto).
-+
-(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
-(destruct (sem_sub_k_i_pair__inv _ _ _ _ _ Hsem) as [Hsem1 Hsem2]).
-(simpl; apply Nat.max_le_compat; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:14:11.850000.*)
+(* Auto-generated comment: At 2019-08-18 07:15:42.860000.*)
 
