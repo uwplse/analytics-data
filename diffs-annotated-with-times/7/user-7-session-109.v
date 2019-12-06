@@ -115,9 +115,9 @@ Inductive sub_d : ty -> ty -> Prop :=
   | SD_Distr1 : forall t11 t12 t2, |- TPair (TUnion t11 t12) t2 << TUnion (TPair t11 t2) (TPair t12 t2)
   | SD_Distr2 : forall t1 t21 t22, |- TPair t1 (TUnion t21 t22) << TUnion (TPair t1 t21) (TPair t1 t22)
   | SD_Ref : forall t t', |- t << t' -> |- t' << t -> |- TRef t << TRef t'
-  | SD_ExistL : forall (X : id) (t t' : ty) (X' : ty), fresh_in_ty X' t' -> |- [X := X'] t << t' -> |- TExist X t << t'
+  | SD_ExistL : forall (X : id) (t t' : ty) (X' : id), fresh_in_ty X' t' -> |- [X := X'] t << t' -> |- TExist X t << t'
  where "|- t1 '<<' t2" := (sub_d t1 t2) : btjd_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:41:45.960000.*)
+(* Auto-generated comment: At 2019-08-26 07:41:51.170000.*)
 
