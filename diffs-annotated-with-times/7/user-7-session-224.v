@@ -59,7 +59,9 @@ exists w1.
 (apply match_ty_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
 -
+Search -b_free_in_ty.
+(destruct (b_free_in_ty__dec X t)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 14:08:59.440000.*)
+(* Auto-generated comment: At 2019-09-06 08:59:39.150000.*)
 
