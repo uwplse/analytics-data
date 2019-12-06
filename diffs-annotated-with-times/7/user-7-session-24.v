@@ -49,11 +49,11 @@ Fixpoint match_ty (k : nat) :=
       | _, TCName c, TCName c' => c = c'
       | _, TPair v1 v2, TPair t1 t2 => mty v1 t1 /\ mty v2 t2
       | _, _, TUnion t1 t2 => mty' t1 \/ mty' t2
-      | S k, TRef t', TRef t => (inv_depth t <= k /\ inv_depth t' = inv_depth t) /\ (forall v, |-[ k] v <$ t' <-> |-[ k] v <$ t)
+      | S k, TRef t', TRef t => (inv_depth t <= k /\ inv_depth t' = inv_depth t) /\ ||-[ k][t']= [t]
       | _, _, _ => False
       end
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 08:57:32.780000.*)
+(* Auto-generated comment: At 2019-08-14 08:58:04.370000.*)
 
