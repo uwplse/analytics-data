@@ -153,8 +153,8 @@ Theorem get_upto_ok a :
      recovered := fun _ state' => state' = state |}) 
     (get_upto a) recover abstr.
 Proof.
-(unfold get_upto; intros).
+(induction a).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:44:42.470000.*)
+(* Auto-generated comment: At 2019-09-04 10:46:09.980000.*)
 
