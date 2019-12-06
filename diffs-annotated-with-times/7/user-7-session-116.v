@@ -66,8 +66,8 @@ Proof.
 (induction t; intros s1 s2 HXs2 HYs1; try (solve [ simpl; reflexivity | simpl; rewrite IHt1; rewrite IHt2; reflexivity ])).
 -
 (simpl).
-(rewrite IHtt1).
+(rewrite IHt1).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:57:32.990000.*)
+(* Auto-generated comment: At 2019-08-27 06:57:48.640000.*)
 
