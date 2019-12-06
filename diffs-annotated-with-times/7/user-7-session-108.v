@@ -149,8 +149,32 @@ reflexivity.
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1' [v2' [Heq [Hm1' Hm2']]]]; subst).
 (destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
-(assert (Heq1 : | v1' | = | v1 |) by auto).
+(assert (Heq1 : | v1' | = | v1 |) by eauto).
+(assert (Heq2 : | v2' | = | v2 |) by eauto).
+(simpl; rewrite Heq1, Heq2; reflexivity).
+-
+(inversion Hdep).
+-
+(apply match_ty_ev__inv in Hm; subst).
+reflexivity.
+-
+(apply match_ty_cname__inv in Hm; subst).
+reflexivity.
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1' [v2' [Heq [Hm1' Hm2']]]]; subst).
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(assert (Heq1 : | v1' | = | v1 |) by eauto).
+(assert (Heq2 : | v2' | = | v2 |) by eauto).
+(simpl; rewrite Heq1, Heq2; reflexivity).
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+Abort.
+Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t | = | t' |.
+Proof.
+(induction k; induction t; induction t'; intros Hdep Hsem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 12:32:56.980000.*)
+(* Auto-generated comment: At 2019-08-21 12:56:07.750000.*)
 
