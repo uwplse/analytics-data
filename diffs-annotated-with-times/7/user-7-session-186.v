@@ -28,8 +28,8 @@ split.
 assumption.
 (induction w'; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
 +
-(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ specialize (IHt'1 Hm') | specialize (IHt'2 Hm') ]).
+(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm')).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:31:53.800000.*)
+(* Auto-generated comment: At 2019-09-02 08:32:41.630000.*)
 
