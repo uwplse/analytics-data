@@ -98,8 +98,12 @@ Proof.
 -
 subst.
 exists Y,t.
-(rewrite subst_exist_eq).
+(apply subst_exist_eq).
+-
+(destruct (IdSetProps.In_dec Y (FV s)) as [Hin| Hin]).
++
+(rewrite subst_equation).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:33:38.700000.*)
+(* Auto-generated comment: At 2019-09-02 07:34:59.740000.*)
 
