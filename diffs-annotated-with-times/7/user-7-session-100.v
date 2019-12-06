@@ -70,9 +70,8 @@ clear IHv.
 (intros t w k Hm).
 (simpl in Hm).
 exists v.
-auto.
-Qed.
+(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 07:59:10.100000.*)
+(* Auto-generated comment: At 2019-08-20 07:59:15.480000.*)
 
