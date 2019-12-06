@@ -199,8 +199,7 @@ Proof.
 (apply spec_abstraction_compose; simpl).
 (step_proc; intros).
 (destruct a'; simpl in *; intuition idtac).
-(destruct (a == r)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:02:59.130000.*)
+(* Auto-generated comment: At 2019-09-03 11:03:00.820000.*)
 
