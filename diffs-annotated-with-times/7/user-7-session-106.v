@@ -180,7 +180,8 @@ Proof.
 subst.
 (apply match_ty_cname).
 -
+(des Abort).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:20:18.770000.*)
+(* Auto-generated comment: At 2019-08-21 09:21:01.430000.*)
 
