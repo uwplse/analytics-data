@@ -42,22 +42,12 @@ exists 1.
 exists tx.
 assumption.
 Qed.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Lemma match_ty__exists_not_matching : forall (t : ty) (w k : nat), exists v : ty, ~ |-[ w, k] v <$ t.
 Proof.
-(intros Hcontra).
-(destruct Hcontra as [w Hcontra]).
-specialize (Hcontra 2).
-(assert (Hm : |-[ w, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
-specialize (Hcontra _ Hm).
-clear Hm.
-(destruct w).
+(induction t; intros w k).
 -
-(apply match_ty_exist__0_inv in Hcontra).
-(apply match_ty_ref__inv in Hcontra).
-(destruct Hcontra as [t' [Heq Href]]).
-(inversion Heq; subst).
-clear Heq.
+exists (TCName c, TCName c).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:22:33.270000.*)
+(* Auto-generated comment: At 2019-08-20 08:23:07.740000.*)
 
