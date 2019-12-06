@@ -135,8 +135,8 @@ Proof.
 (intros k; destruct k; intros v Hm).
 -
 (apply match_ty_exist__0_inv in Hm).
-(simpl).
+(destruct v; simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:19:21.350000.*)
+(* Auto-generated comment: At 2019-08-19 13:19:40.680000.*)
 
