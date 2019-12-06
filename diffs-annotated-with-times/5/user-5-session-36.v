@@ -275,8 +275,8 @@ clear H.
 (assert (x0 = 3%Z)).
 {
 (apply Z).
-(erewrite evalTimes in H0).
+(apply evalIntEq).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:57:21.680000.*)
+(* Auto-generated comment: At 2019-09-01 10:57:30.770000.*)
 
