@@ -402,8 +402,9 @@ Proof.
 (apply match_ty_i_union__inv in Hm).
 (destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; [ eapply IHt1 | eapply IHt2 ]; eauto).
 -
-(apply match_ty_i_ref__inv in Hm).
+clear IHt.
+(pose proof (match_ty_i_ref__weak_inv _ _ _ Hm)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 12:19:11.690000.*)
+(* Auto-generated comment: At 2019-08-13 12:19:44.760000.*)
 
