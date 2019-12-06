@@ -97,12 +97,12 @@ split.
 *
 Abort.
 Lemma match_ty_i__inv_depth_stable :
-  forall (k k' : nat) (t : ty),
+  forall (t : ty) (k k' : nat),
   inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, inv_depth v <= k -> inv_depth v <= k' -> |-[ k] v <$ t <-> |-[ k'] v <$ t.
 Proof.
-(induction k; induction k').
+(induction t; intros k k' Htk Htk' v Hvk Hvk').
 -
-tauto.
+admit.
 -
 admit.
 -
@@ -110,5 +110,5 @@ admit.
 -
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:04:16.470000.*)
+(* Auto-generated comment: At 2019-08-12 11:04:36.450000.*)
 
