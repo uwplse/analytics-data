@@ -1216,6 +1216,5 @@ Proof.
 (unfold apply_new0, super).
 Set Printing All.
 gen \207\129.
-subst.
 (* Auto-generated comment: Succeeded. *)
 
