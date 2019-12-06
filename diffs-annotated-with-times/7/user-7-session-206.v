@@ -53,8 +53,8 @@ Search -IdSet.In.
 (pose proof IdSetFacts.In_m as Hfact).
 (destruct (IdSetFacts.empty_iff X) as [H _]).
 (apply H).
-solve_proper.
+Morphisms.solve_proper.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:33:48.290000.*)
+(* Auto-generated comment: At 2019-09-04 08:33:50.280000.*)
 
