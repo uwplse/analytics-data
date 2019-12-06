@@ -596,9 +596,8 @@ Proof.
 -
 (intros).
 (simpl).
-(remember (length l2) as L).
 setoid_rewrite (kron_1_l (\226\168\130 l2)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:21:57.740000.*)
+(* Auto-generated comment: At 2019-08-13 17:22:30.980000.*)
 
