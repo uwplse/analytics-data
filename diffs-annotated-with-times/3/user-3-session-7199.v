@@ -156,8 +156,8 @@ Proof.
 (induction a; simpl).
 -
 step_proc.
-eauto.
+(apply d.recover_wipe).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:46:16.970000.*)
+(* Auto-generated comment: At 2019-09-04 10:46:31.310000.*)
 
