@@ -82,8 +82,7 @@ Proof.
 specialize (Hid Hneq).
 (simpl).
 (rewrite Hid).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 13:40:06.360000.*)
+(* Auto-generated comment: At 2019-08-29 13:45:50.690000.*)
 
