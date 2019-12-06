@@ -161,8 +161,10 @@ exists (S w').
 (apply match_ty_exist__inv in Hm').
 (destruct Hm' as [ti [Hwfti Hm']]).
 specialize (IHw' _ Hm').
-(destruct (f_free_in_ty__dec X' ([Bi0 := ti] t))).
+(destruct (f_free_in_ty__dec X' ([Bi0 := ti] t'))).
+{
+(destruct IHw' as [_ IHw']).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:59:16.630000.*)
+(* Auto-generated comment: At 2019-09-05 14:07:20.140000.*)
 
