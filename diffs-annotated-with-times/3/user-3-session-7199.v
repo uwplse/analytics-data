@@ -158,8 +158,8 @@ Proof.
 (simpl).
 Check proc_spec_weaken.
 (eapply proc_spec_weaken; eauto).
-(simpl).
+(compute).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:51:08.490000.*)
+(* Auto-generated comment: At 2019-09-04 10:51:13.210000.*)
 
