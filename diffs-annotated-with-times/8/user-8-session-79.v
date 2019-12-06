@@ -922,5 +922,5 @@ restore_dims
 (rewrite (kron_1_l_inv (\226\168\130 l2))).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:21:02.510000.*)
+(* Auto-generated comment: At 2019-08-14 14:21:05.260000.*)
 
