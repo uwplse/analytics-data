@@ -101,8 +101,8 @@ exists w1.
 -
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [tx [Heq Href]]; subst).
-(apply match_ty_ref).
+(apply match_ty_ref; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:23:39.480000.*)
+(* Auto-generated comment: At 2019-08-27 08:23:49.630000.*)
 
