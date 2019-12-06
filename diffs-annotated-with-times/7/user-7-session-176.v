@@ -160,8 +160,10 @@ exists tint.
 (rewrite subst_var_eq).
 reflexivity.
 +
-(rewrite subst_var_neq).
+(rewrite subst_var_neq; try assumption).
+exists v.
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:56:00.160000.*)
+(* Auto-generated comment: At 2019-08-30 06:58:21.550000.*)
 
