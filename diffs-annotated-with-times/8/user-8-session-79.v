@@ -658,7 +658,8 @@ reflexivity.
 (intros).
 (simpl).
 (erewrite IHl1; auto).
+(rewrite <- kron_assoc).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:34:15.300000.*)
+(* Auto-generated comment: At 2019-08-14 13:34:16.220000.*)
 
