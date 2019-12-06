@@ -137,8 +137,7 @@ auto.
 (generalize dependent S n; clear n; intros n **).
 (rewrite IHn).
 (rewrite (PeanoNat.Nat.div_mod n base)  at 3 by lia).
-lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:27:00.830000.*)
+(* Auto-generated comment: At 2019-08-16 06:27:02.510000.*)
 
