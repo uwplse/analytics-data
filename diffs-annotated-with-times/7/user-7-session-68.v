@@ -194,8 +194,8 @@ constructor.
 *
 (apply IHk; try assumption).
 (apply sem_eq_k__sem_sub_k).
-assumption.
+Check sem_eq_k__sem_sub_k.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 12:55:20.240000.*)
+(* Auto-generated comment: At 2019-08-16 12:56:29.910000.*)
 
