@@ -105,8 +105,8 @@ Next Obligation.
 Search -S.
 Search -"+".
 (rewrite <- Nat.add_1_r).
-auto.
+Omega.omega.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:32:25.650000.*)
+(* Auto-generated comment: At 2019-08-29 14:33:35.480000.*)
 
