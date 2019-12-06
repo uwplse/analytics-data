@@ -54,7 +54,19 @@ exists w2.
 (intros v Hm).
 (apply match_ty_union_1).
 (apply Hsem; assumption).
+Qed.
+Lemma sem_sub_k_union_2 : forall (k : nat) (t t1' t2' : ty), ||-[ k][t]<= [t2'] -> ||-[ k][t]<= [TUnion t1' t2'].
+Proof.
+(intros k t t1' t2' Hsem).
+(intros w1).
+specialize (Hsem w1).
+(destruct Hsem as [w2 Hsem]).
+exists w2.
+(intros v Hm).
+(apply match_ty_union_2).
+(apply Hsem; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:26:54.430000.*)
+(* Auto-generated comment: At 2019-08-27 07:27:23.100000.*)
 
