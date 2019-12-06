@@ -418,7 +418,8 @@ Proof.
 (intros).
 (apply sem_sub_k_i_nf__inv_depth_le with k; tauto).
 Qed.
-(* Auto-generated comment: Failed. *)
+Lemma sem_sub_k_i_nf__inv_depth_le_2 : forall (k : nat) (t t' : ty), InNF( t) -> | t' | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-18 07:24:29.840000.*)
+(* Auto-generated comment: At 2019-08-18 07:24:33.370000.*)
 
