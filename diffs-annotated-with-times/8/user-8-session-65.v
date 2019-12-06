@@ -977,8 +977,8 @@ gen \207\129.
 2: {
 (do 4 (apply f_equal_gen; trivial)).
 (rewrite size_ntensor).
-(unify_pows_two; lia).
-(* Auto-generated comment: Failed. *)
+(unify_pows_two; try lia).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:09:23.040000.*)
+(* Auto-generated comment: At 2019-08-13 11:09:26.360000.*)
 
