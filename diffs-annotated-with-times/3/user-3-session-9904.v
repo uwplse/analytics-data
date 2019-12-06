@@ -75,9 +75,10 @@ Proof.
 (unfold add).
 (intros).
 (apply spec_abstraction_compose; simpl).
-(step_proc; intros).
+step_proc.
 (destruct a'; simpl in *; intuition).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:33:49.210000.*)
+(* Auto-generated comment: At 2019-09-06 05:34:04.800000.*)
 
