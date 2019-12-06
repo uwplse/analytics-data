@@ -593,8 +593,9 @@ Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
 Proof.
 (intros).
 (rewrite <- (Nat.mul_1_l m)).
+symmetry.
 (apply kron_1_l).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:41:51.190000.*)
+(* Auto-generated comment: At 2019-08-14 11:41:58.530000.*)
 
