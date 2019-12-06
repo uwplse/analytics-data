@@ -82,7 +82,8 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqKp0FVe"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
+Instance nonError_gets  `(f : A -> T): (NonError (gets f)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 14:05:25.020000.*)
+(* Auto-generated comment: At 2019-08-07 14:05:29.160000.*)
 
