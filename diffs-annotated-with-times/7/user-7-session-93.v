@@ -27,8 +27,7 @@ Definition tIntInt := TPair tint tint.
 Definition vX := 1.
 Definition vY := 2.
 Definition vZ := 3.
-Definition tX := TVar vX.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 08:31:32.550000.*)
+(* Auto-generated comment: At 2019-08-19 08:32:01.440000.*)
 
