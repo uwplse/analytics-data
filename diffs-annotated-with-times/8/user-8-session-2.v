@@ -133,8 +133,8 @@ Proof.
 Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li (trans u)))).
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
-(simpl).
+(rewrite ctrls_to_list_transpose_fst).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:31:46.730000.*)
+(* Auto-generated comment: At 2019-08-09 11:32:18.410000.*)
 
