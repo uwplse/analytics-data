@@ -1465,8 +1465,8 @@ rewrite Heq.
 eauto.
 -
 (simpl).
-(do 2 eexists; split).
+(do 2 eexists; split; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:10:37.970000.*)
+(* Auto-generated comment: At 2019-08-14 13:10:43.570000.*)
 
