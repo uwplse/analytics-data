@@ -92,8 +92,8 @@ Proof.
 (apply match_ty_exist__0_inv in Hm).
 auto.
 -
-(destruct v; simpl in Hm).
+(destruct v; simpl in Hm; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:17:28.670000.*)
+(* Auto-generated comment: At 2019-08-19 13:17:35.040000.*)
 
