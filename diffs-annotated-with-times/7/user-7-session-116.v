@@ -100,12 +100,11 @@ assumption.
 assumption.
 +
 (simpl).
-Search -beq_id.
 (rewrite (false_beq_id _ _ n)).
 (rewrite (false_beq_id _ _ n0)).
 reflexivity.
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 07:02:04.180000.*)
+(* Auto-generated comment: At 2019-08-27 07:02:55.730000.*)
 
