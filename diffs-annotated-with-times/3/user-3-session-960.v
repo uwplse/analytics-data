@@ -278,8 +278,7 @@ typeclasses eauto.
 (destruct x, y; simpl).
 (destruct (nat_eq_dec n n0); subst).
 left.
-Search -(existT _ _ = existT _ _) -projT2.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:08:35.080000.*)
+(* Auto-generated comment: At 2019-08-16 07:08:41.690000.*)
 
