@@ -311,7 +311,14 @@ Proof.
 (destruct (a == r - 1); subst).
 -
 (step_proc; intuition subst).
+{
+(eexists; split; eauto).
+(rewrite diskUpd_oob_noop; auto).
+(invert_abstraction; lia).
+}
+(eexists; split; eauto).
+(rewrite diskUpd_oob_noop; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:07:27.750000.*)
+(* Auto-generated comment: At 2019-09-03 11:07:30.250000.*)
 
