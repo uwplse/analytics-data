@@ -188,8 +188,20 @@ auto using match_ty_pair.
 +
 (apply match_ty_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+-
+(intros v1 t3 k Hm1 Hm2).
+(induction t3; try (solve [ destruct k; contradiction ])).
 +
+(apply match_ty_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+clear IHt3.
+(destruct k).
+(destruct v1; contradiction || constructor).
+(apply match_ty_ref__inv in Hm1).
+(destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
+(simpl in Hm2).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-26 08:07:01.320000.*)
+(* Auto-generated comment: At 2019-08-26 08:07:56.510000.*)
 
