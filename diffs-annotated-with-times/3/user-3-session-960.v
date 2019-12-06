@@ -100,8 +100,9 @@ Next Obligation.
 Proof.
 subst digit.
 (destruct base).
-(simpl).
+Check Nat.mod_1_r.
+(rewrite Nat.mod_1_r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:38:44.590000.*)
+(* Auto-generated comment: At 2019-08-16 05:39:08.770000.*)
 
