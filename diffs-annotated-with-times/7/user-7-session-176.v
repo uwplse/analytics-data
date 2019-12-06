@@ -139,25 +139,10 @@ exists tx.
 assumption.
 (apply le_S_n; assumption).
 Qed.
-Lemma match_ty__exists_w_v : forall t : ty, exists (w : nat) (v : ty), |-[ w] v <$ t.
+Lemma match_ty__match_ty_subst_int : forall (X : id) (w : nat) (t v : ty), |-[ w] v <$ t -> exists v' : ty, |-[ w] v' <$ [X := tint] t.
 Proof.
-(induction t).
--
-exists 0,(TCName c).
-(apply match_ty_cname).
--
-(destruct (IHt1) as [w1 [v1 Hm1]]).
-(destruct (IHt2) as [w2 [v2 Hm2]]).
-exists (Nat.max w1 w2),(TPair v1 v2).
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
-(apply Nat.le_max_l).
-(apply Nat.le_max_r).
--
-(destruct (IHt1) as [w [v Hm]]).
-exists w,v.
-(apply match_ty_union_1; assumption).
--
+(induction w).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:47:10.250000.*)
+(* Auto-generated comment: At 2019-08-30 06:50:15.810000.*)
 
