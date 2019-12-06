@@ -136,8 +136,7 @@ auto.
 (assert (0 < S n) by lia).
 (generalize dependent S n; clear n; intros n **).
 (rewrite IHn).
-{
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:28:11.340000.*)
+(* Auto-generated comment: At 2019-08-16 06:28:35.120000.*)
 
