@@ -117,9 +117,10 @@ intuition.
 (simpl in *).
 lia.
 -
-(step_proc; intros).
-(exists tt; simpl; intuition idtac).
-(* Auto-generated comment: Succeeded. *)
+(step_proc; intuition).
+(step_proc; intuition).
+(exists (n0 :: s); intuition auto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 05:37:59.920000.*)
+(* Auto-generated comment: At 2019-09-06 05:38:13.720000.*)
 
