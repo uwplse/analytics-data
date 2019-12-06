@@ -260,8 +260,8 @@ Check repeat_length.
  end).
 (rewrite nat_from_le_zeros; auto).
 Search -nat_from_le.
-(rewrite nat_le_inverse).
+(rewrite nat_le_inverse; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:26:20.130000.*)
+(* Auto-generated comment: At 2019-08-16 07:26:23.630000.*)
 
