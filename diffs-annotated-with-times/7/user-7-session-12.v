@@ -308,8 +308,8 @@ Lemma mk_nf__distr11 : forall t11 t12 t2 : ty, |- MkNF( TPair (TUnion t11 t12) t
 Proof.
 (intros t11 t12 t2).
 (rewrite mk_nf_pair).
-(rewrite mk_nf_union).
+(do 2 rewrite mk_nf_union).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 07:45:25.680000.*)
+(* Auto-generated comment: At 2019-08-09 07:45:44.560000.*)
 
