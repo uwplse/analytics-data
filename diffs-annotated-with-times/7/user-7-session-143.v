@@ -102,7 +102,11 @@ specialize (IHt2 _ _ Hfresh2 Hsem2).
 (apply sem_sub_pair; assumption).
 +
 (intros k w1).
+admit.
++
+admit.
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 10:02:15.570000.*)
+(* Auto-generated comment: At 2019-08-27 11:00:01.840000.*)
 
