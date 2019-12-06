@@ -170,8 +170,7 @@ step_proc.
 (split; auto).
 (eapply log_abstraction_nil; eauto).
 (autorewrite with upd; auto).
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:08:11.180000.*)
+(* Auto-generated comment: At 2019-09-04 12:08:15.940000.*)
 
