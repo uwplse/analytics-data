@@ -476,8 +476,10 @@ reflexivity.
 subst.
 (rewrite f_subst_fvar_eq).
 (rewrite f_subst_fvar_eq).
-symmtery.
+symmetry.
+(apply b_subst_not_b_free_in_ty).
+(unfold not_b_free_in_ty).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:22:54.730000.*)
+(* Auto-generated comment: At 2019-09-04 10:23:25.400000.*)
 
