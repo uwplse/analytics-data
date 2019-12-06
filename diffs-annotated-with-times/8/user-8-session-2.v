@@ -113,8 +113,7 @@ Proof.
 (intros l r u).
 (induction l).
 (simpl).
--
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:18:37.140000.*)
+(* Auto-generated comment: At 2019-08-09 11:19:11.780000.*)
 
