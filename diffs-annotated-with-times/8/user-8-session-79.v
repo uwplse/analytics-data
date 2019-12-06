@@ -949,8 +949,7 @@ show_dimensions.
 (repeat rewrite app_length).
 (simpl).
 replace (length l1 + length l2) with n by omega.
-(rewrite H0, L2).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 15:24:07.110000.*)
+(* Auto-generated comment: At 2019-08-14 15:24:15.240000.*)
 
