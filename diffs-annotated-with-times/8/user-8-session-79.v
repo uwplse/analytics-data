@@ -892,7 +892,7 @@ Fact Toffoli_at_spec :
   \226\168\130 update_at li z (bool_to_matrix ((b1 && b2) \226\138\149 b3)).
 Admitted.
 Ltac
- rewrite_inPar' :=
+ rewrite_inPar'' :=
   match goal with
   | |-
     context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
@@ -902,7 +902,10 @@ Ltac
          rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
          rewrite IP
   end; try (solve [ type_check ]).
-(* Auto-generated comment: Failed. *)
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqhtYRWs"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:58:20.870000.*)
+(* Auto-generated comment: At 2019-08-14 14:59:04.660000.*)
 
