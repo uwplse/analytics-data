@@ -251,8 +251,12 @@ split.
 tauto.
 (assert (Href' : ||-[ k][t]= [t'])).
 {
-(intros v Hv).
+(intros v).
+(split; auto).
+}
+(apply sem_eq_k__trans with t; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:26:16.480000.*)
+(* Auto-generated comment: At 2019-08-16 13:26:29.960000.*)
 
