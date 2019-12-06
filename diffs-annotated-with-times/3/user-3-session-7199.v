@@ -335,8 +335,8 @@ intuition eauto.
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
 (apply log_contents_ok_unchanged; eauto).
-step_proc.
+(apply proc_spec_weaken).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:57:58.350000.*)
+(* Auto-generated comment: At 2019-09-04 11:58:02.910000.*)
 
