@@ -172,11 +172,12 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.ascii.
+Print Byte.of_nat.
 (match Byte.of_nat (proj1_sig x) with
  | Some b => Ascii.ascii_of_byte b
  | None => ascii0
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:39:11.880000.*)
+(* Auto-generated comment: At 2019-08-16 06:39:42.740000.*)
 
