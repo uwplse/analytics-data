@@ -1369,8 +1369,10 @@ iFrame.
 (<ssreflect_plugin::ssrtclseq@0> iDestruct "Hmbox" as "[Hmbox|Hmbox]" ; last  first).
 {
 iDestruct "Hmbox" as "(Hlocked'&Hauth)".
-iDestruct "Hauth" as ( S ) "(Hauth&%)".
-(* Auto-generated comment: Failed. *)
+iDestruct "Hauth" as ( S ? ) "(Hauth&?)".
+iExFalso.
+iDestruct "Hlockinv" as ( S' ? ) "(Hauth'&?)".
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:20:24.070000.*)
+(* Auto-generated comment: At 2019-08-14 13:20:29.410000.*)
 
