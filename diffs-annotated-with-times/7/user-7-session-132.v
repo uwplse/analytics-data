@@ -94,7 +94,9 @@ exists w1.
 (destruct Hm as [tx Heq]; subst).
 (destruct w1; simpl; tauto).
 -
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [tx [Heq Href]]; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:21:02.230000.*)
+(* Auto-generated comment: At 2019-08-27 08:21:12.920000.*)
 
