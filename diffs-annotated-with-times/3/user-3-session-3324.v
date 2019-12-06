@@ -178,8 +178,11 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by omega.
 (destruct (stateBadBlock state == diskSize s)).
 (rewrite disk_oob_eq by omega; auto).
 (rewrite <- Hremap by omega; auto).
-constructor.
+(constructor; eauto).
+*
+(subst; eexists; intuition eauto).
+(constructor; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:43:42.570000.*)
+(* Auto-generated comment: At 2019-08-16 10:43:46.460000.*)
 
