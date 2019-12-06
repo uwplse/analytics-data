@@ -248,8 +248,10 @@ Proof.
 (rewrite <- mult_n_O).
 reflexivity.
 -
+(simpl).
 (rewrite IHm').
+(rewrite mult_n_Sm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 07:19:26.610000.*)
+(* Auto-generated comment: At 2019-09-04 07:19:40.570000.*)
 
