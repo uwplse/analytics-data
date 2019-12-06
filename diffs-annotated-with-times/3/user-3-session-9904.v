@@ -120,8 +120,8 @@ lia.
 (step_proc; intros).
 intuition.
 (step_proc; intros).
-{
+autounfold in *.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:40:49.300000.*)
+(* Auto-generated comment: At 2019-09-06 05:40:57.060000.*)
 
