@@ -115,8 +115,9 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Check Ascii.nat_ascii_bounded.
 Theorem N_ascii_bounded : forall a, (Ascii.N_of_ascii a < 256)%N.
-Theorem nat_ascii_bounded : forall a, Ascii.nat_of_ascii a < 256.
-(* Auto-generated comment: Failed. *)
+Proof.
+(apply N.ltb_lt).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:10:33.180000.*)
+(* Auto-generated comment: At 2019-08-16 10:10:35.920000.*)
 
