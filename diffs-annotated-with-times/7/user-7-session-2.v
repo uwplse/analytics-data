@@ -285,10 +285,11 @@ Abort.
 Lemma weird_trans :
   forall tm1 tm2 : ty,
   |- tm1 << tm2 ->
-  InNF( tm12) ->
+  InNF( tm1) ->
   InNF( tm2) ->
   (forall tl : ty, |- tl << tm1 -> InNF( tl) -> |- tl << tm2) /\ (forall tr : ty, |- tm2 << tr -> InNF( tr) -> |- tm1 << tr).
+Proof / Lemma sub_r__mk_nf_sub_r : forall t t' : ty, |- t << t' -> |- MkNF( t) << MkNF( t').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 07:30:16.770000.*)
+(* Auto-generated comment: At 2019-08-08 07:32:23.280000.*)
 
