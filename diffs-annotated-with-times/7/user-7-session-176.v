@@ -145,13 +145,23 @@ Proof.
   try (solve
    [ intros Hm; exists v; assumption
    | intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; destruct (IHt1 _ Hm1) as [v1' Hm1'];
-      destruct (IHt2 _ Hm2) as [v2' Hm2']; exists (TPair v1' v2'); rewrite subst_pair; apply match_ty_pair; assumption ])).
+      destruct (IHt2 _ Hm2) as [v2' Hm2']; exists (TPair v1' v2'); rewrite subst_pair; apply match_ty_pair; assumption
+   | intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ];
+      exists v'; rewrite subst_union; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption ])).
 -
 (intros Hm).
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v'; rewrite subst_union;
-  [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(intros Hm).
+(destruct (beq_idP X i)).
++
+subst.
+exists tint.
+(rewrite subst_var_eq).
+reflexivity.
++
+(rewrite subst_var_neq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-30 06:55:56.670000.*)
+(* Auto-generated comment: At 2019-08-30 06:56:00.160000.*)
 
