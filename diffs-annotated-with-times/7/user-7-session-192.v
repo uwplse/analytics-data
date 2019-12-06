@@ -116,5 +116,5 @@ admit.
 exists ([X' := tx] ti).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 13:13:15.870000.*)
+(* Auto-generated comment: At 2019-09-02 13:14:30.410000.*)
 
