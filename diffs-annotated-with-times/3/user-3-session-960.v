@@ -98,8 +98,10 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Next Obligation.
 Proof.
-(apply PeanoNat.Nat.div_lt).
-(* Auto-generated comment: Failed. *)
+subst digit.
+(destruct base).
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:37:59.900000.*)
+(* Auto-generated comment: At 2019-08-16 05:38:44.590000.*)
 
