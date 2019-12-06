@@ -5,8 +5,8 @@ Add Search Blacklist "Private_" "_subproof".
 Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
-Module Log (d: OneDiskAPI)<: LogAPI.
-(* Auto-generated comment: Failed. *)
+Require Import POCS.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 08:44:33.670000.*)
+(* Auto-generated comment: At 2019-09-04 08:44:43.790000.*)
 
