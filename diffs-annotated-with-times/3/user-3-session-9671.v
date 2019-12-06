@@ -522,8 +522,8 @@ step.
 }
 {
 (descend; intuition eauto).
-(eapply log_abstraction_nil; eauto).
+}
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:31:14.300000.*)
+(* Auto-generated comment: At 2019-09-05 17:31:28.960000.*)
 
