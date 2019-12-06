@@ -972,7 +972,22 @@ replace (length l1 + S (length l2)) with S n in * by lia.
 reflexivity.
 (intros j).
 (apply (M1 (S j))).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqsPR8Ki"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Theorem compile_correct :
+  forall (b : bexp) (\206\147 : Ctx) (f : Var -> bool) (t : bool),
+  get_context b \226\138\130 \206\147 ->
+  (\226\159\166 compile b \206\147 \226\159\167) (bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f) =
+  bool_to_matrix (t \226\138\149 \226\140\136 b | f \226\140\137) \226\138\151 ctx_to_matrix \206\147 f.
+Proof.
+(intros b).
+(induction b; intros \206\147 f t H).
+-
+(simpl).
+rewrite_inPar.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:16:09.440000.*)
+(* Auto-generated comment: At 2019-08-14 18:16:16.520000.*)
 
