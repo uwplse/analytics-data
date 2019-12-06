@@ -104,8 +104,12 @@ Qed.
 Lemma f_free_in_ty_pair : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_free_in_ty X t2 -> f_free_in_ty X (TPair t1 t2).
 Proof.
 (unfold f_free_in_ty, free).
+(simpl).
 (intros X t1 t2 H).
+Search -IdSet.In.
+(destruct H as [H| H]).
+(apply IdSetFacts.union_2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:26:09.150000.*)
+(* Auto-generated comment: At 2019-09-04 09:26:54.060000.*)
 
