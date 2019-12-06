@@ -58,8 +58,9 @@ Proof.
 Qed.
 Lemma mk_nf__sem_sub_l : forall t : ty, ||- [MkNF( t)]<= [t].
 Proof.
+Check sem_eq__sem_sub.
 (apply sem_eq__sem_sub).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:20:55.360000.*)
+(* Auto-generated comment: At 2019-08-16 13:21:19.980000.*)
 
