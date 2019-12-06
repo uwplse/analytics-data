@@ -129,8 +129,8 @@ generalize dependent v.
 (intros v k Hm).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1' [v2' [Heqp [Hm1 Hm2]]]]; subst).
-(simpl; apply Nat.max_lub; eauto).
+(simpl; apply Nat.max_lub; [ eapply IHv'1 | eapply IHv'2 ]; eassumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:21:09.450000.*)
+(* Auto-generated comment: At 2019-08-16 06:24:49.040000.*)
 
