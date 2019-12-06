@@ -945,7 +945,11 @@ Timeout 1 Print Ltac rewrite_inPar.
 show_dimensions.
 (simpl in *).
 (rewrite L2).
+Timeout 1 About rewrite_inPar.
+Timeout 1 Print rewrite_inPar.
+Timeout 1 Print Ltac rewrite_inPar.
+(rewrite size_ntensor in IP).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:36:01.620000.*)
+(* Auto-generated comment: At 2019-08-14 14:36:52.890000.*)
 
