@@ -47,6 +47,8 @@ replace (size_ctx \206\1471') with size_octx \206\1471' by easy.
 admit.
 -
 (intros WT pf_merge1 pf_merge2).
-replace (compose (gate g p1 f0) f) with gate g p1 (fun p2 => compose (f0 p2) h) by auto.
+replace (compose (gate g p1 f0) f) with gate g p1 (fun p2 => compose (f0 p2) f) by auto.
+(repeat rewrite denote_gate_circuit; fold_denotation).
+(set (p2 := process_gate_pat g p1 \206\1473')).
 (* Auto-generated comment: Failed. *)
 
