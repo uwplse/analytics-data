@@ -62,9 +62,18 @@ Definition not_f_free_in_ty (X : id) (t : ty) := not_free X (FFV t).
 Definition b_free_in_ty (X : id) (t : ty) := free X (FBV t).
 Definition not_b_free_in_ty (X : id) (t : ty) := not_free X (FBV t).
 Hint Unfold free not_free f_free_in_ty not_f_free_in_ty b_free_in_ty not_b_free_in_ty: DBBetaJulia.
-Print IdSet.
 Definition wf_ty (t : ty) := IdSet.Equal (FBV t) IdSet.empty.
+Fixpoint f_subst (X : id) (s : ty) (t : ty) :=
+  match t with
+  | TCName _ => t
+  | TPair t1 t2 => TPair (f_subst X s t1) (f_subst X s t2)
+  | TUnion t1 t2 => TPair (f_subst X s t1) (f_subst X s t2)
+  | TExist y t' => TExist y (f_subst X s t')
+  | TBVar _ => t
+  | TFVar y => if beq_id x y then s else t
+  | TEV _ => t
+  end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 08:58:50.850000.*)
+(* Auto-generated comment: At 2019-09-03 09:00:28.390000.*)
 
