@@ -270,8 +270,8 @@ Proof.
 SearchPattern (_ <= _ -> _ <= _ -> _ = _).
 Check le_unique.
 SearchPattern (_ <= _ -> _ = _).
-(apply Nat.le_antisymm).
+(apply Nat.le_antisymm; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 09:28:14.100000.*)
+(* Auto-generated comment: At 2019-08-13 09:30:12.470000.*)
 
