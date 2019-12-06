@@ -33,9 +33,9 @@ Qed.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k w : nat), |-[ k, w] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v c k w Hm).
-(destruct k, w, v; simpl in Hm).
-subst.
+(destruct k, w, v; simpl in Hm; subst; reflexivity || contradiction).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:42:42.210000.*)
+(* Auto-generated comment: At 2019-08-20 11:44:03.780000.*)
 
