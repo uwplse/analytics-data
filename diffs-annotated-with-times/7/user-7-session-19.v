@@ -401,7 +401,15 @@ Proof.
 -
 (inversion Hle; subst).
 assumption.
+-
+clear IHt.
+(apply match_ty_i_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+(inversion Hle; subst).
++
+(simpl).
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:59:08.510000.*)
+(* Auto-generated comment: At 2019-08-13 11:59:34.410000.*)
 
