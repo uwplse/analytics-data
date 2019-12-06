@@ -80,10 +80,10 @@ Function
    | 0 => nil
    | _ =>
        let base := base_m2 in
-       let digit := x mod S (S base_m2) in
+       let digit := x `mod` S (S base_m2) in
        exist (fun x => x < base) digit _ :: nat_to_le base (x / base)
    end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:10:48.620000.*)
+(* Auto-generated comment: At 2019-08-16 06:10:49.600000.*)
 
