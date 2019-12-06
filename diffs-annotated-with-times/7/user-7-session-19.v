@@ -218,8 +218,8 @@ Proof.
 (destruct (in_nf_union__inv _ _ Hnft) as [Hnft1 Hnft2]).
 SearchPattern (Nat.max _ _ <= _).
 (rewrite inv_depth_union).
-(apply Nat.max_lub).
+(apply Nat.max_lub; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:49:19.840000.*)
+(* Auto-generated comment: At 2019-08-13 07:49:23.420000.*)
 
