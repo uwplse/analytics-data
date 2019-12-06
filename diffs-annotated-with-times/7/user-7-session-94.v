@@ -56,14 +56,21 @@ Theorem match_ty__value_type_l : forall (v t : ty) (k : nat), |-[ k] v <$ t -> v
 Proof.
 (intros v t).
 generalize dependent v.
-(induction t; intros k v Hm).
+(induction t; intros v k Hm).
 -
 (apply match_ty_cname__inv in Hm; subst).
 constructor.
 -
 (apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto).
+-
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]; subst).
+constructor.
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 08:57:13.390000.*)
+(* Auto-generated comment: At 2019-08-19 08:59:00.120000.*)
 
