@@ -623,8 +623,8 @@ Proof.
 (rewrite kron_1_l).
 (rewrite kron_1_l).
 restore_dims.
-(rewrite <- kron_1_r_inv).
+(rewrite kron_1_r).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 11:52:51.780000.*)
+(* Auto-generated comment: At 2019-08-14 11:52:57.510000.*)
 
