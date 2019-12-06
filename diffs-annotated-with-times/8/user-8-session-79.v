@@ -598,8 +598,7 @@ Proof.
 -
 (intros).
 (simpl).
-(rewrite kron_1_l).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 15:43:28.570000.*)
+(* Auto-generated comment: At 2019-08-13 15:43:39.620000.*)
 
