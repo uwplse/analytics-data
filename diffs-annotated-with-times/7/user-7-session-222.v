@@ -318,8 +318,8 @@ Proof.
 (intros Y s X t HX).
 (induction t; try (solve [ simpl; assumption ])).
 -
-(rewrite b_subst_pair).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 14:00:45.870000.*)
+(* Auto-generated comment: At 2019-09-04 14:01:11.980000.*)
 
