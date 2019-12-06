@@ -276,8 +276,8 @@ clear H.
 {
 (apply Z).
 (eapply evalIntEq).
-(erewrite <- evalTimes).
+(rewrite <- evalTimes).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:57:54.650000.*)
+(* Auto-generated comment: At 2019-09-01 10:58:02.990000.*)
 
