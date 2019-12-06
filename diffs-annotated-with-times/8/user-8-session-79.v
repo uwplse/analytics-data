@@ -595,5 +595,5 @@ Proof.
 setoid_rewrite kron_1_r.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:40:01.400000.*)
+(* Auto-generated comment: At 2019-08-13 17:42:02.700000.*)
 
