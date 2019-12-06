@@ -463,7 +463,8 @@ firstorder.
 (unfold spec_exec in H1).
 firstorder.
 (apply H1).
-(* Auto-generated comment: Failed. *)
+(destruct ret; firstorder).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-06 04:44:40.960000.*)
+(* Auto-generated comment: At 2019-08-06 04:44:42.880000.*)
 
