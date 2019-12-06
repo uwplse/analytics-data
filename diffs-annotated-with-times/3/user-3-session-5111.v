@@ -275,8 +275,11 @@ Proof.
 invert_abstraction.
 (constructor; simpl).
 all: (autorewrite with upd; intuition idtac).
+{
 (destruct (lt_dec a (diskSize s))).
-(* Auto-generated comment: Failed. *)
+-
+(destruct (a == a0); subst).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:06:41.160000.*)
+(* Auto-generated comment: At 2019-09-03 11:06:52.810000.*)
 
