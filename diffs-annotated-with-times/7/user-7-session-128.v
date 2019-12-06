@@ -86,8 +86,8 @@ Lemma sem_sub_k_pair__inv :
 Proof.
 (intros k t1 t2 t1' t2' Hsem).
 (split; intros w1; destruct (match_ty__exists_w_v t1 k) as [w11 [v1 Hm1]]; destruct (match_ty__exists_w_v t2 k) as [w12 [v2 Hm2]];
-  [ specialize (Hsem (Nat.max w1 w11)) | specialize (Hsem (Nat.max w1 w12)) ]).
+  [ specialize (Hsem (Nat.max w1 w11)) | specialize (Hsem (Nat.max w1 w12)) ]; destruct Hsem as [w2 Hsem]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:01:37.970000.*)
+(* Auto-generated comment: At 2019-08-27 08:01:57.010000.*)
 
