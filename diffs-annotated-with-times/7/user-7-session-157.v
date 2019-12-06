@@ -39,8 +39,9 @@ exists (TPair v1' v2').
 +
 subst.
 exists (TEV X').
-(apply match_ty_var).
+(simpl).
+(rewrite <- bew_id_refl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:03:14.210000.*)
+(* Auto-generated comment: At 2019-08-29 09:03:38.430000.*)
 
