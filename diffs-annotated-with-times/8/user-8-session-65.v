@@ -961,8 +961,14 @@ Proof.
 (rewrite (init_at_spec_strong b m i); [  | omega ]).
 (destruct safe).
 -
-(simpl_rewrite (assert_at_spec_safe b m i); [  | omega ]).
+(rewrite (assert_at_spec_safe b m i); [  | omega ]).
+gen \207\129.
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(intros \207\129 M).
+(repeat rewrite Mmult_assoc).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 10:34:00.130000.*)
+(* Auto-generated comment: At 2019-08-13 10:34:23.690000.*)
 
