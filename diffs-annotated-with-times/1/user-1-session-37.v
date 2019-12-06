@@ -305,9 +305,10 @@ Fixpoint Gamma (G : GT) : SetST :=
   match G with
   | GDyn => Full_set _
   | GInt => Singleton _ SInt
+  | GBool => Singleton _ SBool
   | _ => Empty_set _
   end.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 23:03:02.450000.*)
+(* Auto-generated comment: At 2019-09-04 23:04:56.350000.*)
 
