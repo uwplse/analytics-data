@@ -53,8 +53,8 @@ specialize (Hsem w1).
 exists w2.
 (intros v Hm).
 (apply match_ty_union_1).
-(apply Hsem).
+(apply Hsem; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:24:52.970000.*)
+(* Auto-generated comment: At 2019-08-27 07:26:54.430000.*)
 
