@@ -369,8 +369,8 @@ step_proc.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
 (descend; intuition eauto).
-(rewrite length_firstn).
+(rewrite firstn_length_le).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:16:01.690000.*)
+(* Auto-generated comment: At 2019-09-04 11:16:16.590000.*)
 
