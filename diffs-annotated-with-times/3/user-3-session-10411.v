@@ -308,8 +308,8 @@ Proof.
 (destruct r).
 -
 clear H.
-(unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
+(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:42:43.740000.*)
+(* Auto-generated comment: At 2019-09-06 06:42:47.900000.*)
 
