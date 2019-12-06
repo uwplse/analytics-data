@@ -250,8 +250,11 @@ constructor.
 admit.
 +
 (simpl).
-(unfold nat64_from_le, nat64_to_le).
+(unfold nat64_from_le, nat64_to_le; intros).
+(rewrite app_length).
+(destruct (le_dec (Datatypes.length (nat_to_le 254 x)) 8)).
+(rewrite repeat_length).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:20:53.350000.*)
+(* Auto-generated comment: At 2019-08-16 07:20:57.210000.*)
 
