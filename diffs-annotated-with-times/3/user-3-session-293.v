@@ -58,8 +58,7 @@ Instance var_crash_step_nonerror :
 Proof.
 (simpl).
 typeclasses eauto.
-Module DB.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:51:58.510000.*)
+(* Auto-generated comment: At 2019-08-07 18:52:00.150000.*)
 
