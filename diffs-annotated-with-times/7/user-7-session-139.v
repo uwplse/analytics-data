@@ -72,8 +72,9 @@ tauto.
 (apply match_ty_cname__inv in Hsem).
 (inversion Hsem).
 +
-clear IHt'1.
-(* Auto-generated comment: Failed. *)
+clear IHt'1 IHt'2.
+(apply sem_sub_pair__inv in Hsem).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 09:13:50.080000.*)
+(* Auto-generated comment: At 2019-08-27 09:14:46.140000.*)
 
