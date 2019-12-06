@@ -604,8 +604,7 @@ Timeout 1 Print Ltac Msimpl_light.
 Timeout 1 About Matrix.Msimpl_light.
 Timeout 1 Print Matrix.Msimpl_light.
 Timeout 1 Print Ltac Matrix.Msimpl_light.
-(progress restore_dims).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 16:07:50.180000.*)
+(* Auto-generated comment: At 2019-08-13 16:08:42.240000.*)
 
