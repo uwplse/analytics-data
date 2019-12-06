@@ -102,12 +102,8 @@ Proof.
 -
 (apply match_ty_pair; auto).
 -
-(destruct k, w).
-(simpl; tauto).
-(simpl).
-tauto.
-(simpl).
+(destruct k, w; try (solve [ tauto ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:03:56.410000.*)
+(* Auto-generated comment: At 2019-08-20 12:05:13.320000.*)
 
