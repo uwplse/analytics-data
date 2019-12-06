@@ -603,8 +603,10 @@ Set Printing All.
 clear.
 specialize (kron_1_l A) as KL.
 symmetry.
-(simpl in KL).
+Timeout 1 About Init.Nat.mul.
+Timeout 1 Print Init.Nat.mul.
+Timeout 1 Print Ltac Init.Nat.mul.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:36:23.510000.*)
+(* Auto-generated comment: At 2019-08-13 17:36:34.080000.*)
 
