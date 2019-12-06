@@ -112,8 +112,7 @@ assumption.
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
-specialize (IHw' _ Hm).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 09:58:56.870000.*)
+(* Auto-generated comment: At 2019-08-29 10:09:47.520000.*)
 
