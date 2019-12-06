@@ -42,10 +42,6 @@ Hint Constructors value_type: DBBetaJulia.
 Declare Scope btjm_scope.
 Delimit Scope btjm_scope with btjm.
 Open Scope btjm.
-Function odd (n : nat) := match n with
-                          | 0 => false
-                          | S n => true
-                          end even (n : nat) := false.
 Reserved Notation "'|-[' k ']' v '<$' t" (at level 40).
 Fixpoint match_ty (k : nat) :=
   fix mty (v : ty) :=
@@ -64,5 +60,5 @@ Definition sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> 
 Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_k k t1 t2) (at level 47) : btjm_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 06:05:03.850000.*)
+(* Auto-generated comment: At 2019-08-15 06:06:08.290000.*)
 
