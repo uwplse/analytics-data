@@ -63,24 +63,21 @@ split.
 assumption.
 tauto.
 -
-admit.
--
-admit.
--
-(pose proof (subst_exist X tx i t) as Heq).
-(destruct Heq as [Z [tz Heq]]).
-(rewrite Heq in Hm).
-(apply match_ty_exist__0_inv in Hm; contradiction).
--
-admit.
--
-admit.
--
-exists v.
+(rewrite subst_pair in *).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+specialize (IHt1 _ _ Hm1).
+specialize (IHt2 _ _ Hm2).
+(destruct IHt1 as [v1' [Hm1' IHt1]]).
+(destruct IHt2 as [v2' [Hm2' IHt2]]).
+exists (TPair v1' v2').
 split.
-assumption.
-tauto.
+(apply match_ty_pair; assumption).
+(induction w'; induction t'; intros Hm'; try contradiction).
++
+(apply match_ty_pair_pair__inv in Hm').
+(apply match_ty_pair; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:40:59.550000.*)
+(* Auto-generated comment: At 2019-09-02 07:45:00.350000.*)
 
