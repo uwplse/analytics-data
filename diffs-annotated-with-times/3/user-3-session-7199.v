@@ -341,8 +341,12 @@ step_proc.
 (eapply proc_spec_weaken; eauto).
 (unfold spec_impl; simpl; intuition).
 (exists (a' ++ [a]); intuition eauto).
--
++
+(rewrite app_length; simpl; lia).
++
+(unfold log_size_ok in *; simpl in *).
+(rewrite app_length in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:00:40.970000.*)
+(* Auto-generated comment: At 2019-09-04 12:01:18.190000.*)
 
