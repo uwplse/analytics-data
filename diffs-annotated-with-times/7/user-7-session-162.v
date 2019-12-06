@@ -47,8 +47,7 @@ Definition fresh_in_ty (X : id) (t : ty) := fresh X (FV t).
 Definition free_in_ty (X : id) (t : ty) := IdSet.In X (FV t).
 Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
 Variable (gen_fresh : id_set -> id).
-Variable (gen_fresh : id_set -> id).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:31:10.880000.*)
+(* Auto-generated comment: At 2019-08-29 13:31:13.680000.*)
 
