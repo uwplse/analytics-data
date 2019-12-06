@@ -439,7 +439,8 @@ step.
 (destruct r; try step).
 (destruct (v == v0); subst; try step).
 Unshelve.
+all: auto.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:13:01.470000.*)
+(* Auto-generated comment: At 2019-09-03 11:13:06.540000.*)
 
