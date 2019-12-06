@@ -90,8 +90,8 @@ Qed.
 Theorem sem_sub_deq__sem_sub_i : forall t1 t2 : ty, ||- [t1]<= [t2] -> (||- [t1]<= [t2])%btjmi.
 Proof.
 (intros t1 t2 Hsemdec).
-(apply sub_d__semantic_complete).
+(apply sub_d__semantic_complete_i).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 07:39:22.430000.*)
+(* Auto-generated comment: At 2019-08-14 07:39:33.100000.*)
 
