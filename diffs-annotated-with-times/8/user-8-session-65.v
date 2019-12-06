@@ -976,8 +976,7 @@ gen \207\129.
  end).
 2: {
 (do 4 (apply f_equal_gen; trivial)).
-(rewrite size_ntensor).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:12:23.770000.*)
+(* Auto-generated comment: At 2019-08-13 11:12:57.250000.*)
 
