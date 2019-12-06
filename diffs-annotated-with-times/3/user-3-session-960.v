@@ -68,7 +68,7 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Function
- nat_to_le base (x : nat) {struct x} : list {x : nat | x < S (S base)} :=
+ nat_to_le base (x : nat) {measure x : list {x : nat | x < S (S base)} :=
    match x with
    | 0 => nil
    | _ =>
@@ -77,5 +77,5 @@ Function
    end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:04:39.390000.*)
+(* Auto-generated comment: At 2019-08-16 06:05:48.530000.*)
 
