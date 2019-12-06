@@ -309,8 +309,7 @@ Proof.
 -
 clear H.
 (unfold proc_spec in *; intuition eauto; simpl in *; subst; repeat deex).
-intuition eauto.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:42:36.360000.*)
+(* Auto-generated comment: At 2019-09-06 06:42:43.740000.*)
 
