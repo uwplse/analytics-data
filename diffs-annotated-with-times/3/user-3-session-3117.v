@@ -116,8 +116,9 @@ Unset Search Output Name Only.
 Check Ascii.nat_ascii_bounded.
 Theorem nat_ascii_bounded : forall a, Ascii.nat_of_ascii a < 256.
 Proof.
-(destruct a; simpl).
+(destruct a; simpl; intros).
+Print Ascii.nat_of_ascii.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:03:48.540000.*)
+(* Auto-generated comment: At 2019-08-16 10:04:01.940000.*)
 
