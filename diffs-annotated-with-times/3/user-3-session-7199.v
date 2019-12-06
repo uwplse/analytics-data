@@ -314,8 +314,8 @@ Print append_at.
 step_proc.
 intuition eauto.
 +
-(rewrite app_nil_r).
+(rewrite app_nil_r in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:33:22.250000.*)
+(* Auto-generated comment: At 2019-09-04 11:33:41.840000.*)
 
