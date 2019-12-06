@@ -80,8 +80,7 @@ Qed.
 Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
 Proof.
 (intros k v Hv).
-(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:25:21.060000.*)
+(* Auto-generated comment: At 2019-08-19 09:25:28.470000.*)
 
