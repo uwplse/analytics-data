@@ -210,8 +210,10 @@ Proof.
 (split; assumption).
 -
 (simpl in Hsub).
-(apply sub_r_unite_pairs_nf_l__inv in Hsub).
+(apply sub_r_unite_pairs_nf_l__inv in Hsub; try apply mk_nf__in_nf).
+(destruct Hsub; split; apply SR_NormalForm; assumption).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:36:11.670000.*)
+(* Auto-generated comment: At 2019-08-07 12:36:41.030000.*)
 
