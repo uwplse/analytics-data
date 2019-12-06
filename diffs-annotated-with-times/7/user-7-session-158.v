@@ -46,7 +46,8 @@ Lemma subst_var_eq : forall (X : id) (s : ty), [X := s] TVar X = s.
 Proof.
 (intros).
 (simpl).
+(rewrite beq_id_refl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:14:44.580000.*)
+(* Auto-generated comment: At 2019-08-29 09:15:01.400000.*)
 
