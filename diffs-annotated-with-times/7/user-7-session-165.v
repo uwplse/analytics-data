@@ -89,9 +89,23 @@ reflexivity.
 -
 (destruct (beq_idP X i); try reflexivity).
 Search -IdSet.mem.
-(destruct (IdSet.mem i (IdSet.singleton X))).
+(destruct (IdSet.mem i (IdSet.singleton X)) eqn:Heq).
 +
-(* Auto-generated comment: Failed. *)
+Search -IdSet.mem.
+(apply IdSetFacts.mem_2 in Heq).
+Check IdSet.singleton.
+Search -IdSet.singleton.
+(apply IdSetFacts.singleton_1 in Heq).
+contradiction.
++
+(rewrite IHt).
+reflexivity.
+-
+(destruct (beq_idP X i); try reflexivity).
+subst.
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 13:54:34.500000.*)
+(* Auto-generated comment: At 2019-08-29 13:55:18.830000.*)
 
