@@ -396,8 +396,7 @@ intuition eauto.
 step_proc.
 (intuition eauto; autorewrite with upd; auto).
 {
-(apply log_contents_ok_unchanged; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:34:58.100000.*)
+(* Auto-generated comment: At 2019-09-04 12:35:00.060000.*)
 
