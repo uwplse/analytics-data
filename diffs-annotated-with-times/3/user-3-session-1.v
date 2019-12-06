@@ -457,7 +457,9 @@ firstorder.
 (intros).
 (apply impl_spec_exec).
 (apply impl_spec_exec; auto).
+(apply impl_spec_exec; intros; auto).
+(destruct ret; simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-06 04:43:31.340000.*)
+(* Auto-generated comment: At 2019-08-06 04:43:34.680000.*)
 
