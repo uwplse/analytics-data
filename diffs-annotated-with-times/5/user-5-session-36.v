@@ -257,8 +257,8 @@ reflexivity.
 (rewrite H in H0).
 clear H.
 (rewrite evalAnd in H0).
-(apply evalIfTrue in H0).
+(rewrite evalIfTrue in H0).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:27:30.510000.*)
+(* Auto-generated comment: At 2019-09-01 10:27:34.930000.*)
 
