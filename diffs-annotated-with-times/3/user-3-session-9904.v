@@ -102,5 +102,5 @@ Qed.
 Opaque Nat.di.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 05:44:02.080000.*)
+(* Auto-generated comment: At 2019-09-06 05:44:06.560000.*)
 
