@@ -47,8 +47,10 @@ reflexivity.
 (unfold fresh in *).
 (intros Hcontra).
 Search -IdSet.remove.
-(apply (IdSetFacts.remove_2 _ _ _ n) in Hcontra).
+Check IdSetFacts.remove_2.
+(apply Hfresh).
+(apply IdSetFacts.remove_2).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:52:43.570000.*)
+(* Auto-generated comment: At 2019-08-27 06:53:48.150000.*)
 
