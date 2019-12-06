@@ -83,8 +83,7 @@ Proof.
 -
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair; auto).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:29:02.180000.*)
+(* Auto-generated comment: At 2019-08-19 09:29:15.590000.*)
 
