@@ -70,9 +70,8 @@ subst.
 (rewrite subst_neq__permute in Hm).
 specialize (IHw _ _ Hm).
 (destruct IHw as [v' Hm']).
-exists v'.
-(apply match_ty_exist).
+(rewrite subst_neq__permute in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:26:00.300000.*)
+(* Auto-generated comment: At 2019-08-29 09:26:31.670000.*)
 
