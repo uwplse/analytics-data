@@ -66,5 +66,5 @@ Print IdSet.
 Definition wf_ty (t : ty) := IdSet.Equal (FBV t) IdSet.empty.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 08:56:21.550000.*)
+(* Auto-generated comment: At 2019-09-03 08:58:50.850000.*)
 
