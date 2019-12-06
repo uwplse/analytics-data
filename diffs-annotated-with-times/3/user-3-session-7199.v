@@ -339,8 +339,9 @@ step_proc.
 (apply log_contents_ok_unchanged; eauto).
 }
 (eapply proc_spec_weaken; eauto).
-(unfold spec_impl; simpl; intros).
+(unfold spec_impl; simpl; intuition).
+(descend; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:59:25.180000.*)
+(* Auto-generated comment: At 2019-09-04 11:59:31.600000.*)
 
