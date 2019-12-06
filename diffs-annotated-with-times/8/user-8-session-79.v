@@ -597,7 +597,8 @@ Proof.
 (intros).
 (simpl).
 (remember (\226\168\130 l2) as A).
-(* Auto-generated comment: Succeeded. *)
+(remember (m ^ length l2) as m).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:30:52.210000.*)
+(* Auto-generated comment: At 2019-08-13 17:31:52.110000.*)
 
