@@ -82,8 +82,9 @@ constructor.
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (simpl).
-(destruct (max_inv_depth_le__inv v1 v2 (S k)) as [Hdep1 hdep2]).
+(destruct (max_inv_depth_le__inv v1 v2 (S k)) as [Hdep1 Hdep2]).
+(apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:16:39.150000.*)
+(* Auto-generated comment: At 2019-08-20 13:16:59.270000.*)
 
