@@ -319,8 +319,12 @@ Lemma firstn_one_more :
 Proof.
 (intros).
 generalize dependent a.
-(induction d; simpl in *).
+(induction d; simpl; intros).
+-
+(exfalso; lia).
+-
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:13:45.430000.*)
+(* Auto-generated comment: At 2019-09-04 11:13:49.550000.*)
 
