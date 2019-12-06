@@ -179,8 +179,5 @@ typeclasses eauto.
 (intros; simpl).
 (decide equality; subst).
 (decide equality; subst).
-(destruct (x0 == x1); auto).
 (* Auto-generated comment: Succeeded. *)
-
-(* Auto-generated comment: At 2019-08-16 07:39:07.580000.*)
 
