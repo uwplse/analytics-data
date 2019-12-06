@@ -1366,8 +1366,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 iFrame.
-iDestruct "Hmbox" as ">(Hlocked'&Hauth)".
-(* Auto-generated comment: Failed. *)
+(cbn[MailboxStatusInterp]).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:18:33.680000.*)
+(* Auto-generated comment: At 2019-08-14 13:18:51.380000.*)
 
