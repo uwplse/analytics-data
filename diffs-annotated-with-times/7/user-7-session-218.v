@@ -153,8 +153,7 @@ Lemma b_subst_fvar : forall (X : id) (s : ty) (Y : id), [BX := s] TFVar Y = TBVa
 Proof.
 (intros).
 (simpl).
-reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:19:54.950000.*)
+(* Auto-generated comment: At 2019-09-04 10:21:52.150000.*)
 
