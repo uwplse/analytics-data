@@ -1253,6 +1253,7 @@ Proof.
 (remember (add_fresh_pat W1 []) as p).
 (induction (c p)).
 -
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+matrix_denote.
+(rewrite H).
+(* Auto-generated comment: Failed. *)
 
