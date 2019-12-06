@@ -204,7 +204,8 @@ refine
  uint64_to_string := pretty.pretty_nat;
  ascii_to_byte := ascii_to_bounded;
  byte_to_ascii := bounded_to_ascii |}.
+auto.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:51:39.390000.*)
+(* Auto-generated comment: At 2019-08-16 06:51:57.970000.*)
 
