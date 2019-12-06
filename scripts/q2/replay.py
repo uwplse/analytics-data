@@ -52,11 +52,12 @@ def get_sessions(user):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--user", type=int, default=-2)
-    parser.add_argument("--paginate", dest="paginate", action='store_true')
+    parser.add_argument("--user", '-u', type=int, default=-2)
+    parser.add_argument("--paginate", action='store_true')
     parser.add_argument("--mode", choices=["raw", "human"], default="human")
     parser.add_argument("--before", type=parseDate)
     parser.add_argument("--after", type=parseDate)
+    parser.add_argument("--times", '-t', action='store_true')
     args = parser.parse_args()
 
     #### User selection
@@ -157,15 +158,17 @@ def main():
     #print(f"{dumps(get_session_module(processed_cmds[0]))}")
 
     for cmd in processed_cmds:
+        timestamp = (" (* " + str(datetime.fromtimestamp(get_time(cmd))) + " *)" )\
+            if args.times else ""
         if get_cmd_type(cmd) == Symbol("StmAdd"):
-            print("(*{}:*) {}".format(get_id(cmd), get_body(cmd)[1][2]))
+            print("(*{}:*) {}{}".format(get_id(cmd), get_body(cmd)[1][2], timestamp))
         elif get_cmd_type(cmd) == Symbol("StmCancel"):
-            print("(*CANCEL {}*)".format(get_body(cmd)[1][1][0]))
+            print("(*CANCEL {}*){}".format(get_body(cmd)[1][1][0], timestamp))
         elif get_cmd_type(cmd) == Symbol("Failed"):
-            print("(*FAILED {}*)".format(get_body(cmd)[1][1]))
+            print("(*FAILED {}*){}".format(get_body(cmd)[1][1], timestamp))
         else:
             assert get_cmd_type(cmd) == Symbol("StmObserve")
-            print("OBSERVE {}".format(get_body(cmd)[1][1]))
+            print("OBSERVE {}{}".format(get_body(cmd)[1][1], timestamp))
 
 def isUnsetSilent(entry):
     return get_cmd_type(entry) == Symbol("StmAdd") and \

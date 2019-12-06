@@ -26,6 +26,8 @@ diffpath="${path}/../../diffs-annotated-fixed-2/${userid}"
 ```
 
 in [commit-diffs.sh](/scripts/q2/commit-diffs.sh) to point to it.
+Also add subdirectories in your new directory for each user, with the names
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 11.
 Then, just run [commit-all-diffs.sh](/scripts/q2/commit-all-diffs.sh)
 from within its directory. You can then look at the Git history
 to see the processed data.
