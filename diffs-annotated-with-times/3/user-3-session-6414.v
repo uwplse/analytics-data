@@ -117,19 +117,8 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlIIL2F"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Theorem init_ok : init_abstraction init recover abstr inited_any.
-Proof.
-(eapply then_init_compose; eauto).
-step_proc.
-(destruct (lt_dec r 1)).
--
-step_proc.
--
-step_proc.
-step_proc.
-step_proc.
-(exists nil; simpl).
-(* Auto-generated comment: Succeeded. *)
+Theorem log_length_ok_nil d : diskGet d 0 = Some 0 -> log_length_ok d [].
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:24:38.640000.*)
+(* Auto-generated comment: At 2019-09-04 10:25:25.430000.*)
 
