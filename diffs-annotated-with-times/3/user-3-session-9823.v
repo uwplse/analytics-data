@@ -192,8 +192,8 @@ invert_abstraction.
 (exists s; split; eauto).
 (destruct (a == diskSize s); subst).
 +
-autorewrite with upd.
+(autorewrite with upd; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:23:05.590000.*)
+(* Auto-generated comment: At 2019-09-06 05:23:08.340000.*)
 
