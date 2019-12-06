@@ -71,8 +71,15 @@ Proof.
 generalize dependent v.
 (induction t; intros v Hdep Hm).
 -
-(apply match_ty_cname in Hm; subst).
+(apply match_ty_cname__inv in Hm; subst).
+constructor.
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(simpl).
+SearchPattern (Nat.max _ _ <= Nat.max _ _).
+(apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 13:14:37.340000.*)
+(* Auto-generated comment: At 2019-08-20 13:16:25.690000.*)
 
