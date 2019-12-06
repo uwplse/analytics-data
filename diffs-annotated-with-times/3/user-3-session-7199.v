@@ -314,8 +314,8 @@ Proof.
 step_proc.
 intuition eauto.
 +
-(rewrite app_nil_r in *).
+(rewrite app_nil_r in *; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:33:54.280000.*)
+(* Auto-generated comment: At 2019-09-04 11:34:06.980000.*)
 
