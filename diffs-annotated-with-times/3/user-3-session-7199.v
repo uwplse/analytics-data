@@ -348,10 +348,8 @@ Proof.
 (rewrite app_length in *; simpl in *).
 lia.
 }
-(destruct (a == length bs); subst).
--
-autorewrite with upd.
+(destruct (a == length bs); subst; autorewrite with upd).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:33:12.470000.*)
+(* Auto-generated comment: At 2019-09-04 12:34:03.370000.*)
 
