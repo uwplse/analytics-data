@@ -33,3 +33,5 @@ to see the processed data.
 Soon, I will include a file that contains a complete list of all of the changes
 that we found in the manual analysis of this processed data,
 with links to benchmarks mentioned in the paper.
+I will also describe how we determined when changes occurred across the same file,
+and will include scripts with timestamps as well.
