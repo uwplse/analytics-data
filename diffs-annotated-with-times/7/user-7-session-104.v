@@ -64,8 +64,116 @@ clear Heq.
 specialize (Hcontra 0).
 (destruct Hcontra as [w2' Hcontra]).
 specialize (Hcontra _ Hm).
-(apply match_ty_cname__inv in hcontra).
+(apply match_ty_cname__inv in Hcontra).
+(inversion Hcontra).
+Qed.
+Lemma sem_sub__eunion__unione : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
+Proof.
+(intros X t1 t2 k).
+(intros w1).
+exists w1.
+(intros v Hm).
+(destruct w1).
+-
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl in Hmx).
+(apply match_ty_union__inv in Hmx).
+(destruct Hmx as [Hmx| Hmx]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; apply match_ty_exist; exists tx; assumption).
+Qed.
+Lemma sem_sub__unione__eunion : forall (X : id) (t1 t2 : ty), ||- [TUnion (TExist X t1) (TExist X t2)]<= [TExist X (TUnion t1 t2)].
+Proof.
+(intros X t1 t2 k).
+(intros w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]).
+-
+(destruct w1).
++
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl in Hmx).
+(apply match_ty_exist).
+exists tx.
+(apply match_ty_union_1).
+assumption.
+-
+(destruct w1).
++
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(simpl in Hmx).
+(apply match_ty_exist).
+exists tx.
+(apply match_ty_union_2).
+assumption.
+Qed.
+Reserved Notation "'|' t '|'" (at level 20).
+Fixpoint inv_depth (t : ty) :=
+  match t with
+  | TCName _ => 0
+  | TPair t1 t2 => Nat.max (| t1 |) (| t2 |)
+  | TUnion t1 t2 => Nat.max (| t1 |) (| t2 |)
+  | TRef t' => 1 + | t' |
+  | TExist _ t' => | t' |
+  | TVar _ => 0
+  | TEV _ => 0
+  end
+where "'|' t '|'" := (inv_depth t) : btjt_scope.
+Lemma max_inv_depth_le__inv : forall (t1 t2 : ty) (k : nat), Nat.max (| t1 |) (| t2 |) <= k -> | t1 | <= k /\ | t2 | <= k.
+Proof.
+(intros t1 t2 k Hle).
+(split; [ eapply Nat.max_lub_l | eapply Nat.max_lub_r ]; eassumption).
+Qed.
+Lemma match_ty__inv_depth : forall (w k : nat) (v t : ty), | v | <= k -> |-[ k, w] v <$ t -> | v | <= | t |.
+Proof.
+(intros w k).
+(induction k).
+(intros v t Hdep Hm).
+(inversion Hdep; subst).
+(rewrite H0).
+(apply le_0_n).
+(intros v t).
+generalize dependent v.
+(induction t; intros v Hdep Hm).
+-
+(apply match_ty_cname__inv in Hm; subst).
+constructor.
+-
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(simpl).
+(destruct (max_inv_depth_le__inv _ _ _ Hdep) as [Hdep1 Hdep2]).
+(apply Nat.max_le_compat; [ apply IHt1 | apply IHt2 ]; assumption).
+-
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply Nat.le_trans with (| t1 |) | apply Nat.le_trans with (| t2 |) ]; auto).
+(apply Nat.le_max_l).
+(apply Nat.le_max_r).
+-
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq Href]]; subst).
+admit.
+-
+(destruct w).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+Abort.
+Lemma not_sem_eq__reft_t : forall (k : nat) (t : ty), | t | <= k -> ~ ||-[ S k][TRef t]= [t].
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:36:16.640000.*)
+(* Auto-generated comment: At 2019-08-21 07:36:26.650000.*)
 
