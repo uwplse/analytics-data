@@ -55,12 +55,12 @@ Fixpoint match_ty (k : nat) :=
       | _, TCName c, TCName c' => c = c'
       | _, TPair v1 v2, TPair t1 t2 => mty v1 t1 /\ mty v2 t2
       | _, _, TUnion t1 t2 => mty' t1 \/ mty' t2
-      | S k, TRef t', TRef t => sem_eq_k k t' t (forall v, |-[ k] v <$ t' <-> |-[ k] v <$ t)
+      | S k, TRef t', TRef t => (inv_depth t <= k /\ inv_depth t' = inv_depth t) /\ sem_eq_k k t' t
       | _, _, _ => False
       end
 where "|-[ k ']' v '<$' t" := (match_ty k v t) : btjm_scope
 with sem_eq_k (k : nat) (t1 t2 : ty) := forall v : ty, |-[ k] v <$ t1 <-> |-[ k] v <$ t2.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 06:02:03.890000.*)
+(* Auto-generated comment: At 2019-08-15 06:04:14.580000.*)
 
