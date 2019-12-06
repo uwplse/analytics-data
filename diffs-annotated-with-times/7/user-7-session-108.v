@@ -317,8 +317,16 @@ admit.
 (destruct Hcontra as [tx Hcontra]).
 (assert (Hnotm' : ~ (exists v, |-[ k, w] v <$ [i := tx] t))).
 {
-(intros [v Hm]).
+(intros [v0 Hm]).
+(assert (Hme : |-[ k, S w] v0 <$ TExist i t)).
+{
+(apply match_ty_exist).
+exists tx.
+assumption.
+}
+(apply Hnotm).
+exists v.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:49:25.090000.*)
+(* Auto-generated comment: At 2019-08-21 10:49:32.950000.*)
 
