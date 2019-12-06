@@ -245,8 +245,10 @@ step.
 (exists bs; intuition eauto).
 (unfold log_abstraction in H0; intuition).
 (pose proof (H3 a); intuition).
-eq_values.
+(assert (log_addr a < diskSize state)).
+{
+lia.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 17:36:13.150000.*)
+(* Auto-generated comment: At 2019-09-05 17:36:16.610000.*)
 
