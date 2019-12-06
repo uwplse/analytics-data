@@ -425,10 +425,12 @@ Proof.
 (intros; lia).
 Qed.
 Hint Resolve abstr_length_sz_bound: core.
-Theorem log_contents_ok_len_change d bs a0 b :
+Theorem log_contents_ok_len_change d bs b :
   log_size_ok d bs ->
   log_contents_ok d bs -> log_contents_ok (diskUpd d len_addr b) bs.
-(* Auto-generated comment: Failed. *)
+Proof.
+(unfold log_size_ok, log_contents_ok; intros).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:53:46.690000.*)
+(* Auto-generated comment: At 2019-09-04 12:53:55.390000.*)
 
