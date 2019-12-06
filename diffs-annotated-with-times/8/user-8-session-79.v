@@ -625,7 +625,7 @@ Proof.
 specialize (kron_1_r A) as KR.
 specialize (kron_1_r_inv A) as KR'.
 (rewrite (kron_1_r A)).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:07:54.170000.*)
+(* Auto-generated comment: At 2019-08-14 13:07:54.730000.*)
 
