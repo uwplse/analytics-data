@@ -259,8 +259,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
 (unfold init_abstraction; intros).
-(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
+(eapply proc_spec_rx; [ solve [ eauto ] |  ]; cbn[pre post recovered] in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 07:15:15.380000.*)
+(* Auto-generated comment: At 2019-08-29 07:15:23.490000.*)
 
