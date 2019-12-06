@@ -87,10 +87,8 @@ assumption.
 }
 +
 (split; intros HX').
-*
 assumption.
-*
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 09:09:28.020000.*)
+(* Auto-generated comment: At 2019-09-04 09:10:28.720000.*)
 
