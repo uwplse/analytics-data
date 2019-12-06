@@ -103,7 +103,7 @@ specialize (Hsem k w1).
 exists w2.
 (intros v Hm).
 Abort.
-Lemma sem_sub_fresh_var__sem_sub_exist :
+Lemma sem_sub_fresh_var__sem_sub_exist' :
   forall (X : id) (t t' : ty) (X' : id),
   IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> forall tx : ty, ||- [[X := tx] t]<= [t'].
 Proof.
@@ -115,7 +115,12 @@ exists w2.
 (intros v Hm).
 (induction w1).
 Abort.
+Lemma xxx :
+  forall (X : id) (w1 k w2 : nat) (t t' : ty) (X' : id),
+  IdSet.In X (FV t) ->
+  fresh_in_ty X' t' ->
+  (forall v, |-[ k, w1] v <$ [X := X'] t -> |-[ k, w2] v <$ t') -> forall tx : ty, forall v, |-[ k, w1] v <$ [X := tx] t -> |-[ k, w2] v <$ t'.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 13:53:29.210000.*)
+(* Auto-generated comment: At 2019-08-27 13:57:03.710000.*)
 
