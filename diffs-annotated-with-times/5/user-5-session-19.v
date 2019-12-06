@@ -88,8 +88,12 @@ Definition isTheorem (L : EpsilonLogic) (t : Term) :=
 Fixpoint identity (t : Term) : Term :=
   match t with
   | Var x => Var x
-  | Int i => Int i
+  | Bool b => Bool b
   | Eq a b => Eq (identity a) (identity b)
+  | And a b => And (identity a) (identity b)
+  | Or a b => Or (identity a) (identity b)
+  | Not a => Not (identity a)
+  | Int i => Int i
   | Plus a b => Plus (identity a) (identity b)
   | Times a b => Times (identity a) (identity b)
   | Minus a b => Minus (identity a) (identity b)
@@ -97,5 +101,5 @@ Fixpoint identity (t : Term) : Term :=
   end.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 09:30:25.070000.*)
+(* Auto-generated comment: At 2019-08-13 09:30:46.250000.*)
 
