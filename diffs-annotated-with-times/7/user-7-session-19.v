@@ -5,6 +5,7 @@ Add Search Blacklist "Private_" "_subproof".
 Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
+Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.AltMatchDefs.
 Require Import Coq.Lists.List.
 Import ListNotations.
@@ -71,5 +72,5 @@ Proof.
       end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:21:11.370000.*)
+(* Auto-generated comment: At 2019-08-12 11:21:57.100000.*)
 
