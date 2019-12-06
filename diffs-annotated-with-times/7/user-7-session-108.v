@@ -293,8 +293,10 @@ admit.
 -
 admit.
 -
-(assert (Hnotm' : ~ (exists v, tx, |-[ k, w] v <$ [i := tx] t))).
+(assert (Hnotm' : ~ (exists v tx, |-[ k, w] v <$ [i := tx] t))).
+{
+(intros Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:43:06.270000.*)
+(* Auto-generated comment: At 2019-08-21 10:44:16.480000.*)
 
