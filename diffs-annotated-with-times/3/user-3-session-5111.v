@@ -201,8 +201,17 @@ Proof.
 (destruct a'; simpl in *; intuition idtac).
 {
 (destruct (a == r)).
-}
-(* Auto-generated comment: Failed. *)
+Admitted.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkiR9n0"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqUKQE2O"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:03:40.450000.*)
+(* Auto-generated comment: At 2019-09-03 11:03:52.980000.*)
 
