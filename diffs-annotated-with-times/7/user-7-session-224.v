@@ -34,7 +34,14 @@ admit.
 +
 subst.
 (rewrite b_subst_exist_eq in Hm).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
++
+subst.
+(rewrite b_subst_exist_neq in Hm; try assumption).
+(apply match_ty_exist__0_inv in Hm).
+contradiction.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 13:12:51.040000.*)
+(* Auto-generated comment: At 2019-09-05 13:13:11.580000.*)
 
