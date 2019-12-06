@@ -264,8 +264,7 @@ Unset Search Output Name Only.
 (exists 0; simpl; auto).
 }
 {
-(step_proc; intuition; subst; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:16:49.330000.*)
+(* Auto-generated comment: At 2019-09-03 13:16:50.150000.*)
 
