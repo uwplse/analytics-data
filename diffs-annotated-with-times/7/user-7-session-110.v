@@ -124,10 +124,13 @@ Qed.
 Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
 (induction w; induction t; intros k v Hm w' Hle;
-  try match goal with
-      | |- |-[ _, _] _ <$ TCName _ => apply match_ty_cname__inv in Hm; subst; apply match_ty_cname
-      end).
+  try
+   match goal with
+   | |- |-[ _, _] _ <$ TCName _ => apply match_ty_cname__inv in Hm; subst; apply match_ty_cname
+   | |- |-[ _, _] _ <$ TPair _ _ =>
+         apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; eauto
+   end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:50:51.420000.*)
+(* Auto-generated comment: At 2019-08-26 07:51:21.510000.*)
 
