@@ -597,5 +597,5 @@ Proof.
 (rewrite kron_1_r).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:55:36.870000.*)
+(* Auto-generated comment: At 2019-08-13 17:55:41.770000.*)
 
