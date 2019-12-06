@@ -200,8 +200,10 @@ Proof.
             tauto || apply Max.le_max_l || apply Max.le_max_r
      end ])).
 -
-(inversion Hnft; subst).
+(assert (Hvp : value_type (TPair t1 t2))).
+constructor.
+solve_by_inverts.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:31:42.520000.*)
+(* Auto-generated comment: At 2019-08-13 07:32:06.620000.*)
 
