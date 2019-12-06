@@ -30,9 +30,8 @@ Proof.
 (simpl in Hfresh).
 (apply fresh_union__inv in Hfresh).
 (destruct Hfresh as [Hfresh1 Hfresh2]).
-(rewrite IHt1).
-(rewrite IHt2).
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:46:00.950000.*)
+(* Auto-generated comment: At 2019-08-27 06:46:03.290000.*)
 
