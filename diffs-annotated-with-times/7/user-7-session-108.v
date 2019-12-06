@@ -325,8 +325,11 @@ exists tx.
 assumption.
 }
 (apply Hnotm).
-exists v.
+exists v0.
+assumption.
+}
+specialize (IHw _ _ Hnotm').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:49:32.950000.*)
+(* Auto-generated comment: At 2019-08-21 10:49:37.680000.*)
 
