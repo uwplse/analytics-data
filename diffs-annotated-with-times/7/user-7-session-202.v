@@ -132,8 +132,9 @@ Proof.
    [ reflexivity
    | try destruct (wf_ty_pair__inv _ _ Hwf) as [wf1 wf2]; try destruct (wf_ty_union__inv _ _ Hwf) as [wf1 wf2]; simpl; rewrite IHt1; try assumption;
       rewrite IHt2; try assumption; reflexivity ])).
-(destruct (wf_ty_pair__inv _ _ Hwf) as [wf1 wf2]).
+-
+(destruct (beq_idP X i); try reflexivity).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:57:10.110000.*)
+(* Auto-generated comment: At 2019-09-03 09:57:28.350000.*)
 
