@@ -75,8 +75,8 @@ constructor.
 constructor.
 -
 (destruct k).
-contradiction.
+(destruct v; contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:04:05.870000.*)
+(* Auto-generated comment: At 2019-08-19 09:04:31.580000.*)
 
