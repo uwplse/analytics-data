@@ -107,8 +107,8 @@ Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Print projT1.
 Print sig.
-Search -(sig _ _ -> _).
+Search -(sig _ -> _).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 05:56:41.480000.*)
+(* Auto-generated comment: At 2019-08-16 05:56:41.570000.*)
 
