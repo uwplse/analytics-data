@@ -266,8 +266,8 @@ clear H.
 exfalso.
 (rewrite evalIfFalse in H0).
 +
-contradiction  evalBoolInj.
+(econtradiction evalBoolInj).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:35:56.850000.*)
+(* Auto-generated comment: At 2019-09-01 10:36:03.300000.*)
 
