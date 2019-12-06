@@ -284,9 +284,7 @@ exact H0.
 (rewrite evalVar).
 (rewrite extendEnv_eq).
 assumption.
--
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 11:00:27.110000.*)
+(* Auto-generated comment: At 2019-09-01 11:00:31.170000.*)
 
