@@ -911,5 +911,5 @@ clear L1 M1 Lt.
 setoid_rewrite (kron_1_l_inv (\226\168\130 l2)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:54:09.870000.*)
+(* Auto-generated comment: At 2019-08-14 13:54:32.290000.*)
 
