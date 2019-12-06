@@ -61,8 +61,7 @@ monad_simpl.
 (match goal with
  | |- proc_spec _ ?p _ _ => apply (change_marker p) in Hbefore
  end).
-(eapply proc_spec_rx; [ solve [ eauto ] |  ]).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:56:54.890000.*)
+(* Auto-generated comment: At 2019-08-29 08:57:07.560000.*)
 
