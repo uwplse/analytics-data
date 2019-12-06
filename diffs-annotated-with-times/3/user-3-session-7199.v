@@ -187,8 +187,8 @@ eauto using log_length_ok_nil.
 (destruct d; simpl in *; [  | lia ]).
 (assert (diskGet nil 0 = None)).
 (apply disk_oob_eq).
-lia.
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:06:12.500000.*)
+(* Auto-generated comment: At 2019-09-04 11:06:21.810000.*)
 
