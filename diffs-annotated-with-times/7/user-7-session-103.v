@@ -44,7 +44,14 @@ Qed.
 Lemma match_ty_union__inv : forall (v t1 t2 : ty) (k w : nat), |-[ k, w] v <$ TUnion t1 t2 -> |-[ k, w] v <$ t1 \/ |-[ k, w] v <$ t2.
 Proof.
 (intros v t1 t2 k w Hm).
+(destruct k, w, v; assumption).
+Qed.
+Lemma match_ty_ref__weak_inv : forall (v t : ty) (k w : nat), |-[ k, w] v <$ TRef t -> exists t' : ty, v = TRef t'.
+Proof.
+(intros v t k w Hm).
+(destruct k, w, v; simpl in Hm; try contradiction).
+exists v.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:45:51.540000.*)
+(* Auto-generated comment: At 2019-08-20 11:46:39.140000.*)
 
