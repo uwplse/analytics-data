@@ -40,8 +40,7 @@ Lemma X_spec :
 Proof.
 (intros).
 vector_denote.
-(destruct b; unfold bool_to_ket; simpl; Msimpl; easy).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:28:09.280000.*)
+(* Auto-generated comment: At 2019-08-12 14:29:08.130000.*)
 
