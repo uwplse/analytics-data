@@ -972,11 +972,8 @@ restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 (repeat rewrite Mmult_assoc).
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
 Msimpl.
-(match goal with
- | |- @Mmult ?a ?b ?c ?A (@Mmult ?d ?e ?f ?B ?C) .+ _ = _ => setoid_rewrite  <-
-   (Mmult_assoc A B C)
- end).
-(* Auto-generated comment: Failed. *)
+(rewrite kron_mixed_product).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 13:51:49.770000.*)
+(* Auto-generated comment: At 2019-08-13 13:51:49.860000.*)
 
