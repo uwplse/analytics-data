@@ -172,16 +172,6 @@ step.
 (destruct r; step).
 {
 (descend; intuition eauto).
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqrGC16D"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqkHEnax"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 {
 (destruct (lt_dec a (diskSize a'))).
 -
@@ -192,14 +182,7 @@ simplify.
 step.
 (destruct r; intuition eauto; simplify).
 }
-(destruct r; step).
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq4tN0F0"
-SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:24:03.570000.*)
+(* Auto-generated comment: At 2019-09-03 13:24:12.540000.*)
 
