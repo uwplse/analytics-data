@@ -144,8 +144,9 @@ step_proc.
 exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (unfold inited_any).
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
-constructor.
-(* Auto-generated comment: Succeeded. *)
+(constructor; eauto).
+(rewrite diskUpd_neq by omega).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 10:37:54.400000.*)
+(* Auto-generated comment: At 2019-08-16 10:38:05.440000.*)
 
