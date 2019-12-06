@@ -546,8 +546,16 @@ Inductive Alpha : SetST -> GT -> Prop :=
       ~ (forall x, Ensembles.In _ S x -> exists l, x = SRec l) ->
       Alpha S GDyn.
 Create HintDb agt discriminated.
-Hint Resolve Singleton_eq: agt.
-(* Auto-generated comment: Failed. *)
+Hint Resolve singleton_eq: agt.
+Theorem alpha_is_partial_function :
+  forall S G G', Alpha S G -> Alpha S G' -> G = G'.
+Proof.
+(intros).
+generalize dependent G'.
+(induction H).
+-
+(intros; inversion H0; subst; eauto with agt).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 18:56:03.390000.*)
+(* Auto-generated comment: At 2019-09-06 15:44:53.460000.*)
 
