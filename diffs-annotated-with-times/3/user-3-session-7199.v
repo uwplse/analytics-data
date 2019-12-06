@@ -261,12 +261,16 @@ eauto.
 Qed.
 Theorem get_len_abstr_ok :
   proc_spec
-    (fun _ state =>
+    (fun (_ : unit) state =>
      {|
      pre := True;
      post := fun r state' => state' = state /\ r = length state;
      recovered := fun _ state' => state' = state |}) get_len recover abstr.
-(* Auto-generated comment: Failed. *)
+Proof.
+(unfold get_len; intros).
+(apply spec_abstraction_compose).
+(apply spec_weaken).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:28:01.230000.*)
+(* Auto-generated comment: At 2019-09-04 11:28:27.660000.*)
 
