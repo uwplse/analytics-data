@@ -415,8 +415,8 @@ tauto.
 Qed.
 Lemma sem_sub_k_i_nf__inv_depth_le_1 : forall (k : nat) (t t' : ty), InNF( t) -> | t | <= k -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
-(apply sem_sub_k_i_nf__inv_depth_le with k; tauto).
+(apply sem_sub_k_i_nf__inv_depth_le; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:24:21.240000.*)
+(* Auto-generated comment: At 2019-08-18 07:24:29.310000.*)
 
