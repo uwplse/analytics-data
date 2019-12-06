@@ -564,10 +564,57 @@ Qed.
 Lemma match_ty_value_type__inv_depth_equal : forall v v' : ty, value_type v' -> forall k : nat, |-[ k] v <$ v' -> inv_depth v = inv_depth v'.
 Proof.
 (intros v v' Hv' k Hm1).
-(pose proof (match_ty__inv_depth_l_le_index v v' k Hm1) as Hdep1).
+(pose proof (match_ty__inv_depth_l_le_r v v' k Hm1) as Hdep1).
 (pose proof (match_ty_value_type__symmetric v v' Hv' k Hm1) as Hm2).
-(pose proof (match_ty__inv_depth_l_le_index v' v k Hm2) as Hdep2).
+(pose proof (match_ty__inv_depth_l_le_r v' v k Hm2) as Hdep2).
+(apply Nat.le_antisymm; assumption).
+Qed.
+Lemma match_ty__match_ty_ge_value_inv_depth : forall (v t : ty) (k : nat), |-[ k] v <$ t -> forall k' : nat, k' >= inv_depth v -> |-[ k'] v <$ t.
+Proof.
+(intros v t).
+generalize dependent v.
+(induction t).
+-
+(intros v k Hm).
+(apply match_ty_cname__inv in Hm; subst).
+(intros k' _).
+(destruct k'; reflexivity).
+-
+(intros v k Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(intros k' Hk').
+(simpl in Hk').
+(apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ]; try eassumption; [ eapply Nat.max_lub_l | eapply Nat.max_lub_r ]; eassumption).
+-
+(intros v k Hm).
+(apply match_ty_union__inv in Hm).
+(intros k' Hk').
+(simpl in Hk').
+(destruct Hm; [ apply match_ty_union_1 | apply match_ty_union_2 ]; [ eapply IHt1 | eapply IHt2 ]; try eassumption).
+-
+(intros v k Hm).
+(destruct k).
+(destruct v; contradiction).
+(pose proof Hm as Hmref).
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq [[Hdept Hdept'] Href]]]; subst).
+(intros k' Hk').
+(destruct k').
+(inversion Hk').
+(simpl).
+(simpl in Hk').
+(apply le_S_n in Hk').
+(assert (Hvt : value_type (TRef t)) by constructor).
+(pose proof (match_ty_value_type__symmetric _ _ Hvt _ Hmref) as Hsym).
+(apply match_ty_ref__inv in Hsym).
+(destruct Hsym as [t'' [Heqt'' [[_ Hdept''] _]]]).
+(inversion Heqt''; subst).
+(rewrite Hdept'').
+split.
+tauto.
+(intros v Hv).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:34:11.810000.*)
+(* Auto-generated comment: At 2019-08-16 13:34:39.710000.*)
 
