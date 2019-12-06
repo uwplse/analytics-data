@@ -15,8 +15,16 @@ Require Import Coq.Bool.Bool.
 Lemma sem_sub_k_exist_fresh_l : forall (k : nat) (X : id) (t : ty), fresh_in_ty X t -> ||-[ k][TExist X t]<= [t].
 Proof.
 (intros k X t).
-(induction t; intros Hfresh).
-(* Auto-generated comment: Failed. *)
+(induction t; intros Hfresh; intros w1; exists w1; intros v Hm; destruct w1; try (solve [ apply match_ty_exist__0_inv in Hm; contradiction ])).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
+(eapply match_ty__ge_w).
+eassumption.
+(repeat constructor).
+-
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 08:45:34.700000.*)
+(* Auto-generated comment: At 2019-08-27 08:46:39.330000.*)
 
