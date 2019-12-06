@@ -628,8 +628,8 @@ reflexivity.
 Qed.
 Theorem andb_eq_orb : forall b c : bool, andb b c = orb b c -> b = c.
 Proof.
-(intros [] []; reflexivity).
+(intros [] []; congruence).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 06:54:58.400000.*)
+(* Auto-generated comment: At 2019-09-04 06:55:00.860000.*)
 
