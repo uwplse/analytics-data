@@ -78,8 +78,9 @@ Notation "'||-[' w ',' k ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w_k w k t1 
 Definition sem_eq_w_k (w k : nat) (t1 t2 : ty) := forall v : ty, |-[ w, k] v <$ t1 <-> |-[ w, k] v <$ t2.
 Notation "'||-[' w ',' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_w_k w k t1 t2) (at level 45) : btjm_scope.
 Definition sem_sub_w (w : nat) (t1 t2 : ty) := forall k : nat, ||-[ w, k][t1]<= [t2].
-Notation "'||-[' w ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w w t1 t2) (at level 47) : btjm_scope.
+Notation "'||-[' w ']' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub_w w t1 t2) (at level 45) : btjm_scope.
+Definition sem_eq_w (w : nat) (t1 t2 : ty) := forall k : nat, ||-[ w, k][t1]<= [t2].
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 07:50:53.280000.*)
+(* Auto-generated comment: At 2019-08-20 07:51:55.300000.*)
 
