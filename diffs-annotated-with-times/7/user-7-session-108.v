@@ -414,7 +414,9 @@ clear Hm.
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Hcontra _]]).
 (inversion Hcontra).
+-
+specialize (Hcontra 0).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:59:16.190000.*)
+(* Auto-generated comment: At 2019-08-21 10:59:54.440000.*)
 
