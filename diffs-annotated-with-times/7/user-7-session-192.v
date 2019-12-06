@@ -112,8 +112,9 @@ admit.
 (destruct (IdSet.mem i (FV tx)) eqn:Hmem).
 {
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as z).
+(apply match_ty_exist).
 exists ti.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 12:40:52.430000.*)
+(* Auto-generated comment: At 2019-09-02 12:44:25.690000.*)
 
