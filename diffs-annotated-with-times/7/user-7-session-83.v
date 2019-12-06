@@ -255,8 +255,15 @@ clear IHt2.
 (pose proof (le_S_n _ _ Hdep) as Hdep').
 (unfold sem_sub_k in Hsem).
 specialize (Hsem _ Hma).
-(apply match_ty_ref__inv in Hsem).
+(apply match_ty_i_ref__inv in Hsem).
+(destruct Hsem as [t' [Heqt' Href]]).
+(inversion Heqt'; subst).
+clear Heqt'.
+constructor.
+*
+(apply IHk; try assumption).
+(apply sem_eq_k_i__sem_sub_k in Href).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:06:16.720000.*)
+(* Auto-generated comment: At 2019-08-16 14:07:09.560000.*)
 
