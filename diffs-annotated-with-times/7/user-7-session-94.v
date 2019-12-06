@@ -68,8 +68,8 @@ Proof.
 -
 (apply match_ty_exist__inv in Hm).
 (eapply IHk).
-eauto.
+(apply Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:09:09.540000.*)
+(* Auto-generated comment: At 2019-08-19 09:09:25.810000.*)
 
