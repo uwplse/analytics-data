@@ -476,7 +476,8 @@ Proof.
   end; try match goal with
            | |- context [ |- TCName _ << _ ] => apply cname_sem_sub_k_i__sub_d
            end).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:35:32.740000.*)
+(* Auto-generated comment: At 2019-08-13 13:35:37.860000.*)
 
