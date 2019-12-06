@@ -662,8 +662,9 @@ Timeout 1 About restore_dims.
 Timeout 1 Print restore_dims.
 Timeout 1 Print Ltac restore_dims.
 Timeout 1 About length_app.
-restore_dims try rewrite app_length; try rewrite Nat.pow_add_r; unify_pows_two; lia.
-(* Auto-generated comment: Succeeded. *)
+restore_dims try rewrite app_length; try rewrite Nat.pow_add_r; lia.
+(rewrite kron_assoc).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:42:18.920000.*)
+(* Auto-generated comment: At 2019-08-14 13:42:23.250000.*)
 
