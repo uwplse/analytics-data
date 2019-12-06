@@ -269,8 +269,11 @@ Print subset_eq_compat.
 -
 admit.
 -
-(hnf).
-(* Auto-generated comment: Succeeded. *)
+(simpl).
+typeclasses eauto.
+-
+typeclasses eauto.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:02:43.600000.*)
+(* Auto-generated comment: At 2019-08-16 07:03:18.230000.*)
 
