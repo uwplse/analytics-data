@@ -137,8 +137,7 @@ reflexivity.
 (destruct (beq_idP X i)).
 +
 subst.
-(rewrite b_subst_bvar_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:44:22.160000.*)
+(* Auto-generated comment: At 2019-09-03 10:45:17.580000.*)
 
