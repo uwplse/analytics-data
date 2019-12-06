@@ -51,12 +51,7 @@ exists t'.
 constructor.
 -
 exists w1.
-(intros k v Hm).
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(destruct w1).
-+
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 09:57:55.680000.*)
+(* Auto-generated comment: At 2019-08-20 09:58:39.330000.*)
 
