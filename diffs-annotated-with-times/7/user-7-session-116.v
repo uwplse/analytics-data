@@ -18,8 +18,9 @@ Lemma fresh_union__inv : forall (X : id) (fvs1 fvs2 : id_set), fresh X (IdSet.un
 Proof.
 (intros X fvs1 fvs2 H).
 (unfold fresh in *).
-(split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]).
+(split; intros Hcontra; [ apply (IdSetFacts.union_2 fvs2) in Hcontra | apply (IdSetFacts.union_3 fvs1) in Hcontra ]; contradiction).
+Qedt.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:43:36.470000.*)
+(* Auto-generated comment: At 2019-08-27 06:43:43.410000.*)
 
