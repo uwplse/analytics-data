@@ -287,8 +287,8 @@ Theorem log_contents_ok_unchanged d bs a0 b :
 Proof.
 (unfold log_size_ok, log_contents_ok; intros).
 Check diskUpd_oob_eq.
-(destruct (a == a0)).
+(destruct (a == a0); subst; autorewrite with upd; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:55:49.250000.*)
+(* Auto-generated comment: At 2019-09-04 11:55:53.310000.*)
 
