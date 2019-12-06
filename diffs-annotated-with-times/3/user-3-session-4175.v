@@ -6,17 +6,7 @@ Set Printing Depth 50.
 Remove Search Blacklist "Private_" "_subproof".
 Add Search Blacklist "Private_" "_subproof".
 From Coq Require Extraction.
-From Armada Require Export Lib.
-From Armada Require Import Examples.ReplicatedDisk.ReplicatedDiskImpl.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2pRKgs" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Add Search Blacklist "Raw" "Proofs".
-Set Search Output Name Only.
-Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqT6yT8u" SearchPattern _.
-Remove Search Blacklist "Raw" "Proofs".
-Unset Search Output Name Only.
-Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-30 05:06:59.990000.*)
+(* Auto-generated comment: At 2019-08-30 05:07:07.990000.*)
 
