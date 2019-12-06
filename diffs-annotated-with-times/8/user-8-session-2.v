@@ -116,7 +116,23 @@ Proof.
 -
 (induction r; try reflexivity).
 (simpl).
+(destruct a; Msimpl; rewrite IHr; reflexivity).
+-
+(simpl).
+(destruct a; Msimpl; rewrite IHl; reflexivity).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqoQ4Vef"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma denote_ctrls_transpose :
+  forall W (n : nat) (u : Unitary W) li,
+  denote_ctrls n (trans u) li = (denote_ctrls n u li) \226\128\160.
+Proof.
+(intros).
+(unfold denote_ctrls).
+(destruct (ctrls_to_list (repeat false n) li u) as [[j l] v] eqn:E).
+(apply ctrls_to_list_transpose in E).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:24:44.420000.*)
+(* Auto-generated comment: At 2019-08-09 11:24:45.300000.*)
 
