@@ -129,8 +129,8 @@ Proof.
 (intros t1; induction t1; intros t2; induction t2; intros t1' t2' Hsub; simpl in Hsub;
   match goal with
   | Hsub:|- ?t << TPair _ _ |- _ => remember t as tx eqn:Heqx ; induction Hsub; inversion Heqx; subst
-  end).
+  end; try (solve [ split; tauto ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:06:32.630000.*)
+(* Auto-generated comment: At 2019-08-07 12:10:10.220000.*)
 
