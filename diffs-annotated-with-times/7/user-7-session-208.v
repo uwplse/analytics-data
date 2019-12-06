@@ -246,6 +246,16 @@ Proof.
 (intros).
 reflexivity.
 Qed.
+Lemma f_subst_fvar_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [FX := s] TFVar Y = TFVar Y.
+Proof.
+(intros X s Y Hneq).
+(simpl).
+(destruct (beq_id_false_iff X Y) as [_ Hid]).
+specialize (Hid Hneq).
+(simpl).
+(rewrite Hid).
+reflexivity.
+Qed.
 Lemma f_subst_not_b_free_in_ty : forall (X : id) (t : ty), not_f_free_in_ty X t -> forall s : ty, [FX := s] t = t.
 Proof.
 (intros X t).
@@ -272,7 +282,10 @@ exfalso.
 reflexivity.
 +
 subst.
-(* Auto-generated comment: Failed. *)
+(rewrite f_subst_fvar_neq; try assumption).
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 09:04:17.360000.*)
+(* Auto-generated comment: At 2019-09-04 09:04:52.310000.*)
 
