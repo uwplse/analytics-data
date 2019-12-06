@@ -286,8 +286,9 @@ Theorem log_contents_ok_unchanged d bs a0 b :
 Proof.
 (unfold log_contents_ok; intros).
 (specialize (H a); intuition).
-autorewrite with upd.
+(unfold log_addr in *).
+(destruct (a0 == S a)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:46:21.250000.*)
+(* Auto-generated comment: At 2019-09-04 11:46:24.650000.*)
 
