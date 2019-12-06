@@ -103,8 +103,16 @@ Proof.
 reflexivity.
 -
 (intros m p).
+(simpl).
 (rewrite IHn').
-(* Auto-generated comment: Failed. *)
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqp3hnjw"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:13:30.720000.*)
+(* Auto-generated comment: At 2019-09-04 07:13:37.910000.*)
 
