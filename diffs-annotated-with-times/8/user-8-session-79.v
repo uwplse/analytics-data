@@ -636,7 +636,8 @@ specialize (kron_1_l (\226\168\130 l2)) as KL.
 (rewrite H0).
 (rewrite H).
 reflexivity.
+setoid_rewrite kron_1_l.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 18:25:40.250000.*)
+(* Auto-generated comment: At 2019-08-13 18:25:41.280000.*)
 
