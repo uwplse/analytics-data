@@ -596,10 +596,9 @@ Proof.
 -
 (intros).
 (simpl).
-Set Printing All.
 (remember (length l2) as L).
-setoid_rewrite kron_1_l.
-(* Auto-generated comment: Succeeded. *)
+setoid_rewrite (kron_1_l (\226\168\130 l2)).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 16:10:50.180000.*)
+(* Auto-generated comment: At 2019-08-13 16:11:13.670000.*)
 
