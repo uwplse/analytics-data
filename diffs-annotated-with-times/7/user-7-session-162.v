@@ -49,8 +49,18 @@ Hint Unfold fresh fresh_in_ty free_in_ty: DBBetaJulia.
 Axiom (gen_fresh : id_set -> id).
 Axiom (gen_fresh__fresh : forall fvs : id_set, fresh (gen_fresh fvs) fvs).
 Definition get_fresh_in_ty (t : ty) := gen_fresh (FV t).
-Reserved Notation "'[' x '->' y ']' t" (at level 30).
+Reserved Notation "'[' x '@' y ']' t" (at level 30).
+Fixpoint rename (x y : id) (t : ty) :=
+  match t with
+  | TCName _ => t
+  | TPair t1 t2 => TPair ([x @ s] t1) ([x @ s] t2)
+  | TUnion t1 t2 => TUnion ([x @ s] t1) ([x @ s] t2)
+  | TExist z t' => TExist z (if beq_id x z then t' else [x @ y] t')
+  | TVar z => if beq_id x z then s else t
+  | TEV z => t
+  end
+where "'[' x '@' y ']' t" := (rename x y t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:34:26.930000.*)
+(* Auto-generated comment: At 2019-08-29 13:35:17.940000.*)
 
