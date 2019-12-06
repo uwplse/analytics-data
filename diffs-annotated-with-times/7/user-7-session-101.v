@@ -35,8 +35,13 @@ exists t'.
 constructor.
 Qed.
 Lemma sem_sub__eXrefX_eYrefY :
-  forall w1 : nat, exists w2 : nat, forall (k : nat) (v : ty), |-[ w1, k] v <$ TExist vX (TRef tX) -> TExist vY (TRef tY).
+  forall w1 : nat, exists w2 : nat, forall (k : nat) (v : ty), |-[ w1, k] v <$ TExist vX (TRef tX) -> |-[ w2, k] v <$ TExist vY (TRef tY).
+Proof.
+(intros w1).
+exists w1.
+(intros k v Hm).
+(apply match_ty_exist__inv in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 09:50:50.050000.*)
+(* Auto-generated comment: At 2019-08-20 09:55:29.310000.*)
 
