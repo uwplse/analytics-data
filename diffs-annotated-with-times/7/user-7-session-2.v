@@ -26,7 +26,9 @@ Proof.
 (right; assumption).
 -
 subst.
+Search -mk_nf.
+(rewrite (mk_nf_nf__equal t) in Hsub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-06 12:46:43.840000.*)
+(* Auto-generated comment: At 2019-08-06 12:47:19.910000.*)
 
