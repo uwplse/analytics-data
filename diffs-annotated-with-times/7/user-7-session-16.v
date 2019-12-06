@@ -461,10 +461,18 @@ Proof.
 (destruct H as [H1 H2]).
 specialize (H1 _ Hnf'').
 specialize (H2 _ Hnf'').
-(destruct H1 as [H1| H1]; destruct H2 as [H2| H2]).
+(destruct H1 as [H1| H1]; destruct H2 as [H2| H2];
+  try (solve [ right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction ])).
 (left; constructor; assumption).
-(right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction).
++
+(pose proof (in_nf_ref__inv _ Hnf') as Hnf'').
+(destruct H as [H1 H2]).
+specialize (H1 _ Hnf'').
+specialize (H2 _ Hnf'').
+(destruct H1 as [H1| H1]; destruct H2 as [H2| H2];
+  try (solve [ right; intros Hcontra; apply sub_r_ref__inv in Hcontra; inversion Hcontra; contradiction ])).
+(left; constructor; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:45:27.510000.*)
+(* Auto-generated comment: At 2019-08-09 12:45:46.790000.*)
 
