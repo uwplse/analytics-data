@@ -2822,5 +2822,5 @@ specialize (apply_U_correct Qubit) as AUC.
 (unfold process_gate_state).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:15:23.330000.*)
+(* Auto-generated comment: At 2019-08-09 14:15:40.880000.*)
 
