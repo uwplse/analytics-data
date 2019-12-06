@@ -24,8 +24,40 @@ Proof.
 eassumption.
 (repeat constructor).
 -
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
 (destruct (fresh_in_ty_pair__inv X t1 t2 Hfresh) as [Hfresh1 Hfresh2]).
+Check subs_fresh_in_ty.
+(rewrite (subs_fresh_in_ty _ _ Hfresh1) in Hm).
+(rewrite (subs_fresh_in_ty _ _ Hfresh2) in Hm).
+(eapply match_ty__ge_w).
+eassumption.
+(repeat constructor).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
+(destruct (fresh_in_ty_pair__inv X t1 t2 Hfresh) as [Hfresh1 Hfresh2]).
+(rewrite (subs_fresh_in_ty _ _ Hfresh1) in Hm).
+(rewrite (subs_fresh_in_ty _ _ Hfresh2) in Hm).
+(eapply match_ty__ge_w).
+eassumption.
+(repeat constructor).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
+(apply fresh_in_ty_ref__inv in Hfresh).
+(rewrite (subs_fresh_in_ty _ _ Hfresh) in Hm).
+(eapply match_ty__ge_w).
+eassumption.
+(repeat constructor).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hm]).
+(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:50:17.170000.*)
+(* Auto-generated comment: At 2019-08-27 08:54:28.470000.*)
 
