@@ -147,8 +147,8 @@ clear Heqx IHHsub12_1 IHHsub12_2 IHHsub21_1 IHHsub21_2.
 (inversion Hsub22; subst).
 {
 specialize (IHHsub11_1 Hsub12_1 t1'0 Hsub21_1 H2).
-(split; constructor; tauto).
+(split; constructor).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 11:53:41.760000.*)
+(* Auto-generated comment: At 2019-08-07 11:55:04.680000.*)
 
