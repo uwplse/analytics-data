@@ -143,8 +143,7 @@ admit.
 typeclasses eauto.
 -
 (simpl).
-(unfold EqualDec).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:37:32.850000.*)
+(* Auto-generated comment: At 2019-08-16 07:37:39.210000.*)
 
