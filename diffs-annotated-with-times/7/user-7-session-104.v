@@ -89,8 +89,10 @@ specialize (Href 1).
 {
 (apply match_ty_exist).
 exists tint.
-(simpl).
+(apply match_ty_value_type__reflexive).
+constructor.
+}
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:29:22.980000.*)
+(* Auto-generated comment: At 2019-08-20 12:31:21.750000.*)
 
