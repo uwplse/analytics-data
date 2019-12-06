@@ -1219,5 +1219,5 @@ subst.
 (rewrite Nat.pow_add_r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 13:39:38.680000.*)
+(* Auto-generated comment: At 2019-08-09 13:40:04.610000.*)
 
