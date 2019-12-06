@@ -59,9 +59,11 @@ dependent destruction u.
 (simpl).
 (destruct li as [| k li]; trivial).
 (destruct (ctrls_to_list lb li u) as [[j l] v] eqn:E).
-(destruct (ctrls_to_list lb li (trans u)) as [[j' l'] v'] eqn:E').
-(simpl).
+(assert (E' : fst (ctrls_to_list lb li (trans u)) = (j, l))).
+{
+(rewrite <- IHW2, E; easy).
+}
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 10:11:39.380000.*)
+(* Auto-generated comment: At 2019-08-09 10:13:05.450000.*)
 
