@@ -938,9 +938,7 @@ Timeout 1 Print Ltac restore_dims.
 (rewrite L2; lia).
 (rewrite L2; lia).
 }
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:19:14.820000.*)
+(* Auto-generated comment: At 2019-08-14 14:19:18.800000.*)
 
