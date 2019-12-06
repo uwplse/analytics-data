@@ -512,7 +512,13 @@ step.
 (destruct r; try step).
 (destruct r; try step).
 (destruct (v == v0); subst).
-(* Auto-generated comment: Succeeded. *)
+-
+step.
+-
+step.
+Unshelve.
+auto.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:13:23.990000.*)
+(* Auto-generated comment: At 2019-09-03 11:13:28.240000.*)
 
