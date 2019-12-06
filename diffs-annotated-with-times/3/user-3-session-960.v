@@ -134,8 +134,8 @@ auto.
 (assert (base_m2 = S (S base_m2) - 2) by lia).
 (generalize dependent S (S base_m2); intros base **; subst).
 (assert (0 < S n) by lia).
-(generalize dependent S n; clear n; intros m).
+(generalize dependent S n; clear n; intros n).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 06:21:49.730000.*)
+(* Auto-generated comment: At 2019-08-16 06:22:18.880000.*)
 
