@@ -48,8 +48,9 @@ exists w1.
 (apply match_ty_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
 -
-(apply sem_sub_ref; constructor; assumption).
+(apply sem_sub_ref).
+(constructor; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:29:22.810000.*)
+(* Auto-generated comment: At 2019-08-27 08:29:30.560000.*)
 
