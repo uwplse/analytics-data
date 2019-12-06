@@ -266,11 +266,14 @@ clear H.
 (apply evalInInts in H).
 (destruct H).
 (erewrite evalBoolConst in H0).
+*
 (rewrite <- evalEqTrue in H0).
 admit.
-+
+*
 reflexivity.
++
+assumption.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:42:13.020000.*)
+(* Auto-generated comment: At 2019-09-01 10:42:36.640000.*)
 
