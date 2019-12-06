@@ -70,31 +70,22 @@ Qed.
 Lemma match_ty_ev__match_ty_any :
   forall (k w : nat) (X : id) (t : ty), fresh_in_ty X t -> |-[ k, w] TEV X <$ t -> forall v : ty, value_type v -> |-[ k, w] v <$ t.
 Proof.
-(intros k w X t HX Hm v Hv).
+(intros k w).
+generalize dependent k.
+(induction w).
+admit.
+(intros k X t HX Hm v Hv).
 (induction t).
+admit.
+admit.
+admit.
+admit.
 -
-(apply match_ty_cname__inv in Hm).
-(inversion Hm).
--
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq _]]]).
-(inversion Heq).
--
-(apply match_ty_union__inv in Hm).
-(destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
--
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]).
-(inversion Heq).
--
-(destruct w).
-+
-(apply match_ty_exist__0_inv in Hm; contradiction).
-+
+(destruct (beq_idP X i)).
+subst.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 12:27:37.770000.*)
+(* Auto-generated comment: At 2019-08-27 13:16:06.700000.*)
 
