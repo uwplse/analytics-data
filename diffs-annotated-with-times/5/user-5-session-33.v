@@ -128,8 +128,8 @@ Proof.
 (intros).
 (destruct (L.(value_eq_dec) (L.(eval) env t1) (L.(eval) env t2))).
 -
-left.
+idtac.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 08:54:27.380000.*)
+(* Auto-generated comment: At 2019-09-01 08:54:31.730000.*)
 
