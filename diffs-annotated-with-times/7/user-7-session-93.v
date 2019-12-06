@@ -49,7 +49,7 @@ Reserved Notation "'[' x ':=' s ']' t" (at level 30).
 Fixpoint subst (x : id) (s t : ty) :=
   match t with
   | TCName _ => t
-  | TPair t1 t2 => TPair (subst x s t1) (subst x s t2)
+  | TPair t1 t2 => TPair ([x := s] t1) (subst x s t2)
   | TUnion t1 t2 => TUnion (subst x s t1) (subst x s t2)
   | TRef t' => TRef (subst x s t')
   | TExist y t' => TExist y (if beq_id x y then t' else subst x s t')
@@ -58,5 +58,5 @@ Fixpoint subst (x : id) (s t : ty) :=
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 08:42:58.460000.*)
+(* Auto-generated comment: At 2019-08-19 08:43:04.410000.*)
 
