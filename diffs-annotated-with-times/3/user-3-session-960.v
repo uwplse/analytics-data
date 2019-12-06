@@ -157,9 +157,8 @@ Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqlBjurg"
 SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
-Instance aModel : GoModel.
-Proof.
-(* Auto-generated comment: Succeeded. *)
+Definition bounded_to_ascii (x : {x | x < 256}) : Ascii.Ascii.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:29:11.170000.*)
+(* Auto-generated comment: At 2019-08-16 06:29:11.460000.*)
 
