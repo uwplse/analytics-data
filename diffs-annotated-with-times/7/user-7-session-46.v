@@ -64,8 +64,8 @@ clear IHv.
 (intros t k Hm).
 (simpl in Hm).
 exists v.
-auto.
+(split; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:19:12.320000.*)
+(* Auto-generated comment: At 2019-08-16 07:20:06.590000.*)
 
