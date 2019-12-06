@@ -144,8 +144,10 @@ tauto.
 Search -mk_nf.
 (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub).
 tauto.
-(rewrite unite_pairs_t_union in Hsub).
+(rewrite unite_pairs_t_union in Hsub; try resolve_not_union).
+Search -TUnion.
+(apply sub_r_nf_union_l__inv in Hsub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:19:16.300000.*)
+(* Auto-generated comment: At 2019-08-07 12:19:39.080000.*)
 
