@@ -45,9 +45,17 @@ Fixpoint simplify (t : Term) : Term :=
   | Var x => Var x
   | Int i => Int i
   | Eq a b => Eq (simplify a) (simplify b)
+  | Plus a b => Plus (simplify a) (simplify b)
+  | Times a b => Times (simplify a) (simplify b)
+  | Minus a b => Minus (simplify a) (simplify b)
   | Choose x P => Choose x (simplify P)
   end.
+Theorem simplify_correct :
+  forall (L : EpsilonLogic) (t : Term),
+  isTheorem L t <-> isTheorem L (simplify t).
+Proof.
+(induction t; split; intros).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 10:09:39.970000.*)
+(* Auto-generated comment: At 2019-08-12 10:09:45.870000.*)
 
