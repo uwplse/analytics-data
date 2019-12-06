@@ -99,7 +99,8 @@ Function
    | TVar y => if beq_id x y then s else t
    | TEV y => t
    end.
+Next Obligation.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:55:00.280000.*)
+(* Auto-generated comment: At 2019-08-29 14:55:30.350000.*)
 
