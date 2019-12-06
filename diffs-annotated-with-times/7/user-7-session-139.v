@@ -69,8 +69,12 @@ tauto.
 +
 (intros k).
 (destruct (match_ty__exists_w_v (TPair ([X := TVar X'] t1) ([X := TVar X'] t2)) k) as [w [v Hm]]).
-specialize (Hsem _ _ _ Hm).
+Check Hsem.
+specialize (Hsem k w).
+(destruct Hsem as [w2 Hsem]).
+specialize (Hsem _ Hm).
+(apply match_ty_pair_inv in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 09:09:48.060000.*)
+(* Auto-generated comment: At 2019-08-27 09:10:58.220000.*)
 
