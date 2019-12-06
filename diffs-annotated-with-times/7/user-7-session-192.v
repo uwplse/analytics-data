@@ -125,8 +125,27 @@ admit.
 }
 *
 specialize (IHw'a H).
-split.
+(split; intros HX').
+{
+(apply match_ty_exist).
+exists ti.
+assumption.
+}
+{
+(destruct (beq_idP X' i)).
+{
+subst.
+(rewrite subst_exist_eq).
+(apply match_ty_exist).
+exists ti.
+assumption.
+}
+(rewrite subst_equation).
+(assert (Hbeq : beq_id X' i = false) by (apply beq_id_false_iff; assumption)).
+(rewrite Hbeq).
+{
+(rewrite Hmem).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 13:04:19.190000.*)
+(* Auto-generated comment: At 2019-09-02 13:04:24.190000.*)
 
