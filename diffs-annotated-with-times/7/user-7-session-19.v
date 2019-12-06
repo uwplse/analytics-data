@@ -101,8 +101,8 @@ clear IHt'.
 (apply IHt).
 (intros k v).
 (assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
-(assert (Hmt' : |-[ S k] TRef t' <$ TRef t') by (simpl; tauto)).
+specialize (H (S k) (TRef t)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:54:55.850000.*)
+(* Auto-generated comment: At 2019-08-12 11:56:50.510000.*)
 
