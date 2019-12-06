@@ -60,8 +60,7 @@ Qed.
 Lemma sem_sub_k_union_2 : forall t t1' t2' : ty, ||- [t]<= [t2'] -> ||- [t]<= [TUnion t1' t2'].
 Proof.
 (intros w1 t1' t2' Hsem).
-(intros w1).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:20:56.070000.*)
+(* Auto-generated comment: At 2019-08-29 08:20:58.900000.*)
 
