@@ -80,8 +80,10 @@ intuition eauto.
 (simpl write).
 step_proc.
 intuition eauto.
++
 specialize (IHblocks (off + 1)).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:10:05.140000.*)
+(* Auto-generated comment: At 2019-09-03 11:10:11.890000.*)
 
