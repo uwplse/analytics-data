@@ -61,8 +61,8 @@ Print Morphisms.respectful.
 Print Morphisms.Proper.
 Search -Morphisms.Proper.
 Search -Morphisms.Proper.
-setoid_rewrite Hfact.
+setoid_rewrite Ht.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 08:35:06.980000.*)
+(* Auto-generated comment: At 2019-09-04 08:42:33.480000.*)
 
