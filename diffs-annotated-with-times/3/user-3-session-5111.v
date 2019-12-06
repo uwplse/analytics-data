@@ -225,8 +225,10 @@ replace (diskSize (stateDisk state) - 1) with diskSize s in * by lia.
 -
 invert_abstraction.
 (step_proc; intuition idtac).
+{
 (step_proc; intuition idtac).
-(* Auto-generated comment: Succeeded. *)
+(exists s; split; eauto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:05:02.680000.*)
+(* Auto-generated comment: At 2019-09-03 11:05:31.270000.*)
 
