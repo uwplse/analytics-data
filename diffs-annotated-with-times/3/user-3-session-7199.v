@@ -384,8 +384,11 @@ destruct matches.
 step_proc.
 (descend; intuition eauto).
 (unfold log_size_ok; autorewrite with list; auto).
-(exists bs; eauto).
+(exists bs; intuition eauto).
+(unfold log_abstraction; intuition eauto).
+(unfold log_length_ok).
+(rewrite H).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:06:07.900000.*)
+(* Auto-generated comment: At 2019-09-04 12:06:15.610000.*)
 
