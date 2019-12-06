@@ -182,8 +182,13 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Timeout 1 Print LoadPath.
+{
+step.
+(destruct r; intuition eauto; simplify).
 }
-(* Auto-generated comment: Failed. *)
+(destruct (lt_dec a (diskSize a'))).
+-
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:11:31.870000.*)
+(* Auto-generated comment: At 2019-09-03 11:11:49.590000.*)
 
