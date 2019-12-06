@@ -234,8 +234,9 @@ Proof.
 specialize (Hsem _ Hm).
 (simpl in Hsem).
 (intros v' Hv').
-auto.
+specialize (Hsem v').
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:59:46.800000.*)
+(* Auto-generated comment: At 2019-08-13 09:03:33.170000.*)
 
