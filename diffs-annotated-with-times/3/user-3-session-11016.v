@@ -238,7 +238,25 @@ Example test_nonzeros : nonzeros [0; 1; 0; 2; 3; 0; 0] = [1; 2; 3].
 Proof.
 reflexivity.
 Qed.
+Fixpoint oddmembers (l : natlist) : natlist :=
+  match l with
+  | [ ] => [ ]
+  | h :: t => if oddb h then h :: oddmembers t else oddmembers t
+  end.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coq2blqVv"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqaOYrJb"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Example test_oddmembers : oddmembers [0; 1; 0; 2; 3; 0; 0] = [1; 3].
+Proof.
+reflexivity.
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-06 10:00:51.240000.*)
+(* Auto-generated comment: At 2019-09-06 10:01:22.320000.*)
 
