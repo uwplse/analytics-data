@@ -101,8 +101,9 @@ Fixpoint subst (x : id) (s t : ty) {measure size t :=
   end
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 Next Obligation.
+(simpl).
 Omega.omega.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:34:35.840000.*)
+(* Auto-generated comment: At 2019-08-29 14:36:37.180000.*)
 
