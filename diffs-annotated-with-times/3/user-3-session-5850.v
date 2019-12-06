@@ -250,8 +250,27 @@ reflexivity.
 -
 (simpl).
 (rewrite IHm').
-(rewrite mult_n_Sm).
-(* Auto-generated comment: Failed. *)
+(rewrite <- mult_n_Sm).
+(rewrite plus_comm).
+reflexivity.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqHcG8EV"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Check leb.
+Theorem leb_refl : forall n : nat, true = leb n n.
+Proof.
+(intros n).
+(induction n as [| n' IHn']).
+-
+reflexivity.
+-
+(simpl).
+(rewrite IHn').
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 07:19:40.570000.*)
+(* Auto-generated comment: At 2019-09-04 07:19:50.060000.*)
 
