@@ -64,6 +64,15 @@ Ltac solve_free_union_inv fvname := intros X t1 t2; unfold fvname; simpl; apply 
 Ltac
  solve_free_union fvname :=
   unfold fvname, free; simpl; intros X t1 t2 H; destruct H as [H| H]; [ apply IdSetFacts.union_2 | apply IdSetFacts.union_3 ]; assumption.
+Lemma union_empty__inv : forall s1 s2, IdSet.Empty (IdSet.union s1 s2) -> IdSet.Empty s1 /\ IdSet.Empty s2.
+Proof.
+(intros s1 s2 H).
+(pose proof (IdSetProps.empty_union_1 s1 H) as H1).
+(pose proof (IdSetProps.empty_union_1 s2 H) as H2).
+Admitted.
+Lemma union_empty : forall s1 s2, IdSet.Empty s1 /\ IdSet.Empty s2 -> IdSet.Empty (IdSet.union s1 s2).
+Proof.
+Admitted.
 Lemma not_f_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), not_f_free_in_ty X (TPair t1 t2) -> not_f_free_in_ty X t1 /\ not_f_free_in_ty X t2.
 Proof.
 (solve_not_free_union not_f_free_in_ty).
@@ -355,18 +364,6 @@ subst.
 (rewrite f_subst_fvar_neq; try assumption).
 reflexivity.
 Qed.
-Lemma union_empty__inv : forall s1 s2, IdSet.Empty (IdSet.union s1 s2) -> IdSet.Empty s1 /\ IdSet.Empty s2.
-Proof.
-(intros s1 s2 H).
-Check IdSetProps.empty_union_1.
-Check IdSetProps.empty_union_1.
-(pose proof (IdSetProps.empty_union_1 s1 H) as H1).
-(pose proof (IdSetProps.empty_union_1 s2 H) as H2).
-Search -IdSet.union.
-Admitted.
-Lemma union_empty : forall s1 s2, IdSet.Empty s1 /\ IdSet.Empty s2 -> IdSet.Empty (IdSet.union s1 s2).
-Proof.
-Admitted.
 Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
 Proof.
 (intros t1 t2 Hwf).
@@ -381,6 +378,20 @@ Proof.
 (apply union_empty__inv).
 assumption.
 Qed.
+Lemma wf_ty_pair : forall t1 t2 : ty, wf_ty t1 /\ wf_ty t2 -> wf_ty (TPair t1 t2).
+Proof.
+(unfold wf_ty in *; simpl in *).
+(intros t1 t2 Hwf).
+(apply union_empty).
+assumption.
+Qed.
+Lemma wf_ty_union : forall t1 t2 : ty, wf_ty t1 /\ wf_ty t2 -> wf_ty (TUnion t1 t2).
+Proof.
+(unfold wf_ty in *; simpl in *).
+(intros t1 t2 Hwf).
+(apply union_empty).
+assumption.
+Qed.
 Lemma wf_ty__wf_ty_f_subst : forall (X : id) (s t : ty), wf_ty s -> wf_ty t -> wf_ty ([FX := s] t).
 Proof.
 (intros X s t Hwfs).
@@ -389,7 +400,17 @@ generalize dependent t.
 -
 (rewrite f_subst_pair).
 (apply wf_ty_pair__inv in Hwft).
+(apply wf_ty_pair).
+tauto.
+-
+(rewrite f_subst_union).
+(apply wf_ty_union__inv in Hwft).
+(apply wf_ty_union).
+tauto.
+-
+(rewrite f_subst_exist).
+(unfold wf_ty).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:54:38.330000.*)
+(* Auto-generated comment: At 2019-09-04 09:54:58.850000.*)
 
