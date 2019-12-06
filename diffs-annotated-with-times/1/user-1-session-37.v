@@ -330,7 +330,12 @@ Fixpoint Gamma (G : GT) : SetST :=
                      | None => False
                      | Some T => Ensembles.In _ (Gamma G) T
                      end
-                 | (O, G) => Empty_set _
+                 | (O, G) =>
+                     fun OS =>
+                     match OS with
+                     | None => True
+                     | Some T => Ensembles.In _ (Gamma G) T
+                     end
                  end)) l)
   | _ => Empty_set _
   end.
