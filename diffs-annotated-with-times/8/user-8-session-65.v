@@ -968,8 +968,9 @@ gen \207\129.
 (rewrite Nat.mul_1_r).
 (intros \207\129).
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-gridify.
-(* Auto-generated comment: Failed. *)
+(repeat rewrite Mmult_assoc).
+Msimpl.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 11:20:51.220000.*)
+(* Auto-generated comment: At 2019-08-13 11:21:07.760000.*)
 
