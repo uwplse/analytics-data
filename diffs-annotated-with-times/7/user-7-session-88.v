@@ -429,8 +429,10 @@ specialize (IHt'2 Hnft).
 +
 (destruct Hdep as [Hdept| Hdept']).
 *
-specialize (IHt'1 (left Hdept)).
+Check left.
+Print "\/".
+specialize (IHt'1 (or_introl Hdept)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:00:45.230000.*)
+(* Auto-generated comment: At 2019-08-18 07:02:21.990000.*)
 
