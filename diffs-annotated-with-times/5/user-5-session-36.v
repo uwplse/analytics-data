@@ -210,8 +210,10 @@ Proof.
 -
 assumption.
 -
-contradiction  H.
+exfalso.
+refine (_ _).
+(apply evalIntInj).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 11:04:04.560000.*)
+(* Auto-generated comment: At 2019-09-01 11:04:46.290000.*)
 
