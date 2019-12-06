@@ -613,8 +613,9 @@ Qed.
 Theorem beq_natlist_refl : forall l : natlist, true = beq_natlist l l.
 Proof.
 (induction l; simpl; auto).
-(rewrite IHl; simpl).
+(rewrite <- IHl; simpl).
+Search -andb -true.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 10:13:21.890000.*)
+(* Auto-generated comment: At 2019-09-06 10:13:42.460000.*)
 
