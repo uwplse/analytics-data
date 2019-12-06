@@ -139,8 +139,9 @@ Proof.
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
-(simpl).
+(apply match_ty_exist).
+exists tx.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:56:59.590000.*)
+(* Auto-generated comment: At 2019-08-19 09:59:09.540000.*)
 
