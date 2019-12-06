@@ -133,8 +133,11 @@ admit.
 (destruct (beq_idP X i)).
 +
 subst.
-(rewrite b_subst_exist_eq in Hm).
+(rewrite b_subst_exist_eq in *).
+exists v.
+split.
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:33:09.660000.*)
+(* Auto-generated comment: At 2019-09-04 10:35:17.280000.*)
 
