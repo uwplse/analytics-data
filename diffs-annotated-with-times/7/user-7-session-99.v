@@ -85,8 +85,8 @@ Definition sem_sub (t1 t2 : ty) := exists w : nat, ||-[ w][t1]<= [t2].
 Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : btjm_scope.
 Definition sem_eq (t1 t2 : ty) := exists w : nat, ||-[ w][t1]= [t2].
 Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
-Hint Unfold sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
-(* Auto-generated comment: Failed. *)
+Hint Unfold sem_sub_w_k sem_eq_w_k sem_sub_w sem_eq_w sem_sub sem_eq: DBBetaJulia.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-20 07:52:02.740000.*)
+(* Auto-generated comment: At 2019-08-20 07:52:47.300000.*)
 
