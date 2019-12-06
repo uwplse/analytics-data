@@ -329,10 +329,11 @@ step_proc.
 step_proc.
 step_proc.
 intuition eauto.
-+
+{
 lia.
-+
+}
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:08:31.480000.*)
+(* Auto-generated comment: At 2019-09-04 11:08:37.290000.*)
 
