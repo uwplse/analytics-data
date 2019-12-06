@@ -22,8 +22,8 @@ Proof.
    | rewrite subst_ev in *; assumption ])).
 -
 (rewrite subst_union; destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]).
-(apply match_ty_union_1; tauto).
+(apply match_ty_union_1; auto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:09:44.750000.*)
+(* Auto-generated comment: At 2019-09-02 09:10:14.250000.*)
 
