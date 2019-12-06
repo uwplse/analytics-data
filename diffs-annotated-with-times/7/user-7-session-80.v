@@ -441,12 +441,85 @@ reflexivity.
 (destruct k; reflexivity).
 -
 (simpl in Heqdep).
+(assert (Hledep : Nat.max (| t1 |) (| t2 |) <= 0)).
+{
+(rewrite Heqdep).
+constructor.
+}
+(destruct (max_inv_depth_le__inv _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(split; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hvq Hv2]]]]; subst).
++
+(rewrite H0).
+(apply match_ty_pair; [ apply IHt1 | apply IHt2 ]; assumption).
++
+(rewrite H0 in *).
+(apply match_ty_pair; [ apply IHt1 | apply IHt2 ]; assumption).
+-
+(simpl in Heqdep).
 (assert (Hledep : Nat.max (inv_depth t1) (inv_depth t2) <= 0)).
 {
 (rewrite Heqdep).
 constructor.
 }
-(* Auto-generated comment: Failed. *)
+(destruct (max_inv_depth_le__inv _ _ _ Hledep) as [Hdep1 Hdep2]).
+(inversion Hdep1).
+(inversion Hdep2).
+specialize (IHt1 H0 k).
+specialize (IHt2 H1 k).
+(rewrite H0 in *).
+(split; intros Hm; apply match_ty_union__inv in Hm; destruct Hm; (solve
+  [ apply match_ty_union_1; apply IHt1; assumption | apply match_ty_union_2; apply IHt2; assumption ])).
+-
+(inversion Heqdep).
+Qed.
+Lemma match_ty__inv_depth_stable :
+  forall (t : ty) (k k' : nat), inv_depth t <= k -> inv_depth t <= k' -> forall v : ty, |-[ k] v <$ t <-> |-[ k'] v <$ t.
+Proof.
+(intros t k k').
+generalize dependent t.
+generalize dependent k'.
+(induction k; induction k').
+tauto.
+(intros).
+symmetry.
+(apply match_ty__inv_depth_0_stable).
+(inversion H).
+reflexivity.
+(intros).
+(apply match_ty__inv_depth_0_stable).
+(inversion H0).
+reflexivity.
+(induction t).
+-
+(intros; split; intros Hm; apply match_ty_cname__inv in Hm; subst; reflexivity).
+-
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k').
+specialize (IHt2 Ht2k Ht2k').
+(split; intros Hm; apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hv1 Hv2]]]]; subst; specialize (IHt1 v1); specialize (IHt2 v2);
+  apply match_ty_pair; tauto).
+-
+(intros Hdepk Hdepk' v).
+(simpl in Hdepk, Hdepk').
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk) as [Ht1k Ht2k]).
+(destruct (max_inv_depth_le__inv _ _ _ Hdepk') as [Ht1k' Ht2k']).
+specialize (IHt1 Ht1k Ht1k' v).
+specialize (IHt2 Ht2k Ht2k' v).
+(split; intros Hm; apply match_ty_union__inv in Hm; destruct Hm; (apply match_ty_union_1; tauto) || (apply match_ty_union_2; tauto)).
+-
+(intros Hk Hk' v).
+(split; intros Hm; apply match_ty_ref__inv in Hm; destruct Hm as [t' [Heq [[Hdept Hdept'] Href]]]; subst; simpl in Hk, Hk'; apply le_S_n in Hk;
+  apply le_S_n in Hk'; assert (Ht'k : | t' | <= k) by (rewrite Hdept'; assumption); assert (Ht'k' : | t' | <= k') by (rewrite Hdept'; assumption);
+  simpl; split; try tauto; clear IHt IHk'; intros v Hv; specialize (IHk k'); pose proof IHk as IHk0; specialize (IHk t Hk Hk' v); specialize
+  (IHk0 t' Ht'k Ht'k' v); unfold sem_eq_k in Href; specialize (Href v Hv); tauto).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:31:02.380000.*)
+(* Auto-generated comment: At 2019-08-16 13:31:49.070000.*)
 
