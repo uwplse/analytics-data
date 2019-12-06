@@ -198,16 +198,7 @@ intro x.
 (apply evalChoose).
 exists (eval L env (Int 3)).
 (apply evalEqTrue).
-(rewrite evalTimes with (i := 3%Z) (j := 2%Z)).
--
-reflexivity.
--
-(rewrite evalVar).
-(rewrite extendEnv_eq).
-(apply evalIntConst).
--
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 09:33:45.900000.*)
+(* Auto-generated comment: At 2019-08-13 09:34:19.520000.*)
 
