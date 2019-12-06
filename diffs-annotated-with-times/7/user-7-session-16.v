@@ -381,17 +381,8 @@ Proof.
    end).
 +
 right.
-(match goal with
- | |- ~ |- ?t1 << ?t2 =>
-       remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; intros Hcontra; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]);
-        subst
- end).
-(match goal with
- | Hcontra:|- ?t1 << ?t2
-   |- False => remember t1 as tx eqn:Heqx ; remember t2 as ty eqn:Heqy ; induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst
- end).
-(rewrite mk_nf_pair in Heqx).
+(intros Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:51:00.770000.*)
+(* Auto-generated comment: At 2019-08-09 11:52:27.470000.*)
 
