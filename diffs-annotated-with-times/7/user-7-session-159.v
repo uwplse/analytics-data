@@ -93,8 +93,27 @@ assumption.
 (induction w'; induction t'; intros HX' Hm; try assumption || contradiction).
 +
 (rewrite subst_union).
+Check fresh_in_ty_union__inv.
+(destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
 (apply match_ty_union__inv in Hm).
-(* Auto-generated comment: Failed. *)
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(rewrite subst_union).
+(destruct (fresh_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
++
+(destruct (beq_idP X' i) as [Hbeq| Hbeq]).
+*
+subst.
+(rewrite subst_exist_eq).
+assumption.
+*
+(rewrite (subst_exist_neq _ _ _ _ Hbeq)).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [ti Hm]).
+specialize (IHw' _ Hm).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 09:56:05.210000.*)
+(* Auto-generated comment: At 2019-08-29 09:58:56.870000.*)
 
