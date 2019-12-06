@@ -459,8 +459,8 @@ admit.
 -
 step_proc.
 {
-(descend; intuition euuto).
+(descend; intuition euato).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:19:56.670000.*)
+(* Auto-generated comment: At 2019-09-04 12:19:59.220000.*)
 
