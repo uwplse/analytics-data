@@ -25,8 +25,10 @@ Proof.
 (rewrite subst_cname in *).
 exists v.
 split.
-asumption.
+assumption.
+(induction w'; induction t'; intros Hm').
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:23:38.250000.*)
+(* Auto-generated comment: At 2019-09-02 08:24:40.950000.*)
 
