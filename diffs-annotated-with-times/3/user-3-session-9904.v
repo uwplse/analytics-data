@@ -147,8 +147,7 @@ Proof.
 (step_proc; intros).
 {
 eauto.
-}
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:44:27.340000.*)
+(* Auto-generated comment: At 2019-09-06 05:44:37.570000.*)
 
