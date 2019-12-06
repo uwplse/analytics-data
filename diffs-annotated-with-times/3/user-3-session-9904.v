@@ -118,10 +118,7 @@ intuition.
 lia.
 -
 (step_proc; intuition).
-(step_proc; intuition).
-(exists s; intuition).
-(right; intuition congruence).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:38:16.760000.*)
+(* Auto-generated comment: At 2019-09-06 05:38:34.900000.*)
 
