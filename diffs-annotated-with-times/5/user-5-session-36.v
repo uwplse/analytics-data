@@ -277,8 +277,7 @@ clear H.
 (apply Z).
 (eapply evalIntEq).
 (erewrite evalTimes in H0).
-exact H0.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 10:58:57.650000.*)
+(* Auto-generated comment: At 2019-09-01 10:59:12.240000.*)
 
