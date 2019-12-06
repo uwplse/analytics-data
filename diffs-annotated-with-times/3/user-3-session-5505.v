@@ -76,7 +76,11 @@ intuition eauto.
 {
 (exists 1; simpl; auto).
 }
+specialize (IHblocks (off + 1)).
+step_proc.
+intuition subst; eauto.
+*
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:20:20.390000.*)
+(* Auto-generated comment: At 2019-09-03 13:20:31.500000.*)
 
