@@ -129,8 +129,7 @@ auto using match_ty_i_pair.
 (intros v1 v3 k Hm1 Hm2).
 (destruct k).
 (destruct v1; inversion Hm1).
-(apply match_ty_i_ref__inv in Hm1).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 06:27:44.520000.*)
+(* Auto-generated comment: At 2019-08-13 06:27:54.500000.*)
 
