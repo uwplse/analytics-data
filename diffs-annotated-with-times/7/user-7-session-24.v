@@ -61,8 +61,12 @@ Notation "'||-[' k ']' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq_k k t1 t2) (at leve
 Definition sem_sub (t1 t2 : ty) := forall k : nat, ||-[ k][t1]<= [t2].
 Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : btjm_scope.
 Definition sem_eq (t1 t2 : ty) := forall k : nat, ||-[ k][t1]= [t2].
-Notation "'||-' '[' t1 ']' '=' '[' t2 ']' '-||'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
+Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
+Hint Unfold sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
+Example ex : ||- [tint]= [tint].
+Proof.
+(unfold sem_eq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 06:06:44.670000.*)
+(* Auto-generated comment: At 2019-08-15 06:07:01.100000.*)
 
