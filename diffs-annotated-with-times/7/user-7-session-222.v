@@ -121,6 +121,22 @@ Lemma f_free_in_ty_union : forall (X : id) (t1 t2 : ty), f_free_in_ty X t1 \/ f_
 Proof.
 (solve_free_union f_free_in_ty).
 Qed.
+Lemma b_free_in_ty_pair__inv : forall (X : id) (t1 t2 : ty), b_free_in_ty X (TPair t1 t2) -> b_free_in_ty X t1 \/ b_free_in_ty X t2.
+Proof.
+(solve_free_union_inv b_free_in_ty).
+Qed.
+Lemma b_free_in_ty_union__inv : forall (X : id) (t1 t2 : ty), b_free_in_ty X (TUnion t1 t2) -> b_free_in_ty X t1 \/ b_free_in_ty X t2.
+Proof.
+(solve_free_union_inv b_free_in_ty).
+Qed.
+Lemma b_free_in_ty_pair : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TPair t1 t2).
+Proof.
+(solve_free_union b_free_in_ty).
+Qed.
+Lemma b_free_in_ty_union : forall (X : id) (t1 t2 : ty), b_free_in_ty X t1 \/ b_free_in_ty X t2 -> b_free_in_ty X (TUnion t1 t2).
+Proof.
+(solve_free_union b_free_in_ty).
+Qed.
 Lemma f_free_in_ty_exist : forall (X Y : id) (t : ty), f_free_in_ty X t -> f_free_in_ty X (TExist Y t).
 Proof.
 (unfold f_free_in_ty, free).
@@ -319,7 +335,27 @@ Proof.
 (induction t; try (solve [ simpl; assumption ])).
 -
 (rewrite b_subst_pair).
+(apply b_free_in_ty_pair).
+(apply b_free_in_ty_pair__inv in HX).
+tauto.
+-
+(rewrite b_subst_union).
+(apply b_free_in_ty_union).
+(apply b_free_in_ty_union__inv in HX).
+tauto.
+-
+(destruct (beq_idP Y i)).
++
+subst.
+(rewrite b_subst_exist_eq).
+assumption.
++
+(rewrite b_subst_exist_neq; try assumption).
+(destruct (beq_idP X i)).
+*
+subst.
+(unfold b_free_in_ty_i, free in HX).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 14:01:30.650000.*)
+(* Auto-generated comment: At 2019-09-04 14:01:48.890000.*)
 
