@@ -52,8 +52,8 @@ constructor.
 -
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(constructor; eauto).
+(constructor; tauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:40:56.340000.*)
+(* Auto-generated comment: At 2019-08-15 07:40:57.150000.*)
 
