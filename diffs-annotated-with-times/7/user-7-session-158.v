@@ -65,7 +65,8 @@ Proof.
 (rewrite <- beq_id_refl).
 reflexivity.
 Qed.
+Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id) (t : id), X <> Y -> [X := s] TExist Y t = TExist Y ([X := s] t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:18:21.440000.*)
+(* Auto-generated comment: At 2019-08-29 09:18:43.590000.*)
 
