@@ -168,43 +168,12 @@ assumption.
 (apply le_S_n; assumption).
 Qed.
 Lemma match_ty__transitive_on_value_type :
-  forall v1 v2 t3 : ty, value_type v2 -> forall k w : nat, |-[ k, w] v1 <$ v2 -> |-[ k, w] v2 <$ t3 -> |-[ k, w] v1 <$ t3.
+  forall (w : nat) (v1 v2 t3 : ty), value_type v2 -> forall k : nat, |-[ k, w] v1 <$ v2 -> |-[ k, w] v2 <$ t3 -> |-[ k, w] v1 <$ t3.
 Proof.
-(intros v1 v2 t3 Hv2).
-generalize dependent t3.
-generalize dependent v1.
-(induction Hv2).
+(induction w; intros v1 v2 t3 Hv2; generalize dependent t3; generalize dependent v1; induction Hv2).
 -
 (intros v1 t3 k w Hm1 Hm2).
-(apply match_ty_cname__inv in Hm1; subst).
-assumption.
--
-(intros v0 t3 k w).
-generalize dependent k.
-generalize dependent t3.
-generalize dependent v0.
-(induction w; intros v0 t3 k Hm1 Hm2; apply match_ty_pair__inv in Hm1; destruct Hm1 as [pv11 [pv12 [Heq [Hmpv11 Hmpv12]]]]; subst; induction t3;
-  try (solve [ destruct k; contradiction ])).
-+
-(apply match_ty_pair__inv in Hm2).
-(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
-(inversion Heq; subst).
-auto using match_ty_pair.
-+
-(apply match_ty_union__inv in Hm2).
-(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(apply match_ty_pair__inv in Hm2).
-(destruct Hm2 as [pv21 [pv22 [Heq [Hmpv21 Hm22]]]]).
-(inversion Heq; subst).
-auto using match_ty_pair.
-+
-(apply match_ty_union__inv in Hm2).
-(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
-+
-(apply match_ty_exist__inv in Hm2).
-(destruct Hm2 as [tx Hm2]).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-26 08:04:06.740000.*)
+(* Auto-generated comment: At 2019-08-26 08:06:20.290000.*)
 
