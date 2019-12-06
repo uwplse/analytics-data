@@ -160,13 +160,14 @@ Proof.
    | intros Hm; apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ];
       exists v'; rewrite b_subst_union; [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption
    | intros Hm; destruct (beq_idP X i);
-      [ subst; rewrite subst_var_eq; exists tint; reflexivity | rewrite subst_var_neq; try assumption; exists v; assumption ] ])).
+      [ subst; rewrite b_subst_bvar_eq; exists tint; reflexivity | rewrite b_subst_bvar_neq; try assumption; exists v; assumption ] ])).
 -
 (intros Hm).
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
 (intros Hm).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:35:52.530000.*)
+(* Auto-generated comment: At 2019-09-03 09:36:13.780000.*)
 
