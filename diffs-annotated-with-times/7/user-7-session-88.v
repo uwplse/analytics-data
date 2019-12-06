@@ -421,12 +421,12 @@ Proof.
             (Hsem _ Hm); contradiction
      end ])).
 -
-((assert (Hv : value_type (TCName c)) by constructor; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
-   destruct Hsemu as [Hsemu| Hsemu];
-   [ destruct Hdep as [Hdept| Hdept']; try destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; apply Nat.le_trans with (| t'1 |);
-      tauto || apply Max.le_max_l
-   |  ]) + destruct Hdep as [Hdept| Hdept']).
+(assert (Hv : value_type (TCName c)) by constructor; pose proof (value_sem_sub_k_i_union__inv _ Hv _ _ _ Hsem) as Hsemu;
+  destruct Hsemu as [Hsemu| Hsemu];
+  [ destruct Hdep as [Hdept| Hdept']; try destruct (max_inv_depth_le__inv _ _ _ Hdept') as [Hdept'1 Hdept'2]; apply Nat.le_trans with (| t'1 |);
+     tauto || apply Max.le_max_l
+  |  ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:07:51.460000.*)
+(* Auto-generated comment: At 2019-08-18 07:08:07.090000.*)
 
