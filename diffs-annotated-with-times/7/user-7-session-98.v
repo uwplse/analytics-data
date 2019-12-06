@@ -81,7 +81,9 @@ Proof.
 (intros v; induction v; intros X t k Hm; assumption).
 Qed.
 Lemma match_ty_var__inv : forall (v : ty) (X : id) (k : nat), |-[ k] v <$ TVar X -> value_type v.
+Proof.
+(intros v; induction v; intros X k Hm; assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 13:17:36.580000.*)
+(* Auto-generated comment: At 2019-08-19 13:17:53.040000.*)
 
