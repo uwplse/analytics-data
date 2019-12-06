@@ -51,8 +51,8 @@ Proof.
 -
 (destruct li as [| k li]).
 (rewrite ctrls_to_list_empty in *).
-(inversion H; subst).
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-08 12:29:56.110000.*)
+(* Auto-generated comment: At 2019-08-08 12:35:27.520000.*)
 
