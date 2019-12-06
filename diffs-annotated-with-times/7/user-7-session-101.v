@@ -28,8 +28,9 @@ constructor.
 -
 (apply match_ty_ref__inv in Hm).
 (destruct Hm as [t' [Heq Href]]; subst).
+exists tint.
 (simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:17:57.700000.*)
+(* Auto-generated comment: At 2019-08-20 08:19:05.380000.*)
 
