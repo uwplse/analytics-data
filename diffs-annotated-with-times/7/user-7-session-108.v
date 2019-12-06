@@ -259,8 +259,7 @@ Proof.
 -
 admit.
 -
-(destruct Hsem as [_ Hsem]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 13:30:36.730000.*)
+(* Auto-generated comment: At 2019-08-21 13:30:53.800000.*)
 
