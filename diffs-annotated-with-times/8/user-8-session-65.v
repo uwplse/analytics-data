@@ -1233,23 +1233,8 @@ Fact ancilla_free_seq :
   forall W W' W'' (c1 : Box W W') (c2 : Box W' W''),
   ancilla_free_box c1 -> ancilla_free_box c2 -> ancilla_free_box (c1;; c2).
 Admitted.
-Theorem source_symmetric_valid :
-  forall (n t : nat) (c : Square_Box ((n + t) \226\168\130 Qubit)),
-  source_symmetric n t c -> valid_ancillae_box c.
-Proof.
-(intros n t c H).
-(induction H).
--
-(apply ancilla_free_box_valid).
-constructor.
-constructor.
--
-(inversion g0).
-+
-(unfold valid_ancillae_box).
-(intros \207\129 TB).
-(repeat rewrite inSeq_correct; try apply inSeq_WT; try apply unitary_at1_WT;
-  try apply source_symmetric_WT; trivial).
-(unfold compose_super).
-(* Auto-generated comment: Succeeded. *)
+Timeout 1 About denote_box.
+Timeout 1 Print denote_box.
+Timeout 1 Print Ltac denote_box.
+(* Auto-generated comment: Failed. *)
 
