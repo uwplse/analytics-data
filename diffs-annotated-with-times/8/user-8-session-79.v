@@ -597,7 +597,9 @@ Proof.
 (intros).
 (simpl).
 Set Printing All.
+(remember (length l2) as L).
+Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 15:59:16.610000.*)
+(* Auto-generated comment: At 2019-08-13 15:59:40.650000.*)
 
