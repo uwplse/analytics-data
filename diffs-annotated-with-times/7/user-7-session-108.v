@@ -202,7 +202,8 @@ subst.
 (apply match_ty_exist__0_inv in Hm; contradiction).
 +
 (apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 09:29:45.930000.*)
+(* Auto-generated comment: At 2019-08-21 09:30:28.890000.*)
 
