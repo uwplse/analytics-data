@@ -340,8 +340,7 @@ Proof.
 Check match_ty_i__reflexive.
 -
 (inversion Hdept; subst).
--
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:18:44.650000.*)
+(* Auto-generated comment: At 2019-08-16 14:18:49.500000.*)
 
