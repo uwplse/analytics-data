@@ -968,6 +968,7 @@ gen \207\129.
 (simpl).
 (rewrite Nat.mul_1_r).
 (rewrite Lt).
-(rewrite Nat.add_pow).
-(* Auto-generated comment: Failed. *)
+Search -(_ ^ (_ + _)).
+(rewrite Nat.pow_add_r).
+(* Auto-generated comment: Succeeded. *)
 
