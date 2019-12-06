@@ -361,12 +361,13 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Qed.
+Hint Resolve get_upto_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 (unfold get; intros).
 step_proc.
-step_proc.
-(* Auto-generated comment: Succeeded. *)
+(apply proc_spec_weaken; eauto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:14:43.470000.*)
+(* Auto-generated comment: At 2019-09-04 11:14:48.590000.*)
 
