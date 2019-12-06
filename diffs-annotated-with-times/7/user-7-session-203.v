@@ -210,8 +210,9 @@ exists w,v.
 (apply match_ty_union_1; assumption).
 -
 (destruct IHt as [w [v Hm]]).
-(apply match_ty__match_ty_f_subst_int in Hm).
+exists (S w).
+(apply match_ty__match_ty_f_subst_int with i in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:57:09.810000.*)
+(* Auto-generated comment: At 2019-09-03 10:57:57.550000.*)
 
