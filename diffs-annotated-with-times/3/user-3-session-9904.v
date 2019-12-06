@@ -78,8 +78,7 @@ Proof.
 step_proc.
 (destruct a'; simpl in *; intuition).
 step_proc.
-intuition.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:34:29.650000.*)
+(* Auto-generated comment: At 2019-09-06 05:34:45.040000.*)
 
