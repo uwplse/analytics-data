@@ -71,7 +71,7 @@ with open(fpath, 'r') as f:
                 group_failures.append(False)
             else:
                 group_failures.append(True)
-            time_match = re.match(time, group).group(1)
+            time_match = re.match(time, group)
             if not (time_match is None):
                 cmd_time = re.search(time, group).group(1)
                 group_times.append(cmd_time)        
