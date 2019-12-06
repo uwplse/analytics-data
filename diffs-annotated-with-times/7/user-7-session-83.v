@@ -143,8 +143,8 @@ clear IHt3.
 (apply match_ty_i_ref__inv in Hm1).
 (destruct Hm1 as [tx [Heqx Hrefx]]; inversion Heqx; subst).
 (simpl in Hm2).
-(apply sem_eq_i__trans with t).
+(apply sem_eq_k_i__trans with t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 13:55:31.380000.*)
+(* Auto-generated comment: At 2019-08-16 13:55:38.110000.*)
 
