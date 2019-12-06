@@ -157,7 +157,20 @@ exists (Nat.max w1 w2),(TPair v1 v2).
 exists w,v.
 (apply match_ty_union_1; assumption).
 -
-(* Auto-generated comment: Failed. *)
+(destruct (IHt) as [w [v Hm]]).
+exists (S w),v.
+(apply match_ty_exist).
+exists (TVar i).
+(rewrite subs_id).
+assumption.
+-
+exists 0,(TEV i).
+(apply match_ty_var).
+-
+exists 0,(TEV i).
+(apply match_ty_ev).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:18:29.980000.*)
+(* Auto-generated comment: At 2019-08-29 08:19:22.740000.*)
 
