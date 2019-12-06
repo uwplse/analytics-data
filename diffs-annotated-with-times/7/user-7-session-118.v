@@ -133,8 +133,18 @@ Proof.
 Qed.
 Lemma sem_sub__refl : forall t : ty, ||- [t]<= [t].
 Proof.
-(intros k).
+(intros t k).
+(apply sem_sub_k__refl).
+Qed.
+Lemma sem_eq__refl : forall t : ty, ||- [t]= [t].
+Proof.
+(intros t k).
+(apply sem_eq_k__refl).
+Qed.
+Lemma sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] -> ||- [t1]<= [t3].
+Proof.
+(intros t1 t2 t3).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:09:02.500000.*)
+(* Auto-generated comment: At 2019-08-27 07:09:47.380000.*)
 
