@@ -237,11 +237,7 @@ typeclasses eauto.
 (intros; simpl).
 (decide equality; subst).
 (decide equality; subst).
-Print EqualDec.
-Print EqualDec.
-Print EqDecision.
-(destruct (decide (x0 = x1)); auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:13:52.270000.*)
+(* Auto-generated comment: At 2019-08-16 07:13:53.910000.*)
 
