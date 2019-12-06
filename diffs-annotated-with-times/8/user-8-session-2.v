@@ -134,7 +134,8 @@ Search -fst -snd.
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li (trans u)))).
 (rewrite (surjective_pairing (ctrls_to_list (repeat false n) li u))).
 (rewrite <- ctrls_to_list_transpose_fst).
-(* Auto-generated comment: Succeeded. *)
+(rewrite <- ctrls_to_list_transpose_snd).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:47:29.810000.*)
+(* Auto-generated comment: At 2019-08-09 12:07:38.660000.*)
 
