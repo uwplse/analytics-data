@@ -91,11 +91,7 @@ inv_exec.
  end).
 (eapply H0 in H2; repeat deex).
 (eapply H in H9; simpl in *; safe_intuition repeat deex; eauto).
-(match goal with
- | Hexec:exec (rx _) _ _
-   |- _ => eapply RExec in Hexec; eapply H3 in Hexec; eauto
- end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 13:15:16.160000.*)
+(* Auto-generated comment: At 2019-09-03 13:15:19.140000.*)
 
