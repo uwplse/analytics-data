@@ -144,8 +144,21 @@ intuition eauto.
 (eexists; intuition eauto).
 Qed.
 Hint Resolve get_len_ok: core.
-Check d.read_ok.
+Theorem get_at_ok a :
+  proc_spec
+    (fun (_ : unit) state =>
+     {|
+     pre := a < length state;
+     post := fun r state' => state' = state /\ r = nth a state block0;
+     recovered := fun _ state' => state' = state |}) 
+    (get_at a) recover abstr.
+Proof.
+(unfold get_at; intros).
+(apply spec_abstraction_compose).
+(simpl).
+(unfold recover).
+step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 10:49:41.250000.*)
+(* Auto-generated comment: At 2019-09-04 10:49:44.430000.*)
 
