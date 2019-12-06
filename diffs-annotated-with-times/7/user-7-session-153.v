@@ -12,20 +12,8 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Lemma sem_sub_fresh_var__sem_sub_exist :
-  forall (X X' : id) (t t' : ty), IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
-Proof.
-(intros X X' t t').
-generalize dependent t.
-(induction t').
--
-admit.
--
-admit.
--
-admit.
--
+Lemma build_v : forall (X X' : id) (w : nat) (tx v t : ty), |-[ w] v <$ [X := tx] t -> exists v' : ty, |-[ w] v <$ [X := X'] t.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:47:06.450000.*)
+(* Auto-generated comment: At 2019-08-29 08:48:57.660000.*)
 
