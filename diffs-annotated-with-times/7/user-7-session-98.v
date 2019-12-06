@@ -72,10 +72,6 @@ clear IHv.
 exists v.
 auto.
 Qed.
-Lemma match_ty_exist__0_inv : forall (v : ty) (X : id) (t : ty), |-[ 0] v <$ TExist X t -> value_type v /\ (exists tx, v = [X := tx] t).
-Proof.
-(intros v; induction v; intros X t Hm; assumption).
-Qed.
 Lemma match_ty_exist__inv : forall (v : ty) (X : id) (t : ty) (k : nat), |-[ S k] v <$ TExist X t -> exists tx : ty, |-[ k] v <$ [X := tx] t.
 Proof.
 (intros v; induction v; intros X t k Hm; assumption).
@@ -90,98 +86,7 @@ Proof.
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | destruct v; contradiction ])).
 -
-(apply match_ty_exist__0_inv in Hm).
-tauto.
--
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(eapply IHk; eassumption).
-Qed.
-Lemma match_ty__reflexive : forall v : ty, value_type v -> forall k : nat, |-[ k] v <$ v.
-Proof.
-(intros v Hv; induction Hv; intros k).
--
-(destruct k; reflexivity).
--
-(apply match_ty_pair; auto).
--
-(destruct k).
-constructor.
-(simpl).
-tauto.
-Qed.
-Lemma sem_sub__refint_eXrefX : ||- [TRef tint]<= [TExist vX (TRef tX)].
-Proof.
-(intros k; destruct k; intros v Hm).
--
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [t' Heq]; subst).
-(simpl).
-split.
-constructor.
-(exists t'; reflexivity).
--
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [t' [Heq Href]]; subst).
-(simpl).
-exists t'.
-(apply match_ty__reflexive).
-constructor.
-Qed.
-Lemma sem_sub__eXrefX_eYrefY : ||- [TExist vX (TRef tX)]<= [TExist vY (TRef tY)].
-Proof.
-(intros k; destruct k; intros v Hm).
--
-(apply match_ty_exist__0_inv in Hm).
-(destruct Hm as [Hv [tx Heqx]]; subst).
-(simpl in *).
-(split; eauto).
--
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(apply match_ty_exist).
-exists tx.
-(simpl in *).
-assumption.
-Qed.
-Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
-Proof.
-(intros Hcontra).
-specialize (Hcontra 0).
-(assert (Hm : |-[ 0] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by constructor).
-specialize (Hcontra _ Hm).
-(apply match_ty_exist__0_inv in Hcontra).
-(destruct Hcontra as [Hv [tx Heqx]]).
-(inversion Heqx).
-Qed.
-Lemma sem_sub__eunion__unione : forall (X : id) (t1 t2 : ty), ||- [TExist X (TUnion t1 t2)]<= [TUnion (TExist X t1) (TExist X t2)].
-Proof.
-(intros X t1 t2 k v Hm).
-(destruct k).
--
-(apply match_ty_exist__0_inv in Hm).
-(destruct Hm as [Hv [tx Heqx]]; subst).
-(simpl in Hv).
-(inversion Hv).
--
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [tx Hmx]).
-(simpl in Hmx).
-(apply match_ty_union__inv in Hmx).
-(destruct Hmx as [Hmx| Hmx]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; apply match_ty_exist; exists tx; assumption).
-Qed.
-Lemma sem_sub__unione__eunion : forall (X : id) (t1 t2 : ty), ||- [TUnion (TExist X t1) (TExist X t2)]<= [TExist X (TUnion t1 t2)].
-Proof.
-(intros X t1 t2 k v Hm).
-(destruct k).
--
-(apply match_ty_union__inv in Hm).
-(destruct Hm as [Hm| Hm]).
-(apply match_ty_exist__0_inv in Hm).
-(destruct Hm as [Hv [tx Heqx]]; subst).
-+
-Abort.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 11:59:13.620000.*)
+(* Auto-generated comment: At 2019-08-19 11:59:37.360000.*)
 
