@@ -25,8 +25,10 @@ exists w1.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
-(apply match_ty__ge_w).
+(eapply match_ty__ge_w).
+eassumption.
+constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:42:49.400000.*)
+(* Auto-generated comment: At 2019-08-27 08:43:04.400000.*)
 
