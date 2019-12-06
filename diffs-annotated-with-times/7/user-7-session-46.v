@@ -62,8 +62,8 @@ Proof.
 (intros v; induction v; try (solve [ intros t k Hm; destruct k; contradiction ])).
 clear IHv.
 (intros t k).
-(simpl).
+(intros Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:18:31.740000.*)
+(* Auto-generated comment: At 2019-08-16 07:18:42.360000.*)
 
