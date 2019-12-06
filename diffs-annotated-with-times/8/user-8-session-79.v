@@ -614,9 +614,48 @@ Timeout 1 Print Grammar tactic.
 Lemma kron_1_l_inv : forall {m} {n} (A : Matrix m n), A == I 1 \226\138\151 A.
 Proof.
 (intros).
+specialize (kron_1_l A) as G.
+show_dimensions.
+(rewrite 2!Nat.mul_1_l in *).
 symmetry.
-(change (I 1 \226\138\151 A == A)).
-(* Auto-generated comment: Succeeded. *)
+(apply G).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqdEQYdB"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Goal _ forall m n (A B : Matrix m n), A == B -> I 1 \226\138\151 A \226\138\151 I 1 == I 1 \226\138\151 B \226\138\151 I 1.
+Proof.
+(intros).
+(rewrite kron_1_l).
+(rewrite kron_1_l).
+Msimpl.
+restore_dims.
+(apply H).
+Qed.
+Lemma morphism_test :
+  forall {m} {n} (A : Matrix m n),
+  Morphisms.Proper (Morphisms.respectful mat_equiv (flip impl)) (mat_equiv A).
+Proof.
+(intros).
+(unfold Morphisms.Proper).
+(unfold Morphisms.respectful).
+(unfold flip).
+(unfold impl).
+(intros).
+(rewrite H0).
+(rewrite H).
+reflexivity.
+Qed.
+Lemma big_kron_append :
+  forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
+Proof.
+(induction l1).
+-
+(intros).
+(simpl).
+specialize (kron_1_l (\226\168\130 l2)) as KL.
+(rewrite kron_1_l_inv).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 11:47:10.960000.*)
+(* Auto-generated comment: At 2019-08-14 11:47:19.100000.*)
 
