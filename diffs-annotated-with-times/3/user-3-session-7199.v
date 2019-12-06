@@ -356,8 +356,7 @@ Hint Resolve get_upto_ok: core.
 Theorem get_ok : proc_spec get_spec get recover abstr.
 Proof.
 (unfold get, get_spec; intros).
-step_proc.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:26:10.640000.*)
+(* Auto-generated comment: At 2019-09-04 11:26:15.860000.*)
 
