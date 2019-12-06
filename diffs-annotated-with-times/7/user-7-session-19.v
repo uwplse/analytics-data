@@ -113,13 +113,8 @@ admit.
 admit.
 admit.
 +
-clear IHk'.
-(intros Htk Htk' v Hvk Hvk').
-(simpl in Htk, Htk').
-(apply le_S_n in Htk).
-(apply le_S_n in Htk').
-(split; intros Hm; apply match_ty_i_ref__inv in Hm; destruct Hm as [t' [Heq Href]]; subst; simpl; intros v Hv; specialize (Href v Hv)).
+clear IHk' IHt.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:18:09.260000.*)
+(* Auto-generated comment: At 2019-08-12 11:18:34.210000.*)
 
