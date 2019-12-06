@@ -133,8 +133,8 @@ Proof.
 Qed.
 Lemma sem_sub__refl : forall t : ty, ||- [t]<= [t].
 Proof.
-(intros k; apply sem_sub_k__refl).
+(intros k).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:08:54.060000.*)
+(* Auto-generated comment: At 2019-08-27 07:09:02.500000.*)
 
