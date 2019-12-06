@@ -540,9 +540,7 @@ Theorem rev_involutive : forall l : natlist, rev (rev l) = l.
 Proof.
 (induction l; simpl; auto).
 (rewrite rev_app_distr).
-(rewrite IHl).
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 10:10:32.520000.*)
+(* Auto-generated comment: At 2019-09-06 10:10:35.160000.*)
 
