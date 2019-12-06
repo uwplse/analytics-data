@@ -124,8 +124,8 @@ Omega.omega.
 (intros).
 (simpl).
 Omega.omega.
-Defined.
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:57:49.750000.*)
+(* Auto-generated comment: At 2019-08-29 14:58:17.560000.*)
 
