@@ -150,8 +150,26 @@ Check b_free_in_ty__b_free_in_b_subst_neq.
 (apply (b_free_in_ty__b_free_in_b_subst_neq i ti) in HX; try assumption).
 specialize (IHw _ _ Hwftx HX Hm).
 (destruct IHw as [v' [Hm' IHw]]).
-(rewrite b_subst_neq__permute in Hm').
+(rewrite b_subst_neq__permute in Hm'; try assumption).
+exists v'.
+split.
+(apply match_ty_exist).
+exists ti.
+tauto.
+assumption.
+(unfold wf_ty).
+(simpl).
+Search -IdSet.empty.
+auto.
+-
+(destruct (beq_idP X i)).
++
+subst.
+(rewrite b_subst_bvar_eq in *).
+exists (TEV X').
+split.
+(apply match_ty_ev).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-05 12:52:54.620000.*)
+(* Auto-generated comment: At 2019-09-05 12:53:09.910000.*)
 
