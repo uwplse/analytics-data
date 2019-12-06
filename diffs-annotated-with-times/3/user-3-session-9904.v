@@ -78,9 +78,13 @@ Proof.
 step_proc.
 (destruct a'; simpl in *; intuition).
 step_proc.
-(split; [ solve [ auto ] |  ]).
+intuition.
 step_proc.
+intuition.
+step_proc.
+intuition.
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:35:22.370000.*)
+(* Auto-generated comment: At 2019-09-06 05:36:05.070000.*)
 
