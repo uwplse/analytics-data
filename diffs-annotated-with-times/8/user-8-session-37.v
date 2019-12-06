@@ -69,5 +69,5 @@ Fact valid_ancillae_box_equal :
   forall W1 W2 (c : Box W1 W2) \207\129, valid_ancillae_box c \207\129 <-> valid_ancillae_box' c.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 14:21:22.790000.*)
+(* Auto-generated comment: At 2019-08-12 14:21:25.820000.*)
 
