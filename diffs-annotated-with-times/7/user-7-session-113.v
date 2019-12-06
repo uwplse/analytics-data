@@ -18,8 +18,6 @@ Lemma not_fresh_in_union__inv : forall (X : id) (fvs1 fvs2 : id_set), not_fresh 
 Proof.
 (intros X fvs1 fvs2 H).
 (unfold not_fresh in *).
-Search -IdSet.union.
-Search -IdSet.union.
 Abort.
 Lemma subs_not_in_FV : forall (X : id) (t : ty), not_fresh_in_ty X t -> forall s : ty, [X := s] t = t.
 Proof.
@@ -30,5 +28,5 @@ Proof.
 (unfold not_fresh_in_ty in *).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:26:11.580000.*)
+(* Auto-generated comment: At 2019-08-27 06:27:07.920000.*)
 
