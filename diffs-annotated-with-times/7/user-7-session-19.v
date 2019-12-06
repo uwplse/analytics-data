@@ -228,8 +228,14 @@ Proof.
 (inversion H; subst).
 (simpl in Hdept).
 (apply le_S_n in Hdept).
-(apply IHk).
+(apply IHk; try assumption).
+(assert (Hv : value_type (TRef t)) by constructor).
+(assert (Hm : |-[ S k] TRef t <$ TRef t) by (apply match_ty_i__reflexive; constructor)).
+specialize (Hsem _ Hm).
+(simpl in Hsem).
+(intros v' Hv').
+auto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:58:16.520000.*)
+(* Auto-generated comment: At 2019-08-13 08:59:46.800000.*)
 
