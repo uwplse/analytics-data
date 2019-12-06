@@ -226,8 +226,11 @@ Lemma sem_eq_k__comm :
 Proof.
 (intros t1 t2 k Hsem).
 (unfold sem_eq_k in *).
+(intros v).
+specialize (Hsem v).
 tauto.
-(* Auto-generated comment: Failed. *)
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 07:26:55.160000.*)
+(* Auto-generated comment: At 2019-08-15 07:32:11.750000.*)
 
