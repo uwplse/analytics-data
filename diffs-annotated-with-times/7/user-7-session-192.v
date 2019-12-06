@@ -84,8 +84,13 @@ admit.
 +
 admit.
 +
-(apply match_ty_exist__iv in Hm').
+(apply match_ty_exist__inv in Hm').
+(destruct Hm' as [ti Hm']).
+specialize (IHw' _ Hm').
+(destruct IHw' as [IHw'a IHw'b]).
+split.
+*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:18:12.080000.*)
+(* Auto-generated comment: At 2019-09-02 09:20:08.830000.*)
 
