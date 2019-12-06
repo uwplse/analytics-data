@@ -12,58 +12,31 @@ Require Import Coq.Lists.List.
 Import ListNotations.
 Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
-Lemma sem_sub_fresh_var__sem_sub_exist :
-  forall (X X' : id) (t t' : ty), IdSet.In X (FV t) -> fresh_in_ty X' t' -> ||- [[X := TVar X'] t]<= [t'] -> ||- [TExist X t]<= [t'].
+Lemma subst_nested :
+  forall (X Y : id) (tX tY : ty), X <> Y -> fresh_in_ty Y tX -> forall t : ty, [X := tX] ([Y := tY] t) = [Y := [X := tX] tY] ([X := tX] t).
 Proof.
-(intros X X' t t').
-generalize dependent t.
-(induction t').
+(intros X Y tX tY Hneq HYfresh t).
+(induction t; try reflexivity).
 -
-admit.
+(repeat rewrite subst_pair).
+(rewrite IHt1, IHt2).
+reflexivity.
 -
-admit.
+(repeat rewrite subst_union).
+(rewrite IHt1, IHt2).
+reflexivity.
 -
-admit.
--
-Abort.
-Open Scope btjm.
-Theorem sub_d__semantic_sound : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
-Proof.
-(intros t1 t2 Hsub).
-(induction Hsub).
--
-(apply sem_sub__refl).
--
-(apply sem_sub__trans with t2; assumption).
--
-(apply sem_sub_pair; assumption).
--
-(apply sem_sub_union; assumption).
--
-(apply sem_sub_union_1).
-(apply sem_sub__refl).
--
-(apply sem_sub_union_2).
-(apply sem_sub__refl).
--
-(intros w1).
-exists w1.
-(intros v Hm).
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_union__inv in Hm1).
-(destruct Hm1; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
--
-(intros w1).
-exists w1.
-(intros v Hm).
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(apply match_ty_union__inv in Hm2).
-(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
--
-Abort.
-(* Auto-generated comment: Failed. *)
+(destruct (beq_idP Y i) as [HY| HY]).
++
+subst.
+(destruct (beq_idP X i) as [HX| HX]).
+*
+subst.
+contradiction.
+*
+(rewrite subst_exist_eq).
+(rewrite (subst_exist_neq _ _ _ _ HX)).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 14:03:44.960000.*)
+(* Auto-generated comment: At 2019-08-29 14:04:19.090000.*)
 
