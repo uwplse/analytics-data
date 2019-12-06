@@ -25,15 +25,12 @@ Proof.
 (intros X t).
 (induction t; intros Hfresh s; try (solve [ reflexivity ])).
 -
-(simpl).
 (unfold fresh_in_ty in *).
 (simpl in Hfresh).
 (apply fresh_union__inv in Hfresh).
 (destruct Hfresh as [Hfresh1 Hfresh2]).
-(rewrite IHt1).
-(rewrite IHt2).
-reflexivity.
+(rewrite IHt1; try assumption).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:46:33.120000.*)
+(* Auto-generated comment: At 2019-08-27 06:47:10.500000.*)
 
