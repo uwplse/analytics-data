@@ -459,8 +459,30 @@ step_proc.
 intuition.
 {
 (exists (bs ++ v); intuition).
+rename state into d.
 rename state0 into d'.
+rename v into bs'.
+rename r0 into len_b.
+Timeout 1 Show.
+Timeout 1 Show Intros.
+Timeout 1
+(repeat
+  match goal with
+  | company_coq_hyp__:_
+    |- _ =>
+        clear dependent company_coq_hyp__;
+         (let dummy := H0 in
+          let dummy := H5 in
+          let dummy := H3 in
+          let dummy := H2 in
+          idtac)
+  end;
+  repeat
+   match goal with
+   | H:_ |- _ => generalize dependent H; try (generalize dependent H; fail 1)
+   end).
+Timeout 1 Show Intros.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:38:51.080000.*)
+(* Auto-generated comment: At 2019-09-04 12:39:30.480000.*)
 
