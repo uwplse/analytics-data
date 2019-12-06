@@ -132,10 +132,20 @@ Proof.
    | |- |-[ _] _ <$ TUnion _ _ =>
          apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; eauto
    | |- |-[ _] _ <$ TBVar _ => apply match_ty_bvar__inv in Hm; contradiction
-   | |- |-[ _] _ <$ TFVar _ => apply match_ty_fvar__inv in Hm; subst; apply match_ty_var
+   | |- |-[ _] _ <$ TFVar _ => apply match_ty_fvar__inv in Hm; subst; apply match_ty_fvar
    | |- |-[ _] _ <$ TEV _ => apply match_ty_ev__inv in Hm; subst; apply match_ty_ev
    end).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx [Hwf Hmx]]).
+(destruct w').
+(inversion Hle).
+(apply match_ty_exist).
+exists tx.
+(apply IHw).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:22:46.270000.*)
+(* Auto-generated comment: At 2019-09-03 09:23:02.290000.*)
 
