@@ -94,7 +94,7 @@ eauto.
 {
 (eexists; intuition auto).
 }
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:08:48.290000.*)
+(* Auto-generated comment: At 2019-09-03 11:08:57.370000.*)
 
