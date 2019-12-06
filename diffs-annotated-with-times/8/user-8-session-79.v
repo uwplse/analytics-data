@@ -598,7 +598,8 @@ Proof.
 (simpl).
 Set Printing All.
 (remember (length l2) as L).
-(* Auto-generated comment: Failed. *)
+setoid_rewrite kron_1_l.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 16:10:42.510000.*)
+(* Auto-generated comment: At 2019-08-13 16:10:50.180000.*)
 
