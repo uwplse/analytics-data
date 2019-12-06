@@ -950,5 +950,3 @@ Proof.
 (simpl_rewrite id_circ_spec).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 20:27:41.060000.*)
-
