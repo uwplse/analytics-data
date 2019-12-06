@@ -628,8 +628,14 @@ reflexivity.
 Qed.
 Theorem andb_eq_orb : forall b c : bool, andb b c = orb b c -> b = c.
 Proof.
-(intros [] []; congruence).
-(* Auto-generated comment: Failed. *)
+(intros [] []; simpl; congruence).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqWA3MG2"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 06:55:00.860000.*)
+(* Auto-generated comment: At 2019-09-04 06:55:10.240000.*)
 
