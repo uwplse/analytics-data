@@ -765,6 +765,5 @@ all:
    | H:exists _, _ |- _ => destruct H
    | H:_ \/ _ |- _ => inversion H; clear H
    end).
-all: (try congruence).
 (* Auto-generated comment: Succeeded. *)
 
