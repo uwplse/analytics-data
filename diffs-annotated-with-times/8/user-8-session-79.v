@@ -595,8 +595,21 @@ Proof.
 (rewrite kron_1_l).
 (rewrite kron_1_l).
 Msimpl.
+restore_dims.
 (apply H).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq0uS6IR"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma big_kron_append :
+  forall m n (l1 l2 : list (Matrix m n)), \226\168\130 (l1 ++ l2) == (\226\168\130 l1) \226\138\151 (\226\168\130 l2).
+Proof.
+(induction l1).
+-
+(intros).
+(simpl).
+specialize (kron_1_l (\226\168\130 l2)) as KL.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:58:42.190000.*)
+(* Auto-generated comment: At 2019-08-13 17:59:06.390000.*)
 
