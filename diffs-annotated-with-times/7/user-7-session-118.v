@@ -145,8 +145,15 @@ Lemma sem_sub__trans : forall t1 t2 t3 : ty, ||- [t1]<= [t2] -> ||- [t2]<= [t3] 
 Proof.
 (intros t1 t2 t3 Hsem1 Hsem2).
 (intros k).
-(apply sem_sub_k__trans with t2; tauto).
-(* Auto-generated comment: Failed. *)
+(apply sem_sub_k__trans with t2; auto).
+Qed.
+Lemma sem_eq__trans : forall t1 t2 t3 : ty, ||- [t1]= [t2] -> ||- [t2]= [t3] -> ||- [t1]= [t3].
+Proof.
+(intros t1 t2 t3 Hsem1 Hsem2).
+(intros k).
+(apply sem_eq_k__trans with t2; auto).
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 07:10:17.260000.*)
+(* Auto-generated comment: At 2019-08-27 07:10:45.600000.*)
 
