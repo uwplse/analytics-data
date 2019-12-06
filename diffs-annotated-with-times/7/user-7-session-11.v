@@ -28,8 +28,7 @@ Proof.
 (apply union_right_2; assumption).
 -
 (apply SD_Trans with (MkNF( t))).
-(apply mk_nf__sub_d2).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 07:11:31.030000.*)
+(* Auto-generated comment: At 2019-08-09 07:11:34.340000.*)
 
