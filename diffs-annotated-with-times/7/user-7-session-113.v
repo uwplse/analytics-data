@@ -17,8 +17,8 @@ Qed.
 Lemma subs_not_in_FV : forall (X : id) (t : ty), ~ fresh_in_ty X t -> forall s : ty, [X := s] t = t.
 Proof.
 (intros X t).
-(induction t; intros Hnfresh s).
+(induction t; intros Hnfresh s; try (solve [ reflexivity ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:17:21.130000.*)
+(* Auto-generated comment: At 2019-08-27 06:18:16.590000.*)
 
