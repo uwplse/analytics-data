@@ -517,9 +517,40 @@ specialize (IHt2 Ht2k Ht2k' v).
 (intros Hk Hk' v).
 (split; intros Hm; apply match_ty_ref__inv in Hm; destruct Hm as [t' [Heq [[Hdept Hdept'] Href]]]; subst; simpl in Hk, Hk'; apply le_S_n in Hk;
   apply le_S_n in Hk'; assert (Ht'k : | t' | <= k) by (rewrite Hdept'; assumption); assert (Ht'k' : | t' | <= k') by (rewrite Hdept'; assumption);
-  simpl; split; try tauto; clear IHt IHk'; intros v Hv; specialize (IHk k'); pose proof IHk as IHk0; specialize (IHk t Hk Hk' v); specialize
-  (IHk0 t' Ht'k Ht'k' v); unfold sem_eq_k in Href; specialize (Href v Hv); tauto).
+  simpl; split; try tauto; clear IHt IHk'; intros v; specialize (IHk k'); pose proof IHk as IHk0; specialize (IHk t Hk Hk' v); specialize
+  (IHk0 t' Ht'k Ht'k' v); unfold sem_eq_k in Href; specialize (Href v); tauto).
+Qed.
+Lemma match_ty_k__match_ty_ge_k : forall (k : nat) (v t : ty), |-[ k] v <$ t -> forall k', k' >= k -> |-[ k'] v <$ t.
+Proof.
+(intros k; induction k; intros v t; generalize dependent v; induction t; intros v Hm;
+  try (solve
+   [ apply match_ty_cname__inv in Hm; subst; intros; destruct k'; reflexivity
+   | apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heqp [Hv1 Hv2]]]]; subst; intros; apply match_ty_pair; [ eapply IHt1 | eapply IHt2 ];
+      eauto
+   | apply match_ty_union__inv in Hm; destruct Hm as [Hm| Hm]; intros k' Hk'; [ apply match_ty_union_1 | apply match_ty_union_2 ];
+      [ eapply IHt1 | eapply IHt2 ]; eassumption ])).
+-
+(destruct v; contradiction).
+-
+(pose proof Hm as Hmref).
+(apply match_ty_ref__inv in Hm).
+(destruct Hm as [t' [Heq [[Hdept Hdept'] Href]]]).
+subst.
+(intros k' Hk').
+(destruct k'; inversion Hk'; subst).
++
+assumption.
++
+(assert (Hk : k <= k') by (apply le_Sn_le; assumption)).
+(assert (Hdeptk' : | t | <= k') by (apply Nat.le_trans with k; assumption)).
+split.
+tauto.
+(pose proof (match_ty__inv_depth_stable t k k' Hdept Hdeptk') as Ht).
+(assert (Hdept'k : | t' | <= k) by (rewrite Hdept'; assumption)).
+(assert (Hdept'k' : | t' | <= k') by (rewrite Hdept'; assumption)).
+(pose proof (match_ty__inv_depth_stable t' k k' Hdept'k Hdept'k') as Ht').
+(intros v Hv; specialize (Href v Hv); split; intros Hm).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:31:49.070000.*)
+(* Auto-generated comment: At 2019-08-16 13:32:33.850000.*)
 
