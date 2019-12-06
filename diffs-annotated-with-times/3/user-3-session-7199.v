@@ -458,8 +458,8 @@ admit.
 }
 -
 step_proc.
-eauto  10.
-(* Auto-generated comment: Failed. *)
+intuition.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:20:56.480000.*)
+(* Auto-generated comment: At 2019-09-04 12:21:03.640000.*)
 
