@@ -109,8 +109,7 @@ assumption.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
 exists ti.
-assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 11:44:29.860000.*)
+(* Auto-generated comment: At 2019-08-29 11:44:57.630000.*)
 
