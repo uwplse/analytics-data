@@ -44,8 +44,9 @@ exists (TEV X').
 reflexivity.
 +
 exists v.
-assumption.
+(simpl).
+Search -beq_id.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:04:27.770000.*)
+(* Auto-generated comment: At 2019-08-29 09:04:53.090000.*)
 
