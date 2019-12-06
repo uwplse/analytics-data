@@ -436,8 +436,22 @@ Proof.
 generalize dependent t.
 (induction t; try (solve [ simpl; reflexivity ])).
 -
-(repeat rewrite f_subst_pair).
+(repeat rewrite f_subst_pair, b_subst_pair).
+(rewrite IHt1, IHt2).
+reflexivity.
+-
+(repeat rewrite f_subst_union, b_subst_union).
+(rewrite IHt1, IHt2).
+reflexivity.
+-
+admit.
+-
+(destruct (beq_idP Y i)).
++
+subst.
+(rewrite b_subst_bvar_eq).
+(rewrite f_subst_bvar).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:16:01.570000.*)
+(* Auto-generated comment: At 2019-09-04 10:17:56.370000.*)
 
