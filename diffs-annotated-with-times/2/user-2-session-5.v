@@ -19,7 +19,9 @@ Inductive term :=
   | App : term -> term -> term.
 Redirect "/tmp/coqmW6Ht8" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Print List.find.
+Print List.contains.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-17 14:55:46.900000.*)
+(* Auto-generated comment: At 2019-08-17 14:55:57.690000.*)
 
