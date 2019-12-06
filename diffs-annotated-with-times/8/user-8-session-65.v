@@ -1253,5 +1253,5 @@ constructor.
 (unfold compose_super).
 (apply source_symmetric_WT in H).
 (rewrite IHsource_symmetric; trivial).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
