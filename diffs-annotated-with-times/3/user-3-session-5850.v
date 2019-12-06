@@ -60,7 +60,16 @@ Proof.
 -
 reflexivity.
 -
-(* Auto-generated comment: Succeeded. *)
+(simpl).
+(rewrite IHn').
+reflexivity.
+Qed.
+Theorem plus_n_Sm : forall n m : nat, S (n + m) = n + S m.
+Proof.
+(intros n m).
+(induction n as [| n' IHn']).
+Theorem plus_comm : forall n m : nat, n + m = m + n.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 07:10:25.390000.*)
+(* Auto-generated comment: At 2019-09-04 07:11:09.860000.*)
 
