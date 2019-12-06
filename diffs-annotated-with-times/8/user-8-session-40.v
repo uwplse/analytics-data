@@ -68,5 +68,15 @@ Proof.
 (destruct safe).
 -
 matrix_denote.
+Msimpl.
+lma.
+-
+matrix_denote.
+Msimpl.
+lma.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqXm3oVN"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
