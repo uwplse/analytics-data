@@ -47,8 +47,9 @@ Search -IdSet.mem.
 Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
-(pose proof (IdSetFacts.mem_1 Hin)).
+(pose proof (IdSetFacts.mem_1 Hin) as Hmem).
+(rewrite (subst_exist_neq _ _ _ _ HY)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:55:35.970000.*)
+(* Auto-generated comment: At 2019-09-02 06:55:51.990000.*)
 
