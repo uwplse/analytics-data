@@ -172,16 +172,10 @@ contradiction.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
 Abort.
-Lemma ty__empty_or_matching_ty_exist : forall (t : ty) (k : nat), exists (w : nat) (v : ty), |-[ k, w] v <$ t.
+Lemma match_ty__match_ge_world : forall (w k : nat) (t v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-(induction t; intros k).
--
-exists 0,(TCName c).
-(apply match_ty_value_type__reflexive; constructor).
--
-(destruct (IHt1 k) as [w1 [v1 Hm1]]).
-(destruct (IHt2 k) as [w2 [v2 Hm2]]).
+(induction w; intros k t; generalize k; induction t).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:50:13.210000.*)
+(* Auto-generated comment: At 2019-08-21 07:51:35.150000.*)
 
