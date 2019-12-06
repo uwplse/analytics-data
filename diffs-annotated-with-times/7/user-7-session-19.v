@@ -114,9 +114,10 @@ Proof.
      end ])).
 (match goal with
  | |- | ?t1 | <= | ?t2 | =>
-       assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize (H _ Hm)
+       assert (Hv : value_type t1) by constructor; assert (Hm : |-[ 0] t1 <$ t1) by (apply match_ty_i__reflexive; assumption); specialize (H _ Hm);
+        apply match_ty_i_union__inv in H; destruct H as [Hm1| Hm2]
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 13:29:54.950000.*)
+(* Auto-generated comment: At 2019-08-12 13:30:05.860000.*)
 
