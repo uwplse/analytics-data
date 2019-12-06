@@ -455,10 +455,13 @@ tauto.
 (pose proof (IHk k' t' Ht'k Ht'k' v) as Ht').
 tauto.
 Qed.
-Lemma cname_sem_sub_k_i__sub_d :
-  forall k : nat, forall c : cname, | TCName c | <= k -> forall t2 : ty, ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
+Lemma cname_sem_sub_k_i__sub_d : forall (k : nat) (c : cname), | TCName c | <= k -> forall t2 : ty, ||-[ k][TCName c]<= [t2] -> |- TCName c << t2.
 Proof.
+(intros k c Hdep t2).
+(assert (Hva : value_type (TCName c)) by constructor).
+(assert (Hma : |-[ k] TCName c <$ TCName c) by (apply match_ty_i__reflexive; assumption)).
+(induction t2; intros Hsem; try (solve [ specialize (Hsem _ Hma); simpl in Hsem; subst; constructor || contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:30:48.900000.*)
+(* Auto-generated comment: At 2019-08-13 13:34:02.470000.*)
 
