@@ -135,7 +135,10 @@ Proof.
 (simpl).
 (intros X Y Hin).
 (apply IdSetFacts.singleton_1 in Hin).
-(* Auto-generated comment: Failed. *)
+subst.
+reflexivity.
+Qed.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 09:21:32.390000.*)
+(* Auto-generated comment: At 2019-09-06 09:21:38.650000.*)
 
