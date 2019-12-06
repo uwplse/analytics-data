@@ -82,8 +82,16 @@ Proof.
 -
 (apply match_ty_union__inv in Hm).
 (destruct (fresh_in_ty_union__inv _ _ _ HX) as [HX1 HX2]).
-(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto).
+(destruct Hm as [Hm| Hm]; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
+-
+(apply match_ty_ref__weak_inv in Hm).
+(destruct Hm as [t' Heq]).
+(inversion Heq).
+-
+(destruct w).
++
+(apply match_ty_ref__0_inv in Hm; contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 12:21:39.320000.*)
+(* Auto-generated comment: At 2019-08-27 12:23:04.810000.*)
 
