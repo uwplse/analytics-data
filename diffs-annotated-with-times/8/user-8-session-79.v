@@ -911,8 +911,11 @@ clear L1 M1 Lt.
 (rewrite strip_one_l_in_eq).
 (rewrite Nat.sub_0_r in L2).
 (rewrite L2 in *).
+Timeout 1 About rewrite_inPar.
+Timeout 1 Print rewrite_inPar.
+Timeout 1 Print Ltac rewrite_inPar.
 setoid_rewrite  <- (kron_1_l (\226\168\130 l2)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:12:26.200000.*)
+(* Auto-generated comment: At 2019-08-14 14:12:27.750000.*)
 
