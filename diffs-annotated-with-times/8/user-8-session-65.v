@@ -969,8 +969,7 @@ gen \207\129.
 (intros \207\129).
 remember_differences.
 restore_dims try rewrite size_ntensor; unify_pows_two; simpl; try lia.
-(repeat rewrite Mmult_assoc).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 13:47:58.800000.*)
+(* Auto-generated comment: At 2019-08-13 13:48:40.950000.*)
 
