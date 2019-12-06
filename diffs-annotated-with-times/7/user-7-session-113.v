@@ -40,8 +40,13 @@ reflexivity.
 (simpl).
 (destruct (beq_idP X i); destruct (beq_idP Y i); subst).
 +
-(inversion Hneq).
+contradiction.
++
+(simpl).
+Search -beq_id.
+(rewrite <- beq_id_refl).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:16:36.700000.*)
+(* Auto-generated comment: At 2019-08-27 06:16:53.460000.*)
 
