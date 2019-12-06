@@ -6,8 +6,7 @@ Add LoadPath "../..".
 Require Import BetaJulia.BasicPLDefs.Identifier.
 Require Import BetaJulia.Sub0250a.BaseDefs.
 Require Import BetaJulia.Sub0250a.BaseProps.
-Require Import BetaJulia.Sub0250a.MatchProps.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:45:45.280000.*)
+(* Auto-generated comment: At 2019-08-16 06:46:06.650000.*)
 
