@@ -288,8 +288,8 @@ Proof.
 (unfold log_size_ok, log_contents_ok; intros).
 Check diskUpd_oob_eq.
 (destruct (log_addr a == a0); subst; autorewrite with upd; auto).
-(rewrite diskUpd_oob_eq).
-(* Auto-generated comment: Succeeded. *)
+(rewrite diskUpd_oob_eq; lia).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:55:53.490000.*)
+(* Auto-generated comment: At 2019-09-04 11:55:53.690000.*)
 
