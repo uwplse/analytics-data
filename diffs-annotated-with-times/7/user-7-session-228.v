@@ -49,51 +49,63 @@ subst.
 exists (TEV X').
 split.
 reflexivity.
-(induction w'; exists 0; induction t'; intros Hm'; try (solve [ destruct v; contradiction || tauto ])).
+Abort.
+Open Scope btjm.
+Theorem sub_d__semantic_sound : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
+Proof.
+(intros t1 t2 Hsub).
+(induction Hsub).
+-
+(apply sem_sub__refl).
+-
+(apply sem_sub__trans with t2; assumption).
+-
+(apply sem_sub_pair; assumption).
+-
+(apply sem_sub_union; assumption).
+-
+(apply sem_sub_union_1).
+(apply sem_sub__refl).
+-
+(apply sem_sub_union_2).
+(apply sem_sub__refl).
+-
+(intros w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_union__inv in Hm1).
+(destruct Hm1; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
+-
+(intros w1).
+exists w1.
+(intros v Hm).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(apply match_ty_union__inv in Hm2).
+(destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; auto using match_ty_pair).
+-
+(destruct (b_free_in_ty__dec X t) as [HX| HX]).
+2: {
+idtac.
+(rewrite b_subst_not_b_free_in_ty in IHHsub; try assumption).
+(intros w1; induction w1).
 +
-(rewrite f_subst_union).
-(apply match_ty_union__inv in Hm'; destruct Hm' as [Hm'| Hm']; [ pose proof IHt'1 as IHt' | pose proof IHt'2 as IHt' ]; specialize (IHt' Hm');
-  destruct IHt' as [IHt'a IHt'b]; split; intros HX').
-*
-(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
-(apply match_ty_union_1; auto).
-*
-(destruct (f_free_in_ty__dec X' t'1) as [HXt'1| HXt'1]).
-{
-(apply match_ty_union_1; auto).
-}
-{
-(apply match_ty_union_1; rewrite f_subst_not_b_free_in_ty; auto).
-}
-*
-(destruct (not_f_free_in_ty_union__inv _ _ _ HX') as [HX'1 HX'2]).
-(apply match_ty_union_2; auto).
-*
-(destruct (f_free_in_ty__dec X' t'2) as [HXt'2| HXt'2]).
-{
-(apply match_ty_union_2; auto).
-}
-{
-(apply match_ty_union_2; rewrite f_subst_not_b_free_in_ty; auto).
-}
-+
-(apply match_ty_fvar__inv in Hm').
-(inversion Hm'; subst).
-clear Hm'.
-(split; intros HX').
-*
-(apply not_f_free_in_ty_fvar__inv in HX').
+exists 0.
+(intros v Hm).
+(apply match_ty_exist__0_inv in Hm).
 contradiction.
-*
-(rewrite f_subst_fvar_eq).
-assumption.
 +
-admit.
-+
-admit.
-+
-(destruct IHw' as [w2 IHw']).
-(* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-09-06 09:35:46.160000.*)
+specialize (IHHsub w1).
+(destruct IHHsub as [w2 IHHsub]).
+exists w2.
+(intros v Hm).
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx [Hwftx Hm]]).
+(rewrite b_subst_not_b_free_in_ty in Hm; try assumption).
+auto.
+}
+(intros w1).
+(* Auto-generated comment: Succeeded. *)
 
