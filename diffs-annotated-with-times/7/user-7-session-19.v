@@ -355,8 +355,8 @@ split.
 assumption.
 split.
 assumption.
-(intros v' Hv').
+(intros v').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:57:28.100000.*)
+(* Auto-generated comment: At 2019-08-13 07:57:38.910000.*)
 
