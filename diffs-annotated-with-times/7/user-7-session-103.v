@@ -54,13 +54,10 @@ Qed.
 Lemma match_ty_ref__inv : forall (v t : ty) (k w : nat), |-[ S k, w] v <$ TRef t -> exists t' : ty, v = TRef t' /\ ||-[ k][t']= [t].
 Proof.
 (intros v t k w Hm).
-(destruct k, w, v; simpl in Hm; try contradiction).
+(destruct v).
 -
-exists v.
-split.
-reflexivity.
-auto.
+(destruct k, w; simpl in Hm; try contradiction).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 11:53:13.320000.*)
+(* Auto-generated comment: At 2019-08-20 11:53:40.450000.*)
 
