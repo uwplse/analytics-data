@@ -9,8 +9,8 @@ Require Import BetaJulia.Sub0250a.BaseProps.
 Require Import BetaJulia.Sub0250a.MatchProps.
 Require Import BetaJulia.Sub0250a.SemSubProps.
 Require Import BetaJulia.Sub0250a.DeclSubProps.
-Require Import BetaJulia.Sub0250a.AltmatchProps.
-(* Auto-generated comment: Failed. *)
+Require Import BetaJulia.Sub0250a.AltMatchProps.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 07:36:45.950000.*)
+(* Auto-generated comment: At 2019-08-14 07:37:04.010000.*)
 
