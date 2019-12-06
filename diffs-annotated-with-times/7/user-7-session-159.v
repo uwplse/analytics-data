@@ -108,8 +108,38 @@ assumption.
 (rewrite (subst_exist_neq _ _ _ _ Hbeq)).
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [ti Hm]).
-specialize (IHw' _ _ Hm).
+specialize (IHw' _ Hm).
+(rewrite subst_neq__permute in IHw').
+exists ti.
+assumption.
+assumption.
+admit.
+admit.
+-
+admit.
+-
+admit.
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+admit.
+-
+(destruct (beq_idP X i) as [Hbeq| Hbeq]).
++
+subst.
+(rewrite subst_exist_eq in *).
+exists v.
+split.
+*
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:38:37.630000.*)
+(* Auto-generated comment: At 2019-08-29 09:38:38.020000.*)
 
