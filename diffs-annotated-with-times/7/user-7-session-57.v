@@ -137,8 +137,7 @@ specialize (Hsem _ Hma).
 (apply match_ty_pair__inv in Hsem).
 (destruct Hsem as [v1 [v2 [Heq _]]]; inversion Heq).
 -
-(apply value_sem_sub_k_union__inv in Hsem; try assumption).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 08:02:02.690000.*)
+(* Auto-generated comment: At 2019-08-16 08:02:12.920000.*)
 
