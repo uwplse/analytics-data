@@ -450,7 +450,8 @@ Proof.
 (unfold log_abstraction; intuition).
 -
 (unfold log_length_ok in *; intros).
+autorewrite with upd in *.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:47:48.310000.*)
+(* Auto-generated comment: At 2019-09-04 12:47:59.520000.*)
 
