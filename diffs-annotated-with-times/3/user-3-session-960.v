@@ -93,9 +93,9 @@ Unset Search Output Name Only.
 Fixpoint nat_to_le (x : nat) : list byte_nat.
 refine match x with
        | 0 => nil
-       | _ => x mod 256 :: nat_to_le x / 256
+       | _ => x mod 256 :: nat_to_le (x / 256)
        end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 05:29:41.610000.*)
+(* Auto-generated comment: At 2019-08-16 05:29:52.850000.*)
 
