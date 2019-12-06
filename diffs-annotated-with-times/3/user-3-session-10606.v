@@ -378,8 +378,7 @@ intuition eauto.
 step.
 (intuition eauto; autorewrite with upd; auto).
 step.
-(exists (a' ++ [a]); intuition eauto; autorewrite with upd list in *; eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 06:50:54.300000.*)
+(* Auto-generated comment: At 2019-09-06 06:50:54.600000.*)
 
