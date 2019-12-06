@@ -41,7 +41,18 @@ Proof.
 -
 (apply match_ty_exist__0_inv in Hm; contradiction).
 -
+(apply match_ty_exist__inv in Hm).
+(destruct Hm as [tx Hmx]).
+(apply match_ty_exist).
+exists tx.
+assumption.
+Qed.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+(intros Hcontra).
+specialize (Hcontra 2).
+(simpl in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:13:21.580000.*)
+(* Auto-generated comment: At 2019-08-20 12:14:14.590000.*)
 
