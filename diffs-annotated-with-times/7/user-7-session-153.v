@@ -20,8 +20,7 @@ Proof.
 exists (TCName c).
 (apply match_ty_cname).
 -
-(simpl in Hm).
-(simpl).
+(simpl in *).
 (apply match_ty_pair__inv in Hm).
 (destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
 (destruct (IHt1 _ Hm1) as [v1' Hm1']).
@@ -30,7 +29,11 @@ exists (TPair v1' v2').
 (apply match_ty_pair; assumption).
 -
 (simpl in *).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
+  [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
+-
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:53:13.370000.*)
+(* Auto-generated comment: At 2019-08-29 08:54:40.280000.*)
 
