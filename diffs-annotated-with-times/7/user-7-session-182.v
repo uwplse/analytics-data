@@ -89,7 +89,8 @@ Search -beq_id.
 (rewrite Hmem).
 (remember (gen_fresh (IdSet.union (FV tx) (IdSet.add X' (FV t')))) as Z).
 exists ([X' := tx] ti).
+specialize (IHw' _ Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:05:11.310000.*)
+(* Auto-generated comment: At 2019-09-02 07:12:31.580000.*)
 
