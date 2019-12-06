@@ -239,8 +239,10 @@ exists (eval L env (Int 3)).
 reflexivity.
 +
 eexists.
-(apply evalVar).
+(rewrite evalVar).
+(rewrite extendEnv_eq).
+(erewrite evalIntConst).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-01 09:47:45.830000.*)
+(* Auto-generated comment: At 2019-09-01 09:49:04.560000.*)
 
