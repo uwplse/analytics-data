@@ -58,8 +58,17 @@ Class GoModel : Type :={byte : Type;
                         nullptr : forall ty, Ptr ty}.
 Opaque Nat.modulo Nat.div.
 #[local]Obligation Tactic := (intros; simpl; subst).
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqqPxOPl"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqa30jLs"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
 Function
- nat_to_le base (x : nat) {measure x lt} : list {x : nat | x < S (S base)} :=
+ nat_to_le base (x : nat) {struct x} : list {x : nat | x < S (S base)} :=
    match x with
    | 0 => nil
    | _ =>
@@ -68,5 +77,5 @@ Function
    end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:03:46.010000.*)
+(* Auto-generated comment: At 2019-08-16 06:04:39.390000.*)
 
