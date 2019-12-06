@@ -914,8 +914,19 @@ clear L1 M1 Lt.
 Timeout 1 About rewrite_inPar.
 Timeout 1 Print rewrite_inPar.
 Timeout 1 Print Ltac rewrite_inPar.
-restore_dims.
-(* Auto-generated comment: Failed. *)
+Timeout 1 About restore_dims.
+Timeout 1 Print restore_dims.
+Timeout 1 Print Ltac restore_dims.
+(match goal with
+ | |- ?A => let A' := restore_dims_rec tac A in
+            replace
+            A
+            with
+            A'
+ end).
+2: {
+(apply f_equal_gen).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 14:12:39.250000.*)
+(* Auto-generated comment: At 2019-08-14 14:13:26.320000.*)
 
