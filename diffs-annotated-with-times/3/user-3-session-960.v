@@ -260,8 +260,10 @@ Check repeat_length.
   end).
 (rewrite nat_from_le_zeros; auto).
 (rewrite nat_le_inverse; auto).
-generalize dependent Datatypes.length (nat_to_le 254 x).
-(* Auto-generated comment: Succeeded. *)
+(generalize dependent Datatypes.length (nat_to_le 254 x); intros).
+(exfalso; apply n1).
+lia.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:26:37.150000.*)
+(* Auto-generated comment: At 2019-08-16 07:27:54.950000.*)
 
