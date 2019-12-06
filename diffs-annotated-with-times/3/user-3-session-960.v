@@ -206,11 +206,11 @@ refine
  byte_to_ascii := bounded_to_ascii;
  uint64_to_le := nat_to_le 254;
  uint64_from_le := fun digits => Some (le_to_nat digits);
- File := nat;
- nilFile := 0;
+ File := Z;
+ nilFile := - 1;
  Ptr := fun _ => nat;
  nullptr := fun _ => 0 |}.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:54:45.740000.*)
+(* Auto-generated comment: At 2019-08-16 06:55:17.370000.*)
 
