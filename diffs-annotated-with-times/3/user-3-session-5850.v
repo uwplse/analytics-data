@@ -243,11 +243,13 @@ Theorem mult_comm : forall m n : nat, m * n = n * m.
 Proof.
 (intros m n).
 (induction m as [| m' IHm']).
+-
 (simpl).
-Check mult_n_O.
 (rewrite <- mult_n_O).
 reflexivity.
-(* Auto-generated comment: Succeeded. *)
+-
+(rewrite IHm').
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 07:19:02.490000.*)
+(* Auto-generated comment: At 2019-09-04 07:19:26.610000.*)
 
