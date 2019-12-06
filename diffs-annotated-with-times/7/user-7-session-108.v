@@ -245,9 +245,9 @@ Lemma aaa : forall (k : nat) (t t' : ty), | t | <= k -> ||-[ k][t]= [t'] -> | t 
 Proof.
 (induction k; induction t; induction t'; intros Hdep Hsem; try reflexivity).
 (match goal with
- | Hsem:||-[ ?k][?t]<= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
+ | Hsem:||-[ ?k][?t]= [?t'] |- | ?t | = | ?t' | => destruct Hsem as [Hsem _]; specialize (Hsem 0)
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 13:23:54.020000.*)
+(* Auto-generated comment: At 2019-08-21 13:26:12.310000.*)
 
