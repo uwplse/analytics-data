@@ -21,8 +21,9 @@ Proof.
 (split; intros Hcontra).
 SearchPattern (IdSet.In (IdSet.union _ _)).
 Search -IdSet.union.
-(apply IdSetFacts.union_2 with fvs2 in Hcontra).
+Check IdSetFacts.union_2.
+(apply (IdSetFacts.union_2 fvs1 fvs2 X) in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 06:42:33.920000.*)
+(* Auto-generated comment: At 2019-08-27 06:42:53.320000.*)
 
