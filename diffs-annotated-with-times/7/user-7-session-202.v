@@ -132,8 +132,8 @@ Proof.
    [ reflexivity
    | try destruct (not_b_free_in_ty_pair__inv _ _ HX) as [HX1 HX2]; try destruct (not_b_free_in_ty_union__inv _ _ HX) as [HX1 HX2]; simpl;
       rewrite IHt1; try assumption; rewrite IHt2; try assumption; reflexivity ])).
-(destruct (not_b_free_in_ty_pair__inv _ _ HX) as [HX1 HX2]).
+(destruct (not_b_free_in_ty_pair__inv _ _ _ HX) as [HX1 HX2]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:47:33.330000.*)
+(* Auto-generated comment: At 2019-09-03 10:47:39.300000.*)
 
