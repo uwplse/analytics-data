@@ -160,8 +160,7 @@ exists w1.
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hm]).
 (simpl in Hm).
-(rewrite subs_fresh_in_ty in Hm; try assumption).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-28 11:38:58.210000.*)
+(* Auto-generated comment: At 2019-08-28 11:39:10.880000.*)
 
