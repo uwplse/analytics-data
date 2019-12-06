@@ -123,8 +123,11 @@ Proof.
 Qed.
 Lemma match_ty__ge_w : forall (w : nat) (t : ty) (k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-(induction w; induction t; intros k v Hm w' Hle).
+(induction w; induction t; intros k v Hm w' Hle;
+  try match goal with
+      | |- |-[ _, _] _ <$ TCName _ => apply match_ty_cname__inv in Hm; subst; apply match_ty_cname
+      end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 07:50:22.460000.*)
+(* Auto-generated comment: At 2019-08-26 07:50:37.160000.*)
 
