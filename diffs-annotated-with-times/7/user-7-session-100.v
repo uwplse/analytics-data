@@ -113,7 +113,8 @@ Proof.
 (apply match_ty_pair; auto).
 -
 (destruct w, k; constructor; simpl; tauto).
-(* Auto-generated comment: Failed. *)
+-
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-20 08:12:06.040000.*)
+(* Auto-generated comment: At 2019-08-20 08:12:12.110000.*)
 
