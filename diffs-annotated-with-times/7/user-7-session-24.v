@@ -58,8 +58,7 @@ Theorem match_ty__value_type_l : forall (k : nat) (t v : ty), |-[ k] v <$ t -> v
 Proof.
 (intros k; induction t; induction v; intros Hm; try (solve [ constructor | destruct k; contradiction ])).
 (destruct k).
-(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 06:27:54.160000.*)
+(* Auto-generated comment: At 2019-08-15 06:28:10.170000.*)
 
