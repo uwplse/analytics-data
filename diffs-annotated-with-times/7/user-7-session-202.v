@@ -142,7 +142,13 @@ admit.
 (destruct (beq_idP X i)).
 +
 subst.
+(unfold not_b_free_in_ty in HX).
+(simpl in HX).
+(unfold not_free in HX).
+admit.
++
+subst.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 10:47:42.080000.*)
+(* Auto-generated comment: At 2019-09-03 10:48:35.840000.*)
 
