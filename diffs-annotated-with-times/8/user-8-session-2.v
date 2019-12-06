@@ -128,8 +128,7 @@ reflexivity.
 -
 (simpl).
 (destruct a).
-+
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:21:30.950000.*)
+(* Auto-generated comment: At 2019-08-09 11:21:47.710000.*)
 
