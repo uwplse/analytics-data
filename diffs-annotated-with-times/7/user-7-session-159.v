@@ -136,9 +136,7 @@ admit.
 +
 subst.
 (rewrite subst_exist_eq in *).
-(apply match_ty_exist__inv in Hm).
-(destruct Hm as [ti Hm]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:49:51.010000.*)
+(* Auto-generated comment: At 2019-08-29 09:51:04.850000.*)
 
