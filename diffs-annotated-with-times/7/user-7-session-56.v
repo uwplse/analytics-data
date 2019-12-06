@@ -178,8 +178,10 @@ Proof.
 (destruct k).
 (destruct v'; contradiction).
 (assert (Hdep : | TRef t | <= S k)).
-(apply match_ty_value_type_r__inv_depth_r_le_index).
+(eapply match_ty_value_type_r__inv_depth_r_le_index).
+constructor.
+eassumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:57:59.850000.*)
+(* Auto-generated comment: At 2019-08-16 07:59:04.920000.*)
 
