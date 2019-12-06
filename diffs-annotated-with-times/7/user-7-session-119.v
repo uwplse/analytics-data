@@ -15,7 +15,6 @@ Open Scope btjm.
 Theorem sub_d__semantic_sound : forall t1 t2 : ty, |- t1 << t2 -> ||- [t1]<= [t2].
 Proof.
 (intros t1 t2 Hsub).
-(unfold sem_sub).
 (induction Hsub).
 -
 (apply sem_sub__refl).
@@ -23,5 +22,5 @@ Proof.
 (apply sem_sub__trans).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:11:40.620000.*)
+(* Auto-generated comment: At 2019-08-27 07:11:52.520000.*)
 
