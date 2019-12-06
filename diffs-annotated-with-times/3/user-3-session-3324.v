@@ -149,7 +149,8 @@ exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (rewrite diskShrink_size; omega).
 (rewrite diskUpd_eq; auto).
 (rewrite diskShrink_size; omega).
+(rewrite diskShrink_preserves; auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:41:23.010000.*)
+(* Auto-generated comment: At 2019-08-16 10:41:25.130000.*)
 
