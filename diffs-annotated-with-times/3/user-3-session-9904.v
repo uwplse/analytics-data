@@ -148,9 +148,9 @@ step_proc.
 (match goal with
  | H:pre (match ?a with
           | (x, y) => _
-          end _) |- _ => idtac a
+          end _) |- _ => idtac H a
  end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:45:37.140000.*)
+(* Auto-generated comment: At 2019-09-06 05:45:45.510000.*)
 
