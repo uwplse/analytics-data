@@ -68,7 +68,7 @@ Fixpoint subst (x : id) (s t : ty) :=
   | TUnion t1 t2 => TUnion ([x := s] t1) ([x := s] t2)
   | TExist y t' =>
       if IdSet.mem y (FV s)
-      then let z := gen_fresh (IDSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else [x := s] tz)
+      then let z := gen_fresh (IdSet.union (FV s) (FV t')) in let tz := [y @ z] t' in TExist z (if beq_id x z then tz else [x := s] tz)
       else TExist y (if beq_id x y then t' else [x := s] t')
   | TVar y => if beq_id x y then s else t
   | TEV y => t
@@ -76,5 +76,5 @@ Fixpoint subst (x : id) (s t : ty) :=
 where "'[' x ':=' s ']' t" := (subst x s t) : btjt_scope.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:24:23.410000.*)
+(* Auto-generated comment: At 2019-08-29 14:24:26.870000.*)
 
