@@ -262,8 +262,8 @@ clear Heqt'.
 constructor.
 *
 (apply IHk; try assumption).
-(apply sem_eq_k_i__sem_sub_k in Href).
+(apply sem_eq_k_i__sem_sub_k_i in Href).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 14:07:09.560000.*)
+(* Auto-generated comment: At 2019-08-16 14:08:12.230000.*)
 
