@@ -219,8 +219,11 @@ Proof.
 (remember (TUnion t1 t2) as t eqn:Heqt ).
 (induction Hsub; inversion Heqt; subst).
 tauto.
-(split; [ apply SR_UnionR1 | apply SR_UnionR2 ]; tauto).
+(split; apply SR_UnionR1; tauto).
+(split; apply SR_UnionR2; tauto).
+(simpl in Hsub).
+(apply sub_r_nf_union_l__inv in Hsub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:49:28.190000.*)
+(* Auto-generated comment: At 2019-08-07 12:50:44.360000.*)
 
