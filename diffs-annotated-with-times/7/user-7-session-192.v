@@ -118,8 +118,8 @@ admit.
 }
 {
 (apply match_ty_exist).
-exists ti.
+exists ([X' := tx] ti).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 12:56:59.720000.*)
+(* Auto-generated comment: At 2019-09-02 12:57:36.330000.*)
 
