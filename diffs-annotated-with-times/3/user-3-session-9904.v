@@ -122,9 +122,10 @@ lia.
 (destruct s; intuition).
 +
 (unfold statdb_abstraction in *; simpl in *).
-intuition congruence.
+intuition.
 +
+(exists (n0 :: s); intuition auto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:42:26.760000.*)
+(* Auto-generated comment: At 2019-09-06 05:42:33.310000.*)
 
