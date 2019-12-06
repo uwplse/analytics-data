@@ -466,8 +466,8 @@ step.
 intuition eauto.
 step.
 (exists bs; intuition eauto).
-{
+(descend; intuition eauto).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-05 17:31:54.920000.*)
+(* Auto-generated comment: At 2019-09-05 17:31:57.270000.*)
 
