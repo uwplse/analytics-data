@@ -17,7 +17,52 @@ Proof.
 (intros X X' tx).
 (induction w; induction t; intros v Hm; try (solve [ exists v; assumption ])).
 -
+(rewrite subst_pair in *).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(destruct (IHt1 _ Hm1) as [v1' Hm1']).
+(destruct (IHt2 _ Hm2) as [v2' Hm2']).
+exists (TPair v1' v2').
+(apply match_ty_pair; assumption).
+-
+(rewrite subst_union in *).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
+  [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
+-
+(apply match_ty_exist__0_inv in Hm; contradiction).
+-
+(destruct (beq_idP X i)).
++
+subst.
+exists (TEV X').
+(simpl).
+(rewrite <- beq_id_refl).
+reflexivity.
++
+exists v.
+(simpl in *).
+(destruct (beq_id_false_iff X i) as [_ Hid]).
+specialize (Hid n).
+(rewrite Hid in *).
+assumption.
+-
+(rewrite subst_pair in *).
+(apply match_ty_pair__inv in Hm).
+(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(destruct (IHt1 _ Hm1) as [v1' Hm1']).
+(destruct (IHt2 _ Hm2) as [v2' Hm2']).
+exists (TPair v1' v2').
+(apply match_ty_pair; assumption).
+-
+(rewrite subst_union in *).
+(apply match_ty_union__inv in Hm).
+(destruct Hm as [Hm| Hm]; [ destruct (IHt1 _ Hm) as [v' Hm'] | destruct (IHt2 _ Hm) as [v' Hm'] ]; exists v';
+  [ apply match_ty_union_1 | apply match_ty_union_2 ]; assumption).
+-
+(destruct (beq_idP X i)).
++
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:07:29.050000.*)
+(* Auto-generated comment: At 2019-08-29 09:09:03.150000.*)
 
