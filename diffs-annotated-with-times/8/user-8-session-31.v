@@ -2822,8 +2822,7 @@ specialize (apply_U_correct Qubit) as AUC.
 (unfold process_gate_state).
 (simpl).
 unify_pows_two.
-(rewrite Nat.add_1_r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:06:14.370000.*)
+(* Auto-generated comment: At 2019-08-09 14:08:14.500000.*)
 
