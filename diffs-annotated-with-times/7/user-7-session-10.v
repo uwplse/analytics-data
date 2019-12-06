@@ -83,38 +83,6 @@ Proof.
             destruct (sub_r_union_l__inv _ _ _ Hsub) as [Hsubb1 Hsubb2]; constructor; [ apply IHta1 | apply IHta2 ]; assumption
      end ])).
 Qed.
-Lemma mk_nf__sub_r_eq : forall t : ty, |- MkNF( t) << t /\ |- t << MkNF( t).
-Proof.
-(induction t).
--
-(split; simpl; constructor).
--
-(destruct IHt1; destruct IHt2).
-(split; simpl).
-+
-(apply unite_pairs_of_nf__preserves_sub_r1; assumption || apply mk_nf__in_nf).
-+
-(apply SR_NormalForm).
-(simpl).
-(apply sub_r__rflxv).
--
-(destruct IHt1; destruct IHt2).
-(split; simpl; constructor; (apply SR_UnionR1; assumption) || (apply SR_UnionR2; assumption)).
--
-(simpl).
-(destruct IHt).
-(split; constructor; assumption).
-Qed.
-Lemma mk_nf__sub_r1 : forall t : ty, |- MkNF( t) << t.
-Proof.
-(intros t).
-(pose proof (mk_nf__sub_r_eq t) as H; tauto).
-Qed.
-Lemma mk_nf__sub_r2 : forall t : ty, |- t << MkNF( t).
-Proof.
-(intros t).
-(pose proof (mk_nf__sub_r_eq t) as H; tauto).
-Qed.
 Lemma sub_r_unite_pairs_nf_l__inv :
   forall t1 t2 t1' t2' : ty, |- unite_pairs t1 t2 << TPair t1' t2' -> InNF( t1) -> InNF( t2) -> |- t1 << t1' /\ |- t2 << t2'.
 Proof.
@@ -138,7 +106,20 @@ Proof.
             tauto || constructor; tauto
      end ])).
 Qed.
+Lemma sub_r_pair__inv : forall t1 t2 t1' t2' : ty, |- TPair t1 t2 << TPair t1' t2' -> |- t1 << t1' /\ |- t2 << t2'.
+Proof.
+(intros t1 t2 t1' t2' Hsub).
+(remember (TPair t1 t2) as tx eqn:Heqx ).
+(remember (TPair t1' t2') as ty eqn:Heqy ).
+(induction Hsub; inversion Heqx; inversion Heqy; subst).
+-
+(split; assumption).
+-
+(simpl in Hsub).
+(apply sub_r_unite_pairs_nf_l__inv in Hsub; try apply mk_nf__in_nf).
+(destruct Hsub; split; apply SR_NormalForm; assumption).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:24:27.410000.*)
+(* Auto-generated comment: At 2019-08-08 13:26:53.090000.*)
 
