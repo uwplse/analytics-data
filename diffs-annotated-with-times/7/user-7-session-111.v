@@ -98,25 +98,13 @@ Notation "'||-' '[' t1 ']' '<=' '[' t2 ']'" := (sem_sub t1 t2) (at level 50) : b
 Definition sem_eq (t1 t2 : ty) := forall k : nat, ||-[ k][t1]= [t2].
 Notation "'||-' '[' t1 ']' '=' '[' t2 ']'" := (sem_eq t1 t2) (at level 50) : btjm_scope.
 Hint Unfold sem_sub_k_w sem_sub_k sem_eq_k sem_sub sem_eq: DBBetaJulia.
-Lemma sem_eq_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]= [t2] -> ||-[ k][t2]= [t3] -> ||-[ k][t1]= [t3].
+Lemma sem_sub_k__trans : forall (k : nat) (t1 t2 t3 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t3] -> ||-[ k][t1]<= [t3].
 Proof.
 (intros k t1 t2 t3 Hsem1 Hsem2).
-(unfold sem_eq_k in *).
-(destruct Hsem1 as [Hsem11 Hsem12]).
-(destruct Hsem2 as [Hsem21 Hsem22]).
-split.
--
+(unfold sem_sub_k in *).
 (intros w1).
 specialize (Hsem11 w1).
-(destruct Hsem11 as [w2 Hsem11]).
-specialize (Hsem21 w2).
-(destruct Hsem21 as [w3 Hsem21]).
-exists w3.
-(intros v).
-specialize (Hsem11 v).
-specialize (Hsem21 v).
-tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 08:13:32.100000.*)
+(* Auto-generated comment: At 2019-08-26 08:14:06.680000.*)
 
