@@ -2816,8 +2816,7 @@ dependent destruction t.
 (simpl).
 (rewrite singleton_size).
 (simpl).
-(rewrite Nat.add_succ_r).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 14:17:45.290000.*)
+(* Auto-generated comment: At 2019-08-09 14:18:38.490000.*)
 
