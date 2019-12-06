@@ -57,8 +57,35 @@ specialize (Hsem1 1).
 (destruct Hsem1 as [w2 Hsem1]).
 (assert (Hm : |-[ k, 1] TRef t <$ TRef t) by (apply match_ty_value_type__reflexive; constructor)).
 specialize (Hsem1 _ Hm).
-(destruct k, w2, t; try (solve [ simpl in Hsem1; contraidction ])).
+(destruct k, w2, t; try (solve [ simpl in Hsem1; contradiction ])).
+Admitted.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+(intros Hcontra).
+specialize (Hcontra 2 1).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ 2, 1] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+(unfold sem_sub_k_w in Hcontra).
+specialize (Hcontra _ Hm).
+clear Hm.
+(destruct w).
+-
+(apply Hcontra).
+-
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [t Hcontra]).
+(assert (Heq : [vY := t] TRef (TRef tY) = TRef (TRef t)) by reflexivity).
+(rewrite Heq in Hcontra).
+clear Heq.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Heq Href]]).
+(inversion Heq; subst).
+clear Heq.
+(unfold sem_eq_k in Href).
+(destruct Href as [Href _]).
+specialize (Href 1).
+(destruct Href as [w2 Hsem]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:40:53.150000.*)
+(* Auto-generated comment: At 2019-08-20 12:41:02.040000.*)
 
