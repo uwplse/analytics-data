@@ -150,8 +150,13 @@ Theorem get_at_ok a :
      {|
      pre := a < length state;
      post := fun r state' => state' = state /\ r = nth a state block0;
-     recovered := fun _ state' => state' = state |}) get_len recover abstr.
+     recovered := fun _ state' => state' = state |}) 
+    (get_at a) recover abstr.
+Proof.
+(unfold get_at; intros).
+(apply spec_abstraction_compose).
+step_proc.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:48:46.620000.*)
+(* Auto-generated comment: At 2019-09-04 10:49:08.400000.*)
 
