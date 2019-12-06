@@ -146,5 +146,5 @@ exists (diskUpd (diskShrink (stateDisk state)) (stateBadBlock state) b).
 (intuition idtac; auto; intros; autorewrite with upd in *; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:38:19.980000.*)
+(* Auto-generated comment: At 2019-08-16 10:38:47.320000.*)
 
