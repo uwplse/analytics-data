@@ -364,6 +364,9 @@ Check IdSetProps.empty_union_1.
 (pose proof (IdSetProps.empty_union_1 s2 H) as H2).
 Search -IdSet.union.
 Admitted.
+Lemma union_empty : forall s1 s2, IdSet.Empty s1 /\ IdSet.Empty s2 -> IdSet.Empty (IdSet.union s1 s2).
+Proof.
+Admitted.
 Lemma wf_ty_pair__inv : forall t1 t2 : ty, wf_ty (TPair t1 t2) -> wf_ty t1 /\ wf_ty t2.
 Proof.
 (intros t1 t2 Hwf).
@@ -384,7 +387,9 @@ Proof.
 generalize dependent t.
 (induction t; intros Hwft; try (solve [ simpl; assumption ])).
 -
+(rewrite f_subst_pair).
+(apply wf_ty_pair__inv in Hwft).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 09:53:16.200000.*)
+(* Auto-generated comment: At 2019-09-04 09:54:38.330000.*)
 
