@@ -204,9 +204,9 @@ Qed.
 Lemma sem_sub_k__sem_eq_k : forall (k : nat) (t1 t2 : ty), ||-[ k][t1]<= [t2] -> ||-[ k][t2]<= [t1] -> ||-[ k][t1]= [t2].
 Proof.
 (intros k t1 t2 Hsem1 Hsem2).
-(unfold sem_sub_k in *).
 (split; auto).
+Qed.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 06:59:01.980000.*)
+(* Auto-generated comment: At 2019-08-16 06:59:02.850000.*)
 
