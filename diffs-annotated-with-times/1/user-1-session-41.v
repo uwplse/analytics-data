@@ -340,6 +340,5 @@ Function
    | _, _ => False
    end.
 all: (intros; subst; simpl; eauto with math).
-(destruct hd1; simpl; eauto with math).
 (* Auto-generated comment: Succeeded. *)
 
