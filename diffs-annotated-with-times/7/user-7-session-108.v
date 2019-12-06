@@ -297,11 +297,8 @@ admit.
 Search -id.
 (destruct (beq_idP X i)).
 +
-subst.
-(apply Hnotm).
-exists v.
-assumption.
+(simpl in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 10:41:50.670000.*)
+(* Auto-generated comment: At 2019-08-21 10:41:54.400000.*)
 
