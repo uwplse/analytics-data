@@ -1252,5 +1252,7 @@ constructor.
   try apply source_symmetric_WT; trivial).
 (unfold compose_super).
 (apply source_symmetric_WT in H).
-(* Auto-generated comment: Succeeded. *)
+(unfold valid_ancillae_box in IHsource_symmetric).
+(rewrite IHsource_symmetric; trivial).
+(* Auto-generated comment: Failed. *)
 
