@@ -450,9 +450,10 @@ Proof.
 (intros).
 (unfold log_abstraction; intuition).
 (unfold log_length_ok in *; intros).
-(assert (len_addr < diskSize d')).
+(assert (len_addr < diskSize d') by eauto).
+eq_values.
 eauto.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 12:42:07.270000.*)
+(* Auto-generated comment: At 2019-09-04 12:42:12.660000.*)
 
