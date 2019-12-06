@@ -273,8 +273,8 @@ admit.
 typeclasses eauto.
 -
 (simpl).
-typeclasses eauto.
+decide equality.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:03:39.880000.*)
+(* Auto-generated comment: At 2019-08-16 07:04:31.160000.*)
 
