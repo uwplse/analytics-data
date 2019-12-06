@@ -145,9 +145,9 @@ Timeout 1 Print Grammar tactic.
 Fixpoint trace (n : nat) : term -> list term :=
   match n with
   | O => nil
-  | S m => fun t => t :: trace m (step t)
+  | S m => fun t => cons t (trace m (step t))
   end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-17 15:57:09.620000.*)
+(* Auto-generated comment: At 2019-08-17 15:58:14.750000.*)
 
