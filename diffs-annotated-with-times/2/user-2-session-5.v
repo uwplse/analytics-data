@@ -58,12 +58,19 @@ Fixpoint step (t : term) : term :=
   | Nil => Nil
   | Ident _ => Nil
   | <a b> => if value a then <a (step b)> else <(step a) b>
-  | _ => t
+  | {f a} =>
+      if value f
+      then match f with
+           | [(Ident lam) (Ident arg) body] => body
+           | Ident prim => t
+           | _ => Nil
+           end
+      else {(step f) a}
   end.
-Redirect "/tmp/coqMMj85L" Print Ltac Signatures.
+Redirect "/tmp/coqYXWD7k" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Print step.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-17 15:02:00.450000.*)
+(* Auto-generated comment: At 2019-08-17 15:02:48.620000.*)
 
