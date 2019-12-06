@@ -929,6 +929,9 @@ reflexivity.
 Timeout 1 About rewrite_inPar.
 Timeout 1 Print rewrite_inPar.
 Timeout 1 Print Ltac rewrite_inPar.
+Timeout 1 About rewrite_inPar.
+Timeout 1 Print rewrite_inPar.
+Timeout 1 Print Ltac rewrite_inPar.
 (match goal with
  | |- context [ denote_box true (inPar ?f ?g) (kron ?\207\1291 ?\207\1292) ] =>
        let IP := fresh "IP" in
@@ -939,5 +942,5 @@ Timeout 1 Print Ltac rewrite_inPar.
  end; try (solve [ type_check ]); eauto with wf_db).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:28:55.350000.*)
+(* Auto-generated comment: At 2019-08-14 14:30:19.270000.*)
 
