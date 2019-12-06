@@ -929,5 +929,5 @@ reflexivity.
 rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:28:12.420000.*)
+(* Auto-generated comment: At 2019-08-14 14:28:53.880000.*)
 
