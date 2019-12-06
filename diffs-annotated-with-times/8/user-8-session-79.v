@@ -897,7 +897,8 @@ Lemma init_at_spec :
   length l2 = n - i ->
   (forall j, Mixed_State (nth j l1 A)) ->
   (forall j, Mixed_State (nth j l2 B)) ->
-  i < S n -> (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) = \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
+  i < S n ->
+  (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) == \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
 Proof.
 (intros b n i).
 gen n.
@@ -909,7 +910,7 @@ gen n.
 clear L1 M1 Lt.
 (rewrite strip_one_l_in_eq).
 setoid_rewrite (kron_1_l_inv (\226\168\130 l2)).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 13:54:40.090000.*)
+(* Auto-generated comment: At 2019-08-14 13:54:40.180000.*)
 
