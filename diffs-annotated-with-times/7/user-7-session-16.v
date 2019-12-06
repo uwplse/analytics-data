@@ -381,7 +381,7 @@ Proof.
       (forall t' : ty, InNF( t') -> Decidable.decidable (|- t << t')) /\ (forall t' : ty, InNF( t') -> Decidable.decidable (|- t' << t))))).
 -
 (intros c).
-(split; intros t'; induction t'; intros Hnf'; inversion Hnf'; subst;
+(split; intros t'; induction t'; intros Hnf'; destruct (in_nf_union__inv _ _ Hnf') as [Hnf'1 Hnf'2];
   try (solve [ right; solve_not_x_sub_r_y_full | solve_atom_sub_r_union__decidable IHt'1 IHt'2 ]);
   try
    match goal with
@@ -391,5 +391,5 @@ Proof.
    end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:03:48.330000.*)
+(* Auto-generated comment: At 2019-08-09 12:05:09.530000.*)
 
