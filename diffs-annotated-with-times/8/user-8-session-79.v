@@ -680,5 +680,5 @@ unify_pows_two.
 lia.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 13:41:21.410000.*)
+(* Auto-generated comment: At 2019-08-14 13:41:24.590000.*)
 
