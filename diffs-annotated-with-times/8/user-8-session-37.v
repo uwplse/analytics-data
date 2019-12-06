@@ -56,9 +56,14 @@ admit.
 +
 reflexivity.
 +
-(intros H \206\147 \206\1470 H').
+(intros H \206\147 \206\1470 \207\129 H').
 replace (gate g p c) with compose (gate g p (fun p' => output p')) c by auto.
+dependent destruction H'.
+(destruct \206\1471 as [| \206\1471]; try invalid_contradiction).
+(erewrite denote_compose with (\206\1471 := []); trivial).
+Focus 3.
+(intros \206\1473 \206\1470' p0 H0 H1).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 14:16:09.430000.*)
+(* Auto-generated comment: At 2019-08-12 14:17:47.140000.*)
 
