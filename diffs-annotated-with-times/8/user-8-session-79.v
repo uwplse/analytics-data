@@ -596,8 +596,14 @@ Proof.
 -
 (intros).
 (simpl).
-(repeat rewrite Nat.add_0_r).
+Set Printing All.
+(remember (\226\168\130 l2) as A).
+(remember (m ^ length l2) as m').
+(remember (n ^ length l2) as n').
+clear.
+specialize (kron_1_l A) as KL.
+symmetry.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:35:50.080000.*)
+(* Auto-generated comment: At 2019-08-13 17:35:57.300000.*)
 
