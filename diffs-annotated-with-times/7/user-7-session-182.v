@@ -47,8 +47,8 @@ Search -IdSet.mem.
 Search -IdSet.In.
 (destruct (IdSetProps.In_dec i (FV tY)) as [Hin| Hin]).
 {
-(apply IdSetFacts.mem_1 in Hin).
+(pose proof (IdSetFacts.mem_1 _ _ Hin)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 06:55:20.600000.*)
+(* Auto-generated comment: At 2019-09-02 06:55:28.890000.*)
 
