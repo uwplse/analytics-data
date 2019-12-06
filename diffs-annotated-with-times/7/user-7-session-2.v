@@ -152,8 +152,9 @@ Search -TUnion.
 (destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22]).
 specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21).
 specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
-(split; assumption || constructor; assumption).
+(split; tauto || constructor; tauto).
+constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:24:07.340000.*)
+(* Auto-generated comment: At 2019-08-07 12:24:26.630000.*)
 
