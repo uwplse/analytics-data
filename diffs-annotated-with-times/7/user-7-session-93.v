@@ -13,14 +13,13 @@ Inductive cname : Type :=
   | NInt : _
   | NFlt : _
   | NStr : _.
-Definition varid : Type := nat.
 Inductive ty : Type :=
   | TCName : cname -> ty
   | TPair : ty -> ty -> ty
   | TUnion : ty -> ty -> ty
   | TRef : ty -> ty
-  | TVar : varid -> ty
-  | TExist : varid -> ty -> ty.
+  | TVar : id -> ty
+  | TExist : id -> ty -> ty.
 Definition tint := TCName NInt.
 Definition tflt := TCName NFlt.
 Definition tstr := TCName NStr.
@@ -29,29 +28,7 @@ Definition vX := 1.
 Definition vY := 2.
 Definition vZ := 3.
 Definition tX := TVar vX.
-Definition tY := TVar vY.
-Definition teXX := TExist vX tX.
-Definition tyXRefX := TExist vX (TRef tX).
-Declare Scope btjt_scope.
-Delimit Scope btjt_scope with btjt.
-Open Scope btjt.
-Reserved Notation "'|' t '|'" (at level 20).
-Fixpoint inv_depth (t : ty) :=
-  match t with
-  | TCName _ => 0
-  | TPair t1 t2 => Nat.max (| t1 |) (| t2 |)
-  | TUnion t1 t2 => Nat.max (| t1 |) (| t2 |)
-  | TRef t' => 1 + | t' |
-  | TVar _ => 0
-  | TExist _ t' => | t' |
-  end
-where "'|' t '|'" := (inv_depth t) : btjt_scope.
-Inductive value_type : ty -> Prop :=
-  | VT_CName : forall cn, value_type (TCName cn)
-  | VT_Pair : forall v1 v2, value_type v1 -> value_type v2 -> value_type (TPair v1 v2)
-  | VT_Ref : forall t, value_type (TRef t).
-Hint Constructors value_type: DBBetaJulia.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-19 08:31:17.970000.*)
+(* Auto-generated comment: At 2019-08-19 08:31:32.550000.*)
 
