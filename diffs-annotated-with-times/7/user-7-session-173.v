@@ -129,7 +129,10 @@ Proof.
 Check fix_sub_eq.
 (rewrite fix_sub_eq).
 (fold (subst X s t1)).
+(fold (subst X s t2)).
+(simpl).
+reflexivity.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:07:40.370000.*)
+(* Auto-generated comment: At 2019-08-29 15:07:45.320000.*)
 
