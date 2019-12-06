@@ -189,8 +189,7 @@ Proof.
 typeclasses eauto.
 -
 firstorder.
-(inversion H0; subst).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:54:44.640000.*)
+(* Auto-generated comment: At 2019-08-07 18:54:45.990000.*)
 
