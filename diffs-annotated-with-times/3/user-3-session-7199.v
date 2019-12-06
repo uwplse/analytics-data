@@ -354,8 +354,12 @@ autorewrite with upd.
 (simpl).
 (rewrite app_nth2 by lia).
 replace (length bs - length bs) with 0 by lia.
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+reflexivity.
+-
+(assert (a < length bs)).
+{
+(rewrite length_app in *).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:34:22.910000.*)
+(* Auto-generated comment: At 2019-09-04 12:34:24.910000.*)
 
