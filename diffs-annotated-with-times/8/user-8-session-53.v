@@ -947,12 +947,7 @@ Lemma assert_init_at_id :
 Proof.
 (intros b m i Lt \207\129 safe M).
 (simpl).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqm7FDzo"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-(simpl_rewrite id_circ_spec; auto with wf_db).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 20:25:20.330000.*)
+(* Auto-generated comment: At 2019-08-12 20:25:24.070000.*)
 
