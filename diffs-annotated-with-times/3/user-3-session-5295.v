@@ -682,8 +682,7 @@ step.
 -
 step.
 (destruct s; simplify).
-(exists d,FullySynced; simplify; finish).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:14:44.870000.*)
+(* Auto-generated comment: At 2019-09-03 11:14:47.060000.*)
 
