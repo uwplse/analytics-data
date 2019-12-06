@@ -597,8 +597,11 @@ Proof.
 (intros).
 (simpl).
 (remember (\226\168\130 l2) as A).
-(remember (m ^ length l2) as m).
+(remember (m ^ length l2) as m').
+(remember (n ^ length l2) as n').
+clear.
+(apply kron_1_l).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 17:31:52.110000.*)
+(* Auto-generated comment: At 2019-08-13 17:34:25.940000.*)
 
