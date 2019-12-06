@@ -52,8 +52,8 @@ Fixpoint simplify (t : Term) : Term :=
   end.
 Theorem simplify_correct :
   forall (L : EpsilonLogic) env (t : Term),
-  eval env L t <-> eval env L (simplify t).
+  L.(eval) env t <-> L.(eval) env (simplify t).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-12 10:11:21.450000.*)
+(* Auto-generated comment: At 2019-08-12 10:12:36.600000.*)
 
