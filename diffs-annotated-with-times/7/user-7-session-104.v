@@ -174,9 +174,8 @@ contradiction.
 Abort.
 Lemma match_ty__match_ge_world : forall (t : ty) (w k : nat) (v : ty), |-[ k, w] v <$ t -> forall w' : nat, w <= w' -> |-[ k, w'] v <$ t.
 Proof.
-(induction t; intros w k v).
--
+(induction t; intros w k v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-21 07:53:06.800000.*)
+(* Auto-generated comment: At 2019-08-21 07:53:21.250000.*)
 
