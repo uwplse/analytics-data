@@ -40,8 +40,17 @@ exists 1.
 (destruct Hm as [tx Hmx]).
 (apply match_ty_exist).
 exists tx.
-(simpl in *).
+assumption.
+Qed.
+Lemma not_sem_sub__refeXrefX_eYrefrefY : ~ ||- [TRef (TExist vX (TRef tX))]<= [TExist vY (TRef (TRef tY))].
+Proof.
+(intros Hcontra).
+(destruct Hcontra as [w Hcontra]).
+specialize (Hcontra 2).
+(assert (Hm : |-[ w, 2] TRef (TExist vX (TRef tX)) <$ TRef (TExist vX (TRef tX))) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+(apply match_ty_exist__inv in Hcontra).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:20:04.340000.*)
+(* Auto-generated comment: At 2019-08-20 08:20:13.900000.*)
 
