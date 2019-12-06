@@ -61,8 +61,7 @@ Lemma sem_sub_k_union_2 : forall t t1' t2' : ty, ||- [t]<= [t2'] -> ||- [t]<= [T
 Proof.
 (intros t1' t2' Hsem).
 (intros w1).
-specialize (Hsem w1).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 08:20:51.540000.*)
+(* Auto-generated comment: At 2019-08-29 08:20:53.300000.*)
 
