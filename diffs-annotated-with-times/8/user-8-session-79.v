@@ -926,8 +926,18 @@ restore_dims
 (rewrite (kron_1_l_inv (\226\168\130 l2))).
 reflexivity.
 }
-rewrite_inPar.
+Timeout 1 About rewrite_inPar.
+Timeout 1 Print rewrite_inPar.
+Timeout 1 Print Ltac rewrite_inPar.
+(match goal with
+ | |- context [ denote_box true (inPar ?f ?g) (kron ?\207\1291 ?\207\1292) ] =>
+       let IP := fresh "IP" in
+       specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in IP;
+        try rewrite ctx_to_mat_list_length in *; try rewrite size_ntensor in IP;
+        try rewrite Nat.mul_1_r in IP; try fold NTensor in *; 
+        simpl in *; rewrite IP; clear IP
+ end; try (solve [ type_check ]); eauto with wf_db rewrite_inPar).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 14:28:53.880000.*)
+(* Auto-generated comment: At 2019-08-14 14:28:54.200000.*)
 
