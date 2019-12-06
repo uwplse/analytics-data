@@ -78,7 +78,9 @@ specialize (Href v' Hv').
 (destruct Href; split; assumption).
 Qed.
 Lemma aaa : forall (k : nat) (t t' v : ty), |-[ k] v <$ t -> |-[ k] v <$ t' -> | t | <= | t' |.
+Proof.
+(induction k).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 12:42:10.830000.*)
+(* Auto-generated comment: At 2019-08-12 12:42:44.510000.*)
 
