@@ -20,8 +20,10 @@ Proof.
 exists (TCName c).
 (apply match_ty_cname).
 -
-(simpl in *).
-(* Auto-generated comment: Failed. *)
+(simpl in Hm).
+(simpl).
+(apply match_ty_pair__inv in Hm).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-29 08:55:17.400000.*)
+(* Auto-generated comment: At 2019-08-29 08:55:27.120000.*)
 
