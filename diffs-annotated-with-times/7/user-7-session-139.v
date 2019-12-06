@@ -69,7 +69,8 @@ tauto.
 +
 (intros k w1).
 specialize (Hsem k w1).
+(destruct Hsem as [w2 Hsem]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 09:04:24.230000.*)
+(* Auto-generated comment: At 2019-08-27 09:05:21.260000.*)
 
