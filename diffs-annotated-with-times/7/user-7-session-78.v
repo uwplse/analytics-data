@@ -70,10 +70,10 @@ Proof.
 (apply mk_nf__sub_d_r; assumption).
 (apply nf_sem_sub__sub_d).
 (apply mk_nf__in_nf).
-(eapply sem_sub__trans; try eassumption).
+(apply sem_sub__trans with t1; try assumption).
 (apply mk_nf__sem_sub_l).
 Qed.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 13:22:50.460000.*)
+(* Auto-generated comment: At 2019-08-16 13:25:02.740000.*)
 
