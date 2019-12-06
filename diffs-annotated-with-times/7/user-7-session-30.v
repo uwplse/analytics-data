@@ -43,9 +43,16 @@ clear IHv.
 Qed.
 Lemma match_ty__value_type : forall (v t : ty) (k : nat), |-[ k] v <$ t -> value_type v.
 Proof.
-(induction v; induction t; intros k Hm; try (solve [ destruct k; contradiction | auto with DBBetaJulia ])).
+(intros v t).
+generalize dependent v.
+(induction t; intros v k Hm).
+-
+(apply match_ty_cname__inv in Hm; subst).
+constructor.
+-
 (apply match_ty_pair__inv in Hm).
+(destruct Hm as [[v1 v2] [Heq [Hm1 Hm2]]]; subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 07:40:01.790000.*)
+(* Auto-generated comment: At 2019-08-15 07:40:39.150000.*)
 
