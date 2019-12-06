@@ -74,8 +74,8 @@ Proof.
          apply match_ty_i_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ apply match_ty_i_union_1 | apply match_ty_i_union_2 ]; tauto
    end).
 (apply match_ty_i_cname__inv in Hm; subst).
-reflexivity.
+(destruct k'; reflexivity).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:49:18.500000.*)
+(* Auto-generated comment: At 2019-08-12 09:49:23.020000.*)
 
