@@ -137,8 +137,10 @@ subst.
 exists v.
 split.
 assumption.
-(intros w' t' Hm).
+(intros w' t' Hm').
+(split; intros HX').
+assumption.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:36:16.890000.*)
+(* Auto-generated comment: At 2019-09-04 10:36:52.190000.*)
 
