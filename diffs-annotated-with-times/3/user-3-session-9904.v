@@ -109,8 +109,8 @@ step_proc.
 (destruct (r == 0)).
 -
 (step_proc; intuition).
-2: (autounfold in *; intuition).
-(* Auto-generated comment: Failed. *)
+(unfold statdb_abstraction in *).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:37:04.140000.*)
+(* Auto-generated comment: At 2019-09-06 05:37:05.490000.*)
 
