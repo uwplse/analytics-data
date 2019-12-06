@@ -324,8 +324,8 @@ Proof.
 -
 (destruct d; simpl in *).
 (assert (a = 0) by lia; subst).
-(simpl).
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:13:04.440000.*)
+(* Auto-generated comment: At 2019-09-04 11:13:07.950000.*)
 
