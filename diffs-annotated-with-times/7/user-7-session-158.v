@@ -51,8 +51,8 @@ reflexivity.
 Qed.
 Lemma subst_var_neq : forall (X : id) (s : ty) (Y : id), X <> Y -> [X := s] TVar Y = TVar Y.
 Proof.
-(intros X s Y).
+(intros X s Y Hbeq).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 09:16:05.490000.*)
+(* Auto-generated comment: At 2019-08-29 09:16:11.350000.*)
 
