@@ -115,8 +115,12 @@ Proof.
 (destruct (r == 0)).
 -
 (step_proc_basic; intros).
+{
 eauto.
-(* Auto-generated comment: Failed. *)
+}
+(simpl in *; intuition subst).
+2: (autounfold in *; intuition).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:09:09.380000.*)
+(* Auto-generated comment: At 2019-09-03 11:09:13.050000.*)
 
