@@ -58,8 +58,12 @@ Proof.
 generalize dependent v.
 (induction t; intros k v Hm).
 -
-(apply match_ty_i_cname__inv in Hm; subst).
+(apply match_ty_cname__inv in Hm; subst).
+constructor.
+-
+(apply match_ty_pair__inv in Hm; destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
+(constructor; [ eapply IHt1 | eapply IHt2 ]; eauto).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 08:56:39.740000.*)
+(* Auto-generated comment: At 2019-08-19 08:57:13.390000.*)
 
