@@ -150,8 +150,9 @@ SearchPattern _.
 Remove Search Blacklist "Raw" "Proofs".
 Unset Search Output Name Only.
 Theorem nat_from_le_zeros base_m2 digits n :
-  nat_from_le (digits ++ repeat bounded0 n) = nat_from_le digits.
+  @nat_from_le base_m2 (digits ++ repeat bounded0 n) =
+  @nat_from_le base_m2 digits.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-16 07:19:46.300000.*)
+(* Auto-generated comment: At 2019-08-16 07:19:55.900000.*)
 
