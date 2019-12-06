@@ -206,5 +206,5 @@ invert_abstraction.
 (step_proc; intuition idtac).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:04:36.740000.*)
+(* Auto-generated comment: At 2019-09-03 11:04:43.490000.*)
 
