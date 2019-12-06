@@ -108,8 +108,9 @@ Proof.
    | apply match_ty_fvar__inv in Hm; subst; constructor
    | apply match_ty_ev__inv in Hm; subst; constructor
    | apply match_ty_exist__0_inv in Hm; contradiction
-   | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption ])).
+   | apply match_ty_exist__inv in Hm; destruct Hm as [tx Hmx]; eapply IHw; eassumption
+   | apply match_ty_bvar__inv in Hm; contradiction ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 09:19:59.990000.*)
+(* Auto-generated comment: At 2019-09-03 09:20:35.530000.*)
 
