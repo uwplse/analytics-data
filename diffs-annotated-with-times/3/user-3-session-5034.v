@@ -416,11 +416,30 @@ lia.
 (rewrite app_length).
 lia.
 }
-+
 (exists s; simpl; intuition).
 (apply log_abstraction_pre_commit; auto).
-+
+}
+(exists s; simpl; intuition).
+(apply log_abstraction_pre_commit; auto).
+Add Search Blacklist "Raw" "Proofs".
+Set Search Output Name Only.
+Redirect "/var/folders/5x/1mdbpbjd7012l971fq0zkj2w0000gn/T/coqgOIzX2"
+SearchPattern _.
+Remove Search Blacklist "Raw" "Proofs".
+Unset Search Output Name Only.
+Qed.
+Theorem recover_wipe : rec_wipe recover abstr no_wipe.
+Proof.
+(unfold rec_wipe).
+(intros).
+(apply spec_abstraction_compose; simpl).
+(step_proc; intros).
+eauto.
+(destruct a; simpl in *).
+(autounfold in *; intuition; subst; eauto).
+Qed.
+End Log.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:01:06.130000.*)
+(* Auto-generated comment: At 2019-09-03 11:01:06.740000.*)
 
