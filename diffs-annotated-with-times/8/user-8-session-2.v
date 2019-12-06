@@ -54,8 +54,8 @@ Proof.
 reflexivity.
 (dependent destruction u; simpl; reflexivity).
 -
-clear IHW1.
+(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-08 12:55:50.470000.*)
+(* Auto-generated comment: At 2019-08-08 12:55:57.930000.*)
 
