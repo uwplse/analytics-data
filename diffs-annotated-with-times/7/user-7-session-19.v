@@ -111,8 +111,7 @@ Proof.
 (inversion Hsem').
 (destruct k; reflexivity).
 -
-(apply match_ty_i_pair__inv in Hsem').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 09:04:44.990000.*)
+(* Auto-generated comment: At 2019-08-12 09:05:13.410000.*)
 
