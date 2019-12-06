@@ -449,9 +449,8 @@ admit.
 (destruct (beq_idP Y i)).
 +
 subst.
-(rewrite b_subst_bvar_eq).
-(rewrite f_subst_bvar).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:17:56.370000.*)
+(* Auto-generated comment: At 2019-09-04 10:18:01.480000.*)
 
