@@ -438,5 +438,19 @@ Proof.
 (destruct safe; trivial).
 (unfold valid_ancillae_box in H).
 (rewrite <- H; assumption).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqjZw695"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma valid_denote_false :
+  forall W W' (c : Box W W') (\207\129 : Square (2 ^ \226\159\166 W \226\159\167)) (\207\129' : Square (2 ^ \226\159\166 W \226\159\167))
+    (safe : bool),
+  Typed_Box c ->
+  valid_ancillae_box c -> denote_box false c \207\129 = \207\129' -> denote_box safe c \207\129 = \207\129'.
+Proof.
+(intros W W' c \207\129 \207\129' safe T H D).
+(destruct safe; trivial).
+(unfold valid_ancillae_box in H).
+(rewrite H; assumption).
 (* Auto-generated comment: Succeeded. *)
 
