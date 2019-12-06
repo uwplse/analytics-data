@@ -191,8 +191,9 @@ Ltac
    [ apply Nat.le_trans with (| t'1 |) | apply Nat.le_trans with (| t'2 |) ]; tauto || apply Max.le_max_l || apply Max.le_max_r.
 Lemma sem_sub_k_i_nf__inv_depth_le : forall (k : nat) (t t' : ty), InNF( t) -> ||-[ k][t]<= [t'] -> | t | <= | t' |.
 Proof.
-(induction k).
+(induction k; induction t; induction t').
+Show 32.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:50:07.820000.*)
+(* Auto-generated comment: At 2019-08-13 07:50:12.670000.*)
 
