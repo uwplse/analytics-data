@@ -118,8 +118,7 @@ Theorem nat_ascii_bounded : forall a, Ascii.nat_of_ascii a < 256.
 Proof.
 (destruct a; simpl; intros).
 (hnf).
-constructor.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 10:04:08.580000.*)
+(* Auto-generated comment: At 2019-08-16 10:04:18.660000.*)
 
