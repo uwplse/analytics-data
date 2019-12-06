@@ -50,11 +50,13 @@ Qed.
 Lemma sem_eq_k__exists_not : forall (k : nat) (t : ty), exists t' : ty, ~ ||-[ k][t']= [t].
 Proof.
 (intros k t).
-(induction k; induction t).
-admit.
-admit.
--
+exists (TRef t).
+(intros Hcontra).
+(destruct Hcontra as [Hsem1 Hsem2]).
+specialize (Hsem1 1).
+(destruct Hsem1 as [w2 Hsem1]).
+(assert (Hm : |-[ k, 1] TRef t <$ TRef t)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 12:39:14.260000.*)
+(* Auto-generated comment: At 2019-08-20 12:39:32.970000.*)
 
