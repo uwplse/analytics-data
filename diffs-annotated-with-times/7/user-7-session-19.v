@@ -367,8 +367,8 @@ clear IHt.
 (destruct Hm as [t' [Heq Href]]; subst).
 (simpl).
 (intros v; specialize (IHk v t); specialize (Href v)).
-tauto.
-(* Auto-generated comment: Succeeded. *)
+(split; tauto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 13:53:02.480000.*)
+(* Auto-generated comment: At 2019-08-13 13:53:40.320000.*)
 
