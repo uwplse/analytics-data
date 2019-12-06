@@ -26,8 +26,9 @@ Proof.
 -
 (apply sem_sub_union; assumption).
 -
-(apply sem_sub_union_1; assumption).
+(apply sem_sub_union_1).
+(apply sem_sub_refl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 07:29:16.120000.*)
+(* Auto-generated comment: At 2019-08-27 07:29:30.400000.*)
 
