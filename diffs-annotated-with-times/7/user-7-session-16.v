@@ -401,6 +401,7 @@ Proof.
 -
 (intros ta1 ta2 Hat1 IHta1 Hat2 IHta2).
 (assert (Hnf : InNF( TPair ta1 ta2)) by (do 2 constructor; assumption)).
+(destruct (in_nf_pair__inv _ _ Hnf) as [Hnf1 Hnf2]).
 (split; intros t'; induction t'; intros Hnf';
   try
    match goal with
@@ -411,5 +412,5 @@ Proof.
 (destruct IHta1 as [IHta11 IHta12]; destruct IHta2 as [IHta21 IHta22]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:18:55.420000.*)
+(* Auto-generated comment: At 2019-08-09 12:19:06.240000.*)
 
