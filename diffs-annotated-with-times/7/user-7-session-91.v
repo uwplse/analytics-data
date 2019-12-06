@@ -347,8 +347,14 @@ Proof.
 (apply SR_NormalForm).
 (apply sub_r__transitive with (MkNF( t'))).
 assumption.
-(apply mk_nf__sub_r1).
+(apply mk_nf__sub_r_l).
+Qed.
+Lemma sub_r__mk_nf_sub_r1 : forall t t' : ty, |- t << t' -> |- MkNF( t) << t'.
+Proof.
+(intros t t' Hsub).
+(apply sub_r__transitive with t; try assumption).
+(apply mk_nf__sub_r_r).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-18 07:39:07.640000.*)
+(* Auto-generated comment: At 2019-08-18 07:39:13.940000.*)
 
