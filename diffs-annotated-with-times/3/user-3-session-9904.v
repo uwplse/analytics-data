@@ -121,9 +121,8 @@ lia.
 (step_proc; intuition).
 (destruct s; intuition).
 +
-exists [].
-left.
+(exists []; intuition).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:41:31.400000.*)
+(* Auto-generated comment: At 2019-09-06 05:41:35.910000.*)
 
