@@ -482,9 +482,11 @@ symmetry.
 assumption.
 +
 (rewrite f_subst_fvar_neq; try assumption).
-(rewrite b_subst_fvar).
+(repeat rewrite b_subst_fvar).
 (rewrite f_subst_fvar_neq; try assumption).
+reflexivity.
+Admitted.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 10:25:19.540000.*)
+(* Auto-generated comment: At 2019-09-04 10:25:29.500000.*)
 
