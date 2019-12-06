@@ -131,20 +131,7 @@ Qed.
 Lemma sem_sub__pair_exist_distr_1 : forall (X : id) (t1 t2 : ty), ||- [TPair (TExist X t1) t2]<= [TExist X (TPair t1 t2)].
 Proof.
 (intros X t1 t2 k w1).
-exists w1.
-(intros v Hm).
-(apply match_ty_pair__inv in Hm).
-(destruct Hm as [v1 [v2 [Heq [Hm1 Hm2]]]]; subst).
-(destruct w1).
--
-(apply match_ty_exist__0_inv in Hm1).
-contradiction.
--
-(apply match_ty_exist).
-(apply match_ty_exist__inv in Hm1).
-(destruct Hm1 as [tx Hmx]).
-exists tx.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-21 13:39:24.910000.*)
+(* Auto-generated comment: At 2019-08-26 06:19:47.190000.*)
 
