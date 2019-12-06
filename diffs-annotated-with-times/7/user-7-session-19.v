@@ -100,9 +100,9 @@ clear IHt'.
 (apply f_equal).
 (apply IHt).
 (intros k v).
-(assert (Hm : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
-specialize (H _ _ Hm).
+(assert (Hmt : |-[ S k] TRef t <$ TRef t) by (simpl; tauto)).
+(assert (Hmt' : |-[ S k] TRef t' <$ TRef t') by (simpl; tauto)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-12 11:52:28.840000.*)
+(* Auto-generated comment: At 2019-08-12 11:54:55.850000.*)
 
