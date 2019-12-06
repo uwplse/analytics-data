@@ -3187,6 +3187,35 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Notation "a \226\137\161 b" := (HOAS_Equiv a b) (at level 70) : circ_scope.
 Hint Unfold HOAS_Equiv: den_db.
-Open Scope circ_scope.
+Lemma HOAS_Equiv_refl : forall w1 w2 (c : Box w1 w2), c \226\137\161 c.
+Proof.
+(intros w1 w2 c \207\129 b).
+reflexivity.
+Qed.
+Lemma HOAS_Equiv_sym : forall w1 w2 (c1 c2 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c1.
+Proof.
+(intros).
+(intros \207\129 b).
+(unfold HOAS_Equiv in H).
+(rewrite H).
+reflexivity.
+Qed.
+Lemma HOAS_Equiv_trans :
+  forall w1 w2 (c1 c2 c3 : Box w1 w2), c1 \226\137\161 c2 -> c2 \226\137\161 c3 -> c1 \226\137\161 c3.
+Proof.
+(intros).
+(intros \207\129 b).
+(unfold HOAS_Equiv in H).
+(rewrite H; auto).
+Qed.
+Require Import Setoid.
+Require Import Relation_Definitions.
+Add Parametric Relation  W1 W2 : Box W1 W2 @HOAS_Equiv W1 W2 reflexivity proved by
+ HOAS_Equiv_refl W1 W2 symmetry proved by HOAS_Equiv_sym W1 W2 transitivity proved
+ by HOAS_Equiv_trans W1 W2 as eq_set_rel.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqtsQLOz"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
