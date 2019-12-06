@@ -204,8 +204,8 @@ Proof.
 (assert (Hvp : value_type (TPair t1 t2))).
 constructor.
 (inversion Hnft; subst).
-(solve_by_inverts 3).
+(solve_by_invert 3).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 07:36:55.210000.*)
+(* Auto-generated comment: At 2019-08-13 07:37:37.270000.*)
 
