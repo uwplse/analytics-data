@@ -89,7 +89,9 @@ intuition subst; eauto.
 *
 (repeat deex).
 (exists (S nwritten); simpl).
-(* Auto-generated comment: Succeeded. *)
+(f_equal; lia).
+(exists 0; simpl; auto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-03 11:10:23.650000.*)
+(* Auto-generated comment: At 2019-09-03 11:10:24.470000.*)
 
