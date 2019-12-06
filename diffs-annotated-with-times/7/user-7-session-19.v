@@ -212,8 +212,7 @@ Proof.
 -
 (intros c t2).
 (induction t2; intros Hsem).
-+
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 08:19:59.190000.*)
+(* Auto-generated comment: At 2019-08-13 08:28:22.120000.*)
 
