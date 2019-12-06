@@ -86,8 +86,7 @@ Proof.
 (destruct (beq_idP X i)).
 +
 subst.
-(destruct (beq_idP Y i); reflexivity).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 13:53:50.200000.*)
+(* Auto-generated comment: At 2019-08-29 13:53:58.930000.*)
 
