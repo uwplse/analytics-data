@@ -91,8 +91,8 @@ Proof.
 -
 (assert (Hmp : |-[ k, w1'] TPair v v2 <$ TPair t1 t2)).
 {
-(apply match_ty_pair; eapply match_ty__ge_w; try eassumption).
+(apply match_ty_pair; eapply match_ty__ge_w; try eassumption; [ apply Nat.le_max_l | apply Nat.le_max_r ]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:04:26.990000.*)
+(* Auto-generated comment: At 2019-08-27 08:04:45.360000.*)
 
