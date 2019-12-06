@@ -81,22 +81,12 @@ Proof.
 (intros t t1' t2' Hsem k).
 (apply sem_sub_k_union_2; auto).
 Qed.
-Lemma sem_sub_k_ref : forall (k : nat) (t t' : ty), ||-[ k][t]= [t'] -> ||-[ k][TRef t]<= [TRef t'].
+Lemma match_ty_ref : forall (k w : nat) (t t' : ty), ||-[ k][t]= [t'] -> |-[ S k, w] TRef t <$ TRef t'.
 Proof.
-(intros k t t' Hsem).
-(intros w1).
-exists w1.
-(intros v Hm).
-(destruct k).
--
-(apply match_ty_ref__weak_inv in Hm).
-(destruct Hm as [tx Heq]; subst).
-(destruct w1; simpl; tauto).
--
-(apply match_ty_ref__inv in Hm).
-(destruct Hm as [tx [Heq Href]]; subst).
-(apply match_ty_ref).
+(intros k w t t' Hsem).
+(destruct w; simpl).
+tauto.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:21:46.330000.*)
+(* Auto-generated comment: At 2019-08-27 08:23:27.260000.*)
 
