@@ -955,5 +955,9 @@ Proof.
 (unfold move_to_0, move_to_0_aux).
 (repeat rewrite Mmult_assoc).
 (rewrite (kron_assoc q0 q1)).
+(simpl).
+Msimpl.
+(rewrite <- kron_assoc).
+restore_dims.
 (* Auto-generated comment: Succeeded. *)
 
