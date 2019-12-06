@@ -202,7 +202,8 @@ auto using match_ty_pair.
 (apply match_ty_union__inv in Hm2).
 (destruct Hm2; [ apply match_ty_union_1 | apply match_ty_union_2 ]; tauto).
 +
+(destruct w).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-26 08:03:57.920000.*)
+(* Auto-generated comment: At 2019-08-26 08:03:58.510000.*)
 
