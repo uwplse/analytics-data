@@ -126,6 +126,5 @@ Lemma HOAS_Equiv_inSeq :
 Proof.
 (intros w1 w2 w3 c1 c1' c2 c2' T1 T1' T2 T2' E1 E2).
 (intros \207\129 b M\207\129).
-(simpl_rewrite inSeq_correct; trivial).
 (* Auto-generated comment: Succeeded. *)
 
