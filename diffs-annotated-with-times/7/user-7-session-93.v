@@ -30,8 +30,8 @@ Definition vY := 2.
 Definition vZ := 3.
 Definition tX := TVar vX.
 Definition tY := TVar vY.
-Definition teXX := TExist vX vX.
+Definition teXX := TExist vX tX.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 08:30:23.190000.*)
+(* Auto-generated comment: At 2019-08-19 08:30:28.350000.*)
 
