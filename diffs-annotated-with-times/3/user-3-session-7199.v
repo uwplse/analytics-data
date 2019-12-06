@@ -429,8 +429,9 @@ Theorem log_contents_ok_len_change d bs b :
   log_size_ok d bs ->
   log_contents_ok d bs -> log_contents_ok (diskUpd d len_addr b) bs.
 Proof.
-(unfold log_size_ok, log_contents_ok; intros).
-(* Auto-generated comment: Succeeded. *)
+(unfold log_size_ok, log_contents_ok, len_addr; intros).
+(destruct (a == a0); subst; autorewrite with upd; auto).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:53:55.390000.*)
+(* Auto-generated comment: At 2019-09-04 12:53:55.680000.*)
 
