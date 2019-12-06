@@ -602,9 +602,12 @@ intuition eauto.
 {
 step.
 (destruct r; try step).
-{
++
 (destruct (a == a0); simplify; finish).
++
+(destruct (a == a0); simplify; finish).
++
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-03 11:14:10.990000.*)
+(* Auto-generated comment: At 2019-09-03 11:14:21.610000.*)
 
