@@ -147,9 +147,8 @@ Timeout 1 Print Ltac restore_dims.
             with
             A'
  end).
-2: {
-(unify_matrix_dims idtac).
+(rewrite <- ctrl_list_to_unitary_transpose).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 12:58:10.640000.*)
+(* Auto-generated comment: At 2019-08-09 13:02:32.160000.*)
 
