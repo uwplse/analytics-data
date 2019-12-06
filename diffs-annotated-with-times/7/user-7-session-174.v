@@ -135,8 +135,10 @@ Omega.omega.
 (unfold lt_size).
 Search -Acc.
 Check Acc.
-(intros).
+constructor.
+(intros y Hlt).
+constructor.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 15:20:32.590000.*)
+(* Auto-generated comment: At 2019-08-29 15:21:16.920000.*)
 
