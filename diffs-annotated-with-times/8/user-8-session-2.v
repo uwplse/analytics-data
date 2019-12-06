@@ -116,8 +116,7 @@ Proof.
 -
 (induction r; try reflexivity).
 (simpl).
-(destruct a).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-09 11:23:54.590000.*)
+(* Auto-generated comment: At 2019-08-09 11:24:44.420000.*)
 
