@@ -402,7 +402,7 @@ eauto.
 -
 (left; exists (TEV i); apply match_ty_ev).
 Admitted.
-Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t (S k) -> ~ ||-[ S k][t]<= [TRef t].
+Lemma not_sem_sub__reft_t : forall (t : ty) (k : nat), ty_not_empty_k t (S k) -> ~ ||-[ S k][t]<= [TRef t].
 Proof.
 (induction t; intros k Ht Hcontra).
 -
@@ -424,7 +424,24 @@ specialize (Hcontra v Hm).
 (apply match_ty_ref__inv in Hcontra).
 (destruct Hcontra as [t' [Heq _]]; inversion Heq).
 -
-(* Auto-generated comment: Failed. *)
+Abort.
+Lemma not_sem_eq__reft_t : forall (t : ty) (k : nat), | t | <= k -> ~ ||-[ S k][t]= [TRef t].
+Proof.
+(induction t; intros k Hdep Hcontra).
+-
+(destruct Hcontra as [Hcontra _]).
+specialize (Hcontra 0).
+(destruct Hcontra as [w Hcontra]).
+(assert (Hm : |-[ S k, 0] TCName c <$ TCName c) by (apply match_ty_value_type__reflexive; constructor)).
+specialize (Hcontra _ Hm).
+clear Hm.
+(apply match_ty_ref__inv in Hcontra).
+(destruct Hcontra as [t' [Hcontra _]]).
+(inversion Hcontra).
+-
+(destruct Hcontra as [Hcontra _]).
+(destruct Ht as [w1 [v Hm]]).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-21 12:30:13.100000.*)
+(* Auto-generated comment: At 2019-08-21 12:30:29.810000.*)
 
