@@ -318,12 +318,9 @@ Lemma firstn_one_more :
   S a <= length d -> firstn a d ++ [nth a d block0] = firstn (S a) d.
 Proof.
 (intros).
+generalize dependent a.
 (induction d; simpl in *).
--
-(exfalso; lia).
--
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-04 11:13:21.950000.*)
+(* Auto-generated comment: At 2019-09-04 11:13:45.430000.*)
 
