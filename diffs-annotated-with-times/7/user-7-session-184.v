@@ -76,8 +76,7 @@ split.
 (apply match_ty_pair; assumption).
 (induction w'; induction t'; intros Hm'; try contradiction).
 +
-(apply match_ty_pair_pair__inv in Hm').
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 07:53:22.670000.*)
+(* Auto-generated comment: At 2019-09-02 07:53:33.170000.*)
 
