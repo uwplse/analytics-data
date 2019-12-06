@@ -146,15 +146,14 @@ tauto.
 tauto.
 -
 (rewrite unite_pairs_t_union in Hsub; try resolve_not_union).
+(destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22]).
 (apply sub_r_nf_union_l__inv in Hsub).
 (destruct Hsub as [Hsub1 Hsub2]).
-Search -TUnion.
-(destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22]).
 specialize (IHt2_1 _ _ Hsub1 Hnf1 Hnf21).
 specialize (IHt2_2 _ _ Hsub2 Hnf1 Hnf22).
 (split; tauto || constructor; tauto).
 (apply NF_Union; apply unite_pairs__preserves_nf).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-07 12:24:56.290000.*)
+(* Auto-generated comment: At 2019-08-07 12:26:09.620000.*)
 
