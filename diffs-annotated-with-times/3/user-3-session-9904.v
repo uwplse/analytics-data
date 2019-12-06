@@ -109,10 +109,8 @@ step_proc.
 (destruct (r == 0)).
 -
 (step_proc; intuition).
-{
-eauto.
-}
+(simpl in *; intuition subst).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-09-06 05:36:59.970000.*)
+(* Auto-generated comment: At 2019-09-06 05:37:01.580000.*)
 
