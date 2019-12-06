@@ -489,9 +489,8 @@ intuition.
 step_proc.
 intuition.
 {
-(exists (bs ++ v); intuition eauto).
-(eapply log_abstraction_commit; eauto).
-(* Auto-generated comment: Succeeded. *)
+(exists bs; intuition euato).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 12:43:22.790000.*)
+(* Auto-generated comment: At 2019-09-04 12:43:39.020000.*)
 
