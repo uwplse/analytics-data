@@ -1238,8 +1238,7 @@ constructor.
 (simpl_rewrite inSeq_correct).
 (try apply inSeq_WT; try apply unitary_at1_WT; try apply source_symmetric_WT;
   trivial).
-(apply source_symmetric_WT in H).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 14:57:00.020000.*)
+(* Auto-generated comment: At 2019-08-13 14:57:15.560000.*)
 
