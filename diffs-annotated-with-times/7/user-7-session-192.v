@@ -88,9 +88,9 @@ admit.
 (destruct Hm' as [ti Hm']).
 specialize (IHw' _ Hm').
 (destruct IHw' as [IHw'a IHw'b]).
-split.
+(split; intros HX').
 *
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:20:08.830000.*)
+(* Auto-generated comment: At 2019-09-02 09:36:12.270000.*)
 
