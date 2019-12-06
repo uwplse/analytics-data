@@ -326,11 +326,9 @@ match x as m return (x = m -> SetST) with
 | Some P =>
     fun H =>
     match P with
-    | (R, G) => Gamma G
+    | (R, G) => Empty_set _
     | (O, G) => Empty_set _
     end
 end eq_refl.
 (* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-09-04 23:34:28.530000.*)
 
