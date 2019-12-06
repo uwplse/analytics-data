@@ -171,7 +171,7 @@ def main():
             print("(*FAILED {}{}*)".format(get_body(cmd)[1][1], timestamp))
         else:
             assert get_cmd_type(cmd) == Symbol("StmObserve")
-            print("OBSERVE {}".format(get_body(cmd)[1][1]))
+            #print("OBSERVE {}".format(get_body(cmd)[1][1]))
 
 def isUnsetSilent(entry):
     return get_cmd_type(entry) == Symbol("StmAdd") and \

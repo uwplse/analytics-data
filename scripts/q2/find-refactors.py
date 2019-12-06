@@ -104,9 +104,6 @@ with open(outdir + "/" + fname + "-" + str(0) + fext, 'w') as f:
             old = old_cumulative[curr_index]
             f.write(old + "\n")
 
-print(old_cumulative)
-print(group_cancels)
-
 for i in range(len(group_ends) - 1):
     j = i + 1
 
