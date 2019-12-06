@@ -382,8 +382,10 @@ Check sem_eq_k_i__inv_depth_eq_2.
 }
 (pose proof Htk as Ht'k).
 (pose proof Htk' as Ht'k').
-(rewrite <- Hdepeq in Ht'k).
+(rewrite <- Hdepeq in Ht'k, Ht'k').
+(pose proof (IHk k' t Htk Htk' v) as Ht).
+(pose proof (IHk k' t' Htk Htk' v) as Ht').
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-13 11:32:35.650000.*)
+(* Auto-generated comment: At 2019-08-13 11:33:25.890000.*)
 
