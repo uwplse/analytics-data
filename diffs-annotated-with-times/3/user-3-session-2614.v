@@ -141,8 +141,8 @@ econstructor.
 (simpl).
 (destruct b; simpl).
 (unfold ascii_to_bounded, bounded_to_ascii; simpl).
-(apply subset_eq_compat).
-(* Auto-generated comment: Failed. *)
+Search -"subset_eq_compat".
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 07:37:02.740000.*)
+(* Auto-generated comment: At 2019-08-16 07:37:05.740000.*)
 
