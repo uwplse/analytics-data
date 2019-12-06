@@ -17,8 +17,8 @@ Proof.
 (intros k X t).
 (induction t; intros Hfresh).
 -
-(intros w1).
+split.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 08:39:47.780000.*)
+(* Auto-generated comment: At 2019-08-27 08:39:59.170000.*)
 
