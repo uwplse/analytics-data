@@ -605,5 +605,5 @@ specialize (kron_1_l A) as KL.
 symmetry.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-13 17:35:57.300000.*)
+(* Auto-generated comment: At 2019-08-13 17:35:59.910000.*)
 
