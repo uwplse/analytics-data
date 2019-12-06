@@ -393,5 +393,5 @@ right.
 (induction Hcontra; try (solve [ inversion Heqx | inversion Heqy ]); subst).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 11:59:26.640000.*)
+(* Auto-generated comment: At 2019-08-09 12:01:34.790000.*)
 
