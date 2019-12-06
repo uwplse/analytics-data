@@ -35,9 +35,8 @@ assumption.
 (apply match_ty_union_1; auto).
 *
 (rewrite subst_union).
-(destruct (free_in_ty_union__inv _ _ _ HX') as [HX''| HX'']).
-(apply match_ty_union_1; auto).
+(destruct (free_in_ty__decidable X t'1)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 08:51:53.750000.*)
+(* Auto-generated comment: At 2019-09-02 08:52:10.850000.*)
 
