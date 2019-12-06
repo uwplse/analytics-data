@@ -29,6 +29,11 @@ Proof.
 (intros v t1 t2 k Hm).
 (destruct k; destruct v; right; assumption).
 Qed.
+Lemma match_ty_exist : forall (v : ty) (X : id) (t : ty) (k : nat), (exists tx : ty, |-[ k] v <$ [X := tx] t) -> |-[ S k] v <$ TExist X t.
+Proof.
+(intros v X t k Hex).
+(destruct v; assumption).
+Qed.
 Lemma match_ty_cname__inv : forall (v : ty) (c : cname) (k : nat), |-[ k] v <$ TCName c -> v = TCName c.
 Proof.
 (intros v; induction v; try (solve [ intros c k Hm; destruct k; contradiction ])).
@@ -134,7 +139,8 @@ Proof.
 -
 (apply match_ty_exist__inv in Hm).
 (destruct Hm as [tx Hmx]).
+(simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:56:36.130000.*)
+(* Auto-generated comment: At 2019-08-19 09:56:59.590000.*)
 
