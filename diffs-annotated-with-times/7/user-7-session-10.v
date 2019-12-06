@@ -127,7 +127,10 @@ Proof.
             assert (Hnf : InNF( t1)) by (subst; apply unite_pairs__preserves_nf; assumption); induction Hsub; inversion Heqx; 
             inversion Heqy; subst; tauto || (rewrite (mk_nf_nf__equal _ Hnf) in IHHsub; tauto)
      end ])).
+-
+(rewrite unite_pairs_t_union in Hsub; try resolve_not_union; destruct (union_in_nf__components_in_nf _ _ Hnf2) as [Hnf21 Hnf22];
+  apply sub_r_nf_union_l__inv in Hsub).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-08 13:18:32.310000.*)
+(* Auto-generated comment: At 2019-08-08 13:19:01.750000.*)
 
