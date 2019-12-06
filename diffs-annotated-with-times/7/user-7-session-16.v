@@ -45,8 +45,13 @@ Proof.
 tauto.
 (apply IHHsub; try tauto).
 (apply mk_nf_nf__equal).
-constructor.
+(do 2 constructor; assumption).
+Qed.
+Lemma sub_r_ref__inv : forall t t' : ty, |- TRef t << TRef t' -> |- t << t' /\ |- t' << t.
+Proof.
+(intros t t' Hsub).
+(pose proof (sub_r__sub_r_mk_nf _ _ Hsub)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-09 12:36:41.680000.*)
+(* Auto-generated comment: At 2019-08-09 12:36:45.780000.*)
 
