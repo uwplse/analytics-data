@@ -655,7 +655,8 @@ Proof.
 (simpl).
 specialize (kron_1_l (\226\168\130 l2)) as KL.
 (rewrite <- kron_1_l_inv).
+reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 11:47:19.220000.*)
+(* Auto-generated comment: At 2019-08-14 11:47:39.850000.*)
 
