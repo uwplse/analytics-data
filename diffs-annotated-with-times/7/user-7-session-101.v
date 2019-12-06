@@ -90,8 +90,12 @@ specialize (Href (TEV vX)).
 (destruct Href as [Href _]).
 specialize (Href Hm).
 clear Hm.
-(apply match_ty_ev__inv in Href).
+(simpl in Href).
+(inversion Href).
+-
+(apply match_ty_exist__inv in Hcontra).
+(destruct Hcontra as [tx Hcontra]).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-20 08:36:38.150000.*)
+(* Auto-generated comment: At 2019-08-20 08:37:04.560000.*)
 
