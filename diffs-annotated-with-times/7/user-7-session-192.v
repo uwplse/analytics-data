@@ -14,8 +14,8 @@ Require Import Coq.Arith.Arith.
 Require Import Coq.Bool.Bool.
 Lemma match_ty_subst_fresh : forall (X : id) (s : ty) (w : nat) (t v : ty), fresh_in_ty X t -> |-[ w] v <$ t -> |-[ w] v <$ [X := s] t.
 Proof.
-(intros X s; induction w; induction t; intros v HX Hm; try (solve [ rewrite subst_cname in *; assumption ]); Abort).
+(intros X s; induction w; induction t; intros v HX Hm; try (solve [ rewrite subst_cname in *; assumption ])).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-02 09:06:04.250000.*)
+(* Auto-generated comment: At 2019-09-02 09:06:18.990000.*)
 
