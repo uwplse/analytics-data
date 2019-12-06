@@ -35,8 +35,7 @@ Proof.
 -
 (apply sem_sub__trans with t2; assumption).
 -
-(apply sem_sub_pair; assumption).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-29 14:03:20.910000.*)
+(* Auto-generated comment: At 2019-08-29 14:03:25.620000.*)
 
