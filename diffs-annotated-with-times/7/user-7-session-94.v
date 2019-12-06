@@ -65,7 +65,9 @@ Proof.
    | apply match_ty_union__inv in Hm; destruct Hm as [Hm1| Hm2]; [ eapply IHt1 | eapply IHt2 ]; eauto
    | apply match_ty_ref__weak_inv in Hm; destruct Hm as [t' Heq]; subst; constructor
    | destruct v; contradiction ])).
+-
+(simpl in Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-19 09:07:30.020000.*)
+(* Auto-generated comment: At 2019-08-19 09:07:36.780000.*)
 
