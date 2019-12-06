@@ -131,8 +131,9 @@ admit.
 admit.
 admit.
 -
-(intros k w2 t' X' HX HX').
+(intros k w2 t' X' HX HX' Hsem).
+(intros tx v Hm).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-27 14:00:13.290000.*)
+(* Auto-generated comment: At 2019-08-27 14:00:53.490000.*)
 
