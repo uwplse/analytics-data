@@ -260,5 +260,5 @@ Proof.
 (destruct H0; propositional).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-07 18:55:10.200000.*)
+(* Auto-generated comment: At 2019-08-07 18:55:14.060000.*)
 
