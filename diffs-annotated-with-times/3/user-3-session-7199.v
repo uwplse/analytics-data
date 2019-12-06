@@ -383,8 +383,9 @@ Proof.
 (unfold append; intros).
 (apply spec_abstraction_compose).
 step_proc.
-(destruct a' as [[] bs]).
-(* Auto-generated comment: Succeeded. *)
+(destruct a' as [[] bs]; simpl in *).
+intuition euto.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-04 11:17:01.130000.*)
+(* Auto-generated comment: At 2019-09-04 11:17:14.440000.*)
 
