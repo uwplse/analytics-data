@@ -959,5 +959,12 @@ Proof.
 Msimpl.
 (rewrite <- kron_assoc).
 restore_dims.
+(repeat rewrite (kron_assoc _ q1)).
+Msimpl.
+reflexivity.
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqgeiIe4"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
