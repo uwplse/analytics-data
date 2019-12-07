@@ -999,9 +999,12 @@ restore_dims tensor_tac.
 -
 (simpl).
 listify_kron.
+Timeout 1 About simpl_rewrite.
+Timeout 1 Print simpl_rewrite.
+Timeout 1 Print Ltac simpl_rewrite.
 (simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
   try omega).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 19:56:09.030000.*)
+(* Auto-generated comment: At 2019-08-15 09:28:42.590000.*)
 
