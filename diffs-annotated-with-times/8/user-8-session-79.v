@@ -1032,6 +1032,7 @@ Timeout 1 Print Ltac restore_dims.
      A
      with
      A'
+     in IP
      by unify_matrix_dims tac
  end).
 (* Auto-generated comment: Succeeded. *)
