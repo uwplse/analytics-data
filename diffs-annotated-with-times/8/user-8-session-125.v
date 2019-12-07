@@ -37,8 +37,8 @@ Timeout 1 About unitary_gate_unitary.
 Timeout 1 Print unitary_gate_unitary.
 (simpl in *).
 matrix_denote.
-setoid_rewrite denote_unitary_transpose.
-(* Auto-generated comment: Succeeded. *)
+(rewrite denote_unitary_transpose).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 14:31:24.060000.*)
+(* Auto-generated comment: At 2019-08-15 14:31:28.460000.*)
 
