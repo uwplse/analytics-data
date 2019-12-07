@@ -249,7 +249,8 @@ dependent destruction ps1.
 specialize (zip_wires _ _ _ ps1_2 p ps2).
 exact (pair ps1_1 zip_wires).
 Defined.
-Fixpoint share_to (n k : nat) : Square (n \226\168\130 Qubit \226\138\151 Qubit) :=
+Notation "'Square_Box' W" := (Box W W) (at level 100).
+Fixpoint share_to (n k : nat) : Square_Box n \226\168\130 Qubit \226\138\151 Qubit :=
   match n with
   | 0 => id_circ
   | S n' =>
@@ -264,5 +265,17 @@ Fixpoint share_to (n k : nat) : Square (n \226\168\130 Qubit \226\138\151 Qubit)
              let_ (qs, t)\226\134\144 share_to n' k' $ (qs, t); ((q, qs), t))
       end
   end.
-(* Auto-generated comment: Failed. *)
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqAr0W9I"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma share_to_WT : forall n k, Typed_Box (share_to n k).
+Proof.
+(induction n; type_check).
+(destruct k; type_check).
+(apply IHn; type_check).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqx48xZS"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+(* Auto-generated comment: Succeeded. *)
 
