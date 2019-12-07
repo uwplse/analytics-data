@@ -995,12 +995,11 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-(repeat
-  match goal with
-  | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace 
-    (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
-  end).
-(* Auto-generated comment: Succeeded. *)
+(match goal with
+ | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace 
+   (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
+ end).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 10:15:43.090000.*)
+(* Auto-generated comment: At 2019-08-15 10:15:44.730000.*)
 
