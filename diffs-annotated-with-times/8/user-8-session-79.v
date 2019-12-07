@@ -1160,6 +1160,8 @@ listify_kron.
 (rewrite 2!id_circ_spec).
 (erewrite kron_compat).
 3: (erewrite kron_compat).
-5: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb2 \206\147 f \226\140\136 b2 | f \226\140\137); trivial).
+5:
+ (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
+   apply (IHb2 \206\147 f \226\140\136 b2 | f \226\140\137); trivial).
 (* Auto-generated comment: Failed. *)
 
