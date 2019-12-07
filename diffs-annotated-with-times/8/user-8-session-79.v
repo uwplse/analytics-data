@@ -1011,5 +1011,5 @@ restore_dims tensor_tac.
 specialize inSeq_correct as IS.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 12:01:24.470000.*)
+(* Auto-generated comment: At 2019-08-15 12:01:42.210000.*)
 
