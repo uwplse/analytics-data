@@ -1133,6 +1133,5 @@ reflexivity.
 -
 specialize inSeq_correct as IS.
 (simpl in IS).
-(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
 (* Auto-generated comment: Succeeded. *)
 
