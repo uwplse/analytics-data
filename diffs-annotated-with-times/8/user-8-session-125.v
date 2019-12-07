@@ -35,11 +35,11 @@ Proof.
 (intros U \207\129 safe).
 Timeout 1 About unitary_gate_unitary.
 Timeout 1 Print unitary_gate_unitary.
+specialize (unitary_gate_unitary U) as inv.
 (simpl in *).
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
-(simpl in *; Msimpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:42:02.340000.*)
+(* Auto-generated comment: At 2019-08-15 14:42:02.810000.*)
 
