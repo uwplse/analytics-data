@@ -1118,6 +1118,6 @@ reflexivity.
 8: {
 rewrite_inPar'.
 (rewrite id_circ_spec).
-(simpl_rewrite (IHb1 \206\147 f true)).
+(simpl_rewrite (IHb1 \206\147 f false)).
 (* Auto-generated comment: Failed. *)
 
