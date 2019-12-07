@@ -26,7 +26,8 @@ Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://
 Definition failWith {E} {R} `{exceptE error -< E} (err : error) : itree E R :=
   vd <- trigger (Throw err);; match vd in void with
                               end.
-Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
-Module App.
+Redirect "/tmp/coq16819-gT" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
