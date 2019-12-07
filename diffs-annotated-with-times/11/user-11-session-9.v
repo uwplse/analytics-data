@@ -13,8 +13,5 @@ Definition public_key := N.
 Definition shared_key := N.
 Definition base := 5.
 Definition prime := 23.
-Definition derive_public (k : secret_key) : public_key := base ^ k mod prime.
 (* Auto-generated comment: Succeeded. *)
-
-(* Auto-generated comment: At 2019-09-09 21:12:37.490000.*)
 
