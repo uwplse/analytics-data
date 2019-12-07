@@ -160,6 +160,5 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma fair_toss : (\226\159\166 coin_flip \226\159\167) (I 1) == fair_coin.
 Proof.
-lma.
 (* Auto-generated comment: Succeeded. *)
 
