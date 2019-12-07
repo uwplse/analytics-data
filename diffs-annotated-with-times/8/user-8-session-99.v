@@ -652,8 +652,8 @@ Proof.
 -
 (simpl).
 (apply pure_state_kron).
-(apply (H 0)).
-(* Auto-generated comment: Succeeded. *)
+(apply H).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 13:33:34.220000.*)
+(* Auto-generated comment: At 2019-08-15 13:33:44.180000.*)
 
