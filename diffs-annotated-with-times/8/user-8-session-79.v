@@ -995,9 +995,7 @@ restore_dims tensor_tac.
 -
 (simpl).
 listify_kron.
-(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
-  try omega).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:32:44.290000.*)
+(* Auto-generated comment: At 2019-08-15 09:33:13.180000.*)
 
