@@ -995,10 +995,8 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-Timeout 1 About big_kron.
-Timeout 1 Print big_kron.
-Timeout 1 Print Ltac big_kron.
+Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 10:23:17.520000.*)
+(* Auto-generated comment: At 2019-08-15 10:24:58.230000.*)
 
