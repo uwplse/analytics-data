@@ -991,8 +991,8 @@ restore_dims
 (rewrite id_circ_spec).
 (destruct t).
 (simpl).
-reflexivity.
-(* Auto-generated comment: Failed. *)
+restore_dims.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:55:29.610000.*)
+(* Auto-generated comment: At 2019-08-14 18:55:45.900000.*)
 
