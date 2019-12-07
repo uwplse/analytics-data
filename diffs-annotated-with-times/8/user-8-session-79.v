@@ -1016,7 +1016,8 @@ specialize inSeq_correct as IS.
 rewrite_inPar'.
 rewrite_inPar'.
 (rewrite strip_one_l_in_eq).
-restore_dims tensor_tac.
 (repeat simpl_rewrite id_circ_spec).
+restore_dims tensor_tac.
+setoid_rewrite (kron_1_l_inv (ctx_to_matrix \206\147 f)).
 (* Auto-generated comment: Succeeded. *)
 
