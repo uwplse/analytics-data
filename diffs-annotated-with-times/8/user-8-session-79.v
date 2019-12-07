@@ -1210,5 +1210,6 @@ rewrite_inPar.
  (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
    rewrite ctx_to_mat_list_length; specialize (IHb2 \206\147 f \226\140\136 b2 | f \226\140\137);
    repeat rewrite Nat.add_0_r in *; apply IHb2; trivial).
+(rewrite xorb_nilpotent).
 (* Auto-generated comment: Succeeded. *)
 
