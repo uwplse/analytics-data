@@ -124,6 +124,5 @@ Msimpl.
 (rewrite inv by (subst; rewrite size_wtype_length; easy)).
 Msimpl.
 (rewrite Mmult_assoc).
-easy.
 (* Auto-generated comment: Succeeded. *)
 
