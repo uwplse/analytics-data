@@ -983,6 +983,25 @@ Proof.
 (induction b; intros \206\147 f t H).
 -
 (simpl in *).
-rewrite_inPar'.
+(fold NTensor; simpl in *;
+  match goal with
+  | |-
+    context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
+                (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
+        let IP := fresh "IP" in
+        specialize (inPar_correct W1 W1' W2 W2' f g \207\1291 \207\1292) as IP; simpl in *;
+         match goal with
+         | H:?A ->
+             ?B ->
+             ?C ->
+             ?D ->
+             (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
+               (@kron ?m' ?n' ?o' ?p' ?\207\1291 ?\207\1292) == ?RHS
+           |- _ =>
+               replace m with m'; try dim_solve; replace n with n'; try dim_solve;
+                replace o with o'; try dim_solve; replace p with p'; 
+                try dim_solve; try rewrite H
+         end; clear IP
+  end; try (solve [ type_check ])).
 (* Auto-generated comment: Failed. *)
 
