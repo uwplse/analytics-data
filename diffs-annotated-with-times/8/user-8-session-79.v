@@ -899,6 +899,6 @@ Lemma kron_1_l' : forall {m n : nat} (A : Matrix m n), I 1 \226\138\151 A = A.
 (unfold I, kron).
 (apply functional_extensionality; intros).
 (apply functional_extensionality; intros).
-(rewrite 2!Nat.mod_small by lia).
-(* Auto-generated comment: Failed. *)
+(rewrite 2!Nat.mod_small).
+(* Auto-generated comment: Succeeded. *)
 
