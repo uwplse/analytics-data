@@ -998,7 +998,21 @@ restore_dims tensor_tac.
 listify_kron.
 (simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
   try omega).
+(simpl).
+(rewrite xorb_comm).
+reflexivity.
+(apply (singleton_nth_classical \206\147 v) in H as [W H]).
+(apply position_of_lt in H).
+(simpl in *; omega).
+(apply ctx_lookup_exists; easy).
+-
+(simpl in *).
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; compile_typing compile_WT)).
+(unfold compose_super).
+rewrite_inPar.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 11:53:02.230000.*)
+(* Auto-generated comment: At 2019-08-15 11:53:44.020000.*)
 
