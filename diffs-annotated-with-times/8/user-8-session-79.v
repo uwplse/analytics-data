@@ -1162,7 +1162,6 @@ listify_kron.
 3: (erewrite kron_compat).
 5:
  (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
-   rewrite ctx_to_mat_list_length).
-5: (apply (IHb2 \206\147 f \226\140\136 b2 | f \226\140\137); trivial).
+   rewrite ctx_to_mat_list_length; apply (IHb2 \206\147 f \226\140\136 b2 | f \226\140\137); trivial).
 (* Auto-generated comment: Succeeded. *)
 
