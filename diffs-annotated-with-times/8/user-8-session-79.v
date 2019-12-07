@@ -906,123 +906,12 @@ Ltac
   end; try (solve [ type_check ]).
 Ltac
  tensor_tac :=
-  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-   lia.
-Lemma init_at_spec :
-  forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
-  length l1 = i ->
-  length l2 = n - i ->
-  (forall j, Mixed_State (nth j l1 A)) ->
-  (forall j, Mixed_State (nth j l2 B)) ->
-  i < S n ->
-  (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) == \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
-Proof.
-(intros b n i).
-gen n.
-(induction i).
--
-(intros n l1 l2 A B L1 L2 M1 M2 Lt).
-(destruct l1; inversion L1).
-(simpl in *).
-clear L1 M1 Lt.
-(rewrite strip_one_l_in_eq).
-(rewrite Nat.sub_0_r in L2).
-(rewrite L2 in *).
-restore_dims tensor_tac.
-(erewrite denote_box_compat).
-2: {
-restore_dims tensor_tac.
-(rewrite (kron_1_l_inv (\226\168\130 l2))).
-reflexivity.
-}
-(rewrite L2).
-rewrite_inPar''.
-restore_dims tensor_tac.
-(rewrite id_circ_spec).
-(rewrite init_spec).
-restore_dims tensor_tac.
-reflexivity.
--
-(intros n l1 l2 A B L1 L2 M1 M2 Lt).
-(destruct n; [ omega |  ]).
-(destruct l1; inversion L1).
-(simpl).
-(rewrite H0).
-restore_dims tensor_tac.
-replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
-rewrite_inPar''.
-(rewrite id_circ_spec).
-restore_dims tensor_tac.
-(simpl).
-specialize (IHi n l1 l2 A B).
-show_dimensions.
-(repeat rewrite app_length in *).
-(simpl in *).
-replace (length l1 + S (length l2)) with S n in * by lia.
-(simpl in *).
-(rewrite size_ntensor).
-(simpl).
-(rewrite Nat.mul_1_r).
-(rewrite IHi; trivial; try lia).
-reflexivity.
-(intros j).
-(apply (M1 (S j))).
-Qed.
-Theorem compile_correct :
-  forall (b : bexp) (\206\147 : Ctx) (f : Var -> bool) (t : bool),
-  get_context b \226\138\130 \206\147 ->
-  (\226\159\166 compile b \206\147 \226\159\167) (bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f) ==
-  bool_to_matrix (t \226\138\149 \226\140\136 b | f \226\140\137) \226\138\151 ctx_to_matrix \206\147 f.
-Proof.
-(intros b).
-(induction b; intros \206\147 f t H).
--
-(simpl in *).
-rewrite_inPar''.
-(simpl_rewrite TRUE_spec).
-restore_dims tensor_tac.
-(rewrite id_circ_spec).
-restore_dims tensor_tac.
-(destruct t; reflexivity).
--
-(simpl in *).
-rewrite_inPar''.
-(simpl_rewrite FALSE_spec).
-restore_dims tensor_tac.
-(rewrite id_circ_spec).
-restore_dims tensor_tac.
-(destruct t; reflexivity).
--
-(simpl).
-restore_dims tensor_tac.
-(unfold ctx_to_matrix;
-  repeat
-   match goal with
-   | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
-     @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li) by
-     simpl; Msimpl; rewrite ctx_to_mat_list_length;
-      try rewrite size_ntensor, Nat.mul_1_r; easy
-   end).
-Timeout 1 About restore_dims.
-Timeout 1 Print restore_dims.
-Timeout 1 Print Ltac restore_dims.
-(match goal with
- | |- ?A => let A' := restore_dims_rec tac A in
-            replace
-            A
-            with
-            A'
- end).
-2: {
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(apply f_equal_gen; trivial).
-(simpl).
+  simpl; try rewrite size_ntensor; try rewrite app_length;
+   try rewrite ctx_to_mat_list_length; simpl; unify_pows_two; lia.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqCZRrU8"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:47:04.950000.*)
+(* Auto-generated comment: At 2019-08-15 09:47:12.720000.*)
 
