@@ -127,6 +127,9 @@ Msimpl.
 (rewrite Mmult_assoc).
 easy.
 {
-(apply denote_ctrls_unitary).
+(intros).
+(rewrite Heqli in H).
+(simpl).
+(rewrite (ctx_wtype_size _ (add_fresh_pat W []) (add_fresh_state W []))).
 (* Auto-generated comment: Succeeded. *)
 
