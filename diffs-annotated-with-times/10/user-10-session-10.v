@@ -330,6 +330,7 @@ Definition map_exceptE {e1} {e2} (f : e1 -> e2) : exceptE e1 ~> exceptE e2 :=
   fun _ e => match e with
              | Throw e => Throw (f e)
              end.
+Print taE.
 Definition network_of_app_ta sk : taE ~> itree tE :=
   fun _ tae =>
   match tae with
@@ -339,5 +340,5 @@ Definition network_of_app_ta sk : taE ~> itree tE :=
   end.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-22 08:07:04.610000.*)
+(* Auto-generated comment: At 2019-08-22 08:07:11.500000.*)
 
