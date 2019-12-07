@@ -319,5 +319,5 @@ Definition server : itree sE void :=
   interp (network_of_app sk) (nmi_of_smi kvs).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-22 07:49:19.310000.*)
+(* Auto-generated comment: At 2019-08-22 07:49:43.330000.*)
 
