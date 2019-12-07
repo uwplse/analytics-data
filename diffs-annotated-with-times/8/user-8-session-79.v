@@ -1026,6 +1026,6 @@ restore_dims tensor_tac.
 6: (erewrite denote_box_compat).
 7: (erewrite denote_box_compat).
 8: {
-show_dimensons.
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(* Auto-generated comment: Succeeded. *)
 
