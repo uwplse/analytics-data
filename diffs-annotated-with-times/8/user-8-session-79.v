@@ -1067,5 +1067,7 @@ restore_dims tensor_tac.
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
+show_dimensions.
+(apply (IHb \206\147 f (\194\172 \226\140\136 b | f \226\140\137))).
 (* Auto-generated comment: Failed. *)
 
