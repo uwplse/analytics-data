@@ -996,7 +996,16 @@ restore_dims
 -
 (simpl in *).
 rewrite_inPar''.
+(simpl_rewrite FALSE_spec).
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
+  lia.
+(rewrite id_circ_spec).
+restore_dims
+ simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
+  lia.
+(destruct t; reflexivity).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:57:16.020000.*)
+(* Auto-generated comment: At 2019-08-14 18:57:42.990000.*)
 
