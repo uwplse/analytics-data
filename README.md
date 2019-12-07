@@ -5,7 +5,9 @@ This public repository hosts the data for the [REPLICA](https://github.com/uwpls
 The raw data is in the [raw](/raw) directory.
 
 Processed data for Q2 is in the [diffs-annotated-fixed-2](/diffs-annotated-fixed-2)
-directory. You can use the Git history to look back at the sessions referenced 
+directory. Processed data for Q2 _including timestamps_ is in the
+[diffs-annotated-with-times](/diffs-annotated-with-times) directory.
+You can use the Git history to look back at the sessions referenced 
 within the paper.
 
 # Analysis
@@ -36,15 +38,18 @@ within the project, and then modify this line:
 diffpath="${path}/../../diffs-annotated-fixed-2/${userid}"
 ```
 
-in [commit-diffs.sh](/scripts/q2/commit-diffs.sh) to point to it.
+in [commit-diffs.sh](/scripts/q2/commit-diffs.sh) to point to it
+(or [commit-diffs-timestamps](/scripts/q2/commit-diffs-timestamps) if you
+would like annotatations for timestamps).
 Also add subdirectories in your new directory for each user, with the names
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 11.
 Then, just run [commit-all-diffs.sh](/scripts/q2/commit-all-diffs.sh)
+(or [commit-all-diffs-timestamps.sh](/scripts/q2/commit-all-diffs-timestamps.sh)
+if you would like annotations for timestamps)
 from within its directory. You can then look at the Git history
 to see the processed data.
 
 Soon, I will include a file that contains a complete list of all of the changes
 that we found in the manual analysis of this processed data,
 with links to benchmarks mentioned in the paper.
-I will also describe how we determined when changes occurred across the same file,
-and will include scripts with timestamps as well.
+I will also describe how we determined when changes occurred across the same file.
