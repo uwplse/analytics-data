@@ -995,7 +995,10 @@ restore_dims tensor_tac.
 -
 (simpl).
 listify_kron.
+Timeout 1 About listify_kron.
+Timeout 1 Print listify_kron.
+Timeout 1 Print Ltac listify_kron.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:34:15.970000.*)
+(* Auto-generated comment: At 2019-08-15 09:34:39.350000.*)
 
