@@ -18,7 +18,11 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqzHAnj7"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-(* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-08-27 15:32:24.090000.*)
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
+Please report at http://coq.inria.fr/bugs/.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqNuJb2C"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Eval compute in Str_nth 10 (fib1 0 1).
+(* Auto-generated comment: Succeeded. *)
 
