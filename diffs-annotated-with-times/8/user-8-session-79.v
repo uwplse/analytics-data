@@ -1055,5 +1055,7 @@ listify_kron.
 (simpl_rewrite (CNOT_at_spec (\194\172 \226\140\136 b | f \226\140\137) t (S (S (\226\159\166 \206\147 \226\159\167))) 1 0); trivial;
   try omega).
 (simpl).
-(* Auto-generated comment: Failed. *)
+rewrite_inPar'.
+all: (rewrite size_ntensor).
+(* Auto-generated comment: Succeeded. *)
 
