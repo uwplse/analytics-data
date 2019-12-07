@@ -1024,6 +1024,7 @@ restore_dims tensor_tac.
  end; try (solve [ type_check ])).
 revert IP.
 restore_dims tensor_tac.
-(intros Ip).
-(* Auto-generated comment: Succeeded. *)
+(intros IP).
+(rewrite IP).
+(* Auto-generated comment: Failed. *)
 
