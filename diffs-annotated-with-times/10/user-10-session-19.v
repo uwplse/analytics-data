@@ -19,8 +19,6 @@ Please report at http://coq.inria.fr/bugs/.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
 Eval compute in Str_nth 10 (fib1 0 1).
-Timeout 1 Eval compute in hd (fib2 0 1).
-(* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-08-27 15:51:59.630000.*)
+Fail Timeout 1 Eval compute in hd (fib2 0 1).
+(* Auto-generated comment: Succeeded. *)
 
