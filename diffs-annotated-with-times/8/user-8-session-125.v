@@ -40,5 +40,5 @@ matrix_denote.
 setoid_rewrite denote_unitary_transpose.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:31:09.520000.*)
+(* Auto-generated comment: At 2019-08-15 14:31:15.700000.*)
 
