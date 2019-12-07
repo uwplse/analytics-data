@@ -1000,5 +1000,5 @@ Timeout 1 Print Ltac rewrite_inPar.
  end; try (solve [ type_check ])).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:38:57.150000.*)
+(* Auto-generated comment: At 2019-08-14 18:39:51.520000.*)
 
