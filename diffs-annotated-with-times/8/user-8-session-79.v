@@ -1003,5 +1003,5 @@ show_dimensions.
 (simpl in *; rewrite size_ntensor in *; try rewrite Nat.mul_1_r in *).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:37:48.980000.*)
+(* Auto-generated comment: At 2019-08-14 18:37:49.800000.*)
 
