@@ -1109,6 +1109,5 @@ restore_dims tensor_tac.
 reflexivity.
 }
 all: (try reflexivity).
-restore_dims tensor_tac.
 (* Auto-generated comment: Succeeded. *)
 
