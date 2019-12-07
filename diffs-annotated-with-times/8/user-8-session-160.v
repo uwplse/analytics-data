@@ -31,7 +31,8 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 solve_matrix.
+Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 15:00:52.220000.*)
+(* Auto-generated comment: At 2019-08-16 15:02:05.140000.*)
 
