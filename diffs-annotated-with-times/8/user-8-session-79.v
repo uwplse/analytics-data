@@ -1058,6 +1058,8 @@ listify_kron.
 rewrite_inPar'.
 all: (try tensor_tac).
 (unfold ctx_to_matrix in *).
-(rewrite IHb; trivial).
-(* Auto-generated comment: Failed. *)
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+(* Auto-generated comment: Succeeded. *)
 
