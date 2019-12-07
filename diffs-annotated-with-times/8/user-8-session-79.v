@@ -1000,5 +1000,5 @@ restore_dims tensor_tac.
 (simpl).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 19:50:00.210000.*)
+(* Auto-generated comment: At 2019-08-14 19:50:00.320000.*)
 
