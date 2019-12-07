@@ -1082,6 +1082,6 @@ restore_dims tensor_tac.
 (rewrite assert1_spec).
 (rewrite id_circ_spec).
 (rewrite xorb_comm).
-reflexivity.
-(* Auto-generated comment: Succeeded. *)
+Msimpl.
+(* Auto-generated comment: Failed. *)
 
