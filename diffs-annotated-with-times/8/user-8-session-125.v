@@ -179,5 +179,6 @@ solve_matrix.
 +
 (simpl).
 matrix_denote.
-(* Auto-generated comment: Succeeded. *)
+Msimpl.
+(* Auto-generated comment: Failed. *)
 
