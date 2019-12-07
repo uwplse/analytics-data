@@ -1046,6 +1046,5 @@ specialize (IHb \206\147 f true).
 (rewrite size_ntensor).
 (simpl).
 (rewrite Nat.mul_1_r).
-(apply IHb).
 (* Auto-generated comment: Succeeded. *)
 
