@@ -752,5 +752,173 @@ Ltac
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqD3Zl8d"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-(* Auto-generated comment: Failed. *)
+Ltac
+ listify_kron :=
+  unfold ctx_to_matrix;
+   repeat
+    match goal with
+    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace
+      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li) by tensor_dims
+    end.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coql5T98o"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Lemma ctx_lookup_exists :
+  forall v \206\147 f,
+  get_context (b_var v) \226\138\130 \206\147 ->
+  ctx_to_mat_list \206\147 f !! position_of v \206\147 = Some (bool_to_matrix (f v)).
+Proof.
+(induction v; intros \206\147 f H).
+-
+(destruct \206\147).
+(inversion H).
+(destruct o).
+(simpl).
+reflexivity.
+(inversion H).
+-
+(destruct \206\147).
+(simpl).
+(inversion H).
+(simpl).
+(destruct o).
+(simpl).
+(apply IHv).
+(simpl in H).
+(inversion H).
+subst.
+(simpl).
+easy.
+(apply IHv).
+(simpl in H).
+(inversion H).
+subst.
+(simpl).
+easy.
+Qed.
+Fact CNOT_at_spec :
+  forall (b1 b2 : bool) (n x y : nat) (li : list (Matrix 2 2)),
+  x < n ->
+  y < n ->
+  x <> y ->
+  nth_error li x = Some (bool_to_matrix b1) ->
+  nth_error li y = Some (bool_to_matrix b2) ->
+  (\226\159\166 CNOT_at n x y \226\159\167) (\226\168\130 li) = \226\168\130 update_at li y (bool_to_matrix (b1 \226\138\149 b2)).
+Admitted.
+Fact Toffoli_at_spec :
+  forall (b1 b2 b3 : bool) (n x y z : nat) (li : list (Matrix 2 2)),
+  x < n ->
+  y < n ->
+  z < n ->
+  x <> y ->
+  x <> z ->
+  y <> z ->
+  nth_error li x = Some (bool_to_matrix b1) ->
+  nth_error li y = Some (bool_to_matrix b2) ->
+  nth_error li z = Some (bool_to_matrix b3) ->
+  (\226\159\166 Toffoli_at n x y z \226\159\167) (\226\168\130 li) =
+  \226\168\130 update_at li z (bool_to_matrix ((b1 && b2) \226\138\149 b3)).
+Admitted.
+Ltac
+ rewrite_inPar'' :=
+  fold NTensor;
+   match goal with
+   | |-
+     context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
+                 (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
+         let IP := fresh "IP" in
+         specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
+          rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
+          rewrite IP; clear IP
+   end; try (solve [ type_check ]).
+Lemma init_at_spec :
+  forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
+  length l1 = i ->
+  length l2 = n - i ->
+  (forall j, Mixed_State (nth j l1 A)) ->
+  (forall j, Mixed_State (nth j l2 B)) ->
+  i < S n ->
+  (\226\159\166 init_at b n i \226\159\167) (\226\168\130 (l1 ++ l2)) == \226\168\130 (l1 ++ [bool_to_matrix b] ++ l2).
+Proof.
+(intros b n i).
+gen n.
+(induction i).
+-
+(intros n l1 l2 A B L1 L2 M1 M2 Lt).
+(destruct l1; inversion L1).
+(simpl in *).
+clear L1 M1 Lt.
+(rewrite strip_one_l_in_eq).
+(rewrite Nat.sub_0_r in L2).
+(rewrite L2 in *).
+restore_dims tensor_dims.
+(erewrite denote_box_compat).
+2: {
+restore_dims tensor_dims.
+(rewrite (kron_1_l_inv (\226\168\130 l2))).
+reflexivity.
+}
+(rewrite L2).
+rewrite_inPar''.
+restore_dims tensor_dims.
+(rewrite id_circ_spec).
+(rewrite init_spec).
+restore_dims tensor_dims.
+reflexivity.
+-
+(intros n l1 l2 A B L1 L2 M1 M2 Lt).
+(destruct n; [ omega |  ]).
+(destruct l1; inversion L1).
+(simpl).
+(rewrite H0).
+restore_dims tensor_dims.
+replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
+rewrite_inPar''.
+(rewrite id_circ_spec).
+restore_dims tensor_dims.
+(simpl).
+specialize (IHi n l1 l2 A B).
+show_dimensions.
+(repeat rewrite app_length in *).
+(simpl in *).
+replace (length l1 + S (length l2)) with S n in * by lia.
+(simpl in *).
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(rewrite IHi; trivial; try lia).
+reflexivity.
+(intros j).
+(apply (M1 (S j))).
+Qed.
+Theorem compile_correct :
+  forall (b : bexp) (\206\147 : Ctx) (f : Var -> bool) (t : bool),
+  get_context b \226\138\130 \206\147 ->
+  (\226\159\166 compile b \206\147 \226\159\167) (bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f) ==
+  bool_to_matrix (t \226\138\149 \226\140\136 b | f \226\140\137) \226\138\151 ctx_to_matrix \206\147 f.
+Proof.
+(intros b).
+(induction b; intros \206\147 f t H).
+-
+(simpl in *).
+rewrite_inPar''.
+(simpl_rewrite TRUE_spec).
+restore_dims tensor_dims.
+(rewrite id_circ_spec).
+restore_dims tensor_dims.
+(destruct t; reflexivity).
+-
+(simpl in *).
+rewrite_inPar''.
+(simpl_rewrite FALSE_spec).
+restore_dims tensor_dims.
+(rewrite id_circ_spec).
+restore_dims tensor_dims.
+(destruct t; reflexivity).
+-
+(simpl).
+listify_kron.
+(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
+  try omega).
+(* Auto-generated comment: Succeeded. *)
 
