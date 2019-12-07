@@ -1035,8 +1035,10 @@ rewrite_inPar'.
 (rewrite id_circ_spec).
 (rewrite init1_spec).
 mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with bool_to_matrix true by reflexivity.
-specialize (IHb \206\147 f true H).
-(simpl in *).
-(rewrite IHb).
-(* Auto-generated comment: Succeeded. *)
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+4: (erewrite kron_compat).
+6: (rewrite IHb).
+(* Auto-generated comment: Failed. *)
 
