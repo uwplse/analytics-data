@@ -226,6 +226,12 @@ Inductive message :=
   | Message_Plain : forall plainMessage : plain_message, _
   | Message_Cipher : forall cipherMessage : cipher_text plain_message, _.
 Derive Show for message.
+Instance eqMessage  (x y : message): (Dec (x = y)).
+Proof.
+dec_eq.
+Defined.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqoE3OKo" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Definition Message_Finished (k : shared_key) (verifyData : N) : message :=
   Message_Cipher (cipher k (PlainMessage_Finished verifyData)).
 Definition Message_Hello (messageRandom : random) (messagePublic : public_key) : message :=
@@ -257,14 +263,8 @@ Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} (k : sha
       end
   | App_Send data => embed Network_Send (Message_Cipher (cipher k (PlainMessage_AppData data)))
   end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqpfIkPc" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-Print taE.
 Notation sE := (networkE +' exceptE error +' hsgenE +' randomE).
 Notation tE := (nondetE +' sE).
-Print networkE.
-Print error.
 CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itree tE unit :=
   match t.(observe) with
   | RetF r => Ret r
@@ -281,7 +281,10 @@ CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itre
       | (e|) | (||e|) | (|||e|) | (||||e) => vis e (match_event e0 x0 \226\136\152 k)
       end
   end.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq2FStrM" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-22 03:23:36.960000.*)
+(* Auto-generated comment: At 2019-08-22 03:23:37.070000.*)
 
