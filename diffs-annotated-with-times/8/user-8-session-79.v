@@ -1104,6 +1104,5 @@ clear IS.
 6: (erewrite denote_box_compat).
 7: (erewrite denote_box_compat).
 8: {
-restore_dims tensor_tac.
 (* Auto-generated comment: Succeeded. *)
 
