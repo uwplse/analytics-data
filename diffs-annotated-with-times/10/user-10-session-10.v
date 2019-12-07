@@ -323,9 +323,9 @@ Check interp.
 Print interp.
 Check interp.
 Print interp.
-Definition server : itree sE void :=
-  sk <- translate subevent serverHandshake;; interp (network_of_app sk) (nmi_of_smi kvs).
-(* Auto-generated comment: Failed. *)
+Check network_of_app.
+Print network_of_app.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-22 08:02:18.420000.*)
+(* Auto-generated comment: At 2019-08-22 08:04:35.460000.*)
 
