@@ -894,8 +894,253 @@ reflexivity.
 (intros j).
 (apply (M1 (S j))).
 Qed.
-Lemma kron_1_l' : forall {m n : nat} (A : Matrix m n), I 1 \226\138\151 A = A.
-(intros m n A).
-(unfold I, kron).
+Theorem compile_correct :
+  forall (b : bexp) (\206\147 : Ctx) (f : Var -> bool) (t : bool),
+  get_context b \226\138\130 \206\147 ->
+  (\226\159\166 compile b \206\147 \226\159\167) (bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f) ==
+  bool_to_matrix (t \226\138\149 \226\140\136 b | f \226\140\137) \226\138\151 ctx_to_matrix \206\147 f.
+Proof.
+(intros b).
+(induction b; intros \206\147 f t H).
+-
+(simpl in *).
+rewrite_inPar''.
+(simpl_rewrite TRUE_spec).
+restore_dims tensor_dims.
+(rewrite id_circ_spec).
+restore_dims tensor_dims.
+(destruct t; reflexivity).
+-
+(simpl in *).
+rewrite_inPar''.
+(simpl_rewrite FALSE_spec).
+restore_dims tensor_dims.
+(rewrite id_circ_spec).
+restore_dims tensor_dims.
+(destruct t; reflexivity).
+-
+(simpl).
+listify_kron.
+(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
+  try omega).
+(simpl).
+(rewrite xorb_comm).
+reflexivity.
+(apply (singleton_nth_classical \206\147 v) in H as [W H]).
+(apply position_of_lt in H).
+(simpl in *; omega).
+(apply ctx_lookup_exists; easy).
+-
+(simpl in *).
+restore_dims tensor_dims.
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
+clear IS.
+rewrite_inPar.
+rewrite_inPar.
+(rewrite strip_one_l_in_eq).
+(repeat simpl_rewrite id_circ_spec).
+restore_dims tensor_dims.
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+4: (erewrite kron_compat).
+6: (erewrite denote_box_compat).
+7: (erewrite denote_box_compat).
+8: {
+restore_dims tensor_dims.
+(rewrite kron_1_l_inv).
+reflexivity.
+}
+all: (try reflexivity).
+rewrite_inPar.
+(rewrite id_circ_spec).
+(rewrite init1_spec).
+mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with bool_to_matrix true by reflexivity.
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+4: (erewrite kron_compat).
+6: {
+restore_dims tensor_dims.
+specialize (IHb \206\147 f true).
+(simpl).
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(apply IHb).
+easy.
+}
+all: (try reflexivity).
+(rewrite xorb_true_l).
+listify_kron.
+(simpl_rewrite (CNOT_at_spec (\194\172 \226\140\136 b | f \226\140\137) t (S (S (\226\159\166 \206\147 \226\159\167))) 1 0); trivial;
+  try omega).
+(simpl).
+rewrite_inPar.
+all: (try tensor_dims).
+(unfold ctx_to_matrix in *).
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+2: (erewrite kron_compat).
+4: {
+restore_dims tensor_dims.
+(simpl).
+(rewrite size_ntensor).
+(simpl).
+(rewrite Nat.mul_1_r).
+(rewrite ctx_to_mat_list_length).
+(apply IHb).
+easy.
+}
+all: (try reflexivity).
+(rewrite id_circ_spec).
+rewrite_inPar.
+(rewrite id_circ_spec).
+(rewrite strip_one_l_out_eq).
+(rewrite xorb_nb_b).
+rewrite_inPar.
+restore_dims tensor_dims.
+(rewrite assert1_spec).
+(rewrite id_circ_spec).
+(rewrite xorb_comm).
+restore_dims tensor_dims.
+Msimpl.
+(match goal with
+ | |- ?A == ?B => replace A with B by unify_matrix_dims tensor_dims
+ end).
+reflexivity.
+-
+(simpl in *).
+restore_dims tensor_dims.
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
+clear IS.
+(apply subset_classical_merge in H as [S1 S2]).
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+4: (erewrite denote_box_compat).
+5: (erewrite denote_box_compat).
+6: (erewrite denote_box_compat).
+7: (erewrite denote_box_compat).
+8: (erewrite denote_box_compat).
+9: {
+rewrite_inPar.
+(repeat rewrite strip_one_l_in_eq).
+(rewrite id_circ_spec).
+restore_dims tensor_dims.
+(erewrite denote_box_compat).
+2: (restore_dims tensor_dims; apply (kron_1_l_inv (ctx_to_matrix \206\147 f))).
+rewrite_inPar.
+(rewrite init0_spec).
+(rewrite id_circ_spec).
+reflexivity.
+}
+8: {
+rewrite_inPar.
+(rewrite id_circ_spec).
+restore_dims tensor_dims.
+(erewrite kron_compat).
+3: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb1 \206\147 f false); trivial).
+(rewrite xorb_false_l).
+all: reflexivity.
+}
+7: {
+rewrite_inPar.
+rewrite_inPar.
+(rewrite 2!id_circ_spec).
+(rewrite strip_one_l_in_eq).
+(erewrite kron_compat).
+3: (erewrite kron_compat).
+5: (erewrite denote_box_compat).
+6: (restore_dims tensor_dims; apply (kron_1_l_inv (ctx_to_matrix \206\147 f))).
+5: rewrite_inPar.
+5: (rewrite id_circ_spec, init0_spec; reflexivity).
+all: reflexivity.
+}
+6: {
+rewrite_inPar.
+rewrite_inPar.
+(rewrite 2!id_circ_spec).
+(erewrite kron_compat).
+3: (erewrite kron_compat).
+5: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb2 \206\147 f false); trivial).
+3: (rewrite xorb_false_l).
+all: reflexivity.
+}
+5: {
+listify_kron.
+(simpl_rewrite (Toffoli_at_spec \226\140\136 b1 | f \226\140\137 \226\140\136 b2 | f \226\140\137 t (3 + \226\159\166 \206\147 \226\159\167) 1 2 0); trivial;
+  try omega).
+(simpl; reflexivity).
+}
+4: {
+(rewrite_inPar; try tensor_dims).
+(rewrite_inPar; try tensor_dims).
+(rewrite 2!id_circ_spec).
+(erewrite kron_compat).
+3: (erewrite kron_compat).
+5:
+ (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
+   rewrite ctx_to_mat_list_length; apply (IHb2 \206\147 f \226\140\136 b2 | f \226\140\137); trivial).
+3: (rewrite xorb_nilpotent).
+all: (simpl; reflexivity).
+}
+3: {
+rewrite_inPar.
+rewrite_inPar.
+(rewrite 2!id_circ_spec).
+(rewrite strip_one_l_out_eq).
+rewrite_inPar.
+restore_dims tensor_dims.
+(rewrite id_circ_spec).
+(rewrite assert0_spec).
+restore_dims tensor_dims.
+(rewrite kron_1_l).
+reflexivity.
+}
+2: {
+(rewrite_inPar; try tensor_dims).
+(rewrite id_circ_spec).
+(erewrite kron_compat).
+3:
+ (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
+   rewrite ctx_to_mat_list_length; specialize (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137);
+   repeat rewrite Nat.add_0_r in *; apply IHb1; trivial).
+(rewrite xorb_nilpotent).
+all: reflexivity.
+}
+1: {
+rewrite_inPar.
+(rewrite id_circ_spec).
+(rewrite strip_one_l_out_eq).
+rewrite_inPar.
+restore_dims tensor_dims.
+(rewrite id_circ_spec).
+(rewrite assert0_spec).
+restore_dims tensor_dims.
+(rewrite kron_1_l).
+(rewrite xorb_comm).
+(unfold ctx_to_matrix).
+(simpl).
+(rewrite ctx_to_mat_list_length).
+(repeat rewrite Nat.add_0_r).
+reflexivity.
+}
+-
+(simpl in *).
+restore_dims tensor_dims.
+specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
+clear IS.
+(apply subset_classical_merge in H as [S1 S2]).
+(repeat rewrite_inPar).
+(repeat rewrite id_circ_spec).
+(rewrite strip_one_l_in_eq).
+(rewrite (kron_1_l_inv (ctx_to_matrix \206\147 f))).
 (* Auto-generated comment: Succeeded. *)
 
