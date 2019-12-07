@@ -726,8 +726,10 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Set Printing All.
 Timeout 1 Print LoadPath.
-(simpl).
+(repeat rewrite Nat.mul_1_l).
+(rewrite (kron_1_r A)).
+(rewrite (kron_1_r B)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 12:20:24.170000.*)
+(* Auto-generated comment: At 2019-08-15 12:20:45.950000.*)
 
