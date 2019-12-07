@@ -179,6 +179,6 @@ solve_matrix.
 +
 (simpl).
 matrix_denote.
-Msimpl.
-(* Auto-generated comment: Failed. *)
+restore_dims.
+(* Auto-generated comment: Succeeded. *)
 
