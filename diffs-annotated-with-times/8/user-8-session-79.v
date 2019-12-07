@@ -1187,5 +1187,6 @@ Set Printing All.
 3: {
 (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
   rewrite ctx_to_mat_list_length).
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(* Auto-generated comment: Succeeded. *)
 
