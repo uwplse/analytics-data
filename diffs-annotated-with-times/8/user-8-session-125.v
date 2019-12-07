@@ -130,6 +130,6 @@ easy.
 (intros).
 (rewrite Heqli in H).
 (simpl).
-(rewrite (ctx_wtype_size _ (add_fresh_pat W []) (add_fresh_state W []))).
+(rewrite ctx_wtype_size).
 (* Auto-generated comment: Failed. *)
 
