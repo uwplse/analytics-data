@@ -67,8 +67,7 @@ Msimpl.
 (unfold denote_pat; simpl).
 (unfold swap_list; simpl).
 (unfold swap_two; simpl).
-(unfold apply_U; simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:57:16.620000.*)
+(* Auto-generated comment: At 2019-08-15 15:13:43.030000.*)
 
