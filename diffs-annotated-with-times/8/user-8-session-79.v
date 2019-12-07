@@ -1095,6 +1095,9 @@ specialize inSeq_correct as IS.
 (simpl in IS).
 (repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
 clear IS.
-(repeat rewrite_inPar').
-(* Auto-generated comment: Succeeded. *)
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+4: (erewrite kron_compat).
+(* Auto-generated comment: Failed. *)
 
