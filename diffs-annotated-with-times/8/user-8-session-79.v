@@ -1131,6 +1131,16 @@ restore_dims tensor_dims.
 reflexivity.
 }
 -
+(simpl in *).
+restore_dims tensor_dims.
 specialize inSeq_correct as IS.
+(simpl in IS).
+(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
+clear IS.
+(apply subset_classical_merge in H as [S1 S2]).
+Set Printing Implicit.
+Timeout 1 About ctx_to_matrix.
+Timeout 1 Print ctx_to_matrix.
+Timeout 1 Print Ltac ctx_to_matrix.
 (* Auto-generated comment: Succeeded. *)
 
