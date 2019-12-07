@@ -1097,6 +1097,18 @@ specialize inSeq_correct as IS.
 clear IS.
 (repeat rewrite_inPar').
 (repeat rewrite strip_one_l_in_eq).
-mat_replace ctx_to_matrix \206\147 f with I 1 \226\138\151 ctx_to_matrix \206\147 f by Msimpl; easy.
+(erewrite denote_box_compat).
+2: (erewrite denote_box_compat).
+3: (erewrite denote_box_compat).
+4: (erewrite kron_compat).
+6: (erewrite denote_box_compat).
+7: (erewrite denote_box_compat).
+8: {
+restore_dims tensor_tac.
+(rewrite kron_1_l_inv).
+reflexivity.
+}
+all: (try reflexivity).
+rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
