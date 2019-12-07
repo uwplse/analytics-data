@@ -1201,5 +1201,9 @@ listify_kron.
   try omega).
 (simpl).
 reflexivity.
-(* Auto-generated comment: Succeeded. *)
+}
+2: {
+rewrite_inPar.
+rewrite_inPar.
+(* Auto-generated comment: Failed. *)
 
