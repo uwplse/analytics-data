@@ -1023,8 +1023,8 @@ restore_dims tensor_tac.
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
 (match goal with
- | H:_ -> _ -> denote_box true ?c ?A = _
+ | H:_ -> _ -> denote_box true ?c ?A == _
    |- context [ denote_box true ?c' ?A' ] => idtac A; idtac A'
  end).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
