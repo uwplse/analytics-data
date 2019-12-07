@@ -1011,5 +1011,5 @@ restore_dims tensor_tac.
 (repeat (rewrite IS; compile_typing compile_WT)).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 12:03:05.570000.*)
+(* Auto-generated comment: At 2019-08-15 12:03:44.110000.*)
 
