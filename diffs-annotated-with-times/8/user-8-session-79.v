@@ -1001,5 +1001,5 @@ restore_dims tensor_tac.
 listify_kron.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:31:35.940000.*)
+(* Auto-generated comment: At 2019-08-15 09:31:47.100000.*)
 
