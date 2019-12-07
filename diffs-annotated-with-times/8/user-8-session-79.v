@@ -1095,6 +1095,7 @@ specialize inSeq_correct as IS.
 (simpl in IS).
 (repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
 clear IS.
+(apply subset_classical_merge in H as [S1 S2]).
 (erewrite denote_box_compat).
 2: (erewrite denote_box_compat).
 3: (erewrite denote_box_compat).
@@ -1121,5 +1122,6 @@ rewrite_inPar'.
 restore_dims tensor_tac.
 (erewrite kron_compat).
 3: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb1 \206\147 f false); trivial).
+2: (try easy).
 (* Auto-generated comment: Succeeded. *)
 
