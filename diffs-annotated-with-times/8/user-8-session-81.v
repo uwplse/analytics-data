@@ -727,6 +727,6 @@ Timeout 1 Print Grammar tactic.
 (repeat rewrite Nat.mul_1_l).
 (rewrite (kron_1_r A)).
 (rewrite (kron_1_r B)).
-(apply H).
-(* Auto-generated comment: Failed. *)
+(repeat rewrite <- Nat.mul_1_l).
+(* Auto-generated comment: Succeeded. *)
 
