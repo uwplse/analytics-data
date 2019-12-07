@@ -995,8 +995,7 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-Set Printing All.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 10:24:58.230000.*)
+(* Auto-generated comment: At 2019-08-15 10:32:24.200000.*)
 
