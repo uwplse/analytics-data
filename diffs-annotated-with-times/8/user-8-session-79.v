@@ -995,7 +995,9 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+evar ( e : Square (2 * 2 ^ \226\159\166 \206\147 \226\159\167) ).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:53:46.680000.*)
+(* Auto-generated comment: At 2019-08-15 09:53:50.580000.*)
 
