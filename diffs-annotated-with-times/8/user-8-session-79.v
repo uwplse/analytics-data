@@ -994,8 +994,21 @@ restore_dims tensor_tac.
 (destruct t; reflexivity).
 -
 (simpl).
-(progress restore_dims tensor_tac).
+restore_dims tensor_tac.
+(unfold ctx_to_matrix;
+  repeat
+   match goal with
+   | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
+     @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li) by
+     simpl; Msimpl; rewrite ctx_to_mat_list_length;
+      try rewrite size_ntensor, Nat.mul_1_r; easy
+   end).
+(repeat
+  match goal with
+  | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
+    @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li)
+  end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:39:11.360000.*)
+(* Auto-generated comment: At 2019-08-15 09:39:11.440000.*)
 
