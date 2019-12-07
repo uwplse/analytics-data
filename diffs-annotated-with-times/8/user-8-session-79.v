@@ -1118,7 +1118,8 @@ reflexivity.
 8: {
 rewrite_inPar'.
 (rewrite id_circ_spec).
+restore_dims tensor_tac.
 (erewrite kron_compat).
 3: (simpl_rewrite (IHb1 \206\147 f false)).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
