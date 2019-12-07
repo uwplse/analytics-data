@@ -1162,7 +1162,8 @@ rewrite_inPar.
 reflexivity.
 }
 8: {
-(rewrite size_ntensor).
-(apply IHb1).
+(simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb1 \206\147 f false); trivial).
+}
+7: {
 (* Auto-generated comment: Succeeded. *)
 
