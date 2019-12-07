@@ -119,6 +119,9 @@ Hint Rewrite
 Hint Rewrite
  @Mscale_mult_dist_l @Mscale_mult_dist_r @Mscale_kron_dist_l @Mscale_kron_dist_r :
  ket_db.
-Hint Rewrite Mscale_assoc @Mmult_assoc : ket_db.
-(* Auto-generated comment: Failed. *)
+Hint Rewrite @Mscale_assoc @Mmult_assoc : ket_db.
+Hint Rewrite
+ Mmult_1_l Mmult_1_r kron_1_l kron_1_r Mscale_0_l Mscale_1_l Mplus_0_l Mplus_0_r :
+ ket_db.
+(* Auto-generated comment: Succeeded. *)
 
