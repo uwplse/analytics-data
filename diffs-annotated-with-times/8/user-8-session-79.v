@@ -993,9 +993,7 @@ restore_dims
  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
   lia.
 (destruct t).
-(simpl).
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:56:01.330000.*)
+(* Auto-generated comment: At 2019-08-14 18:56:16.540000.*)
 
