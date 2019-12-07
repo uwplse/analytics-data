@@ -28,15 +28,13 @@ Qed.
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqjhuybc"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Arguments WF_Unitary {n} U /.
 Lemma unitary_transpose_id_qubit :
   forall U : Unitary Qubit, unitary_transpose U \226\137\161 id_circ.
 Proof.
 (unfold HOAS_Equiv).
 (intros U \207\129 safe).
-Timeout 1 About unitary_gate_unitary.
-Timeout 1 Print unitary_gate_unitary.
 specialize (unitary_gate_unitary U) as inv.
-(unfold WF_Unitary in inv).
 (simpl in *).
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
@@ -46,10 +44,28 @@ setoid_rewrite denote_unitary_transpose.
 Msimpl.
 reflexivity.
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqllH2jR"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqFvWdNl"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 About WF_Unitary.
-Timeout 1 Print WF_Unitary.
+Lemma unitary_transpose_id : forall W (U : Unitary W), unitary_transpose U \226\137\161 id_circ.
+Proof.
+(intros W U \207\129 safe).
+matrix_denote.
+(rewrite add_fresh_split).
+(rewrite subst_pat_fresh by constructor).
+(unfold denote_db_box).
+(simpl).
+(unfold compose_super, super, pad).
+(repeat rewrite Nat.add_sub).
+(rewrite Nat.sub_diag).
+Msimpl.
+(destruct W; try (solve [ inversion U ])).
+-
+(simpl).
+matrix_denote.
+Msimpl.
+(rewrite Mmult_assoc).
+specialize (unitary_gate_unitary U) as inv.
+(simpl_rewrite @denote_unitary_transpose).
 (* Auto-generated comment: Succeeded. *)
 
