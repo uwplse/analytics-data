@@ -1188,7 +1188,7 @@ reflexivity.
   rewrite ctx_to_mat_list_length).
 show_dimensions.
 (simpl).
-(repeat rewrite Nat.add_0_r).
+(repeat rewrite Nat.add_0_r in *).
 (apply (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137); trivial).
 (* Auto-generated comment: Succeeded. *)
 
