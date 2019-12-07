@@ -1196,6 +1196,7 @@ rewrite_inPar.
 all: (simpl; reflexivity).
 }
 3: {
-rewrite_inPar.
+listify_kron.
+(simpl_rewrite (CNOT_at_spec \226\140\136 b1 | f \226\140\137 t (2 + \226\159\166 \206\147 \226\159\167) 1 0); trivial; try omega).
 (* Auto-generated comment: Succeeded. *)
 
