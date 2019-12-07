@@ -181,5 +181,6 @@ solve_matrix.
 matrix_denote.
 restore_dims.
 (repeat rewrite Mmult_1_l).
+(repeat rewrite kron_1_r).
 (* Auto-generated comment: Succeeded. *)
 
