@@ -27,8 +27,7 @@ Qed.
 Lemma bra0ket0 : bra 0 \195\151 ket 0 = I 1.
 Proof.
 solve_matrix.
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 15:00:43.200000.*)
+(* Auto-generated comment: At 2019-08-16 15:00:49.560000.*)
 
