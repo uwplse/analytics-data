@@ -64,9 +64,11 @@ Msimpl.
 (destruct W; try (solve [ inversion U ])).
 -
 (simpl).
-autounfold with den_db.
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+matrix_denote.
+Msimpl.
+(rewrite Mmult_assoc).
+(destruct (unitary_gate_unitary U) as [WFU inv]).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 15:18:13.890000.*)
+(* Auto-generated comment: At 2019-08-15 15:18:32.180000.*)
 
