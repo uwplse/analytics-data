@@ -261,7 +261,8 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqpfIkPc" Print Ltac
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Print taE.
+Print tE.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-22 03:20:32.810000.*)
+(* Auto-generated comment: At 2019-08-22 03:21:41.990000.*)
 
