@@ -1118,7 +1118,7 @@ reflexivity.
 8: {
 rewrite_inPar'.
 (rewrite id_circ_spec).
-(erewrite denote_box_compat).
-2: (simpl_rewrite (IHb1 \206\147 f false)).
+(erewrite kron_compat).
+3: (simpl_rewrite (IHb1 \206\147 f false)).
 (* Auto-generated comment: Succeeded. *)
 
