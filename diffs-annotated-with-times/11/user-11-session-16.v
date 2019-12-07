@@ -40,5 +40,5 @@ Definition smE := appE exp +' evalE +' nondetE.
 Definition kvs_state exp_ := list connection * list (N * exp_ N).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-09 22:02:01.650000.*)
+(* Auto-generated comment: At 2019-09-09 22:02:18.670000.*)
 
