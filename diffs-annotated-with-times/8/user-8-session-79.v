@@ -1025,6 +1025,12 @@ restore_dims tensor_tac.
 4: (erewrite kron_compat).
 6: (erewrite denote_box_compat).
 7: (erewrite denote_box_compat).
-8: (restore_dims; rewrite kron_1_l_inv).
+8: {
+restore_dims tensor_tac.
+(rewrite kron_1_l_inv).
+reflexivity.
+}
+all: (try reflexivity).
+rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
