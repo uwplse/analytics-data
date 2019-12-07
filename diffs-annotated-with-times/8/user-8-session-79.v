@@ -1216,6 +1216,6 @@ specialize inSeq_correct as IS.
 clear IS.
 (apply subset_classical_merge in H as [S1 S2]).
 rewrite_inPar'.
-(rewrite kron_1_l_inv  at 1).
+(rewrite kron_1_l_inv  at 3).
 (* Auto-generated comment: Succeeded. *)
 
