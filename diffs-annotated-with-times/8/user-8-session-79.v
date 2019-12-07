@@ -989,7 +989,8 @@ Proof.
 Timeout 1 About rewrite_inPar.
 Timeout 1 Print rewrite_inPar.
 Timeout 1 Print Ltac rewrite_inPar.
+rewrite_inPar''.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 18:40:23.140000.*)
+(* Auto-generated comment: At 2019-08-14 18:40:23.710000.*)
 
