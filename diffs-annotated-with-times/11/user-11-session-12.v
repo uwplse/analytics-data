@@ -27,7 +27,9 @@ Definition failWith {E} {R} `{exceptE error -< E} (err : error) : itree E R :=
   vd <- trigger (Throw err);; match vd in void with
                               end.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Module App.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-09 21:18:55.040000.*)
+(* Auto-generated comment: At 2019-09-09 21:19:01.610000.*)
 
