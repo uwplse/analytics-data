@@ -122,6 +122,5 @@ replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by 
 Msimpl.
 (rewrite (Mmult_assoc \207\129 _ A)).
 (rewrite inv by (subst; rewrite size_wtype_length; easy)).
-Msimpl.
 (* Auto-generated comment: Succeeded. *)
 
