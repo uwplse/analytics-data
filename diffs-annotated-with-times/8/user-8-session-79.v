@@ -1122,6 +1122,6 @@ rewrite_inPar'.
 restore_dims tensor_tac.
 (erewrite kron_compat).
 3: (simpl; rewrite size_ntensor, Nat.mul_1_r; apply (IHb1 \206\147 f false); trivial).
-2: (try easy).
+2: easy.
 (* Auto-generated comment: Succeeded. *)
 
