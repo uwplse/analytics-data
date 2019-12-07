@@ -1104,5 +1104,7 @@ clear IS.
 7: (erewrite denote_box_compat).
 8: (erewrite denote_box_compat).
 9: {
-(* Auto-generated comment: Failed. *)
+rewrite_inPar'.
+(repeat rewrite strip_one_l_in_eq).
+(* Auto-generated comment: Succeeded. *)
 
