@@ -1215,5 +1215,6 @@ specialize inSeq_correct as IS.
 (repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
 clear IS.
 (apply subset_classical_merge in H as [S1 S2]).
-(* Auto-generated comment: Failed. *)
+(repeat rewrite_inPar').
+(* Auto-generated comment: Succeeded. *)
 
