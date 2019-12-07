@@ -1027,6 +1027,5 @@ restore_dims tensor_tac.
    |- context [ denote_box true ?c ?A' ] => replace A' with A
  end).
 2: {
-reflexivity.
 (* Auto-generated comment: Succeeded. *)
 
