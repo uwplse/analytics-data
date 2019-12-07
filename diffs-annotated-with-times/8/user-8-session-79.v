@@ -1027,8 +1027,7 @@ restore_dims tensor_tac.
    |- context [ denote_box true ?c ?A' ] => replace A' with A
  end).
 2: {
-(unify_matrix_dims lia).
+reflexivity.
 }
-(rewrite IP).
 (* Auto-generated comment: Succeeded. *)
 
