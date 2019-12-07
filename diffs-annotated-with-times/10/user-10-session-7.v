@@ -71,5 +71,5 @@ Definition kvs_put {K} {V} : K -> V -> list (K * V) -> list (K * V) :=
   compose cons \226\136\152 pair.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-22 03:25:08.890000.*)
+(* Auto-generated comment: At 2019-08-22 03:25:11.700000.*)
 
