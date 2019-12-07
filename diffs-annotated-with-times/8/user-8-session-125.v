@@ -51,6 +51,6 @@ Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 About WF_Unitary.
 Timeout 1 Print WF_Unitary.
-Timeout 1 Print Ltac WF_Unitary.
+Arguments WF_Unitary {n} A /.
 (* Auto-generated comment: Failed. *)
 
