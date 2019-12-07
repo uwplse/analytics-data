@@ -996,9 +996,9 @@ Timeout 1 Print Ltac rewrite_inPar.
        let IP := fresh "IP" in
        specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
         rewrite size_ntensor in *; try rewrite Nat.mul_1_r in *; 
-        rewrite IP
+        rewrite IP; clear IP
  end; try (solve [ type_check ])).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:38:47.540000.*)
+(* Auto-generated comment: At 2019-08-14 18:38:57.150000.*)
 
