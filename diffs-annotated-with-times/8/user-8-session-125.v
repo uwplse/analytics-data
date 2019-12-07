@@ -42,5 +42,5 @@ setoid_rewrite denote_unitary_transpose.
 Search -@denote_unitary.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:32:13.140000.*)
+(* Auto-generated comment: At 2019-08-15 14:32:32.300000.*)
 
