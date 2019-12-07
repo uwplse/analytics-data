@@ -1012,7 +1012,8 @@ specialize inSeq_correct as IS.
 (simpl in IS).
 (repeat (rewrite IS; compile_typing compile_WT)).
 (unfold compose_super).
+rewrite_inPar'.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 12:08:33.410000.*)
+(* Auto-generated comment: At 2019-08-15 12:09:38.330000.*)
 
