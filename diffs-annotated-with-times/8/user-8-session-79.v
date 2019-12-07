@@ -1019,6 +1019,8 @@ Set Printing All.
 Transparent init_at.
 (simpl).
 Transparent assert_at.
-(simpl).
-(* Auto-generated comment: Succeeded. *)
+Timeout 1 About assert_at.
+Timeout 1 Print assert_at.
+Timeout 1 Print Ltac assert_at.
+(* Auto-generated comment: Failed. *)
 
