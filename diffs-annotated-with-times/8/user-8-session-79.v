@@ -1028,6 +1028,5 @@ restore_dims tensor_tac.
  end).
 2: {
 reflexivity.
-}
 (* Auto-generated comment: Succeeded. *)
 
