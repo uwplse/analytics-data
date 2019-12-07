@@ -1106,5 +1106,6 @@ clear IS.
 9: {
 rewrite_inPar'.
 (repeat rewrite strip_one_l_in_eq).
+(rewrite kron_1_l_inv).
 (* Auto-generated comment: Succeeded. *)
 
