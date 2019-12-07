@@ -90,6 +90,11 @@ replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by 
 (remember (swap_list (\226\159\166 W3 \226\138\151 W4 \226\159\167) li) as S).
 (rewrite <- (Mmult_assoc _ (A \195\151 \207\129) _)).
 (rewrite <- (Mmult_assoc _ A \207\129)).
+(simpl in inv).
 (rewrite inv).
-(* Auto-generated comment: Failed. *)
+Msimpl.
+(rewrite (Mmult_assoc \207\129 _ A)).
+(rewrite inv).
+Msimpl.
+(* Auto-generated comment: Succeeded. *)
 
