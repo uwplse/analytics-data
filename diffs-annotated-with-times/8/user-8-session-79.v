@@ -829,12 +829,13 @@ Ltac
   unfold ctx_to_matrix;
    repeat
     match goal with
-    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
-      @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li) by
-      simpl; Msimpl; rewrite ctx_to_mat_list_length;
-       try rewrite size_ntensor, Nat.mul_1_r; easy
+    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace
+      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
+      by
+        (simpl; rewrite ctx_to_mat_list_length;
+          try rewrite size_ntensor, Nat.mul_1_r; easy)
     end.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqDYRBhg"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqcRg58g"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma ctx_lookup_exists :
@@ -994,16 +995,7 @@ restore_dims tensor_tac.
 (destruct t; reflexivity).
 -
 (simpl).
-restore_dims tensor_tac.
-(unfold ctx_to_matrix).
-(match goal with
- | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace 
-   (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
- end).
-2: {
-(simpl).
-(rewrite ctx_to_mat_list_length; try rewrite size_ntensor, Nat.mul_1_r; easy).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 11:52:27.830000.*)
+(* Auto-generated comment: At 2019-08-15 11:52:37.440000.*)
 
