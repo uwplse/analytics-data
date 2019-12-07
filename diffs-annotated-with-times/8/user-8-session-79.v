@@ -1050,6 +1050,6 @@ specialize (IHb \206\147 f true).
 easy.
 }
 all: (try reflexivity).
-6: (erewrite denote_box_compat).
+(rewrite xorb_true_l).
 (* Auto-generated comment: Succeeded. *)
 
