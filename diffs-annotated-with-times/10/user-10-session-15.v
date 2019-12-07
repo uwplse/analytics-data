@@ -17,11 +17,12 @@ Timeout 1 Print LoadPath.
 Timeout 1 Print LoadPath.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqzKzL6J" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-From Coq Require Import NArith Streams.
+From Coq Require Import List NArith Streams.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq23gu0W" Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 Open Scope N_scope.
 CoFixpoint fib (a b : N) : Stream N := Cons a (print_id (fib b (a + b))).
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqxfDJ5c" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Eval compute in Str_nth 10 (fib 0 1).
 (* Auto-generated comment: Succeeded. *)
 
