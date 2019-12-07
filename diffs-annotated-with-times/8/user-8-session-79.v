@@ -1024,6 +1024,6 @@ restore_dims tensor_tac.
  end; try (solve [ type_check ])).
 Set Printing All.
 revert IP.
-restore_dims.
+(progress restore_dims).
 (* Auto-generated comment: Succeeded. *)
 
