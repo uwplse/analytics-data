@@ -82,8 +82,13 @@ gen \207\129.
 (induction (c p)).
 -
 (unfold denote_u_db_box).
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq7ET26j"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (simpl).
+(rewrite pad_nothing).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:00:58.620000.*)
+(* Auto-generated comment: At 2019-08-15 14:01:12.910000.*)
 
