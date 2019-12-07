@@ -359,8 +359,66 @@ Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Anomaly ""Assert_failure printing/ppconstr.ml:399:14"."
 Please report at http://coq.inria.fr/bugs/.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqJoR0P1"
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqJrLIFA"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Definition _zip (_ : unit) : itree tE unit -> itree sE void -> itree zE unit := zip' [].
+Notation zip := (_zip tt).
+End Network.
+Module Test.
+Import App Network.
+Definition random_N : N -> IO N := fmap n_of_int \226\136\152 ORandom.int \226\136\152 int_of_n.
+Definition random_kvs_data : IO (kvs_data id) :=
+  n <- random_N 3;;
+  match n with
+  | 0 => Kvs_GET <$> random_N 10
+  | 1 => (Kvs_PUT <$> random_N 10) <*> random_N 10
+  | _ => ((Kvs_CAS <$> random_N 10) <*> random_N 10) <*> random_N 10
+  end.
+Fixpoint exec_test' (fuel : nat) (m : itree zE unit) : IO bool :=
+  match fuel with
+  | O => ret true
+  | S fuel =>
+      match m.(observe) with
+      | RetF tt => ret true
+      | TauF m' => exec_test' fuel m'
+      | VisF ze k =>
+          match ze with
+          | (Throw e|) => prerr_endline (show e);; ret false
+          | (|(te|)) =>
+              match te in (traceE Y) return ((Y -> _) -> _) with
+              | Trace e => fun k => prerr_endline (show e);; exec_test' fuel (k tt)
+              end k
+          | (||ge) =>
+              sk <- random_N 5;;
+              n <- random_N 10;;
+              r <- random_kvs_data;;
+              b <- ORandom.bool tt;;
+              exec_test' fuel
+                match ge with
+                | (hge|) =>
+                    match hge in (hsgenE Y) return ((Y -> _) -> _) with
+                    | HsGen_Key => fun k => k sk
+                    | HsGen_Random => fun k => k n
+                    end k
+                | (|(re|)) =>
+                    match re in (randomE Y) return ((Y -> _) -> _) with
+                    | Random_Value => fun k => k n
+                    | Random_Request => fun k => k r
+                    end k
+                | (||ne) =>
+                    match ne in (nondetE Y) return ((Y -> _) -> _) with
+                    | Or => fun k => k b
+                    end k
+                end
+          end
+      end
+  end.
+Definition exec_test : itree zE unit -> IO bool := exec_test' 5000.
+Definition test_crypto : itree zE unit := zip tester server.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq6dwnk4"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
 (* Auto-generated comment: Succeeded. *)
 
