@@ -19,13 +19,14 @@ Import ListNotations.
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqinpWed" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Fixpoint fib' (fuel : nat) (x y : N) : list N :=
-  match fuel with
-  | O => []
-  | S fuel => y :: fib' fuel (print_id y) (x + y)
-  end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coq9VBKIy" Print Ltac Signatures.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqk3FY68" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Eval compute in List.map print_id (fib' 10 0 1).
+Eval compute in (fun f x => f (f (f x))) (fun x => S (print_id x)) 0.
+Eval cbn in (fun f x => f (f (f x))) print_id 0.
+Eval hnf in (fun f x => f (f (f x))) print_id 0.
+Eval simpl in (fun f x => f (f (f x))) (fun x => print_id (1 + x) + 1) 0.
+Anomaly ""Assert_failure printing/ppconstr.ml:399:14"." Please report at http://coq.inria.fr/bugs/.
 (* Auto-generated comment: Succeeded. *)
 
