@@ -1186,6 +1186,6 @@ reflexivity.
 Set Printing All.
 3: {
 (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
-  rewrite ctx_to_mat_list_length; apply (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137); trivial).
+  rewrite ctx_to_mat_list_length).
 (* Auto-generated comment: Failed. *)
 
