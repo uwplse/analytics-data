@@ -1048,6 +1048,5 @@ specialize (IHb \206\147 f true).
 (rewrite Nat.mul_1_r).
 (apply IHb).
 easy.
-}
 (* Auto-generated comment: Succeeded. *)
 
