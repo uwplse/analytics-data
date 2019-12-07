@@ -997,9 +997,13 @@ restore_dims tensor_tac.
 restore_dims tensor_tac.
 (unfold ctx_to_matrix).
 (match goal with
- | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => idtac A; idtac li
+ | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace 
+   (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
  end).
-(* Auto-generated comment: Succeeded. *)
+2: {
+(simpl).
+reflexivity.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 11:49:44.280000.*)
+(* Auto-generated comment: At 2019-08-15 11:50:28.710000.*)
 
