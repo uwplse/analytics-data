@@ -1170,6 +1170,7 @@ reflexivity.
 }
 6: {
 listify_kron.
-(apply CNOT_at_spec).
-(* Auto-generated comment: Failed. *)
+(simpl_rewrite (CNOT_at_spec \226\140\136 b2 | f \226\140\137 (\226\140\136 b1 | f \226\140\137 \226\138\149 t) (2 + \226\159\166 \206\147 \226\159\167) 1 0); trivial;
+  try omega).
+(* Auto-generated comment: Succeeded. *)
 
