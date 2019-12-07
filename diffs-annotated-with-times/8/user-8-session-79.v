@@ -1056,5 +1056,6 @@ listify_kron.
   try omega).
 (simpl).
 rewrite_inPar'.
-(* Auto-generated comment: Failed. *)
+all: (rewrite size_ntensor; unify_pows_two; try lia).
+(* Auto-generated comment: Succeeded. *)
 
