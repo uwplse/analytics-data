@@ -727,6 +727,11 @@ Timeout 1 Print Grammar tactic.
 (repeat rewrite Nat.mul_1_l).
 (rewrite (kron_1_r A)).
 (rewrite (kron_1_r B)).
-(repeat rewrite <- Nat.mul_1_l).
+(repeat rewrite Nat.mul_1_r).
+(apply H).
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqRt9ViU"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
