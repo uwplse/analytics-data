@@ -1155,7 +1155,6 @@ listify_kron.
 (simpl; reflexivity).
 }
 4: {
-restore_dims tensor_tac.
 rewrite_inPar'.
 (* Auto-generated comment: Succeeded. *)
 
