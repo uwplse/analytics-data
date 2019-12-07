@@ -973,14 +973,7 @@ reflexivity.
 (intros j).
 (apply (M1 (S j))).
 Qed.
-Ltac
- tensor_tac :=
-  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-   lia.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOec1AO"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 19:01:26.340000.*)
+(* Auto-generated comment: At 2019-08-14 19:01:38.290000.*)
 
