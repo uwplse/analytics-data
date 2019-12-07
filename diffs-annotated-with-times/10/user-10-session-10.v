@@ -301,10 +301,8 @@ Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} {E} `{E 
           end
       | App_Send data => embed Network_Send (Message_Cipher (cipher k (PlainMessage_AppData data)))
       end
-  | (|(ee|)) => map_exceptE Error_App ee
+  | (|(ee|)) => map_exceptE Error_App _ee
   | (||e) => trigger e
   end.
 (* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-08-27 14:49:55.420000.*)
 
