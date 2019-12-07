@@ -41,10 +41,9 @@ setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
 (repeat rewrite Mmult_assoc).
 restore_dims.
-show_dimensions.
 (simpl).
 (simpl_rewrite (unitary_gate_unitary U)).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 14:40:34.260000.*)
+(* Auto-generated comment: At 2019-08-15 14:40:34.700000.*)
 
