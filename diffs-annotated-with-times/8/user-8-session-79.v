@@ -1156,5 +1156,7 @@ restore_dims tensor_dims.
 (apply kron_1_l_inv).
 }
 9: {
+rewrite_inPar.
+(rewrite id_circ_spec).
 (* Auto-generated comment: Succeeded. *)
 
