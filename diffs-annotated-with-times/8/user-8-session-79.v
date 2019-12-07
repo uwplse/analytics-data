@@ -1203,6 +1203,8 @@ restore_dims tensor_tac.
 (rewrite xorb_comm).
 (unfold ctx_to_matrix).
 show_dimensions.
-reflexivity.
-(* Auto-generated comment: Failed. *)
+(simpl).
+(rewrite ctx_to_mat_list_length).
+(repeat rewrite Nat.add_0_r).
+(* Auto-generated comment: Succeeded. *)
 
