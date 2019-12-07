@@ -1085,5 +1085,5 @@ restore_dims tensor_tac.
 restore_dims tensor_tac.
 Msimpl.
 reflexivity.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
