@@ -1131,6 +1131,5 @@ rewrite_inPar'.
 (rewrite 2!id_circ_spec).
 (rewrite strip_one_l_in_eq).
 (erewrite kron_compat).
-3: (erewrite kron_compat).
 (* Auto-generated comment: Succeeded. *)
 
