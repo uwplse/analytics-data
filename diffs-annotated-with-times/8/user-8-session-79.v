@@ -1023,5 +1023,8 @@ restore_dims tensor_tac.
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
 restore_dims tensor_tac.
-(* Auto-generated comment: Failed. *)
+show_dimensions.
+(simpl).
+(rewrite IP).
+(* Auto-generated comment: Succeeded. *)
 
