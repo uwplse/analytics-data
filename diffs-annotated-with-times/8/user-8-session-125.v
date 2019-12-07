@@ -84,6 +84,5 @@ Msimpl.
 specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
 replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by (subst; easy).
 (unfold apply_U, apply_unitary, super).
-(destruct W; try (solve [ inversion HeqW ])).
 (* Auto-generated comment: Succeeded. *)
 
