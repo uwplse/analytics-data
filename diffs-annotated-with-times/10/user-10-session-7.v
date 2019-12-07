@@ -262,12 +262,5 @@ CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itre
       | (e|) | (||e|) | (|||e|) | (||||e) => vis e (match_event e0 x0 \226\136\152 k)
       end
   end.
-Definition match_event_list {X} (e0 : networkE X) (x0 : X) : list (itree tE unit) -> list (itree tE unit) :=
-  fmap (match_event e0 x0).
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqDZoFmR" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
-(* Auto-generated comment: Succeeded. *)
-
-(* Auto-generated comment: At 2019-08-22 03:25:17.170000.*)
+(* Auto-generated comment: Failed. *)
 
