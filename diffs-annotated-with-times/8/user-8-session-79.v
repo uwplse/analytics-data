@@ -1154,5 +1154,5 @@ listify_kron.
   try omega).
 (simpl).
 (rewrite (xorb_true_r (\226\140\136 b1 | f \226\140\137 && \226\140\136 b2 | f \226\140\137))).
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
