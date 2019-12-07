@@ -983,7 +983,10 @@ Proof.
 (induction b; intros \206\147 f t H).
 -
 (simpl in *).
+rewrite_inPar''.
+(simpl_rewrite TRUE_spec).
+(simpl_rewrite id_circ_spec).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 18:43:25.620000.*)
+(* Auto-generated comment: At 2019-08-14 18:43:25.850000.*)
 
