@@ -1228,6 +1228,13 @@ Msimpl.
 (rewrite (xorb_comm _ t)).
 (rewrite xorb_assoc).
 (simpl).
+(rewrite ctx_to_mat_list_length).
+(repeat rewrite Nat.add_0_r).
 reflexivity.
+}
+Qed.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqDKoVRD"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
