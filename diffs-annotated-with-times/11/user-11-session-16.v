@@ -37,8 +37,8 @@ Please report at http://coq.inria.fr/bugs/.
 Redirect "/tmp/coq16819lNO" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Definition smE := appE exp +' evalE +' nondetE.
-Check kvs_state.
+Definition kvs_state exp_ : Set := list connection * list (N * exp_ N).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-09 22:02:30.910000.*)
+(* Auto-generated comment: At 2019-09-09 22:02:34.820000.*)
 
