@@ -108,6 +108,5 @@ easy.
 easy.
 subst.
 (rewrite size_wtype_length).
-easy.
 (* Auto-generated comment: Succeeded. *)
 
