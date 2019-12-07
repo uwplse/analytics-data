@@ -1164,5 +1164,11 @@ listify_kron.
  (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
    rewrite ctx_to_mat_list_length; apply (IHb2 \206\147 f \226\140\136 b2 | f \226\140\137); trivial).
 3: (rewrite xorb_nilpotent).
+all: (simpl; reflexivity).
+}
+3: {
+Timeout 1 About denote_box.
+Timeout 1 Print denote_box.
+Timeout 1 Print Ltac denote_box.
 (* Auto-generated comment: Succeeded. *)
 
