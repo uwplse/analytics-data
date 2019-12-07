@@ -1084,5 +1084,6 @@ restore_dims tensor_tac.
 (rewrite xorb_comm).
 restore_dims tensor_tac.
 Msimpl.
+unify_dim_solve.
 (* Auto-generated comment: Failed. *)
 
