@@ -1204,6 +1204,10 @@ reflexivity.
 }
 2: {
 rewrite_inPar.
-rewrite_inPar.
+(rewrite id_circ_spec).
+(erewrite kron_compat).
+3:
+ (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *; specialize
+   (IHb2 \206\147 f false); repeat rewrite Nat.add_0_r in *; apply IHb2; trivial).
 (* Auto-generated comment: Failed. *)
 
