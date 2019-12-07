@@ -1157,6 +1157,11 @@ restore_dims tensor_dims.
 }
 9: {
 rewrite_inPar.
+(rewrite init0_spec).
 (rewrite id_circ_spec).
-(* Auto-generated comment: Succeeded. *)
+reflexivity.
+}
+8: {
+(apply IHb1).
+(* Auto-generated comment: Failed. *)
 
