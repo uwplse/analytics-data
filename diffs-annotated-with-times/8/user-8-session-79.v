@@ -1198,6 +1198,7 @@ rewrite_inPar'.
 restore_dims tensor_tac.
 (rewrite id_circ_spec).
 (rewrite assert0_spec).
+restore_dims tensor_tac.
 Msimpl.
-(* Auto-generated comment: Failed. *)
+(* Auto-generated comment: Succeeded. *)
 
