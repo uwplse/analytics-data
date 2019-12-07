@@ -39,7 +39,9 @@ specialize (unitary_gate_unitary U) as inv.
 (simpl in *).
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
+(simpl in *; Msimpl).
+(repeat rewrite Mmult_assoc; try rewrite inv).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:42:49.080000.*)
+(* Auto-generated comment: At 2019-08-15 14:43:34.680000.*)
 
