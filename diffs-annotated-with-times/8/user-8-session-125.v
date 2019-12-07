@@ -34,9 +34,55 @@ Lemma unitary_transpose_id_qubit :
 Proof.
 (unfold HOAS_Equiv).
 (intros U \207\129 safe).
+specialize (unitary_gate_unitary U) as inv.
 (simpl in *).
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
+(repeat rewrite Mmult_assoc; try rewrite inv).
+(repeat rewrite <- Mmult_assoc; try rewrite inv).
+Msimpl.
+reflexivity.
+Qed.
+Lemma unitary_transpose_id : forall W (U : Unitary W), unitary_transpose U \226\137\161 id_circ.
+Proof.
+(intros W U \207\129 safe).
+matrix_denote.
+(rewrite add_fresh_split).
+(rewrite subst_pat_fresh by constructor).
+(unfold denote_db_box).
+(simpl).
+(unfold compose_super, super, pad).
+(repeat rewrite Nat.add_sub).
+(rewrite Nat.sub_diag).
+Msimpl.
+(destruct W; try (solve [ inversion U ])).
+-
+(simpl).
+matrix_denote.
+Msimpl.
+(rewrite Mmult_assoc).
+specialize (unitary_gate_unitary U) as inv.
+(simpl_rewrite @denote_unitary_transpose).
+(simpl in *).
+Msimpl.
+(repeat rewrite Mmult_assoc).
+(rewrite inv).
+(repeat rewrite <- Mmult_assoc).
+(rewrite inv).
+Msimpl.
+easy.
+-
+(simpl).
+(unfold denote_pat; simpl).
+Msimpl.
+(rewrite Mmult_assoc).
+(unfold super).
+(simpl).
+(remember (W1 \226\138\151 W2) as W).
+(remember (pat_to_list (add_fresh_pat W [])) as li).
+specialize (denote_ctrls_unitary W (\226\159\166 W \226\159\167) U li) as inv.
+(intros).
+(rewrite Heqli in H).
 (* Auto-generated comment: Succeeded. *)
 
