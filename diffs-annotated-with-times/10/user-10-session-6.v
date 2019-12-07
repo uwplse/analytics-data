@@ -8,7 +8,14 @@ Add Search Blacklist "Private_" "_subproof".
 From ExtLib Require Import Functor Monad.
 From SimpleIO Require Import IO_Random.
 From DeepWeb Require Import Crypto4 IO_Test.
-(* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-08-22 01:49:54.790000.*)
+Import FunctorNotation MonadNotation Test.
+Definition run_tester : io_unit :=
+  IO.unsafe_run
+    (ORandom.self_init tt;; run_test (multi_test (exec_test test_crypto))).
+Separate Extraction run_tester.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqQJpnIk"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
+Timeout 1 Print LoadPath.
+(* Auto-generated comment: Succeeded. *)
 
