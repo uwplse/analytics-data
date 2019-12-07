@@ -1150,7 +1150,6 @@ clear IS.
 7: (erewrite kron_compat).
 8: reflexivity.
 8: (erewrite denote_box_compat).
-9: {
-rewrite_inPar.
+8: {
 (* Auto-generated comment: Succeeded. *)
 
