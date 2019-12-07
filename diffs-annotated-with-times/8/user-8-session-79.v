@@ -996,10 +996,9 @@ restore_dims tensor_tac.
 (simpl).
 restore_dims tensor_tac.
 (match goal with
- | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace 
-   (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
+ | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => idtac A; idtac li
  end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 10:16:15.430000.*)
+(* Auto-generated comment: At 2019-08-15 10:19:49.720000.*)
 
