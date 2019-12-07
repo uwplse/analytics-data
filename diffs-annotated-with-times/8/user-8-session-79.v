@@ -996,8 +996,7 @@ restore_dims
 -
 (simpl in *).
 rewrite_inPar''.
-(simpl_rewrite TRUE_spec).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:56:26.080000.*)
+(* Auto-generated comment: At 2019-08-14 18:56:45.070000.*)
 
