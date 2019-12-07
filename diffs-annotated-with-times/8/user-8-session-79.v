@@ -898,11 +898,11 @@ Ltac
     context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
                 (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
         let IP := fresh "IP" in
-        specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP;
+        specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
          rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
          rewrite IP; clear IP
   end; try (solve [ type_check ]).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqYGfOYF"
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqExfJeq"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Lemma init_at_spec :
@@ -973,9 +973,6 @@ reflexivity.
 (intros j).
 (apply (M1 (S j))).
 Qed.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqsPR8Ki"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Theorem compile_correct :
   forall (b : bexp) (\206\147 : Ctx) (f : Var -> bool) (t : bool),
   get_context b \226\138\130 \206\147 ->
@@ -986,19 +983,7 @@ Proof.
 (induction b; intros \206\147 f t H).
 -
 (simpl in *).
-Timeout 1 About rewrite_inPar.
-Timeout 1 Print rewrite_inPar.
-Timeout 1 Print Ltac rewrite_inPar.
-(match goal with
- | |-
-   context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
-               (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
-       let IP := fresh "IP" in
-       specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP;
-        rewrite size_ntensor in *; try rewrite Nat.mul_1_r in *; 
-        rewrite IP; clear IP
- end; try (solve [ type_check ])).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 18:41:31.580000.*)
+(* Auto-generated comment: At 2019-08-14 18:42:13.110000.*)
 
