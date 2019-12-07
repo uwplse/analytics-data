@@ -905,6 +905,13 @@ Ltac
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqExfJeq"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
+Ltac
+ tensor_tac :=
+  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
+   lia.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqS8znVM"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Lemma init_at_spec :
   forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
   length l1 = i ->
@@ -925,8 +932,7 @@ clear L1 M1 Lt.
 (rewrite strip_one_l_in_eq).
 (rewrite Nat.sub_0_r in L2).
 (rewrite L2 in *).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
+restore_dims tensor_tac.
 (erewrite denote_box_compat).
 2: {
 restore_dims
@@ -934,46 +940,7 @@ restore_dims
 (rewrite (kron_1_l_inv (\226\168\130 l2))).
 reflexivity.
 }
-(rewrite L2).
-rewrite_inPar''.
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
-(rewrite id_circ_spec).
-(rewrite init_spec).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite L2; simpl; unify_pows_two; lia.
-reflexivity.
--
-(intros n l1 l2 A B L1 L2 M1 M2 Lt).
-(destruct n; [ omega |  ]).
-(destruct l1; inversion L1).
-(simpl).
-(rewrite H0).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-  lia.
-replace (length (l1 ++ l2)) with n by (rewrite app_length; lia).
-rewrite_inPar''.
-(rewrite id_circ_spec).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-  lia.
-(simpl).
-specialize (IHi n l1 l2 A B).
-show_dimensions.
-(repeat rewrite app_length in *).
-(simpl in *).
-replace (length l1 + S (length l2)) with S n in * by lia.
-(simpl in *).
-(rewrite size_ntensor).
-(simpl).
-(rewrite Nat.mul_1_r).
-(rewrite IHi; trivial; try lia).
-reflexivity.
-(intros j).
-(apply (M1 (S j))).
-Qed.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 19:01:38.290000.*)
+(* Auto-generated comment: At 2019-08-14 19:01:38.420000.*)
 
