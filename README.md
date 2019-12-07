@@ -27,8 +27,6 @@ To reproduce the numbers reported for Q1:
 6. Read the output for information about cancellations and their replacement commands
 7. In the `graphs/` directory, you'll find svgs of proof flow graphs.
 
-Instructions for reproducing Q1 are a work in progress.
-
 ## Q2
 
 To reproduce the Git commits for the Q2 analysis, first create a new directory
@@ -49,7 +47,8 @@ if you would like annotations for timestamps)
 from within its directory. You can then look at the Git history
 to see the processed data.
 
-Soon, I will include a file that contains a complete list of all of the changes
-that we found in the manual analysis of this processed data,
-with links to benchmarks mentioned in the paper.
-I will also describe how we determined when changes occurred across the same file.
+The [changes](/changes) directory contains a complete
+[list of all of the changes](/changes/all-changes.md)
+that we found in the manual analysis of this processed data, as well as
+[benchmarks from the paper](/changes/benchmarks.md), with links to the relevant diffs.
+
