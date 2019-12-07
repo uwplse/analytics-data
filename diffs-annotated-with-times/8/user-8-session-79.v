@@ -997,9 +997,9 @@ restore_dims tensor_tac.
 restore_dims tensor_tac.
 (destruct t; reflexivity).
 -
-(simpl).
+(simpl in *).
 rewrite_inPar''.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 19:50:00.850000.*)
+(* Auto-generated comment: At 2019-08-14 19:53:26.600000.*)
 
