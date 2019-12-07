@@ -326,21 +326,7 @@ Definition server : itree sE void :=
   sk <- translate subevent serverHandshake;; interp (network_of_app sk) (nmi_of_smi kvs).
 Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqloU8gh" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Definition map_exceptE {e1} {e2} (f : e1 -> e2) : exceptE e1 ~> exceptE e2 :=
-  fun _ e => match e with
-             | Throw e => Throw (f e)
-             end.
-Print taE.
-Definition network_of_app_ta sk : taE ~> itree tE :=
-  fun _ tae =>
-  match tae with
-  | (ae|) => network_of_app sk _ (ae|)
-  | (|(e|)) => trigger (map_exceptE Error_App _ e)
-  | (||tae) => trigger tae
-  end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqeEIa21" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-22 08:07:25.030000.*)
+(* Auto-generated comment: At 2019-08-27 14:49:25.030000.*)
 
