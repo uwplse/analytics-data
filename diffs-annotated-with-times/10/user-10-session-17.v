@@ -23,6 +23,6 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqvTdMQo"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Eval cbn in Str_nth 0 (fib2 0 1).
+Eval cbn in Str_nth 10 (fib2 0 1).
 (* Auto-generated comment: Succeeded. *)
 
