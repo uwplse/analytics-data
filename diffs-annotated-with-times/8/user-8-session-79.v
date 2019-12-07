@@ -1012,6 +1012,8 @@ reflexivity.
 restore_dims tensor_tac.
 specialize inSeq_correct as IS.
 (simpl in IS).
-(repeat (rewrite IS; restore_dims tensor_tac; compile_typing compile_WT)).
+(repeat (rewrite IS; compile_typing compile_WT)).
+(unfold compose_super).
+(rewrite IS).
 (* Auto-generated comment: Succeeded. *)
 
