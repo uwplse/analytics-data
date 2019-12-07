@@ -41,11 +41,8 @@ setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
 (repeat rewrite Mmult_assoc).
 restore_dims.
-Timeout 1 About simpl_rewrite.
-Timeout 1 Print simpl_rewrite.
-Timeout 1 Print Ltac simpl_rewrite.
 (simpl_rewrite (unitary_gate_unitary U)).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 14:40:33.660000.*)
+(* Auto-generated comment: At 2019-08-15 14:40:33.900000.*)
 
