@@ -1057,5 +1057,7 @@ listify_kron.
 (simpl).
 rewrite_inPar'.
 all: (try tensor_tac).
+(unfold ctx_to_matrix in *).
+(rewrite IHb; trivial).
 (* Auto-generated comment: Succeeded. *)
 
