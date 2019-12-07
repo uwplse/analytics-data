@@ -39,8 +39,10 @@ Timeout 1 Print unitary_gate_unitary.
 matrix_denote.
 setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
-(repeat rewrite Mmult_assoc; try rewrite inv).
-(* Auto-generated comment: Succeeded. *)
+(repeat rewrite Mmult_assoc; try rewrite denote_unitary_unitary).
+Timeout 1 About denote_unitary_unitary.
+Timeout 1 Print denote_unitary_unitary.
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 14:31:34.540000.*)
+(* Auto-generated comment: At 2019-08-15 14:31:38.490000.*)
 
