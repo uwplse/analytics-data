@@ -121,7 +121,7 @@ Hint Rewrite
  ket_db.
 Hint Rewrite @Mscale_assoc @Mmult_assoc : ket_db.
 Hint Rewrite
- Mmult_1_l Mmult_1_r kron_1_l kron_1_r Mscale_0_l Mscale_1_l Mplus_0_l Mplus_0_r :
+ @Mmult_1_l Mmult_1_r kron_1_l kron_1_r Mscale_0_l Mscale_1_l Mplus_0_l Mplus_0_r :
  ket_db.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
