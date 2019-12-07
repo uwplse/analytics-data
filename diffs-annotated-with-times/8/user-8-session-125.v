@@ -68,8 +68,7 @@ Msimpl.
 (unfold swap_list; simpl).
 (unfold swap_two; simpl).
 Msimpl.
-(simpl).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:53:29.520000.*)
+(* Auto-generated comment: At 2019-08-15 14:54:34.970000.*)
 
