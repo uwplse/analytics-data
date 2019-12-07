@@ -986,8 +986,7 @@ Proof.
 (induction b; intros \206\147 f t H).
 -
 (simpl in *).
-rewrite_inPar.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 18:32:56.850000.*)
+(* Auto-generated comment: At 2019-08-14 18:33:48.030000.*)
 
