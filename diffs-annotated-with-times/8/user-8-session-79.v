@@ -1182,6 +1182,5 @@ reflexivity.
 2: {
 (rewrite_inPar'; try tensor_tac).
 (rewrite id_circ_spec).
-(erewrite kron_compat).
 (* Auto-generated comment: Succeeded. *)
 
