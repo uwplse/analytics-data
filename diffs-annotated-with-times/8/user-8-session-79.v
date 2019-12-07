@@ -970,6 +970,7 @@ reflexivity.
 (apply (M1 (S j))).
 Qed.
 Opaque NTensor.
+Opaque init_at assert_at.
 Theorem compile_correct :
   forall (b : bexp) (\206\147 : Ctx) (f : Var -> bool) (t : bool),
   get_context b \226\138\130 \206\147 ->
@@ -1023,9 +1024,5 @@ restore_dims tensor_tac.
          specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
-Set Printing All.
-Timeout 1 About strip_one_l_out.
-Timeout 1 Print strip_one_l_out.
-Timeout 1 Print Ltac strip_one_l_out.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
