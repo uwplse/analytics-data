@@ -66,8 +66,7 @@ solve_matrix.
 Qed.
 Lemma Y0_spec : \207\131y \195\151 \226\136\163 0 \226\159\169 == Ci .* \226\136\163 1 \226\159\169.
 Proof.
-solve_matrix.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 15:09:20.780000.*)
+(* Auto-generated comment: At 2019-08-16 15:09:22.840000.*)
 
