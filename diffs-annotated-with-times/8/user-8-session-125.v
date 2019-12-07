@@ -113,6 +113,6 @@ replace (size_wtype W1 + size_wtype W2)%nat with \226\159\166 W \226\159\167 by 
 (unfold apply_U, apply_unitary, super).
 (destruct W; inversion HeqW).
 clear H0 H1 HeqW.
-(rewrite denote_ctrls_transpose; trivial).
+(rewrite denote_ctrls_transpose by (subst; try rewrite size_wtype_length; easy)).
 (* Auto-generated comment: Succeeded. *)
 
