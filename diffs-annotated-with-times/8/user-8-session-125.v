@@ -68,8 +68,8 @@ Msimpl.
 (unfold swap_list; simpl).
 (unfold swap_two; simpl).
 Msimpl.
-(rewrite Mmult_assoc).
-(* Auto-generated comment: Failed. *)
+(simpl).
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:51:29.120000.*)
+(* Auto-generated comment: At 2019-08-15 14:51:36.290000.*)
 
