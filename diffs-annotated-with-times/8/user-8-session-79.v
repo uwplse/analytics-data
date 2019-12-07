@@ -997,16 +997,11 @@ restore_dims tensor_tac.
 restore_dims tensor_tac.
 (destruct t; reflexivity).
 -
-(simpl in *).
-(match goal with
- | |-
-   context [ (@denote_box true ?W ?W' (@inPar ?W1 ?W1' ?W2 ?W2' ?f ?g))
-               (@kron ?m ?n ?o ?p ?\207\1291 ?\207\1292) ] =>
-       let IP := fresh "IP" in
-       specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
-        rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *
- end; try (solve [ type_check ])).
-(* Auto-generated comment: Succeeded. *)
+(simpl).
+listify_kron.
+(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
+  try omega).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-14 19:53:59.580000.*)
+(* Auto-generated comment: At 2019-08-14 19:55:27.740000.*)
 
