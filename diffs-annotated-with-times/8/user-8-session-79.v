@@ -994,11 +994,15 @@ restore_dims tensor_tac.
 (destruct t; reflexivity).
 -
 (simpl).
-listify_kron.
-Timeout 1 About listify_kron.
-Timeout 1 Print listify_kron.
-Timeout 1 Print Ltac listify_kron.
+(unfold ctx_to_matrix;
+  repeat
+   match goal with
+   | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
+     @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li) by
+     simpl; Msimpl; rewrite ctx_to_mat_list_length;
+      try rewrite size_ntensor, Nat.mul_1_r; easy
+   end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:34:39.350000.*)
+(* Auto-generated comment: At 2019-08-15 09:35:06.920000.*)
 
