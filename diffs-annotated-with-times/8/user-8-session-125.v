@@ -106,6 +106,5 @@ easy.
 (apply add_fresh_typed_empty).
 (rewrite add_fresh_split).
 easy.
-subst.
 (* Auto-generated comment: Succeeded. *)
 
