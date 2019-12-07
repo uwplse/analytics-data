@@ -54,6 +54,5 @@ lma.
 Qed.
 Lemma Hplus_spec : hadamard \195\151 \226\136\163 + \226\159\169 == \226\136\163 0 \226\159\169.
 Proof.
-lma.
 (* Auto-generated comment: Succeeded. *)
 
