@@ -1028,5 +1028,7 @@ restore_dims tensor_tac.
  end).
 2: {
 (unify_matrix_dims lia).
+}
+(rewrite IP).
 (* Auto-generated comment: Succeeded. *)
 
