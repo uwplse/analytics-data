@@ -1013,7 +1013,6 @@ restore_dims tensor_tac.
 specialize inSeq_correct as IS.
 (simpl in IS).
 (repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
-rewrite_inPar'.
-rewrite_inPar'.
+(repeat rewrite_inPar').
 (* Auto-generated comment: Succeeded. *)
 
