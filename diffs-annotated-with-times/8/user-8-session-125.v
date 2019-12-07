@@ -126,5 +126,7 @@ Msimpl.
 Msimpl.
 (rewrite Mmult_assoc).
 easy.
+{
+(apply denote_ctrls_unitary).
 (* Auto-generated comment: Succeeded. *)
 
