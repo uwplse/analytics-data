@@ -195,7 +195,7 @@ Definition tester_of_unifier (u : itree (appE id +' unifyE +' randomE) unit) : s
 CoFixpoint match_app_event {X} (e0 : appE id X) (x0 : X) (t : itree taE unit) : itree taE unit :=
   match t.(observe) with
   | RetF r => Ret r
-  | TauF t => Tau (match_event e0 x0 t)
+  | TauF t => Tau (match_app_event e0 x0 t)
   | VisF e k =>
       match e with
       | (te|) =>
@@ -207,7 +207,7 @@ CoFixpoint match_app_event {X} (e0 : appE id X) (x0 : X) (t : itree taE unit) : 
       | (|(e|)) | (||e|) | (|||e) => vis e (match_event e0 x0 \226\136\152 k)
       end
   end.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-22 02:16:40.890000.*)
+(* Auto-generated comment: At 2019-08-22 02:16:41.650000.*)
 
