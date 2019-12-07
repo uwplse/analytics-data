@@ -71,6 +71,5 @@ matrix_denote.
 Msimpl.
 (rewrite Mmult_assoc).
 specialize (unitary_gate_unitary U) as inv.
-(simpl in *).
 (* Auto-generated comment: Succeeded. *)
 
