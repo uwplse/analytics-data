@@ -1022,9 +1022,9 @@ restore_dims tensor_tac.
          specialize (inPar_correct W1 W1' W2 W2' f g true \207\1291 \207\1292) as IP; simpl in *;
           rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *)
  end; try (solve [ type_check ])).
-revert IP.
-restore_dims tensor_tac.
-(intros IP).
-(rewrite IP).
-(* Auto-generated comment: Succeeded. *)
+(match goal with
+ | H:_ -> _ -> denote_box true ?c ?A = _
+   |- context [ denote_box true ?c' ?A' ] => idtac A; idtac A'
+ end).
+(* Auto-generated comment: Failed. *)
 
