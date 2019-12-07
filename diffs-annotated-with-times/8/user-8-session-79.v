@@ -1031,6 +1031,5 @@ restore_dims tensor_tac.
 reflexivity.
 }
 all: (try reflexivity).
-rewrite_inPar.
 (* Auto-generated comment: Failed. *)
 
