@@ -1004,11 +1004,10 @@ restore_dims tensor_tac.
       try rewrite size_ntensor, Nat.mul_1_r; easy
    end).
 restore_dims tensor_tac.
-(match goal with
- | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
-   @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li)
- end).
-(* Auto-generated comment: Failed. *)
+Timeout 1 About CNOT_at_spec.
+Timeout 1 Print CNOT_at_spec.
+Timeout 1 Print Ltac CNOT_at_spec.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:50:58.710000.*)
+(* Auto-generated comment: At 2019-08-15 09:52:50.320000.*)
 
