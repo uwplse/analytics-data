@@ -323,5 +323,5 @@ Definition server : itree sE void :=
   sk <- translate subevent serverHandshake;; interp (network_of_app sk) (nmi_of_smi kvs).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-22 07:58:05.880000.*)
+(* Auto-generated comment: At 2019-08-22 08:00:01.920000.*)
 
