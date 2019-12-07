@@ -47,8 +47,30 @@ if you would like annotations for timestamps)
 from within its directory. You can then look at the Git history
 to see the processed data.
 
+To find out what the name of the module a particular session corresponds to, 
+you can modify the [/scripts/q2/replay.py](replay) script to
+
 The [changes](/changes) directory contains a complete
 [list of all of the changes](/changes/all-changes.md)
 that we found in the manual analysis of this processed data, as well as
 [benchmarks from the paper](/changes/benchmarks.md), with links to the relevant diffs.
+
+# Notes
+
+Please do reuse our data if it helps you!
+But before you do, please read the paper, especially the discussion section, 
+for information about the data before you interpret it.
+
+For example, as we note in the  paper, we could not automatically 
+distinguish failures from user backtracking for User 5.
+So even though processed data is annotated with "success" and "failure," 
+for User 5, it will always appear as "success," and you must manually inspect the
+data in question to determine whether this is actually a success.
+
+Likewise, due to a bug in CoqIDE and Proof General that we have reported and that
+is fixed in the latest Coq version, we could not always determine the name of the
+module that corresponds to a given session. For impacted users, the module will
+always appear as "Top." This means that manual analysis is needed in order to determine
+if two sessions refer to the same file.
+
 
