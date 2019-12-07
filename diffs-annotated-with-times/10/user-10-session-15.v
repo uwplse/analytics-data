@@ -22,15 +22,15 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqsaA1a1" Print Ltac
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
 Import ListNotations.
-Fixpoint fib (fuel : nat) (a b : N) : list N := match fuel with
-                                                | O => []
-                                                | S fuel => a :: fib fuel b (a + b)
-                                                end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqKkOyz5" Print Ltac Signatures.
+Fixpoint fib (fuel : nat) (a b : N) : list N :=
+  match fuel with
+  | O => print_id []
+  | S fuel => a :: fib fuel b (a + b)
+  end.
+Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqzpkfnT" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Timeout 1 Print LoadPath.
 Eval compute in List.map print_id (fib 10 0 1).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-27 15:21:22.230000.*)
+(* Auto-generated comment: At 2019-08-27 15:24:13.820000.*)
 
