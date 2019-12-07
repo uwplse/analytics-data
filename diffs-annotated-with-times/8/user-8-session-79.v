@@ -1031,24 +1031,5 @@ restore_dims tensor_tac.
 reflexivity.
 }
 all: (try reflexivity).
-rewrite_inPar'.
-(rewrite id_circ_spec).
-(rewrite init1_spec).
-mat_replace \226\136\1631\226\159\169\226\159\1681\226\136\163 with bool_to_matrix true by reflexivity.
-(erewrite denote_box_compat).
-2: (erewrite denote_box_compat).
-3: (erewrite denote_box_compat).
-4: (erewrite kron_compat).
-6: {
-restore_dims tensor_tac.
-specialize (IHb \206\147 f true).
-(simpl in *).
-(rewrite size_ntensor).
-(simpl).
-(rewrite Nat.mul_1_r).
-(apply IHb).
-easy.
-}
-all: (try reflexivity).
 (* Auto-generated comment: Succeeded. *)
 
