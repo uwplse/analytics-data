@@ -264,8 +264,8 @@ Print taE.
 Notation sE := (networkE +' exceptE error +' hsgenE +' randomE).
 Notation tE := (nondetE +' sE).
 Print networkE.
-Print Error.
+Print error.
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-22 03:21:42.060000.*)
+(* Auto-generated comment: At 2019-08-22 03:21:42.180000.*)
 
