@@ -41,9 +41,7 @@ matrix_denote.
 setoid_rewrite denote_unitary_transpose.
 (simpl in *; Msimpl).
 (repeat rewrite Mmult_assoc; try rewrite inv).
-(unfold WF_Unitary in inv).
-(rewrite inv).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:46:43.790000.*)
+(* Auto-generated comment: At 2019-08-15 14:47:03.240000.*)
 
