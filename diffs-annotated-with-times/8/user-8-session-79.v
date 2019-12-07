@@ -1045,6 +1045,10 @@ specialize (IHb \206\147 f true).
 (simpl in *).
 (rewrite size_ntensor).
 (simpl).
+(rewrite Nat.mul_1_r).
 (apply IHb).
-(* Auto-generated comment: Failed. *)
+easy.
+}
+all: (try reflexivity).
+(* Auto-generated comment: Succeeded. *)
 
