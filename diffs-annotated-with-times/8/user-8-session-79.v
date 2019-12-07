@@ -995,11 +995,7 @@ restore_dims tensor_tac.
 -
 (simpl).
 restore_dims tensor_tac.
-evar ( e : Square (2 * 2 ^ \226\159\166 \206\147 \226\159\167) ).
-(match goal with
- | |- denote_box _ _ ?A == _ => mat_replace A with e
- end).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 10:00:31.610000.*)
+(* Auto-generated comment: At 2019-08-15 10:00:37.790000.*)
 
