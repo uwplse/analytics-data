@@ -28,19 +28,5 @@ Instance showData : (Show (kvs_data id)) :=
          | Kvs_BadRequest => "400"
          | Kvs_PreconditionFailed => "412"
          end |}.
-Instance showDataX : (Show (kvs_data exp)) :=
- {|
- show := fun d =>
-         match d with
-         | Kvs_GET k => "GET " ++ show k
-         | Kvs_PUT k v => "PUT " ++ show k ++ " " ++ show v
-         | Kvs_CAS k x v => "CAS " ++ show k ++ " " ++ show x ++ " " ++ show v
-         | Kvs_OK v => "OK  " ++ show v
-         | Kvs_NoContent => "204"
-         | Kvs_BadRequest => "400"
-         | Kvs_PreconditionFailed => "412"
-         end |}.
 (* Auto-generated comment: Succeeded. *)
-
-(* Auto-generated comment: At 2019-09-09 21:15:15.120000.*)
 
