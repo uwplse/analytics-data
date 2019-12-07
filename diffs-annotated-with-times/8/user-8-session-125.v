@@ -45,5 +45,5 @@ restore_dims.
 (simpl_rewrite (unitary_gate_unitary U)).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 14:40:34.700000.*)
+(* Auto-generated comment: At 2019-08-15 14:40:48.780000.*)
 
