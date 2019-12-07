@@ -973,39 +973,14 @@ reflexivity.
 (intros j).
 (apply (M1 (S j))).
 Qed.
-Theorem compile_correct :
-  forall (b : bexp) (\206\147 : Ctx) (f : Var -> bool) (t : bool),
-  get_context b \226\138\130 \206\147 ->
-  (\226\159\166 compile b \206\147 \226\159\167) (bool_to_matrix t \226\138\151 ctx_to_matrix \206\147 f) ==
-  bool_to_matrix (t \226\138\149 \226\140\136 b | f \226\140\137) \226\138\151 ctx_to_matrix \206\147 f.
-Proof.
-(intros b).
-(induction b; intros \206\147 f t H).
--
-(simpl in *).
-rewrite_inPar''.
-(simpl_rewrite TRUE_spec).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-  lia.
-(rewrite id_circ_spec).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-  lia.
-(destruct t; reflexivity).
--
-(simpl in *).
-rewrite_inPar''.
-(simpl_rewrite FALSE_spec).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-  lia.
-(rewrite id_circ_spec).
-restore_dims
- simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
-  lia.
-(destruct t; reflexivity).
+Ltac
+ tensor_tac :=
+  simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
+   lia.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqOec1AO"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-14 18:57:42.990000.*)
+(* Auto-generated comment: At 2019-08-14 19:01:26.340000.*)
 
