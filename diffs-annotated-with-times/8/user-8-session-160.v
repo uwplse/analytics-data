@@ -118,5 +118,5 @@ Hint Rewrite
  @Mscale_plus_dist_r : ket_db.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 15:09:43.350000.*)
+(* Auto-generated comment: At 2019-08-16 15:09:45.330000.*)
 
