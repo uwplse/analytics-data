@@ -1011,7 +1011,8 @@ restore_dims tensor_tac.
 specialize inSeq_correct as IS.
 (simpl in IS).
 (repeat (rewrite IS; compile_typing compile_WT)).
-(* Auto-generated comment: Succeeded. *)
+(unfold compose_super).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 12:04:12.130000.*)
+(* Auto-generated comment: At 2019-08-15 12:06:23.850000.*)
 
