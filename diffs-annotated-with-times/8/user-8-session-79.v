@@ -1105,6 +1105,5 @@ clear IS.
 7: (erewrite denote_box_compat).
 8: {
 restore_dims tensor_tac.
-(rewrite kron_1_l_inv).
 (* Auto-generated comment: Succeeded. *)
 
