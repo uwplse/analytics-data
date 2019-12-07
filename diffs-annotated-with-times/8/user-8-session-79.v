@@ -1017,5 +1017,6 @@ specialize inSeq_correct as IS.
 restore_dims tensor_tac.
 rewrite_inPar'.
 restore_dims tensor_tac.
+rewrite_inPar'.
 (* Auto-generated comment: Succeeded. *)
 
