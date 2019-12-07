@@ -994,8 +994,8 @@ restore_dims tensor_tac.
 (destruct t; reflexivity).
 -
 (simpl).
-restore_dims tensor_tac.
+(progress restore_dims tensor_tac).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:38:18.830000.*)
+(* Auto-generated comment: At 2019-08-15 09:39:11.360000.*)
 
