@@ -1060,6 +1060,7 @@ all: (try tensor_tac).
 (unfold ctx_to_matrix in *).
 (erewrite denote_box_compat).
 2: (erewrite denote_box_compat).
-3: (erewrite denote_box_compat).
+2: (erewrite kron_compat).
+4: {
 (* Auto-generated comment: Succeeded. *)
 
