@@ -1187,17 +1187,5 @@ reflexivity.
  (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *;
    rewrite ctx_to_mat_list_length; specialize (IHb1 \206\147 f \226\140\136 b1 | f \226\140\137);
    repeat rewrite Nat.add_0_r in *; apply IHb1; trivial).
-(rewrite xorb_nilpotent).
-all: reflexivity.
-}
-1: {
-rewrite_inPar'.
-(rewrite id_circ_spec).
-(rewrite strip_one_l_out_eq).
-rewrite_inPar'.
-restore_dims tensor_tac.
-(rewrite id_circ_spec).
-(rewrite assert0_spec).
-restore_dims tensor_tac.
 (* Auto-generated comment: Succeeded. *)
 
