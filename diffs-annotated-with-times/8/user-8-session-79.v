@@ -997,8 +997,10 @@ restore_dims tensor_tac.
 restore_dims tensor_tac.
 Timeout 1 About big_kron.
 Timeout 1 Print big_kron.
-Timeout 1 Print Ltac big_kron.
+(match goal with
+ | |- context [ @kron ?a ?b ?c ?d ?A (@big_kron _ _ ?li) ] => idtac A; idtac li
+ end).
 (* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-15 10:20:22.740000.*)
+(* Auto-generated comment: At 2019-08-15 10:21:01.350000.*)
 
