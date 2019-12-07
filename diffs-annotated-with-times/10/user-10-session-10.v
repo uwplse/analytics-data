@@ -315,9 +315,10 @@ CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itre
   end.
 Definition match_event_list {X} : networkE X -> X -> list (itree tE unit) -> list (itree tE unit) :=
   compose pfmap \226\136\152 match_event.
+Check nmi_of_smi.
 Definition server : itree sE void :=
   sk <- translate subevent serverHandshake;; interp (network_of_app sk) (nmi_of_smi kvs).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-22 07:56:36.430000.*)
+(* Auto-generated comment: At 2019-08-22 07:56:50.820000.*)
 
