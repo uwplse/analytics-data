@@ -1078,6 +1078,10 @@ rewrite_inPar'.
 (rewrite strip_one_l_out_eq).
 (rewrite xorb_nb_b).
 rewrite_inPar'.
-(rewrite assert1_spec; auto with wf_db).
-(* Auto-generated comment: Failed. *)
+restore_dims tensor_tac.
+(rewrite assert1_spec).
+(rewrite id_circ_spec).
+(rewrite xorb_comm).
+reflexivity.
+(* Auto-generated comment: Succeeded. *)
 
