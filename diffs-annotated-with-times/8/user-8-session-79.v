@@ -1170,7 +1170,6 @@ reflexivity.
 }
 6: {
 listify_kron.
-restore_dims tensor_dims.
 (apply CNOT_at_spec).
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
