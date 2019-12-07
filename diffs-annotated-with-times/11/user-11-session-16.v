@@ -37,18 +37,8 @@ Please report at http://coq.inria.fr/bugs/.
 Redirect "/tmp/coq16819lNO" Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Definition smE := appE exp +' evalE +' nondetE.
-Definition kvs_state exp_ := list (N * exp_ N).
-Fixpoint choose {A E} `{nondetE -< E} (a : A) (l : list A) : 
-itree E A :=
-  match l with
-  | [] => ret a
-  | x :: l' => b <- trigger Or;; (if b : bool then ret x else choose x l')
-  end.
-Redirect "/tmp/coq16819yXU" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Check Or.
-Check or.
-(* Auto-generated comment: Succeeded. *)
+Definition kvs_state exp_ := list connection * list (N * exp_ N).
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-09-09 22:01:56.510000.*)
+(* Auto-generated comment: At 2019-09-09 22:02:01.650000.*)
 
