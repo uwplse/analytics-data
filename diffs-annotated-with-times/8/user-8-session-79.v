@@ -829,12 +829,14 @@ Ltac
   unfold ctx_to_matrix;
    repeat
     match goal with
-    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace
-      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
-      by
-        (simpl; Msimpl; rewrite ctx_to_mat_list_length;
-          try rewrite size_ntensor, Nat.mul_1_r; easy)
+    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => mat_replace
+      @kron a b c d A (\226\168\130 li) with \226\168\130 (A :: li) by
+      simpl; Msimpl; rewrite ctx_to_mat_list_length;
+       try rewrite size_ntensor, Nat.mul_1_r; easy
     end.
+Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqDYRBhg"
+Print Ltac Signatures.
+Timeout 1 Print Grammar tactic.
 Lemma ctx_lookup_exists :
   forall v \206\147 f,
   get_context (b_var v) \226\138\130 \206\147 ->
@@ -902,16 +904,10 @@ Ltac
          rewrite size_ntensor in *; simpl in *; try rewrite Nat.mul_1_r in *;
          rewrite IP; clear IP
   end; try (solve [ type_check ]).
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqExfJeq"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Ltac
  tensor_tac :=
   simpl; try rewrite size_ntensor; try rewrite app_length; simpl; unify_pows_two;
    lia.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqAk6O7E"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
 Lemma init_at_spec :
   forall (b : bool) (n i : nat) (l1 l2 : list (Square 2)) (A B : Square 2),
   length l1 = i ->
@@ -999,10 +995,9 @@ restore_dims tensor_tac.
 -
 (simpl).
 listify_kron.
-Timeout 1 About listify_kron.
-Timeout 1 Print listify_kron.
-Timeout 1 Print Ltac listify_kron.
+(simpl_rewrite (CNOT_at_spec (f v) t (S (\226\159\166 \206\147 \226\159\167)) (S (position_of v \206\147)) 0); trivial;
+  try omega).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 09:32:43.460000.*)
+(* Auto-generated comment: At 2019-08-15 09:32:44.290000.*)
 
