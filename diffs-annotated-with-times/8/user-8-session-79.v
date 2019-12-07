@@ -1156,6 +1156,8 @@ listify_kron.
 }
 4: {
 (rewrite_inPar'; try tensor_tac).
-rewrite_inPar'.
-(* Auto-generated comment: Succeeded. *)
+(rewrite_inPar'; try tensor_tac).
+(rewrite 2!id_circ_spec).
+(rewrite (IHb1 \206\147 f \226\140\136 b2 | f \226\140\137)).
+(* Auto-generated comment: Failed. *)
 
