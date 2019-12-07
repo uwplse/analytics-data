@@ -35,8 +35,10 @@ Proof.
 (intros U \207\129 safe).
 Timeout 1 About unitary_gate_unitary.
 Timeout 1 Print unitary_gate_unitary.
-Timeout 1 Print Ltac unitary_gate_unitary.
-(* Auto-generated comment: Failed. *)
+(simpl in *).
+matrix_denote.
+setoid_rewrite denote_unitary_transpose.
+(* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:30:08.880000.*)
+(* Auto-generated comment: At 2019-08-15 14:31:09.520000.*)
 
