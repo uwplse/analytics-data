@@ -117,9 +117,7 @@ Hint Rewrite
  @Mmult_plus_dist_l @Mmult_plus_dist_r @kron_plus_dist_l @kron_plus_dist_r
  @Mscale_plus_dist_r : ket_db.
 Hint Rewrite
- @Mscale_mult_dist_l @Mscale_mult_dist_r Mscale_kron_dist_l Mscale_kron_dist_r :
+ @Mscale_mult_dist_l @Mscale_mult_dist_r @Mscale_kron_dist_l Mscale_kron_dist_r :
  ket_db.
 (* Auto-generated comment: Failed. *)
-
-(* Auto-generated comment: At 2019-08-16 15:11:10.520000.*)
 
