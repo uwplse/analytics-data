@@ -67,8 +67,10 @@ Msimpl.
 (unfold denote_pat; simpl).
 (unfold swap_list; simpl).
 (unfold swap_two; simpl).
-(unfold apply_U).
+(unfold apply_U; simpl).
+Msimpl.
+(rewrite Mmult_assoc).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:56:06.440000.*)
+(* Auto-generated comment: At 2019-08-15 14:56:21.620000.*)
 
