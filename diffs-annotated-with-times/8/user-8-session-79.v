@@ -1089,24 +1089,6 @@ Msimpl.
  end).
 reflexivity.
 -
-(simpl in *).
-restore_dims tensor_tac.
-specialize inSeq_correct as IS.
-(simpl in IS).
-(repeat (rewrite IS; unfold compose_super; compile_typing compile_WT)).
-clear IS.
-(repeat rewrite_inPar').
-(repeat rewrite strip_one_l_in_eq).
 (erewrite denote_box_compat).
-2: (erewrite denote_box_compat).
-3: (erewrite denote_box_compat).
-4: (erewrite kron_compat).
-6: (erewrite denote_box_compat).
-7: (erewrite denote_box_compat).
-8: {
-restore_dims tensor_tac.
-(rewrite kron_1_l_inv).
-reflexivity.
-}
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
