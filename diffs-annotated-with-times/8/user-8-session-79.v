@@ -752,19 +752,5 @@ Ltac
 Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coqD3Zl8d"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
-Ltac
- listify_kron :=
-  unfold ctx_to_matrix;
-   repeat
-    match goal with
-    | |- context [ @kron ?a ?b ?c ?d ?A (\226\168\130 ?li) ] => replace
-      (@kron a b c d A (\226\168\130 li)) with \226\168\130 (A :: li)
-      by
-        (simpl; rewrite ctx_to_mat_list_length;
-          try rewrite size_ntensor, Nat.mul_1_r; easy)
-    end.
-Redirect "/var/folders/m1/0k3qczq13cg04mhs4ww613ww0000gn/T/coq2FL8fD"
-Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
