@@ -270,8 +270,8 @@ Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqiFtR30"
 Print Ltac Signatures.
 Timeout 1 Print Grammar tactic.
 Timeout 1 Print LoadPath.
-Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} {E} `{E -< nE} 
-  (k : shared_key) T (e : (appE id +' E) T) : itree nE T :=
+Definition network_of_app {nE} {E} `{E -< nE} (k : shared_key) T (e : (appE id +' E) T) : 
+  itree nE T :=
   match e with
   | (ae|) =>
       match ae with
@@ -293,39 +293,7 @@ Definition network_of_app {nE} `{networkE -< nE} `{exceptE error -< nE} {E} `{E 
       end
   | (|e) => trigger e
   end.
-Redirect "/var/folders/lm/cpf87_lx21n9bgnl4kr72rjm0000gn/T/coqNOYexa" Print Ltac Signatures.
-Timeout 1 Print Grammar tactic.
-Notation sE := (networkE +' exceptE error +' hsgenE +' randomE).
-Notation tE := (nondetE +' sE).
-CoFixpoint match_event {X} (e0 : networkE X) (x0 : X) (t : itree tE unit) : itree tE unit :=
-  match t.(observe) with
-  | RetF r => Ret r
-  | TauF t => Tau (match_event e0 x0 t)
-  | VisF e k =>
-      match e with
-      | (|(ne|)) =>
-          match e0 in (networkE X), ne in (networkE Y) return ((Y -> _) -> X -> _) with
-          | Network_Recv, Network_Recv => id
-          | Network_Send m1, Network_Send m2 =>
-              if m1 = m2 ? then id else fun _ _ => throw Error_UnexpectedMessage
-          | _, _ => fun _ _ => throw Error_UnexpectedBehavior
-          end k x0
-      | (e|) | (||e|) | (|||e|) | (||||e) => vis e (match_event e0 x0 \226\136\152 k)
-      end
-  end.
-Definition match_event_list {X} : networkE X -> X -> list (itree tE unit) -> list (itree tE unit) :=
-  compose pfmap \226\136\152 match_event.
-Check nmi_of_smi.
-Check nmi_of_smi.
-Check network_of_app.
-Print sE.
-Check interp.
-Print interp.
-Check interp.
-Print interp.
-Check network_of_app.
-Print network_of_app.
-(* Auto-generated comment: Succeeded. *)
+(* Auto-generated comment: Failed. *)
 
-(* Auto-generated comment: At 2019-08-22 08:04:35.460000.*)
+(* Auto-generated comment: At 2019-08-22 08:04:59.870000.*)
 
