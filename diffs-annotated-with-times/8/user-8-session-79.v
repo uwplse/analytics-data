@@ -1206,6 +1206,7 @@ reflexivity.
 rewrite_inPar.
 (rewrite id_circ_spec).
 (erewrite kron_compat).
+Set Printing All.
 3:
  (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *; specialize
    (IHb2 \206\147 f \226\140\136 b2 | f \226\140\137); repeat rewrite Nat.add_0_r in *; 
