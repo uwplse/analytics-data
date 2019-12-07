@@ -1208,6 +1208,7 @@ rewrite_inPar.
 (erewrite kron_compat).
 3:
  (simpl; rewrite size_ntensor, Nat.mul_1_r; unfold ctx_to_matrix in *; specialize
-   (IHb2 \206\147 f false); repeat rewrite Nat.add_0_r in *; apply IHb2; trivial).
+   (IHb2 \206\147 f false); rewrite xorb_false_l in IHb2; repeat rewrite Nat.add_0_r in *;
+   apply IHb2; trivial).
 (* Auto-generated comment: Failed. *)
 
