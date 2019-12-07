@@ -83,8 +83,7 @@ gen \207\129.
 -
 (unfold denote_u_db_box).
 (simpl).
-(rewrite pad_nothing).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:00:55.240000.*)
+(* Auto-generated comment: At 2019-08-15 14:00:58.620000.*)
 
