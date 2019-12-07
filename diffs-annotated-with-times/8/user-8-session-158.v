@@ -338,8 +338,7 @@ Timeout 1 Print LoadPath.
 econstructor.
 3: eauto.
 3: eauto.
-2: monoid.
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-16 14:51:38.690000.*)
+(* Auto-generated comment: At 2019-08-16 14:51:46.220000.*)
 
