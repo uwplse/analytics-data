@@ -82,9 +82,7 @@ gen \207\129.
 (induction (c p)).
 -
 (unfold denote_u_db_box).
-(simpl).
-(rewrite pad_nothing).
 (* Auto-generated comment: Succeeded. *)
 
-(* Auto-generated comment: At 2019-08-15 14:01:43.120000.*)
+(* Auto-generated comment: At 2019-08-15 14:02:14.500000.*)
 
