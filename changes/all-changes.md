@@ -8,24 +8,42 @@ TODO revisit each one in detail to finalize, perhaps after writing a bunch
 TODO below are more final ones. in each session, just keep the notes. same at user-level.
 TODO final recount at the end, also. plus link to every diff
 TODO CUT-DEF includes cutting fix etc
+TODO note about unknown times
+TODO update paper w/ latest numbers and notes
 
 Totals:
+- User 1: TODO
+  * Structure: TODO
+    ** Add: TODO
+      *** Add Ctr: 17
+        **** Add Ctr Inductive: 17
+- User 2: TODO
+  * Structure: TODO
+    ** Add: TODO
+      *** Add Ctr: 1
+        **** Add Ctr Inductive: 1
 - User 3: TODO
   * Structure: TODO
     ** Add: TODO
       *** Add Hyp: 1
         **** Add Hyp Fixpoint: 1
+      *** Add Ctr: 1
+        **** Add Ctr Inductive: 1
 - User 5: TODO
   * Structure: TODO
     ** Add: TODO
       *** Add Hyp: 11
         **** Add Hyp Record: 10
         **** Add Hyp Theorem: 1
+      *** Add Ctr: 13
+        **** Add Ctr Inductive: 13
 - User 7: TODO
   * Structure: TODO
     ** Add: TODO
       *** Add Hyp: 17
         **** Add Hyp Lemma: 17
+      *** Add Ctr: 4
+        **** Add Ctr Inductive: 4
 - User 8: TODO
   * Structure: TODO
     ** Add: TODO
@@ -41,6 +59,8 @@ Totals:
         **** Add Hyp Theorem: 1
         **** Add Hyp Lemma: 19
         **** Add Hyp Fact: 1
+      *** Add Ctr: 36
+        **** Add Ctr Inductive: 36
 
 # Structure
 
@@ -206,58 +226,166 @@ Totals:
 
 ### Add Ctr
 
-Totals: TODO 
-
 #### Add Ctr Inductive
-
-Totals: TODO
 
 ##### User 1
 
-Total: TODO
-
 1. [1.37.4.1](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `ST`
-  * New hypothesis: `SBool` (constructor)
-  * Elapsed:
+  * New constructor: `SBool` (constructor)
+  * Elapsed: 2.35 seconds (these two changes only)
 2. [1.37.4.2](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `ST`
-  * New hypothesis: `
-  * Elapsed:
+  * New constructor: `SFun`
+  * Elapsed: 2.35 seconds (these two changes only)
+3. [1.37.4-12.1](https://github.com/uwplse/analytics-data/compare/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8..c2f34747fb2c2b5d196a3d1ed4383c36bbcd1eca)
+  * Inductive: `ST`
+  * New constructor: `SRec`
+  * Elapsed: 325.30 seconds (this change and correpsonding import only)
+4. [1.37.26.1](https://github.com/uwplse/analytics-data/commit/fae52f1fd4f7d69aeffb60135e8fd8f36f1b4972#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `GT`
+  * New constructor: `GRow`
+  * Elapsed: 12.89 seconds (includes another change)
+5. [1.37.31.1](https://github.com/uwplse/analytics-data/commit/4b069ba7dffe536eec00715edd850154ae2da798#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `GT`
+  * New constructor: `GFun`
+  * Elapsed: 119.15 seconds (this change only)
+6. [1.37.52-56.1](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..4e1231197af1fa075bbc499f312d6b0dce9d8a36)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_bool`
+  * Elapsed: Unknown
+7. [1.37.52-56.2](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..4e1231197af1fa075bbc499f312d6b0dce9d8a36)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_fun`
+  * Elapsed: Unknown
+8. [1.41.0-3.1](https://github.com/uwplse/analytics-data/compare/b19de98b8490a6213fd1321992270e2305130b5a..e5ce3d9f7c8cac489600cba7007991072480173e)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_rec_mt`
+  * Elapsed: 1805.97 seconds (this change and corresponding notation only)
+9. [1.41.3-8.1](https://github.com/uwplse/analytics-data/compare/e5ce3d9f7c8cac489600cba7007991072480173e..eb54d11ffdc3f7bef168fe1101d196b47147baf8)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_rec_cons_req`
+  * Elapsed: 873.83 seconds (these two changes only)
+10. [1.41.3-8.2](https://github.com/uwplse/analytics-data/compare/e5ce3d9f7c8cac489600cba7007991072480173e..eb54d11ffdc3f7bef168fe1101d196b47147baf8)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_row_mt`
+  * Elapsed: 873.83 seconds (these two changes only)
+11. [1.41.8-10.1](https://github.com/uwplse/analytics-data/compare/eb54d11ffdc3f7bef168fe1101d196b47147baf8..9189529eea42091860aae41c468781a5ed8f74d2)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_rec_cons_none`
+  * Elapsed: 157.89 seconds (this change only)
+12. [1.41.10-12.1](https://github.com/uwplse/analytics-data/compare/9189529eea42091860aae41c468781a5ed8f74d2..2a5978c5934f503128572a2ca9f33822b3a4874e)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_rec_cons_opt`
+  * Elapsed: 129.88 seconds (this change only)
+13. [1.41.12-19.1](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_row_cons_none`
+  * Elapsed: 706.83 seconds (these changes and one other change)
+14. [1.41.12-19.2](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_row_cons_req`
+  * Elapsed: 706.83 seconds (these changes and one other change)
+15. [1.41.12-19.3](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_row_cons_opt`
+  * Elapsed: 706.83 seconds (these changes and one other change)
+16. [1.41.12-19.4](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_row_cons_row_skip_hd`
+  * Elapsed: 706.83 seconds (these changes and one other change)
+17. [1.41.20.1](https://github.com/uwplse/analytics-data/commit/056ed0a757d8f369864a1ebc5a70b158cbe615cc#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Inductive: `Alpha`
+  * New constructor: `alpha_gdyn`
+  * Elapsed: 104.64 seconds (this change and some proof)
 
+##### User 2
 
-      *** 1.37.4-12 (ST)
-      *** 1.37.26 (GT)
-      *** 1.37.31 (GT)
-      *** 1.37.52-56 (Alpha)
-      *** 1.41.0-3 (Alpha)
-      *** 1.41.3-8 (Alpha)
-      *** 1.41.3-8 (Alpha)
-      *** 1.41.8-10 (Alpha)
-      *** 1.41.10-12 (Alpha)
-      *** 1.41.12-19 (Alpha)
-      *** 1.41.12-19 (Alpha)
-      *** 1.41.12-19 (Alpha)
-      *** 1.41.20 (Alpha)
-      *** 2.5.0-68 (term)
-      *** 3.936.1 (compile_mail_base)
-      *** 5.18.7 (Term)
-      *** 5.18.7 (Term)
-      *** 5.18.7 (Term)
-      *** 5.18.7 (Term)
-      *** 5.19.19 (Term)
-      *** 5.19.19 (Term)
-      *** 5.19.19 (Term)
-      *** 5.19.19 (Term)
-      *** 5.19.19 (Term)
-      *** 5.19.19 (Term)
-      *** 5.27.1 (Term)
-      *** 5.27.1 (Term)
-      *** 5.27.1 (Term)
-      *** 7.99.0 (ty)
-      *** 7.99.0-3 (value_type)
-      *** 7.109.10 (sub_d)
-      *** 7.193.0 (ty)
+1. [2.5.0-68.1](https://github.com/uwplse/analytics-data/compare/d8ea29938120bf402680b9119db6991b01577ef8..75afc606595f25e1ca639f97e058750554e394e9)
+  * Inductive: `term`
+  * New constructor: `Symb`
+  * Elapsed: 6957.38 seconds (includes other changes)
+
+##### User 3
+
+1. [3.936.1.1](https://github.com/uwplse/analytics-data/commit/b5e582c58e4704d53d4b5088b5dc6b1d307787c4#diff-e536fab578f04ed79489644cfc8905ba)
+  * Inductive: `compile_mail_base`
+  * New constructor: `cm_lock`
+  * Elapsed: Unknown
+
+##### User 5
+
+1. [5.18.7.1](https://github.com/uwplse/analytics-data/commit/9ba76d98852bc05e691854948d1510fc911eea93#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Inductive: `Term`
+  * New constructor: `Int`
+  * Elapsed: 124.90 seconds (includes other changes)
+2. [5.18.7.2](https://github.com/uwplse/analytics-data/commit/9ba76d98852bc05e691854948d1510fc911eea93#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Inductive: `Term`
+  * New constructor: `Plus`
+  * Elapsed: 124.90 seconds (includes other changes)
+3. [5.18.7.3](https://github.com/uwplse/analytics-data/commit/9ba76d98852bc05e691854948d1510fc911eea93#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Inductive: `Term`
+  * New constructor: `Times`
+  * Elapsed: 124.90 seconds (includes other changes)
+4. [5.18.7.4](https://github.com/uwplse/analytics-data/commit/9ba76d98852bc05e691854948d1510fc911eea93#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Inductive: `Term`
+  * New constructor: `Minus`
+  * Elapsed: 124.90 seconds (includes other changes)
+5. [5.19.24.1](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Inductive: `Term`
+  * New constructor: `Bool`
+  * Elapsed: 427.10 seconds (just these changes)
+6. [5.19.24.2](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Inductive: `Term`
+  * New constructor: `And`
+  * Elapsed: 427.10 seconds (just these changes)
+7. [5.19.24.3](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Inductive: `Term`
+  * New constructor: `Or`
+  * Elapsed: 427.10 seconds (just these changes)
+8. [5.19.24.4](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Inductive: `Term`
+  * New constructor: `Not`
+  * Elapsed: 427.10 seconds (just these changes)
+9. [5.19.24.5](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Inductive: `Term`
+  * New constructor: `Implies`
+  * Elapsed: 427.10 seconds (just these changes)
+10. [5.19.24.6](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Inductive: `Term`
+  * New constructor: `If`
+  * Elapsed: 427.10 seconds (just these changes)
+11. 5.([19.24](https://github.com/uwplse/analytics-data/blob/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf/diffs-annotated-with-times/5/user-5-session-19.v)-[27.1](https://github.com/uwplse/analytics-data/blob/7e75933b596616de7a54470d99369a3d6a06df46/diffs-annotated-with-times/5/user-5-session-27.v)).1 ([diff](https://www.diffchecker.com/IjqbTjc7))
+  * Inductive: `Term`
+  * New constructor: `Bools`
+  * Elapsed: Unknown
+12. 5.([19.24](https://github.com/uwplse/analytics-data/blob/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf/diffs-annotated-with-times/5/user-5-session-19.v)-[27.1](https://github.com/uwplse/analytics-data/blob/7e75933b596616de7a54470d99369a3d6a06df46/diffs-annotated-with-times/5/user-5-session-27.v)).2 ([diff](https://www.diffchecker.com/IjqbTjc7))
+  * Inductive: `Term`
+  * New constructor: `Ints`
+  * Elapsed: Unknown
+13. 5.([19.24](https://github.com/uwplse/analytics-data/blob/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf/diffs-annotated-with-times/5/user-5-session-19.v)-[27.1](https://github.com/uwplse/analytics-data/blob/7e75933b596616de7a54470d99369a3d6a06df46/diffs-annotated-with-times/5/user-5-session-27.v)).3 ([diff](https://www.diffchecker.com/IjqbTjc7))
+  * Inductive: `Term`
+  * New constructor: `In`
+  * Elapsed: Unknown
+
+##### User 7
+
+1. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.0](https://github.com/uwplse/analytics-data/blob/913d918cf20bf2b4f4e6d8c07da9a63cafc61a72/diffs-annotated-with-times/7/user-7-session-99.v)).1 ([diff](https://www.diffchecker.com/r7cfT4hL))
+  * Inductive: `ty`
+  * New constructor: `TEV`
+  * Elapsed: 80205.96 seconds (includes other changes, new day)
+2. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.3](https://github.com/uwplse/analytics-data/blob/1f4dc1ec58d3a8f4e756e0d8d612e8586e37a7b6/diffs-annotated-with-times/7/user-7-session-99.v)).1 ([diff](https://www.diffchecker.com/0PWKRYpw))
+  * Inductive: `value_type`
+  * New constructor: `VT_EV`
+  * Elapsed: 80245.07 seconds (includes other changes, new day)
+3. [7.109.10.1](https://github.com/uwplse/analytics-data/commit/db6efff1e9e1a6aef1d7cc2e41bd4f0915c7c538#diff-9bb46316b9bfb9b3dc0c3e4d97fa3fbe)
+  * Inductive: `sub_d`
+  * New constructor: `SD_ExistR`
+  * Elapsed: 67.50 seconds (includes other changes)
+4. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).1 ([diff](https://www.diffchecker.com/8RlqPoQZ))
+  * Inductive: `ty`
+  * New constructor: `TBVar`
+  * Elapsed: Unknown
 
 ### Add Arg
 
