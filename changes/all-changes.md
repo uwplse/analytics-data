@@ -52,6 +52,13 @@ Totals:
         **** Add Ctr Inductive: 13
       *** Add Cas: 20
         **** Add Cas Fixpoint: 20
+    ** Del: 6
+      *** Del Ctr: 1
+        **** Del Ctr Inductive: 1
+      *** Del Hyp: 5
+        **** Del Hyp Record: 3
+        **** Del Hyp Inductive: 1
+        **** Del Hyp Theorem: 1
 - User 7: TODO
   * Structure: TODO
     ** Add: 25
@@ -61,6 +68,9 @@ Totals:
         **** Add Ctr Inductive: 4
       *** Add Cas: 4
         **** Add Cas Fixpoint: 4
+    ** Del: 11
+      *** Del Hyp: 11
+        **** Del Hyp Lemma: 11 
 - User 8: TODO
   * Structure: TODO
     ** Add: 5
@@ -69,6 +79,11 @@ Totals:
         **** Add Hyp Fact: 1
       *** Add Arg: 2
         **** Add Arg Lemma: 2
+    ** Del: 4
+      *** Del Hyp: 4
+        **** Del Hyp Lemma: 4 
+- Total
+  * Structure
 - User 10: TODO
   * Structure: TODO
     ** Add: 1
@@ -100,6 +115,14 @@ Totals:
       *** Add Cas: 51
         **** Add Cas Definition: 2
         **** Add Cas Fixpoint: 49
+    ** Del: 21
+      *** Del Ctr: 1
+        **** Del Ctr Inductive: 1
+      *** Del Hyp: 20
+        **** Del Hyp Record: 3
+        **** Del Hyp Inductive: 1
+        **** Del Hyp Theorem: 1
+        **** Del Hyp Lemma: 15 
 
 # Structure
 
@@ -740,40 +763,121 @@ Totals:
 
 ## Del
 
+### Del Ctr
 
-- REMOVE (1: 0, 2: 0, 3: 2, 5: 6, 7: 11, 8: 4, 10: 0, 11: 0, Total: 23)
-  * CONSTRUCTOR (1: 0, 2: 0, 3: 0, 5: 1, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-    ** IND+ (1: 0, 2: 0, 3: 0, 5: 5, 7: 0, 8: 0, 10: 0, 11: 0)
-      *** 5.19.25 (Term)
-  * HYPO (1: 0, 2: 0, 3: 2, 5: 5, 7: 11, 8: 4, 10: 0, 11: 0, Total: 22)
-    ** CONSTRUCTOR-HYPO (1: 0, 2: 0, 3: 0, 5: 4, 7: 0, 8: 0, 10: 0, 11: 0)
-      *** IND+ (1: 0, 2: 0, 3: 0, 5: 4, 7: 0, 8: 0, 10: 0, 11: 0)) 
-        **** 5.19.23-25 (EpsilonLogic)
-        **** 5.19.23-25 (EpsilonLogic)
-        **** 5.19.23-25 (EpsilonLogic)
-        **** 5.19.26 (Term)
-    ** LET-HYPO (1: 0, 2: 0, 3: 2, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0)  (TODO move these; lets are not hypotheses, they are cut/uncut)
-      *** FIX+ (1: 0, 2: 0, 3: 2, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0)
-        **** 3.960.146-149 (nat_to_le)
-        **** 3.960.146-149 (nat_to_le)
-    ** THM-HYPO (1: 0, 2: 0, 3: 0, 5: 1, 7: 11, 8: 4, 10: 0, 11: 0)
-      *** THM+ (1: 0, 2: 0, 3: 0, 5: 1, 7: 11, 8: 4, 10: 0, 11: 0)
-        **** 5.18.24-26 (simplify_correct)
-        **** 7.2.147-152 (weird_trans)
-        **** 7.2.147-152 (weird_trans)
-        **** 7.2.147-152 (weird_trans)
-        **** 7.19.53 (match_ty_i_k__match_le_k)
-        **** 7.19.71 (match_ty_i__inv_depth_stable)
-        **** 7.19.71 (match_ty_i__inv_depth_stable)
-        **** 7.19.344 (sem_sub_k_i_pair__inv)
-        **** 7.19.525 (sem_eq_k_i__inv_depth_eq)
-        **** 7.19.676 (pair_sem_sub_k_i__sub_d)
-        **** 7.19.679 (cname_sem_sub_k_i__sub_d)
-        **** 7.202.23 (b_subst_wf_ty)
-        **** 8.79.17 (big_kron_append)
-        **** 8.79.17 (big_kron_append)
-        **** 8.79.20 (big_kron_append)
-        **** 8.79.20 (big_kron_append)
+#### Del Ctr Inductive
+
+##### User 5
+
+1. [5.19.25.1](https://github.com/uwplse/analytics-data/commit/0e679efd22f7ae6447c8fc5641090a5427240602#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Inductive: `Term`
+  * Removed constructor: `Implies`
+  * Elapsed: 50598.92 seconds (one other change, new day)
+
+### Del Hyp
+
+#### Del Hyp Record
+
+##### User 5
+
+1. [5.19.23-26.7](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Removed hypothesis: `vTrue`
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
+2. [5.19.23-26.8](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Removed hypothesis: `vFalse`
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
+3. [5.19.23-26.9](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Removed hypothesis: `trueAndFalseDistinct`
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
+
+#### Del Hyp Inductive
+
+##### User 5
+
+1. [5.19.26.1](https://github.com/uwplse/analytics-data/commit/a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Inductive: `Term`
+  * Removed hypothesis: Anonymous IH in `Not`
+  * Elapsed: 584.75 seconds (includes other changes)
+
+#### Del Hyp Theorem
+
+##### User 5
+
+1. [5.18.24-26.1](https://github.com/uwplse/analytics-data/compare/8d93a80c6b0f5262625ba77d4eefe8d47fafac52..58d9a7ad7536d10d752154d0e8fbf2bca8824273)
+  * Theorem: `simplify_correct`
+  * Removed hypothesis: `env`
+  * Elapsed: 17.72 seconds (this and a proof change)
+
+#### Del Hyp Lemma
+
+##### User 7
+
+1. [7.2.147-152.2](https://github.com/uwplse/analytics-data/compare/d43041752f886ac0bbfe15a6c4e64aeab9fc69ff..1df9382cec8e149ba1d3e648a1268e0b4a54ef97)
+  * Lemma: `weird_trans`
+  * Removed hypothesis: `InNF( t1)`
+  * Elapsed: 96.36 seconds (includes other changes)
+2. [7.2.147-152.3](https://github.com/uwplse/analytics-data/compare/d43041752f886ac0bbfe15a6c4e64aeab9fc69ff..1df9382cec8e149ba1d3e648a1268e0b4a54ef97)
+  * Lemma: `weird_trans`
+  * Removed hypothesis: `InNF( t2)`
+  * Elapsed: 96.36 seconds (includes other changes)
+3. [7.2.147-152.4](https://github.com/uwplse/analytics-data/compare/d43041752f886ac0bbfe15a6c4e64aeab9fc69ff..1df9382cec8e149ba1d3e648a1268e0b4a54ef97)
+  * Lemma: `weird_trans`
+  * Removed hypothesis: `InNF( t3)`
+  * Elapsed: 96.36 seconds (includes other changes)
+4. [7.19.53.1](https://github.com/uwplse/analytics-data/commit/14816355b3b42e5322d9e69c74eeac3b124957b2#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i_k__match_le_k`
+  * Removed hypothesis: `O < k'`
+  * Elapsed: 58.56 seconds (includes other changes)
+5. [7.19.71.1](https://github.com/uwplse/analytics-data/commit/2f0362aec880e94901f5a3d65bbbe5cedc9494fe#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i__inv_depth_stable`
+  * Removed hypothesis: `inv_depth v <= k`
+  * Elapsed: 1.55 seconds (these changes and proof changes only)
+6. [7.19.71.2](https://github.com/uwplse/analytics-data/commit/2f0362aec880e94901f5a3d65bbbe5cedc9494fe#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i__inv_depth_stable`
+  * Removed hypothesis: `inv_depth v <= k'`
+  * Elapsed: 1.55 seconds (these changes and proof changes only)
+7. [7.19.344.1](https://github.com/uwplse/analytics-data/commit/ab9d1ad5e96949dc19a11436e3bb1ae0838ece97#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `sem_sub_k_i_pair__inv`
+  * Removed hypothesis: `| TPair t1 t2 | <= k`
+  * Elapsed: 17.52 seconds (these changes and proof changes only)
+8. [7.19.525.1](https://github.com/uwplse/analytics-data/commit/d6c186a3075a0fc35dc40ac93bb0fc883c293fae#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma:  `sem_eq_k_i__inv_depth_eq`
+  * Removed hypothesis: `| t' | <= k`
+  * Elapsed: 10.16 seconds (these changes and proof changes only)
+9. [7.19.676.1](https://github.com/uwplse/analytics-data/commit/04a4461b8a0778be561f7115f7060cbcb199961f#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma:  `pair_sem_sub_k_i__sub_d`
+  * Removed hypothesis: `| TPair ta1 ta2 | <= k`
+  * Elapsed: 31.11 seconds (these changes and proof changes only)
+10. [7.19.679.1](https://github.com/uwplse/analytics-data/commit/3f085992ace56b01f77c02c25d0cb303afe328be#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma:  `cname_sem_sub_k_i__sub_d`
+  * Removed hypothesis: `| TCName c | <= k`
+  * Elapsed: 4.60 seconds (these changes and proof changes only)
+11. [7.202.23.1](https://github.com/uwplse/analytics-data/commit/750007a560792eba6da87267296986a6dda340a6#diff-f6bf317dc909b5b74bc624e9ae8a56e7)
+  * Lemma:  `b_subst_wf_ty`
+  * Removed hypothesis: `wf_ty t`
+  * Elapsed: 35.28 seconds (these changes and proof changes only
+
+##### User 8
+
+1. [8.79.17.1](https://github.com/uwplse/analytics-data/commit/d0249e7eab32ea5d7cd2f494f2efbbd7fe1bd611#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Lemma:  `big_kron_append`
+  * Removed hypothesis: `(forall j, WF_Matrix (nth j l1 A))`
+  * Elapsed: 1.14 seconds (these changes only)
+2. [8.79.17.2](https://github.com/uwplse/analytics-data/commit/d0249e7eab32ea5d7cd2f494f2efbbd7fe1bd611#diff-3ae9cc05249c564523bb8a4f63e1e3af) 
+  * Lemma:  `big_kron_append`
+  * Removed hypothesis: `(forall j, WF_Matrix (nth j l2 B))` 
+  * Elapsed: 1.14 seconds (these changes only)
+3. [8.79.20.1](https://github.com/uwplse/analytics-data/commit/ec693397c1ec3d75de4b9dc98ca59ae4eb5d0451#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Lemma:  `big_kron_append`
+  * Removed hypothesis: `A : Matrix m n`
+  * Elapsed: 27.65 seconds (these changes and a proof change only)
+4. [8.79.20.2](https://github.com/uwplse/analytics-data/commit/ec693397c1ec3d75de4b9dc98ca59ae4eb5d0451#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Lemma:  `big_kron_append`
+  * Removed hypothesis: `B : Matrix m n`
+  * Elapsed: 27.65 seconds (these changes and a proof change only)
 
 ## Mov
 
@@ -999,8 +1103,9 @@ termination proofs (include note, update tables, maybe mention as dev. pattern o
     ** FIX+ (3: 2)
       *** MATCH-CASE-BODY (1: 0, 2: 0, 3: 2)
         **** MATCH-CASE-BODY / APP / ARGS (1: 0, 2: 0, 3: 2)
-          ***** 3.960.146-149 (nat_to_le)
-          ***** 3.960.146-149 (nat_to_le)
+          ***** [3.960.146-149.1](https://github.com/uwplse/analytics-data/compare/c9108b4df34e2e4a5d5e72745278492eecfbc3f7..e1e131dde95ac8f50e7ed7f670835fada9d82899) (nat_to_le)
+          ***** [3.960.146-149.2](https://github.com/uwplse/analytics-data/compare/c9108b4df34e2e4a5d5e72745278492eecfbc3f7..e1e131dde95ac8f50e7ed7f670835fada9d82899) (nat_to_le)
+
 
 ## Rpl
 
