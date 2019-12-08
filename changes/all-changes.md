@@ -1,5 +1,7 @@
 See the paper for details on the analysis.
 
+Data on time elapsed is experimental, as it was not in the original analysis.
+
 TODO WIP organizing and linking and checking final numbers
 TODO make the non-actionable TODOs that aren't in the paper into notes
 TODO f / args granularity is innermost	
@@ -17,6 +19,9 @@ Totals:
     ** Add: TODO
       *** Add Ctr: 17
         **** Add Ctr Inductive: 17
+      *** Add Bod: 5
+        **** Add Bod Inductive: 3
+        **** Add Bod Fixpoint: 2
 - User 2: TODO
   * Structure: TODO
     ** Add: TODO
@@ -29,6 +34,9 @@ Totals:
         **** Add Hyp Fixpoint: 1
       *** Add Ctr: 1
         **** Add Ctr Inductive: 1
+      *** Add Bod: 7
+        **** Add Bod Definition: 6
+        **** Add Bod Fixpoint: 1
 - User 5: TODO
   * Structure: TODO
     ** Add: TODO
@@ -71,6 +79,10 @@ Totals:
       *** Add Arg: 4
         **** Add Arg Instance: 2
         **** Add Arg Lemma: 2
+      *** Add Bod: 12
+        **** Add Bod Inductive: 3
+        **** Add Bod Definition: 6
+        **** Add Bod Fixpoint: 3
 
 # Structure
 
@@ -243,71 +255,71 @@ Totals:
 1. [1.37.4.1](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `ST`
   * New constructor: `SBool` (constructor)
-  * Elapsed: 2.35 seconds (these two changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 2. [1.37.4.2](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `ST`
   * New constructor: `SFun`
-  * Elapsed: 2.35 seconds (these two changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 3. [1.37.4-12.1](https://github.com/uwplse/analytics-data/compare/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8..c2f34747fb2c2b5d196a3d1ed4383c36bbcd1eca)
   * Inductive: `ST`
   * New constructor: `SRec`
-  * Elapsed: 325.30 seconds (this change and correpsonding import only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 4. [1.37.26.1](https://github.com/uwplse/analytics-data/commit/fae52f1fd4f7d69aeffb60135e8fd8f36f1b4972#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `GT`
   * New constructor: `GRow`
-  * Elapsed: 12.89 seconds (includes another change)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 5. [1.37.31.1](https://github.com/uwplse/analytics-data/commit/4b069ba7dffe536eec00715edd850154ae2da798#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `GT`
   * New constructor: `GFun`
-  * Elapsed: 119.15 seconds (this change only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 6. [1.37.52-56.1](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..4e1231197af1fa075bbc499f312d6b0dce9d8a36)
   * Inductive: `Alpha`
   * New constructor: `alpha_bool`
-  * Elapsed: Unknown
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 7. [1.37.52-56.2](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..4e1231197af1fa075bbc499f312d6b0dce9d8a36)
   * Inductive: `Alpha`
   * New constructor: `alpha_fun`
-  * Elapsed: Unknown
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 8. [1.41.0-3.1](https://github.com/uwplse/analytics-data/compare/b19de98b8490a6213fd1321992270e2305130b5a..e5ce3d9f7c8cac489600cba7007991072480173e)
   * Inductive: `Alpha`
   * New constructor: `alpha_rec_mt`
-  * Elapsed: 1805.97 seconds (this change and corresponding notation only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 9. [1.41.3-8.1](https://github.com/uwplse/analytics-data/compare/e5ce3d9f7c8cac489600cba7007991072480173e..eb54d11ffdc3f7bef168fe1101d196b47147baf8)
   * Inductive: `Alpha`
   * New constructor: `alpha_rec_cons_req`
-  * Elapsed: 873.83 seconds (these two changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 10. [1.41.3-8.2](https://github.com/uwplse/analytics-data/compare/e5ce3d9f7c8cac489600cba7007991072480173e..eb54d11ffdc3f7bef168fe1101d196b47147baf8)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_mt`
-  * Elapsed: 873.83 seconds (these two changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 11. [1.41.8-10.1](https://github.com/uwplse/analytics-data/compare/eb54d11ffdc3f7bef168fe1101d196b47147baf8..9189529eea42091860aae41c468781a5ed8f74d2)
   * Inductive: `Alpha`
   * New constructor: `alpha_rec_cons_none`
-  * Elapsed: 157.89 seconds (this change only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 12. [1.41.10-12.1](https://github.com/uwplse/analytics-data/compare/9189529eea42091860aae41c468781a5ed8f74d2..2a5978c5934f503128572a2ca9f33822b3a4874e)
   * Inductive: `Alpha`
   * New constructor: `alpha_rec_cons_opt`
-  * Elapsed: 129.88 seconds (this change only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 13. [1.41.12-19.1](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_cons_none`
-  * Elapsed: 706.83 seconds (these changes and one other change)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 14. [1.41.12-19.2](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_cons_req`
-  * Elapsed: 706.83 seconds (these changes and one other change)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 15. [1.41.12-19.3](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_cons_opt`
-  * Elapsed: 706.83 seconds (these changes and one other change)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 16. [1.41.12-19.4](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_cons_row_skip_hd`
-  * Elapsed: 706.83 seconds (these changes and one other change)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 17. [1.41.20.1](https://github.com/uwplse/analytics-data/commit/056ed0a757d8f369864a1ebc5a70b158cbe615cc#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
   * Inductive: `Alpha`
   * New constructor: `alpha_gdyn`
-  * Elapsed: 104.64 seconds (this change and some proof)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ##### User 2
 
@@ -419,35 +431,84 @@ Totals:
 1. [11.16.0-6](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
   * Instance: `showAppE`
   * New hypothesis: `c` in case `App_Recv`
-  * Elapsed: 704.32 seconds (includes other changes, likely a repair)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 2. [11.16.0-6](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
   * Instance: `showAppE`
   * New hypothesis: `c` in case `App_Send	`
-  * Elapsed: 704.32 seconds (includes other changes, likely a repair) 
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user) 
 
-#### etc
+### Add Bod
 
-  * BODY (1: 5, 2: 0, 3: 7, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 12)
-    ** Ind+ (1: 3, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 3)
-      *** 1.37.3 (ST)
-      *** 1.37.25 (GT)
-      *** 1.37.0-52 (Alpha)
-    ** Def (1: 0, 2: 0, 3: 6, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 6)
-      *** 3.5741.1 (nanb)
-      *** 3.6414.4-29 (init)
-      *** 3.6414.4-29 (get)
-      *** 3.6414.4-29 (append)
-      *** 3.6414.4-113 (reset)
-      *** 3.6414.4-113 (recover)
-    ** Fix+ (1: 2, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 3)
-      *** 1.37.26 (Gamma)
-      *** 1.41.94-114 (eq)
-      *** 3.960.19-69 (nat_to_le)
-  * CASE (1: 24, 2: 4, 3: 1, 5: 21, 7: 6, 8: 0, 10: 1, 11: 0, Total: 57)
-    ** Def (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 1, 11: 0, Total: 2)
+#### Add Bod Inductive
+
+##### User 1
+
+1. [1.37.3.1](https://github.com/uwplse/analytics-data/commit/2b01e33c93ebd83ed086214ecbc1cff8a8356467#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `ST`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+2. [1.37.25.1](https://github.com/uwplse/analytics-data/commit/d489f81ca6435e054f557ea840d8ed8d697a3ad7#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `GT`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+3. [1.37.52.1](https://github.com/uwplse/analytics-data/commit/816d42cdfc703417b4c56cd5e9f0746cb9299ccf#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive `Alpha`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+#### Add Bod Definition
+
+##### User 3
+
+1. [3.5741.1.1](https://github.com/uwplse/analytics-data/commit/b1eb19b34ae613a50848851933db59d522a91c50#diff-afe76183e1f01deff9784c7d60f24e1b)
+  * Definition: `nandb`
+  * Elapsed: 25.25 seconds (this change and a test)
+2. [3.6414.4-29.1](https://github.com/uwplse/analytics-data/compare/1e4cc777c2b2a1fac60e1e9f6b6e31c884de9644..3740dfc40389421169f2be9db0a0752b0fae7625)
+  * Definition: `init`
+  * Elapsed: 1036.16 seconds (includes other changes)
+3. [3.6414.4-29.2](https://github.com/uwplse/analytics-data/compare/1e4cc777c2b2a1fac60e1e9f6b6e31c884de9644..3740dfc40389421169f2be9db0a0752b0fae7625)
+  * Definition: `get`
+  * Elapsed: 1036.16 seconds (includes other changes)
+4. [3.6414.4-29.3](https://github.com/uwplse/analytics-data/compare/1e4cc777c2b2a1fac60e1e9f6b6e31c884de9644..3740dfc40389421169f2be9db0a0752b0fae7625)
+  * Definition: `append`
+  * Elapsed: 1036.16 seconds (includes other changes)
+5. [3.6414.4-30.1](https://github.com/uwplse/analytics-data/compare/1e4cc777c2b2a1fac60e1e9f6b6e31c884de9644..2223f4692b2d5e34852d48cb0f8b432372bb7142)
+  * Definition: `reset`
+  * Elapsed: 7.99 seconds (just these two changes)
+6. [3.6414.4-30.2](https://github.com/uwplse/analytics-data/compare/1e4cc777c2b2a1fac60e1e9f6b6e31c884de9644..2223f4692b2d5e34852d48cb0f8b432372bb7142)
+  * Definition: `recover`
+  * Elapsed: 7.99 seconds (just these two changes)
+
+#### Add Bod Fixpoint
+
+##### User 1
+
+1. [1.37.26.2](https://github.com/uwplse/analytics-data/commit/fae52f1fd4f7d69aeffb60135e8fd8f36f1b4972#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Fixpoint: `Gamma`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+2. [1.41.96-114.1]((https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
+  * Fixpoint: `eq` (becomes a `Function`)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+##### User 3
+
+1. [3.960.19-80.2](https://github.com/uwplse/analytics-data/compare/017188f46db98812ea1072f74a15f0855cba1ba7..01de6576ae7e6c27c0f8f89c66c3ae092b4ef3db)
+  * Fixpoint: `nat_to_le`
+  * Elapsed: 838.01 seconds (includes other changes)
+
+### Add Cas
+
+#### Add Cas Definition
+
+##### User 3
+
       *** 3.806.1 (step_open)
+
+##### User 10
+
       *** 10.10.13-15 (network_of_app)
-    ** Fix+ (1: 24, 2: 4, 3: 0, 5: 21, 7: 6, 8: 0, 10: 0, 11: 0, Total: 55)
+
+#### Add Cas Fixpoint
+
+##### User 1
+
       *** 1.37.27 (Gamma)
       *** 1.37.28 (Gamma)
       *** 1.37.28-30 (Gamma)
@@ -472,10 +533,16 @@ Totals:
       *** 1.41.114-129 (eq)
       *** 1.41.114-129 (eq)
       *** 1.41.141 (eq_fn)
+
+##### User 2
+
       *** 2.5.0-2 (value)
       *** 2.5.44 (step)
       *** 2.5.71 (value)
       *** 2.5.78 (step)
+
+##### User 5
+
       *** 5.18.13-15 (simplify)
       *** 5.18.13-15 (simplify)
       *** 5.18.13-15 (simplify)
@@ -497,6 +564,9 @@ Totals:
       *** 5.35.0-3 (free_vars)
       *** 5.35.0-3 (free_vars)
       *** 5.35.0-3 (free_vars)
+
+##### User 7
+
       *** 7.99.0 (subst)
       *** 7.99.0-5 (match_ty)
       *** 7.102.0-11 (match_ty)
@@ -691,7 +761,7 @@ Totals: TODO
 ## Cut
 
 termination proofs (include note, update tables, maybe mention as dev. pattern or include as benchmark)
-- 1. [1.41.96-114.1](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
+- 1. [1.41.96-114.2](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
 - 3. [3.960.19-80.2](https://github.com/uwplse/analytics-data/compare/017188f46db98812ea1072f74a15f0855cba1ba7..01de6576ae7e6c27c0f8f89c66c3ae092b4ef3db)
   * Fixpoint: `nat_to_le`
   * New hypothesis: `base`
@@ -699,6 +769,7 @@ termination proofs (include note, update tables, maybe mention as dev. pattern o
 - 7.([162.16](https://github.com/uwplse/analytics-data/blob/0e28364f2663d4f3c51d7a5073fd21a70086ae11/diffs-annotated-with-times/7/user-7-session-162.v)-[174.31](https://github.com/uwplse/analytics-data/blob/206cfb585f090a4dfb75ef54ca8dfe886459d670/diffs-annotated-with-times/7/user-7-session-174.v)).1
   * Notes: Multiple sessions, must use [external diff](https://www.diffchecker.com/Dku5ZDB3)
   * Too complicated to classify all of it
+
 
 
 - CUT (1: 2, 2: 3, 3: 8, 5: 0, 7: 3, 8: 0, 10: 1, 11: 0, Total: 16)

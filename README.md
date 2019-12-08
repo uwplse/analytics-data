@@ -55,13 +55,14 @@ The [changes](/changes) directory contains a complete
 that we found in the manual analysis of this processed data, as well as
 [benchmarks from the paper](/changes/benchmarks.md), with links to the relevant diffs.
 
-# Notes
+# Important Notes
 
 Please do reuse our data if it helps you!
 But before you do, please read the paper, especially the discussion section, 
 for information about the data before you interpret it.
+And please read the notes below.
 
-For example, as we note in the  paper, we could not automatically 
+For example, as we note in the paper, we could not automatically 
 distinguish failures from user backtracking for User 5.
 So even though processed data is annotated with "success" and "failure," 
 for User 5, it will always appear as "success," and you must manually inspect the
@@ -73,4 +74,11 @@ module that corresponds to a given session. For impacted users, the module will
 always appear as "Top." This means that manual analysis is needed in order to determine
 if two sessions refer to the same file.
 
+Finally, the timestamp data for User 1 is corrupt for some files.
+The processed data lists timestamps, but the analysis says "Unknown"
+when this happens. In general, timestamp data in the analysis is 
+_very experimental_ and was added only for the camera-ready in response
+to reviewer feedback; we make claims about it in the paper only when
+we are absolutely certain that those claims are correct, and are not sure
+why the analysis sometimes does not return the right number of timestamps for User 1.
 
