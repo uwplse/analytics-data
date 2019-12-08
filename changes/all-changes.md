@@ -14,7 +14,7 @@ TODO update paper w/ latest numbers and notes
 
 Totals:
 - User 1: TODO
-  * Structure: TODO
+  * Structure: 43
     ** Add: 43
       *** Add Ctr: 17
         **** Add Ctr Inductive: 17
@@ -24,14 +24,14 @@ Totals:
       *** Add Cas: 21
         **** Add Cas Fixpoint: 21
 - User 2: TODO
-  * Structure: TODO
+  * Structure: 5
     ** Add: 5
       *** Add Ctr: 1
         **** Add Ctr Inductive: 1
       *** Add Cas: 4
         **** Add Cas Fixpoint: 4
 - User 3: TODO
-  * Structure: TODO
+  * Structure: 18
     ** Add: 10
       *** Add Hyp: 1
         **** Add Hyp Fixpoint: 1
@@ -42,8 +42,12 @@ Totals:
         **** Add Bod Fixpoint: 1
       *** Add Cas: 1
         **** Add Cas Definition: 1
+    ** Mov: 8
+      *** Mov Arg: 8
+        **** Mov Arg Fixpoint: 5
+        **** Mov Arg Theorem: 3
 - User 5: TODO
-  * Structure: TODO
+  * Structure: 53
     ** Add: 44
       *** Add Hyp: 11
         **** Add Hyp Record: 10
@@ -59,8 +63,15 @@ Totals:
         **** Del Hyp Record: 3
         **** Del Hyp Inductive: 1
         **** Del Hyp Theorem: 1
+    ** Mov: 3
+      *** Mov Ctr: 1
+        **** Mov Ctr Inductive: 1
+      *** Mov Hyp: 1
+        **** Mov Hyp Theorem: 1
+      *** Mov Cas: 1
+        **** Mov Cas Fixpoint: 1
 - User 7: TODO
-  * Structure: TODO
+  * Structure: 55
     ** Add: 25
       *** Add Hyp: 17
         **** Add Hyp Lemma: 17
@@ -71,8 +82,14 @@ Totals:
     ** Del: 11
       *** Del Hyp: 11
         **** Del Hyp Lemma: 11 
+    ** Mov: 19
+      *** Mov Ctr: 1
+        **** Mov Ctr Inductive: 1
+      *** Mov Hyp: 18
+        **** Mov Hyp Theorem: 1
+        **** Mov Hyp Lemma: 17
 - User 8: TODO
-  * Structure: TODO
+  * Structure: 9
     ** Add: 5
       *** Add Hyp: 3
         **** Add Hyp Lemma: 2
@@ -82,20 +99,21 @@ Totals:
     ** Del: 4
       *** Del Hyp: 4
         **** Del Hyp Lemma: 4 
-- Total
-  * Structure
 - User 10: TODO
-  * Structure: TODO
+  * Structure: 2
     ** Add: 1
       *** Add Cas: 1
         **** Add Cas Definition: 1
+    ** Mov: 1
+      *** Mov Hyp: 1
+        **** Mov Hyp Definition: 1
 - User 11: TODO
-  * Structure: TODO
+  * Structure: 2
     ** Add: 2
       *** Add Arg: 2
         **** Add Arg Instance: 2
 - Total: TODO
-  * Structure: TODO
+  * Structure: 187
     ** Add: 135
       *** Add Hyp: 32
         **** Add Hyp Record: 10
@@ -123,6 +141,18 @@ Totals:
         **** Del Hyp Inductive: 1
         **** Del Hyp Theorem: 1
         **** Del Hyp Lemma: 15 
+    ** Mov: 31
+      *** Mov Ctr: 2
+        **** Mov Ctr Inductive: 2
+      *** Mov Hyp: 20
+        **** Mov Hyp Definition: 1
+        **** Mov Hyp Theorem: 2
+        **** Mov Hyp Lemma: 17
+      *** Mov Cas: 1
+        **** Mov Cas Fixpoint: 1
+      *** Mov Arg: 8
+        **** Mov Arg Fixpoint: 5
+        **** Mov Arg Theorem: 3
 
 # Structure
 
@@ -881,47 +911,176 @@ Totals:
 
 ## Mov
 
-- MOVE (1: 0, 2: 0, 3: 7, 5: 3, 7: 19, 8: 0, 10: 1, 11: 0, Total: 30)
-  * CONSTRUCTOR (1: 0, 2: 0, 3: 0, 5: 1, 7: 1, 8: 0, 10: 0, 11: 0, Total: 2)
-    ** IND+ (1: 0, 2: 0, 3: 0, 5: 1, 7: 1, 8: 0, 10: 0, 11: 0)
-      *** 5.19.19 (Term)
-      *** 7.93.12 (ty)
-  * HYPO (1: 0, 2: 0, 3: 0, 5: 1, 7: 18, 8: 0, 10: 1, 11: 0, Total: 20)
-    ** DEF (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 1, 11: 0, Total: 1)
-      *** 10.10.5 (network_of_app)
-     ** THM+ (1: 0, 2: 0, 3: 0, 5: 1, 7: 18, 8: 0, 10: 0, 11: 0, Total: 19)
-       *** 5.18.22 (simplify_correct)
-       *** 7.2.147-152 (weird_trans)
-       *** 7.19.62 (match_ty_i__inv_depth_stable)
-       *** 7.19.63 (match_ty_i__inv_depth_stable)
-       *** 7.19.180 (match_ty_i__value_type)
-       *** 7.19.623 (nf_sem_sub_i__sub_d)
-       *** 7.19.697 (match_ty_i_nf)
-       *** 7.19.700 (match_ty_i_nf')
-       *** 7.56.2 (match_ty_value_type_k)
-       *** 7.94.15 (match_ty__value_type_l)
-       *** 7.104.46 (not__ref_t_match_ty_t)
-       *** 7.104.50 (not__ref_t_match_ty_t)
-       *** 7.104.93 (not_sem_eq__reft_t)
-       *** 7.106.13 (match_ty__match_ge_world)
-       *** 7.110.26 (match_ty__transitive_on_value_type)
-       *** 7.145.27 (xxx)
-       *** 7.153.14 (build_v)
-       *** 7.159.31 (build_v_full)
-       *** 7.176.27 (match_ty__subst_neq_permute)
-  * CASE (1: 0, 2: 0, 3: 0, 5: 1, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-    ** FIX+ (1: 0, 2: 0, 3: 0, 5: 1, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** 5.19.26-28 (identity)
-  * ARGS (1: 0, 2: 0, 3: 7, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 7)
-      *** FIX+ (1: 0, 2: 0, 3: 4, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 4)
-        **** 3.960.176 (le_to_nat)
-        **** 3.960.181 (le_to_nat)
-        **** 3.960.184 (le_to_nat)
-        **** 3.960.184 (le_to_nat)
-      *** THM+ (1: 0, 2: 0, 3: 3, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 3)
-        **** 3.5406.1 (proc_spec_rx)
-        **** 3.11377.1 (mult_n_Sm)
-        **** 3.11377.1 (mult_n_Sm)
+### Mov Ctr
+
+#### Mov Ctr Inductive
+
+##### User 5
+
+1. [5.19.24.7](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Inductive: `Term`
+  * Moved constructor: `Int`
+  * Elapsed: 427.10 seconds (just these changes)
+
+##### User 7
+
+1. [7.93.12.1](https://github.com/uwplse/analytics-data/commit/940682b9d238f38897bc0c484ad12f6aea1624ab#diff-0fe5d0a63061a9efbfdc03d8852b0e64)
+  * Inductive: `ty`
+  * Moved constructor: `TExist`
+  * Elapsed: 6.63 seconds (these changes and some code)
+
+### Mov Hyp
+
+#### Mov Hyp Definition
+
+##### User 10
+
+1. [10.10.5.1](https://github.com/uwplse/analytics-data/commit/6e1aa63e6c17e657d677aadd6e4ce1356800beb0#diff-a27f51d33955fe5a67bd7cfb5fcee1f8)
+  * Definition: `network_of_app`
+  * Moved hypothesis: `{E}`
+  * Elapsed: 43.56 seconds (just these changes)
+
+#### Mov Hyp Theorem
+
+##### User 5
+
+1. [5.18.22.1](https://github.com/uwplse/analytics-data/commit/5e9a2777cbfc857ef6215b65092d47c03b9a9ba0#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Theorem: `simplify_correct`
+  * Moved hypothesis: `env`
+  * Elapsed: 14.52 seconds (just these changes and changes in the proof)
+
+##### User 7
+
+1. [7.94.15](https://github.com/uwplse/analytics-data/commit/10f1e50aea2f5c520e428c2112deafd6de211165#diff-0e20eeec6f52eb278a00e9a7ad17ef13)
+  * Theorem: `match_ty__value_type_l`
+
+#### Mov Hyp Lemma
+
+##### User 7
+
+1. [7.2.147-152.5](https://github.com/uwplse/analytics-data/compare/d43041752f886ac0bbfe15a6c4e64aeab9fc69ff..1df9382cec8e149ba1d3e648a1268e0b4a54ef97)
+  * Lemma: `weird_trans`
+  * Moved hypothesis: `t3`
+  * Elapsed: 96.36 seconds (includes other changes)
+2. [7.19.62.1](https://github.com/uwplse/analytics-data/commit/a6d0474a0ceb4ce657e1abde377ad6b307a5690a#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i__inv_depth_stable`
+  * Moved hypothesis: `t : ty`
+  * Elapsed: 19.98 seconds (just this and proof changes)
+3. [7.19.63.1](https://github.com/uwplse/analytics-data/commit/90bcd26f93d546d5f167e5b48d76cc42b59058f7#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i__inv_depth_stable`
+  * Moved hypothesis: `t : ty`
+  * Elapsed: 10.40 seconds (just this and proof changes)
+4. [7.19.180.1](https://github.com/uwplse/analytics-data/commit/3245cb977f0f968b6a5d0ce9e01cdd9b281e7387#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i__value_type`
+  * Moved hypothesis: `t : ty`
+  * Elapsed: 98.88 seconds (just this change)
+5. [7.19.623.1](https://github.com/uwplse/analytics-data/commit/020d1bb7d6762a8cda73a8901490135710bedd4c#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `nf_sem_sub_i__sub_d`
+  * Moved hypothesis: `k : nat`
+  * Elapsed: 5.10 seconds (just this and proof changes)
+6. [7.19.697.1](https://github.com/uwplse/analytics-data/commit/3f085992ace56b01f77c02c25d0cb303afe328be#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i_nf`
+  * Moved hypothesis: `| TCName c | <= k`
+  * Elapsed: 4.60 seconds (just this and proof changes)
+7. [7.19.700.1](https://github.com/uwplse/analytics-data/commit/b9b3dc0acdc44140d5c1387530f134a375165c96#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i_nf'`
+  * Moved hypothesis: `v`
+  * Elapsed: 33.50 seconds (just this and proof changes)
+8. [7.56.2.1](https://github.com/uwplse/analytics-data/commit/0d4b226a2a11935a36779daa4f128c3eaea9c4b3#diff-908172b925240877d071b6897dc1d5ee)
+  * Lemma: `match_ty_value_type_k`
+  * Moved hypothesis: `k : nat`
+  * Elapsed: 24.14 seconds (just this and proof changes)
+9. [7.104.46.1](https://github.com/uwplse/analytics-data/commit/8ba95b3fc660d3fde24256d7491b9d162ffc41f8#diff-bb1c2571916baaaf3b503f1b3ec5afb9)
+  * Lemma: `not__ref_t_match_ty_t`
+  * Moved hypothesis: `t : ty`
+  * Elapsed: 19.61 seconds (just this and proof changes)
+10. [7.104.50.1](https://github.com/uwplse/analytics-data/commit/f0e2ce949623abceb61b5caec9d4c65cdbe6691e#diff-bb1c2571916baaaf3b503f1b3ec5afb9)
+  * Lemma: `not__ref_t_match_ty_t`
+  * Moved hypothesis: `t : ty`
+  * Elapsed: 12.56 seconds (just this and proof changes)
+11. [7.104.93.1](https://github.com/uwplse/analytics-data/commit/1189731ba8808726e5f227425afede72129d07dd#diff-bb1c2571916baaaf3b503f1b3ec5afb9)
+  * Lemma: `not_sem_eq__reft_t`
+  * Moved hypothesis: `t : ty`
+  * Elapsed: 7.33 seconds (just this and proof changes)
+12. [7.106.13.1](https://github.com/uwplse/analytics-data/commit/c5dbef1daad218d07d58748b8e21e6125401329f#diff-3662c5abc0f6da76d7f12b7421bbe5a1)
+  * Lemma: `match_ty__match_ge_world`
+  * Moved hypothesis: `w : nat`
+  * Elapsed: 8.36 seconds (just this and proof changes)
+13. [7.110.26.1](https://github.com/uwplse/analytics-data/commit/a08dfb521247d5d2965e8e4df4a8d5b30f3ffeef#diff-4faaf58c6e1ec18364e6fb109b98c0f8)
+  * Lemma: `match_ty__transitive_on_value_type`
+  * Moved hypothesis: `w : nat`
+  * Elapsed: 133.55 seconds (just this and proof changes)
+14. [7.145.27.1](https://github.com/uwplse/analytics-data/commit/627e63d0c9df709c4f52e65db2fa6391bbceb0e9#diff-5863cbc0cc1562fe4e8aca04c5bfbb93)
+  * Lemma: `xxx`
+  * Moved hypothesis: `t : ty`
+  * Elapsed: 7.07 seconds (just this and proof changes)
+15. [7.153.14.1](https://github.com/uwplse/analytics-data/commit/591b1ec11b44bedccfbed32cf3ed5cd6fcd23505#diff-e027fd9e7dd1c2f5cba51051e505fe01)
+  * Lemma: `build_v`
+  * Moved hypothesis: `tx : ty`
+  * Elapsed: 29.18 seconds (just this and proof changes)
+16. [7.159.31.1](https://github.com/uwplse/analytics-data/commit/05792a8a37ae030e87fa24859be5e95d100973ea#diff-75c4928c5959d3ac23194a6dba0460ef)
+  * Lemma: `build_v_full`
+  * Moved hypothesis: `tx : ty`
+  * Elapsed: 108.00 seconds (just this and proof changes)
+17. [7.176.27.1](https://github.com/uwplse/analytics-data/commit/13d0b90e77aaf30ff53b48110d3a61c85e54ffcf#diff-065eef9a016a3546d718f49aae1be13d)
+  * Lemma: `match_ty__subst_neq_permute`
+  * Moved hypothesis: `v : ty`
+  * Elapsed: 36.63 seconds (just this and proof change)
+
+### Mov Cas
+
+#### Mov Cas Fixpoint
+
+##### User 5
+
+1. [5.19.26-28.6](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
+  * Definition: `identity`
+  * Moved case: `Int i`
+  * Elapsed: 51.45 seconds (these change and one theorem)
+
+### Mov Arg
+
+#### Mov Arg Fixpoint
+
+##### User 3
+
+1. [3.960.176.1](https://github.com/uwplse/analytics-data/commit/6dc63def0de83d603d1fdbefa859a6f95025f5d4#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Fixpoint: `le_to_nat`
+  * Moved argument: `proj1_sig digit`
+  * Elapsed: 2.71 seconds (just this change)
+2. [3.960.181.1](https://github.com/uwplse/analytics-data/commit/9f1b159b0ff05075ff1af7a717be45f8d2aff58a#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Fixpoint: `le_to_nat`
+  * Moved argument: `proj1_sig digit`
+  * Elapsed: 12.45 seconds (just this change)
+3. [3.960.184.1](https://github.com/uwplse/analytics-data/commit/3ee38c06e90de18c33175e9b79f56c6a139530af#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Fixpoint: `le_to_nat`
+  * Moved argument: `proj1_sig digit`
+  * Elapsed: 12.45 seconds (just this change)
+4. [3.960.184.1](https://github.com/uwplse/analytics-data/commit/3ee38c06e90de18c33175e9b79f56c6a139530af#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Fixpoint: `le_to_nat`
+  * Moved argument: `le_to_nat digits'`
+  * Elapsed: 17.64 seconds (just this change and a proof change)
+5. [3.960.184.2](https://github.com/uwplse/analytics-data/commit/3ee38c06e90de18c33175e9b79f56c6a139530af#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Fixpoint: `le_to_nat`
+  * Moved argument: `proj1_sig digit`
+  * Elapsed: 17.64 seconds (just this change and a proof change)
+
+#### Move Arg Theorem
+
+##### User 3
+
+1. [3.5406.1.1](https://github.com/uwplse/analytics-data/commit/77a938b6ec7eb44fbac0b006237388c0fd95ffe5#diff-48cd7000479283a78b3d4fe4dfb30c47)
+  * Theorem: `proc_spec_rx`
+  * Moved argument: `(forall r state', ...)`
+  * Elapsed: 273.06 seconds (just this and one other small theorem change)
+2. [3.11377.1.1](https://github.com/uwplse/analytics-data/commit/3e1f1be64be8dac8dbc236a7283dafd8aa6f3e54#diff-1cd865b759c4edd9e6ed6ef53b0a2f9c)
+  * Theorem: `mult_n_Sm`
+  * Moved argument: `n` on LHS
+  * Elapsed: 20.56 seconds (just this and a small proof change)
+3. [3.11377.1.2](https://github.com/uwplse/analytics-data/commit/3e1f1be64be8dac8dbc236a7283dafd8aa6f3e54#diff-1cd865b759c4edd9e6ed6ef53b0a2f9c)
+  * Theorem: `mult_n_Sm`
+  * Moved argument: `n` on RHS
+  * Elapsed: 20.56 seconds (just this and a small proof change)
 
 # Content
 
