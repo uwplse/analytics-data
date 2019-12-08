@@ -1084,65 +1084,114 @@ Totals:
 
 # Content
 
-Totals: TODO
-
 ## Pch
 
-- PATCH (1: 2, 2: 2, 3: 16, 5: 2, 7: 7, 8: 0, 10: 6, 11: 4, Total: 39)
-  * BODY (1: 1, 2: 0, 3: 3, 5: 2, 7: 4, 8: 0, 10: 0, 11: 1, Total: 11)
-    ** IND+ (1: 0, 2: 0, 3: 0, 5: 2, 7: 0, 8: 0, 10: 0, 11: 0, Total: 2)
-      *** RECORD-FIELD / CONSTRUCTOR-HYPO / TYPE / PROD / BODY / all (1: 0, 2: 0, 3: 0, 5: 2, 7: 0)
+### Pch Bod
+
+#### Pch Bod Record
+
+##### User 5
+
         **** 5.18.28 (EpsilonLogic)
         **** 5.18.28 (EpsilonLogic)
-    ** BODY / all (1: 0, 2: 0, 3: 3, 5: 0, 7: 4, 8: 0, 10: 0, 11: 1, Total: 8)
-      *** DEF (1: 0, 2: 0, 3: 3, 5: 0, 7: 3, 8: 0, 10: 0, 11: 1)
+
+#### Pch Bod Definition
+
+##### User 3
+
         **** 3.159.2 (absr)
         **** 3.2698.2 (nat64_to_le)
         **** 3.7199.65 (log_abstraction)
+
+##### User 7
+
         **** 7.93.9 (vX)
         **** 7.93.11 (vY)
         **** 7.93.11 (vZ)
+
+##### User 11
+
         **** 11.16.5-16 (kvs_state)
-      *** FIX+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 1, 8: 0, 10: 0, 11: 0)
-        **** 7.99.0-5 (match_ty)
-    ** MATCH-CASE-BODY / APP / F / FUN / BODY / all (1: 1, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** FIX+ 1: 1, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0)
+
+#### Pch Bod Fixpoint
+
+##### User 7
+
+### Pch Cas
+
+#### Pch Cas Definition
+
+##### User 11
+
+      *** DEF (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 1, Total: 1)
+        **** 11.16.18-20 (smi)
+
+#### Pch Cas Fixpoint
+
+##### User 1
+
         **** 1.37.50-52 (Gamma)
-  * TYPE (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1) (TODO revisit or clarify this vs. body of thm)
-    ** DEF (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** 3.2698.2 (nat64_to_le)
-  * HYPO (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 1, 11: 0, Total: 1)
-    ** HYPO / TYPE / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 1, 11: 0, Total: 1)
-      *** FIX+
-        **** 10.10.13-15 (network_of_app)
-  * CASE (1: 1, 2: 2, 3: 0, 5: 0, 7: 0, 8: 0, 10: 3, 11: 3, Total: 9)
 
       *** 1.41.112 (size_gt)
       *** 1.41.112 (size_gt)
       *** 1.41.114 (size_gt)
       *** 1.41.118 (size_gt)
 
-    ** MATCH-CASE-BODY / all (1: 1, 2: 2, 3: 0, 5: 0, 7: 0, 8: 0, 10: 3, 11: 3, Total: 9)
-      *** DEF (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 1, Total: 1)
-        **** 11.16.18-20 (smi)
-      *** FIX+ (1: 1, 2: 2, 3: 0, 5: 0, 7: 0, 8: 0, 10: 3, 11: 0, Total: 6)
         **** 1.37.44-46 (Gamma)
+
+##### User 2
+
         **** 2.5.3-42 (value)
         **** 2.5.51-54 (step)
+
+##### User 10
+
         **** 10.13.11 (fib')
         **** 10.15.4 (fib)
         **** 10.15.5 (fib)
-      *** INSTANCE (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 2, Total: 2)
+
+#### Pch Cas Instance
+
+##### User 11
+
         **** 11.16.0-6 (showAppE)
         **** 11.16.0-6 (showAppE)
-  * ARGS (1: 0, 2: 0, 3: 12, 5: 0, 7: 3, 8: 0, 10: 2, 11: 0, Total: 17)
-     ** CASE-BODY / APP / ARGS / all (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 2, 11: 0, Total: 3)
-       *** FIX+ (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 2, 11: 0)
+
+### Pch Typ
+
+#### Pch Typ Definition
+
+##### User 3
+
+  * TYPE (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1) (TODO revisit or clarify this vs. body of thm)
+    ** DEF (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
+      *** 3.2698.2 (nat64_to_le)
+
+### Pch Hyp
+
+#### Pch Hyp Fixpoint
+
+##### User 10
+
+        **** 10.10.13-15 (network_of_app)
+
+### Pch Arg
+
+#### Pch Arg Fixpoint
+
+##### User 3
+
          **** 3.960.160 (le_to_nat)
+
+##### User 10
+
          **** 10.13.16 (fib')
          **** 10.15.5 (fib)
-     ** HYPO / TYPE / APP / ARGS / all 
-       *** THM+ (1: 0, 2: 0, 3: 11, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 11)
+
+#### Pch Arg Theorem
+
+##### User 3
+
         **** 3.73.2 (proc_rspec_refine_rec)
         **** 3.73.8 (proc_rspec_crash_refines)
         **** 3.73.9 (proc_rspec_crash_refines_op)
@@ -1154,167 +1203,254 @@ Totals: TODO
         **** 3.73.14-16 (proc_rspec_recovery_refines_crash_step)
         **** 3.73.18 (proc_hspec_init_ok)
         **** 3.314.19 (crash_step_simp)
-     ** BODY / APP / ARGS / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 3, 8: 0, 10: 0, 11: 0, Total: 3)
-       *** THM+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 3, 8: 0, 10: 0, 11: 0)
+
+##### User 7
+
         **** 7.10.25 (sub_r__mk_nf_sub_r)
         **** 7.101.45 (not_sem_sub__eXrefX_reft)
         **** 7.132.15 (sem_sub_k_ref)
 
 ## Uch
 
-- Unpatch (1: 0, 2: 2, 3: 2, 5: 0, 7: 2, 8: 4, 10: 0, 11: 0, Total: 10 / 4)
-  * HYPO (Total: 0 / 0)
-  * BODY (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1 / 1)
-    ** BODY / all
-      *** DEF (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0)
+### Uch Bod
+
+#### Uch Bod Definition
+
+##### User 3
+
         **** 3.2698.3 (nat64_from_le)
-  * TYPE (Total: 0 / 0)
-  * CONSTR (Total: 0 / 0)
-  * CASE (1: 0, 2: 1, 3: 0, 5: 0, 7: 2, 8: 0, 10: 0, 11: 0, Total: 3 / 2)
-      *** FIX+ (1: 0, 2: 1, 3: 0, 5: 0, 7: 2, 8: 0, 10: 0, 11: 0, Total: 3)
+
+### Uch Cas
+
+#### Uch Cas Fixpoint
+
+##### User 2
+
         **** 2.5.3 (value)
+
+##### User 7
+
         **** 7.174.28 (subst) (TODO check)
         **** 7.193.0-2 (FFV)
-  * ARG (1: 0, 2: 1, 3: 1, 5: 0, 7: 0, 8: 4, 10: 0, 11: 0, Total: 6 / 3)
-    ** CASE-HYPO / APP / ARGS / all (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** DEF (1: 0, 2: 1, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
+
+### Uch Arg
+
+#### Uch Arg Definition
+
+##### User 2
+
         **** 2.5.53 (oneArgCbvPrimitive)
-    ** MATCH-CASE-BODY / APP / ARGS / all (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** FIX+ (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
+
+#### Uch Arg Fixpoint
+
+##### User 3
+
         **** 3.960.81-125 (nat_to_le)
-    ** HYPO / TYPE / APP / ARG / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2, 10: 0, 11: 0, Total: 2)
-      *** THM+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2, 10: 0, 11: 0, Total: 2)
+
+#### Uch Arg Theorem
+
+##### User 8
+
         **** 8.65.68 (assert_init_at_id)
         **** 8.65.68 (assert_init_at_id)
-    ** BODY / APP / ARG / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2, 10: 0, 11: 0, Total: 2)
-      *** THM+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2, 10: 0, 11: 0, Total: 2)
         **** 8.79.109 (Anonymous Goal)
         **** 8.79.109 (Anonymous Goal)
 
 ## Cut
 
+### Cut Bod
+
+#### Cut Bod Definition
+
+##### User 10
+
+        **** 10.18-25 (network_of_app)
+
+
+#### Cut Bod Fixpoint
+
+##### User 1
+	
 termination proofs (include note, update tables, maybe mention as dev. pattern or include as benchmark)
 - 1. [1.41.96-114.2](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
+
+##### User 2
+
+          ***** 2.5.3-42 (value)
+          ***** 2.5.42-47 (step)
+
+##### User 3
+
 - 3. [3.960.19-80.2](https://github.com/uwplse/analytics-data/compare/017188f46db98812ea1072f74a15f0855cba1ba7..01de6576ae7e6c27c0f8f89c66c3ae092b4ef3db)
   * Fixpoint: `nat_to_le`
   * New hypothesis: `base`
   * Elapsed: 838.01 seconds (includes other changes)
+
+##### User 7
+
 - 7.([162.16](https://github.com/uwplse/analytics-data/blob/0e28364f2663d4f3c51d7a5073fd21a70086ae11/diffs-annotated-with-times/7/user-7-session-162.v)-[174.31](https://github.com/uwplse/analytics-data/blob/206cfb585f090a4dfb75ef54ca8dfe886459d670/diffs-annotated-with-times/7/user-7-session-174.v)).1
   * Notes: Multiple sessions, must use [external diff](https://www.diffchecker.com/Dku5ZDB3)
   * Too complicated to classify all of it
 
+### Cut Fun 
 
+#### Cut Fun Definition
 
-- CUT (1: 2, 2: 3, 3: 8, 5: 0, 7: 3, 8: 0, 10: 1, 11: 0, Total: 16)
-  * FUNCTION (1: 1, 2: 0, 3: 0, 5: 0, 7: 3, 8: 0, 10: 0, 11: 0, Total: 3)
-    ** DEF (1: 1, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** BODY / APP / F / all (1: 1, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0)
+##### User 1
+
         **** 1.41.130 (eq_fn)
-    ** THM+ (7: 3, Total: 3)
-      *** HYPO / TYPE/ APP / F / all (7: 1)
+
+#### Cut Fun Lemma
+
+##### User 7
+
         **** 7.113.30 (not_fresh_in_union__inv)
-      *** BODY / APP / F / all (7: 2)
         **** 7.113.30 (not_fresh_in_union__inv)
         **** 7.113.30 (not_fresh_in_union__inv)
-  * ARGS (1: 1, 2: 1, 3: 8, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 10)
-    ** DEF (1: 0, 2: 1, 3: 2, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 3)
+
+### Cut Arg
+
+#### Cut Arg Definition
+
+##### User 2
+
        *** 2.5.53 (primitive)
+
+##### User 3
+
        *** 3.7199.65 (log_abstraction)
        *** 3.7199.65 (log_abstraction)
-    ** FIX+ (1: 1, 2: 0, 3: 4, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 5)
-      *** HYPO / FIX-HYPO 
-        **** HYPO / APP / ARGS (1: 1, 2: 0, 3: 0, 5: 0, 7: 0)
+
+#### Cut Arg Fixpoint
+
+##### User 1
+
           ****** 1.41.96-102 (eq)
-      *** LET / CASE-HYPO / APP / ARGS (3: 2)
+
+##### User 3
+
         **** 3.960.125-141 (nat_to_le)
         **** 3.960.150 (nat_to_le)
-      *** MATCH-CASE-BODY / APP / ARGS (3: 2)
         **** 3.960.81-125 (nat_to_le)
         **** 3.960.150 (nat_to_le)
-    ** THM+ (3: 2, Total: 2)
-        **** HYPO / TYPE / APP / ARGS / all (3: 3)
+
+#### Cut Arg Theorem
+
+##### User 3
+
           ***** 3.7199.293 (log_length_ok_nil)
           ***** 3.7199.294 (log_abstraction_nil)
-  * BODY (1: 0, 2: 2, 3: 0, 5: 0, 7: 0, 8: 0, 10: 1, 11: 0, Total: 3)
-    ** DEF (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 1, 11: 0, Total: 1)
-      *** MATCH-CASE-BODY / all (10: 1)
-        **** 10.18-25 (network_of_app)
-    ** FIX+ (1: 1, 2: 2, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 2)
-      *** MATCH-CASE-BODY / all (1: 0, 2: 2, 3: 0, 5: 0, 7: 0)
-        **** CASE-BODY / all (1: 0, 2: 2, 3: 0, 5: 0, 7: 0)
-          ***** 2.5.3-42 (value)
-          ***** 2.5.42-47 (step)
 
 ## Uut
 
-- UNCUT (3: 2, 5: 3, Total: 5)
-  * TYPE (5: 2)
-    ** DEF (1: 0, 2: 0, 3: 0, 5: 1)
+### Uut Typ
+
+#### Uut Typ Definition
+
+##### User 5
+
       *** top-level
         **** 5.18.6-9 (extendEnv)
       *** hypo type
         **** 5.18.6-9 (extendEnv)
-  * HYPO (5: 1) (new hypo)
-    ** DEF
-      *** HYPO / all (1: 0, 2: 0, 3: 0, 5: 1)
+### Uut Hyp
+
+#### Uut Hyp Definition
+
+##### User 5
+
         **** 5.18.6-9 (extendEnv)
-  * ARG (3: 2)
-    ** FIX+ (3: 2)
-      *** MATCH-CASE-BODY (1: 0, 2: 0, 3: 2)
-        **** MATCH-CASE-BODY / APP / ARGS (1: 0, 2: 0, 3: 2)
+
+### Uut Arg
+
+#### Uut Arg Fixpoint
+
+##### User 3
+
           ***** [3.960.146-149.1](https://github.com/uwplse/analytics-data/compare/c9108b4df34e2e4a5d5e72745278492eecfbc3f7..e1e131dde95ac8f50e7ed7f670835fada9d82899) (nat_to_le)
           ***** [3.960.146-149.2](https://github.com/uwplse/analytics-data/compare/c9108b4df34e2e4a5d5e72745278492eecfbc3f7..e1e131dde95ac8f50e7ed7f670835fada9d82899) (nat_to_le)
 
 
 ## Rpl
 
-- REPLACE (1: 2, 3: 4, 5: 7, 7: 20, 8: 30, 10: 5, 11: 1, Total: 69)
- * HYPO (1: 1, 7: 5, Total: 6)
-   ** Ind+ (1: 1, 7: 2)
-    *** INDUCTIVE-CONSTRUCTOR / CONSTRUCTOR-HYPO / all (1: 1, 7: 2)
+### Rpl Hyp
+
+#### Rpl Hyp Inductive
+
+##### User 1
+
         **** 1.37.13 (ST)
+
+##### User 7
+
         **** 7.93.7 (ty)
         **** 7.93.7 (ty)
-   ** Fix+ (7: 3)
-      *** FIX / HYPO / TYPE / all (7: 3)
+
+#### Rpl Hyp Fixpoint
+
+##### User 7
+
         **** 7.174.0-14 (subst)
         **** 7.174.14-24 (subst)
         **** 7.174.25 (subst)
- * ARGS (3: 3, 5: 5, 7: 6, Total: 14)
-   ** Ind+ (5: 4)
-      *** RECORD-FIELD / CONSTRUCTOR-HYPO / TYPE / PROD / BODY / APP / ARGS / all (5: 4)
+
+### Rpl Arg
+
+#### Rpl Arg Record
+
+##### User 5
+
         **** 5.19.5 (EpsilonLogic)
         **** 5.19.23-26 (EpsilonLogic)
         **** 5.19.23-26 (EpsilonLogic)
         **** 5.19.23-26 (EpsilonLogic)
-   ** Fix+ (3: 2)
-      *** TYPE / APP / ARGS (3: 1)
+
+#### Rpl Arg Fixpint
+
+##### User 3
+
         **** 3.960.16-69 (nat_to_le)
-      *** MATCH-CASE-BODY / APP / ARGS / all (3: 1)
         **** 3.960.125-141 (nat_to_le)
-   ** Thm+ (3: 1, 5: 1, 7: 6)
-      *** HYPO / TYPE / APP / ARGS / all (7: 1)
-        **** 7.202.2 (b_subst_neq__permute)
-      *** BODY / APP / ARGS / all (3: 1, 5: 1, 7: 5)
+
+#### Rpl Arg Theorem
+
+##### User 3
+
         **** 3.11377.4 (mult_n_Sm)
+
+##### User 5
+
         **** 5.19.29 (eval_eq_true_or_false)
-        **** 7.19.38 (match_ty_i_k__match_le_k)
+
+##### User 7
+
+        **** 7.202.2 (b_subst_neq__permute)
         **** 7.145.22 (sem_sub_fresh_var__sem_sub_exist)
         **** 7.174.45 (triv)
         **** 7.224.22 (build_v_full)
         **** 7.228.7 (build_v_full)
- * FUN (7: 2, 8: 30, Total: 32)
-   ** DEF (8 : 2)
-      *** BODY / APP / F / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2)
+        **** 7.19.38 (match_ty_i_k__match_le_k)
+
+### Rpl Fun
+
+#### Rpl Fun Definition
+
+##### User 8
+
         **** 8.37.10 (valid_ancillae)
         **** 8.125.230 (uniform)
-   ** THM+ (7: 2, 8: 28)
-      *** HYPO / TYPE / APP / F / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 1, 8: 2)
-        **** 7.19.668 (pair_sem_sub_k_i__sub_d
+
+#### Rpl Fun Theorem
+
+##### User 7
+
+        **** 7.19.668 (pair_sem_sub_k_i__sub_d)
+        **** 7.212.3 (free_union__inv)
+
+##### User 8
+
         **** 8.37.74 (valid_denote_true)
         **** 8.37.80 (valid_denote_false)
-      *** BODY / APP / F / all (7: 1, 8: 26)
-        **** 7.212.3 (free_union__inv)
         **** 8.2.133 (denote_ctrls_transpose)
         **** 8.14.60 (MOVE_list_aux_id)
         **** 8.14.62 (denote_pat_fresh_id)
@@ -1341,50 +1477,87 @@ termination proofs (include note, update tables, maybe mention as dev. pattern o
         **** 8.160.6 (ket0_equiv)
         **** 8.160.6 (ket1_equiv)
         **** 8.160.0-6 (bra0ket0)
- * BODY (1: 1, 3: 1, 5: 2, 7: 7, 10: 4, 11: 1, Total: 16)
-   ** DEF (3: 1, 7: 1, 10: 3, 11: 1)
-      *** BODY / all (1: 0, 2: 0, 3: 1, 5: 0, 7: 1, 8: 0, 10: 1)
+
+### Rpl Bod
+
+#### Rpl Bod Definition
+
+##### User 3
+
         **** 3.6414.104 (log_length_ok)
+
+##### User 7
+
         **** 7.93.2 (varid)
+
+##### User 10
+
         **** 10.18-25 (network_of_app_ta)
-      *** MATCH-CASE-BODY / all (10: 2, 11: 1)
         **** 10.8.1 (nmi_of_smi)
         **** 10.9.1 (nmi_of_smi)
+
+##### User 11
+
         **** 11.16.18-20 (smi)
-   ** FIX+ (1: 1, 7: 3, 10: 1)
-      *** BODY / all (10: 1)
-        **** 10.15.5-13
-      *** MATCH-CASE-BODY / all (1: 1, 7: 3)
+
+#### Rpl Bod Definition
+
+##### User 1
+
         **** 1.37.47 (Gamma)
+
+##### User 7
+
         **** 7.102.0-11 (match_ty)
         **** 7.174.0 (subst)
         **** 7.174.29-31 (subst)
-   ** THM+ (5: 2, 7: 3)
-      *** BODY / all (5: 2, 7: 3)
+
+##### User 10
+
+        **** 10.15.5-13
+
+#### Rpl Bod Theorem
+
+##### User 5
+
         **** 5.18.18-21 (simplify_correct)
         **** 5.18.24-26 (simplify_correct)
+
+##### User 7
+
         **** 7.101.45-48 (sem_sub__refint_eXrefX)
         **** 7.2.162-165 (weird_trans)
         **** 7.19.112 (match_ty_i_eq__inv_depth_eq) (TODO check)
- * CASE (10: 1, Total: 1)
-   ** DEF (10: 1)
+
+### Rpl Cas
+
+#### Rpl Cas Definition
+
+##### User 10
+
       *** 10.18-25 (network_of_app_ta)
 
 # Syntax
 
-Totals: TODO
-
 ## Rnm
 
-(needs recounting, like all of these...)
-- RENAME (1: 1, 2: 1, 3: 6, 5: 3, 7: 68, 8: 1, 10: 2, 11: 0, Total: 78 / 7)
-  * ID (1: 1, 2: 1, 3: 1, 5: 0, 7: 41, 8: 1, 10: 2, 11: 0, Total: 48 / 5) (???)
-    ** IND+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 2, 8: 0, 10: 0, 11: 0, Total: 2)
+### Rnm Idn 
+
+#### Rnm Idn Inductive
+
+##### User 7
+
       *** 7.93.1 (tvar -> varid)
-      *** CONSTRUCTOR (1: 0, 2: 0, 3: 0, 5: 0, 7: 1, 8: 0, 10: 0, 11: 0, Total: 1 / 1)
-        **** 7.193.0 (ty)
-    ** Def (1: 0, 2: 1, 3: 0, 5: 0, 7: 8, 8: 0, 10: 0, 11: 0, Total: 9)
+      *** 7.193.0 (ty)
+
+#### Rnm Idn Definition
+
+##### User 2
+
       *** 2.5.53 (primitive -> oneArgCbvPrimitive)
+
+##### User 7
+
       *** 7.93.2-6 (vx -> vX)
       *** 7.93.2-6 (vy -> vY)
       *** 7.93.2-6 (vz -> vZ)
@@ -1393,13 +1566,30 @@ Totals: TODO
       *** 7.99.9 (sem_eq_k -> sem_eq_w_k)
       *** 7.193.3 (ffree_in_ty -> f_free_in_ty)
       *** 7.193.3 (not_ffree_in_ty -> not_f_free_in_ty)
-    ** FIX+ (1: 1, 2: 0, 3: 1, 5: 0, 7: 1, 8: 0, 10: 2, 11: 0, Total: 5)
+
+#### Rnm Idn Fixpoint
+
+##### User 1
+
       *** 1.41.130 (eq -> eq_fn)
+
+##### User 3
+
       *** 3.960.323 (le_to_nat -> nat_from_le)
+
+##### User 7
+
       *** 7.193.0-2 (FV -> FFV)
+
+##### User 10
+
       *** 10.7.1-5 (match_event -> match_app_event)
       *** 10.15.16 (fib -> Fib)
-    ** THM+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 31, 8: 1, 10: 0, 11: 0, Total: 32)
+
+#### Rnm Idn Theorem
+
+##### User 7
+
       *** 7.2.124 (sub_r_unite_pairs_l__inv -> sub_r_unite_pairs_nf_l__inv)
       *** 7.9.0 (atom_sub_r_union__sub_r_component -> atom_sub_r_union__inv)
       *** 7.10.0 (24 (weird_trans -> sub_r_nf__trans)
@@ -1431,56 +1621,84 @@ Totals: TODO
       *** 7.212.6 (free_in_ty_pair__inv -> f_free_in_ty_pair__inv)
       *** 7.218.6 (f_subst_bvar_eq -> f_subst_bvar)
       *** 7.227.1 (not_f_free_in_ty_fvar_eq__inv -> not_f_free_in_ty_fvar__inv)
+
+##### User 7
+
       *** 8.79.156 (new_morphism -> morphism_test)
-  * BND (1: 0, 2: 0, 3: 3, 5: 3, 7: 7, 8: 0, 10: 0, 11: 0, Total: 13 / 3)
-    ** IND+ (1: 0, 2: 0, 3: 0, 5: 1, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** RECORD-FIELD / CONSRUCTOR-HYPO / TYPE / PROD / HYPO / all (1: 0, 2: 0, 3: 0, 5: 1)
+
+### Rnm Bnd
+
+#### Rnm Bnd Record
+
+##### User 5
+
         **** 5.29.0-4 (EpsilonLogic)
-    ** FIX+ (1: 0, 2: 0, 3: 2, 5: 0, 7: 4, 8: 0, 10: 0, 11: 0, Total: 6)
-      *** FIX / HYPO / all (1: 0, 2: 0, 3: 2, 5: 0, 7: 4)
+
+#### Rnm Bnd Fixpoint
+
+##### User 3
+
         **** 3.960.81-125 (nat_to_le)
         **** 3.960.160 (le_to_nat)
+
+##### User 7
+
         **** 7.102.0-11 (match_ty)
         **** 7.102.0-11 (match_ty)
         **** 7.102.0-11 (match_ty)
         **** 7.102.0-11 (match_ty)
-    ** THM+ (1: 0, 2: 0, 3: 1, 5: 0, 7: 3, 8: 0, 10: 0, 11: 0, Total: 4)
+
+#### Rnm Bnd Theorem
+
+##### User 3
+
         ***** 3.10289.14 (proc_spec_rx)
+
+##### User 7
+
         ***** 7.2.162-165 (weird_trans)
         ***** 7.2.162-165 (weird_trans)
         ***** 7.19.257 (match_ty_i__transitive_on_value_type)
-    ** Axiom (1: 0, 2: 0, 3: 0, 5: 2, 7: 0, 8: 0, 10: 0, 11: 0, Total: 2)
+
+#### Rnm Bnd Axiom
+
+##### User 5
+
       *** 5.18.5 (evalChoose)
       *** 5.18.5 (evalChoose)
-  * CASE
-  * ARG
-  * CONSTANT (1: 0, 2: 0, 3: 2, 5: 0, 7: 15, 8: 0, 10: 0, 11: 0, Total: 17 / 1)
+
+### Rnm Con
+
+#### Rnm Con Inductive
+
+##### User 7
 
  5. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).3 ([diff](https://www.diffchecker.com/8RlqPoQZ))
   * Definition: `FV`
   * New case: `TFVar`
   * Elapsed: Unknown
 
-    ** Def (1: 0, 2: 0, 3: 0, 5: 0, 7: 4, 8: 0, 10: 0, 11: 0, Total: 4)
-      *** BODY / APP / ARGS / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 4)
+#### Rnm Con Definition
+
+##### User 7
+
         **** 7.93.2-6 (tX)
         **** 7.93.2-6 (tX)
         **** 7.93.2-6 (tY)
         **** 7.93.2-6 (tY)
-    ** Fix+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 1, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** MATCH-CASE / HYPO / APP / F / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 1)
+
+#### Rnm Con Fixpoint
+
+##### User 3
+
+            ****** 3.960.154 (nat_le_inverse)
+            ****** 3.960.323 (nat_le_inverse)
+
+##### User 7
+
         **** 7.193.6-8 (match_ty)
-    ** THM+ (1: 0, 2: 0, 3: 2, 5: 0, 7: 10, 8: 0, 10: 0, 11: 0, Total: 12)
-      *** HYPO (1: 0, 2: 0, 3: 0, 5: 0, 7: 2)
-        **** HYPO / APP / F / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 2)
           ***** 7.194.6 (not_free_in_ty_pair__inv)
           ***** 7.212.6 (f_free_in_ty_pair__inv)
-      *** BODY (1: 0, 2: 0, 3: 2, 5: 0, 7: 8)
-        **** BODY / APP (1: 0, 2: 0, 3: 2, 5: 0, 7: 8)
-          ***** BODY / APP / ARGS / all (1: 0, 2: 0, 3: 1, 5: 0, 7: 0)
-            ****** 3.960.154 (nat_le_inverse)
-          ***** BODY / APP / F / all (1: 0, 2: 0, 3: 1, 5: 0, 7: 8)
-            ****** 3.960.323 (nat_le_inverse)
             ****** 7.194.6 (not_f_free_in_ty_pair__inv)
             ****** 7.194.6 (not_f_free_in_ty_pair__inv)
             ****** 7.198.1 (b_subst_bvar_eq)
@@ -1490,13 +1708,14 @@ Totals: TODO
             ****** 7.212.6 (f_free_in_ty_pair__inv)
             ****** 7.218.8 (b_subst_fvar)
 
-
 ## Qfy
 
-- QUALIFY (1: 6, 2: 0, 3: 0, 5: 0, 8: 0, 10: 0, 11: 0, Total: 6 / 1)
-  ** CONST (1: 6, 2: 0, 3: 0, 5: 0, 8: 0, 10: 0, 11: 0, Total: 6 / 1)
-    ** DEF (1: 6, 2: 0, 3: 0, 5: 0, 8: 0, 10: 0, 11: 0)
-      *** BODY / APP / F / all (1: 6, 2: 0, 3: 0, 5: 0)
+### Qfy Con
+
+#### Qfy Con Definition
+
+##### User 1
+
         **** 1.37.13-19 (R)
         **** 1.37.13-19 (R)
         **** 1.37.19-21 (Gamma2)
@@ -1506,9 +1725,12 @@ Totals: TODO
 
 ## Ufy
 
-- UNQUALIFY (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 1, 10: 0, 11: 0, Total: 1 / 1)
-  ** CONST (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 1, 10: 0, 11: 0, Total: 1 / 1)
-    ** BODY / APP / F / ARGS / all (2: 0, 3: 0, 5: 0, 7: 0, 8: 1)
+### Ufy Con
+
+#### Ufy Con Definition
+
+##### User 8
+
       *** 8.75.6 (_R'_)
 
 
