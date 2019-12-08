@@ -13,71 +13,44 @@ Totals:
 - User 3: TODO
   * Structure: TODO
     ** Add: TODO
-      *** Add Hyp: TODO
+      *** Add Hyp: 1
         **** Add Hyp Fixpoint: 1
 - User 5: TODO
   * Structure: TODO
     ** Add: TODO
-      *** Add Hyp: TODO
+      *** Add Hyp: 11
         **** Add Hyp Record: 10
+        **** Add Hyp Theorem: 1
+- User 7: TODO
+  * Structure: TODO
+    ** Add: TODO
+      *** Add Hyp: 17
+        **** Add Hyp Lemma: 17
+- User 8: TODO
+  * Structure: TODO
+    ** Add: TODO
+      *** Add Hyp: 3
+        **** Add Hyp Lemma: 2
+        **** Add Hyp Fact: 1
 - Total: TODO
   * Structure: TODO
     ** Add: TODO
-      *** Add Hyp: TODO
+      *** Add Hyp: 32
         **** Add Hyp Record: 10
         **** Add Hyp Fixpoint: 1
+        **** Add Hyp Theorem: 1
+        **** Add Hyp Lemma: 19
+        **** Add Hyp Fact: 1
 
 # Structure
 
-Totals:
-- User 3: TODO
-  * Add: TODO
-    ** Add Hyp: TODO
-      *** Add Hyp Fixpoint: 1
-- User 5: TODO
-  * Add: TODO
-    ** Add Hyp: TODO
-      *** Add Hyp Record: 10
-- Total: TODO
-  * Add: TODO
-    ** Add Hyp: TODO
-      *** Add Hyp Record: 10
-      *** Add Hyp Fixpoint: 1
-
 ## Add
-
-Totals:
-- User 3: TODO
-  * Add Hyp: TODO
-    ** Add Hyp Fixpoint: 1
-- User 5: TODO
-  * Add Hyp: TODO
-    ** Add Hyp Record: 10
-- Total: TODO
-  * Add Hyp: TODO
-    ** Add Hyp Record: 10
-    ** Add Hyp Fixpoint: 1
 
 ### Add Hyp
 
-Totals:
-- User 3: TODO
-  * Add Hyp Fixpoint: 1
-- User 5: TODO
-  * Add Hyp Record: 10
-- Total: TODO
-  * Add Hyp Record: 10
-  * Add Hyp Fixpoint: 1
-
 #### Add Hyp Record
 
-Totals:
-- User 5: 10
-- Total: 10
-
 ##### User 5
-
-Total: 10
 
 1. [5.19.5-7.1](https://github.com/uwplse/analytics-data/compare/2894ba5928f7fe963c8a1d8d2b31fb5cd3858df7..49ad0ac21d49dac8454385945fdf5e2cfb9abf90): 
   * Record: `EpsilonLogic`
@@ -94,102 +67,165 @@ Total: 10
 4. [5.19.23-26.1](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalBoolConst`
-  * Elapsed: 51610.77 seconds (includes other changes)
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
 5. [5.19.23-26.2](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalBoolInj`
-  * Elapsed: 51610.77 seconds (includes other changes)
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
 6. [5.19.23-26.3](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalIfTrue`
-  * Elapsed: 51610.77 seconds (includes other changes)
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
 7. [5.19.23-26.4](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalIfFalse`
-  * Elapsed: 51610.77 seconds (includes other changes)
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
 8. [5.19.23-26.5](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalAnd`
-  * Elapsed: 51610.77 seconds (includes other changes)
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
 9. [5.19.23-26.6](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalOr`
-  * Elapsed: 51610.77 seconds (includes other changes)
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
 10. [5.19.23-26.6](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalNot`
-  * Elapsed: 51610.77 seconds (includes other changes)
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
 
 #### Add Hyp Fixpoint
 
-Totals:
-- User 3: 1
-- Total: 1
-
 ##### User 3
-
-Total: 1
 
 1. [3.960.19-80.1](https://github.com/uwplse/analytics-data/compare/017188f46db98812ea1072f74a15f0855cba1ba7..01de6576ae7e6c27c0f8f89c66c3ae092b4ef3db)
   * Fixpoint: `nat_to_le`
   * New hypothesis: `base`
   * Elapsed: 838.01 seconds (includes other changes)
 
-#### Add Hyp Lemma
-
-Totals: TODO
+#### Add Hyp Theorem
 
 ##### User 5
 
-Total: TODO
+1. [5.18.18-21.1](https://github.com/uwplse/analytics-data/compare/093afda7c7959f84066fec93d2ebcc22e444c125..6fd291dea99a852a4b3d8846dc7adf59bae64552)
+  * Theorem: `simplify_correct`
+  * New hypothesis: `env`
+  * Elapsed: 103.37 seconds (includes other changes)
 
-        **** 5.18.18-21 (simplify_correct)
+#### Add Hyp Lemma
 
 ##### User 7
 
-Total: TODO
-
-        **** 7.2.94 (sub_r_unite_pairs_l__inv)
-        **** 7.2.94 (sub_r_unite_pairs_l__inv)
-        **** 7.2.147-152 (weird_trans)
-        **** 7.2.158 (weird_trans)
-        **** 7.2.162-165 (weird_trans)
-        **** 7.19.50 (match_ty_i_k__match_le_k)
-        **** 7.19.77 (match_ty_i__inv_depth_stable)
-        **** 7.19.77 (match_ty_i__inv_depth_stable)
-        **** 7.19.486 (sem_sub_k_i_nf__inv_depth_le)
-        **** 7.19.515 (sem_eq_k_i__inv_depth_eq)
-        **** 7.61.4 (pair_sem_sub_k__sub_d)
-        **** 7.101.44 (not_sem_sub__eXrefX_reft)
-        **** 7.145.22 (sem_sub_fresh_var__sem_sub_exist)
-        **** 7.184.15 (build_v_full) (inside of body)
-        **** 7.202.30-32 (b_subst_wf_ty)
-        **** 7.215.7 (build_v_full)
-        **** 7.219.10 (build_v_full)
+1. [7.2.94.1](https://github.com/uwplse/analytics-data/commit/4eab31c6c25dc2a5fd06adeee23ba4e89cb60138)
+  * Lemma: `sub_r_unite_pairs_l__inv`
+  * New hypothesis: `InNF( t1)`
+  * Elapsed: 31.84 seconds (includes other changes)
+2. [7.2.94.2](https://github.com/uwplse/analytics-data/commit/4eab31c6c25dc2a5fd06adeee23ba4e89cb60138)
+  * Lemma: `sub_r_unite_pairs_l__inv`
+  * New hypothesis: `InNF( t2)`
+  * Elapsed: 31.84 seconds (includes other changes)
+3. [7.2.147-152.1](https://github.com/uwplse/analytics-data/compare/d43041752f886ac0bbfe15a6c4e64aeab9fc69ff..1df9382cec8e149ba1d3e648a1268e0b4a54ef97)
+  * Lemma: `weird_trans`
+  * New hypothesis: `t3 << t2`
+  * Elapsed: 96.36 seconds (includes other changes)
+4. [7.2.158.1](https://github.com/uwplse/analytics-data/commit/32cda79ad11a1f7032728b7b2afbba09e57f6f65#diff-4cfcc23dc186dc3f932da247458e2157) 
+  * Lemma: `weird_trans`
+  * New hypothesis: `InNF( t2)`
+  * Elapsed: 47.22 seconds (this change and change in proof only)
+5. [7.2.162-165.1](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d)
+  * Lemma: `weird_trans`
+  * New hypothesis: `InNF( tm1)`
+  * Elapsed: 64035.19 seconds (includes other changes, new day)
+6. [7.19.50.1](https://github.com/uwplse/analytics-data/commit/fccadfdbd27be36090b583374f9159365a6e31f7#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i_k__match_le_k`
+  * New hypothesis: `0 < k'`
+  * Elapsed: 6.38 seconds (this change and change in proof only)
+7. [7.19.177.1](https://github.com/uwplse/analytics-data/commit/823800755c9b01bf82d95df69f774f6c88fa27ae#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i__inv_depth_stable`
+  * New hypothesis: `inv_depth v <= k`
+  * Elapsed: 29.06 seconds (these two changes and changes in proof only)
+8. [7.19.177.2](https://github.com/uwplse/analytics-data/commit/823800755c9b01bf82d95df69f774f6c88fa27ae#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i__inv_depth_stable`
+  * New hypothesis: `inv_depth v <= k'`
+  * Elapsed: 29.06 seconds (these two changes and changes in proof only)
+9. [7.19.486.1](https://github.com/uwplse/analytics-data/commit/cd51e545523ca6bbeb7645bbad348c87f1dfb2ac#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `sem_sub_k_i_nf__inv_depth_le`
+  * New hypothesis: `| t | <= k`
+  * Elapsed: 1.86 seconds (this change and change in proof only)
+10. [7.19.515.1](https://github.com/uwplse/analytics-data/commit/3e1dd5223c3db2b6c5b6efb89e8c94bf00e7da0a#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `sem_eq_k_i__inv_depth_eq`
+  * New hypothesis: `| t' | <= k`
+  * Elapsed: 89.19 seconds (includes another change in proof)
+11. [7.61.4.1](https://github.com/uwplse/analytics-data/commit/9fde4dec58829ebbca18822b07b9899d59b72f4f#diff-6d02cae462d8dbc01ed1d267af5c2ebb)
+  * Lemma: `pair_sem_sub_k__sub_d`
+  * New hypothesis: `| TPair ta1 ta2 | <= k`
+  * Elapsed: 159.42 seconds (includes another change in proof)
+12. [7.101.44.1](https://github.com/uwplse/analytics-data/commit/5a745ff4f3eb01ddd4e7a33a5271ac6cf0b69621#diff-64b536c14253573f88165197c7b30b83)
+  * Lemma: `not_sem_sub__eXrefX_reft`
+  * New hypothesis: `k : nat`
+  * Elapsed: 27.32 seconds (includes another change)
+13. [7.145.22.1](https://github.com/uwplse/analytics-data/commit/f2edee6079b88bf925ad97c6b03469a1a7c34ba2#diff-5863cbc0cc1562fe4e8aca04c5bfbb93)
+  * Lemma: `sem_sub_fresh_var__sem_sub_exist`
+  * New hypothesis: `tx : ty`
+  * Elapsed: 221.90 seconds (includes another change)
+14. [7.184.15.1](https://github.com/uwplse/analytics-data/commit/79dd13e4c614575a5c85cd9f1d852fc97da3fb45#diff-e9ca8fa9dbcf98ebf7f20bcfcb129e75)
+  * Lemma: `build_v_full`
+  * New hypothesis: `fresh_in_ty X' t'`
+  * Elapsed: 74.31 seconds (this change only)
+15. [7.202.30-32.1](https://github.com/uwplse/analytics-data/compare/42620d0854559700f3899c60194ce026c9ca9e8c..3255e40af1c1ba213ec9eb75c5c0cef75c007777)
+  * Lemma: `b_subst_wf_ty`
+  * New hypothesis: `not_b_free_in_ty X t`
+  * Elapsed: 135.75 seconds (includes other changes)
+16. [7.215.2.1](https://github.com/uwplse/analytics-data/commit/b347dd18be61e43b79e3ee012bfeb9ddbefd3a55#diff-133a27d36ec7cfb34b2d3c9e7523505e)
+  * Lemma: `build_v_full`
+  * New hypothesis: `wf_ty tx`
+  * Elapsed: 110.05 seconds (this change only)
+17. [7.219.10.1](https://github.com/uwplse/analytics-data/commit/e19825ab07eac43966d1d49e1d2247597c636ed5#diff-01bc82921b15d2250ca7bf1bffb387a5)
+  * Lemma: `build_v_full`
+  * New hypothesis: `b_free_in_ty X t`
+  * Elapsed: 125.36 seconds (includes other changes)
 
 ##### User 8
 
+1. [8.79.293.1](https://github.com/uwplse/analytics-data/commit/1360be59258b4fd0499d32f974fbd61d02d64150#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Lemma: `big_kron_append`
+  * New hypothesis: `m <> 0`
+  * Elapsed: 11 seconds (these two changes only)
+2. [8.79.293.2](https://github.com/uwplse/analytics-data/commit/1360be59258b4fd0499d32f974fbd61d02d64150#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Lemma: `big_kron_append`
+  * New hypothesis: `n <> 0`
+  * Elapsed: 11 seconds (these two changes only)
+
+#### Add Hyp Fact
+
+##### User 8
+
+1. [8.34.0-4](https://github.com/uwplse/analytics-data/compare/083009f275aa72d9fda76a6acb60de0ccf79ceee..87fbf320436f56f623301f67f789c4700ce3cacc)
+  * Lemma: `denote_compose`
+  * New hypothesis: `\207\129` (encoded)
+  * Elapsed: 78.24 seconds (includes other changes)
+
+### Add Ctr
+
+Totals: TODO 
+
+#### Add Ctr Inductive
+
+Totals: TODO
+
+##### User 1
+
 Total: TODO
 
-        **** 8.34.0-4 (denote_compose)
-        **** 8.79.293 (big_kron_append)
-        **** 8.79.293 (big_kron_append)
+1. [1.37.4.1](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `ST`
+  * New hypothesis: `SBool` (constructor)
+  * Elapsed:
+2. [1.37.4.2](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `ST`
+  * New hypothesis: `
+  * Elapsed:
 
-##### User 11
 
-Total: TODO
-
-    ** CASE-HYPO (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 2, Total: 2)
-      *** Other (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 2, Total: 2)
-        **** 11.16.0-6 (showAppE)
-        **** 11.16.0-6 (showAppE)
-
-#### etc
-
-  * CONSTRUCTOR (1: 15, 2: 1, 3: 1, 5: 13, 7: 4, 8: 0, 10: 0, 11: 0, Total: 34)
-    ** Ind+ (1: 15, 2: 1, 3: 1, 5: 13, 7: 4, 8: 0, 10: 0, 11: 0, Total: 34)
-      *** 1.37.4 (ST)
-      *** 1.37.4 (ST)
       *** 1.37.4-12 (ST)
       *** 1.37.26 (GT)
       *** 1.37.31 (GT)
@@ -222,6 +258,30 @@ Total: TODO
       *** 7.99.0-3 (value_type)
       *** 7.109.10 (sub_d)
       *** 7.193.0 (ty)
+
+### Add Arg
+
+#### Add Arg Instance
+
+Totals:
+- User 11: 2
+- Total: 2
+
+##### User 11
+
+Total: TODO
+
+1. [11.16.0-6](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
+  * Instance: `showAppE`
+  * New hypothesis: `c` in case `App_Recv`
+  * Elapsed: 704.32 seconds (includes other changes, likely a repair)
+2. [11.16.0-6](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
+  * Instance: `showAppE`
+  * New hypothesis: `c` in case `App_Send	`
+  * Elapsed: 704.32 seconds (includes other changes, likely a repair) 
+
+#### etc
+
   * ARG (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2, 10: 0, 11: 0, Total: 2)
     ** Thm+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2, 10: 0, 11: 0, Total: 2)
       *** 8.34.0-4 (denote_compose)
