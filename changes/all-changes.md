@@ -10,26 +10,29 @@ TODO revisit each one in detail to finalize, perhaps after writing a bunch
 TODO below are more final ones. in each session, just keep the notes. same at user-level.
 TODO final recount at the end, also. plus link to every diff
 TODO CUT-DEF includes cutting fix etc
-TODO note about unknown times
 TODO update paper w/ latest numbers and notes
 
 Totals:
 - User 1: TODO
   * Structure: TODO
-    ** Add: TODO
+    ** Add: 43
       *** Add Ctr: 17
         **** Add Ctr Inductive: 17
       *** Add Bod: 5
         **** Add Bod Inductive: 3
         **** Add Bod Fixpoint: 2
+      *** Add Cas: 21
+        **** Add Cas Fixpoint: 21
 - User 2: TODO
   * Structure: TODO
-    ** Add: TODO
+    ** Add: 5
       *** Add Ctr: 1
         **** Add Ctr Inductive: 1
+      *** Add Cas: 4
+        **** Add Cas Fixpoint: 4
 - User 3: TODO
   * Structure: TODO
-    ** Add: TODO
+    ** Add: 10
       *** Add Hyp: 1
         **** Add Hyp Fixpoint: 1
       *** Add Ctr: 1
@@ -37,37 +40,48 @@ Totals:
       *** Add Bod: 7
         **** Add Bod Definition: 6
         **** Add Bod Fixpoint: 1
+      *** Add Cas: 1
+        **** Add Cas Definition: 1
 - User 5: TODO
   * Structure: TODO
-    ** Add: TODO
+    ** Add: 44
       *** Add Hyp: 11
         **** Add Hyp Record: 10
         **** Add Hyp Theorem: 1
       *** Add Ctr: 13
         **** Add Ctr Inductive: 13
+      *** Add Cas: 20
+        **** Add Cas Fixpoint: 20
 - User 7: TODO
   * Structure: TODO
-    ** Add: TODO
+    ** Add: 25
       *** Add Hyp: 17
         **** Add Hyp Lemma: 17
       *** Add Ctr: 4
         **** Add Ctr Inductive: 4
+      *** Add Cas: 4
+        **** Add Cas Fixpoint: 4
 - User 8: TODO
   * Structure: TODO
-    ** Add: TODO
+    ** Add: 5
       *** Add Hyp: 3
         **** Add Hyp Lemma: 2
         **** Add Hyp Fact: 1
       *** Add Arg: 2
         **** Add Arg Lemma: 2
+- User 10: TODO
+  * Structure: TODO
+    ** Add: 1
+      *** Add Cas: 1
+        **** Add Cas Definition: 1
 - User 11: TODO
   * Structure: TODO
-    ** Add: TODO
+    ** Add: 2
       *** Add Arg: 2
         **** Add Arg Instance: 2
 - Total: TODO
   * Structure: TODO
-    ** Add: TODO
+    ** Add: 135
       *** Add Hyp: 32
         **** Add Hyp Record: 10
         **** Add Hyp Fixpoint: 1
@@ -83,6 +97,9 @@ Totals:
         **** Add Bod Inductive: 3
         **** Add Bod Definition: 6
         **** Add Bod Fixpoint: 3
+      *** Add Cas: 51
+        **** Add Cas Definition: 2
+        **** Add Cas Fixpoint: 49
 
 # Structure
 
@@ -483,7 +500,7 @@ Totals:
 1. [1.37.26.2](https://github.com/uwplse/analytics-data/commit/fae52f1fd4f7d69aeffb60135e8fd8f36f1b4972#diff-16df098de71249ca8d704f5f6b2583e5)
   * Fixpoint: `Gamma`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
-2. [1.41.96-114.1]((https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
+2. [1.41.96-114.1](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
   * Fixpoint: `eq` (becomes a `Function`)
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
@@ -499,80 +516,227 @@ Totals:
 
 ##### User 3
 
-      *** 3.806.1 (step_open)
+1. [3.806.1.1](https://github.com/uwplse/analytics-data/commit/fa35688b9eab109ccae169403858c5faf78aa10c#diff-1dd5476f7cd1721deb9c9ca0c58e9f30)
+  * Definition: `step_open`
+  * New case: `Lock uid`
+  * Elapsed: 1.99 seconds (includes other changes)
 
 ##### User 10
 
-      *** 10.10.13-15 (network_of_app)
+1. [10.10.13-15.1](https://github.com/uwplse/analytics-data/compare/41e35ee1583ea04c75cdba0567cd7e1b16f945aa..46d1061f4ab90326f436a818f4d2c088f23cc292)
+  * Definition: `network_of_app`
+  * New case: `(|(Throw e|))` 
+  * Elapsed: 59.44 seconds (includes other changes)
 
 #### Add Cas Fixpoint
 
 ##### User 1
 
-      *** 1.37.27 (Gamma)
-      *** 1.37.28 (Gamma)
-      *** 1.37.28-30 (Gamma)
-      *** 1.37.30-44 (Gamma)
-      *** 1.37.52-55 (Gamma)
-      *** 1.41.94-114 (eq)
-      *** 1.41.94-114 (eq)
-      *** 1.41.94-114 (eq)
-      *** 1.41.94-114 (eq)
-      *** 1.41.94-114 (eq)
-      *** 1.41.100 (size_gt)
-      *** 1.41.112 (size_gt)
-      *** 1.41.112 (size_gt)
-      *** 1.41.114 (size_gt)
-      *** 1.41.118 (size_gt)
-      *** 1.41.114-129 (eq)
-      *** 1.41.114-129 (eq)
-      *** 1.41.114-129 (eq)
-      *** 1.41.114-129 (eq)
-      *** 1.41.114-129 (eq)
-      *** 1.41.114-129 (eq)
-      *** 1.41.114-129 (eq)
-      *** 1.41.114-129 (eq)
-      *** 1.41.141 (eq_fn)
+1. [1.37.27.1](https://github.com/uwplse/analytics-data/commit/469db2a6262f5bbda406616d5678d47abf52903b#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Definition: `Gamma`
+  * New case: `GInt`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+2. [1.37.28.1](https://github.com/uwplse/analytics-data/commit/4f603266268acc346008b0182f7e2505161cf36d#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Definition: `Gamma`
+  * New case: `GBool`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+3. [1.37.28-30.1](https://github.com/uwplse/analytics-data/compare/4f603266268acc346008b0182f7e2505161cf36d..603a60104152fc8c4992f5584953ca802f02a929)
+  * Definition: `Gamma`
+  * New case: `GFun G_1 G_2`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+4. [1.37.30-44.1](https://github.com/uwplse/analytics-data/compare/603a60104152fc8c4992f5584953ca802f02a929..98da87a629b43b113c59384cb11f677d9f98d4a3)
+  * Definition: `Gamma`
+  * New case: `GRec`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+5. [1.37.52-55.1](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..de8a2de8bee7beede982c4dc078f3e1f2108a0e5)
+  * Definition: `Gamma`
+  * New case: `GRow l`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+6. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+  * Definition: `eq`
+  * New case: `GInt, GInt`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+7. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+  * Definition: `eq`
+  * New case: `GBool, GBool`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+8. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+  * Definition: `eq`
+  * New case: `GFun G_11 G_12, GFun G_21 G22`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+9. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+  * Definition: `eq`
+  * New case: `GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2)`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+10. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+  * Definition: `eq`
+  * New case: `_, _`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+11. [1.41.100.1](https://github.com/uwplse/analytics-data/commit/dd22f9a7e6f9e77c86510e909004893788cdc0f8#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Definition: `size_gt`
+  * New case: `GRow l`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+12. [1.41.114-129.1](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRec (None :: tl1), GRec (None :: tl2))`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+13. [1.41.114-129.2](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRec (None :: tl1), GRec [])`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+14. [1.41.114-129.3](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRec [], GRec (None :: tl1)) => eq (GRec [], GRec tl1)`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+15. [1.41.114-129.4](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRow [], GRow []) `
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+16. [1.41.114-129.5](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRow (Some (Some hd1) :: tl1), GRow (Some (Some hd2) :: tl2))`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+17. [1.41.114-129.6](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRow (None :: tl1), GRow (None :: tl2))`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+18. [1.41.114-129.7](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRow (Some None :: tl1), GRow (Some None :: tl2))`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+19. [1.41.114-129.8](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRow (None :: tl1), GRow [])`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+20. [1.41.114-129.9](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+  * Definition: `eq`
+  * New case: `(GRow [], GRow (None :: tl1))`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+21. [1.41.141.1](https://github.com/uwplse/analytics-data/commit/de97aaa23825c81adb909116786e47fcca390057#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Definition: `eq_fn`
+  * New case: `(GDyn, GDyn)`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ##### User 2
 
-      *** 2.5.0-2 (value)
-      *** 2.5.44 (step)
-      *** 2.5.71 (value)
-      *** 2.5.78 (step)
+1. [2.5.0-2.1](https://github.com/uwplse/analytics-data/compare/d8ea29938120bf402680b9119db6991b01577ef8..8598f0d13769cbc866d4f3ac33929503569ae67d)
+  * Definition: `value`
+  * New case: `App f a`
+  * Elapsed: 195.03 seconds (this change only)
+2. [2.5.44.1](https://github.com/uwplse/analytics-data/commit/df376932c61a89df042a48c4e448598977c48c1c#diff-5b7ed223e9c56c6f3192a40c4b7f7bc0)
+  * Definition: `step`
+  * New case: `{f a}`
+  * Elapsed: 48.17 seconds (this change only)
+3. [2.5.71.1](https://github.com/uwplse/analytics-data/commit/b961cd34affa33bded1e971914766f0c743abe1c#diff-5b7ed223e9c56c6f3192a40c4b7f7bc0)
+  * Definition: `value`
+  * New case: `Symb _`
+  * Elapsed: 11.75 seconds (this change and some notations)
+4. [2.5.78.1](https://github.com/uwplse/analytics-data/commit/f425230c79c6ad925f4d741ab3acd5831cb7a483#diff-5b7ed223e9c56c6f3192a40c4b7f7bc0)
+  * Definition: `step`
+  * New case: `Symb _`
+  * Elapsed: 11.90 seconds (this change and some other code)
 
 ##### User 5
 
-      *** 5.18.13-15 (simplify)
-      *** 5.18.13-15 (simplify)
-      *** 5.18.13-15 (simplify)
-      *** 5.18.13-15 (simplify)
-      *** 5.19.26-28 (identity)
-      *** 5.19.26-28 (identity)
-      *** 5.19.26-28 (identity)
-      *** 5.19.26-28 (identity)
-      *** 5.19.26-28 (identity)
-      *** 5.19.26-28 (identity)
-      *** 5.19.9-36 (free_vars)
-      *** 5.19.9-36 (free_vars)
-      *** 5.19.9-36 (free_vars)
-      *** 5.19.9-36 (free_vars)
-      *** 5.19.9-36 (free_vars)
-      *** 5.33.0-3 (identity)
-      *** 5.33.0-3 (identity)
-      *** 5.33.0-3 (identity)
-      *** 5.35.0-3 (free_vars)
-      *** 5.35.0-3 (free_vars)
-      *** 5.35.0-3 (free_vars)
+1. [5.18.13-15.1](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6)
+  * Definition: `simplify`
+  * New case: `Int i`
+  * Elapsed: 25.26 seconds (these changes only)
+2. [5.18.13-15.2](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6)
+  * Definition: `simplify`
+  * New case: `Plus a b`
+  * Elapsed: 25.26 seconds (these changes only)
+3. [5.18.13-15.3](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6)
+  * Definition: `simplify`
+  * New case: `Times a b`
+  * Elapsed: 25.26 seconds (these changes only)
+4. [5.18.13-15.4](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6)
+  * Definition: `simplify`
+  * New case: `Minus a b`
+  * Elapsed: 25.26 seconds (these changes only)
+5. [5.19.26-28.1](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
+  * Definition: `identity`
+  * New case: `Bool b`
+  * Elapsed: 51.45 seconds (these change and one theorem)
+6. [5.19.26-28.2](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
+  * Definition: `identity`
+  * New case: `Add a b`
+  * Elapsed: 51.45 seconds (these change and one theorem)
+7. [5.19.26-28.3](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
+  * Definition: `identity`
+  * New case: `Or a b`
+  * Elapsed: 51.45 seconds (these change and one theorem)
+8. [5.19.26-28.4](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
+  * Definition: `identity`
+  * New case: `Not a`
+  * Elapsed: 51.45 seconds (these change and one theorem)
+9. [5.19.26-28.5](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
+  * Definition: `identity`
+  * New case: `If a b c`
+  * Elapsed: 51.45 seconds (these change and one theorem)
+10. [5.19.9-36.1](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
+  * Definition: `free_vars`
+  * New case: `Bool _`
+  * Elapsed: 28613.27 seconds (many changes, new day)
+11. [5.19.9-36.2](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
+  * Definition: `free_vars`
+  * New case: `And a b`
+  * Elapsed: 28613.27 seconds (many changes, new day)
+12. [5.19.9-36.3](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
+  * Definition: `free_vars`
+  * New case: `Or a b`
+  * Elapsed: 28613.27 seconds (many changes, new day)
+13. [5.19.9-36.4](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
+  * Definition: `free_vars`
+  * New case: `Not a`
+  * Elapsed: 28613.27 seconds (many changes, new day)
+14. [5.19.9-36.5](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
+  * Definition: `free_vars`
+  * New case: `If a b c`
+  * Elapsed: 28613.27 seconds (many changes, new day)
+15. [5.33.0-3.1](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb)
+  * Definition: `identity`
+  * New case: `Bools`
+  * Elapsed: 40.33 seconds (these changes only)
+16. [5.33.0-3.2](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb)
+  * Definition: `identity`
+  * New case: `Ints`
+  * Elapsed: 40.33 seconds (these changes only)
+17. [5.33.0-3.3](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb)
+  * Definition: `identity
+  * New case: `In a b`
+  * Elapsed: 40.33 seconds (these changes only)
+18. [5.35.0-3.1](https://github.com/uwplse/analytics-data/compare/6cdd9e85eefb602ec4c576ced438d416788e4fc8..111a4ec95023e0004b7fbd1ff9b8a02aabcbfa44)
+  * Definition: `free_vars`
+  * New case: `Bools`
+  * Elapsed: 201.33 seconds (these changes only)
+19. [5.35.0-3.2](https://github.com/uwplse/analytics-data/compare/6cdd9e85eefb602ec4c576ced438d416788e4fc8..111a4ec95023e0004b7fbd1ff9b8a02aabcbfa44)
+  * Definition: `free_vars`
+  * New case: `Ints`
+  * Elapsed: 201.33 seconds (these changes only)
+20. [5.35.0-3.3](https://github.com/uwplse/analytics-data/compare/6cdd9e85eefb602ec4c576ced438d416788e4fc8..111a4ec95023e0004b7fbd1ff9b8a02aabcbfa44)
+  * Definition: `free_vars`
+  * New case: `In a b`
+  * Elapsed: 201.33 seconds (these changes only)
 
 ##### User 7
 
-      *** 7.99.0 (subst)
-      *** 7.99.0-5 (match_ty)
-      *** 7.102.0-11 (match_ty)
-      *** 7.104.40-42 (inv_depth)
-      *** 7.193.0 (FV)
-      *** 7.193.0 (FV)
+1. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.3](https://github.com/uwplse/analytics-data/blob/1f4dc1ec58d3a8f4e756e0d8d612e8586e37a7b6/diffs-annotated-with-times/7/user-7-session-99.v)).2 ([diff](https://www.diffchecker.com/0PWKRYpw))
+  * Definition: `subst`
+  * New case: `TEV y`
+  * Elapsed: 80245.07 seconds (includes other changes, new day)
+2. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.5](https://github.com/uwplse/analytics-data/blob/62bcdba36f5faae105b23bbccb578e4b1fc7d996/diffs-annotated-with-times/7/user-7-session-99.v)).1 ([diff](https://www.diffchecker.com/cPMYNQEk))
+  * Definition: `match_ty`
+  * New case: `_, _, TEV X, TVar X'`
+  * Elapsed: 80501.96 seconds (includes other changes, new day)
+3. [7.104.40-42](https://github.com/uwplse/analytics-data/compare/2ec5578bb5a00a4fcb53656408e8d358a0129cda..45f246c96f162abc7b02d511ad971b15635b0830)
+  * Definition: `inv_depth`
+  * New case: `TEV _`
+  * Elapsed: 211.51 seconds (one other change)
+4. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).2 ([diff](https://www.diffchecker.com/8RlqPoQZ))
+  * Definition: `FV`
+  * New case: `TBVar`
+  * Elapsed: Unknown
 
 ## Del
 
@@ -689,6 +853,12 @@ Totals: TODO
       *** FIX+
         **** 10.10.13-15 (network_of_app)
   * CASE (1: 1, 2: 2, 3: 0, 5: 0, 7: 0, 8: 0, 10: 3, 11: 3, Total: 9)
+
+      *** 1.41.112 (size_gt)
+      *** 1.41.112 (size_gt)
+      *** 1.41.114 (size_gt)
+      *** 1.41.118 (size_gt)
+
     ** MATCH-CASE-BODY / all (1: 1, 2: 2, 3: 0, 5: 0, 7: 0, 8: 0, 10: 3, 11: 3, Total: 9)
       *** DEF (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 1, Total: 1)
         **** 11.16.18-20 (smi)
@@ -1021,6 +1191,12 @@ Totals: TODO
   * CASE
   * ARG
   * CONSTANT (1: 0, 2: 0, 3: 2, 5: 0, 7: 15, 8: 0, 10: 0, 11: 0, Total: 17 / 1)
+
+ 5. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).3 ([diff](https://www.diffchecker.com/8RlqPoQZ))
+  * Definition: `FV`
+  * New case: `TFVar`
+  * Elapsed: Unknown
+
     ** Def (1: 0, 2: 0, 3: 0, 5: 0, 7: 4, 8: 0, 10: 0, 11: 0, Total: 4)
       *** BODY / APP / ARGS / all (1: 0, 2: 0, 3: 0, 5: 0, 7: 4)
         **** 7.93.2-6 (tX)
