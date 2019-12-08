@@ -9,39 +9,146 @@ TODO below are more final ones. in each session, just keep the notes. same at us
 TODO final recount at the end, also. plus link to every diff
 TODO CUT-DEF includes cutting fix etc
 
-Totals: TODO
+Totals:
+- User 3: TODO
+  * Structure: TODO
+    ** Add: TODO
+      *** Add Hyp: TODO
+        **** Add Hyp Fixpoint: 1
+- User 5: TODO
+  * Structure: TODO
+    ** Add: TODO
+      *** Add Hyp: TODO
+        **** Add Hyp Record: 10
+- Total: TODO
+  * Structure: TODO
+    ** Add: TODO
+      *** Add Hyp: TODO
+        **** Add Hyp Record: 10
+        **** Add Hyp Fixpoint: 1
 
 # Structure
 
-Totals: TODO
+Totals:
+- User 3: TODO
+  * Add: TODO
+    ** Add Hyp: TODO
+      *** Add Hyp Fixpoint: 1
+- User 5: TODO
+  * Add: TODO
+    ** Add Hyp: TODO
+      *** Add Hyp Record: 10
+- Total: TODO
+  * Add: TODO
+    ** Add Hyp: TODO
+      *** Add Hyp Record: 10
+      *** Add Hyp Fixpoint: 1
 
 ## Add
 
-- ADD (1: 45, 2: 5, 3: 11, 5: 45, 7: 30, 8: 5, 10: 1, 11: 2, Total: 142)
-  * HYPO (1: 1, 2: 0, 3: 2, 5: 11, 7: 18, 8: 3, 10: 0, 11: 2, Total: 37)
-    ** CONSTRUCTOR-HYPO (1: 0, 2: 0, 3: 0, 5: 10, 7: 0, 8: 0, 10: 0, 11: 0, Total: 10)
-      *** NOTE: Includes record fields.
-      *** Ind+ (1: 0, 2: 0, 3: 0, 5: 10, 7: 0, 8: 0, 10: 0, 11: 0, Total: 10)
-         **** 5.19.5-8 (EpsilonLogic)
-         **** 5.19.5-8 (EpsilonLogic)
-         **** 5.19.5-8 (EpsilonLogic)
-         **** 5.19.23-26 (EpsilonLogic)
-         **** 5.19.23-26 (EpsilonLogic)
-         **** 5.19.23-26 (EpsilonLogic)
-         **** 5.19.23-26 (EpsilonLogic)
-         **** 5.19.23-26 (EpsilonLogic)
-         **** 5.19.23-26 (EpsilonLogic)
-         **** 5.19.23-26 (EpsilonLogic)
-    ** FIX-HYPO (1: 1, 2: 0, 3: 2, 5: 0, 7: 1, 8: 0, 10: 0, 11: 0, Total: 4)
-      *** NOTE: One change, including recursive references.
-      *** Fix+ (1: 1, 2: 0, 3: 2, 5: 0, 7: 1, 8: 0, 10: 0, 11: 0, Total: 4)
-        **** 1.41.96-102 (eq) (TODO check)
-        **** 3.960.19-69 (nat_to_le)
-        **** 3.960.19-69 (nat_to_le)
-        **** 7.174.0 (subst)
-    ** THM-HYPO (1: 0, 2: 0, 3: 0, 5: 1, 7: 17, 8: 3, 10: 0, 11: 0, Total: 21)
-      *** Thm+ (1: 0, 2: 0, 3: 0, 5: 1, 7: 17, 8: 3, 10: 0, 11: 0, Total: 21)
+Totals:
+- User 3: TODO
+  * Add Hyp: TODO
+    ** Add Hyp Fixpoint: 1
+- User 5: TODO
+  * Add Hyp: TODO
+    ** Add Hyp Record: 10
+- Total: TODO
+  * Add Hyp: TODO
+    ** Add Hyp Record: 10
+    ** Add Hyp Fixpoint: 1
+
+### Add Hyp
+
+Totals:
+- User 3: TODO
+  * Add Hyp Fixpoint: 1
+- User 5: TODO
+  * Add Hyp Record: 10
+- Total: TODO
+  * Add Hyp Record: 10
+  * Add Hyp Fixpoint: 1
+
+#### Add Hyp Record
+
+Totals:
+- User 5: 10
+- Total: 10
+
+##### User 5
+
+Total: 10
+
+1. [5.19.5-7.1](https://github.com/uwplse/analytics-data/compare/2894ba5928f7fe963c8a1d8d2b31fb5cd3858df7..49ad0ac21d49dac8454385945fdf5e2cfb9abf90): 
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalPlus`
+  * Elapsed: 573.95 seconds (this change only)
+2. [5.19.7-8.1](https://github.com/uwplse/analytics-data/commit/08436be993b76fa3b4f9e8673acc78fbb12d79d1#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalMinus`
+  * Elapsed: 209.32 seconds (includes other changes)
+3. [5.19.7-8.2](https://github.com/uwplse/analytics-data/commit/08436be993b76fa3b4f9e8673acc78fbb12d79d1#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalTimes`
+  * Elapsed: 209.32 seconds (includes other changes)
+4. [5.19.23-26.1](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalBoolConst`
+  * Elapsed: 51610.77 seconds (includes other changes)
+5. [5.19.23-26.2](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalBoolInj`
+  * Elapsed: 51610.77 seconds (includes other changes)
+6. [5.19.23-26.3](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalIfTrue`
+  * Elapsed: 51610.77 seconds (includes other changes)
+7. [5.19.23-26.4](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalIfFalse`
+  * Elapsed: 51610.77 seconds (includes other changes)
+8. [5.19.23-26.5](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalAnd`
+  * Elapsed: 51610.77 seconds (includes other changes)
+9. [5.19.23-26.6](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalOr`
+  * Elapsed: 51610.77 seconds (includes other changes)
+10. [5.19.23-26.6](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * New hypothesis: `evalNot`
+  * Elapsed: 51610.77 seconds (includes other changes)
+
+#### Add Hyp Fixpoint
+
+Totals:
+- User 3: 1
+- Total: 1
+
+##### User 3
+
+Total: 1
+
+1. [3.960.19-80.1](https://github.com/uwplse/analytics-data/compare/017188f46db98812ea1072f74a15f0855cba1ba7..01de6576ae7e6c27c0f8f89c66c3ae092b4ef3db)
+  * Fixpoint: `nat_to_le`
+  * New hypothesis: `base`
+  * Elapsed: 838.01 seconds (includes other changes)
+
+#### Add Hyp Lemma
+
+Totals: TODO
+
+##### User 5
+
+Total: TODO
+
         **** 5.18.18-21 (simplify_correct)
+
+##### User 7
+
+Total: TODO
+
         **** 7.2.94 (sub_r_unite_pairs_l__inv)
         **** 7.2.94 (sub_r_unite_pairs_l__inv)
         **** 7.2.147-152 (weird_trans)
@@ -59,13 +166,26 @@ Totals: TODO
         **** 7.202.30-32 (b_subst_wf_ty)
         **** 7.215.7 (build_v_full)
         **** 7.219.10 (build_v_full)
+
+##### User 8
+
+Total: TODO
+
         **** 8.34.0-4 (denote_compose)
         **** 8.79.293 (big_kron_append)
         **** 8.79.293 (big_kron_append)
+
+##### User 11
+
+Total: TODO
+
     ** CASE-HYPO (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 2, Total: 2)
       *** Other (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 2, Total: 2)
         **** 11.16.0-6 (showAppE)
         **** 11.16.0-6 (showAppE)
+
+#### etc
+
   * CONSTRUCTOR (1: 15, 2: 1, 3: 1, 5: 13, 7: 4, 8: 0, 10: 0, 11: 0, Total: 34)
     ** Ind+ (1: 15, 2: 1, 3: 1, 5: 13, 7: 4, 8: 0, 10: 0, 11: 0, Total: 34)
       *** 1.37.4 (ST)
@@ -369,6 +489,17 @@ Totals: TODO
 
 ## Cut
 
+termination proofs (include note, update tables, maybe mention as dev. pattern or include as benchmark)
+- 1. [1.41.96-114.1](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
+- 3. [3.960.19-80.2](https://github.com/uwplse/analytics-data/compare/017188f46db98812ea1072f74a15f0855cba1ba7..01de6576ae7e6c27c0f8f89c66c3ae092b4ef3db)
+  * Fixpoint: `nat_to_le`
+  * New hypothesis: `base`
+  * Elapsed: 838.01 seconds (includes other changes)
+- 7.([162.16](https://github.com/uwplse/analytics-data/blob/0e28364f2663d4f3c51d7a5073fd21a70086ae11/diffs-annotated-with-times/7/user-7-session-162.v)-[174.31](https://github.com/uwplse/analytics-data/blob/206cfb585f090a4dfb75ef54ca8dfe886459d670/diffs-annotated-with-times/7/user-7-session-174.v)).1
+  * Notes: Multiple sessions, must use [external diff](https://www.diffchecker.com/Dku5ZDB3)
+  * Too complicated to classify all of it
+
+
 - CUT (1: 2, 2: 3, 3: 8, 5: 0, 7: 3, 8: 0, 10: 1, 11: 0, Total: 16)
   * FUNCTION (1: 1, 2: 0, 3: 0, 5: 0, 7: 3, 8: 0, 10: 0, 11: 0, Total: 3)
     ** DEF (1: 1, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
@@ -667,7 +798,5 @@ Totals: TODO
   ** CONST (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 1, 10: 0, 11: 0, Total: 1 / 1)
     ** BODY / APP / F / ARGS / all (2: 0, 3: 0, 5: 0, 7: 0, 8: 1)
       *** 8.75.6 (_R'_)
-
-
 
 
