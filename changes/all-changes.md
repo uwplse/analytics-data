@@ -50,6 +50,13 @@ Totals:
       *** Add Hyp: 3
         **** Add Hyp Lemma: 2
         **** Add Hyp Fact: 1
+      *** Add Arg: 2
+        **** Add Arg Lemma: 2
+- User 11: TODO
+  * Structure: TODO
+    ** Add: TODO
+      *** Add Arg: 2
+        **** Add Arg Instance: 2
 - Total: TODO
   * Structure: TODO
     ** Add: TODO
@@ -61,6 +68,9 @@ Totals:
         **** Add Hyp Fact: 1
       *** Add Ctr: 36
         **** Add Ctr Inductive: 36
+      *** Add Arg: 4
+        **** Add Arg Instance: 2
+        **** Add Arg Lemma: 2
 
 # Structure
 
@@ -219,7 +229,7 @@ Totals:
 
 ##### User 8
 
-1. [8.34.0-4](https://github.com/uwplse/analytics-data/compare/083009f275aa72d9fda76a6acb60de0ccf79ceee..87fbf320436f56f623301f67f789c4700ce3cacc)
+1. [8.34.0-4.1](https://github.com/uwplse/analytics-data/compare/083009f275aa72d9fda76a6acb60de0ccf79ceee..87fbf320436f56f623301f67f789c4700ce3cacc)
   * Lemma: `denote_compose`
   * New hypothesis: `\207\129` (encoded)
   * Elapsed: 78.24 seconds (includes other changes)
@@ -389,15 +399,22 @@ Totals:
 
 ### Add Arg
 
+#### Add Arg Lemma
+
+##### User 8
+
+1. [8.34.0-4.2](https://github.com/uwplse/analytics-data/compare/083009f275aa72d9fda76a6acb60de0ccf79ceee..87fbf320436f56f623301f67f789c4700ce3cacc)
+  * Lemma: `denote_compose`
+  * New argument: `\207\129` (encoded)
+  * Elapsed: 78.24 seconds (includes other changes)
+2. [8.34.0-4.3](https://github.com/uwplse/analytics-data/compare/083009f275aa72d9fda76a6acb60de0ccf79ceee..87fbf320436f56f623301f67f789c4700ce3cacc)
+  * Lemma: `denote_compose`
+  * New argument: `\207\129` (encoded)
+  * Elapsed: 78.24 seconds (includes other changes)
+
 #### Add Arg Instance
 
-Totals:
-- User 11: 2
-- Total: 2
-
 ##### User 11
-
-Total: TODO
 
 1. [11.16.0-6](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
   * Instance: `showAppE`
@@ -410,10 +427,6 @@ Total: TODO
 
 #### etc
 
-  * ARG (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2, 10: 0, 11: 0, Total: 2)
-    ** Thm+ (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 2, 10: 0, 11: 0, Total: 2)
-      *** 8.34.0-4 (denote_compose)
-      *** 8.34.0-4 (denote_compose)
   * BODY (1: 5, 2: 0, 3: 7, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 12)
     ** Ind+ (1: 3, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 3)
       *** 1.37.3 (ST)
