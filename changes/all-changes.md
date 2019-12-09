@@ -12,6 +12,7 @@ TODO final recount at the end, also. plus link to every diff
 TODO CUT-DEF includes cutting fix etc
 TODO update paper w/ latest numbers and notes
 TODO mark the ones that correspond to patterns?
+TODO check all before final publication
 
 Totals:
 - User 1: TODO
@@ -507,11 +508,11 @@ Totals:
 
 ##### User 11
 
-1. [11.16.0-6](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
+1. [11.16.0-6.1](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
   * Instance: `showAppE`
   * New hypothesis: `c` in case `App_Recv`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
-2. [11.16.0-6](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
+2. [11.16.0-6.2](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
   * Instance: `showAppE`
   * New hypothesis: `c` in case `App_Send	`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user) 
@@ -588,7 +589,7 @@ Totals:
 1. [10.10.13-15.1](https://github.com/uwplse/analytics-data/compare/41e35ee1583ea04c75cdba0567cd7e1b16f945aa..46d1061f4ab90326f436a818f4d2c088f23cc292)
   * Definition: `network_of_app`
   * New case: `(|(Throw e|))` 
-  * Elapsed: 59.44 seconds (includes other changes)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Add Cas Fixpoint
 
@@ -947,7 +948,7 @@ Totals:
 1. [10.10.5.1](https://github.com/uwplse/analytics-data/commit/6e1aa63e6c17e657d677aadd6e4ce1356800beb0#diff-a27f51d33955fe5a67bd7cfb5fcee1f8)
   * Definition: `network_of_app`
   * Moved hypothesis: `{E}`
-  * Elapsed: 43.56 seconds (just these changes)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Mov Hyp Theorem
 
@@ -960,8 +961,9 @@ Totals:
 
 ##### User 7
 
-1. [7.94.15](https://github.com/uwplse/analytics-data/commit/10f1e50aea2f5c520e428c2112deafd6de211165#diff-0e20eeec6f52eb278a00e9a7ad17ef13)
+1. [7.94.15.1](https://github.com/uwplse/analytics-data/commit/10f1e50aea2f5c520e428c2112deafd6de211165#diff-0e20eeec6f52eb278a00e9a7ad17ef13)
   * Theorem: `match_ty__value_type_l`
+  * Elapsed: 4.51 seconds (just these changes)
 
 #### Mov Hyp Lemma
 
@@ -1095,6 +1097,19 @@ Totals:
 
 ## Pch
 
+- User 1
+  * Content
+    ** Pch
+      *** Pch Bod: 1
+        **** Pch Bod Fixpoint: 1
+      *** Pch Cas: 5
+        **** Pch Cas Function: 4
+        **** Pch Cas Fixpoint: 1
+- User 2
+  * Content
+    ** Pch
+      *** Pch Cas: 2
+        **** Pch Cas Fixpoint: 2
 - User 3
   * Content
     ** Pch
@@ -1111,22 +1126,29 @@ Totals:
       *** Pch Bod: 4
         **** Pch Bod Definition: 3
         **** Pch Bod Fixpoint: 1
+- User 10
+  * Content
+    ** Pch
+      *** Pch Cas: 2
+        **** Pch Cas Fixpoint: 2
 - User 11
   * Content
     ** Pch
       *** Pch Bod: 1
         **** Pch Bod Definition: 1
-      *** Pch Cas:
-        **** Pch Cas Definition: 1
+      *** Pch Cas: 2
+        **** Pch Cas Instance: 2
 - Totals
   * Content
     ** Pch
-      *** Pch Bod: 10
+      *** Pch Bod: 11
         **** Pch Bod Record: 2
         **** Pch Bod Definition: 7
-        **** Pch Bod Fixpoint: 1
-      *** Pch Cas:
-        **** Pch Cas Definition: 1
+        **** Pch Bod Fixpoint: 2
+      *** Pch Cas: 9
+        **** Pch Cas Function: 4
+        **** Pch Cas Fixpoint: 3
+        **** Pch Cas Instance: 2
 
 ### Pch Bod
 
@@ -1179,6 +1201,12 @@ Totals:
 
 #### Pch Bod Fixpoint
 
+##### User 1
+
+1. [1.37.50-52.1](https://github.com/uwplse/analytics-data/compare/45cee1be2f8e356d2404fb5dcf86555a8a94015c..816d42cdfc703417b4c56cd5e9f0746cb9299ccf)
+  * Fixpoint: `Gamma`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 ##### User 7
 
 1. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.6](https://github.com/uwplse/analytics-data/blob/a51565ac61338979b65391b2c9b53a0ed7aa3c96/diffs-annotated-with-times/7/user-7-session-99.v)).3 ([diff](https://www.diffchecker.com/Fl3yzSwV))
@@ -1187,46 +1215,76 @@ Totals:
 
 ### Pch Cas
 
-#### Pch Cas Definition
+#### Pch Cas Function
 
-##### User 11
+##### User 1
 
-1. [11.16.18-20](https://github.com/uwplse/analytics-data/compare/388ce21659b7547d3de179c683bfc37b450a3fc7..9b89b09f2c0f640ae6305e5eb3977bbcde3d5aff)
-  * Definition: `smi`
+1. [1.41.112.1](https://github.com/uwplse/analytics-data/commit/be30f8cb1ca317a35b18163a4da65a10f6bc24a4#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Fixpoint: `size_gt`
+  * Case: `Some (_, G)` in `GRec l`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+2. [1.41.112.2](https://github.com/uwplse/analytics-data/commit/be30f8cb1ca317a35b18163a4da65a10f6bc24a4#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Fixpoint: `size_gt`
+  * Case: `Some (_, G)` in `GRow l`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+3. [1.41.118.1](https://github.com/uwplse/analytics-data/commit/fe84fc62f991b24e1d18769979c2bfe53111879f#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Fixpoint: `size_gt`
+  * Case: `_` in `GRec l`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+4. [1.41.118.2](https://github.com/uwplse/analytics-data/commit/fe84fc62f991b24e1d18769979c2bfe53111879f#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Fixpoint: `size_gt`
+  * Case: `_` in `GRow l`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Pch Cas Fixpoint
 
 ##### User 1
 
-TODO left off here
-
-        **** 1.37.50-52 (Gamma)
-
-      *** 1.41.112 (size_gt)
-      *** 1.41.112 (size_gt)
-      *** 1.41.114 (size_gt)
-      *** 1.41.118 (size_gt)
-
-        **** 1.37.44-46 (Gamma)
+1. [1.37.44-46.1](https://github.com/uwplse/analytics-data/compare/98da87a629b43b113c59384cb11f677d9f98d4a3..6e1b9b31e980d59180965545db1f99204e4b55be)
+  * Fixpoint: `Gamma`
+  * Case: `(R, G)`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ##### User 2
 
-        **** 2.5.3-42 (value)
-        **** 2.5.51-54 (step)
+1. [2.5.3-42.1](https://github.com/uwplse/analytics-data/compare/68f7ffc1ee87afc1c40a378e11eab864c1e3f2c1..3fbb440546c8b3241e5815a33e2b66344cfadd40)
+  * Fixpoint: `value`
+  * Case: `Ident name`
+  * Elapsed: 2554.85 seconds (includes other changes)
+
+2. [2.5.51-54.1](https://github.com/uwplse/analytics-data/compare/23fd9b0ccca01e2c50ba47504a9f884d57cfad89..abcdba9a0c2cf828a510853fceb0eb8fb911c5e9)
+  * Fixpoint: `step`
+  * Case: `else` in `Ident`
+  * Elapsed: 570.87 seconds (includes other changes)
 
 ##### User 10
 
-        **** 10.13.11 (fib')
-        **** 10.15.4 (fib)
-        **** 10.15.5 (fib)
+1. [10.13.11.1](https://github.com/uwplse/analytics-data/commit/a9ed1b8e61dba8cdb1ffe512e1bc5fa73835dd7d#diff-69da5da1f0f8dbff0b41ae3e620593e8)
+  * Fixpoint: `fib'`
+  * Case: `S fuel`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+2. [10.15.4.1](https://github.com/uwplse/analytics-data/commit/3c5a2d0972bf88768ec951de8b05955c3005aa0e#diff-7031c92a1febd4eb4842fb1d0d17d995)
+  * Fixpoint: `fib`
+  * Case: `O`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Pch Cas Instance
 
 ##### User 11
 
-        **** 11.16.0-6 (showAppE)
-        **** 11.16.0-6 (showAppE)
+1. [11.16.0-6.3](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
+  * Instance: `showAppE`
+  * Case: `App_Recv c`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user) 
+
+2. [11.16.0-6.4](https://github.com/uwplse/analytics-data/compare/1b62f2879a6dd313c3cd30b5a8ed29c5bd1ac900..f696716f604c89e079ace122bc5a3b61e30b318d)
+  * Instance: `showAppE`
+  * Case: `App_Send c msg`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user) 
 
 ### Pch Typ
 
@@ -1250,6 +1308,17 @@ TODO check:
 
 ### Pch Arg
 
+#### Pch Arg Definition
+
+##### User 11
+
+TODO check:
+
+1. [11.16.18-20](https://github.com/uwplse/analytics-data/compare/388ce21659b7547d3de179c683bfc37b450a3fc7..9b89b09f2c0f640ae6305e5eb3977bbcde3d5aff)
+  * Definition: `smi`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+
 #### Pch Arg Fixpoint
 
 ##### User 3
@@ -1259,7 +1328,13 @@ TODO check:
 ##### User 10
 
          **** 10.13.16 (fib')
-         **** 10.15.5 (fib)
+
+TODO check/tweak:
+
+[10.15.5.1](https://github.com/uwplse/analytics-data/commit/b9024e6729a42de59009ce6fd3d8fc05b44811ac#diff-7031c92a1febd4eb4842fb1d0d17d995)
+  * Fixpoint: `fib`
+  * Case: `S fuel`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Pch Arg Theorem
 
@@ -1295,6 +1370,12 @@ TODO check:
 
 ### Uch Cas
 
+#### Uch Cas Function
+
+##### User 1
+
+      *** [1.41.114.1](https://github.com/uwplse/analytics-data/commit/f623d1c924afb791f4fd27f7ffe078d078169cba#diff-c25d7b9e6c43e8e83b60b58b9a5b880b) (size_gt)
+
 #### Uch Cas Fixpoint
 
 ##### User 2
@@ -1305,6 +1386,13 @@ TODO check:
 
         **** 7.174.28 (subst) (TODO check)
         **** 7.193.0-2 (FFV)
+
+##### User 10
+
+1. [10.15.5.2](https://github.com/uwplse/analytics-data/commit/b9024e6729a42de59009ce6fd3d8fc05b44811ac#diff-7031c92a1febd4eb4842fb1d0d17d995)
+  * Fixpoint: `fib`
+  * Case: `0`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ### Uch Arg
 
@@ -1349,7 +1437,12 @@ termination proofs (include note, update tables, maybe mention as dev. pattern o
 
 ##### User 2
 
-          ***** 2.5.3-42 (value)
+TODO check:
+
+1. [2.5.3-42.2](https://github.com/uwplse/analytics-data/compare/68f7ffc1ee87afc1c40a378e11eab864c1e3f2c1..3fbb440546c8b3241e5815a33e2b66344cfadd40)
+  * Fixpoint: `value`
+  * Elapsed: 2554.85 seconds (includes other changes)
+
           ***** 2.5.42-47 (step)
 
 ##### User 3

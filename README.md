@@ -75,7 +75,7 @@ always appear as "Top." This means that manual analysis is needed in order to de
 if two sessions refer to the same file.
 
 Finally, the timestamp data for User 1 is corrupt for some files.
-It seems like this is true for User 11 sometimes, too.
+It seems like this is true for Users 10 and 11 sometimes, too.
 And the final commit for all users often does not have a timestamp.
 The processed data lists timestamps, but the list of changes says "Unknown"
 when this happens. In general, timestamp data in the analysis is 
@@ -83,5 +83,6 @@ _very experimental_ and was added only for the camera-ready in response
 to reviewer feedback; we make claims about it in the paper only when
 we are absolutely certain that those claims are correct, and are not sure
 why the analysis sometimes does not return the right number of timestamps for 
-Users 1 and 11.
+Users 1, 10, and 11. I may address this and update the commits later,
+but will see.
 
