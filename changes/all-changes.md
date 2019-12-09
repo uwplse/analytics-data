@@ -1115,6 +1115,10 @@ Totals:
     ** Pch
       *** Pch Bod: 3
         **** Pch Bod Definition: 3
+      *** Pch Typ: 1
+        **** Pch Typ Definition: 1
+      *** Pch Arg: 1
+        **** Pch Arg Fixpoint: 1
 - User 5
   * Content
     ** Pch
@@ -1131,6 +1135,8 @@ Totals:
     ** Pch
       *** Pch Cas: 2
         **** Pch Cas Fixpoint: 2
+      *** Pch Arg: 3
+        **** Pch Arg Fixpoint: 3
 - User 11
   * Content
     ** Pch
@@ -1138,6 +1144,8 @@ Totals:
         **** Pch Bod Definition: 1
       *** Pch Cas: 2
         **** Pch Cas Instance: 2
+      *** Pch Arg: 1
+        **** Pch Arg Definition: 1
 - Totals
   * Content
     ** Pch
@@ -1149,6 +1157,11 @@ Totals:
         **** Pch Cas Function: 4
         **** Pch Cas Fixpoint: 3
         **** Pch Cas Instance: 2
+      *** Pch Typ: 1
+        **** Pch Typ Definition: 1
+      *** Pch Arg: 5
+        **** Pch Arg Definition: 1
+        **** Pch Arg Fixpoint: 4
 
 ### Pch Bod
 
@@ -1292,19 +1305,9 @@ Totals:
 
 ##### User 3
 
-TODO check:
-
-* [3.2698.2.2](https://github.com/uwplse/analytics-data/commit/635487aac8830963e551b29f24f22799af036384#diff-84aea1e3e052dd37597908c715f96661)
+1. [3.2698.2.2](https://github.com/uwplse/analytics-data/commit/635487aac8830963e551b29f24f22799af036384#diff-84aea1e3e052dd37597908c715f96661)
   * Definition: `nat64_to_le`
   * Elaped: 7.25 seconds (this and one other change)
-
-### Pch Hyp
-
-#### Pch Hyp Fixpoint
-
-##### User 10
-
-        **** 10.10.13-15 (network_of_app)
 
 ### Pch Arg
 
@@ -1312,28 +1315,30 @@ TODO check:
 
 ##### User 11
 
-TODO check:
-
-1. [11.16.18-20](https://github.com/uwplse/analytics-data/compare/388ce21659b7547d3de179c683bfc37b450a3fc7..9b89b09f2c0f640ae6305e5eb3977bbcde3d5aff)
+1. [11.16.18-20.1](https://github.com/uwplse/analytics-data/compare/388ce21659b7547d3de179c683bfc37b450a3fc7..9b89b09f2c0f640ae6305e5eb3977bbcde3d5aff)
   * Definition: `smi`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
-
 
 #### Pch Arg Fixpoint
 
 ##### User 3
 
-         **** 3.960.160 (le_to_nat)
+1. [3.960.160.1](https://github.com/uwplse/analytics-data/commit/f9e85ad6a1d4705f90b8f0c6697525971d924a87#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Fixpoint: `le_to_nat`
+  * Elapsed: 10.37 seconds (this and one other change)
 
 ##### User 10
 
-         **** 10.13.16 (fib')
+1. [10.10.13-15.2](https://github.com/uwplse/analytics-data/compare/41e35ee1583ea04c75cdba0567cd7e1b16f945aa..46d1061f4ab90326f436a818f4d2c088f23cc292)
+  * Fixpoint: `network_of_app`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
-TODO check/tweak:
+2. [10.13.16.1](https://github.com/uwplse/analytics-data/commit/7d12bd245c469243488644ab01357c8c93fab8fd#diff-69da5da1f0f8dbff0b41ae3e620593e8)
+  * Fixpoint: `fib'`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
-[10.15.5.1](https://github.com/uwplse/analytics-data/commit/b9024e6729a42de59009ce6fd3d8fc05b44811ac#diff-7031c92a1febd4eb4842fb1d0d17d995)
+3. [10.15.5.1](https://github.com/uwplse/analytics-data/commit/b9024e6729a42de59009ce6fd3d8fc05b44811ac#diff-7031c92a1febd4eb4842fb1d0d17d995)
   * Fixpoint: `fib`
-  * Case: `S fuel`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Pch Arg Theorem
@@ -1809,7 +1814,11 @@ TODO list once or twice? given that we also have "patch"
 ##### User 3
 
         **** 3.960.81-125 (nat_to_le)
-        **** 3.960.160 (le_to_nat)
+
+2. [3.960.160.2](https://github.com/uwplse/analytics-data/commit/f9e85ad6a1d4705f90b8f0c6697525971d924a87#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Fixpoint: `le_to_nat`
+  * Binding: TODO
+  * Elapsed: 10.37 seconds (this and one other change)
 
 ##### User 7
 
