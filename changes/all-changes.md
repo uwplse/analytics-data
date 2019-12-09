@@ -11,6 +11,7 @@ TODO below are more final ones. in each session, just keep the notes. same at us
 TODO final recount at the end, also. plus link to every diff
 TODO CUT-DEF includes cutting fix etc
 TODO update paper w/ latest numbers and notes
+TODO mark the ones that correspond to patterns?
 
 Totals:
 - User 1: TODO
@@ -71,10 +72,11 @@ Totals:
       *** Mov Cas: 1
         **** Mov Cas Fixpoint: 1
 - User 7: TODO
-  * Structure: 55
-    ** Add: 25
-      *** Add Hyp: 17
+  * Structure: 56
+    ** Add: 26
+      *** Add Hyp: 18
         **** Add Hyp Lemma: 17
+        **** Add Hyp Fixpoint: 1
       *** Add Ctr: 4
         **** Add Ctr Inductive: 4
       *** Add Cas: 4
@@ -113,11 +115,11 @@ Totals:
       *** Add Arg: 2
         **** Add Arg Instance: 2
 - Total: TODO
-  * Structure: 187
-    ** Add: 135
-      *** Add Hyp: 32
+  * Structure: 188
+    ** Add: 136
+      *** Add Hyp: 33
         **** Add Hyp Record: 10
-        **** Add Hyp Fixpoint: 1
+        **** Add Hyp Fixpoint: 2
         **** Add Hyp Theorem: 1
         **** Add Hyp Lemma: 19
         **** Add Hyp Fact: 1
@@ -213,6 +215,13 @@ Totals:
   * Fixpoint: `nat_to_le`
   * New hypothesis: `base`
   * Elapsed: 838.01 seconds (includes other changes)
+
+##### User 7
+
+1. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.6](https://github.com/uwplse/analytics-data/blob/a51565ac61338979b65391b2c9b53a0ed7aa3c96/diffs-annotated-with-times/7/user-7-session-99.v)).1 ([diff](https://www.diffchecker.com/Fl3yzSwV))
+  * Fixpoint: `match_ty`
+  * New hypothesis: `w : nat`
+  * Elapsed: 80556.83 seconds (includes other changes, new day)
 
 #### Add Hyp Theorem
 
@@ -778,10 +787,10 @@ Totals:
   * Definition: `subst`
   * New case: `TEV y`
   * Elapsed: 80245.07 seconds (includes other changes, new day)
-2. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.5](https://github.com/uwplse/analytics-data/blob/62bcdba36f5faae105b23bbccb578e4b1fc7d996/diffs-annotated-with-times/7/user-7-session-99.v)).1 ([diff](https://www.diffchecker.com/cPMYNQEk))
+2. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.6](https://github.com/uwplse/analytics-data/blob/a51565ac61338979b65391b2c9b53a0ed7aa3c96/diffs-annotated-with-times/7/user-7-session-99.v)).2 ([diff](https://www.diffchecker.com/Fl3yzSwV))
   * Definition: `match_ty`
   * New case: `_, _, TEV X, TVar X'`
-  * Elapsed: 80501.96 seconds (includes other changes, new day)
+  * Elapsed: 80556.83 seconds (includes other changes, new day)
 3. [7.104.40-42](https://github.com/uwplse/analytics-data/compare/2ec5578bb5a00a4fcb53656408e8d358a0129cda..45f246c96f162abc7b02d511ad971b15635b0830)
   * Definition: `inv_depth`
   * New case: `TEV _`
@@ -1086,36 +1095,95 @@ Totals:
 
 ## Pch
 
+- User 3
+  * Content
+    ** Pch
+      *** Pch Bod: 3
+        **** Pch Bod Definition: 3
+- User 5
+  * Content
+    ** Pch
+      *** Pch Bod: 2
+        **** Pch Bod Record: 2
+- User 7
+  * Content
+    ** Pch
+      *** Pch Bod: 4
+        **** Pch Bod Definition: 3
+        **** Pch Bod Fixpoint: 1
+- User 11
+  * Content
+    ** Pch
+      *** Pch Bod: 1
+        **** Pch Bod Definition: 1
+      *** Pch Cas:
+        **** Pch Cas Definition: 1
+- Totals
+  * Content
+    ** Pch
+      *** Pch Bod: 10
+        **** Pch Bod Record: 2
+        **** Pch Bod Definition: 7
+        **** Pch Bod Fixpoint: 1
+      *** Pch Cas:
+        **** Pch Cas Definition: 1
+
 ### Pch Bod
 
 #### Pch Bod Record
 
 ##### User 5
 
-        **** 5.18.28 (EpsilonLogic)
-        **** 5.18.28 (EpsilonLogic)
+1. [5.18.28.1](https://github.com/uwplse/analytics-data/commit/428960451de13bf138d880371b268f9243bd0775#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Record: `EpsilonLogic` (`evalEqTrue`)
+  * Elapsed: 19.70 seconds (these changes and proof changes)
+2. [5.18.28.2](https://github.com/uwplse/analytics-data/commit/428960451de13bf138d880371b268f9243bd0775#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Record: `EpsilonLogic` (`evalEqFalse`)
+  * Elapsed: 19.70 seconds (these changes and proof changes)
 
 #### Pch Bod Definition
 
 ##### User 3
 
-        **** 3.159.2 (absr)
-        **** 3.2698.2 (nat64_to_le)
-        **** 3.7199.65 (log_abstraction)
+1. [3.159.2.1](https://github.com/uwplse/analytics-data/commit/d12c88e748f16ca7c16de533b5e9dc9460a4112a#diff-e9d3fef9f536cf0a30e220b87f1ff798)
+  * Definition: `absr`
+  * Elapsed: 91.00 seconds (this and one other change)
+
+2. [3.2698.2.1](https://github.com/uwplse/analytics-data/commit/635487aac8830963e551b29f24f22799af036384#diff-84aea1e3e052dd37597908c715f96661)
+  * Definition: `nat64_to_le`
+  * Elapsed: 7.25 seconds (this and one other change)
+
+3. [3.7199.65.1](https://github.com/uwplse/analytics-data/commit/702f0e8c6d1c47a7892d855b92940272ed19eaab#diff-4df25973662c6bf8b88aea4c5c36d066)
+  * Definition: `log_abstraction`
+  * Elapsed: 4.63 seconds (this and one other change)
 
 ##### User 7
 
-        **** 7.93.9 (vX)
-        **** 7.93.11 (vY)
-        **** 7.93.11 (vZ)
+1. [7.93.9.1](https://github.com/uwplse/analytics-data/commit/20aa13b099942fffceebf848424c3575e7c55883#diff-0fe5d0a63061a9efbfdc03d8852b0e64)
+  * Definition: `vX`
+  * Elapsed: 544.85 seconds (this and two other definitions)
+
+2. [7.93.11.1](https://github.com/uwplse/analytics-data/commit/f22406fcb7fb13060cac12b99a26fd5dd821cd17#diff-0fe5d0a63061a9efbfdc03d8852b0e64)
+  * Definition: `vY`
+  * Elapsed: 10.23 seconds (these and some definitions)
+
+3. [7.93.11.2](https://github.com/uwplse/analytics-data/commit/f22406fcb7fb13060cac12b99a26fd5dd821cd17#diff-0fe5d0a63061a9efbfdc03d8852b0e64)
+  * Definition: `vZ`
+  * Elapsed: 10.23 seconds (these and some definitions)
 
 ##### User 11
 
-        **** 11.16.5-16 (kvs_state)
+1. [11.16.5-16.1](https://github.com/uwplse/analytics-data/compare/f5d5bf7dd42c11173e72af1560de50877639e8d0..832637b49490d136f5e5d6b034583de35835d8fe)
+  * Definition: `kvs_state`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Pch Bod Fixpoint
 
 ##### User 7
+
+1. 7.([95.3](https://github.com/uwplse/analytics-data/blob/91b49c163b920db06a3c8c7cda24297064c4001f/diffs-annotated-with-times/7/user-7-session-95.v)-[99.6](https://github.com/uwplse/analytics-data/blob/a51565ac61338979b65391b2c9b53a0ed7aa3c96/diffs-annotated-with-times/7/user-7-session-99.v)).3 ([diff](https://www.diffchecker.com/Fl3yzSwV))
+  * Fixpoint: `match_ty`
+  * Elapsed: 80556.83 seconds (includes other changes, new day)
 
 ### Pch Cas
 
@@ -1123,12 +1191,15 @@ Totals:
 
 ##### User 11
 
-      *** DEF (1: 0, 2: 0, 3: 0, 5: 0, 7: 0, 8: 0, 10: 0, 11: 1, Total: 1)
-        **** 11.16.18-20 (smi)
+1. [11.16.18-20](https://github.com/uwplse/analytics-data/compare/388ce21659b7547d3de179c683bfc37b450a3fc7..9b89b09f2c0f640ae6305e5eb3977bbcde3d5aff)
+  * Definition: `smi`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Pch Cas Fixpoint
 
 ##### User 1
+
+TODO left off here
 
         **** 1.37.50-52 (Gamma)
 
@@ -1163,9 +1234,11 @@ Totals:
 
 ##### User 3
 
-  * TYPE (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1) (TODO revisit or clarify this vs. body of thm)
-    ** DEF (1: 0, 2: 0, 3: 1, 5: 0, 7: 0, 8: 0, 10: 0, 11: 0, Total: 1)
-      *** 3.2698.2 (nat64_to_le)
+TODO check:
+
+* [3.2698.2.2](https://github.com/uwplse/analytics-data/commit/635487aac8830963e551b29f24f22799af036384#diff-84aea1e3e052dd37597908c715f96661)
+  * Definition: `nat64_to_le`
+  * Elaped: 7.25 seconds (this and one other change)
 
 ### Pch Hyp
 
@@ -1318,8 +1391,16 @@ termination proofs (include note, update tables, maybe mention as dev. pattern o
 
 ##### User 3
 
-       *** 3.7199.65 (log_abstraction)
-       *** 3.7199.65 (log_abstraction)
+TODO check
+TODO list once or twice? given that we also have "patch"
+
+1. [3.7199.65.2](https://github.com/uwplse/analytics-data/commit/702f0e8c6d1c47a7892d855b92940272ed19eaab#diff-4df25973662c6bf8b88aea4c5c36d066)
+  * Definition: `log_abstraction`
+  * Elapsed: 4.63 seconds (this and one other change)
+
+2. [3.7199.65.3](https://github.com/uwplse/analytics-data/commit/702f0e8c6d1c47a7892d855b92940272ed19eaab#diff-4df25973662c6bf8b88aea4c5c36d066)
+  * Definition: `log_abstraction`
+  * Elapsed: 4.63 seconds (this and one other change)
 
 #### Cut Arg Fixpoint
 
@@ -1496,10 +1577,6 @@ termination proofs (include note, update tables, maybe mention as dev. pattern o
         **** 10.8.1 (nmi_of_smi)
         **** 10.9.1 (nmi_of_smi)
 
-##### User 11
-
-        **** 11.16.18-20 (smi)
-
 #### Rpl Bod Definition
 
 ##### User 1
@@ -1647,6 +1724,13 @@ termination proofs (include note, update tables, maybe mention as dev. pattern o
         **** 7.102.0-11 (match_ty)
         **** 7.102.0-11 (match_ty)
         **** 7.102.0-11 (match_ty)
+
+##### User 11
+
+TODO check, add hypo that is renamed
+1. [11.16.18-20.2](https://github.com/uwplse/analytics-data/compare/388ce21659b7547d3de179c683bfc37b450a3fc7..9b89b09f2c0f640ae6305e5eb3977bbcde3d5aff)
+  * Definition: `smi`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Rnm Bnd Theorem
 
