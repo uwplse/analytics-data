@@ -132,6 +132,11 @@ Totals:
     ** Pch: 2
       *** Pch Bod: 2
         **** Pch Bod Record: 2
+    ** Uut: 3
+      *** Uut Typ: 2
+        **** Uut Typ Definition: 2
+      *** Uut Hyp: 1
+        **** Uut Hyp Definition: 1
 - User 7: TODO
   * Structure: 56
     ** Add: 26
@@ -304,6 +309,11 @@ Totals:
         **** Cut Arg Function: 3
         **** Cut Arg Fixpoint: 1
         **** Cut Arg Theorem: 2
+    ** Uut: 3
+      *** Uut Typ: 2
+        **** Uut Typ Definition: 2
+      *** Uut Hyp: 1
+        **** Uut Hyp Definition: 1
 
 # Structure
 
@@ -1752,31 +1762,26 @@ Totals:
 
 ##### User 5
 
-      *** top-level
-        **** 5.18.6-9 (extendEnv)
-      *** hypo type
-        **** 5.18.6-9 (extendEnv)
+1. [5.18.6-9.1](https://github.com/uwplse/analytics-data/compare/0b6b678ca9e48c620391666e4dcf7f0f223e3500..c4e3260382c62373124bd655e16a25672927dcc6)
+  * Definition: `extendEnv`
+  * Uncut: `Environment` in hypothesis type
+  * Elapsed: 735.72 seconds (this and other changes)
+
+2. [5.18.6-9.2](https://github.com/uwplse/analytics-data/compare/0b6b678ca9e48c620391666e4dcf7f0f223e3500..c4e3260382c62373124bd655e16a25672927dcc6)
+  * Definition: `extendEnv`
+  * Uncut: `Environment` in result type
+  * Elapsed: 735.72 seconds (this and other changes)
+
 ### Uut Hyp
 
 #### Uut Hyp Definition
 
 ##### User 5
 
-        **** 5.18.6-9 (extendEnv)
-
-### Uut Arg
-
-#### Uut Arg Fixpoint
-
-##### User 3
-
-2. [3.960.125-141.1](https://github.com/uwplse/analytics-data/compare/0a8fffcaea1d7898e882f52920f8b5dfad8deefe..9281f7636ec69ea7c13820a2a9232d480600101a)
-  * Function: `nat_to_le`
-  * Cut: 
-
-          ***** [3.960.146-149.1](https://github.com/uwplse/analytics-data/compare/c9108b4df34e2e4a5d5e72745278492eecfbc3f7..e1e131dde95ac8f50e7ed7f670835fada9d82899) (nat_to_le)
-          ***** [3.960.146-149.2](https://github.com/uwplse/analytics-data/compare/c9108b4df34e2e4a5d5e72745278492eecfbc3f7..e1e131dde95ac8f50e7ed7f670835fada9d82899) (nat_to_le)
-
+1. [5.18.6-9.3](https://github.com/uwplse/analytics-data/compare/0b6b678ca9e48c620391666e4dcf7f0f223e3500..c4e3260382c62373124bd655e16a25672927dcc6)
+  * Definition: `extendEnv`
+  * Uncut: `Value`
+  * Elapsed: 735.72 seconds (this and other changes)
 
 ## Rpl
 
