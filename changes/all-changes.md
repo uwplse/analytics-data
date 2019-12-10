@@ -74,7 +74,7 @@ Totals:
         **** Cut Bod Fixpoint: 1
       *** Cut Arg: 1
         **** Cut Arg Definition: 1
-- User 3: 53
+- User 3: 52
   * Structure: 18
     ** Add: 10
       *** Add Hyp: 1
@@ -119,15 +119,14 @@ Totals:
         **** Rpl Arg Theorem: 1
       *** Rpl Bod: 1
         **** Rpl Bod Definition: 1
-  * Syntax: 6
-    ** Rnm: 6
+  * Syntax: 5
+    ** Rnm: 5
       *** Rnm Idn: 1
         **** Rnm Idn Fixpoint: 1
-      *** Rnm Bnd: 3
+      *** Rnm Bnd: 2
         **** Rnm Bnd Fixpoint: 2
-        **** Rnm Bnd Lemma: 1
       *** Rnm Con: 2
-        **** Rnm Con Fixpoint: 2
+        **** Rnm Con Theorem: 2
 - User 5: 72
   * Structure: 53
     ** Add: 44
@@ -172,8 +171,8 @@ Totals:
       *** Rnm Bnd: 3
         **** Rnm Bnd Record: 1
         **** Rnm Bnd Axiom: 2
-- User 7: 151
-  * Structure: 56
+- User 7: 148
+  * Structure: 57
     ** Add: 26
       *** Add Hyp: 18
         **** Add Hyp Lemma: 17
@@ -185,7 +184,9 @@ Totals:
     ** Del: 11
       *** Del Hyp: 11
         **** Del Hyp Lemma: 11 
-    ** Mov: 19
+    ** Mov: 10
+      *** Mov Arg: 1
+        **** Mov Arg Fixpoint: 1
       *** Mov Ctr: 1
         **** Mov Ctr Inductive: 1
       *** Mov Hyp: 18
@@ -221,20 +222,21 @@ Totals:
         **** Rpl Bod Lemma: 3
       *** Rpl Cas: 1
         **** Rpl Cas Function: 1
-  * Syntax: 65
-    ** Rnm: 65
+  * Syntax: 61
+    ** Rnm: 61
       *** Rnm Idn: 42
         **** Rnm Idn Inductive: 2
         **** Rnm Idn Definition: 8
         **** Rnm Idn Fixpoint: 1
         **** Rnm Idn Lemma: 31
-      *** Rnm Bnd: 7
-        **** Rnm Bnd Fixpoint: 4
+      *** Rnm Bnd: 5
+        **** Rnm Bnd Fixpoint: 2
         **** Rnm Bnd Lemma: 3
-      *** Rnm Con: 16
+      *** Rnm Con: 14
         **** Rnm Con Inductive: 1
-        **** Rnm Con Definition: 4
-        **** Rnm Con Fixpoint: 11
+        **** Rnm Con Definition: 2
+        **** Rnm Con Fixpoint: 1
+        **** Rnm Con Lemma: 10
 - User 8: 44
   * Structure: 9
     ** Add: 5
@@ -309,8 +311,8 @@ Totals:
     ** Rnm: 1
       *** Rnm Bnd: 1
         **** Rnm Bnd Fixpoint: 1
-- Total: TODO
-  * Structure: 188
+- Total: 412
+  * Structure: 189
     ** Add: 136
       *** Add Hyp: 33
         **** Add Hyp Record: 10
@@ -338,7 +340,7 @@ Totals:
         **** Del Hyp Inductive: 1
         **** Del Hyp Theorem: 1
         **** Del Hyp Lemma: 15 
-    ** Mov: 31
+    ** Mov: 32
       *** Mov Ctr: 2
         **** Mov Ctr Inductive: 2
       *** Mov Hyp: 20
@@ -347,10 +349,10 @@ Totals:
         **** Mov Hyp Lemma: 17
       *** Mov Cas: 1
         **** Mov Cas Fixpoint: 1
-      *** Mov Arg: 8
-        **** Mov Arg Fixpoint: 5
+      *** Mov Arg: 9
+        **** Mov Arg Fixpoint: 6
         **** Mov Arg Theorem: 3
-  * Content: TODO
+  * Content: 143
     ** Pch: 43
       *** Pch Bod: 11
         **** Pch Bod Record: 2
@@ -422,21 +424,24 @@ Totals:
         **** Rpl Cas Fixpoint: 1
         **** Rpl Cas Definition: 3
         **** Rpl Cas Function: 1
-  * Syntax: 52
-    ** Rnm: 45
-      *** Rnm Idn: 14
+  * Syntax: 80
+    ** Rnm: 73
+      *** Rnm Idn: 46
         **** Rnm Idn Inductive: 2
         **** Rnm Idn Definition: 8
         **** Rnm Idn Fixpoint: 4
-      *** Rnm Bnd: 13
+        **** Rnm Idn Lemma: 32
+      *** Rnm Bnd: 11
         **** Rnm Bnd Record: 1
-        **** Rnm Bnd Fixpoint: 6
-        **** Rnm Bnd Lemma: 4
+        **** Rnm Bnd Fixpoint: 5
+        **** Rnm Bnd Lemma: 3
         **** Rnm Bnd Axiom: 2
-      *** Rnm Con: 18
+      *** Rnm Con: 16
         **** Rnm Con Inductive: 1
-        **** Rnm Con Definition: 4
-        **** Rnm Con Fixpoint: 13
+        **** Rnm Con Definition: 2
+        **** Rnm Con Fixpoint: 1
+        **** Rnm Con Lemma: 10
+        **** Rnm Con Theorem: 2
     ** Qfy: 6
       *** Qfy Con: 6
         **** Qfy Con Definition: 6
@@ -1346,22 +1351,33 @@ Totals:
   * Fixpoint: `le_to_nat`
   * Moved argument: `proj1_sig digit`
   * Elapsed: 2.71 seconds (just this change)
+
 2. [3.960.181.1](https://github.com/uwplse/analytics-data/commit/9f1b159b0ff05075ff1af7a717be45f8d2aff58a#diff-c8738f0dfa95435ed722ead9359a938b)
   * Fixpoint: `le_to_nat`
   * Moved argument: `proj1_sig digit`
   * Elapsed: 12.45 seconds (just this change)
+
 3. [3.960.184.1](https://github.com/uwplse/analytics-data/commit/3ee38c06e90de18c33175e9b79f56c6a139530af#diff-c8738f0dfa95435ed722ead9359a938b)
   * Fixpoint: `le_to_nat`
   * Moved argument: `proj1_sig digit`
   * Elapsed: 12.45 seconds (just this change)
+
 4. [3.960.184.1](https://github.com/uwplse/analytics-data/commit/3ee38c06e90de18c33175e9b79f56c6a139530af#diff-c8738f0dfa95435ed722ead9359a938b)
   * Fixpoint: `le_to_nat`
   * Moved argument: `le_to_nat digits'`
   * Elapsed: 17.64 seconds (just this change and a proof change)
+
 5. [3.960.184.2](https://github.com/uwplse/analytics-data/commit/3ee38c06e90de18c33175e9b79f56c6a139530af#diff-c8738f0dfa95435ed722ead9359a938b)
   * Fixpoint: `le_to_nat`
   * Moved argument: `proj1_sig digit`
   * Elapsed: 17.64 seconds (just this change and a proof change)
+
+##### User 7
+
+1. [7.102.0-11.1](https://github.com/uwplse/analytics-data/compare/c94278d20cb4f7d6bed8ca29aed5d71588f5c870..318733fdedab309b7ed89011aef145061ff81aa6)
+  * Fixpoint: `match_ty`
+  * Moved argument: `w`
+  * Elapsed: 1006.47 seconds
 
 #### Move Arg Theorem
 
@@ -2396,54 +2412,137 @@ Totals:
 
 #### Rnm Idn Lemma
 
-TODO timestamps etc from here on, find the right ones
-
 ##### User 7
 
 1. [7.2.124.1](https://github.com/uwplse/analytics-data/commit/c1a4b5730bb7f703270af6962647cf3b9369d614#diff-4cfcc23dc186dc3f932da247458e2157)
   * Change: `sub_r_unite_pairs_l__inv` -> `sub_r_unite_pairs_nf_l__inv`
+  * Elapsed: 4.74 seconds
 
-2. [7.9.0](TODO)
+2. 7.([2.165](https://github.com/uwplse/analytics-data/blob/d08ef3ace72f4694186fc6124d7f30d3f78ad46d/diffs-annotated-with-times/7/user-7-session-2.v)-[9.0](https://github.com/uwplse/analytics-data/blob/3e06ca0a28dbc161ef144c8cddd7458e882573ab/diffs-annotated-with-times/7/user-7-session-9.v)).1 ([diff](https://www.diffchecker.com/x12Uvxjm))
   * Change: `atom_sub_r_union__sub_r_component` -> `atom_sub_r_union__inv`
+  * Elapsed: 19606.23 seconds
 
-3. [7.10.0](TODO) `weird_trans` -> `sub_r_nf__trans`
+3. 7.([2.165](https://github.com/uwplse/analytics-data/blob/d08ef3ace72f4694186fc6124d7f30d3f78ad46d/diffs-annotated-with-times/7/user-7-session-2.v)-[10.24](https://github.com/uwplse/analytics-data/blob/153be0fced3740d5e2b20da7b36c2c46d2a9315b/diffs-annotated-with-times/7/user-7-session-10.v)).1 ([diff](https://www.diffchecker.com/RpzyJc68)) 
+  * Change: `weird_trans` -> `sub_r_nf__trans`
+  * Elapsed: 21488.25 seconds
 
 4. [7.10.24.2](https://github.com/uwplse/analytics-data/commit/153be0fced3740d5e2b20da7b36c2c46d2a9315b#diff-fa854604a7d7e5a3d6f324dcc6eca903)
-  * Lemma: `sub_r__mk_nf_sub_r1`
-  * New name: `sub_r__mk_nf_sub_r`
+  * Change: `sub_r__mk_nf_sub_r1` -> `sub_r__mk_nf_sub_r`
   * Elapsed: 5.80 seconds (this and other changes)
 
-5. 7.10.56 (sub_r_nf__trans -> sub_r_nf__trans2)
-6. 7.19.323 (value_sem_sub_k_union__value_sem_sub_k_component -> value_sem_sub_k_i_union__inv)
-7. 7.19.507 (match_ty_nf -> match_ty_i_nf)
-8. 7.19.530 (sem_sub_k_i_nf__inv_depth_le -> sem_sub_k_i_nf__inv_depth_le_1)
-9. 7.19.546 (sem_eq_k_i__inv_depth_eq -> sem_eq_k_i__inv_depth_eq_1)
-10. 7.19.638 (nf_sem_sub_i__sub_d -> TODO)
-11. 7.19.689 (match_ty__unite_pairs_pair -> match_ty_i__unite_pairs_pair)
-12. 7.30.22 (match_ty__value_type -> match_ty__value_type_l)
-13. 7.48.1 (sem_sub_k__sem_eq_k -> sem_sub_k_i__sem_eq_k_i)
-14. 7.50.1 (unite_pairs__preserves_sub_d1 -> unite_pairs__preserves_sub_d_l)
-15. 7.50.1 (unite_pairs__preserves_sub_d2 -> unite_pairs__preserves_sub_d_r)
-16. 7.88.0-64 (sem_sub_k_i_nf__inv_depth_le_1 -> sem_sub_k_i_nf__inv_depth_le_2)
-17. 7.91.3 (unite_pairs_of_nf__preserves_sub_r1 -> unite_pairs_of_nf__preserves_sub_r_l)
-18. 7.91.8 (sub_r__mk_nf_sub_r1 -> sub_r__mk_nf_sub_r_l)
-19. 7.98.25 (sem_sub__eunion__union_e -> sem_sub__eunion__unione)
-20. 7.98.50 (match_ty__reflexive -> match_ty_value_type__reflexive)
-21. 7.125.2 (match_ty_exists -> match_ty__exists_w_v)
-22. 7.145.24 (sem_sub_fresh_var__sem_sub_exist -> sem_sub_fresh_var__sem_sub_exist')
-23. 7.152.8 (sem_sub_k_exist_fresh_l -> sem_sub_exist_fresh_l)
-24. 7.194.6 (not_free_in_ty_pair__inv -> not_f_free_in_ty_pair__inv)
-25. 7.195.4 (match_ty_fbar__inv -> match_ty_bvar__inv)
-26. 7.196.1 (subst_pair -> b_subst_pair)
-27. 7.198.1 (b_subst_var_eq -> b_subst_bvar_eq)
-28. 7.202.40 (b_subst_wf_ty -> b_subst_not_b_free_in_ty)
-29. 7.212.6 (free_in_ty_pair__inv -> f_free_in_ty_pair__inv)
-30. 7.218.6 (f_subst_bvar_eq -> f_subst_bvar)
-31. 7.227.1 (not_f_free_in_ty_fvar_eq__inv -> not_f_free_in_ty_fvar__inv)
+5. [7.10.56.1](https://github.com/uwplse/analytics-data/commit/12dd67a57165b0d443db9320c938b529fca6a422#diff-fa854604a7d7e5a3d6f324dcc6eca903)
+  * Change: `sub_r_nf__trans` -> `sub_r_nf__trans2`
+  * Elapsed: 30.04 seconds
+
+6. [7.19.323.1](https://github.com/uwplse/analytics-data/commit/7e3af16eb2b50b9a0632735f170dfb3f52f1f445#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Change: `value_sem_sub_k_union__value_sem_sub_k_component` -> `value_sem_sub_k_i_union__inv`
+  * Elapsed: 12.33 seconds
+
+7. [7.19.507.1](https://github.com/uwplse/analytics-data/commit/9f4d2082fe57f9d7a9a98e58c01bba5491e6b39b#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Change: `match_ty_nf` -> `match_ty_i_nf`
+  * Elapsed: 22.96 seconds
+
+8. [7.19.530.1](https://github.com/uwplse/analytics-data/commit/14c54c8f08c38c79bb0330e911ef0471a4f97cb1#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Change: `sem_sub_k_i_nf__inv_depth_le` -> `sem_sub_k_i_nf__inv_depth_le_1`
+  * Elapsed: 10.83 seconds
+
+9. [7.19.546.1](https://github.com/uwplse/analytics-data/commit/c935d2e7d23d8be8c92b809618b954bde685478b#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Change: `sem_eq_k_i__inv_depth_eq` -> `sem_eq_k_i__inv_depth_eq_1`
+  * Elapsed: 13.28 seconds
+
+10. [7.19.638.1](https://github.com/uwplse/analytics-data/commit/4c1189a82fd00197d8ff72feda904ecdc56b849c#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Change: `nf_sem_sub_i__sub_d` -> `nf_sem_sub_k_i__sub_d`
+  * Elapsed: 107.41 seconds	
+
+11. [7.19.689.1](https://github.com/uwplse/analytics-data/commit/38b65d86b0cc587396bb22e84cee03f9c38d8d85#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Change: `match_ty__unite_pairs_pair` -> `match_ty_i__unite_pairs_pair`
+  * Elapsed: 19.24 seconds
+
+12. [7.30.22.1](https://github.com/uwplse/analytics-data/commit/994ba407b4fd64c32cd17196ddde303b88ac8c17#diff-bcbb40907a211cbb8658c520f7ff5e00)
+  * Change: `match_ty__value_type` -> `match_ty__value_type_l`
+  * Elapsed: 80753.49 seconds (new day)
+
+13. [7.48.1.1](https://github.com/uwplse/analytics-data/commit/599a96b4ffe8e7bafe74190c5cfbcf4ac4c56c7e#diff-3ae302d3647754a6b1245c3cc7ffbe94)
+  * Change: `sem_sub_k__sem_eq_k -> sem_sub_k_i__sem_eq_k_i`
+  * Elaped: 26.99 seconds
+
+14. [7.50.1.1](https://github.com/uwplse/analytics-data/commit/87e78438201daf49b069fcba937b1c7ecdad857e#diff-6c0977f14f3f039312f35d1761523f91)
+  * Change: `unite_pairs__preserves_sub_d1` -> `unite_pairs__preserves_sub_d_l`
+  * Elapsed: 88.00 seconds
+
+15. [7.50.1.1](https://github.com/uwplse/analytics-data/commit/87e78438201daf49b069fcba937b1c7ecdad857e#diff-6c0977f14f3f039312f35d1761523f91)
+  * Change: `unite_pairs__preserves_sub_d2` -> `unite_pairs__preserves_sub_d_r`
+  * Elapsed: 88.0 seconds
+
+16. [7.88.0-64.1](https://github.com/uwplse/analytics-data/compare/472428fe844a9c9badc672e8c3c234ac18dff674..5959d911e670d4d685904a6f1a254556f19e5533)
+  * Change: `sem_sub_k_i_nf__inv_depth_le_1` -> `sem_sub_k_i_nf__inv_depth_le_2`
+  * Elapsed: 146200.94 seconds (new day)
+
+17. [7.91.3.1](https://github.com/uwplse/analytics-data/commit/9164847eac4bbc69596b042443d87a09ba1d8909#diff-859e6d4b95641ace9f50a4b074f2aaac)
+  * Change: `unite_pairs_of_nf__preserves_sub_r1` -> `unite_pairs_of_nf__preserves_sub_r_l`
+  * Elapsed: 57.19 seconds
+
+18. [7.91.8.1](https://github.com/uwplse/analytics-data/commit/57534887c673ec3345c7311fb24c0f9d6c2b3f41#diff-859e6d4b95641ace9f50a4b074f2aaac)
+  * Change: `sub_r__mk_nf_sub_r1` -> `sub_r__mk_nf_sub_r_l`
+  * Elapsed: 27.55 seconds
+
+19. [7.98.25.1](https://github.com/uwplse/analytics-data/commit/34baa24a30a63330b21abbce2995b8b5e5976547#diff-700f4c01a17ca05a6d16923890a4f08d)
+  * Change: `sem_sub__eunion__union_e` -> `sem_sub__eunion__unione`
+  * Elapsed: 86.23 seconds
+
+20. [7.98.50.1](https://github.com/uwplse/analytics-data/commit/c1aee9f06d0a9d1f6b952fe53fbf83e2ec21caf1#diff-700f4c01a17ca05a6d16923890a4f08d)
+  * Change: `match_ty__reflexive` -> `match_ty_value_type__reflexive`
+  * Elapsed: 62.02 seconds
+
+21. [7.125.2.1](https://github.com/uwplse/analytics-data/commit/12cfd664197da22b83ec03eeb7ab57f96a3ceb9c#diff-9c3c4cd398b24a3cb02b271b59567294)
+  * Change: `match_ty_exists` -> `match_ty__exists_w_v`
+  * Elapsed: 120.98 seconds
+
+22. [7.145.24.1](https://github.com/uwplse/analytics-data/commit/4d2381a6adcd9b83445fb9e9e9adaee47e0cda5d#diff-5863cbc0cc1562fe4e8aca04c5bfbb93)
+  * Change: `sem_sub_fresh_var__sem_sub_exist` -> `sem_sub_fresh_var__sem_sub_exist'`
+  * Elapsed: 214.50 seconds
+
+23. [7.152.8.1](https://github.com/uwplse/analytics-data/commit/99077d112d80341d1fc679cadee78aaf7b5e2f83#diff-319470494b74090fb3a4556d46a3becb)
+  * Change: `sem_sub_k_exist_fresh_l` -> `sem_sub_exist_fresh_l`
+  * Elapsed: 22.12 seconds
+
+24. [7.194.6.1](https://github.com/uwplse/analytics-data/commit/1c13de69f79fd1beb0da5fb1d891df492f9e9f98#diff-956d66c0ee5a867b45b0dfab6c485fc2)
+  * Change: `not_free_in_ty_pair__inv` -> `not_f_free_in_ty_pair__inv`
+  * Elapsed: 66.32 seconds
+
+25. [7.195.4.1](https://github.com/uwplse/analytics-data/commit/7bf30b6f128d3c019fe5cf9b56e6a6d758a07ff5#diff-1ec3c1d37897472c2ecbf5d633c0a47b)
+  * Change: `match_ty_fbar__inv` -> `match_ty_bvar__inv`
+  * Elapsed: 24.46 seconds
+
+26. [7.196.1.1](https://github.com/uwplse/analytics-data/commit/723152f92b3f440d5a1434e7fc27d4c5b1ff3d87#diff-279babef2c7aecf1439007c9f242d0bd)
+  * Change: `subst_pair` -> `b_subst_pair`
+  * Elapsed: 9.99 seconds
+
+27. [7.198.1.1](https://github.com/uwplse/analytics-data/commit/3ff0f2f44584bc6eaa93d5c74d01423e5dc600fc#diff-401c5a145ce7c67fa6059e1209070785)
+  * Change: `b_subst_var_eq` -> `b_subst_bvar_eq`
+  * Elapsed: 28.08 seconds
+
+28. [7.202.40.1](https://github.com/uwplse/analytics-data/commit/476f451f1516dc2c802841e84e377b702a308353#diff-f6bf317dc909b5b74bc624e9ae8a56e7)
+  * Change: `b_subst_wf_ty` -> `b_subst_not_b_free_in_ty`
+  * Elapsed: 57.70 seconds
+
+29. [7.212.6.1](https://github.com/uwplse/analytics-data/commit/d5b3498a03ac69af4b56749d8f7c58f1b46f0b72#diff-ceb02378d3c52e3d2d07ecf9ab9c44fe)
+  * Change: `free_in_ty_pair__inv` -> `f_free_in_ty_pair__inv`
+  * Elapsed: 20.88 seconds
+
+30. [7.218.6.1](https://github.com/uwplse/analytics-data/commit/b8617d8c27b7442710867485d922289c1c84f4fe#diff-643d16baa7c3db75716ac25570112471)
+  * Change: `f_subst_bvar_eq` -> `f_subst_bvar`
+  * Elapsed: 56.54 seconds
+
+31. [7.227.1.1](https://github.com/uwplse/analytics-data/commit/a1a1ccb511d2516b594e355c9b0c71b653030998#diff-4bc1a3a70f405164f2e1a74318da6824)
+  * Change: `not_f_free_in_ty_fvar_eq__inv` -> `not_f_free_in_ty_fvar__inv`
+  * Elapsed: 49.57 seconds
 
 ##### User 8
 
-1. 8.79.156 (new_morphism -> morphism_test)
+1. [8.79.156.1](https://github.com/uwplse/analytics-data/commit/dde5ce965d8e3b3d3e954bf18d2841b57d179315#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Change: `new_morphism` -> `morphism_test`
+  * Elapsed: 5.00 seconds
 
 ### Rnm Bnd
 
@@ -2451,7 +2550,10 @@ TODO timestamps etc from here on, find the right ones
 
 ##### User 5
 
-1. 5.29.0-4 (EpsilonLogic)
+1. [5.29.0-4.1](https://github.com/uwplse/analytics-data/compare/5c4fddaf558f2b85f1aaad2cbeed6e13f83299ab..fed0a10bb768e443ae68752e7f9c8bcf143b78f6)
+  * Record: `EpsilonLogic`
+  * Change: `b` -> `x`
+  * Elapsed: Unknown (final change has no timestamp right now)
 
 #### Rnm Bnd Fixpoint
 
@@ -2459,19 +2561,25 @@ TODO timestamps etc from here on, find the right ones
 
 1. [3.960.81-125.3](https://github.com/uwplse/analytics-data/compare/3b03567f830321b7f4aeb4475c3b4e4fc4881d37..0a8fffcaea1d7898e882f52920f8b5dfad8deefe)
   * Fixpoint: `nat_to_le`
-  * Elaped: 1414.97 seconds (several changes)
+  * Change: `base` -> `base_m2`
+  * Elapsed: 1414.97 seconds (several changes)
 
 2. [3.960.160.2](https://github.com/uwplse/analytics-data/commit/f9e85ad6a1d4705f90b8f0c6697525971d924a87#diff-c8738f0dfa95435ed722ead9359a938b)
   * Fixpoint: `le_to_nat`
-  * Binding: TODO
+  * Change: `base` -> `base_m2`
   * Elapsed: 10.37 seconds (this and one other change)
 
 ##### User 7
 
-1. 7.102.0-11 (match_ty)
-2. 7.102.0-11 (match_ty)
-3. 7.102.0-11 (match_ty)
-4. 7.102.0-11 (match_ty)
+1. [7.102.0-11.1](https://github.com/uwplse/analytics-data/compare/c94278d20cb4f7d6bed8ca29aed5d71588f5c870..318733fdedab309b7ed89011aef145061ff81aa6)
+  * Fixpoint: `match_ty`
+  * Binding: `mty` -> `mtyv`
+  * Elapsed: 1006.47 seconds
+
+2. [7.102.0-11.2](https://github.com/uwplse/analytics-data/compare/c94278d20cb4f7d6bed8ca29aed5d71588f5c870..318733fdedab309b7ed89011aef145061ff81aa6)
+  * Fixpoint: `match_ty`
+  * Binding: `mty'` -> `mtyt`
+  * Elapsed: 1006.47 seconds
 
 ##### User 11
 
@@ -2480,24 +2588,38 @@ TODO timestamps etc from here on, find the right ones
   * Change: `conns` -> `cs`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
-#### Rnm Bnd Theorem
-
-##### User 3
-
-1. 3.10289.14 (proc_spec_rx)
+#### Rnm Bnd Lemma
 
 ##### User 7
 
-1. 7.2.162-165 (weird_trans)
-2. 7.2.162-165 (weird_trans)
-3. 7.19.257 (match_ty_i__transitive_on_value_type)
+1. [7.2.162-165.2](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d)
+  * Lemma: `weird_trans`
+  * Change: `t1` -> `tm1`
+  * Elapsed: 64035.19 seconds (includes other changes, new day)
+
+2. [7.2.162-165.3](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d)
+  * Lemma: `weird_trans`
+  * Change: `t2` -> `tm2`
+  * Elapsed: 64035.19 seconds (includes other changes, new day)
+
+3. [7.19.257.1](https://github.com/uwplse/analytics-data/commit/4ec88453123820b5e465e16425f3fd1ee408b930#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i__transitive_on_value_type`
+  * Change: `v3` -> `t3`
+  * Elapsed: 7.63 seconds
 
 #### Rnm Bnd Axiom
 
 ##### User 5
 
-1. 5.18.5 (evalChoose)
-2. 5.18.5 (evalChoose)
+1. [5.18.5.1](https://github.com/uwplse/analytics-data/commit/8fbb30c4c68b4d7b5523fd8456a910ff93bce604#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Axiom: `evalChoose`
+  * Change: `id` -> `x`
+  * Elapsed: 99.08 seconds
+
+2. [5.18.5.2](https://github.com/uwplse/analytics-data/commit/8fbb30c4c68b4d7b5523fd8456a910ff93bce604#diff-173bdb1576f0b722cd01570dda7d0ef6)
+  * Axiom: `evalChoose`
+  * Change: `body` -> `P`
+  * Elapsed: 99.08 seconds
 
 ### Rnm Con
 
@@ -2506,39 +2628,100 @@ TODO timestamps etc from here on, find the right ones
 ##### User 7
 
 1. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).3 ([diff](https://www.diffchecker.com/8RlqPoQZ))
-  * Definition: `FV`
-  * New case: `TFVar`
-  * Elapsed: Unknown
+  * Inductive: `FV`
+  * Change: `TVar` -> `TBVar`
+  * Elapsed: Unknown (no timestamp on final change)
 
 #### Rnm Con Definition
 
 ##### User 7
 
-1. 7.93.2-6 (tX)
-2. 7.93.2-6 (tX)
-3. 7.93.2-6 (tY)
-4. 7.93.2-6 (tY)
+1. [7.93.2-6.6](https://github.com/uwplse/analytics-data/compare/80228aa9659f025bd5a270860b6f74a8e6c1b88d..c15f5fd243e37dc4f2a76aed4d96d5b181cf6d4e)
+  * Definition: `tX`
+  * Change: `vx` -> `vX`
+  * Elapsed: 49.62 seconds
 
-#### Rnm Con Fixpoint
+2. [7.93.2-6.7](https://github.com/uwplse/analytics-data/compare/80228aa9659f025bd5a270860b6f74a8e6c1b88d..c15f5fd243e37dc4f2a76aed4d96d5b181cf6d4e)
+  * Definition: `tY`
+  * Change: `vy` -> `vY`
+  * Elapsed: 49.62 seconds
+
+#### Rnm Con Theorem
 
 ##### User 3
 
-1. 3.960.154 (nat_le_inverse)
-2. 3.960.323 (nat_le_inverse)
+1. [3.960.154.1](https://github.com/uwplse/analytics-data/commit/023f147d83ec05af44db05c4fb92bfe08ceba641#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Theorem: `nat_le_inverse`
+  * Change: `base` -> `base_m2`
+  * Elapsed: 15.30 seconds
+
+2. [3.960.323.1](https://github.com/uwplse/analytics-data/commit/1dcd3aad98a1964b2077a7bea1139d39c308a718#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Theorem: `nat_le_inverse`
+  * Change: `le_to_nat` -> `nat_from_le`
+  * Elapsed: 2.88 seconds
+
+#### Rnm Con Lemma
 
 ##### User 7
 
-1. 7.193.6-8 (match_ty)
-2. 7.194.6 (not_free_in_ty_pair__inv)
-3. 7.212.6 (f_free_in_ty_pair__inv)
-4. 7.194.6 (not_f_free_in_ty_pair__inv)
-5. 7.194.6 (not_f_free_in_ty_pair__inv)
-6. 7.198.1 (b_subst_bvar_eq)
-7. 7.198.2 (b_subst_bvar_neq)
-8. 7.198.2 (b_subst_bvar_neq)
-9. 7.212.6 (f_free_in_ty_pair__inv)
-10. 7.212.6 (f_free_in_ty_pair__inv)
-11. 7.218.8 (b_subst_fvar)
+1. [7.194.6.2](https://github.com/uwplse/analytics-data/commit/1c13de69f79fd1beb0da5fb1d891df492f9e9f98#diff-956d66c0ee5a867b45b0dfab6c485fc2)
+  * Lemma: `not_free_in_ty_pair__inv`
+  * Change: `not_free_in_ty` -> `not_f_free_in_ty` (hypothesis)
+  * Elapsed: 66.32 seconds
+
+2. [7.194.6.3](https://github.com/uwplse/analytics-data/commit/1c13de69f79fd1beb0da5fb1d891df492f9e9f98#diff-956d66c0ee5a867b45b0dfab6c485fc2) (not_f_free_in_ty_pair__inv)
+  * Lemma: `not_free_in_ty_pair__inv`
+  * Change: `not_free_in_ty` -> `not_f_free_in_ty` (conclusion LHS)
+  * Elapsed: 66.32 seconds
+
+3. [7.194.6.4](https://github.com/uwplse/analytics-data/commit/1c13de69f79fd1beb0da5fb1d891df492f9e9f98#diff-956d66c0ee5a867b45b0dfab6c485fc2) (not_f_free_in_ty_pair__inv)
+  * Lemma: `not_free_in_ty_pair__inv`
+  * Change: `not_free_in_ty` -> `not_f_free_in_ty` (conclusion RHS)
+  * Elapsed: 66.32 seconds
+
+4. [7.212.6.2](https://github.com/uwplse/analytics-data/commit/d5b3498a03ac69af4b56749d8f7c58f1b46f0b72#diff-ceb02378d3c52e3d2d07ecf9ab9c44fe) 
+  * Lemma: `f_free_in_ty_pair__inv`
+  * Change: `free_in_ty` -> `f_free_in_ty` (hypothesis)
+  * Elapsed: 20.88 seconds
+
+5. [7.212.6.3](https://github.com/uwplse/analytics-data/commit/d5b3498a03ac69af4b56749d8f7c58f1b46f0b72#diff-ceb02378d3c52e3d2d07ecf9ab9c44fe) 
+  * Lemma: `f_free_in_ty_pair__inv`
+  * Change: `free_in_ty` -> `f_free_in_ty` (conclusion LHS)
+  * Elapsed: 20.88 seconds
+
+5. [7.212.6.4](https://github.com/uwplse/analytics-data/commit/d5b3498a03ac69af4b56749d8f7c58f1b46f0b72#diff-ceb02378d3c52e3d2d07ecf9ab9c44fe) 
+  * Lemma: `f_free_in_ty_pair__inv`
+  * Change: `free_in_ty` -> `f_free_in_ty` (conclusion RHS)
+  * Elapsed: 20.88 seconds
+
+6. [7.198.1.1](https://github.com/uwplse/analytics-data/commit/3ff0f2f44584bc6eaa93d5c74d01423e5dc600fc#diff-401c5a145ce7c67fa6059e1209070785)
+  * Lemma: `b_subst_bvar_eq`
+  * Change: `TVar` -> `TBVar`
+  * Elapsed: 28.08 seconds
+
+7. [7.198.2.1](https://github.com/uwplse/analytics-data/commit/f4c9a7de4083a963c915d4074c65207fafc64c07#diff-401c5a145ce7c67fa6059e1209070785)
+  * Lemma: `b_subst_bvar_neq`
+  * Change: `TVar` -> `TBVar` (LHS)
+  * Elapsed: 42.78 seconds
+
+8. [7.198.2.2](https://github.com/uwplse/analytics-data/commit/f4c9a7de4083a963c915d4074c65207fafc64c07#diff-401c5a145ce7c67fa6059e1209070785)
+  * Lemma: `b_subst_bvar_neq`
+  * Change: `TVar` -> `TBVar` (RHS)
+  * Elapsed: 42.78 seconds
+
+9. [7.218.9.1](https://github.com/uwplse/analytics-data/commit/617c1375888294a3429c6c928532fc59b3874269#diff-643d16baa7c3db75716ac25570112471) 
+  * Lemma: `b_subst_fvar`
+  * Change: `TBVar` -> `TFVar`
+  * Elapsed: 58.33 seconds
+
+#### Rnm Con Fixpoint
+
+##### User 7
+
+1. [7.193.6-8.1](https://github.com/uwplse/analytics-data/compare/fdb0cb1b0f0d823d0e724796ebe766533b05d2f0..2018b45a51ee1deb5c7605bd130f53a537e3e2db)
+  * Fixpoint: `match_ty`
+  * Change: `TVar` -> `TFVar`
+  * Elapsed: 182.98 seconds
 
 ## Qfy
 
@@ -2548,12 +2731,35 @@ TODO timestamps etc from here on, find the right ones
 
 ##### User 1
 
-1. 1.37.13-19 (R)
-2. 1.37.13-19 (R)
-3. 1.37.19-21 (Gamma2)
-4. 1.37.19-21 (Gamma2)
-5. 1.37.21-24 (transitive_closure)
-6. 1.37.21-24 (transitive_closure)
+1. [1.37.13-19.1](https://github.com/uwplse/analytics-data/compare/24fc093a48c5e3ca504f8de6c8783ca13bf4e657..aef548c723a530b64e738e78ab9d1349307c0a77)
+  * Definition: `R`
+  * Change: `In` -> `Ensembles.In` (first)
+  * Elapsed: Unknown (bad time data for user 1)
+
+2. [1.37.13-19.2](https://github.com/uwplse/analytics-data/compare/24fc093a48c5e3ca504f8de6c8783ca13bf4e657..aef548c723a530b64e738e78ab9d1349307c0a77)
+  * Definition: `R`
+  * Change: `In` -> `Ensembles.In` (second)
+  * Elapsed: Unknown (bad time data for user 1)
+
+3. [1.37.19-21.1](https://github.com/uwplse/analytics-data/compare/aef548c723a530b64e738e78ab9d1349307c0a77..4d53482ec9b1d8560f8a8dd3e443cc681dbfe6e9)
+  * Definition: `Gamma2`
+  * Change: `In` -> `Ensembles.In` (first)
+  * Elapsed: Unknown (bad time data for user 1)
+
+4. [1.37.19-21.2](https://github.com/uwplse/analytics-data/compare/aef548c723a530b64e738e78ab9d1349307c0a77..4d53482ec9b1d8560f8a8dd3e443cc681dbfe6e9)
+  * Definition: `Gamma2`
+  * Change: `In` -> `Ensembles.In` (second)
+  * Elapsed: Unknown (bad time data for user 1)
+
+5. [1.37.21-24.1](https://github.com/uwplse/analytics-data/compare/4d53482ec9b1d8560f8a8dd3e443cc681dbfe6e9..19bda960b9f552fe69a1e33e0e5a38ff33047a21)
+  * Definition: `transitive_closure`
+  * Change: `In` -> `Ensembles.In` (left)
+  * Elapsed: Unknown (bad time data for user 1)
+
+6. [1.37.21-24.2](https://github.com/uwplse/analytics-data/compare/4d53482ec9b1d8560f8a8dd3e443cc681dbfe6e9..19bda960b9f552fe69a1e33e0e5a38ff33047a21)
+  * Definition: `transitive_closure`
+  * Change: `In` -> `Ensembles.In` (right)
+  * Elapsed: Unknown (bad time data for user 1)
 
 ## Ufy
 
@@ -2563,6 +2769,9 @@ TODO timestamps etc from here on, find the right ones
 
 ##### User 8
 
-1. 8.75.6 (_R'_)
+1. [8.75.6.1](https://github.com/uwplse/analytics-data/commit/0fb6bfbb1eba5336ac50e752d6669b5cc207bcc0#diff-0c6f2eaccfdeecdc8383298da60a0cae)
+  * Definition: `_R'_`
+  * Change: `Reals.PI` -> `PI`
+  * Elapsed: Unknown
 
 
