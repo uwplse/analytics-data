@@ -4,435 +4,435 @@ Feel free to contact me with any questions.
 Totals:
 - User 1: 64
   * Structure: 43
-      ** Add: 43
-          *** Add Ctr: 17
-              **** Add Ctr Inductive: 17
-          *** Add Bod: 5
-              **** Add Bod Inductive: 3
-              **** Add Bod Fixpoint: 2
-          *** Add Cas: 21
-              **** Add Cas Fixpoint: 21
+      * Add: 43
+          * Add Ctr: 17
+              * Add Ctr Inductive: 17
+          * Add Bod: 5
+              * Add Bod Inductive: 3
+              * Add Bod Fixpoint: 2
+          * Add Cas: 21
+              * Add Cas Fixpoint: 21
   * Content: 15
-      ** Pch: 6
-          *** Pch Bod: 1
-              **** Pch Bod Fixpoint: 1
-          *** Pch Cas: 5
-              **** Pch Cas Function: 4
-              **** Pch Cas Fixpoint: 1
-      ** Uch: 1
-          *** Uch Cas: 1
-              **** Uch Cas Function: 1
-      ** Cut: 6
-          *** Cut Bod: 1
-              **** Cut Bod Function: 1
-          *** Cut Cas: 1
-              **** Cut Cas Fixpoint: 1
-          *** Cut Fun: 1
-              **** Cut Fun Definition: 1
-          *** Cut Arg: 3
-              **** Cut Arg Function: 3
-      ** Rpl: 2
-          *** Rpl Hyp: 1
-              **** Rpl Hyp Inductive: 1
-          *** Rpl Cas: 1
-              **** Rpl Cas Fixpoint: 1
+      * Pch: 6
+          * Pch Bod: 1
+              * Pch Bod Fixpoint: 1
+          * Pch Cas: 5
+              * Pch Cas Function: 4
+              * Pch Cas Fixpoint: 1
+      * Uch: 1
+          * Uch Cas: 1
+              * Uch Cas Function: 1
+      * Cut: 6
+          * Cut Bod: 1
+              * Cut Bod Function: 1
+          * Cut Cas: 1
+              * Cut Cas Fixpoint: 1
+          * Cut Fun: 1
+              * Cut Fun Definition: 1
+          * Cut Arg: 3
+              * Cut Arg Function: 3
+      * Rpl: 2
+          * Rpl Hyp: 1
+              * Rpl Hyp Inductive: 1
+          * Rpl Cas: 1
+              * Rpl Cas Fixpoint: 1
   * Syntax: 6
-      ** Qfy: 6
-          *** Qfy Con: 6
-              **** Qfy Con Definition: 6
+      * Qfy: 6
+          * Qfy Con: 6
+              * Qfy Con Definition: 6
 - User 2: 10
   * Structure: 5
-      ** Add: 5
-          *** Add Ctr: 1
-              **** Add Ctr Inductive: 1
-          *** Add Cas: 4
-              **** Add Cas Fixpoint: 4
+      * Add: 5
+          * Add Ctr: 1
+              * Add Ctr Inductive: 1
+          * Add Cas: 4
+              * Add Cas Fixpoint: 4
   * Content: 5
-      ** Pch: 2
-          *** Pch Cas: 2
-              **** Pch Cas Fixpoint: 2
-      ** Uch: 1
-          *** Uch Arg: 1
-              **** Uch Arg Definition: 1
-      ** Cut: 2
-          *** Cut Bod: 1
-              **** Cut Bod Fixpoint: 1
-          *** Cut Arg: 1
-              **** Cut Arg Definition: 1
+      * Pch: 2
+          * Pch Cas: 2
+              * Pch Cas Fixpoint: 2
+      * Uch: 1
+          * Uch Arg: 1
+              * Uch Arg Definition: 1
+      * Cut: 2
+          * Cut Bod: 1
+              * Cut Bod Fixpoint: 1
+          * Cut Arg: 1
+              * Cut Arg Definition: 1
 - User 3: 52
   * Structure: 18
-      ** Add: 10
-          *** Add Hyp: 1
-              **** Add Hyp Fixpoint: 1
-          *** Add Ctr: 1
-              **** Add Ctr Inductive: 1
-          *** Add Bod: 7
-              **** Add Bod Definition: 6
-              **** Add Bod Fixpoint: 1
-          *** Add Cas: 1
-              **** Add Cas Definition: 1
-      ** Mov: 8
-          *** Mov Arg: 8
-              **** Mov Arg Fixpoint: 5
-              **** Mov Arg Theorem: 3
+      * Add: 10
+          * Add Hyp: 1
+              * Add Hyp Fixpoint: 1
+          * Add Ctr: 1
+              * Add Ctr Inductive: 1
+          * Add Bod: 7
+              * Add Bod Definition: 6
+              * Add Bod Fixpoint: 1
+          * Add Cas: 1
+              * Add Cas Definition: 1
+      * Mov: 8
+          * Mov Arg: 8
+              * Mov Arg Fixpoint: 5
+              * Mov Arg Theorem: 3
   * Content: 29
-      ** Pch: 16
-          *** Pch Bod: 3
-              **** Pch Bod Definition: 3
-          *** Pch Typ: 1
-              **** Pch Typ Definition: 1
-          *** Pch Arg: 12
-              **** Pch Arg Fixpoint: 1
-              **** Pch Arg Lemma: 11
-      ** Uch: 3
-          *** Uch Bod: 1
-              **** Uch Bod Definition: 1
-          *** Uch Typ: 1
-              **** Uch Typ Definition: 1
-          *** Uch Arg: 1
-              **** Uch Arg Fixpoint: 1
-      ** Cut: 6
-          *** Cut Bod: 1
-              **** Cut Bod Fixpoint: 1
-          *** Cut Arg: 5
-              **** Cut Arg Definition: 2
-              **** Cut Arg Fixpoint: 1
-              **** Cut Arg Theorem: 2
-      ** Rpl: 4
-          *** Rpl Arg: 3
-              **** Rpl Arg Fixpoint: 2
-              **** Rpl Arg Theorem: 1
-          *** Rpl Bod: 1
-              **** Rpl Bod Definition: 1
+      * Pch: 16
+          * Pch Bod: 3
+              * Pch Bod Definition: 3
+          * Pch Typ: 1
+              * Pch Typ Definition: 1
+          * Pch Arg: 12
+              * Pch Arg Fixpoint: 1
+              * Pch Arg Lemma: 11
+      * Uch: 3
+          * Uch Bod: 1
+              * Uch Bod Definition: 1
+          * Uch Typ: 1
+              * Uch Typ Definition: 1
+          * Uch Arg: 1
+              * Uch Arg Fixpoint: 1
+      * Cut: 6
+          * Cut Bod: 1
+              * Cut Bod Fixpoint: 1
+          * Cut Arg: 5
+              * Cut Arg Definition: 2
+              * Cut Arg Fixpoint: 1
+              * Cut Arg Theorem: 2
+      * Rpl: 4
+          * Rpl Arg: 3
+              * Rpl Arg Fixpoint: 2
+              * Rpl Arg Theorem: 1
+          * Rpl Bod: 1
+              * Rpl Bod Definition: 1
   * Syntax: 5
-      ** Rnm: 5
-          *** Rnm Idn: 1
-              **** Rnm Idn Fixpoint: 1
-          *** Rnm Bnd: 2
-              **** Rnm Bnd Fixpoint: 2
-          *** Rnm Con: 2
-              **** Rnm Con Theorem: 2
+      * Rnm: 5
+          * Rnm Idn: 1
+              * Rnm Idn Fixpoint: 1
+          * Rnm Bnd: 2
+              * Rnm Bnd Fixpoint: 2
+          * Rnm Con: 2
+              * Rnm Con Theorem: 2
 - User 5: 72
   * Structure: 53
-      ** Add: 44
-          *** Add Hyp: 11
-              **** Add Hyp Record: 10
-              **** Add Hyp Theorem: 1
-          *** Add Ctr: 13
-              **** Add Ctr Inductive: 13
-          *** Add Cas: 20
-              **** Add Cas Fixpoint: 20
-      ** Del: 6
-          *** Del Ctr: 1
-              **** Del Ctr Inductive: 1
-          *** Del Hyp: 5
-              **** Del Hyp Record: 3
-              **** Del Hyp Inductive: 1
-              **** Del Hyp Theorem: 1
-      ** Mov: 3
-          *** Mov Ctr: 1
-              **** Mov Ctr Inductive: 1
-          *** Mov Hyp: 1
-              **** Mov Hyp Theorem: 1
-          *** Mov Cas: 1
-              **** Mov Cas Fixpoint: 1
+      * Add: 44
+          * Add Hyp: 11
+              * Add Hyp Record: 10
+              * Add Hyp Theorem: 1
+          * Add Ctr: 13
+              * Add Ctr Inductive: 13
+          * Add Cas: 20
+              * Add Cas Fixpoint: 20
+      * Del: 6
+          * Del Ctr: 1
+              * Del Ctr Inductive: 1
+          * Del Hyp: 5
+              * Del Hyp Record: 3
+              * Del Hyp Inductive: 1
+              * Del Hyp Theorem: 1
+      * Mov: 3
+          * Mov Ctr: 1
+              * Mov Ctr Inductive: 1
+          * Mov Hyp: 1
+              * Mov Hyp Theorem: 1
+          * Mov Cas: 1
+              * Mov Cas Fixpoint: 1
   * Content: 16
-      ** Pch: 2
-          *** Pch Bod: 2
-              **** Pch Bod Record: 2
-      ** Uut: 3
-          *** Uut Typ: 2
-              **** Uut Typ Definition: 2
-          *** Uut Hyp: 1
-              **** Uut Hyp Definition: 1
-      ** Rpl: 11
-          *** Rpl Arg: 9
-              **** Rpl Arg Record: 7
-              **** Rpl Arg Theorem: 2
-          *** Rpl Bod: 2
-              **** Rpl Bod Theorem: 2
+      * Pch: 2
+          * Pch Bod: 2
+              * Pch Bod Record: 2
+      * Uut: 3
+          * Uut Typ: 2
+              * Uut Typ Definition: 2
+          * Uut Hyp: 1
+              * Uut Hyp Definition: 1
+      * Rpl: 11
+          * Rpl Arg: 9
+              * Rpl Arg Record: 7
+              * Rpl Arg Theorem: 2
+          * Rpl Bod: 2
+              * Rpl Bod Theorem: 2
   * Syntax: 3
-      ** Rnm: 3
-          *** Rnm Bnd: 3
-              **** Rnm Bnd Record: 1
-              **** Rnm Bnd Axiom: 2
+      * Rnm: 3
+          * Rnm Bnd: 3
+              * Rnm Bnd Record: 1
+              * Rnm Bnd Axiom: 2
 - User 7: 148
   * Structure: 57
-      ** Add: 26
-          *** Add Hyp: 18
-              **** Add Hyp Lemma: 17
-              **** Add Hyp Fixpoint: 1
-          *** Add Ctr: 4
-              **** Add Ctr Inductive: 4
-          *** Add Cas: 4
-              **** Add Cas Fixpoint: 4
-      ** Del: 11
-          *** Del Hyp: 11
-              **** Del Hyp Lemma: 11 
-      ** Mov: 10
-          *** Mov Arg: 1
-              **** Mov Arg Fixpoint: 1
-          *** Mov Ctr: 1
-              **** Mov Ctr Inductive: 1
-          *** Mov Hyp: 18
-              **** Mov Hyp Theorem: 1
-              **** Mov Hyp Lemma: 17
+      * Add: 26
+          * Add Hyp: 18
+              * Add Hyp Lemma: 17
+              * Add Hyp Fixpoint: 1
+          * Add Ctr: 4
+              * Add Ctr Inductive: 4
+          * Add Cas: 4
+              * Add Cas Fixpoint: 4
+      * Del: 11
+          * Del Hyp: 11
+              * Del Hyp Lemma: 11 
+      * Mov: 10
+          * Mov Arg: 1
+              * Mov Arg Fixpoint: 1
+          * Mov Ctr: 1
+              * Mov Ctr Inductive: 1
+          * Mov Hyp: 18
+              * Mov Hyp Theorem: 1
+              * Mov Hyp Lemma: 17
   * Content: 30
-      ** Pch: 8
-          *** Pch Bod: 4
-              **** Pch Bod Definition: 3
-              **** Pch Bod Fixpoint: 1
-          *** Pch Arg: 4
-              **** Pch Arg Lemma: 3
-              **** Pch Arg Function: 1
-      ** Uch: 1
-          *** Uch Cas: 1
-              **** Uch Cas Fixpoint: 1
-      ** Cut: 5
-          *** Cut Bod: 1
-              **** Cut Bod Fixpoint: 1
-          *** Cut Fun: 4
-              **** Cut Fun Function: 1
-              **** Cut Fun Lemma: 3
-      ** Rpl: 16
-          *** Rpl Hyp: 2
-              **** Rpl Hyp Inductive: 2
-          *** Rpl Arg: 7
-              **** Rpl Arg Function: 1
-              **** Rpl Arg Lemma: 6
-          *** Rpl Fun: 2
-              **** Rpl Fun Lemma: 2
-          *** Rpl Bod: 4
-              **** Rpl Bod Definition: 1
-              **** Rpl Bod Lemma: 3
-          *** Rpl Cas: 1
-              **** Rpl Cas Function: 1
+      * Pch: 8
+          * Pch Bod: 4
+              * Pch Bod Definition: 3
+              * Pch Bod Fixpoint: 1
+          * Pch Arg: 4
+              * Pch Arg Lemma: 3
+              * Pch Arg Function: 1
+      * Uch: 1
+          * Uch Cas: 1
+              * Uch Cas Fixpoint: 1
+      * Cut: 5
+          * Cut Bod: 1
+              * Cut Bod Fixpoint: 1
+          * Cut Fun: 4
+              * Cut Fun Function: 1
+              * Cut Fun Lemma: 3
+      * Rpl: 16
+          * Rpl Hyp: 2
+              * Rpl Hyp Inductive: 2
+          * Rpl Arg: 7
+              * Rpl Arg Function: 1
+              * Rpl Arg Lemma: 6
+          * Rpl Fun: 2
+              * Rpl Fun Lemma: 2
+          * Rpl Bod: 4
+              * Rpl Bod Definition: 1
+              * Rpl Bod Lemma: 3
+          * Rpl Cas: 1
+              * Rpl Cas Function: 1
   * Syntax: 61
-      ** Rnm: 61
-          *** Rnm Idn: 42
-              **** Rnm Idn Inductive: 2
-              **** Rnm Idn Definition: 8
-              **** Rnm Idn Fixpoint: 1
-              **** Rnm Idn Lemma: 31
-          *** Rnm Bnd: 5
-              **** Rnm Bnd Fixpoint: 2
-              **** Rnm Bnd Lemma: 3
-          *** Rnm Con: 14
-              **** Rnm Con Inductive: 1
-              **** Rnm Con Definition: 2
-              **** Rnm Con Fixpoint: 1
-              **** Rnm Con Lemma: 10
+      * Rnm: 61
+          * Rnm Idn: 42
+              * Rnm Idn Inductive: 2
+              * Rnm Idn Definition: 8
+              * Rnm Idn Fixpoint: 1
+              * Rnm Idn Lemma: 31
+          * Rnm Bnd: 5
+              * Rnm Bnd Fixpoint: 2
+              * Rnm Bnd Lemma: 3
+          * Rnm Con: 14
+              * Rnm Con Inductive: 1
+              * Rnm Con Definition: 2
+              * Rnm Con Fixpoint: 1
+              * Rnm Con Lemma: 10
 - User 8: 44
   * Structure: 9
-      ** Add: 5
-          *** Add Hyp: 3
-              **** Add Hyp Lemma: 2
-              **** Add Hyp Fact: 1
-          *** Add Arg: 2
-              **** Add Arg Lemma: 2
-      ** Del: 4
-          *** Del Hyp: 4
-              **** Del Hyp Lemma: 4 
+      * Add: 5
+          * Add Hyp: 3
+              * Add Hyp Lemma: 2
+              * Add Hyp Fact: 1
+          * Add Arg: 2
+              * Add Arg Lemma: 2
+      * Del: 4
+          * Del Hyp: 4
+              * Del Hyp Lemma: 4 
   * Content: 33
-      ** Uch: 4
-          *** Uch Arg: 4
-              **** Uch Arg Lemma: 2
-              **** Uch Arg Goal: 2
-      ** Rpl: 29
-          *** Rpl Fun: 29
-              **** Rpl Fun Definition: 2
-              **** Rpl Fun Lemma: 26
-              **** Rpl Fun Goal: 1
+      * Uch: 4
+          * Uch Arg: 4
+              * Uch Arg Lemma: 2
+              * Uch Arg Goal: 2
+      * Rpl: 29
+          * Rpl Fun: 29
+              * Rpl Fun Definition: 2
+              * Rpl Fun Lemma: 26
+              * Rpl Fun Goal: 1
   * Syntax: 2
-      ** Rnm: 1
-          *** Rnm Idn: 1
-              **** Rnm Idn Lemma: 1
-      ** Ufy: 1
-          *** Ufy Con: 1
-              **** Ufy Con Definition: 1
+      * Rnm: 1
+          * Rnm Idn: 1
+              * Rnm Idn Lemma: 1
+      * Ufy: 1
+          * Ufy Con: 1
+              * Ufy Con Definition: 1
 - User 10: 15
   * Structure: 2
-      ** Add: 1
-          *** Add Cas: 1
-              **** Add Cas Definition: 1
-      ** Mov: 1
-          *** Mov Hyp: 1
-              **** Mov Hyp Definition: 1
+      * Add: 1
+          * Add Cas: 1
+              * Add Cas Definition: 1
+      * Mov: 1
+          * Mov Hyp: 1
+              * Mov Hyp Definition: 1
   * Content: 11
-      ** Pch: 6
-          *** Pch Cas: 2
-              **** Pch Cas Fixpoint: 2
-          *** Pch Arg: 4
-              **** Pch Arg Fixpoint: 3
-              **** Pch Arg Definition: 1
-      ** Uch: 1
-          *** Uch Cas: 1
-              **** Uch Cas Fixpoint: 1
-          *** Uch Bod: 2
-              **** Uch Bod Definition: 2
-      ** Cut: 1
-          *** Cut Bod: 1
-              **** Cut Bod Definition: 1
-      ** Rpl: 3
-          *** Rpl Cas: 3
-              **** Rpl Cas Definition: 3
+      * Pch: 6
+          * Pch Cas: 2
+              * Pch Cas Fixpoint: 2
+          * Pch Arg: 4
+              * Pch Arg Fixpoint: 3
+              * Pch Arg Definition: 1
+      * Uch: 1
+          * Uch Cas: 1
+              * Uch Cas Fixpoint: 1
+          * Uch Bod: 2
+              * Uch Bod Definition: 2
+      * Cut: 1
+          * Cut Bod: 1
+              * Cut Bod Definition: 1
+      * Rpl: 3
+          * Rpl Cas: 3
+              * Rpl Cas Definition: 3
   * Syntax: 2
-      ** Rnm: 2
-          *** Rnm Idn: 2
-              **** Rnm Idn Fixpoint: 2
+      * Rnm: 2
+          * Rnm Idn: 2
+              * Rnm Idn Fixpoint: 2
 - User 11: 7
   * Structure: 2
-      ** Add: 2
-          *** Add Arg: 2
-              **** Add Arg Instance: 2
+      * Add: 2
+          * Add Arg: 2
+              * Add Arg Instance: 2
   * Content: 4
-      ** Pch: 4
-          *** Pch Bod: 1
-              **** Pch Bod Definition: 1
-          *** Pch Cas: 3
-              **** Pch Cas Instance: 2
-              **** Pch Cas Definition: 2
+      * Pch: 4
+          * Pch Bod: 1
+              * Pch Bod Definition: 1
+          * Pch Cas: 3
+              * Pch Cas Instance: 2
+              * Pch Cas Definition: 2
   * Syntax: 1
-      ** Rnm: 1
-          *** Rnm Bnd: 1
-              **** Rnm Bnd Fixpoint: 1
+      * Rnm: 1
+          * Rnm Bnd: 1
+              * Rnm Bnd Fixpoint: 1
 - Total: 412
   * Structure: 189
-      ** Add: 136
-          *** Add Hyp: 33
-              **** Add Hyp Record: 10
-              **** Add Hyp Fixpoint: 2
-              **** Add Hyp Theorem: 1
-              **** Add Hyp Lemma: 19
-              **** Add Hyp Fact: 1
-          *** Add Ctr: 36
-              **** Add Ctr Inductive: 36
-          *** Add Arg: 4
-              **** Add Arg Instance: 2
-              **** Add Arg Lemma: 2
-          *** Add Bod: 12
-              **** Add Bod Inductive: 3
-              **** Add Bod Definition: 6
-              **** Add Bod Fixpoint: 3
-          *** Add Cas: 51
-              **** Add Cas Definition: 2
-              **** Add Cas Fixpoint: 49
-      ** Del: 21
-          *** Del Ctr: 1
-              **** Del Ctr Inductive: 1
-          *** Del Hyp: 20
-              **** Del Hyp Record: 3
-              **** Del Hyp Inductive: 1
-              **** Del Hyp Theorem: 1
-              **** Del Hyp Lemma: 15 
-      ** Mov: 32
-          *** Mov Ctr: 2
-              **** Mov Ctr Inductive: 2
-          *** Mov Hyp: 20
-              **** Mov Hyp Definition: 1
-              **** Mov Hyp Theorem: 2
-              **** Mov Hyp Lemma: 17
-          *** Mov Cas: 1
-              **** Mov Cas Fixpoint: 1
-          *** Mov Arg: 9
-              **** Mov Arg Fixpoint: 6
-              **** Mov Arg Theorem: 3
+      * Add: 136
+          * Add Hyp: 33
+              * Add Hyp Record: 10
+              * Add Hyp Fixpoint: 2
+              * Add Hyp Theorem: 1
+              * Add Hyp Lemma: 19
+              * Add Hyp Fact: 1
+          * Add Ctr: 36
+              * Add Ctr Inductive: 36
+          * Add Arg: 4
+              * Add Arg Instance: 2
+              * Add Arg Lemma: 2
+          * Add Bod: 12
+              * Add Bod Inductive: 3
+              * Add Bod Definition: 6
+              * Add Bod Fixpoint: 3
+          * Add Cas: 51
+              * Add Cas Definition: 2
+              * Add Cas Fixpoint: 49
+      * Del: 21
+          * Del Ctr: 1
+              * Del Ctr Inductive: 1
+          * Del Hyp: 20
+              * Del Hyp Record: 3
+              * Del Hyp Inductive: 1
+              * Del Hyp Theorem: 1
+              * Del Hyp Lemma: 15 
+      * Mov: 32
+          * Mov Ctr: 2
+              * Mov Ctr Inductive: 2
+          * Mov Hyp: 20
+              * Mov Hyp Definition: 1
+              * Mov Hyp Theorem: 2
+              * Mov Hyp Lemma: 17
+          * Mov Cas: 1
+              * Mov Cas Fixpoint: 1
+          * Mov Arg: 9
+              * Mov Arg Fixpoint: 6
+              * Mov Arg Theorem: 3
   * Content: 143
-      ** Pch: 43
-          *** Pch Bod: 11
-              **** Pch Bod Record: 2
-              **** Pch Bod Definition: 7
-              **** Pch Bod Fixpoint: 2
-          *** Pch Cas: 12
-              **** Pch Cas Definition: 1
-              **** Pch Cas Function: 4
-              **** Pch Cas Fixpoint: 5
-              **** Pch Cas Instance: 2
-          *** Pch Typ: 1
-              **** Pch Typ Definition: 1
-          *** Pch Arg: 19
-              **** Pch Arg Fixpoint: 4
-              **** Pch Arg Lemma: 14
-              **** Pch Arg Function: 1
-      ** Uch: 12
-          *** Uch Bod: 2
-              **** Uch Bod Definition: 2
-          *** Uch Typ: 1
-              **** Uch Typ Definition: 1
-          *** Uch Cas: 3
-              **** Uch Cas Function: 1
-              **** Uch Cas Fixpoint: 2
-          *** Uch Arg: 6
-              **** Uch Arg Definition: 1
-              **** Uch Arg Fixpoint: 1
-              **** Uch Arg Lemma: 2
-              **** Uch Arg Goal: 2
-      ** Cut: 20
-          *** Cut Bod: 5
-              **** Cut Bod Definition: 1
-              **** Cut Bod Function: 1
-              **** Cut Bod Fixpoint: 3
-          *** Cut Cas: 1
-              **** Cut Cas Fixpoint: 1
-          *** Cut Fun: 5
-              **** Cut Fun Function: 1
-              **** Cut Fun Definition: 1
-              **** Cut Fun Lemma: 3
-          *** Cut Arg: 9
-              **** Cut Arg Definition: 3
-              **** Cut Arg Function: 3
-              **** Cut Arg Fixpoint: 1
-              **** Cut Arg Theorem: 2
-      ** Uut: 3
-          *** Uut Typ: 2
-              **** Uut Typ Definition: 2
-          *** Uut Hyp: 1
-              **** Uut Hyp Definition: 1
-      ** Rpl: 65
-          *** Rpl Hyp: 3
-              **** Rpl Hyp Inductive: 3
-          *** Rpl Arg: 19
-              **** Rpl Arg Record: 7
-              **** Rpl Arg Function: 1
-              **** Rpl Arg Fixpoint: 2
-              **** Rpl Arg Theorem: 3
-              **** Rpl Arg Lemma: 6
-          *** Rpl Fun: 31
-              **** Rpl Fun Definition: 2
-              **** Rpl Fun Lemma: 28
-              **** Rpl Fun Goal: 1
-          *** Rpl Bod: 7
-              **** Rpl Bod Definition: 2
-              **** Rpl Bod Theorem: 2
-              **** Rpl Bod Lemma: 3
-          *** Rpl Cas: 5
-              **** Rpl Cas Fixpoint: 1
-              **** Rpl Cas Definition: 3
-              **** Rpl Cas Function: 1
+      * Pch: 43
+          * Pch Bod: 11
+              * Pch Bod Record: 2
+              * Pch Bod Definition: 7
+              * Pch Bod Fixpoint: 2
+          * Pch Cas: 12
+              * Pch Cas Definition: 1
+              * Pch Cas Function: 4
+              * Pch Cas Fixpoint: 5
+              * Pch Cas Instance: 2
+          * Pch Typ: 1
+              * Pch Typ Definition: 1
+          * Pch Arg: 19
+              * Pch Arg Fixpoint: 4
+              * Pch Arg Lemma: 14
+              * Pch Arg Function: 1
+      * Uch: 12
+          * Uch Bod: 2
+              * Uch Bod Definition: 2
+          * Uch Typ: 1
+              * Uch Typ Definition: 1
+          * Uch Cas: 3
+              * Uch Cas Function: 1
+              * Uch Cas Fixpoint: 2
+          * Uch Arg: 6
+              * Uch Arg Definition: 1
+              * Uch Arg Fixpoint: 1
+              * Uch Arg Lemma: 2
+              * Uch Arg Goal: 2
+      * Cut: 20
+          * Cut Bod: 5
+              * Cut Bod Definition: 1
+              * Cut Bod Function: 1
+              * Cut Bod Fixpoint: 3
+          * Cut Cas: 1
+              * Cut Cas Fixpoint: 1
+          * Cut Fun: 5
+              * Cut Fun Function: 1
+              * Cut Fun Definition: 1
+              * Cut Fun Lemma: 3
+          * Cut Arg: 9
+              * Cut Arg Definition: 3
+              * Cut Arg Function: 3
+              * Cut Arg Fixpoint: 1
+              * Cut Arg Theorem: 2
+      * Uut: 3
+          * Uut Typ: 2
+              * Uut Typ Definition: 2
+          * Uut Hyp: 1
+              * Uut Hyp Definition: 1
+      * Rpl: 65
+          * Rpl Hyp: 3
+              * Rpl Hyp Inductive: 3
+          * Rpl Arg: 19
+              * Rpl Arg Record: 7
+              * Rpl Arg Function: 1
+              * Rpl Arg Fixpoint: 2
+              * Rpl Arg Theorem: 3
+              * Rpl Arg Lemma: 6
+          * Rpl Fun: 31
+              * Rpl Fun Definition: 2
+              * Rpl Fun Lemma: 28
+              * Rpl Fun Goal: 1
+          * Rpl Bod: 7
+              * Rpl Bod Definition: 2
+              * Rpl Bod Theorem: 2
+              * Rpl Bod Lemma: 3
+          * Rpl Cas: 5
+              * Rpl Cas Fixpoint: 1
+              * Rpl Cas Definition: 3
+              * Rpl Cas Function: 1
   * Syntax: 80
-      ** Rnm: 73
-          *** Rnm Idn: 46
-              **** Rnm Idn Inductive: 2
-              **** Rnm Idn Definition: 8
-              **** Rnm Idn Fixpoint: 4
-              **** Rnm Idn Lemma: 32
-          *** Rnm Bnd: 11
-              **** Rnm Bnd Record: 1
-              **** Rnm Bnd Fixpoint: 5
-              **** Rnm Bnd Lemma: 3
-              **** Rnm Bnd Axiom: 2
-          *** Rnm Con: 16
-              **** Rnm Con Inductive: 1
-              **** Rnm Con Definition: 2
-              **** Rnm Con Fixpoint: 1
-              **** Rnm Con Lemma: 10
-              **** Rnm Con Theorem: 2
-      ** Qfy: 6
-          *** Qfy Con: 6
-              **** Qfy Con Definition: 6
-      ** Ufy: 1
-          *** Ufy Con: 1
-              **** Ufy Con Definition: 1
+      * Rnm: 73
+          * Rnm Idn: 46
+              * Rnm Idn Inductive: 2
+              * Rnm Idn Definition: 8
+              * Rnm Idn Fixpoint: 4
+              * Rnm Idn Lemma: 32
+          * Rnm Bnd: 11
+              * Rnm Bnd Record: 1
+              * Rnm Bnd Fixpoint: 5
+              * Rnm Bnd Lemma: 3
+              * Rnm Bnd Axiom: 2
+          * Rnm Con: 16
+              * Rnm Con Inductive: 1
+              * Rnm Con Definition: 2
+              * Rnm Con Fixpoint: 1
+              * Rnm Con Lemma: 10
+              * Rnm Con Theorem: 2
+      * Qfy: 6
+          * Qfy Con: 6
+              * Qfy Con Definition: 6
+      * Ufy: 1
+          * Ufy Con: 1
+              * Ufy Con Definition: 1
 
 # Structure
 
