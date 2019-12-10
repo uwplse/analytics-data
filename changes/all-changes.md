@@ -27,7 +27,7 @@ Totals:
         **** Add Bod Fixpoint: 2
       *** Add Cas: 21
         **** Add Cas Fixpoint: 21
-  * Content: TODO
+  * Content: 15
     ** Pch: 6
       *** Pch Bod: 1
         **** Pch Bod Fixpoint: 1
@@ -46,6 +46,11 @@ Totals:
         **** Cut Fun Definition: 1
       *** Cut Arg: 3
         **** Cut Arg Function: 3
+    ** Rpl: 2
+      *** Rpl Hyp: 1
+        **** Rpl Hyp Inductive: 1
+      *** Rpl Cas: 1
+        **** Rpl Cas Fixpoint: 1
 - User 2: TODO
   * Structure: 5
     ** Add: 5
@@ -53,7 +58,7 @@ Totals:
         **** Add Ctr Inductive: 1
       *** Add Cas: 4
         **** Add Cas Fixpoint: 4
-  * Content: TODO
+  * Content: 5
     ** Pch: 2
       *** Pch Cas: 2
         **** Pch Cas Fixpoint: 2
@@ -81,7 +86,7 @@ Totals:
       *** Mov Arg: 8
         **** Mov Arg Fixpoint: 5
         **** Mov Arg Theorem: 3
-  * Content: TODO
+  * Content: 29
     ** Pch: 16
       *** Pch Bod: 3
         **** Pch Bod Definition: 3
@@ -104,6 +109,12 @@ Totals:
         **** Cut Arg Definition: 2
         **** Cut Arg Fixpoint: 1
         **** Cut Arg Theorem: 2
+    ** Rpl: 4
+      *** Rpl Arg: 3
+        **** Rpl Arg Fixpoint: 2
+        **** Rpl Arg Theorem: 1
+      *** Rpl Bod: 1
+        **** Rpl Bod Definition: 1
 - User 5: TODO
   * Structure: 53
     ** Add: 44
@@ -128,7 +139,7 @@ Totals:
         **** Mov Hyp Theorem: 1
       *** Mov Cas: 1
         **** Mov Cas Fixpoint: 1
-  * Content: TODO
+  * Content: 16
     ** Pch: 2
       *** Pch Bod: 2
         **** Pch Bod Record: 2
@@ -137,6 +148,12 @@ Totals:
         **** Uut Typ Definition: 2
       *** Uut Hyp: 1
         **** Uut Hyp Definition: 1
+    ** Rpl: 11
+      *** Rpl Arg: 9
+        **** Rpl Arg Record: 7
+        **** Rpl Arg Theorem: 2
+      *** Rpl Bod: 2
+        **** Rpl Bod Theorem: 2
 - User 7: TODO
   * Structure: 56
     ** Add: 26
@@ -156,7 +173,7 @@ Totals:
       *** Mov Hyp: 18
         **** Mov Hyp Theorem: 1
         **** Mov Hyp Lemma: 17
-  * Content: TODO
+  * Content: 30
     ** Pch: 8
       *** Pch Bod: 4
         **** Pch Bod Definition: 3
@@ -173,6 +190,19 @@ Totals:
       *** Cut Fun: 4
         **** Cut Fun Function: 1
         **** Cut Fun Lemma: 3
+    ** Rpl: 16
+      *** Rpl Hyp: 2
+        **** Rpl Hyp Inductive: 2
+      *** Rpl Arg: 7
+        **** Rpl Arg Function: 1
+        **** Rpl Arg Lemma: 6
+      *** Rpl Fun: 2
+        **** Rpl Fun Lemma: 2
+      *** Rpl Bod: 4
+        **** Rpl Bod Definition: 1
+        **** Rpl Bod Lemma: 3
+      *** Rpl Cas: 1
+        **** Rpl Cas Function: 1
 - User 8: TODO
   * Structure: 9
     ** Add: 5
@@ -184,11 +214,16 @@ Totals:
     ** Del: 4
       *** Del Hyp: 4
         **** Del Hyp Lemma: 4 
-  * Content: TODO
+  * Content: 31
     ** Uch: 2
       *** Uch Arg: 4
         **** Uch Arg Lemma: 2
         **** Uch Arg Goal: 2
+    ** Rpl: 29
+      *** Rpl Fun: 29
+        **** Rpl Fun Definition: 2
+        **** Rpl Fun Lemma: 26
+        **** Rpl Fun Goal: 1
 - User 10: TODO
   * Structure: 2
     ** Add: 1
@@ -197,24 +232,30 @@ Totals:
     ** Mov: 1
       *** Mov Hyp: 1
         **** Mov Hyp Definition: 1
-  * Content: TODO
-    ** Pch: 5
+  * Content: 11
+    ** Pch: 6
       *** Pch Cas: 2
         **** Pch Cas Fixpoint: 2
-      *** Pch Arg: 3
+      *** Pch Arg: 4
         **** Pch Arg Fixpoint: 3
+        **** Pch Arg Definition: 1
     ** Uch: 1
       *** Uch Cas: 1
         **** Uch Cas Fixpoint: 1
+      *** Uch Bod: 2
+        **** Uch Bod Definition: 2
     ** Cut: 1
       *** Cut Bod: 1
         **** Cut Bod Definition: 1
+    ** Rpl: 3
+      *** Rpl Cas: 3
+        **** Rpl Cas Definition: 3
 - User 11: TODO
   * Structure: 2
     ** Add: 2
       *** Add Arg: 2
         **** Add Arg Instance: 2
-  * Content: TODO
+  * Content: 4
     ** Pch: 4
       *** Pch Bod: 1
         **** Pch Bod Definition: 1
@@ -280,9 +321,9 @@ Totals:
         **** Pch Arg Fixpoint: 4
         **** Pch Arg Lemma: 14
         **** Pch Arg Function: 1
-    ** Uch: 11
-      *** Uch Bod: 1
-        **** Uch Bod Definition: 1
+    ** Uch: 12
+      *** Uch Bod: 2
+        **** Uch Bod Definition: 2
       *** Uch Typ: 1
         **** Uch Typ Definition: 1
       *** Uch Cas: 3
@@ -314,6 +355,27 @@ Totals:
         **** Uut Typ Definition: 2
       *** Uut Hyp: 1
         **** Uut Hyp Definition: 1
+    ** Rpl: 65
+      *** Rpl Hyp: 3
+        **** Rpl Hyp Inductive: 3
+      *** Rpl Arg: 19
+        **** Rpl Arg Record: 7
+        **** Rpl Arg Function: 1
+        **** Rpl Arg Fixpoint: 2
+        **** Rpl Arg Theorem: 3
+        **** Rpl Arg Lemma: 6
+      *** Rpl Fun: 31
+        **** Rpl Fun Definition: 2
+        **** Rpl Fun Lemma: 28
+        **** Rpl Fun Goal: 1
+      *** Rpl Bod: 7
+        **** Rpl Bod Definition: 2
+        **** Rpl Bod Theorem: 2
+        **** Rpl Bod Lemma: 3
+      *** Rpl Cas: 5
+        **** Rpl Cas Fixpoint: 1
+        **** Rpl Cas Definition: 3
+        **** Rpl Cas Function: 1
 
 # Structure
 
@@ -469,11 +531,11 @@ Totals:
 1. [8.79.293.1](https://github.com/uwplse/analytics-data/commit/1360be59258b4fd0499d32f974fbd61d02d64150#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Lemma: `big_kron_append`
   * New hypothesis: `m <> 0`
-  * Elapsed: 11 seconds (these two changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 2. [8.79.293.2](https://github.com/uwplse/analytics-data/commit/1360be59258b4fd0499d32f974fbd61d02d64150#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Lemma: `big_kron_append`
   * New hypothesis: `n <> 0`
-  * Elapsed: 11 seconds (these two changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Add Hyp Fact
 
@@ -482,7 +544,7 @@ Totals:
 1. [8.34.0-4.1](https://github.com/uwplse/analytics-data/compare/083009f275aa72d9fda76a6acb60de0ccf79ceee..87fbf320436f56f623301f67f789c4700ce3cacc)
   * Lemma: `denote_compose`
   * New hypothesis: `\207\129` (encoded)
-  * Elapsed: 78.24 seconds (includes other changes)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ### Add Ctr
 
@@ -656,11 +718,11 @@ Totals:
 1. [8.34.0-4.2](https://github.com/uwplse/analytics-data/compare/083009f275aa72d9fda76a6acb60de0ccf79ceee..87fbf320436f56f623301f67f789c4700ce3cacc)
   * Lemma: `denote_compose`
   * New argument: `\207\129` (encoded)
-  * Elapsed: 78.24 seconds (includes other changes)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 2. [8.34.0-4.3](https://github.com/uwplse/analytics-data/compare/083009f275aa72d9fda76a6acb60de0ccf79ceee..87fbf320436f56f623301f67f789c4700ce3cacc)
   * Lemma: `denote_compose`
   * New argument: `\207\129` (encoded)
-  * Elapsed: 78.24 seconds (includes other changes)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Add Arg Instance
 
@@ -1063,19 +1125,19 @@ Totals:
 1. [8.79.17.1](https://github.com/uwplse/analytics-data/commit/d0249e7eab32ea5d7cd2f494f2efbbd7fe1bd611#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Lemma:  `big_kron_append`
   * Removed hypothesis: `(forall j, WF_Matrix (nth j l1 A))`
-  * Elapsed: 1.14 seconds (these changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 2. [8.79.17.2](https://github.com/uwplse/analytics-data/commit/d0249e7eab32ea5d7cd2f494f2efbbd7fe1bd611#diff-3ae9cc05249c564523bb8a4f63e1e3af) 
   * Lemma:  `big_kron_append`
   * Removed hypothesis: `(forall j, WF_Matrix (nth j l2 B))` 
-  * Elapsed: 1.14 seconds (these changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 3. [8.79.20.1](https://github.com/uwplse/analytics-data/commit/ec693397c1ec3d75de4b9dc98ca59ae4eb5d0451#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Lemma:  `big_kron_append`
   * Removed hypothesis: `A : Matrix m n`
-  * Elapsed: 27.65 seconds (these changes and a proof change only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 4. [8.79.20.2](https://github.com/uwplse/analytics-data/commit/ec693397c1ec3d75de4b9dc98ca59ae4eb5d0451#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Lemma:  `big_kron_append`
   * Removed hypothesis: `B : Matrix m n`
-  * Elapsed: 27.65 seconds (these changes and a proof change only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ## Mov
 
@@ -1405,6 +1467,13 @@ Totals:
 
 #### Pch Arg Definition
 
+##### User 10
+
+1. 10.([7.40](https://github.com/uwplse/analytics-data/blob/977f11b445947a5529dc6cf8caa73b1729b8a2ed/diffs-annotated-with-times/10/user-10-session-7.v)-[8.1](https://github.com/uwplse/analytics-data/blob/c4bb8b9d7fb90553035bc9b3515ef149008f90b3/diffs-annotated-with-times/10/user-10-session-8.v)).1 ([diff](https://www.diffchecker.com/YWvIwtsm))
+  * Definition: `nmi_of_smi`
+  * Arg: `id`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 ##### User 11
 
 1. [11.16.18-20.1](https://github.com/uwplse/analytics-data/compare/388ce21659b7547d3de179c683bfc37b450a3fc7..9b89b09f2c0f640ae6305e5eb3977bbcde3d5aff)
@@ -1515,6 +1584,12 @@ Totals:
   * Definition: `nat64_from_le`
   * Elapsed: 37.52 seconds (includes other changes)
 
+##### User 10
+
+1. [10.10.18-25.2](https://github.com/uwplse/analytics-data/compare/48dbd63619565893f343794fdead8b23eab0704e..f00cef2d594f0746c76419d220370ce81d332e5f)
+  * Definition: `network_of_app_ta`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 ### Uch Typ
 
 #### Uch Typ Definition
@@ -1577,22 +1652,22 @@ Totals:
 1. [8.65.68.1](https://github.com/uwplse/analytics-data/commit/1011a6b91870a242ff5f270b29ed92ac18348ced#diff-9d7b37e41233d92b620a4d9fc256c0de)
   * Lemma: `assert_init_at_id`
   * Arg: `S i`
-  * Elapsed: 11.67 seconds (these two changes and some proof only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 2. [8.65.68.2](https://github.com/uwplse/analytics-data/commit/1011a6b91870a242ff5f270b29ed92ac18348ced#diff-9d7b37e41233d92b620a4d9fc256c0de)
   * Lemma: `assert_init_at_id`
   * Arg: `S m`
-  * Elapsed: 11.67 seconds (these two changes and some proof only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Uch Arg Goal
 
 ##### User 8
 
 1. [8.79.109.1](https://github.com/uwplse/analytics-data/commit/d1e700a6401c85ac2687aff546c4ff5c1afebbcd#diff-3ae9cc05249c564523bb8a4f63e1e3af)
-  * Elapsed: 3.89 seconds (these two changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 2. [8.79.109.2](https://github.com/uwplse/analytics-data/commit/d1e700a6401c85ac2687aff546c4ff5c1afebbcd#diff-3ae9cc05249c564523bb8a4f63e1e3af)
-  * Elapsed: 3.89 seconds (these two changes only)
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ## Cut
 
@@ -1634,7 +1709,7 @@ Totals:
 
 ##### User 7
 
-- 7.([162.16](https://github.com/uwplse/analytics-data/blob/0e28364f2663d4f3c51d7a5073fd21a70086ae11/diffs-annotated-with-times/7/user-7-session-162.v)-[174.31](https://github.com/uwplse/analytics-data/blob/206cfb585f090a4dfb75ef54ca8dfe886459d670/diffs-annotated-with-times/7/user-7-session-174.v)).1
+- 7.([162.16](https://github.com/uwplse/analytics-data/blob/0e28364f2663d4f3c51d7a5073fd21a70086ae11/diffs-annotated-with-times/7/user-7-session-162.v)-[174.31](https://github.com/uwplse/analytics-data/blob/206cfb585f090a4dfb75ef54ca8dfe886459d670/diffs-annotated-with-times/7/user-7-session-174.v)).1 ([diff](https://www.diffchecker.com/rVpWtOQn))
   * Fixpoint: `subst`
   * Cut: `mk_subst_exist`
   * Elapsed: 113073.66 seconds (includes other changes, new day)
@@ -1791,20 +1866,19 @@ Totals:
 
 ##### User 1
 
-        **** 1.37.13 (ST)
+1. [1.37.13.1](https://github.com/uwplse/analytics-data/commit/24fc093a48c5e3ca504f8de6c8783ca13bf4e657#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `ST`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ##### User 7
 
-        **** 7.93.7 (ty)
-        **** 7.93.7 (ty)
+1. [7.93.7.1](https://github.com/uwplse/analytics-data/commit/4ccc2c85d56c2f9e63677cee560189b697ab97e4#diff-0fe5d0a63061a9efbfdc03d8852b0e64)
+  * Inductive: `ty`
+  * Elaped: 14.58 seconds (these changes and a removed definition only)
 
-#### Rpl Hyp Fixpoint
-
-##### User 7
-
-        **** 7.174.0-14 (subst)
-        **** 7.174.14-24 (subst)
-        **** 7.174.25 (subst)
+2. [7.93.7.2](https://github.com/uwplse/analytics-data/commit/4ccc2c85d56c2f9e63677cee560189b697ab97e4#diff-0fe5d0a63061a9efbfdc03d8852b0e64)
+  * Inductive: `ty`
+  * Elaped: 14.58 seconds (these changes and a removed definition only)
 
 ### Rpl Arg
 
@@ -1812,44 +1886,117 @@ Totals:
 
 ##### User 5
 
-        **** 5.19.5 (EpsilonLogic)
-        **** 5.19.23-26 (EpsilonLogic)
-        **** 5.19.23-26 (EpsilonLogic)
-        **** 5.19.23-26 (EpsilonLogic)
+1. [5.19.5.1](https://github.com/uwplse/analytics-data/commit/2894ba5928f7fe963c8a1d8d2b31fb5cd3858df7#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Record: `EpsilonLogic`
+  * Argument: LHS of `... = vTrue`
+  * Elapsed: 115.40 seconds (this change only)
+
+2. [5.19.23-26.10](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Argument: `vTrue` in `evalEqTrue`
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
+
+3. [5.19.23-26.11](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Argument: `vFalse` in `evalEqFalse`
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
+
+4. [5.19.23-26.12](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Argument: `vTrue` in `evalChoose` LHS
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
+
+5. [5.19.23-26.13](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Argument: `vTrue` in `evalChoose` RHS
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
+
+6. [5.19.23-26.14](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Argument: `vTrue` in `evalChooseDet` LHS
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
+
+7. [5.19.23-26.15](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+  * Record: `EpsilonLogic`
+  * Argument: `vTrue` in `evalChooseDet` RHS
+  * Elapsed: 51610.77 seconds (includes other changes, new day)
 
 #### Rpl Arg Function
 
 ##### User 7
 
-1. [7.174.28.2](https://github.com/uwplse/analytics-data/commit/ce370b123651dc97152bcc215d8a5dab76af6c12#diff-0a4ea0347794bc16c63de97ebca6ecd3)
+1. [7.174.28.3](https://github.com/uwplse/analytics-data/commit/ce370b123651dc97152bcc215d8a5dab76af6c12#diff-0a4ea0347794bc16c63de97ebca6ecd3)
   * Definition: `subst`
   * Elapsed: 6.67 seconds (a few small changes)
 
-#### Rpl Arg Fixpint
+#### Rpl Arg Fixpoint
 
 ##### User 3
 
-        **** 3.960.16-69 (nat_to_le)
-        **** 3.960.125-141 (nat_to_le)
+1. [3.960.19-69.1](https://github.com/uwplse/analytics-data/compare/017188f46db98812ea1072f74a15f0855cba1ba7..26c295bf5669de6fc0ecf6165bdd42a8b64121d8)
+  * Fixpoint: `nat_to_le`
+  * Argument: `256`
+  * Elapsed: 927.60 seconds (this and other changes)
+
+2. [3.960.125-141.1](https://github.com/uwplse/analytics-data/compare/0a8fffcaea1d7898e882f52920f8b5dfad8deefe..9281f7636ec69ea7c13820a2a9232d480600101a)
+  * Fixpoint: `nat_to_le`
+  * Argument: `base`
+  * Elapsed: 241.77 seconds (this and other changes)
 
 #### Rpl Arg Theorem
 
 ##### User 3
 
-        **** 3.11377.4 (mult_n_Sm)
+1. [3.11377.4.1](https://github.com/uwplse/analytics-data/commit/98ac3377f6e6acd71c6f227bd91ceec74bd94c2e#diff-1cd865b759c4edd9e6ed6ef53b0a2f9c)
+  * Theorem: `mult_n_Sm`
+  * Argument: `m`
+  * Elapsed: 2.80 seconds (this change only)
 
 ##### User 5
 
-        **** 5.19.29 (eval_eq_true_or_false)
+1. [5.19.29.1](https://github.com/uwplse/analytics-data/commit/88831cd564e0fa8685cf0d37a2941d105220dfd5#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Theorem: `eval_eq_true_or_false`
+  * Argument: `vTrue`
+  * Elapsed: 33.81 seconds (these two changes only)
+
+2. [5.19.29.2](https://github.com/uwplse/analytics-data/commit/88831cd564e0fa8685cf0d37a2941d105220dfd5#diff-86d76448a54765ff094f8c80cd8be3a0)
+  * Theorem: `eval_eq_true_or_false`
+  * Arg: `vFalse`
+  * Elapsed: 33.81 seconds (these two changes only)
+
+#### Rpl Arg Lemma
 
 ##### User 7
 
-        **** 7.202.2 (b_subst_neq__permute)
-        **** 7.145.22 (sem_sub_fresh_var__sem_sub_exist)
-        **** 7.174.45 (triv)
-        **** 7.224.22 (build_v_full)
-        **** 7.228.7 (build_v_full)
-        **** 7.19.38 (match_ty_i_k__match_le_k)
+1. [7.202.2.1](https://github.com/uwplse/analytics-data/commit/c8bc382bc145c2a5ff65e4de9031983fd768ca38#diff-f6bf317dc909b5b74bc624e9ae8a56e7)
+  * Lemma: `b_subst_neq__permute`
+  * Argument: `s1`
+  * Elapsed: 13.13 seconds (this change only)
+
+2. [7.145.22.2](https://github.com/uwplse/analytics-data/commit/f2edee6079b88bf925ad97c6b03469a1a7c34ba2#diff-5863cbc0cc1562fe4e8aca04c5bfbb93)
+  * Lemma: `sem_sub_fresh_var__sem_sub_exist`
+  * Argument: `TExist X t`
+  * Elapsed: 221.90 seconds (includes another change)
+
+3. [7.174.45.1](https://github.com/uwplse/analytics-data/commit/59b26df73091a9aebb97d387edf94fc83e4a4a9f#diff-0a4ea0347794bc16c63de97ebca6ecd3)
+  * Lemma: `triv`
+  * Argument: `t2`
+  * Elapsed: 30.56 seconds (this and proof changes)
+
+4. [7.224.22.1](https://github.com/uwplse/analytics-data/commit/d62260d5737f3321ac83026d8a398114cb9460e9#diff-4d0998274f6e23c04dedfef8163f2834)
+  * Lemma: `build_v_full`
+  * Argument: `|-[ w'] v`
+  * Elapsed: 305.41 seconds (this change only)
+
+5. [7.228.7.1](https://github.com/uwplse/analytics-data/commit/38b4beef091e2588154ac368a83cd09281946ad2#diff-2cb2a3b1a2721123be0dab850f45fa15)
+  * Lemma: `build_v_full`
+  * Argument: `w'`
+  * Elapsed: 20.99 seconds (this change and some proof)
+
+6. [7.19.38.1](https://github.com/uwplse/analytics-data/commit/96558e6edb109a5196d5d5bde3f23e8033f344d7#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `match_ty_i_k__match_le_k`
+  * Argument: `k`
+  * Elaped: 6.58 seconds (this and a proof change only)
 
 ### Rpl Fun
 
@@ -1857,46 +2004,169 @@ Totals:
 
 ##### User 8
 
-        **** 8.37.10 (valid_ancillae)
-        **** 8.125.230 (uniform)
+1. [8.37.10.1](https://github.com/uwplse/analytics-data/commit/0b83a6309d0228ba536354878324ec0cbeca0abc#diff-d4c42697875a99ea9f5fd280836944bb)
+  * Definition: `valid_ancillae`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
-#### Rpl Fun Theorem
+2. [8.125.230.1](https://github.com/uwplse/analytics-data/commit/02c87e5c6021217f6a7d5dcb0e4ce402ca247f14#diff-89c2bc4106fc5e917e09249986d454bd)
+  * Definition: `uniform`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+#### Rpl Fun Lemma
 
 ##### User 7
 
-        **** 7.19.668 (pair_sem_sub_k_i__sub_d)
-        **** 7.212.3 (free_union__inv)
+1. [7.19.668.1](https://github.com/uwplse/analytics-data/commit/2c0f1d2f04a6bdc0679920915fa00fdb5336a40c#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
+  * Lemma: `pair_sem_sub_k_i__sub_d`
+  * Function: `value_type`
+  * Elapsed: 12.25 seconds (this and a line of proof)
+
+2. [7.212.3.1](https://github.com/uwplse/analytics-data/commit/e87b35834c90abb3c066362be72c0b70d29de1aa#diff-ceb02378d3c52e3d2d07ecf9ab9c44fe)
+  * Lemma: `free_union__inv`
+  * Function: `not_free`
+  * Elapsed: 47.42 seconds (this change only)
 
 ##### User 8
 
-        **** 8.37.74 (valid_denote_true)
-        **** 8.37.80 (valid_denote_false)
-        **** 8.2.133 (denote_ctrls_transpose)
-        **** 8.14.60 (MOVE_list_aux_id)
-        **** 8.14.62 (denote_pat_fresh_id)
-        **** 8.31.112 (inSeq_id_l) (not same change)
-        **** 8.31.112 (inSeq_id_l) (not same change)
-        **** 8.37.74 (valid_denote_true)
-        **** 8.37.80 (valid_denote_false)
-        **** 8.40.25 (init0_spec)
-        **** 8.40.38 (MOVE_spec)
-        **** 8.40.48 (MOVE_spec_sep)
-        **** 8.40.52 (CNOT_spec)
-        **** 8.40.56 (XOR_spec)
-        **** 8.65.174 (denote_box_id_circ)
-        **** 8.79.4 (big_kron_append)
-        **** 8.79.113 (Anonymous Goal)
-        **** 8.79.308 (init_at_spec)
-        **** 8.79.516 (compile_correct)
-        **** 8.108.3 (denote_unitary_box_eq)
-        **** 8.108.17 (denote_unitary_isometry_box_eq)
-        **** 8.108.18 (denote_isometry_box_eq)
-        **** 8.125.233 (even_bias)
-        **** 8.160.6 (bra0_equiv)
-        **** 8.160.6 (bra1_equiv)
-        **** 8.160.6 (ket0_equiv)
-        **** 8.160.6 (ket1_equiv)
-        **** 8.160.0-6 (bra0ket0)
+1. [8.37.74.1](https://github.com/uwplse/analytics-data/commit/6dd884ce4e8885edd39ed641a567dec166b7707c#diff-d4c42697875a99ea9f5fd280836944bb)
+  * Lemma: `valid_denote_true`
+  * Function: `=` in hypothesis
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+2. [8.37.74.2](https://github.com/uwplse/analytics-data/commit/6dd884ce4e8885edd39ed641a567dec166b7707c#diff-d4c42697875a99ea9f5fd280836944bb)
+  * Lemma: `valid_denote_true`
+  * Function: `=` in conclusion
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+3. [8.37.80.1](https://github.com/uwplse/analytics-data/commit/d5980afadfb0c483655051d48ec1d43e45b083ba#diff-d4c42697875a99ea9f5fd280836944bb)
+  * Lemma: `valid_denote_false`
+  * Function: `=` in hypothesis
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+4. [8.37.80.2](https://github.com/uwplse/analytics-data/commit/d5980afadfb0c483655051d48ec1d43e45b083ba#diff-d4c42697875a99ea9f5fd280836944bb)
+  * Lemma: `valid_denote_false`
+  * Function: `=` in conclusion
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+5. [8.2.133.1](https://github.com/uwplse/analytics-data/commit/8819e8ebf0525ee753d281541aff79de8bcc0cd7#diff-e9f1045008034dc1026a6b046b6296c6)
+  * Lemma: `denote_ctrls_transpose`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+6. [8.14.60.1](https://github.com/uwplse/analytics-data/commit/e0ac760647efd0531bacf9cf94c2048c7c5e4cd2#diff-4fcd210bdad257c209638124a92768ba)
+  * Lemma: `MOVE_list_aux_id`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+7. [8.14.62.1](https://github.com/uwplse/analytics-data/commit/202840d2440bc84b1fc6c215464420e10866cf49#diff-4fcd210bdad257c209638124a92768ba)
+  * Lemma: `denote_pat_fresh_id`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+8. [8.31.112.1](https://github.com/uwplse/analytics-data/commit/3d81e88254f1d040609dd9342e0f6512296806ee#diff-5f9dbb31b69361e15a42c343c5997c73)
+  * Lemma: `inSeq_id_l`
+  * Function: 
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+9. [8.40.25.1](https://github.com/uwplse/analytics-data/commit/d92ce6192ed1c8e97fed5d4d0852dd558b177ddd#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
+  * Lemma: `init0_spec`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+10. [8.40.38.1](https://github.com/uwplse/analytics-data/commit/1379c49e8446e8cd365259f8a5265af941277a80#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
+  * Lemma: `SWAP_spec`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+11. [8.40.48.1](https://github.com/uwplse/analytics-data/commit/10f2771bfcf6a36eb6141b71619143cd6a2b9b67#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
+  * Lemma: `SWAP_spec_sep`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+12. [8.40.52.1](https://github.com/uwplse/analytics-data/commit/2d77813e648fb5ee70261db16968453b72b2a75b#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
+  * Lemma: `CNOT_spec`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+13. [8.40.56.1](https://github.com/uwplse/analytics-data/commit/ad2d5683d55913af012166bb1baac99824e34c63#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
+  * Lemma: `XOR_spec`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+14. [8.65.174.1](https://github.com/uwplse/analytics-data/commit/58d577b44616df4a59b2045124419d7dbc701347#diff-9d7b37e41233d92b620a4d9fc256c0de)
+  * Lemma: `denote_box_id_circ`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+15. [8.79.4.1](https://github.com/uwplse/analytics-data/commit/a8205d91fe7e8517e0562401ce4bc1c6edb89bcd#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Lemma: `big_kron_append`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+16. [8.79.308.1](https://github.com/uwplse/analytics-data/commit/09396c9b700cc69f448ee04bb09c0148624db3ce#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Lemma: `init_at_spec`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+17. [8.79.516.1](https://github.com/uwplse/analytics-data/commit/40025f30d16ae48fed21b4c1ff26e7d74bb9e487#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Lemma: `compile_correct`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+18. [8.108.3.1](https://github.com/uwplse/analytics-data/commit/676f970a638f11bcf2c7f76c9224af37b83058dd#diff-cb3a25559501ca19647e80a240a1bb4c)
+  * Lemma: `denote_unitary_box_eq`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+19. [8.108.17.1](https://github.com/uwplse/analytics-data/commit/22510bd4da68f9a767a5c892c0339dd4075ef878#diff-cb3a25559501ca19647e80a240a1bb4c)
+  * Lemma: `denote_unitary_isometry_box_eq`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+20. [8.108.18.1](https://github.com/uwplse/analytics-data/commit/50587d8222891e0fa13854204d983736eb000ffa#diff-cb3a25559501ca19647e80a240a1bb4c)
+  * Lemma: `denote_isometry_box_eq`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+21. [8.125.233.1](https://github.com/uwplse/analytics-data/commit/023b45d26f2287a6f0e93a9dc0ace7d12ab03934#diff-89c2bc4106fc5e917e09249986d454bd)
+  * Lemma: `even_bias`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+22. [8.160.6.1](https://github.com/uwplse/analytics-data/commit/7f2e093f2c5a380849d32ffc7e9791dc59cfda4c#diff-86264511dc963b6ceb1080e09a447f68)
+  * Lemma: `bra0_equiv`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+23. [8.160.6.2](https://github.com/uwplse/analytics-data/commit/7f2e093f2c5a380849d32ffc7e9791dc59cfda4c#diff-86264511dc963b6ceb1080e09a447f68)
+  * Lemma: `bra1_equiv`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+24. [8.160.6.3](https://github.com/uwplse/analytics-data/commit/7f2e093f2c5a380849d32ffc7e9791dc59cfda4c#diff-86264511dc963b6ceb1080e09a447f68)
+  * Lemma: `ket0_equiv`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+25. [8.160.6.4](https://github.com/uwplse/analytics-data/commit/7f2e093f2c5a380849d32ffc7e9791dc59cfda4c#diff-86264511dc963b6ceb1080e09a447f68)
+  * Lemma: `ket1_equiv`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+26. [8.160.0-6.1](https://github.com/uwplse/analytics-data/compare/89fe6711883144c014b6948df048815fd0015878..7f2e093f2c5a380849d32ffc7e9791dc59cfda4c)
+  * Lemma: `bra0ket0`
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+### Rpl Fun Goal
+
+#### User 8
+
+1. [8.79.113.1](https://github.com/uwplse/analytics-data/commit/eafafb803e9bfae17bcee8dd8fdcb97ad9324628#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Function: `=`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ### Rpl Bod
 
@@ -1904,52 +2174,54 @@ Totals:
 
 ##### User 3
 
-        **** 3.6414.104 (log_length_ok)
+1. [3.6414.104.1](https://github.com/uwplse/analytics-data/commit/e86179581c6685fd90c171aeeb415c1c3c96af48#diff-c54b8d476719bdc37960d29013205ce0)
+  * Definition: `log_length_ok`
+  * Elapsed: 5.61 seconds (several changes)
 
 ##### User 7
 
-        **** 7.93.2 (varid)
-
-##### User 10
-
-1. [10.10.18-25.2](https://github.com/uwplse/analytics-data/compare/48dbd63619565893f343794fdead8b23eab0704e..f00cef2d594f0746c76419d220370ce81d332e5f)
-  * Definition: `network_of_app_ta`
-  * Replaced: TODO
-  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
-
-        **** 10.8.1 (nmi_of_smi)
-        **** 10.9.1 (nmi_of_smi)
-
-#### Rpl Bod Definition
-
-##### User 1
-
-        **** 1.37.47 (Gamma)
-
-##### User 7
-
-        **** 7.102.0-11 (match_ty)
-        **** 7.174.0 (subst)
-        **** 7.174.29-31 (subst)
-
-##### User 10
-
-        **** 10.15.5-13
+1. [7.93.2.1](https://github.com/uwplse/analytics-data/commit/80228aa9659f025bd5a270860b6f74a8e6c1b88d#diff-0fe5d0a63061a9efbfdc03d8852b0e64)
+  * Definition: `varid`
+  * Elapsed: 12.14 seconds (this and one LOC)
 
 #### Rpl Bod Theorem
 
 ##### User 5
 
-        **** 5.18.18-21 (simplify_correct)
-        **** 5.18.24-26 (simplify_correct)
+1. [5.18.18-21.2](https://github.com/uwplse/analytics-data/compare/093afda7c7959f84066fec93d2ebcc22e444c125..6fd291dea99a852a4b3d8846dc7adf59bae64552)
+  * Theorem: `simplify_correct`
+  * Elapsed: 103.37 seconds (includes other changes)
+
+2. [5.18.24-26.2](https://github.com/uwplse/analytics-data/compare/8d93a80c6b0f5262625ba77d4eefe8d47fafac52..58d9a7ad7536d10d752154d0e8fbf2bca8824273)
+  * Theorem: `simplify_correct`
+  * Elapsed: 17.72 seconds (this and a proof change)
+
+#### Rpl Bod Lemma
 
 ##### User 7
 
-        **** 7.101.45-48 (sem_sub__refint_eXrefX)
-        **** 7.2.162-165 (weird_trans)
-        **** 7.19.112 (match_ty_i_eq__inv_depth_eq) (TODO check)
+1. [7.101.45-48](https://github.com/uwplse/analytics-data/compare/4f0f9bd12f974aa41a845b3e580be43627eb4791..214dca2c6e640fd33aefa48225bc69368ce63cf1)
+  * Lemma: `sem_sub__refint_eXrefX`
+  * Elapsed: 3379.18 seconds (multiple changes)
+
+2. [7.101.45-48](https://github.com/uwplse/analytics-data/compare/4f0f9bd12f974aa41a845b3e580be43627eb4791..214dca2c6e640fd33aefa48225bc69368ce63cf1)
+  * Lemma: `sem_sub__eXrefX_eYrefY`
+  * Elapsed: 3379.18 seconds (multiple changes)
+
+3. [7.2.162-165.1](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d)
+  * Lemma: `weird_trans`
+  * Elapsed: 64035.19 seconds (includes other changes, new day)
 
 ### Rpl Cas
+
+#### Rpl Cas Fixpoint
+
+##### User 1
+
+1. [1.37.47.1](https://github.com/uwplse/analytics-data/commit/932711dd88c8a8f754f68991bedb7b404db20966#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Fixpoint: `Gamma`
+  * Case: `(O, G)`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Rpl Cas Definition
 
@@ -1957,8 +2229,27 @@ Totals:
 
 1. [10.10.18-25.3](https://github.com/uwplse/analytics-data/compare/48dbd63619565893f343794fdead8b23eab0704e..f00cef2d594f0746c76419d220370ce81d332e5f)
   * Definition: `network_of_app_ta`
-  * Replaced: TODO
+  * Case: `(|(Throw e|))`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+2. 10.([7.40](https://github.com/uwplse/analytics-data/blob/977f11b445947a5529dc6cf8caa73b1729b8a2ed/diffs-annotated-with-times/10/user-10-session-7.v)-[8.1](https://github.com/uwplse/analytics-data/blob/c4bb8b9d7fb90553035bc9b3515ef149008f90b3/diffs-annotated-with-times/10/user-10-session-8.v)).2 ([diff](https://www.diffchecker.com/YWvIwtsm))
+  * Definition: `nmi_of_smi`
+  * Case: `Eval_var`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+3. 10.([8.1](https://github.com/uwplse/analytics-data/blob/c4bb8b9d7fb90553035bc9b3515ef149008f90b3/diffs-annotated-with-times/10/user-10-session-8.v)-[9.1](https://github.com/uwplse/analytics-data/blob/c11f49def1c5758f280668dd030e40839a9d386d/diffs-annotated-with-times/10/user-10-session-9.v)).1 ([diff](https://www.diffchecker.com/oW8naDUq))
+  * Definition: `nmi_of_smi`
+  * Case: `None`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+#### Rpl Cas Function
+
+##### User 7
+
+1. 7.([162.16](https://github.com/uwplse/analytics-data/blob/0e28364f2663d4f3c51d7a5073fd21a70086ae11/diffs-annotated-with-times/7/user-7-session-162.v)-[174.31](https://github.com/uwplse/analytics-data/blob/206cfb585f090a4dfb75ef54ca8dfe886459d670/diffs-annotated-with-times/7/user-7-session-174.v)).2 ([diff](https://www.diffchecker.com/rVpWtOQn))
+  * Function: `subst`
+  * Case: `TExist y t'`
+  * Elapsed: 113073.66 seconds (includes other changes, new day)
 
 # Syntax
 
