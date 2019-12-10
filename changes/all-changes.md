@@ -33,6 +33,11 @@ Totals:
       *** Pch Cas: 5
         **** Pch Cas Function: 4
         **** Pch Cas Fixpoint: 1
+    ** Uch: 1
+      *** Uch Cas: 1
+        **** Uch Cas Function: 1
+- User 2:
+  * Content: TODO
 - User 2: TODO
   * Structure: 5
     ** Add: 5
@@ -44,6 +49,9 @@ Totals:
     ** Pch: 2
       *** Pch Cas: 2
         **** Pch Cas Fixpoint: 2
+    ** Uch: 1
+      *** Uch Arg: 1
+        **** Uch Arg Definition: 1
 - User 3: TODO
   * Structure: 18
     ** Add: 10
@@ -69,6 +77,13 @@ Totals:
       *** Pch Arg: 12
         **** Pch Arg Fixpoint: 1
         **** Pch Arg Lemma: 11
+    ** Uch: 3
+      *** Uch Bod: 1
+        **** Uch Bod Definition: 1
+      *** Uch Typ: 1
+        **** Uch Typ Definition: 1
+      *** Uch Arg: 1
+        **** Uch Arg Fixpoint: 1
 - User 5: TODO
   * Structure: 53
     ** Add: 44
@@ -117,12 +132,16 @@ Totals:
         **** Mov Hyp Theorem: 1
         **** Mov Hyp Lemma: 17
   * Content: TODO
-    ** Pch: 7
+    ** Pch: 8
       *** Pch Bod: 4
         **** Pch Bod Definition: 3
         **** Pch Bod Fixpoint: 1
-      *** Pch Arg: 3
+      *** Pch Arg: 4
         **** Pch Arg Lemma: 3
+        **** Pch Arg Function: 1
+    ** Uch: 1
+      *** Uch Cas: 1
+        **** Uch Cas Fixpoint: 1
 - User 8: TODO
   * Structure: 9
     ** Add: 5
@@ -134,6 +153,11 @@ Totals:
     ** Del: 4
       *** Del Hyp: 4
         **** Del Hyp Lemma: 4 
+  * Content: TODO
+    ** Uch: 2
+      *** Uch Arg: 4
+        **** Uch Arg Lemma: 2
+        **** Uch Arg Goal: 2
 - User 10: TODO
   * Structure: 2
     ** Add: 1
@@ -148,6 +172,9 @@ Totals:
         **** Pch Cas Fixpoint: 2
       *** Pch Arg: 3
         **** Pch Arg Fixpoint: 3
+    ** Uch: 1
+      *** Uch Cas: 1
+        **** Uch Cas Fixpoint: 1
 - User 11: TODO
   * Structure: 2
     ** Add: 2
@@ -203,7 +230,7 @@ Totals:
         **** Mov Arg Fixpoint: 5
         **** Mov Arg Theorem: 3
   * Content: TODO
-    ** Pch: 42
+    ** Pch: 43
       *** Pch Bod: 11
         **** Pch Bod Record: 2
         **** Pch Bod Definition: 7
@@ -214,10 +241,24 @@ Totals:
         **** Pch Cas Instance: 2
       *** Pch Typ: 1
         **** Pch Typ Definition: 1
-      *** Pch Arg: 19
+      *** Pch Arg: 20
         **** Pch Arg Definition: 1
         **** Pch Arg Fixpoint: 4
         **** Pch Arg Lemma: 14
+        **** Pch Arg Function: 1
+    ** Uch: 11
+      *** Uch Bod: 1
+        **** Uch Bod Definition: 1
+      *** Uch Typ: 1
+        **** Uch Typ Definition: 1
+      *** Uch Cas: 3
+        **** Uch Cas Function: 1
+        **** Uch Cas Fixpoint: 2
+      *** Uch Arg: 6
+        **** Uch Arg Definition: 1
+        **** Uch Arg Fixpoint: 1
+        **** Uch Arg Lemma: 2
+        **** Uch Arg Goal: 2
 
 # Structure
 
@@ -546,10 +587,10 @@ Totals:
   * Inductive: `sub_d`
   * New constructor: `SD_ExistR`
   * Elapsed: 67.50 seconds (includes other changes)
-4. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).1 ([diff](https://www.diffchecker.com/8RlqPoQZ))
+4. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.2](https://github.com/uwplse/analytics-data/blob/a746a4ce87b617ac8053c8c079c97ff656558690/diffs-annotated-with-times/7/user-7-session-193.v)).1 ([diff](https://www.diffchecker.com/5Dz6HAYW))
   * Inductive: `ty`
   * New constructor: `TBVar`
-  * Elapsed: Unknown
+  * Elapsed: 19559.32 seconds (several changes, new day)
 
 ### Add Arg
 
@@ -858,10 +899,10 @@ Totals:
   * Definition: `inv_depth`
   * New case: `TEV _`
   * Elapsed: 211.51 seconds (one other change)
-4. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).2 ([diff](https://www.diffchecker.com/8RlqPoQZ))
+4. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.2](https://github.com/uwplse/analytics-data/blob/a746a4ce87b617ac8053c8c079c97ff656558690/diffs-annotated-with-times/7/user-7-session-193.v)).1 ([diff](https://www.diffchecker.com/5Dz6HAYW))
   * Definition: `FV`
   * New case: `TBVar`
-  * Elapsed: Unknown
+  * Elapsed: 19559.32 seconds (several changes, new day)
 
 ## Del
 
@@ -1315,6 +1356,14 @@ Totals:
   * Definition: `smi`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
+#### Pch Arg Function
+
+##### User 7
+
+1. [7.174.28.1](https://github.com/uwplse/analytics-data/commit/ce370b123651dc97152bcc215d8a5dab76af6c12#diff-0a4ea0347794bc16c63de97ebca6ecd3)
+  * Definition: `subst`
+  * Elapsed: 6.67 seconds (a few small changes)
+
 #### Pch Arg Fixpoint
 
 ##### User 3
@@ -1401,28 +1450,6 @@ Totals:
 
 ## Uch
 
-- User 1:
-  * Content: TODO
-    ** Uch: 1
-      *** Uch Cas: 1
-        **** Uch Cas Function: 1
-- User 3:
-  * Content: TODO
-    ** Uch: 2
-      *** Uch Bod: 1
-        **** Uch Bod Definition: 1
-      *** Uch Typ: 1
-        **** Uch Typ Definition: 1
-- Total:
-  * Content: TODO
-    ** Uch: 3
-      *** Uch Bod: 1
-        **** Uch Bod Definition: 1
-      *** Uch Typ: 1
-        **** Uch Typ Definition: 1
-      *** Uch Cas: 1
-        **** Uch Cas Function: 1
-
 ### Uch Bod
 
 #### Uch Bod Definition
@@ -1456,16 +1483,12 @@ Totals:
 
 #### Uch Cas Fixpoint
 
-##### User 2
-
-TODO left off here
-
-        **** 2.5.3 (value)
-
 ##### User 7
 
-        **** 7.174.28 (subst) (TODO check)
-        **** 7.193.0-2 (FFV)
+1. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.2](https://github.com/uwplse/analytics-data/blob/a746a4ce87b617ac8053c8c079c97ff656558690/diffs-annotated-with-times/7/user-7-session-193.v)).3 ([diff](https://www.diffchecker.com/5Dz6HAYW))
+  * Inductive: `ty`
+  * Case: `TExist y t'`
+  * Elapsed: 19559.32 seconds (several changes, new day)
 
 ##### User 10
 
@@ -1480,22 +1503,41 @@ TODO left off here
 
 ##### User 2
 
-        **** 2.5.53 (oneArgCbvPrimitive)
+1. [2.5.53.1](https://github.com/uwplse/analytics-data/commit/7663638fafcc2f20e116614f45b4f820f813c66d#diff-5b7ed223e9c56c6f3192a40c4b7f7bc0)
+  * Definition: `oneArgCbvPrimitive`
+  * Elapsed: 66.97 seconds (several changes)
 
 #### Uch Arg Fixpoint
 
 ##### User 3
 
-        **** 3.960.81-125 (nat_to_le)
+1. [3.960.81-125.1](https://github.com/uwplse/analytics-data/compare/3b03567f830321b7f4aeb4475c3b4e4fc4881d37..0a8fffcaea1d7898e882f52920f8b5dfad8deefe)
+  * Fixpoint: `nat_to_le`
+  * Elapsed: 1414.97 seconds (several changes)
 
-#### Uch Arg Theorem
+#### Uch Arg Lemma
 
 ##### User 8
 
-        **** 8.65.68 (assert_init_at_id)
-        **** 8.65.68 (assert_init_at_id)
-        **** 8.79.109 (Anonymous Goal)
-        **** 8.79.109 (Anonymous Goal)
+1. [8.65.68.1](https://github.com/uwplse/analytics-data/commit/1011a6b91870a242ff5f270b29ed92ac18348ced#diff-9d7b37e41233d92b620a4d9fc256c0de)
+  * Lemma: `assert_init_at_id`
+  * Arg: `S i`
+  * Elapsed: 11.67 seconds (these two changes and some proof only)
+
+2. [8.65.68.2](https://github.com/uwplse/analytics-data/commit/1011a6b91870a242ff5f270b29ed92ac18348ced#diff-9d7b37e41233d92b620a4d9fc256c0de)
+  * Lemma: `assert_init_at_id`
+  * Arg: `S m`
+  * Elapsed: 11.67 seconds (these two changes and some proof only)
+
+#### Uch Arg Goal
+
+##### User 8
+
+1. [8.79.109.1](https://github.com/uwplse/analytics-data/commit/d1e700a6401c85ac2687aff546c4ff5c1afebbcd#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Elapsed: 3.89 seconds (these two changes only)
+
+2. [8.79.109.2](https://github.com/uwplse/analytics-data/commit/d1e700a6401c85ac2687aff546c4ff5c1afebbcd#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+  * Elapsed: 3.89 seconds (these two changes only)
 
 ## Cut
 
@@ -1540,6 +1582,12 @@ TODO check:
 
 ### Cut Fun 
 
+#### Cut Fun Function
+
+##### User 7
+
+        **** 7.174.28 (subst)
+
 #### Cut Fun Definition
 
 ##### User 1
@@ -1583,9 +1631,12 @@ TODO list once or twice? given that we also have "patch"
 
 ##### User 3
 
+1. [3.960.81-125.2](https://github.com/uwplse/analytics-data/compare/3b03567f830321b7f4aeb4475c3b4e4fc4881d37..0a8fffcaea1d7898e882f52920f8b5dfad8deefe)
+  * Fixpoint: `nat_to_le`
+  * Elaped: 1414.97 seconds (several changes)
+
         **** 3.960.125-141 (nat_to_le)
         **** 3.960.150 (nat_to_le)
-        **** 3.960.81-125 (nat_to_le)
         **** 3.960.150 (nat_to_le)
 
 #### Cut Arg Theorem
@@ -1658,6 +1709,14 @@ TODO list once or twice? given that we also have "patch"
         **** 5.19.23-26 (EpsilonLogic)
         **** 5.19.23-26 (EpsilonLogic)
         **** 5.19.23-26 (EpsilonLogic)
+
+#### Rpl Arg Function
+
+##### User 7
+
+1. [7.174.28.2](https://github.com/uwplse/analytics-data/commit/ce370b123651dc97152bcc215d8a5dab76af6c12#diff-0a4ea0347794bc16c63de97ebca6ecd3)
+  * Definition: `subst`
+  * Elapsed: 6.67 seconds (a few small changes)
 
 #### Rpl Arg Fixpint
 
@@ -1895,7 +1954,9 @@ TODO check
 
 ##### User 3
 
-        **** 3.960.81-125 (nat_to_le)
+1. [3.960.81-125.3](https://github.com/uwplse/analytics-data/compare/3b03567f830321b7f4aeb4475c3b4e4fc4881d37..0a8fffcaea1d7898e882f52920f8b5dfad8deefe)
+  * Fixpoint: `nat_to_le`
+  * Elaped: 1414.97 seconds (several changes)
 
 2. [3.960.160.2](https://github.com/uwplse/analytics-data/commit/f9e85ad6a1d4705f90b8f0c6697525971d924a87#diff-c8738f0dfa95435ed722ead9359a938b)
   * Fixpoint: `le_to_nat`
