@@ -25,6 +25,13 @@ Totals:
         **** Add Bod Fixpoint: 2
       *** Add Cas: 21
         **** Add Cas Fixpoint: 21
+  * Content: TODO
+    ** Pch: 6
+      *** Pch Bod: 1
+        **** Pch Bod Fixpoint: 1
+      *** Pch Cas: 5
+        **** Pch Cas Function: 4
+        **** Pch Cas Fixpoint: 1
 - User 2: TODO
   * Structure: 5
     ** Add: 5
@@ -32,6 +39,10 @@ Totals:
         **** Add Ctr Inductive: 1
       *** Add Cas: 4
         **** Add Cas Fixpoint: 4
+  * Content: TODO
+    ** Pch: 2
+      *** Pch Cas: 2
+        **** Pch Cas Fixpoint: 2
 - User 3: TODO
   * Structure: 18
     ** Add: 10
@@ -48,6 +59,15 @@ Totals:
       *** Mov Arg: 8
         **** Mov Arg Fixpoint: 5
         **** Mov Arg Theorem: 3
+  * Content: TODO
+    ** Pch: 16
+      *** Pch Bod: 3
+        **** Pch Bod Definition: 3
+      *** Pch Typ: 1
+        **** Pch Typ Definition: 1
+      *** Pch Arg: 12
+        **** Pch Arg Fixpoint: 1
+        **** Pch Arg Lemma: 11
 - User 5: TODO
   * Structure: 53
     ** Add: 44
@@ -72,6 +92,10 @@ Totals:
         **** Mov Hyp Theorem: 1
       *** Mov Cas: 1
         **** Mov Cas Fixpoint: 1
+  * Content: TODO
+    ** Pch: 2
+      *** Pch Bod: 2
+        **** Pch Bod Record: 2
 - User 7: TODO
   * Structure: 56
     ** Add: 26
@@ -91,6 +115,13 @@ Totals:
       *** Mov Hyp: 18
         **** Mov Hyp Theorem: 1
         **** Mov Hyp Lemma: 17
+  * Content: TODO
+    ** Pch: 7
+      *** Pch Bod: 4
+        **** Pch Bod Definition: 3
+        **** Pch Bod Fixpoint: 1
+      *** Pch Arg: 3
+        **** Pch Arg Lemma: 3
 - User 8: TODO
   * Structure: 9
     ** Add: 5
@@ -110,11 +141,25 @@ Totals:
     ** Mov: 1
       *** Mov Hyp: 1
         **** Mov Hyp Definition: 1
+  * Content: TODO
+    ** Pch: 5
+      *** Pch Cas: 2
+        **** Pch Cas Fixpoint: 2
+      *** Pch Arg: 3
+        **** Pch Arg Fixpoint: 3
 - User 11: TODO
   * Structure: 2
     ** Add: 2
       *** Add Arg: 2
         **** Add Arg Instance: 2
+  * Content: TODO
+    ** Pch: 4
+      *** Pch Bod: 1
+        **** Pch Bod Definition: 1
+      *** Pch Cas: 2
+        **** Pch Cas Instance: 2
+      *** Pch Arg: 1
+        **** Pch Arg Definition: 1
 - Total: TODO
   * Structure: 188
     ** Add: 136
@@ -156,6 +201,22 @@ Totals:
       *** Mov Arg: 8
         **** Mov Arg Fixpoint: 5
         **** Mov Arg Theorem: 3
+  * Content: TODO
+    ** Pch: 42
+      *** Pch Bod: 11
+        **** Pch Bod Record: 2
+        **** Pch Bod Definition: 7
+        **** Pch Bod Fixpoint: 2
+      *** Pch Cas: 11
+        **** Pch Cas Function: 4
+        **** Pch Cas Fixpoint: 5
+        **** Pch Cas Instance: 2
+      *** Pch Typ: 1
+        **** Pch Typ Definition: 1
+      *** Pch Arg: 19
+        **** Pch Arg Definition: 1
+        **** Pch Arg Fixpoint: 4
+        **** Pch Arg Lemma: 14
 
 # Structure
 
@@ -1097,72 +1158,6 @@ Totals:
 
 ## Pch
 
-- User 1
-  * Content
-    ** Pch
-      *** Pch Bod: 1
-        **** Pch Bod Fixpoint: 1
-      *** Pch Cas: 5
-        **** Pch Cas Function: 4
-        **** Pch Cas Fixpoint: 1
-- User 2
-  * Content
-    ** Pch
-      *** Pch Cas: 2
-        **** Pch Cas Fixpoint: 2
-- User 3
-  * Content
-    ** Pch
-      *** Pch Bod: 3
-        **** Pch Bod Definition: 3
-      *** Pch Typ: 1
-        **** Pch Typ Definition: 1
-      *** Pch Arg: 1
-        **** Pch Arg Fixpoint: 1
-- User 5
-  * Content
-    ** Pch
-      *** Pch Bod: 2
-        **** Pch Bod Record: 2
-- User 7
-  * Content
-    ** Pch
-      *** Pch Bod: 4
-        **** Pch Bod Definition: 3
-        **** Pch Bod Fixpoint: 1
-- User 10
-  * Content
-    ** Pch
-      *** Pch Cas: 2
-        **** Pch Cas Fixpoint: 2
-      *** Pch Arg: 3
-        **** Pch Arg Fixpoint: 3
-- User 11
-  * Content
-    ** Pch
-      *** Pch Bod: 1
-        **** Pch Bod Definition: 1
-      *** Pch Cas: 2
-        **** Pch Cas Instance: 2
-      *** Pch Arg: 1
-        **** Pch Arg Definition: 1
-- Totals
-  * Content
-    ** Pch
-      *** Pch Bod: 11
-        **** Pch Bod Record: 2
-        **** Pch Bod Definition: 7
-        **** Pch Bod Fixpoint: 2
-      *** Pch Cas: 9
-        **** Pch Cas Function: 4
-        **** Pch Cas Fixpoint: 3
-        **** Pch Cas Instance: 2
-      *** Pch Typ: 1
-        **** Pch Typ Definition: 1
-      *** Pch Arg: 5
-        **** Pch Arg Definition: 1
-        **** Pch Arg Fixpoint: 4
-
 ### Pch Bod
 
 #### Pch Bod Record
@@ -1341,27 +1336,67 @@ Totals:
   * Fixpoint: `fib`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
-#### Pch Arg Theorem
+#### Pch Arg Lemma
 
 ##### User 3
 
-        **** 3.73.2 (proc_rspec_refine_rec)
-        **** 3.73.8 (proc_rspec_crash_refines)
-        **** 3.73.9 (proc_rspec_crash_refines_op)
-        **** 3.73.9 (proc_rspec_crash_refines_op)
-        **** 3.73.9 (proc_rspec_crash_refines_op)
-        **** 3.73.14-16 (proc_rspec_recovery_refines_crash_step)
-        **** 3.73.14-16 (proc_rspec_recovery_refines_crash_step)
-        **** 3.73.14-16 (proc_rspec_recovery_refines_crash_step)
-        **** 3.73.14-16 (proc_rspec_recovery_refines_crash_step)
-        **** 3.73.18 (proc_hspec_init_ok)
-        **** 3.314.19 (crash_step_simp)
+1. [3.73.2.1](https://github.com/uwplse/analytics-data/commit/90e5f51eaf6217121c9ff561f4bfe51ad1e89573#diff-8be9261640776c2891fe5ae0cbb6641e)
+  * Lemma: `proc_rspec_refine_rec`
+  * Elapsed: 10.37 seconds (this and some proof steps)
+
+2. [3.73.8.1](https://github.com/uwplse/analytics-data/commit/0d9ae7a3ec26345f62b7b363089bc1451a225166#diff-8be9261640776c2891fe5ae0cbb6641e)
+  * Lemma: `proc_rspec_crash_refines`
+  * Elapsed: 4.89 seconds (this and some proof steps)
+
+3. [3.73.9.1](https://github.com/uwplse/analytics-data/commit/73649386a5a61184d086969a4073d3b6fb8fca91#diff-8be9261640776c2891fe5ae0cbb6641e)
+  * Lemma: `proc_rspec_crash_refines_op`
+  * Elapsed: 51.47 seconds (just these three changes)
+
+4. [3.73.9.2](https://github.com/uwplse/analytics-data/commit/73649386a5a61184d086969a4073d3b6fb8fca91#diff-8be9261640776c2891fe5ae0cbb6641e)
+  * Lemma: `proc_rspec_crash_refines_op`
+  * Elapsed: 51.47 seconds (just these three changes)
+
+5. [3.73.9.3](https://github.com/uwplse/analytics-data/commit/73649386a5a61184d086969a4073d3b6fb8fca91#diff-8be9261640776c2891fe5ae0cbb6641e)
+  * Lemma: `proc_rspec_crash_refines_op`
+  * Elapsed: 51.47 seconds (just these three changes)
+
+6. [3.73.14-16.1](https://github.com/uwplse/analytics-data/compare/2f182635153229e75d6cab78c3a85c9274ee9b73..2b33d3941997530e86a7a990aedc2f64143f4a00)
+  * Lemma: `proc_rspec_recovery_refines_crash_step`
+  * Elapsed: 41.94 seconds (just these four changes)
+
+7. [3.73.14-16.2](https://github.com/uwplse/analytics-data/compare/2f182635153229e75d6cab78c3a85c9274ee9b73..2b33d3941997530e86a7a990aedc2f64143f4a00)
+  * Lemma: `proc_rspec_recovery_refines_crash_step`
+  * Elapsed: 41.94 seconds (just these four changes)
+
+8. [3.73.14-16.3](https://github.com/uwplse/analytics-data/compare/2f182635153229e75d6cab78c3a85c9274ee9b73..2b33d3941997530e86a7a990aedc2f64143f4a00)
+  * Lemma: `proc_rspec_recovery_refines_crash_step`
+  * Elapsed: 41.94 seconds (just these four changes)
+
+9. [3.73.14-16.4](https://github.com/uwplse/analytics-data/compare/2f182635153229e75d6cab78c3a85c9274ee9b73..2b33d3941997530e86a7a990aedc2f64143f4a00)
+  * Lemma: `proc_rspec_recovery_refines_crash_step`
+  * Elapsed: 41.94 seconds (just these four changes)
+
+10. [3.73.18.1](https://github.com/uwplse/analytics-data/commit/e02e344197e5407154d7eef9a0139618effd6748#diff-8be9261640776c2891fe5ae0cbb6641e)
+  * Lemma: `proc_hspec_init_ok`
+  * Elapsed: 9.52 seconds (just this change)
+
+11. [3.314.19.1](https://github.com/uwplse/analytics-data/commit/cda0fefe26a88d54c455f59b0892d6daebdad71e#diff-ddd04dd9808ff5743a4a44bd066f4635)
+  * Lemma: `crash_step_simp`
+  * Elapsed: 6.57 seconds (just this change)
 
 ##### User 7
 
-        **** 7.10.25 (sub_r__mk_nf_sub_r)
-        **** 7.101.45 (not_sem_sub__eXrefX_reft)
-        **** 7.132.15 (sem_sub_k_ref)
+1. [7.10.24.1](https://github.com/uwplse/analytics-data/commit/153be0fced3740d5e2b20da7b36c2c46d2a9315b#diff-fa854604a7d7e5a3d6f324dcc6eca903)
+  * Lemma: `sub_r__mk_nf_sub_r`
+  * Elapsed: 5.80 seconds (this and other changes)
+
+2. [7.101.45.1](https://github.com/uwplse/analytics-data/commit/4f0f9bd12f974aa41a845b3e580be43627eb4791#diff-64b536c14253573f88165197c7b30b83)
+  * Lemma: `not_sem_sub__eXrefX_reft`
+  * Elapsed: 103.29 seconds (this and other changes)
+
+3. [7.132.15.1](https://github.com/uwplse/analytics-data/commit/9416228e987b05290792d532af94a47c58553670#diff-3d8c460793d6334e961d4a242fbd9cfd)
+  * Lemma: `sem_sub_k_ref`
+  * Elapsed: 6.21 seconds (just this change)
 
 ## Uch
 
@@ -1768,7 +1803,14 @@ TODO list once or twice? given that we also have "patch"
       *** 7.2.124 (sub_r_unite_pairs_l__inv -> sub_r_unite_pairs_nf_l__inv)
       *** 7.9.0 (atom_sub_r_union__sub_r_component -> atom_sub_r_union__inv)
       *** 7.10.0 (24 (weird_trans -> sub_r_nf__trans)
-      *** 7.10.24 (sub_r__mk_nf_sub_r1 -> sub_r__mk_nf_sub_r)
+
+TODO check
+
+4. [7.10.24.2](https://github.com/uwplse/analytics-data/commit/153be0fced3740d5e2b20da7b36c2c46d2a9315b#diff-fa854604a7d7e5a3d6f324dcc6eca903)
+  * Lemma: `sub_r__mk_nf_sub_r1`
+  * New name: `sub_r__mk_nf_sub_r`
+  * Elapsed: 5.80 seconds (this and other changes)
+
       *** 7.10.56 (sub_r_nf__trans -> sub_r_nf__trans2)
       *** 7.19.323 (value_sem_sub_k_union__value_sem_sub_k_component -> value_sem_sub_k_i_union__inv)
       *** 7.19.507 (match_ty_nf -> match_ty_i_nf)
