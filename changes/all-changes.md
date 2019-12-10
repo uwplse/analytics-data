@@ -13,6 +13,7 @@ TODO CUT-DEF includes cutting fix etc
 TODO update paper w/ latest numbers and notes
 TODO mark the ones that correspond to patterns?
 TODO check all before final publication
+TODO check top 3 match top 3 here before final publication
 
 Totals:
 - User 1: TODO
@@ -1400,13 +1401,47 @@ Totals:
 
 ## Uch
 
+- User 1:
+  * Content: TODO
+    ** Uch: 1
+      *** Uch Cas: 1
+        **** Uch Cas Function: 1
+- User 3:
+  * Content: TODO
+    ** Uch: 2
+      *** Uch Bod: 1
+        **** Uch Bod Definition: 1
+      *** Uch Typ: 1
+        **** Uch Typ Definition: 1
+- Total:
+  * Content: TODO
+    ** Uch: 3
+      *** Uch Bod: 1
+        **** Uch Bod Definition: 1
+      *** Uch Typ: 1
+        **** Uch Typ Definition: 1
+      *** Uch Cas: 1
+        **** Uch Cas Function: 1
+
 ### Uch Bod
 
 #### Uch Bod Definition
 
 ##### User 3
 
-        **** 3.2698.3 (nat64_from_le)
+1. [3.2698.3.1](https://github.com/uwplse/analytics-data/commit/2f5150271be7a746525ad97e06c43a2e93ccc389#diff-84aea1e3e052dd37597908c715f96661)
+  * Definition: `nat64_from_le`
+  * Elapsed: 37.52 seconds (includes other changes)
+
+### Uch Typ
+
+#### Uch Typ Definition
+
+##### User 3
+
+1. [3.2698.3.2](https://github.com/uwplse/analytics-data/commit/2f5150271be7a746525ad97e06c43a2e93ccc389#diff-84aea1e3e052dd37597908c715f96661)
+  * Definition: `nat64_from_le`
+  * Elapsed: 37.52 seconds (includes other changes)
 
 ### Uch Cas
 
@@ -1414,11 +1449,16 @@ Totals:
 
 ##### User 1
 
-      *** [1.41.114.1](https://github.com/uwplse/analytics-data/commit/f623d1c924afb791f4fd27f7ffe078d078169cba#diff-c25d7b9e6c43e8e83b60b58b9a5b880b) (size_gt)
+1. [1.41.114.1](https://github.com/uwplse/analytics-data/commit/f623d1c924afb791f4fd27f7ffe078d078169cba#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Definition: `size_gt`
+  * Case: `_`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Uch Cas Fixpoint
 
 ##### User 2
+
+TODO left off here
 
         **** 2.5.3 (value)
 
