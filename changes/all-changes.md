@@ -14,6 +14,7 @@ TODO update paper w/ latest numbers and notes
 TODO mark the ones that correspond to patterns?
 TODO check all before final publication
 TODO check top 3 match top 3 here before final publication
+TODO termination proofs (include note, update tables, maybe mention as dev. pattern or include as benchmark)
 
 Totals:
 - User 1: TODO
@@ -36,8 +37,15 @@ Totals:
     ** Uch: 1
       *** Uch Cas: 1
         **** Uch Cas Function: 1
-- User 2:
-  * Content: TODO
+    ** Cut: 4
+      *** Cut Bod: 1
+        **** Cut Bod Function: 1
+      *** Cut Cas: 1
+        **** Cut Cas Fixpoint: 1
+      *** Cut Fun: 1
+        **** Cut Fun Definition: 1
+      *** Cut Arg: 3
+        **** Cut Arg Function: 3
 - User 2: TODO
   * Structure: 5
     ** Add: 5
@@ -52,6 +60,11 @@ Totals:
     ** Uch: 1
       *** Uch Arg: 1
         **** Uch Arg Definition: 1
+    ** Cut: 1
+      *** Cut Bod: 1
+        **** Cut Bod Fixpoint: 1
+      *** Cut Arg: 1
+        **** Cut Arg Definition: 1
 - User 3: TODO
   * Structure: 18
     ** Add: 10
@@ -84,6 +97,13 @@ Totals:
         **** Uch Typ Definition: 1
       *** Uch Arg: 1
         **** Uch Arg Fixpoint: 1
+    ** Cut: 6
+      *** Cut Bod: 1
+        **** Cut Bod Fixpoint: 1
+      *** Cut Arg: 5
+        **** Cut Arg Definition: 2
+        **** Cut Arg Fixpoint: 1
+        **** Cut Arg Theorem: 2
 - User 5: TODO
   * Structure: 53
     ** Add: 44
@@ -142,6 +162,12 @@ Totals:
     ** Uch: 1
       *** Uch Cas: 1
         **** Uch Cas Fixpoint: 1
+    ** Cut: 1
+      *** Cut Bod: 1
+        **** Cut Bod Fixpoint: 1
+      *** Cut Fun: 4
+        **** Cut Fun Function: 1
+        **** Cut Fun Lemma: 3
 - User 8: TODO
   * Structure: 9
     ** Add: 5
@@ -175,6 +201,9 @@ Totals:
     ** Uch: 1
       *** Uch Cas: 1
         **** Uch Cas Fixpoint: 1
+    ** Cut: 1
+      *** Cut Bod: 1
+        **** Cut Bod Definition: 1
 - User 11: TODO
   * Structure: 2
     ** Add: 2
@@ -259,6 +288,22 @@ Totals:
         **** Uch Arg Fixpoint: 1
         **** Uch Arg Lemma: 2
         **** Uch Arg Goal: 2
+    ** Cut: 20
+      *** Cut Bod: 5
+        **** Cut Bod Definition: 1
+        **** Cut Bod Function: 1
+        **** Cut Bod Fixpoint: 3
+      *** Cut Cas: 1
+        **** Cut Cas Fixpoint: 1
+      *** Cut Fun: 5
+        **** Cut Fun Function: 1
+        **** Cut Fun Definition: 1
+        **** Cut Fun Lemma: 3
+      *** Cut Arg: 9
+        **** Cut Arg Definition: 3
+        **** Cut Arg Function: 3
+        **** Cut Arg Fixpoint: 1
+        **** Cut Arg Theorem: 2
 
 # Structure
 
@@ -1547,38 +1592,53 @@ Totals:
 
 ##### User 10
 
-        **** 10.18-25 (network_of_app)
+1. [10.10.18-25.1](https://github.com/uwplse/analytics-data/compare/48dbd63619565893f343794fdead8b23eab0704e..f00cef2d594f0746c76419d220370ce81d332e5f)
+  * Definition: `network_of_app`
+  * Cut: `map_exceptE`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
-
-#### Cut Bod Fixpoint
+#### Cut Bod Function
 
 ##### User 1
 	
-termination proofs (include note, update tables, maybe mention as dev. pattern or include as benchmark)
-- 1. [1.41.96-114.2](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
+1. [1.41.96-114.2](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
+  * Function: `eq`
+  * Cut: Termination proof
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+#### Cut Bod Fixpoint
 
 ##### User 2
 
-TODO check:
-
-1. [2.5.3-42.2](https://github.com/uwplse/analytics-data/compare/68f7ffc1ee87afc1c40a378e11eab864c1e3f2c1..3fbb440546c8b3241e5815a33e2b66344cfadd40)
-  * Fixpoint: `value`
-  * Elapsed: 2554.85 seconds (includes other changes)
-
-          ***** 2.5.42-47 (step)
+1. [2.5.43-47.1](https://github.com/uwplse/analytics-data/compare/588ee806651791b548716cbd359faa39a7d67803..4cf1438cdea6fbf03f3f4f9333f189a6adc6779b)
+  * Fixpoint: `step`
+  * Cut: `subst`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ##### User 3
 
 - 3. [3.960.19-80.2](https://github.com/uwplse/analytics-data/compare/017188f46db98812ea1072f74a15f0855cba1ba7..01de6576ae7e6c27c0f8f89c66c3ae092b4ef3db)
   * Fixpoint: `nat_to_le`
-  * New hypothesis: `base`
+  * Cut: Termination proof
   * Elapsed: 838.01 seconds (includes other changes)
 
 ##### User 7
 
 - 7.([162.16](https://github.com/uwplse/analytics-data/blob/0e28364f2663d4f3c51d7a5073fd21a70086ae11/diffs-annotated-with-times/7/user-7-session-162.v)-[174.31](https://github.com/uwplse/analytics-data/blob/206cfb585f090a4dfb75ef54ca8dfe886459d670/diffs-annotated-with-times/7/user-7-session-174.v)).1
-  * Notes: Multiple sessions, must use [external diff](https://www.diffchecker.com/Dku5ZDB3)
-  * Too complicated to classify all of it
+  * Fixpoint: `subst`
+  * Cut: `mk_subst_exist`
+  * Elapsed: 113073.66 seconds (includes other changes, new day)
+
+### Cut Cas
+
+#### Cut Cas Fixpoint
+
+##### User 1
+
+1. [2.5.3-42.2](https://github.com/uwplse/analytics-data/compare/68f7ffc1ee87afc1c40a378e11eab864c1e3f2c1..3fbb440546c8b3241e5815a33e2b66344cfadd40)
+  * Fixpoint: `value`
+  * Cut: `primitive`
+  * Elapsed: 2554.85 seconds (includes other changes)
 
 ### Cut Fun 
 
@@ -1586,21 +1646,38 @@ TODO check:
 
 ##### User 7
 
-        **** 7.174.28 (subst)
+1. [7.174.28.2](https://github.com/uwplse/analytics-data/commit/ce370b123651dc97152bcc215d8a5dab76af6c12#diff-0a4ea0347794bc16c63de97ebca6ecd3)
+  * Definition: `subst`
+  * Cut: `foo`
+  * Elapsed: 6.67 seconds (a few small changes)
 
 #### Cut Fun Definition
 
 ##### User 1
 
-        **** 1.41.130 (eq_fn)
+1. [1.41.130.1](https://github.com/uwplse/analytics-data/commit/e848aa322cbe79ee8a2eba1bf51e7550cfbcd040#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
+  * Function: `eq`
+  * Cut: `eq_fn`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Cut Fun Lemma
 
 ##### User 7
 
-        **** 7.113.30 (not_fresh_in_union__inv)
-        **** 7.113.30 (not_fresh_in_union__inv)
-        **** 7.113.30 (not_fresh_in_union__inv)
+1. [7.113.30.1](https://github.com/uwplse/analytics-data/commit/cd2bb127794a1e633f340c008b518804ffc67a92#diff-c06a32ec6a7e37eed2dbdd7547c1d472)
+  * Lemma: `not_fresh_in_union__inv`
+  * Cut: `not_fresh`
+  * Elapsed: 32.52 seconds (just these changes and a bit of a proof)
+
+2. [7.113.30.2](https://github.com/uwplse/analytics-data/commit/cd2bb127794a1e633f340c008b518804ffc67a92#diff-c06a32ec6a7e37eed2dbdd7547c1d472)
+  * Lemma: `not_fresh_in_union__inv`
+  * Cut: `not_fresh`
+  * Elapsed: 32.52 seconds (just these changes and a bit of a proof)
+
+3. [7.113.30.3](https://github.com/uwplse/analytics-data/commit/cd2bb127794a1e633f340c008b518804ffc67a92#diff-c06a32ec6a7e37eed2dbdd7547c1d472)
+  * Lemma: `not_fresh_in_union__inv`
+  * Cut: `not_fresh`
+  * Elapsed: 32.52 seconds (just these changes and a bit of a proof)
 
 ### Cut Arg
 
@@ -1608,43 +1685,64 @@ TODO check:
 
 ##### User 2
 
-       *** 2.5.53 (primitive)
+1. [2.5.53.2](https://github.com/uwplse/analytics-data/commit/7663638fafcc2f20e116614f45b4f820f813c66d#diff-5b7ed223e9c56c6f3192a40c4b7f7bc0)
+  * Definition: `Primitive`
+  * Cut: `oneArgCbvPrimitive`
+  * Elapsed: 66.97 seconds (several changes)
 
 ##### User 3
 
-TODO check
-TODO list once or twice? given that we also have "patch"
-
 1. [3.7199.65.2](https://github.com/uwplse/analytics-data/commit/702f0e8c6d1c47a7892d855b92940272ed19eaab#diff-4df25973662c6bf8b88aea4c5c36d066)
   * Definition: `log_abstraction`
-  * Elapsed: 4.63 seconds (this and one other change)
+  * Cut: `log_size_ok`
+  * Elapsed: 4.63 seconds (these and one other change)
 
 2. [3.7199.65.3](https://github.com/uwplse/analytics-data/commit/702f0e8c6d1c47a7892d855b92940272ed19eaab#diff-4df25973662c6bf8b88aea4c5c36d066)
   * Definition: `log_abstraction`
-  * Elapsed: 4.63 seconds (this and one other change)
+  * Cut: `log_contents_ok`
+  * Elapsed: 4.63 seconds (these and one other change)
 
-#### Cut Arg Fixpoint
+#### Cut Arg Function
 
 ##### User 1
 
-          ****** 1.41.96-102 (eq)
+1. [1.41.96-102.1](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f962ec51215ed327666a7600e129283572373660)
+  * Function: `eq`
+  * Cut: `size_gt`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+2. [3.960.150.1](https://github.com/uwplse/analytics-data/commit/9cb2fe62b4e5d4b65f473a91643fb345e3559d39#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Function: `nat_to_le`
+  * Cut: `let base := ...`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+3. [3.960.150.2](https://github.com/uwplse/analytics-data/commit/9cb2fe62b4e5d4b65f473a91643fb345e3559d39#diff-c8738f0dfa95435ed722ead9359a938b)
+  * Function: `nat_to_le`
+  * Cut: `let digit := ...`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+#### Cut Arg Fixpoint
 
 ##### User 3
 
 1. [3.960.81-125.2](https://github.com/uwplse/analytics-data/compare/3b03567f830321b7f4aeb4475c3b4e4fc4881d37..0a8fffcaea1d7898e882f52920f8b5dfad8deefe)
   * Fixpoint: `nat_to_le`
-  * Elaped: 1414.97 seconds (several changes)
-
-        **** 3.960.125-141 (nat_to_le)
-        **** 3.960.150 (nat_to_le)
-        **** 3.960.150 (nat_to_le)
+  * Cut: termination proof
+  * Elapsed: 1414.97 seconds (several changes)
 
 #### Cut Arg Theorem
 
 ##### User 3
 
-          ***** 3.7199.293 (log_length_ok_nil)
-          ***** 3.7199.294 (log_abstraction_nil)
+1. [3.7199.293.1](https://github.com/uwplse/analytics-data/commit/b29ea81cdac7ab73a00f7f9411de629b4df847fd#diff-4df25973662c6bf8b88aea4c5c36d066)
+  * Theorem: `log_length_ok_nil`
+  * Cut: `len_addr`
+  * Elapsed: 15.74 seconds (this and proof)
+
+2. [3.7199.294.1](https://github.com/uwplse/analytics-data/commit/de71da6e07a46be0ed987a6d32878ef725b87bff#diff-4df25973662c6bf8b88aea4c5c36d066)
+  * Theorem: `log_abstraction_nil`
+  * Cut: `len_addr`
+  * Elapsed: 6.76 seconds (this and proof)
 
 ## Uut
 
@@ -1671,6 +1769,10 @@ TODO list once or twice? given that we also have "patch"
 #### Uut Arg Fixpoint
 
 ##### User 3
+
+2. [3.960.125-141.1](https://github.com/uwplse/analytics-data/compare/0a8fffcaea1d7898e882f52920f8b5dfad8deefe..9281f7636ec69ea7c13820a2a9232d480600101a)
+  * Function: `nat_to_le`
+  * Cut: 
 
           ***** [3.960.146-149.1](https://github.com/uwplse/analytics-data/compare/c9108b4df34e2e4a5d5e72745278492eecfbc3f7..e1e131dde95ac8f50e7ed7f670835fada9d82899) (nat_to_le)
           ***** [3.960.146-149.2](https://github.com/uwplse/analytics-data/compare/c9108b4df34e2e4a5d5e72745278492eecfbc3f7..e1e131dde95ac8f50e7ed7f670835fada9d82899) (nat_to_le)
@@ -1805,7 +1907,11 @@ TODO list once or twice? given that we also have "patch"
 
 ##### User 10
 
-        **** 10.18-25 (network_of_app_ta)
+1. [10.10.18-25.2](https://github.com/uwplse/analytics-data/compare/48dbd63619565893f343794fdead8b23eab0704e..f00cef2d594f0746c76419d220370ce81d332e5f)
+  * Definition: `network_of_app_ta`
+  * Replaced: TODO
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
         **** 10.8.1 (nmi_of_smi)
         **** 10.9.1 (nmi_of_smi)
 
@@ -1844,7 +1950,10 @@ TODO list once or twice? given that we also have "patch"
 
 ##### User 10
 
-      *** 10.18-25 (network_of_app_ta)
+1. [10.10.18-25.3](https://github.com/uwplse/analytics-data/compare/48dbd63619565893f343794fdead8b23eab0704e..f00cef2d594f0746c76419d220370ce81d332e5f)
+  * Definition: `network_of_app_ta`
+  * Replaced: TODO
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 # Syntax
 
@@ -1860,10 +1969,6 @@ TODO list once or twice? given that we also have "patch"
       *** 7.193.0 (ty)
 
 #### Rnm Idn Definition
-
-##### User 2
-
-      *** 2.5.53 (primitive -> oneArgCbvPrimitive)
 
 ##### User 7
 
