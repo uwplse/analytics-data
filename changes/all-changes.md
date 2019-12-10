@@ -37,7 +37,7 @@ Totals:
     ** Uch: 1
       *** Uch Cas: 1
         **** Uch Cas Function: 1
-    ** Cut: 4
+    ** Cut: 6
       *** Cut Bod: 1
         **** Cut Bod Function: 1
       *** Cut Cas: 1
@@ -60,7 +60,7 @@ Totals:
     ** Uch: 1
       *** Uch Arg: 1
         **** Uch Arg Definition: 1
-    ** Cut: 1
+    ** Cut: 2
       *** Cut Bod: 1
         **** Cut Bod Fixpoint: 1
       *** Cut Arg: 1
@@ -162,7 +162,7 @@ Totals:
     ** Uch: 1
       *** Uch Cas: 1
         **** Uch Cas Fixpoint: 1
-    ** Cut: 1
+    ** Cut: 5
       *** Cut Bod: 1
         **** Cut Bod Fixpoint: 1
       *** Cut Fun: 4
