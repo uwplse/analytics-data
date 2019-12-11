@@ -1,4 +1,4 @@
-See the paper and README for details of and notes on the analysis.
+See the paper and [README](../README.md) for details of and notes on the analysis.
 Feel free to contact me with any questions.
 
 Totals:
@@ -448,10 +448,12 @@ Totals:
   * Record: `EpsilonLogic`
   * New hypothesis: `evalPlus`
   * Elapsed: 573.95 seconds (this change only)
+
 2. [5.19.7-8.1](https://github.com/uwplse/analytics-data/commit/08436be993b76fa3b4f9e8673acc78fbb12d79d1#diff-86d76448a54765ff094f8c80cd8be3a0)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalMinus`
   * Elapsed: 209.32 seconds (includes other changes)
+
 3. [5.19.7-8.2](https://github.com/uwplse/analytics-data/commit/08436be993b76fa3b4f9e8673acc78fbb12d79d1#diff-86d76448a54765ff094f8c80cd8be3a0)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalTimes`
@@ -460,27 +462,33 @@ Totals:
   * Record: `EpsilonLogic`
   * New hypothesis: `evalBoolConst`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
+
 5. [5.19.23-26.2](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalBoolInj`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
+
 6. [5.19.23-26.3](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalIfTrue`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
+
 7. [5.19.23-26.4](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalIfFalse`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
+
 8. [5.19.23-26.5](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalAnd`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
+
 9. [5.19.23-26.6](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalOr`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
-10. [5.19.23-26.6](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+
+10. [5.19.23-26.7](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * New hypothesis: `evalNot`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
@@ -698,50 +706,62 @@ Totals:
   * Inductive: `Term`
   * New constructor: `Int`
   * Elapsed: 124.90 seconds (includes other changes)
+
 2. [5.18.7.2](https://github.com/uwplse/analytics-data/commit/9ba76d98852bc05e691854948d1510fc911eea93#diff-173bdb1576f0b722cd01570dda7d0ef6)
   * Inductive: `Term`
   * New constructor: `Plus`
   * Elapsed: 124.90 seconds (includes other changes)
+
 3. [5.18.7.3](https://github.com/uwplse/analytics-data/commit/9ba76d98852bc05e691854948d1510fc911eea93#diff-173bdb1576f0b722cd01570dda7d0ef6)
   * Inductive: `Term`
   * New constructor: `Times`
   * Elapsed: 124.90 seconds (includes other changes)
+
 4. [5.18.7.4](https://github.com/uwplse/analytics-data/commit/9ba76d98852bc05e691854948d1510fc911eea93#diff-173bdb1576f0b722cd01570dda7d0ef6)
   * Inductive: `Term`
   * New constructor: `Minus`
   * Elapsed: 124.90 seconds (includes other changes)
+
 5. [5.19.24.1](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
   * Inductive: `Term`
   * New constructor: `Bool`
   * Elapsed: 427.10 seconds (just these changes)
+
 6. [5.19.24.2](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
   * Inductive: `Term`
   * New constructor: `And`
   * Elapsed: 427.10 seconds (just these changes)
+
 7. [5.19.24.3](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
   * Inductive: `Term`
   * New constructor: `Or`
   * Elapsed: 427.10 seconds (just these changes)
+
 8. [5.19.24.4](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
   * Inductive: `Term`
   * New constructor: `Not`
   * Elapsed: 427.10 seconds (just these changes)
+
 9. [5.19.24.5](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
   * Inductive: `Term`
   * New constructor: `Implies`
   * Elapsed: 427.10 seconds (just these changes)
+
 10. [5.19.24.6](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0)
   * Inductive: `Term`
   * New constructor: `If`
   * Elapsed: 427.10 seconds (just these changes)
+
 11. 5.([19.24](https://github.com/uwplse/analytics-data/blob/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf/diffs-annotated-with-times/5/user-5-session-19.v)-[27.1](https://github.com/uwplse/analytics-data/blob/7e75933b596616de7a54470d99369a3d6a06df46/diffs-annotated-with-times/5/user-5-session-27.v)).1 ([diff](https://www.diffchecker.com/IjqbTjc7))
   * Inductive: `Term`
   * New constructor: `Bools`
   * Elapsed: Unknown
+
 12. 5.([19.24](https://github.com/uwplse/analytics-data/blob/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf/diffs-annotated-with-times/5/user-5-session-19.v)-[27.1](https://github.com/uwplse/analytics-data/blob/7e75933b596616de7a54470d99369a3d6a06df46/diffs-annotated-with-times/5/user-5-session-27.v)).2 ([diff](https://www.diffchecker.com/IjqbTjc7))
   * Inductive: `Term`
   * New constructor: `Ints`
   * Elapsed: Unknown
+
 13. 5.([19.24](https://github.com/uwplse/analytics-data/blob/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf/diffs-annotated-with-times/5/user-5-session-19.v)-[27.1](https://github.com/uwplse/analytics-data/blob/7e75933b596616de7a54470d99369a3d6a06df46/diffs-annotated-with-times/5/user-5-session-27.v)).3 ([diff](https://www.diffchecker.com/IjqbTjc7))
   * Inductive: `Term`
   * New constructor: `In`
@@ -982,78 +1002,97 @@ Totals:
   * Definition: `simplify`
   * New case: `Int i`
   * Elapsed: 25.26 seconds (these changes only)
+
 2. [5.18.13-15.2](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6)
   * Definition: `simplify`
   * New case: `Plus a b`
   * Elapsed: 25.26 seconds (these changes only)
+
 3. [5.18.13-15.3](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6)
   * Definition: `simplify`
   * New case: `Times a b`
   * Elapsed: 25.26 seconds (these changes only)
+
 4. [5.18.13-15.4](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6)
   * Definition: `simplify`
   * New case: `Minus a b`
   * Elapsed: 25.26 seconds (these changes only)
+
 5. [5.19.26-28.1](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
   * Definition: `identity`
   * New case: `Bool b`
   * Elapsed: 51.45 seconds (these change and one theorem)
+
 6. [5.19.26-28.2](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
   * Definition: `identity`
   * New case: `Add a b`
   * Elapsed: 51.45 seconds (these change and one theorem)
+
 7. [5.19.26-28.3](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
   * Definition: `identity`
   * New case: `Or a b`
   * Elapsed: 51.45 seconds (these change and one theorem)
+
 8. [5.19.26-28.4](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
   * Definition: `identity`
   * New case: `Not a`
   * Elapsed: 51.45 seconds (these change and one theorem)
+
 9. [5.19.26-28.5](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc)
   * Definition: `identity`
   * New case: `If a b c`
   * Elapsed: 51.45 seconds (these change and one theorem)
+
 10. [5.19.9-36.1](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
   * Definition: `free_vars`
   * New case: `Bool _`
   * Elapsed: 28613.27 seconds (many changes, new day)
+
 11. [5.19.9-36.2](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
   * Definition: `free_vars`
   * New case: `And a b`
   * Elapsed: 28613.27 seconds (many changes, new day)
+
 12. [5.19.9-36.3](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
   * Definition: `free_vars`
   * New case: `Or a b`
   * Elapsed: 28613.27 seconds (many changes, new day)
+
 13. [5.19.9-36.4](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
   * Definition: `free_vars`
   * New case: `Not a`
   * Elapsed: 28613.27 seconds (many changes, new day)
+
 14. [5.19.9-36.5](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d)
   * Definition: `free_vars`
   * New case: `If a b c`
   * Elapsed: 28613.27 seconds (many changes, new day)
+
 15. [5.33.0-3.1](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb)
   * Definition: `identity`
   * New case: `Bools`
   * Elapsed: 40.33 seconds (these changes only)
+
 16. [5.33.0-3.2](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb)
   * Definition: `identity`
   * New case: `Ints`
   * Elapsed: 40.33 seconds (these changes only)
+
 17. [5.33.0-3.3](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb)
-  * Definition: `identity
+  * Definition: `identity`
   * New case: `In a b`
   * Elapsed: 40.33 seconds (these changes only)
+
 18. [5.35.0-3.1](https://github.com/uwplse/analytics-data/compare/6cdd9e85eefb602ec4c576ced438d416788e4fc8..111a4ec95023e0004b7fbd1ff9b8a02aabcbfa44)
   * Definition: `free_vars`
   * New case: `Bools`
   * Elapsed: 201.33 seconds (these changes only)
+
 19. [5.35.0-3.2](https://github.com/uwplse/analytics-data/compare/6cdd9e85eefb602ec4c576ced438d416788e4fc8..111a4ec95023e0004b7fbd1ff9b8a02aabcbfa44)
   * Definition: `free_vars`
   * New case: `Ints`
   * Elapsed: 201.33 seconds (these changes only)
+
 20. [5.35.0-3.3](https://github.com/uwplse/analytics-data/compare/6cdd9e85eefb602ec4c576ced438d416788e4fc8..111a4ec95023e0004b7fbd1ff9b8a02aabcbfa44)
   * Definition: `free_vars`
   * New case: `In a b`
@@ -1097,15 +1136,17 @@ Totals:
 
 ##### User 5
 
-1. [5.19.23-26.7](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+1. [5.19.23-26.8](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Removed hypothesis: `vTrue`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
-2. [5.19.23-26.8](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+
+2. [5.19.23-26.9](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Removed hypothesis: `vFalse`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
-3. [5.19.23-26.9](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+
+3. [5.19.23-26.10](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Removed hypothesis: `trueAndFalseDistinct`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
@@ -1394,6 +1435,7 @@ Totals:
 1. [5.18.28.1](https://github.com/uwplse/analytics-data/commit/428960451de13bf138d880371b268f9243bd0775#diff-173bdb1576f0b722cd01570dda7d0ef6)
   * Record: `EpsilonLogic` (`evalEqTrue`)
   * Elapsed: 19.70 seconds (these changes and proof changes)
+
 2. [5.18.28.2](https://github.com/uwplse/analytics-data/commit/428960451de13bf138d880371b268f9243bd0775#diff-173bdb1576f0b722cd01570dda7d0ef6)
   * Record: `EpsilonLogic` (`evalEqFalse`)
   * Elapsed: 19.70 seconds (these changes and proof changes)
@@ -1961,32 +2003,32 @@ Totals:
   * Argument: LHS of `... = vTrue`
   * Elapsed: 115.40 seconds (this change only)
 
-2. [5.19.23-26.10](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+2. [5.19.23-26.11](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Argument: `vTrue` in `evalEqTrue`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
 
-3. [5.19.23-26.11](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+3. [5.19.23-26.12](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Argument: `vFalse` in `evalEqFalse`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
 
-4. [5.19.23-26.12](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+4. [5.19.23-26.13](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Argument: `vTrue` in `evalChoose` LHS
   * Elapsed: 51610.77 seconds (includes other changes, new day)
 
-5. [5.19.23-26.13](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+5. [5.19.23-26.14](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Argument: `vTrue` in `evalChoose` RHS
   * Elapsed: 51610.77 seconds (includes other changes, new day)
 
-6. [5.19.23-26.14](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+6. [5.19.23-26.15](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Argument: `vTrue` in `evalChooseDet` LHS
   * Elapsed: 51610.77 seconds (includes other changes, new day)
 
-7. [5.19.23-26.15](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
+7. [5.19.23-26.16](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
   * Record: `EpsilonLogic`
   * Argument: `vTrue` in `evalChooseDet` RHS
   * Elapsed: 51610.77 seconds (includes other changes, new day)
