@@ -77,7 +77,7 @@ in [5.19.25.1](https://github.com/uwplse/analytics-data/commit/0e679efd22f7ae644
 5. To wrap up the change to `Term`, the user fixes a mistake in `Not` in
 [5.19.26.1](https://github.com/uwplse/analytics-data/commit/a282a80381cd7c89faea21c63af3887fb2a86537). This is most likely due to
 the attempt at extending `EpsilonLogic` in
-[5.19.23-26.1-16](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537),
+[5.19.23-26.1-16](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
 with fields corresponding to each of the new constructors, and modifying
 existing fields to use those constructors as well. This attempt
 must have failed the first time around. These changes succeed on a new day.
