@@ -88,7 +88,7 @@ constructors in `Term`.
 
 7. In [5.19.29.1-2](https://github.com/uwplse/analytics-data/commit/88831cd564e0fa8685cf0d37a2941d105220dfd5#diff-86d76448a54765ff094f8c80cd8be3a0),
 the user changes `vTrue` and `vFalse` (once fields of `EpsilonLogic`, now removed)
-in `eval_eq_true_or_false` with applications of the new constructor `Bool`
+in `eval_eq_true_or_false` with applications of the `eval` to applications of the new constructor `Bool`
 of `Term` to `true` and `false`, respectively. This is similar to the change
 in `EpsilonLogic` after removing those fields.
 
