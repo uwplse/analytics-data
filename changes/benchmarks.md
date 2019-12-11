@@ -71,7 +71,7 @@ then with `evalMinus` and `evalTimes` in
 This happens over several commits. First, in
 [5.19.24.1-7](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0),
 the user extends `Term` with constructors `Bool`, `And`, `Or`, `Not`, `Implies`,
-and `If`. The user also moves the `Int` constructor down below `Int`.
+and `If`. The user also moves the `Int` constructor down below `If`.
 
 4. The user then removes the constructor `Implies` from `Term`
 in [5.19.25.1](https://github.com/uwplse/analytics-data/commit/0e679efd22f7ae6447c8fc5641090a5427240602#diff-86d76448a54765ff094f8c80cd8be3a0).
