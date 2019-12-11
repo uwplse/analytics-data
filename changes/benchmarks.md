@@ -106,7 +106,7 @@ new constructors `Bools`, `Ints`, and `In`, as we see in 5.([19.24](https://gith
 1. A few days later, in [5.33.0-3.1-3](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb),
 the user extends `identity` with new cases for the new constructors in `Term`.
 This takes less than a minute but the user does omit the `In` case the first
-time around. The proof of `eval
+time around.
 
 ### 5.35 (start time: 2019-09-01 09:19:56.08, relevant changes: 3)
 
