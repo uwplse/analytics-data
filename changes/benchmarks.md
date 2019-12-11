@@ -28,7 +28,9 @@ manual steps the users took in the development of later definitions, theorems, a
 in response to the earlier changes that the users made to inductive types.
 
 Note that records in Coq are inductive types with a single constructor, the hypotheses
-for which are the fields of the record.
+for which are the fields of the record. (Records are additionally equipped with automatically 
+generated named projection functions for those fields, which simply eliminate over the record's only
+constructor and return the appropriate hypothesis.)
 
 ## Benchmark 1
 
