@@ -27,8 +27,8 @@ Success for these benchmarks means partial or complete automation of the
 manual steps the users took in the development of later definitions, theorems, and proofs,
 in response to the earlier changes that the users made to inductive types.
 
-Note that records in Coq are inductive types with a single constructor, the fields
-for which are hypotheses of that constructor.
+Note that records in Coq are inductive types with a single constructor, the hypotheses
+for which are the fields of the record.
 
 ## Benchmark 1
 
