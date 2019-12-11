@@ -1,8 +1,8 @@
-Here are the benchmarks from the paper. See [all-changes.md](./all-changes.md) for
+Here are the benchmarks from the paper for Q2. See [all-changes.md](./all-changes.md) for
 the breakdown and classification of the changes that revealed the patterns for these
 benchmarks. Please check the [README](../README.md) for notes about this data.
 
-Also note that the changes we detected were changes in terms, not in proof
+Also note that the changes we detected in the Q2 analysis were changes in terms, not in proof
 scripts. So I do not list changes in proofs explicitly in here.
 I do sometimes discuss them when they are interesting.
 Certain kinds of automation (say, proof repair tools) should of course
