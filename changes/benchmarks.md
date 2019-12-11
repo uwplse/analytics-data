@@ -17,7 +17,7 @@ editing multiple files at the same time. I will most likely get to this after
 the talk due to time constraints, but feel free to submit a pull request if you
 modify the analysis and do this in your own branch first. (You will need to
 make sure you always get the correct timestamps from the raw data, which is not true
-yet for some users; see the [README](../README.md) for more information).
+yet for some users; see the [README](../README.md) for more information.)
 
 Times are in Pacific.
 
