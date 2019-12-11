@@ -82,7 +82,8 @@ the attempt at extending `EpsilonLogic` in
 [5.19.23-26.1-16](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
 with fields corresponding to each of the new constructors, and modifying
 existing fields to use those constructors as well. This attempt
-must have failed the first time around. These changes succeed on a new day.
+must have failed the first time around when `Not` expected two arguments.
+These changes succeed on a new day.
 
 6. The user next makes the changes to `identity` seen in Figure 6 on the right. In [5.19.26-28.1-6](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc),
 the user extends `identity` with cases corresponding to each of the new
