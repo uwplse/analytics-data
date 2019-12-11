@@ -49,8 +49,8 @@ the inductive type `Term` in [5.18.7.1-4](https://github.com/uwplse/analytics-da
 
 2. The user adds cases corresponding to each of `Int`, `Plus`, `Times`, and `Minus`
 to the definition `simplify` in [5.18.13-15.1-4](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6).
-The user started with only `Int`, which must have failed, then added the others in
-the next attempt. All of this took less than a minute.
+The user starts with only `Int`, which must fail, then adds the others in
+the next attempt. All of this takes less than a minute.
 
 3. In [5.18.28.1-2](https://github.com/uwplse/analytics-data/commit/428960451de13bf138d880371b268f9243bd0775#diff-173bdb1576f0b722cd01570dda7d0ef6),
 the user modifies two fields of the record `EpsilonLogic`: `evalEqTrue` and `evalEqFalse`.
