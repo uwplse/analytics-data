@@ -11,6 +11,14 @@ When using these benchmarks to drive tool development, we recommend
 looking at the entire session for information relevant to measuring
 the success of your particular tool.
 
+The best way to present these will be to eventually have the analysis commit
+each change using `--date` to mark the timestamp, so it is easy to see the user
+editing multiple files at the same time. I will most likely get to this after
+the talk due to time constraints, but feel free to submit a pull request if you
+modify the analysis and do this in your own repository first. (You will need to
+make sure you always get the correct timestamps from the raw data, which is not true
+yet for some users; see the [README](../README.md) for more information.
+
 Times are in Pacific.
 
 # Incremental Development of Inductive Types
@@ -33,14 +41,6 @@ User [5](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-wi
 Note that all changes for User 5 show up as successes in the processed data due to the
 user's use of a Custom UI that does not distinguish between these. Intermediate
 timestamps for User 5 are correct.
-
-The best way to present these will be to eventually have the analysis commit
-each change using `--date` to mark the timestamp, so it is easy to see the user
-editing multiple files at the same time. I will most likely get to this after
-the talk due to time constraints, but feel free to submit a pull request if you
-modify the analysis and do this in your own repository first. (You will need to
-make sure you always get the correct timestamps from the raw data, which is not true
-yet for some users; see the [README](../README.md) for more information.
 
 ### 5.18 (start time: 2019-08-12 09:26:35.67, relevant changes: 10)
 
