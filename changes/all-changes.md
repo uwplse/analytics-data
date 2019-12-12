@@ -2,17 +2,17 @@ See the paper and [README](../README.md) for details of and notes on the analysi
 Feel free to contact me with any questions.
 
 Totals:
-- User 1: 64
-  * Structure: 43
-      * Add: 43
-          * Add Ctr: 17
-              * Add Ctr Inductive: 17
+- User 1: 69
+  * Structure: 50
+      * Add: 50
+          * Add Ctr: 23
+              * Add Ctr Inductive: 23
           * Add Bod: 5
               * Add Bod Inductive: 3
               * Add Bod Fixpoint: 2
-          * Add Cas: 21
-              * Add Cas Fixpoint: 21
-  * Content: 15
+          * Add Cas: 22
+              * Add Cas Fixpoint: 22
+  * Content: 13
       * Pch: 6
           * Pch Bod: 1
               * Pch Bod Fixpoint: 1
@@ -22,15 +22,15 @@ Totals:
       * Uch: 1
           * Uch Cas: 1
               * Uch Cas Function: 1
-      * Cut: 6
+      * Cut: 4
           * Cut Bod: 1
               * Cut Bod Function: 1
           * Cut Cas: 1
               * Cut Cas Fixpoint: 1
           * Cut Fun: 1
               * Cut Fun Definition: 1
-          * Cut Arg: 3
-              * Cut Arg Function: 3
+          * Cut Arg: 1
+              * Cut Arg Function: 1
       * Rpl: 2
           * Rpl Hyp: 1
               * Rpl Hyp Inductive: 1
@@ -59,7 +59,7 @@ Totals:
               * Cut Bod Fixpoint: 1
           * Cut Arg: 1
               * Cut Arg Definition: 1
-- User 3: 52
+- User 3: 54
   * Structure: 18
       * Add: 10
           * Add Hyp: 1
@@ -75,7 +75,7 @@ Totals:
           * Mov Arg: 8
               * Mov Arg Fixpoint: 5
               * Mov Arg Theorem: 3
-  * Content: 29
+  * Content: 31
       * Pch: 16
           * Pch Bod: 3
               * Pch Bod Definition: 3
@@ -91,13 +91,14 @@ Totals:
               * Uch Typ Definition: 1
           * Uch Arg: 1
               * Uch Arg Fixpoint: 1
-      * Cut: 6
+      * Cut: 8
           * Cut Bod: 1
               * Cut Bod Fixpoint: 1
-          * Cut Arg: 5
+          * Cut Arg: 7
               * Cut Arg Definition: 2
               * Cut Arg Fixpoint: 1
               * Cut Arg Theorem: 2
+              * Cut Arg Function: 2
       * Rpl: 4
           * Rpl Arg: 3
               * Rpl Arg Fixpoint: 2
@@ -299,17 +300,17 @@ Totals:
       * Rnm: 1
           * Rnm Bnd: 1
               * Rnm Bnd Fixpoint: 1
-- Total: 415
-  * Structure: 190
-      * Add: 137
+- Total: 422
+  * Structure: 197
+      * Add: 144
           * Add Hyp: 34
               * Add Hyp Record: 11
               * Add Hyp Fixpoint: 2
               * Add Hyp Theorem: 1
               * Add Hyp Lemma: 19
               * Add Hyp Fact: 1
-          * Add Ctr: 36
-              * Add Ctr Inductive: 36
+          * Add Ctr: 42
+              * Add Ctr Inductive: 42
           * Add Arg: 4
               * Add Arg Instance: 2
               * Add Arg Lemma: 2
@@ -317,9 +318,9 @@ Totals:
               * Add Bod Inductive: 3
               * Add Bod Definition: 6
               * Add Bod Fixpoint: 3
-          * Add Cas: 51
+          * Add Cas: 52
               * Add Cas Definition: 2
-              * Add Cas Fixpoint: 49
+              * Add Cas Fixpoint: 50
       * Del: 21
           * Del Ctr: 1
               * Del Ctr Inductive: 1
@@ -628,71 +629,117 @@ Totals:
 
 1. [1.37.4.1](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `ST`
-  * New constructor: `SBool` (constructor)
+  * New constructor: `SBool`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 2. [1.37.4.2](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `ST`
   * New constructor: `SFun`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 3. [1.37.4-12.1](https://github.com/uwplse/analytics-data/compare/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8..c2f34747fb2c2b5d196a3d1ed4383c36bbcd1eca)
   * Inductive: `ST`
   * New constructor: `SRec`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 4. [1.37.26.1](https://github.com/uwplse/analytics-data/commit/fae52f1fd4f7d69aeffb60135e8fd8f36f1b4972#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `GT`
   * New constructor: `GRow`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 5. [1.37.31.1](https://github.com/uwplse/analytics-data/commit/4b069ba7dffe536eec00715edd850154ae2da798#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `GT`
   * New constructor: `GFun`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 6. [1.37.52-56.1](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..4e1231197af1fa075bbc499f312d6b0dce9d8a36)
   * Inductive: `Alpha`
   * New constructor: `alpha_bool`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 7. [1.37.52-56.2](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..4e1231197af1fa075bbc499f312d6b0dce9d8a36)
   * Inductive: `Alpha`
   * New constructor: `alpha_fun`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 8. [1.41.0-3.1](https://github.com/uwplse/analytics-data/compare/b19de98b8490a6213fd1321992270e2305130b5a..e5ce3d9f7c8cac489600cba7007991072480173e)
   * Inductive: `Alpha`
   * New constructor: `alpha_rec_mt`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 9. [1.41.3-8.1](https://github.com/uwplse/analytics-data/compare/e5ce3d9f7c8cac489600cba7007991072480173e..eb54d11ffdc3f7bef168fe1101d196b47147baf8)
   * Inductive: `Alpha`
   * New constructor: `alpha_rec_cons_req`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 10. [1.41.3-8.2](https://github.com/uwplse/analytics-data/compare/e5ce3d9f7c8cac489600cba7007991072480173e..eb54d11ffdc3f7bef168fe1101d196b47147baf8)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_mt`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 11. [1.41.8-10.1](https://github.com/uwplse/analytics-data/compare/eb54d11ffdc3f7bef168fe1101d196b47147baf8..9189529eea42091860aae41c468781a5ed8f74d2)
   * Inductive: `Alpha`
   * New constructor: `alpha_rec_cons_none`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 12. [1.41.10-12.1](https://github.com/uwplse/analytics-data/compare/9189529eea42091860aae41c468781a5ed8f74d2..2a5978c5934f503128572a2ca9f33822b3a4874e)
   * Inductive: `Alpha`
   * New constructor: `alpha_rec_cons_opt`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 13. [1.41.12-19.1](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_cons_none`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 14. [1.41.12-19.2](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_cons_req`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 15. [1.41.12-19.3](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_cons_opt`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 16. [1.41.12-19.4](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127)
   * Inductive: `Alpha`
   * New constructor: `alpha_row_cons_row_skip_hd`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 17. [1.41.20.1](https://github.com/uwplse/analytics-data/commit/056ed0a757d8f369864a1ebc5a70b158cbe615cc#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
   * Inductive: `Alpha`
   * New constructor: `alpha_gdyn`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+18. [1.37.3.2](https://github.com/uwplse/analytics-data/commit/2b01e33c93ebd83ed086214ecbc1cff8a8356467#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `ST`
+  * New constructor: `SInt`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+19. [1.37.25.2](https://github.com/uwplse/analytics-data/commit/d489f81ca6435e054f557ea840d8ed8d697a3ad7#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `GT`
+  * New constructor: `GDyn`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+20. [1.37.25.3](https://github.com/uwplse/analytics-data/commit/d489f81ca6435e054f557ea840d8ed8d697a3ad7#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `GT`
+  * New constructor: `GInt`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+21. [1.37.25.4](https://github.com/uwplse/analytics-data/commit/d489f81ca6435e054f557ea840d8ed8d697a3ad7#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `GT`
+  * New constructor: `GBool`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+22. [1.37.25.5](https://github.com/uwplse/analytics-data/commit/d489f81ca6435e054f557ea840d8ed8d697a3ad7#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive: `GT`
+  * New constructor: `GRec`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+23. [1.37.52.3](https://github.com/uwplse/analytics-data/commit/816d42cdfc703417b4c56cd5e9f0746cb9299ccf#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Inductive `Alpha`
+  * New constructor: `alpha_int`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ##### User 2
@@ -832,9 +879,11 @@ Totals:
 1. [1.37.3.1](https://github.com/uwplse/analytics-data/commit/2b01e33c93ebd83ed086214ecbc1cff8a8356467#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `ST`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 2. [1.37.25.1](https://github.com/uwplse/analytics-data/commit/d489f81ca6435e054f557ea840d8ed8d697a3ad7#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive: `GT`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 3. [1.37.52.1](https://github.com/uwplse/analytics-data/commit/816d42cdfc703417b4c56cd5e9f0746cb9299ccf#diff-16df098de71249ca8d704f5f6b2583e5)
   * Inductive `Alpha`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
@@ -869,6 +918,7 @@ Totals:
 1. [1.37.26.2](https://github.com/uwplse/analytics-data/commit/fae52f1fd4f7d69aeffb60135e8fd8f36f1b4972#diff-16df098de71249ca8d704f5f6b2583e5)
   * Fixpoint: `Gamma`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 2. [1.41.96-114.1](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)
   * Fixpoint: `eq` (becomes a `Function`)
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
@@ -905,85 +955,110 @@ Totals:
   * Definition: `Gamma`
   * New case: `GInt`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 2. [1.37.28.1](https://github.com/uwplse/analytics-data/commit/4f603266268acc346008b0182f7e2505161cf36d#diff-16df098de71249ca8d704f5f6b2583e5)
   * Definition: `Gamma`
   * New case: `GBool`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 3. [1.37.28-30.1](https://github.com/uwplse/analytics-data/compare/4f603266268acc346008b0182f7e2505161cf36d..603a60104152fc8c4992f5584953ca802f02a929)
   * Definition: `Gamma`
   * New case: `GFun G_1 G_2`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 4. [1.37.30-44.1](https://github.com/uwplse/analytics-data/compare/603a60104152fc8c4992f5584953ca802f02a929..98da87a629b43b113c59384cb11f677d9f98d4a3)
   * Definition: `Gamma`
   * New case: `GRec`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 5. [1.37.52-55.1](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..de8a2de8bee7beede982c4dc078f3e1f2108a0e5)
   * Definition: `Gamma`
   * New case: `GRow l`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 6. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
   * Definition: `eq`
   * New case: `GInt, GInt`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
-7. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+
+7. [1.41.94-96.2](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
   * Definition: `eq`
   * New case: `GBool, GBool`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
-8. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+
+8. [1.41.94-96.3](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
   * Definition: `eq`
   * New case: `GFun G_11 G_12, GFun G_21 G22`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
-9. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+
+9. [1.41.94-96.4](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
   * Definition: `eq`
   * New case: `GRec (Some hd1 :: tl1), GRec (Some hd2 :: tl2)`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
-10. [1.41.94-96.1](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
+
+10. [1.41.94-96.5](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4)
   * Definition: `eq`
   * New case: `_, _`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 11. [1.41.100.1](https://github.com/uwplse/analytics-data/commit/dd22f9a7e6f9e77c86510e909004893788cdc0f8#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
   * Definition: `size_gt`
   * New case: `GRow l`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 12. [1.41.114-129.1](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRec (None :: tl1), GRec (None :: tl2))`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 13. [1.41.114-129.2](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRec (None :: tl1), GRec [])`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 14. [1.41.114-129.3](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRec [], GRec (None :: tl1)) => eq (GRec [], GRec tl1)`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 15. [1.41.114-129.4](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRow [], GRow []) `
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 16. [1.41.114-129.5](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRow (Some (Some hd1) :: tl1), GRow (Some (Some hd2) :: tl2))`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 17. [1.41.114-129.6](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRow (None :: tl1), GRow (None :: tl2))`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 18. [1.41.114-129.7](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRow (Some None :: tl1), GRow (Some None :: tl2))`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 19. [1.41.114-129.8](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRow (None :: tl1), GRow [])`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 20. [1.41.114-129.9](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
   * Definition: `eq`
   * New case: `(GRow [], GRow (None :: tl1))`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
 21. [1.41.141.1](https://github.com/uwplse/analytics-data/commit/de97aaa23825c81adb909116786e47fcca390057#diff-c25d7b9e6c43e8e83b60b58b9a5b880b)
   * Definition: `eq_fn`
   * New case: `(GDyn, GDyn)`
+  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
+
+22. [1.37.27.2](https://github.com/uwplse/analytics-data/commit/469db2a6262f5bbda406616d5678d47abf52903b#diff-16df098de71249ca8d704f5f6b2583e5)
+  * Definition: `Gamma`
+  * New case: `GDyn`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 ##### User 2
@@ -1917,15 +1992,15 @@ Totals:
   * Cut: `size_gt`
   * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
-2. [3.960.150.1](https://github.com/uwplse/analytics-data/commit/9cb2fe62b4e5d4b65f473a91643fb345e3559d39#diff-c8738f0dfa95435ed722ead9359a938b)
+#### User 3
+
+1. [3.960.150.1](https://github.com/uwplse/analytics-data/commit/9cb2fe62b4e5d4b65f473a91643fb345e3559d39#diff-c8738f0dfa95435ed722ead9359a938b)
   * Function: `nat_to_le`
   * Cut: `let base := ...`
-  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
-3. [3.960.150.2](https://github.com/uwplse/analytics-data/commit/9cb2fe62b4e5d4b65f473a91643fb345e3559d39#diff-c8738f0dfa95435ed722ead9359a938b)
+2. [3.960.150.2](https://github.com/uwplse/analytics-data/commit/9cb2fe62b4e5d4b65f473a91643fb345e3559d39#diff-c8738f0dfa95435ed722ead9359a938b)
   * Function: `nat_to_le`
   * Cut: `let digit := ...`
-  * Elapsed: Unknown (corrupt timestamp data in analysis for user)
 
 #### Cut Arg Fixpoint
 

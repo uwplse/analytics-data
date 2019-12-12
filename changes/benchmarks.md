@@ -123,6 +123,95 @@ the user makes the analogous changes to `free_vars`.
 
 ## Benchmark 2
 
-TODO WIP
+User [1](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/1), Sessions [37](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/1/user-1-session-37.v) and [41](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/1/user-1-session-41.v).
+
+* Start time: 2019-09-04 22:23:40.27
+* Finish time: 2019-09-06 16:17:16.94
+* Relevant changes: 61
+
+Intermediate timestamps for User 1 are not yet correct in the processed data
+you see in the linked commits. The start and end timestamps of every session
+are taken from the raw data and are accurate.
+
+### 1.37 (start time: 2019-09-04 22:23:40.27, relevant changes: 26)
+
+1. In [1.37.3.1-2](https://github.com/uwplse/analytics-data/commit/2b01e33c93ebd83ed086214ecbc1cff8a8356467#diff-16df098de71249ca8d704f5f6b2583e5),
+the user starts by adding a body to the parameter `ST`, defining
+it as an inductive type with a single new constructor `SInt`.
+
+2. Next, in [1.37.4.1-2](https://github.com/uwplse/analytics-data/commit/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8#diff-16df098de71249ca8d704f5f6b2583e5),
+the user adds constructors `SBool` and `SFun` to `ST`.
+The user then adds `SRec` to `ST` in [1.37.4-12.1](https://github.com/uwplse/analytics-data/compare/ae812a8bb8bc351d2a4ce08dc6ba319f42b1f4b8..c2f34747fb2c2b5d196a3d1ed4383c36bbcd1eca).
+
+3. The user changes `SRec` in [1.37.13.1](https://github.com/uwplse/analytics-data/commit/24fc093a48c5e3ca504f8de6c8783ca13bf4e657#diff-16df098de71249ca8d704f5f6b2583e5).
+
+4. In [1.37.25.1-5](https://github.com/uwplse/analytics-data/commit/d489f81ca6435e054f557ea840d8ed8d697a3ad7#diff-16df098de71249ca8d704f5f6b2583e5),
+the user fills in the parameter `GT` as a new inductive type with
+constructors `GDyn`, `GInt`, `GBool`, and `GRec`.
+
+5. The user then adds `GRow` to `GT` in [1.37.26.1-2](https://github.com/uwplse/analytics-data/commit/fae52f1fd4f7d69aeffb60135e8fd8f36f1b4972#diff-16df098de71249ca8d704f5f6b2583e5).
+The user also fills in the empty `Gamma` as a fixpoint a case for `GDyn`
+and a catch-all.
+
+6. The user extends `Gamma` with case `GInt` in [1.37.27.1](https://github.com/uwplse/analytics-data/commit/469db2a6262f5bbda406616d5678d47abf52903b#diff-16df098de71249ca8d704f5f6b2583e5),
+then adds `GFun` to `GT` and cases `GBool` and `GFun G_1 G_2` to `Gamma` in [1.37.28-31.1-3](https://github.com/uwplse/analytics-data/compare/4f603266268acc346008b0182f7e2505161cf36d..4b069ba7dffe536eec00715edd850154ae2da798).
+
+7. In [1.37.31-44.1](https://github.com/uwplse/analytics-data/compare/4b069ba7dffe536eec00715edd850154ae2da798..98da87a629b43b113c59384cb11f677d9f98d4a3),
+the user extends `Gamma` with a case `GRec` after several failed attempts.
+
+8. The user then extends `Gamma` further with a case `(R, G)` in [1.37.44-46.1](https://github.com/uwplse/analytics-data/compare/98da87a629b43b113c59384cb11f677d9f98d4a3..6e1b9b31e980d59180965545db1f99204e4b55be)
+and a case `(O, G)` in [1.37.47.1](https://github.com/uwplse/analytics-data/commit/932711dd88c8a8f754f68991bedb7b404db20966#diff-16df098de71249ca8d704f5f6b2583e5).
+
+9. The user changes the `GRec` case of `Gamma` in [1.37.50-52.1-3](https://github.com/uwplse/analytics-data/compare/45cee1be2f8e356d2404fb5dcf86555a8a94015c..816d42cdfc703417b4c56cd5e9f0746cb9299ccf),
+filling in a placeholder function. There, the user also turns parameter
+`Alpha` into an inductive type with a single new constructor `alpha_int`.
+
+10. The user fills in the placeholder case in [1.37.52-55.1](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..de8a2de8bee7beede982c4dc078f3e1f2108a0e5),
+with the new case `GRow l`, which is similar to `GRec`.
+
+11. The changes in [1.37.52-56.1-2](https://github.com/uwplse/analytics-data/compare/816d42cdfc703417b4c56cd5e9f0746cb9299ccf..4e1231197af1fa075bbc499f312d6b0dce9d8a36)
+also show the user adding constructors `alpha_bool` and `alpha_fun`
+to `Alpha`. This concludes the session.
+
+### 1.41 (start time: 2019-09-04 23:41:50.63, relevant changes: 35)
+
+1. The next session begins the same day, soon after.
+In [1.41.0-3.1](https://github.com/uwplse/analytics-data/compare/b19de98b8490a6213fd1321992270e2305130b5a..e5ce3d9f7c8cac489600cba7007991072480173e),
+the user adds `alpha_rec_mt` to `Alpha`. This takes a few tries.
+
+2. The user keeps extending `Alpha`. The user adds `alpha_rec_cons_req` and `alpha_row_mt` in [1.41.3-8.1-2](https://github.com/uwplse/analytics-data/compare/e5ce3d9f7c8cac489600cba7007991072480173e..eb54d11ffdc3f7bef168fe1101d196b47147baf8).
+Then, in [1.41.8-10.1](https://github.com/uwplse/analytics-data/compare/eb54d11ffdc3f7bef168fe1101d196b47147baf8..9189529eea42091860aae41c468781a5ed8f74d2),
+the user adds `alpha_rec_cons_none`, and in [1.41.10-12.1](https://github.com/uwplse/analytics-data/compare/9189529eea42091860aae41c468781a5ed8f74d2..2a5978c5934f503128572a2ca9f33822b3a4874e),
+the user adds `alpha_rec_cons_opt`. Each of these takes a few tries.
+
+3. In [1.41.12-19.1-4](https://github.com/uwplse/analytics-data/compare/2a5978c5934f503128572a2ca9f33822b3a4874e..680118ae10639c2703e80701133630aaadbe0127),
+the user adds `alpha_row_cons_none`, `alpha_row_cons_req`,
+`alpha_row_cons_opt`, and `alpha_row_cons_row_skip_hd` to `Alpha`.
+The user adds `alpha_gdyn` in [1.41.20.1](https://github.com/uwplse/analytics-data/commit/056ed0a757d8f369864a1ebc5a70b158cbe615cc#diff-c25d7b9e6c43e8e83b60b58b9a5b880b).
+
+4. In [1.41.94-96.1-5](https://github.com/uwplse/analytics-data/compare/0badc15f9d971f11bad5cdd81db8773a7810198c..5ab8e74f7562d7516417cb982c5b861e132b28a4),
+the user adds five cases to `eq` corresponding to constructors of `GT`.
+
+5. The user cuts `size_gt` from `eq` in [1.41.96-102.1](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f962ec51215ed327666a7600e129283572373660)
+in order to prove termination for the once empty parameter `eq`
+(see [1.41.96-114.1-2](https://github.com/uwplse/analytics-data/compare/5ab8e74f7562d7516417cb982c5b861e132b28a4..f623d1c924afb791f4fd27f7ffe078d078169cba)).
+This involves several attempts.
+
+6. [1.41.100.1](https://github.com/uwplse/analytics-data/commit/dd22f9a7e6f9e77c86510e909004893788cdc0f8#diff-c25d7b9e6c43e8e83b60b58b9a5b880b) shows the addition of a case for 
+`GRow l` to `size_gt`. [1.41.112.1-2](https://github.com/uwplse/analytics-data/commit/be30f8cb1ca317a35b18163a4da65a10f6bc24a4#diff-c25d7b9e6c43e8e83b60b58b9a5b880b) show the addition of two new cases
+to `size_gt`.
+
+7. The user tweaks a case of `size_gt` in [1.41.114.1](https://github.com/uwplse/analytics-data/commit/f623d1c924afb791f4fd27f7ffe078d078169cba#diff-c25d7b9e6c43e8e83b60b58b9a5b880b), then several more in
+[1.41.118.1-2](https://github.com/uwplse/analytics-data/commit/fe84fc62f991b24e1d18769979c2bfe53111879f#diff-c25d7b9e6c43e8e83b60b58b9a5b880b).
+
+8. [1.41.114-129.1-9](https://github.com/uwplse/analytics-data/compare/f623d1c924afb791f4fd27f7ffe078d078169cba..1d11189e592b7650612d2243e2a01581a0da0ba0)
+show the addition of many more cases to `eq`.
+
+9. In [1.41.130.1](https://github.com/uwplse/analytics-data/commit/e848aa322cbe79ee8a2eba1bf51e7550cfbcd040#diff-c25d7b9e6c43e8e83b60b58b9a5b880b),
+the user renames `eq` to `eq_fn`, then defines `eq` using `eq_fn`.
+
+10. The user adds one more case to `eq_fn` in [1.41.141.1](https://github.com/uwplse/analytics-data/commit/de97aaa23825c81adb909116786e47fcca390057#diff-c25d7b9e6c43e8e83b60b58b9a5b880b).
+
+11. The session ends at 2019-09-06 16:17:16.94.
 
 
