@@ -112,11 +112,11 @@ Totals:
               * Rnm Bnd Fixpoint: 2
           * Rnm Con: 2
               * Rnm Con Theorem: 2
-- User 5: 72
-  * Structure: 53
-      * Add: 44
-          * Add Hyp: 11
-              * Add Hyp Record: 10
+- User 5: 75
+  * Structure: 54
+      * Add: 45
+          * Add Hyp: 12
+              * Add Hyp Record: 11
               * Add Hyp Theorem: 1
           * Add Ctr: 13
               * Add Ctr Inductive: 13
@@ -151,11 +151,14 @@ Totals:
               * Rpl Arg Theorem: 2
           * Rpl Bod: 2
               * Rpl Bod Theorem: 2
-  * Syntax: 3
-      * Rnm: 3
+  * Syntax: 5
+      * Rnm: 5
           * Rnm Bnd: 3
               * Rnm Bnd Record: 1
               * Rnm Bnd Axiom: 2
+          * Rnm Idn: 2
+              * Rnm Idn Fixpoint: 1
+              * Rnm Idn Theorem: 1
 - User 7: 148
   * Structure: 57
       * Add: 26
@@ -296,11 +299,11 @@ Totals:
       * Rnm: 1
           * Rnm Bnd: 1
               * Rnm Bnd Fixpoint: 1
-- Total: 412
-  * Structure: 189
-      * Add: 136
-          * Add Hyp: 33
-              * Add Hyp Record: 10
+- Total: 415
+  * Structure: 190
+      * Add: 137
+          * Add Hyp: 34
+              * Add Hyp Record: 11
               * Add Hyp Fixpoint: 2
               * Add Hyp Theorem: 1
               * Add Hyp Lemma: 19
@@ -409,13 +412,14 @@ Totals:
               * Rpl Cas Fixpoint: 1
               * Rpl Cas Definition: 3
               * Rpl Cas Function: 1
-  * Syntax: 80
-      * Rnm: 73
-          * Rnm Idn: 46
+  * Syntax: 82
+      * Rnm: 75
+          * Rnm Idn: 48
               * Rnm Idn Inductive: 2
               * Rnm Idn Definition: 8
-              * Rnm Idn Fixpoint: 4
+              * Rnm Idn Fixpoint: 5
               * Rnm Idn Lemma: 32
+              * Rnm Idn Theorem: 1
           * Rnm Bnd: 11
               * Rnm Bnd Record: 1
               * Rnm Bnd Fixpoint: 5
@@ -492,6 +496,11 @@ Totals:
   * Record: `EpsilonLogic`
   * New hypothesis: `evalNot`
   * Elapsed: 51610.77 seconds (includes other changes, new day)
+
+11. 5.([18.29](https://github.com/uwplse/analytics-data/blob/fbae602cf8eb85e5ff89195034fd80529d27e124/diffs-annotated-with-times/5/user-5-session-18.v)-[19.0](https://github.com/uwplse/analytics-data/blob/5e53d111a38bb3dd9bcb46ae675774eed053d970/diffs-annotated-with-times/5/user-5-session-19.v)).3 ([diff](https://www.diffchecker.com/ByDlZAJU))
+  * Record: `EpsilonLogic`
+  * New hypothesis: `value_eq_dec`
+  * Elapsed: 29608.41 seconds
 
 #### Add Hyp Fixpoint
 
@@ -2421,6 +2430,12 @@ Totals:
   * Change: `le_to_nat` -> `nat_from_le`
   * Elapsed: 2.88 seconds
 
+##### User 5
+
+1. 5.([18.29](https://github.com/uwplse/analytics-data/blob/fbae602cf8eb85e5ff89195034fd80529d27e124/diffs-annotated-with-times/5/user-5-session-18.v)-[19.0](https://github.com/uwplse/analytics-data/blob/5e53d111a38bb3dd9bcb46ae675774eed053d970/diffs-annotated-with-times/5/user-5-session-19.v)).1 ([diff](https://www.diffchecker.com/ByDlZAJU))
+  * Change: `simplify` -> `identity`
+  * Elapsed: 29608.41 seconds
+
 ##### User 7
 
 1. [7.193.0-2.1](https://github.com/uwplse/analytics-data/compare/5a157803867dc1dae2aed24702ab2590234582f4..a746a4ce87b617ac8053c8c079c97ff656558690)
@@ -2570,6 +2585,14 @@ Totals:
 1. [8.79.156.1](https://github.com/uwplse/analytics-data/commit/dde5ce965d8e3b3d3e954bf18d2841b57d179315#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Change: `new_morphism` -> `morphism_test`
   * Elapsed: 5.00 seconds
+
+#### Rnm Idn Theorem
+
+##### User 5
+
+1. 5.([18.29](https://github.com/uwplse/analytics-data/blob/fbae602cf8eb85e5ff89195034fd80529d27e124/diffs-annotated-with-times/5/user-5-session-18.v)-[19.0](https://github.com/uwplse/analytics-data/blob/5e53d111a38bb3dd9bcb46ae675774eed053d970/diffs-annotated-with-times/5/user-5-session-19.v)).2 ([diff](https://www.diffchecker.com/ByDlZAJU))
+  * Change: `simplify_correct` -> `identity_correct`
+  * Elapsed: 29608.41 seconds
 
 ### Rnm Bnd
 

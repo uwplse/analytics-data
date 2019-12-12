@@ -36,7 +36,7 @@ User [5](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-wi
 
 * Start time: 2019-08-12 09:26:35.67
 * Finish time: 2019-09-01 09:52:08.35.
-* Relevant changes: 60
+* Relevant changes: 63
 
 Note that all changes for User 5 show up as successes in the processed data due to the
 user's use of a Custom UI that does not distinguish between these. Intermediate
@@ -55,26 +55,29 @@ the next attempt. All of this takes less than a minute.
 3. In [5.18.28.1-2](https://github.com/uwplse/analytics-data/commit/428960451de13bf138d880371b268f9243bd0775#diff-173bdb1576f0b722cd01570dda7d0ef6),
 the user modifies two fields of the record `EpsilonLogic`: `evalEqTrue` and `evalEqFalse`.
 
-### 5.19 (start time: 2019-08-12 18:28:59.48, relevant changes: 41)
+### 5.19 (start time: 2019-08-12 18:28:59.48, relevant changes: 44)
 
-1. The user starts by continuing to modify `EpsilonLogic` in [5.19.5.1](https://github.com/uwplse/analytics-data/commit/2894ba5928f7fe963c8a1d8d2b31fb5cd3858df7#diff-86d76448a54765ff094f8c80cd8be3a0),
+1. As seen in 5.([18.29](https://github.com/uwplse/analytics-data/blob/fbae602cf8eb85e5ff89195034fd80529d27e124/diffs-annotated-with-times/5/user-5-session-18.v)-[19.0](https://github.com/uwplse/analytics-data/blob/5e53d111a38bb3dd9bcb46ae675774eed053d970/diffs-annotated-with-times/5/user-5-session-19.v)).1-3 ([diff](https://www.diffchecker.com/ByDlZAJU)), the user starts
+by renaming `simplify` to `identity` and `simplify_correct` to `identity_correct`. The user also adds a new field to `EpsilonLogic`. 
+
+2. The user then continues to modify `EpsilonLogic` in [5.19.5.1](https://github.com/uwplse/analytics-data/commit/2894ba5928f7fe963c8a1d8d2b31fb5cd3858df7#diff-86d76448a54765ff094f8c80cd8be3a0),
 this time starting with `evalChoose`.
 
-2. The user extends `EpsilonLogic` with a new field `evalPlus` in
+3. The user extends `EpsilonLogic` with a new field `evalPlus` in
 [5.19.5-7.1](https://github.com/uwplse/analytics-data/compare/2894ba5928f7fe963c8a1d8d2b31fb5cd3858df7..49ad0ac21d49dac8454385945fdf5e2cfb9abf90),
 then with `evalMinus` and `evalTimes` in
 [5.19.7-8.1-2](https://github.com/uwplse/analytics-data/commit/08436be993b76fa3b4f9e8673acc78fbb12d79d1#diff-86d76448a54765ff094f8c80cd8be3a0).
 
-3. Next, the user makes the changes to `Term` seen in Figure 6 on the left.
+4. Next, the user makes the changes to `Term` seen in Figure 6 on the left.
 This happens over several commits. First, in
 [5.19.24.1-7](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0),
 the user extends `Term` with constructors `Bool`, `And`, `Or`, `Not`, `Implies`,
 and `If`. The user also moves the `Int` constructor down below `Int`.
 
-4. The user then removes the constructor `Implies` from `Term`
+5. The user then removes the constructor `Implies` from `Term`
 in [5.19.25.1](https://github.com/uwplse/analytics-data/commit/0e679efd22f7ae6447c8fc5641090a5427240602#diff-86d76448a54765ff094f8c80cd8be3a0).
 
-5. To wrap up the change to `Term`, the user fixes a mistake in `Not` in
+6. To wrap up the change to `Term`, the user fixes a mistake in `Not` in
 [5.19.26.1](https://github.com/uwplse/analytics-data/commit/a282a80381cd7c89faea21c63af3887fb2a86537). This is most likely due to
 a the attempt at extending `EpsilonLogic` in
 [5.19.23-26.1-16](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537),
@@ -82,17 +85,17 @@ with fields corresponding to each of the new constructors, and modifying
 existing fields to use those constructors as well. This attempt
 must have failed the first time around. These changes succeed on a new day.
 
-6. The user next makes the changes to `identity` seen in Figure 6 on the right. In [5.19.26-28.1-6](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc),
+7. The user next makes the changes to `identity` seen in Figure 6 on the right. In [5.19.26-28.1-6](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc),
 the user extends `identity` with cases corresponding to each of the new
 constructors in `Term`.
 
-7. In [5.19.29.1-2](https://github.com/uwplse/analytics-data/commit/88831cd564e0fa8685cf0d37a2941d105220dfd5#diff-86d76448a54765ff094f8c80cd8be3a0),
+8. In [5.19.29.1-2](https://github.com/uwplse/analytics-data/commit/88831cd564e0fa8685cf0d37a2941d105220dfd5#diff-86d76448a54765ff094f8c80cd8be3a0),
 the user changes `vTrue` and `vFalse` (once fields of `EpsilonLogic`, now removed)
 in `eval_eq_true_or_false` with applications of the new constructor `Bool`
 of `Term` to `true` and `false`, respectively. This is similar to the change
 in `EpsilonLogic` after removing those fields.
 
-8. Finally, in [5.19.9-36.1-5](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d),
+9. Finally, in [5.19.9-36.1-5](https://github.com/uwplse/analytics-data/compare/40b88925739c1ffb7c130395cc57911521987a95..ada30a73e03268cf378ce10849f697b04e4ccd4d),
 the user extends `free_vars` with new cases for each of the new `Term` constructors as well. The user then attempts some later proofs before
 ending the session (typically closing the file in the IDE).
 
