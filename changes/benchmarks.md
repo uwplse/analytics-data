@@ -1,8 +1,8 @@
-Here are the benchmarks from the paper. See [all-changes.md](./all-changes.md) for
+Here are the benchmarks from the paper for Q2. See [all-changes.md](./all-changes.md) for
 the breakdown and classification of the changes that revealed the patterns for these
 benchmarks. Please check the [README](../README.md) for notes about this data.
 
-Also note that the changes we detected were changes in terms, not in proof
+Also note that the changes we detected in the Q2 analysis were changes in terms, not in proof
 scripts. So I do not list changes in proofs explicitly in here.
 I do sometimes discuss them when they are interesting.
 Certain kinds of automation (say, proof repair tools) should of course
@@ -15,9 +15,9 @@ The best way to present these will be to eventually have the analysis commit
 each change using `--date` to mark the timestamp, so it is easy to see the user
 editing multiple files at the same time. I will most likely get to this after
 the talk due to time constraints, but feel free to submit a pull request if you
-modify the analysis and do this in your own repository first. (You will need to
+modify the analysis and do this in your own branch first. (You will need to
 make sure you always get the correct timestamps from the raw data, which is not true
-yet for some users; see the [README](../README.md) for more information.
+yet for some users; see the [README](../README.md) for more information.)
 
 Times are in Pacific.
 
@@ -27,8 +27,10 @@ Success for these benchmarks means partial or complete automation of the
 manual steps the users took in the development of later definitions, theorems, and proofs,
 in response to the earlier changes that the users made to inductive types.
 
-Note that records in Coq are inductive types with a single constructor, the fields
-for which are hypotheses of that constructor.
+Note that records in Coq are inductive types with a single constructor, the hypotheses
+for which are the fields of the record. (Records are additionally equipped with automatically 
+generated named projection functions for those fields, which simply eliminate over the record's only
+constructor and return the appropriate hypothesis.)
 
 ## Benchmark 1
 
@@ -72,18 +74,19 @@ then with `evalMinus` and `evalTimes` in
 This happens over several commits. First, in
 [5.19.24.1-7](https://github.com/uwplse/analytics-data/commit/8fc49439bcfc887ee2493d9562bd212b2bd1a2bf#diff-86d76448a54765ff094f8c80cd8be3a0),
 the user extends `Term` with constructors `Bool`, `And`, `Or`, `Not`, `Implies`,
-and `If`. The user also moves the `Int` constructor down below `Int`.
+and `If`. The user also moves the `Int` constructor down below `If`.
 
 5. The user then removes the constructor `Implies` from `Term`
 in [5.19.25.1](https://github.com/uwplse/analytics-data/commit/0e679efd22f7ae6447c8fc5641090a5427240602#diff-86d76448a54765ff094f8c80cd8be3a0).
 
 6. To wrap up the change to `Term`, the user fixes a mistake in `Not` in
 [5.19.26.1](https://github.com/uwplse/analytics-data/commit/a282a80381cd7c89faea21c63af3887fb2a86537). This is most likely due to
-a the attempt at extending `EpsilonLogic` in
-[5.19.23-26.1-16](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537),
+the attempt at extending `EpsilonLogic` in
+[5.19.23-26.1-16](https://github.com/uwplse/analytics-data/compare/ff27a314a04df3b8ec56090bff68c3060923a658..a282a80381cd7c89faea21c63af3887fb2a86537)
 with fields corresponding to each of the new constructors, and modifying
 existing fields to use those constructors as well. This attempt
-must have failed the first time around. These changes succeed on a new day.
+must have failed the first time around when `Not` expected two arguments.
+These changes succeed on a new day.
 
 7. The user next makes the changes to `identity` seen in Figure 6 on the right. In [5.19.26-28.1-6](https://github.com/uwplse/analytics-data/compare/a282a80381cd7c89faea21c63af3887fb2a86537..641426ca64c96b20b5fe1c450b95f4cd983616dc),
 the user extends `identity` with cases corresponding to each of the new
@@ -91,7 +94,7 @@ constructors in `Term`.
 
 8. In [5.19.29.1-2](https://github.com/uwplse/analytics-data/commit/88831cd564e0fa8685cf0d37a2941d105220dfd5#diff-86d76448a54765ff094f8c80cd8be3a0),
 the user changes `vTrue` and `vFalse` (once fields of `EpsilonLogic`, now removed)
-in `eval_eq_true_or_false` with applications of the new constructor `Bool`
+in `eval_eq_true_or_false` with applications of `Eval` to applications of the new constructor `Bool`
 of `Term` to `true` and `false`, respectively. This is similar to the change
 in `EpsilonLogic` after removing those fields.
 
@@ -109,7 +112,7 @@ new constructors `Bools`, `Ints`, and `In`, as we see in 5.([19.24](https://gith
 1. A few days later, in [5.33.0-3.1-3](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb),
 the user extends `identity` with new cases for the new constructors in `Term`.
 This takes less than a minute but the user does omit the `In` case the first
-time around. The proof of `eval
+time around.
 
 ### 5.35 (start time: 2019-09-01 09:19:56.08, relevant changes: 3)
 
