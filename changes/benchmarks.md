@@ -214,4 +214,58 @@ the user renames `eq` to `eq_fn`, then defines `eq` using `eq_fn`.
 
 11. The session ends at 2019-09-06 16:17:16.94.
 
+# Repetitive Refactoring of Identifiers
+
+Success for these benchmarks means partial or complete automation of the 
+manual steps the users took in renaming related types, constructors, 
+definitions, and theorems, as well as their occurrences in other terms.
+
+## Benchmark 3
+
+User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/7), Session [93](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-93.v).
+
+* Start time: 2019-08-19 08:27:15.72
+* Finish time: 2019-08-19 08:53:45.00
+* Relevant changes: 7
+
+Intermediate timestamps for User 7 are accurate.
+
+### 7.93 (start time: 2019-08-19 08:27:15.72, relevant changes: 7)
+
+1. By the second change of this session, the user has
+defined an inductive type `ty` (see [the state of the file before the relevant changes](https://github.com/uwplse/analytics-data/blob/80228aa9659f025bd5a270860b6f74a8e6c1b88d/diffs-annotated-with-times/7/user-7-session-93.v)). The user has also tried to define
+a second definition `ty` with a different meaning. This definition
+has failed.
+
+2. In [7.93.2-6.1-5](https://github.com/uwplse/analytics-data/compare/80228aa9659f025bd5a270860b6f74a8e6c1b88d..c15f5fd243e37dc4f2a76aed4d96d5b181cf6d4e),
+the user renames the second `ty` to `tY`. Rather than change only `ty`,
+the user also renames `vx` to `vX`, `vy` to `vY`, `vz` to `vZ`, and `tx` to `tX`, all following the same convention. 
+
+3. For the change to succeed, in [7.93.2-6.6-7](https://github.com/uwplse/analytics-data/compare/80228aa9659f025bd5a270860b6f74a8e6c1b88d..c15f5fd243e37dc4f2a76aed4d96d5b181cf6d4e),
+the user changes `vx` to `vX` in the body of `tX`, and `vy` to `vY`
+in the body of `tY`. In total, the initial changes to the five
+definitions takes 49.62 seconds and four tries.
+
+4. The rest of the development is unrelated to this refactoring.
+The session ends at 2019-08-19 08:53:45.00.
+
+## Benchmark 4
+
+## Benchmark 5
+
+# Repetitive Repair of Specifications
+
+## Benchmark 6
+
+## Benchmark 7
+
+# Interactive Discovery of Programs & Specifications
+
+## Benchmark 8
+
+## Benchmark 9
+
+## Benchmark 10
+
+## Benchmark 11
 
