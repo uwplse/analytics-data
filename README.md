@@ -43,7 +43,8 @@ Also add subdirectories in your new directory for each user, with the names
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 11.
 Then, just run [commit-all-diffs.sh](/scripts/q2/commit-all-diffs.sh)
 (or [commit-all-diffs-timestamps.sh](/scripts/q2/commit-all-diffs-timestamps.sh)
-if you would like annotations for timestamps)
+if you would like experimental annotations for timestamps---but see the important
+note below about these)
 from within its directory. You can then look at the Git history
 to see the processed data.
 
@@ -62,32 +63,36 @@ But before you do, please read the paper, especially the discussion section,
 for information about the data before you interpret it.
 And please read the notes below.
 
-For example, as we note in the paper, we could not automatically 
+**Timestamps**:
+Please
+do not rely on processed data for timestamps until further notice.
+They are correct in the raw data.
+We attempted to add these to our analyses in response to reviewer
+feedback, but did not do so perfectly the first time around.
+The analysis script is flawed in how it treats timestamps for now. 
+Intermediate timestamps are in general not yet correct in 
+the processed data you see in the linked commits. The start and end timestamps of every session in the benchmarks
+are taken from the raw data and are accurate.
+Intermediate times, when discussed in the paper and in the benchmark file,
+are also taken from the raw data.
+I will run a reanalysis at some point after the camera-ready
+and update the commits to point to the data with the correct
+intermediate timestamps. Sorry for the confusion!
+
+**Failures for User 5**: As we note in the paper, we could not automatically 
 distinguish failures from user backtracking for User 5.
 So even though processed data is annotated with "success" and "failure," 
 for User 5, it will always appear as "success," and you must manually inspect the
 data in question to determine whether this is actually a success.
 
-Likewise, due to a bug in CoqIDE and Proof General that we have reported and that
+**Module Names**: Due to a bug in CoqIDE and Proof General that we have reported and that
 is fixed in the latest Coq version, we could not always determine the name of the
 module that corresponds to a given session. For impacted users, the module will
 always appear as "Top." This means that manual analysis is needed in order to determine
 if two sessions refer to the same file.
 
-In addition, the timestamp data for User 1 is corrupt for some files.
-It seems like this is true for Users 8, 10, and 11 sometimes, too.
-And the final commit for all users often does not have a timestamp.
-The processed data lists timestamps, but the list of changes says "Unknown"
-when this happens. In general, timestamp data in the analysis is 
-_very experimental_ and was added only for the camera-ready in response
-to reviewer feedback; we make claims about it in the paper only when
-we are absolutely certain that those claims are correct (the timestamps in the processed data right now are inaccurate within each session for those users,
-but not at the beginning of each session, and not for the other users),
-and are not sure why the analysis sometimes does not return the right number 
-of timestamps for  these users. I may address this and update the commits later,
-but I will see.
-
-Finally, if you are an anonymous user and see any of your data very clearly
+**Classification**:
+If you are an anonymous user and see any of your data very clearly
 misclassified (this can happen, as I am not the author of the code and classification
 is hard), feel free to let me know by email, and I will add an errata
 and address it here.

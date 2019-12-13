@@ -2,6 +2,15 @@ Here are the benchmarks from the paper for Q2. See [all-changes.md](./all-change
 the breakdown and classification of the changes that revealed the patterns for these
 benchmarks. Please check the [README](../README.md) for notes about this data.
 
+Intermediate timestamps are in general not yet correct in 
+the processed data you see in the linked commits. The start and end timestamps of every session
+are taken from the raw data and are accurate.
+Intermediate times, when discussed in the paper and in this document,
+are also taken from the raw data.
+I will run a reanalysis at some point after the camera-ready
+and update the commits to point to the data with the correct
+intermediate timestamps.
+
 Also note that the changes we detected in the Q2 analysis were changes in terms, not in proof
 scripts. So I do not list changes in proofs explicitly in here.
 I do sometimes discuss them when they are interesting.
@@ -41,8 +50,7 @@ User [5](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-wi
 * Relevant changes: 63
 
 Note that all changes for User 5 show up as successes in the processed data due to the
-user's use of a Custom UI that does not distinguish between these. Intermediate
-timestamps for User 5 are correct.
+user's use of a Custom UI that does not distinguish between these.
 
 ### 5.18 (start time: 2019-08-12 09:26:35.67, relevant changes: 10)
 
@@ -128,10 +136,6 @@ User [1](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-wi
 * Start time: 2019-09-04 22:23:40.27
 * Finish time: 2019-09-06 16:17:16.94
 * Relevant changes: 61
-
-Intermediate timestamps for User 1 are not yet correct in the processed data
-you see in the linked commits. The start and end timestamps of every session
-are taken from the raw data and are accurate.
 
 ### 1.37 (start time: 2019-09-04 22:23:40.27, relevant changes: 26)
 
@@ -227,8 +231,6 @@ User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-wi
 * Start time: 2019-08-19 08:27:15.72
 * Finish time: 2019-08-19 08:53:45.00
 * Relevant changes: 7
-
-Intermediate timestamps for User 7 are accurate.
 
 ### 7.93 (start time: 2019-08-19 08:27:15.72, relevant changes: 7)
 
