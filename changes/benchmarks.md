@@ -2,16 +2,31 @@ Here are the benchmarks from the paper for Q2. See [all-changes.md](./all-change
 the breakdown and classification of the changes that revealed the patterns for these
 benchmarks. Please check the [README](../README.md) for notes about this data.
 
-Intermediate timestamps are in general not yet correct in 
-the processed data you see in the linked commits. The start and end timestamps of every session
-are taken from the raw data and are accurate.
-Intermediate times, when discussed in the paper and in this document,
+**Timestamps**: 
+All times are in Pacific and come from the _raw_ data.
+Please do not rely on timestamps in the _processed_ data in the 
+linked commits.
+As noted in the README,
+intermediate timestamps are in general not yet correct in 
+the processed data you see in the linked commits, as these
+were added experimentally in response to reviewer feedback.
+The start and end time for each benchmark as a whole are
+the start time of the first session and the end time of the last session;
+this sometimes includes changes unrelated to the benchmark.
+More granular times, when discussed in the paper and in this document,
 are also taken from the raw data.
 I will run a reanalysis at some point after the camera-ready
 and update the commits to point to the data with the correct
 intermediate timestamps.
 
-Also note that the changes we detected in the Q2 analysis were changes in terms, not in proof
+**Presentation**: The best way to present these will be to eventually have the analysis commit
+each change using `--date` to mark the timestamp, so it is easy to see the user
+editing multiple files at the same time. I will most likely get to this after
+the talk due to time constraints, but feel free to submit a pull request if you
+modify the analysis and do this in your own branch first.
+We will need to fix the above timestamp issues in the analysis first.
+
+**Proofs**: Also note that the changes we detected in the Q2 analysis were changes in terms, not in proof
 scripts. So I do not list changes in proofs explicitly in here.
 I do sometimes discuss them when they are interesting.
 Certain kinds of automation (say, proof repair tools) should of course
@@ -19,16 +34,6 @@ consider the proofs changed in these sessions.
 When using these benchmarks to drive tool development, we recommend
 looking at the entire session for information relevant to measuring
 the success of your particular tool.
-
-The best way to present these will be to eventually have the analysis commit
-each change using `--date` to mark the timestamp, so it is easy to see the user
-editing multiple files at the same time. I will most likely get to this after
-the talk due to time constraints, but feel free to submit a pull request if you
-modify the analysis and do this in your own branch first. (You will need to
-make sure you always get the correct timestamps from the raw data, which is not true
-yet for some users; see the [README](../README.md) for more information.)
-
-Times are in Pacific.
 
 # Incremental Development of Inductive Types
 
@@ -60,7 +65,7 @@ the inductive type `Term` in [5.18.7.1-4](https://github.com/uwplse/analytics-da
 2. The user adds cases corresponding to each of `Int`, `Plus`, `Times`, and `Minus`
 to the definition `simplify` in [5.18.13-15.1-4](https://github.com/uwplse/analytics-data/compare/340cb9fb53a1454d5d72f450f2b8fd205591edd8..dbc37b8a35ba02e3b11ece041ba38ae8a214ead6).
 The user starts with only `Int`, which must fail, then adds the others in
-the next attempt. All of this takes less than a minute.
+the next attempt.
 
 3. In [5.18.28.1-2](https://github.com/uwplse/analytics-data/commit/428960451de13bf138d880371b268f9243bd0775#diff-173bdb1576f0b722cd01570dda7d0ef6),
 the user modifies two fields of the record `EpsilonLogic`: `evalEqTrue` and `evalEqFalse`.
@@ -119,8 +124,7 @@ new constructors `Bools`, `Ints`, and `In`, as we see in 5.([19.24](https://gith
 
 1. A few days later, in [5.33.0-3.1-3](https://github.com/uwplse/analytics-data/compare/a338aa6c435dedb41665ab30fe17eb73020ad07f..ed89b37b72a4f7d8f463e64a21f1893344d39fdb),
 the user extends `identity` with new cases for the new constructors in `Term`.
-This takes less than a minute but the user does omit the `In` case the first
-time around.
+The user omits the `In` case the first time around.
 
 ### 5.35 (start time: 2019-09-01 09:19:56.08, relevant changes: 3)
 
@@ -245,29 +249,79 @@ the user also renames `vx` to `vX`, `vy` to `vY`, `vz` to `vZ`, and `tx` to `tX`
 
 3. For the change to succeed, in [7.93.2-6.6-7](https://github.com/uwplse/analytics-data/compare/80228aa9659f025bd5a270860b6f74a8e6c1b88d..c15f5fd243e37dc4f2a76aed4d96d5b181cf6d4e),
 the user changes `vx` to `vX` in the body of `tX`, and `vy` to `vY`
-in the body of `tY`. In total, the initial changes to the five
-definitions takes 49.62 seconds and four tries.
+in the body of `tY`. In total, the 7 changes to these 5 terms
+take four tries over less than two minutes (see raw data for timestamps
+for now).
 
 4. The rest of the development is unrelated to this refactoring.
 The session ends at 2019-08-19 08:53:45.00.
 
 ## Benchmark 4
 
+WIP.
+
 ## Benchmark 5
+
+User [1](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/1), Session [37](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/1/user-1-session-37.v).
+
+* Start time: 2019-09-04 22:23:40.27
+* Finish time: 2019-09-04 23:38:29.00
+* Relevant changes: 6
+
+### 1.37 (start time: 2019-09-04 22:23:40.27, relevant changes: 6)
+
+1. The user sffd an import in this session, which is what triggers
+the refactor. This change does not
+fall under our classification, but you can see it
+[here](https://github.com/uwplse/analytics-data/commit/adb39e31175d32bf97c3b4a7293f97e6665db73f#diff-16df098de71249ca8d704f5f6b2583e5).
+Notably, after this change, `In` now refers to `List.In` as opposed
+to `Ensembles.In`. The user thus qualifies all occurrences of
+`Ensembles.In` in the file.
+
+2. In [1.37.13-19.1-2](https://github.com/uwplse/analytics-data/compare/24fc093a48c5e3ca504f8de6c8783ca13bf4e657..aef548c723a530b64e738e78ab9d1349307c0a77),
+the user qualifies `In` twice in the definition `R`.
+The user misses one occurrence the first time around.
+This takes about a minute.
+
+3. The user then qualifies `In` twice in `Gamma2`, as seen in
+[1.37.19-21.1-2](https://github.com/uwplse/analytics-data/compare/aef548c723a530b64e738e78ab9d1349307c0a77..4d53482ec9b1d8560f8a8dd3e443cc681dbfe6e9).
+The user again misses one occurrence the first time around,
+but this time is much faster to figure it out.
+The whole change from start to finish takes about five seconds.
+
+4. Finally, in [1.37.21-24.1-2](https://github.com/uwplse/analytics-data/compare/4d53482ec9b1d8560f8a8dd3e443cc681dbfe6e9..19bda960b9f552fe69a1e33e0e5a38ff33047a21),
+the user qualifies `In` twice in `transitive_closure`.
+The user again misses one occurrence the first time around,
+and the whole change from start to finish takes about eight seconds.
+
+5. The rest of the development is unrelated to this refactoring.
+The session ends at 2019-09-04 23:38:29.00.
 
 # Repetitive Repair of Specifications
 
 ## Benchmark 6
 
+WIP.
+
 ## Benchmark 7
+
+WIP.
 
 # Interactive Discovery of Programs & Specifications
 
 ## Benchmark 8
 
+WIP.
+
 ## Benchmark 9
+
+WIP.
 
 ## Benchmark 10
 
+WIP.
+
 ## Benchmark 11
+
+WIP.
 

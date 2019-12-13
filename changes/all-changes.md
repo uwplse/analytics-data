@@ -2551,7 +2551,6 @@ Totals:
   * Definition: `transitive_closure`
   * Change: `In` -> `Ensembles.In` (right)
 
-
 ## Ufy
 
 ### Ufy Con
