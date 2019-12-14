@@ -6,6 +6,7 @@ import contextlib
 import os
 import sys
 import typing
+from datetime import datetime, timedelta
 
 from common import (isEndingProofCmd, isFinishingProofCmd,
                     isVernacCmd, isGoalPunctuation, isCancel,
@@ -13,7 +14,7 @@ from common import (isEndingProofCmd, isFinishingProofCmd,
                     getCancelDest, get_id, sublist_contained,
                     lemma_name_from_statement, preprocess_the_works,
                     eprint, ppCommand, possiblyStartingProofCmd,
-                    get_stem)
+                    get_stem, get_time)
 from data_format import (get_users, get_sessions, get_commands)
 
 from sexpdata import loads, dumps
@@ -31,6 +32,25 @@ class ProofMetadata:
     cancelled_tactics : typing.Counter[str]
     failed_tactics : typing.Counter[str]
 
+class Timestat:
+    total_time : timedelta
+    num_times : int
+    max_time : timedelta
+    def __init__(self):
+        self.total_time = timedelta()
+        self.num_times = 0
+        self.max_time = timedelta()
+    def add_time(self, d: timedelta):
+        self.total_time += d
+        if d > self.max_time:
+            self.max_time = d
+        self.num_times += 1
+    @property
+    def avg_time(self):
+        return self.total_time / self.num_times
+    def pp(self, name: str):
+        print(f"{name}: avg is {self.avg_time}, max is {self.max_time}")
+
 def main():
     total_stats = ProofMetadata(0, 0, 0, 0,
                                 collections.Counter(),
@@ -39,10 +59,15 @@ def main():
     num_backtracked_proofs = 0
     num_other_noninteractive_proofs = 0
     num_changes_add_semi = 0
+    add_semi_times = Timestat()
     num_changes_remove_semi = 0
+    remove_semi_times = Timestat()
     num_changes_change_args = 0
+    change_args_times = Timestat()
     num_changes_lookup_args = 0
+    lookup_args_times = Timestat()
     num_changes_change_tactic = 0
+    change_tactic_times = Timestat()
     user_proof_session_counts = collections.Counter()
     with open("users.txt", 'r') as usersfile:
         profiles = loads(usersfile.read())
@@ -80,6 +105,7 @@ def main():
                                     continue
                                 if re.fullmatch("\s*[*+-{}]\s*", attempt.command):
                                     continue
+                                attempt_time = node.children[-1].timestamp - attempt.timestamp
                                 period_match = \
                                     re.match("(.*)\.", attempt.command, re.DOTALL)
                                 attempt_minus_period = period_match.group(1) if period_match else attempt.command
@@ -90,26 +116,42 @@ def main():
                                 if re.match(f"{escape_as_re(attempt_minus_period)}\s*;.*", solution):
                                     num_changes_add_semi += 1
                                     print(f"Added semicolon: {attempt.command} -> {solution}")
+                                    print(f"Took {attempt_time}")
+                                    add_semi_times.add_time(attempt_time)
                                 elif re.match(f"{escape_as_re(solution_minus_period)}\s*;.*",
                                               attempt.command):
                                     num_changes_remove_semi += 1
                                     print(f"Removed semicolon: {attempt.command} -> {solution}")
+                                    print(f"Took {attempt_time}")
+                                    remove_semi_times.add_time(attempt_time)
                                 elif re.match(f"{get_stem(attempt.command)}[^;]*\.",
                                             solution):
                                     num_changes_change_args += 1
                                     print(f"Change args: {attempt.command} -> {solution}")
+                                    print(f"Took {attempt_time}")
+                                    change_args_times.add_time(attempt_time)
                                 elif re.match(f"\s*(Search|Check).*", solution) and \
                                      re.match(f"{get_stem(attempt.command)}[^;]*\.",
                                               node.children[-1].children[-1].command):
                                     num_changes_lookup_args += 1
                                     print(f"Lookup, then change args: {attempt.command} -> {solution} {node.children[-1].children[-1].command}")
+                                    print(f"Took {attempt_time}")
+                                    lookup_args_times.add_time(attempt_time)
                                 else:
                                     print(f"Other change: {attempt.command} -> {solution}")
+                                    print(f"Took {attempt_time}")
                                     num_changes_change_tactic += 1
+                                    change_tactic_times.add_time(attempt_time)
                             # print(lemma_name_from_statement(getAddBody(lemma_cmd)),
                             #       [node.command for node in node.children])
                 proof_stats = get_stats(proof_cmds)
                 total_stats = add_stats(total_stats, proof_stats)
+    add_semi_times.pp("add semi")
+    remove_semi_times.pp("remove semi")
+    change_args_times.pp("change args")
+    lookup_args_times.pp("lookup args")
+    change_tactic_times.pp("change tactic")
+
     print(f"Number of changes which add a semicolon after: {num_changes_add_semi}")
     print(f"Number of changes which remove a semicolon clause after: "
           f"{num_changes_remove_semi}")
@@ -237,6 +279,7 @@ import pygraphviz as pgv
 class LabeledNode:
     command : str
     node_id : int
+    timestamp : datetime
     children : typing.List["LabeledNode"]
     parent : typing.Optional["LabeledNode"]
 class ProofGraph:
@@ -248,12 +291,13 @@ class ProofGraph:
         self.__graph = pgv.AGraph(directed=True)
         self.__next_node_id = 0
         self.nodes = []
-        self.start_node = self.mkNode(lemma_label, None)
+        self.start_node = self.mkNode(lemma_label, datetime.fromtimestamp(0), None)
 
-    def mkNode(self, command : str, parent : typing.Optional[LabeledNode]) -> LabeledNode:
+    def mkNode(self, command : str, time : datetime, parent :
+               typing.Optional[LabeledNode]) -> LabeledNode:
         self.__graph.add_node(self.__next_node_id, label=command)
         self.__next_node_id += 1
-        newNode = LabeledNode(command, self.__next_node_id-1, [], parent)
+        newNode = LabeledNode(command, self.__next_node_id-1, time, [], parent)
         if parent:
             self.__graph.add_edge(parent.node_id, newNode.node_id)
             parent.children.append(newNode)
@@ -280,6 +324,7 @@ def build_graph(lemma_cmd, proof_cmds):
                 continue
             states.append((get_id(cmd),
                            graph.mkNode(sanitizeTactic(getAddBody(cmd)),
+                                        datetime.fromtimestamp(get_time(cmd)),
                                         most_recent_node)))
             next_node_id += 1
             if isFinishingProofCmd(getAddBody(cmd)):
