@@ -160,7 +160,7 @@ Totals:
           * Rnm Idn: 2
               * Rnm Idn Fixpoint: 1
               * Rnm Idn Theorem: 1
-- User 7: 148
+- User 7: 151
   * Structure: 57
       * Add: 26
           * Add Hyp: 18
@@ -211,8 +211,8 @@ Totals:
               * Rpl Bod Lemma: 3
           * Rpl Cas: 1
               * Rpl Cas Function: 1
-  * Syntax: 61
-      * Rnm: 61
+  * Syntax: 63
+      * Rnm: 63
           * Rnm Idn: 42
               * Rnm Idn Inductive: 2
               * Rnm Idn Definition: 8
@@ -221,9 +221,9 @@ Totals:
           * Rnm Bnd: 5
               * Rnm Bnd Fixpoint: 2
               * Rnm Bnd Lemma: 3
-          * Rnm Con: 14
+          * Rnm Con: 16
               * Rnm Con Inductive: 1
-              * Rnm Con Definition: 2
+              * Rnm Con Definition: 4
               * Rnm Con Fixpoint: 1
               * Rnm Con Lemma: 10
 - User 8: 44
@@ -300,7 +300,7 @@ Totals:
       * Rnm: 1
           * Rnm Bnd: 1
               * Rnm Bnd Fixpoint: 1
-- Total: 422
+- Total: 424
   * Structure: 197
       * Add: 144
           * Add Hyp: 34
@@ -413,8 +413,8 @@ Totals:
               * Rpl Cas Fixpoint: 1
               * Rpl Cas Definition: 3
               * Rpl Cas Function: 1
-  * Syntax: 82
-      * Rnm: 75
+  * Syntax: 84
+      * Rnm: 77
           * Rnm Idn: 48
               * Rnm Idn Inductive: 2
               * Rnm Idn Definition: 8
@@ -426,9 +426,9 @@ Totals:
               * Rnm Bnd Fixpoint: 5
               * Rnm Bnd Lemma: 3
               * Rnm Bnd Axiom: 2
-          * Rnm Con: 16
+          * Rnm Con: 18
               * Rnm Con Inductive: 1
-              * Rnm Con Definition: 2
+              * Rnm Con Definition: 4
               * Rnm Con Fixpoint: 1
               * Rnm Con Lemma: 10
               * Rnm Con Theorem: 2
@@ -1057,7 +1057,7 @@ Totals:
 3. [7.104.40-42](https://github.com/uwplse/analytics-data/compare/2ec5578bb5a00a4fcb53656408e8d358a0129cda..45f246c96f162abc7b02d511ad971b15635b0830)
   * Definition: `inv_depth`
   * New case: `TEV _`
-4. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.2](https://github.com/uwplse/analytics-data/blob/a746a4ce87b617ac8053c8c079c97ff656558690/diffs-annotated-with-times/7/user-7-session-193.v)).1 ([diff](https://www.diffchecker.com/5Dz6HAYW))
+4. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.2](https://github.com/uwplse/analytics-data/blob/a746a4ce87b617ac8053c8c079c97ff656558690/diffs-annotated-with-times/7/user-7-session-193.v)).2 ([diff](https://www.diffchecker.com/5Dz6HAYW))
   * Definition: `FV`
   * New case: `TBVar`
 
@@ -2195,7 +2195,7 @@ Totals:
   * Change: `tvar` -> `varid`
 
 2.  7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).4 ([diff](https://www.diffchecker.com/8RlqPoQZ))
-  * Change: `TVar` -> `TBVar`
+  * Change: `TVar` -> `TFVar`
 
 
 #### Rnm Idn Definition
@@ -2439,7 +2439,7 @@ Totals:
 
 1. 7.([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.0](https://github.com/uwplse/analytics-data/blob/5a157803867dc1dae2aed24702ab2590234582f4/diffs-annotated-with-times/7/user-7-session-193.v)).3 ([diff](https://www.diffchecker.com/8RlqPoQZ))
   * Inductive: `FV`
-  * Change: `TVar` -> `TBVar`
+  * Change: `TVar` -> `TFVar`
 
 #### Rnm Con Definition
 
@@ -2449,10 +2449,17 @@ Totals:
   * Definition: `tX`
   * Change: `vx` -> `vX`
 
-
 2. [7.93.2-6.7](https://github.com/uwplse/analytics-data/compare/80228aa9659f025bd5a270860b6f74a8e6c1b88d..c15f5fd243e37dc4f2a76aed4d96d5b181cf6d4e)
   * Definition: `tY`
   * Change: `vy` -> `vY`
+
+3. [174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.2](https://github.com/uwplse/analytics-data/blob/a746a4ce87b617ac8053c8c079c97ff656558690/diffs-annotated-with-times/7/user-7-session-193.v)).5 ([diff](https://www.diffchecker.com/5Dz6HAYW)
+  * Definition: `tX`
+  * Change: `TVar` -> `TBVar`
+
+4. [174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.2](https://github.com/uwplse/analytics-data/blob/a746a4ce87b617ac8053c8c079c97ff656558690/diffs-annotated-with-times/7/user-7-session-193.v)).5 ([diff](https://www.diffchecker.com/5Dz6HAYW)
+  * Definition: `tY`
+  * Change: `TVar` -> `TBVar`
 
 
 #### Rnm Con Theorem

@@ -26,11 +26,14 @@ the talk due to time constraints, but feel free to submit a pull request if you
 modify the analysis and do this in your own branch first.
 We will need to fix the above timestamp issues in the analysis first.
 
-**Proofs**: Also note that the changes we detected in the Q2 analysis were changes in terms, not in proof
+**Proofs and New Terms**: Also note that the changes we detected in the Q2 analysis were changes in terms, not in proof
 scripts. So I do not list changes in proofs explicitly in here.
 I do sometimes discuss them when they are interesting.
 Certain kinds of automation (say, proof repair tools) should of course
 consider the proofs changed in these sessions.
+Similarly, for the analysis, we looked only at changes to existing terms, considering new terms only as part of cutting
+an intermediate definition or lemma for an existing term.
+For the benchmarks, I discuss new definitions when they are interesting.
 When using these benchmarks to drive tool development, we recommend
 looking at the entire session for information relevant to measuring
 the success of your particular tool.
@@ -258,7 +261,41 @@ The session ends at 2019-08-19 08:53:45.00.
 
 ## Benchmark 4
 
-WIP.
+User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/7), Sessions [193](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-193.v) and [198](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-198.v).
+
+* Start time: 2019-09-03 08:47:45.05
+* Finish time: 2019-09-03 09:35:34.64
+* Relevant changes: 13
+
+### 7.193 (start time: 2019-09-03 08:47:45.05, relevant changes: 9)
+
+1. At the beginning of the session, as seen in
+([174.59](https://github.com/uwplse/analytics-data/blob/a6d3d04212bc0d6d6148ef9e284bb93ae067deba/diffs-annotated-with-times/7/user-7-session-174.v)-[193.2](https://github.com/uwplse/analytics-data/blob/a746a4ce87b617ac8053c8c079c97ff656558690/diffs-annotated-with-times/7/user-7-session-193.v)).1-6 ([diff](https://www.diffchecker.com/5Dz6HAYW)),
+the user splits the constructor `TVar` of `ty` into two constructors:
+`TBVar` and `TFVar`. At the same time, the user splits the fixpoint
+`FV` into two fixpoints: `FFV` and `FBV`, renaming `TVar` to `TFVar` and `TBVar`, respectively, and mapping the other case to empty.
+The user also replaces occurrences of `TVar` with `TBVar` inside of definitions `tX` and `tY`.
+
+2. In [7.193.3.1-2](https://github.com/uwplse/analytics-data/commit/556d1e6694bea362735634ef269a2fc3fed2c951#diff-d4b97524adb9b59c8860b3bf9df068d8),
+the user renames `ffree_in_ty` to `f_free_in_ty` and `not_ffree_in_ty` to `not_f_free_in_ty`, respectively.
+The user also defines `b_free_in_ty` and `not_b_free_in_ty` similarly.
+
+3. In [7.193.6-8.1](https://github.com/uwplse/analytics-data/compare/fdb0cb1b0f0d823d0e724796ebe766533b05d2f0..2018b45a51ee1deb5c7605bd130f53a537e3e2db),
+the user renames the `TVar` case of `match_ty` to `TFVar`.
+
+4. All of the changes total in this session take the user less than twenty minutes. The next session starts about half an hour later.
+
+### 7.198 (start time: 2019-09-03 09:34:22.85, relevant changes: 4)
+
+1. In [7.198.1.1-2](https://github.com/uwplse/analytics-data/commit/3ff0f2f44584bc6eaa93d5c74d01423e5dc600fc#diff-401c5a145ce7c67fa6059e1209070785),
+the user renames `b_subst_var_eq` -> `b_subst_bvar_eq`, and at the same time changes `TVar ` to `TBVar` in its body. The user attempts to define
+`b_subst_bvar_neq` (possibly also a renaming, but we don't have access to an earlier version of this definiton), but this fails since the user
+does not change `TVar` in its body yet.
+
+2. The user gets around to renaming both occurrences of `TVar` to `TBVar` inside of `b_subst_bvar_neq` in
+[7.198.2.1-2](https://github.com/uwplse/analytics-data/commit/f4c9a7de4083a963c915d4074c65207fafc64c07#diff-401c5a145ce7c67fa6059e1209070785).
+
+3. The session ends soon after at 2019-09-03 09:35:34.64.
 
 ## Benchmark 5
 
