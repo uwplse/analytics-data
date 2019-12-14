@@ -336,29 +336,130 @@ The session ends at 2019-09-04 23:38:29.00.
 
 # Repetitive Repair of Specifications
 
+Success for these benchmarks means partial or complete automation of the 
+manual steps the users took in repairing specifications and their proofs.
+
 ## Benchmark 6
+
+User [3](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/3), Session [73](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/3/user-3-session-73.v).
+
+* Start time: TODO
+* Finish time: TODO
+* Relevant changes: TODO
+
+### 6.73 (start time: TODO, relevant changes: TODO)
 
 WIP.
 
 ## Benchmark 7
 
+User [8](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/8), Sessions [2](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-2.v),
+[14](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-14.v),
+[37](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-37.v),
+[40](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-40.v),
+[65](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-65.v),
+[79](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-79s.v),
+[108](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-108.v),
+[125](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-125.v),
+and
+[160](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-160.v),
+
+* Start time: TODO
+* Finish time: TODO
+* Relevant changes: TODO
+
+### 8.2 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 8.14 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 8.37 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 8.40 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 8.65 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 8.79 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 8.108 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 8.125 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 8.160 (start time: TODO, relevant changes: TODO)
+
 WIP.
 
 # Interactive Discovery of Programs & Specifications
 
+Success in these benchmarks mean partial or complete automation of
+the discovery of the incorrectness of programs and specifications,
+of repairing them to correct programs and specifications.
+
 ## Benchmark 8
+
+User [3](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/3), Session [11377](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/3/user-3-session-11377.v).
+
+* Start time: TODO
+* Finish time: TODO
+* Relevant changes: TODO
+
+### 3.11377 (start time: TODO, relevant changes: TODO)
 
 WIP.
 
 ## Benchmark 9
 
+User [10](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/10), Session [13](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/10/user-10-session-13.v).
+
+* Start time: TODO
+* Finish time: TODO
+* Relevant changes: TODO
+
+### 10.13 (start time: TODO, relevant changes: TODO)
+
 WIP.
 
 ## Benchmark 10
 
+User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/7), Session [94](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-94.v).
+
+* Start time: TODO
+* Finish time: TODO
+* Relevant changes: TODO
+
+### 7.94 (start time: TODO, relevant changes: TODO)
+
 WIP.
 
 ## Benchmark 11
+
+User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/7), Sessions [2](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-2.v)
+and [10](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-10.v).
+
+* Start time: TODO
+* Finish time: TODO
+* Relevant changes: TODO
+
+### 7.2 (start time: TODO, relevant changes: TODO)
+
+WIP.
+
+### 7.10 (start time: TODO, relevant changes: TODO)
 
 WIP.
 
