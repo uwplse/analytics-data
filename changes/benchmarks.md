@@ -663,15 +663,28 @@ in order to generalize the inductive hypothesis when inducting over
 User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/7), Sessions [2](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-2.v)
 and [10](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-10.v).
 
-* Start time: TODO
-* Finish time: TODO
-* Relevant changes: TODO
+* Start time: 2019-08-06 12:30:14.47
+* Finish time: 2019-08-09 07:11:15.04
+* Relevant changes: 11
 
-### 7.2 (start time: TODO, relevant changes: TODO)
+### 7.2 (start time: 2019-08-06 12:30:14.47, relevant changes: 10)
 
-WIP.
+1. The user incrementally develops `weird_trans` in this session.
+In [7.2.147-152.1-5](https://github.com/uwplse/analytics-data/compare/d43041752f886ac0bbfe15a6c4e64aeab9fc69ff..1df9382cec8e149ba1d3e648a1268e0b4a54ef97),
+the user adds, removes, and moves hypotheses of `weird_trans`.
 
-### 7.10 (start time: TODO, relevant changes: TODO)
+2. In [7.2.158.1](https://github.com/uwplse/analytics-data/commit/32cda79ad11a1f7032728b7b2afbba09e57f6f65#diff-4cfcc23dc186dc3f932da247458e2157),
+the user adds a new hypothesis to `weird_trans`.
 
-WIP.
+3. In [7.2.162-165.1-4](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d),
+the user adds a hypothesis to `weird_trans`, renames two hypotheses
+of `weird_trans`, and replaces a body within its statement.
+The changes to `weird_trans` span about a day and a half.
+
+### 7.10 (start time: 2019-08-08 13:07:57.67, relevant changes: 1)
+
+1. The user renames `weird_trans` 
+to `sub_r_nf__trans` (see 7.([2.165](https://github.com/uwplse/analytics-data/blob/d08ef3ace72f4694186fc6124d7f30d3f78ad46d/diffs-annotated-with-times/7/user-7-session-2.v)-[10.24](https://github.com/uwplse/analytics-data/blob/153be0fced3740d5e2b20da7b36c2c46d2a9315b/diffs-annotated-with-times/7/user-7-session-10.v)).1 ([diff](https://www.diffchecker.com/RpzyJc68))). 
+
+2. The session ends at 2019-08-09 07:11:15.04.
 

@@ -2082,13 +2082,13 @@ Totals:
 ##### User 7
 
 1. [7.101.45-48](https://github.com/uwplse/analytics-data/compare/4f0f9bd12f974aa41a845b3e580be43627eb4791..214dca2c6e640fd33aefa48225bc69368ce63cf1)
-  * Lemma: `sem_sub__refint_eXrefX
+  * Lemma: `sem_sub__refint_eXrefX`
 
 2. [7.101.45-48](https://github.com/uwplse/analytics-data/compare/4f0f9bd12f974aa41a845b3e580be43627eb4791..214dca2c6e640fd33aefa48225bc69368ce63cf1)
-  * Lemma: `sem_sub__eXrefX_eYrefY
+  * Lemma: `sem_sub__eXrefX_eYrefY`
 
-3. [7.2.162-165.1](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d)
-  * Lemma: `weird_trans
+3. [7.2.162-165.4](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d)
+  * Lemma: `weird_trans`
 
 ### Rpl Cas
 
@@ -2326,11 +2326,11 @@ Totals:
 
 1. [3.960.81-125.3](https://github.com/uwplse/analytics-data/compare/3b03567f830321b7f4aeb4475c3b4e4fc4881d37..0a8fffcaea1d7898e882f52920f8b5dfad8deefe)
   * Fixpoint: `nat_to_le`
-  * Change: `base` -> `base_m2
+  * Change: `base` -> `base_m2`
 
 2. [3.960.160.2](https://github.com/uwplse/analytics-data/commit/f9e85ad6a1d4705f90b8f0c6697525971d924a87#diff-c8738f0dfa95435ed722ead9359a938b)
   * Fixpoint: `le_to_nat`
-  * Change: `base` -> `base_m2
+  * Change: `base` -> `base_m2`
 
 ##### User 7
 
@@ -2356,11 +2356,11 @@ Totals:
 
 1. [7.2.162-165.2](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d)
   * Lemma: `weird_trans`
-  * Change: `t1` -> `tm1
+  * Change: `t1` -> `tm1`
 
 2. [7.2.162-165.3](https://github.com/uwplse/analytics-data/compare/148f834338b149875f89d4694fed52572c0c7767..d08ef3ace72f4694186fc6124d7f30d3f78ad46d)
   * Lemma: `weird_trans`
-  * Change: `t2` -> `tm2
+  * Change: `t2` -> `tm2`
 
 3. [7.19.257.1](https://github.com/uwplse/analytics-data/commit/4ec88453123820b5e465e16425f3fd1ee408b930#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
   * Lemma: `match_ty_i__transitive_on_value_type`
