@@ -343,13 +343,42 @@ manual steps the users took in repairing specifications and their proofs.
 
 User [3](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/3), Session [73](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/3/user-3-session-73.v).
 
-* Start time: TODO
-* Finish time: TODO
-* Relevant changes: TODO
+* Start time: 2019-08-07 13:51:55.36
+* Finish time: 2019-08-07 13:59:06.23
+* Relevant changes: 11
 
-### 6.73 (start time: TODO, relevant changes: TODO)
+**Note**:
+The data from this study does not contain the proofs for this file 
+from before the changes (since these changes happened at the beginning
+of our study). A Github search shows previously 
+complete proofs, but it is not clear if the proofs broke in response to only this change or in response to several upstream changes.
 
-WIP.
+### 3.73 (start time: 2019-08-07 13:51:55.36, relevant changes: 11)
+
+1. In [3.73.2.1](https://github.com/uwplse/analytics-data/commit/90e5f51eaf6217121c9ff561f4bfe51ad1e89573#diff-8be9261640776c2891fe5ae0cbb6641e),
+the user patches the lemma `proc_rspec_refine_rec` by wrapping
+two of its arguments in an application of `Val`. The user attempts
+some of the proof before admitting it.
+
+2. In [3.73.8.1](https://github.com/uwplse/analytics-data/commit/0d9ae7a3ec26345f62b7b363089bc1451a225166#diff-8be9261640776c2891fe5ae0cbb6641e),
+the user makes the same change to `proc_rspec_crash_refines`,
+this time with a completed proof.
+
+3. In [3.73.9.1-3](https://github.com/uwplse/analytics-data/commit/73649386a5a61184d086969a4073d3b6fb8fca91#diff-8be9261640776c2891fe5ae0cbb6641e),
+the user makes the same change in three of four places in the lemma
+`proc_rspec_crash_refines_op`. The user then makes the final
+change to that lemma in [3.73.10.1](https://github.com/uwplse/analytics-data/commit/813664b9b8b4b1b93bc8cfcad8f6739536ac17b2#diff-8be9261640776c2891fe5ae0cbb6641e).
+The user later aborts this proof.
+
+4. In [3.73.14-16.1-4](https://github.com/uwplse/analytics-data/compare/2f182635153229e75d6cab78c3a85c9274ee9b73..2b33d3941997530e86a7a990aedc2f64143f4a00),
+the user makes this change in four places in the lemma `proc_rspec_recovery_refines_crash_step`.
+The user admits this proof immediately after.
+
+5. In [3.73.18.1](https://github.com/uwplse/analytics-data/commit/e02e344197e5407154d7eef9a0139618effd6748#diff-8be9261640776c2891fe5ae0cbb6641e),
+the user makes this change once in `proc_hspec_init_ok`. The user
+admits this proof immediately after as well.
+
+6. The session ends at 2019-08-07 13:59:06.23.
 
 ## Benchmark 7
 

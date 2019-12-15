@@ -59,7 +59,7 @@ Totals:
               * Cut Bod Fixpoint: 1
           * Cut Arg: 1
               * Cut Arg Definition: 1
-- User 3: 54
+- User 3: 55
   * Structure: 18
       * Add: 10
           * Add Hyp: 1
@@ -75,15 +75,15 @@ Totals:
           * Mov Arg: 8
               * Mov Arg Fixpoint: 5
               * Mov Arg Theorem: 3
-  * Content: 31
-      * Pch: 16
+  * Content: 32
+      * Pch: 17
           * Pch Bod: 3
               * Pch Bod Definition: 3
           * Pch Typ: 1
               * Pch Typ Definition: 1
-          * Pch Arg: 12
+          * Pch Arg: 13
               * Pch Arg Fixpoint: 1
-              * Pch Arg Lemma: 11
+              * Pch Arg Lemma: 12
       * Uch: 3
           * Uch Bod: 1
               * Uch Bod Definition: 1
@@ -1523,6 +1523,9 @@ Totals:
 11. [3.314.19.1](https://github.com/uwplse/analytics-data/commit/cda0fefe26a88d54c455f59b0892d6daebdad71e#diff-ddd04dd9808ff5743a4a44bd066f4635)
   * Lemma: `crash_step_simp`
 
+12. [3.73.10.1](https://github.com/uwplse/analytics-data/commit/813664b9b8b4b1b93bc8cfcad8f6739536ac17b2#diff-8be9261640776c2891fe5ae0cbb6641e)
+  * Lemma: `proc_rspec_crash_refines_op`
+
 ##### User 7
 
 1. [7.10.24.1](https://github.com/uwplse/analytics-data/commit/153be0fced3740d5e2b20da7b36c2c46d2a9315b#diff-fa854604a7d7e5a3d6f324dcc6eca903)
@@ -1919,13 +1922,9 @@ Totals:
   * Definition: `valid_ancillae`
   * Function: `=`
 
-
-
 2. [8.125.230.1](https://github.com/uwplse/analytics-data/commit/02c87e5c6021217f6a7d5dcb0e4ce402ca247f14#diff-89c2bc4106fc5e917e09249986d454bd)
   * Definition: `uniform`
   * Function: `=`
-
-
 
 #### Rpl Fun Lemma
 
@@ -1933,11 +1932,11 @@ Totals:
 
 1. [7.19.668.1](https://github.com/uwplse/analytics-data/commit/2c0f1d2f04a6bdc0679920915fa00fdb5336a40c#diff-c026bd15c3ac7f69c8e584c4c3b4f091)
   * Lemma: `pair_sem_sub_k_i__sub_d`
-  * Function: `value_type
+  * Function: `value_type`
 
 2. [7.212.3.1](https://github.com/uwplse/analytics-data/commit/e87b35834c90abb3c066362be72c0b70d29de1aa#diff-ceb02378d3c52e3d2d07ecf9ab9c44fe)
   * Lemma: `free_union__inv`
-  * Function: `not_free
+  * Function: `not_free`
 
 ##### User 8
 
@@ -1945,157 +1944,105 @@ Totals:
   * Lemma: `valid_denote_true`
   * Function: `=` in hypothesis
 
-
-
 2. [8.37.74.2](https://github.com/uwplse/analytics-data/commit/6dd884ce4e8885edd39ed641a567dec166b7707c#diff-d4c42697875a99ea9f5fd280836944bb)
   * Lemma: `valid_denote_true`
   * Function: `=` in conclusion
-
-
 
 3. [8.37.80.1](https://github.com/uwplse/analytics-data/commit/d5980afadfb0c483655051d48ec1d43e45b083ba#diff-d4c42697875a99ea9f5fd280836944bb)
   * Lemma: `valid_denote_false`
   * Function: `=` in hypothesis
 
-
-
 4. [8.37.80.2](https://github.com/uwplse/analytics-data/commit/d5980afadfb0c483655051d48ec1d43e45b083ba#diff-d4c42697875a99ea9f5fd280836944bb)
   * Lemma: `valid_denote_false`
   * Function: `=` in conclusion
-
-
 
 5. [8.2.133.1](https://github.com/uwplse/analytics-data/commit/8819e8ebf0525ee753d281541aff79de8bcc0cd7#diff-e9f1045008034dc1026a6b046b6296c6)
   * Lemma: `denote_ctrls_transpose`
   * Function: `=`
 
-
-
 6. [8.14.60.1](https://github.com/uwplse/analytics-data/commit/e0ac760647efd0531bacf9cf94c2048c7c5e4cd2#diff-4fcd210bdad257c209638124a92768ba)
   * Lemma: `MOVE_list_aux_id`
   * Function: `=`
-
-
 
 7. [8.14.62.1](https://github.com/uwplse/analytics-data/commit/202840d2440bc84b1fc6c215464420e10866cf49#diff-4fcd210bdad257c209638124a92768ba)
   * Lemma: `denote_pat_fresh_id`
   * Function: `=`
 
-
-
 8. [8.31.112.1](https://github.com/uwplse/analytics-data/commit/3d81e88254f1d040609dd9342e0f6512296806ee#diff-5f9dbb31b69361e15a42c343c5997c73)
   * Lemma: `inSeq_id_l`
-  * Function: 
-
-
+  * Function: `=` (not to `==` though)
 
 9. [8.40.25.1](https://github.com/uwplse/analytics-data/commit/d92ce6192ed1c8e97fed5d4d0852dd558b177ddd#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
   * Lemma: `init0_spec`
   * Function: `=`
 
-
-
 10. [8.40.38.1](https://github.com/uwplse/analytics-data/commit/1379c49e8446e8cd365259f8a5265af941277a80#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
   * Lemma: `SWAP_spec`
   * Function: `=`
-
-
 
 11. [8.40.48.1](https://github.com/uwplse/analytics-data/commit/10f2771bfcf6a36eb6141b71619143cd6a2b9b67#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
   * Lemma: `SWAP_spec_sep`
   * Function: `=`
 
-
-
 12. [8.40.52.1](https://github.com/uwplse/analytics-data/commit/2d77813e648fb5ee70261db16968453b72b2a75b#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
   * Lemma: `CNOT_spec`
   * Function: `=`
-
-
 
 13. [8.40.56.1](https://github.com/uwplse/analytics-data/commit/ad2d5683d55913af012166bb1baac99824e34c63#diff-b1a40bf8de4db46ef40c4aba4038ef6a)
   * Lemma: `XOR_spec`
   * Function: `=`
 
-
-
 14. [8.65.174.1](https://github.com/uwplse/analytics-data/commit/58d577b44616df4a59b2045124419d7dbc701347#diff-9d7b37e41233d92b620a4d9fc256c0de)
   * Lemma: `denote_box_id_circ`
   * Function: `=`
-
-
 
 15. [8.79.4.1](https://github.com/uwplse/analytics-data/commit/a8205d91fe7e8517e0562401ce4bc1c6edb89bcd#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Lemma: `big_kron_append`
   * Function: `=`
 
-
-
 16. [8.79.308.1](https://github.com/uwplse/analytics-data/commit/09396c9b700cc69f448ee04bb09c0148624db3ce#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Lemma: `init_at_spec`
   * Function: `=`
-
-
 
 17. [8.79.516.1](https://github.com/uwplse/analytics-data/commit/40025f30d16ae48fed21b4c1ff26e7d74bb9e487#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Lemma: `compile_correct`
   * Function: `=`
 
-
-
 18. [8.108.3.1](https://github.com/uwplse/analytics-data/commit/676f970a638f11bcf2c7f76c9224af37b83058dd#diff-cb3a25559501ca19647e80a240a1bb4c)
   * Lemma: `denote_unitary_box_eq`
   * Function: `=`
-
-
 
 19. [8.108.17.1](https://github.com/uwplse/analytics-data/commit/22510bd4da68f9a767a5c892c0339dd4075ef878#diff-cb3a25559501ca19647e80a240a1bb4c)
   * Lemma: `denote_unitary_isometry_box_eq`
   * Function: `=`
 
-
-
 20. [8.108.18.1](https://github.com/uwplse/analytics-data/commit/50587d8222891e0fa13854204d983736eb000ffa#diff-cb3a25559501ca19647e80a240a1bb4c)
   * Lemma: `denote_isometry_box_eq`
   * Function: `=`
-
-
 
 21. [8.125.233.1](https://github.com/uwplse/analytics-data/commit/023b45d26f2287a6f0e93a9dc0ace7d12ab03934#diff-89c2bc4106fc5e917e09249986d454bd)
   * Lemma: `even_bias`
   * Function: `=`
 
-
-
 22. [8.160.6.1](https://github.com/uwplse/analytics-data/commit/7f2e093f2c5a380849d32ffc7e9791dc59cfda4c#diff-86264511dc963b6ceb1080e09a447f68)
   * Lemma: `bra0_equiv`
   * Function: `=`
-
-
 
 23. [8.160.6.2](https://github.com/uwplse/analytics-data/commit/7f2e093f2c5a380849d32ffc7e9791dc59cfda4c#diff-86264511dc963b6ceb1080e09a447f68)
   * Lemma: `bra1_equiv`
   * Function: `=`
 
-
-
 24. [8.160.6.3](https://github.com/uwplse/analytics-data/commit/7f2e093f2c5a380849d32ffc7e9791dc59cfda4c#diff-86264511dc963b6ceb1080e09a447f68)
   * Lemma: `ket0_equiv`
   * Function: `=`
-
-
 
 25. [8.160.6.4](https://github.com/uwplse/analytics-data/commit/7f2e093f2c5a380849d32ffc7e9791dc59cfda4c#diff-86264511dc963b6ceb1080e09a447f68)
   * Lemma: `ket1_equiv`
   * Function: `=`
 
-
-
 26. [8.160.0-6.1](https://github.com/uwplse/analytics-data/compare/89fe6711883144c014b6948df048815fd0015878..7f2e093f2c5a380849d32ffc7e9791dc59cfda4c)
   * Lemma: `bra0ket0`
   * Function: `=`
-
-
 
 ### Rpl Fun Goal
 
@@ -2104,8 +2051,6 @@ Totals:
 1. [8.79.113.1](https://github.com/uwplse/analytics-data/commit/eafafb803e9bfae17bcee8dd8fdcb97ad9324628#diff-3ae9cc05249c564523bb8a4f63e1e3af)
   * Function: `=`
 
-
-
 ### Rpl Bod
 
 #### Rpl Bod Definition
@@ -2113,7 +2058,7 @@ Totals:
 ##### User 3
 
 1. [3.6414.104.1](https://github.com/uwplse/analytics-data/commit/e86179581c6685fd90c171aeeb415c1c3c96af48#diff-c54b8d476719bdc37960d29013205ce0)
-  * Definition: `log_length_ok
+  * Definition: `log_length_ok`
 
 ##### User 7
 
