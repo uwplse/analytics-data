@@ -570,17 +570,93 @@ See, for example, Sessions
 
 ## Benchmark 10
 
-User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/7), Session [94](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-94.v).
+User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/7), Sessions
+[19](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-19.v),
+[56](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-56.v),
+[93](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-93.v),
+[94](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-94.v),
+[104](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-104.v),
+[110](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-110.v),
+[153](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-153.v),
+[159](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-159.v),
+and [176](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-176.v).
 
-* Start time: 2019-08-19 8:53:45.280000
-* Finish time: TODO
-* Relevant changes: TODO
+* Start time: 2019-08-12 07:54:21.80
+* Finish time: 2019-09-02 06:22:30.43
+* Relevant changes: 13
 
-WIP there were many more of these.
+### 7.19 (start time: 2019-08-12 07:54:21.80, relevant changes: 2)
 
-### 7.94 (start time: TODO, relevant changes: TODO)
+1. In [7.19.623.1](https://github.com/uwplse/analytics-data/commit/020d1bb7d6762a8cda73a8901490135710bedd4c#diff-c026bd15c3ac7f69c8e584c4c3b4f091),
+the user swaps hypotheses of `nf_sem_sub_i__d` in order to generalize
+the inductive hypothesis when inducting over `k`
+after a partial proof attempt.
 
-WIP.
+2. In [7.19.700.1](https://github.com/uwplse/analytics-data/commit/b9b3dc0acdc44140d5c1387530f134a375165c96#diff-c026bd15c3ac7f69c8e584c4c3b4f091), the user swaps
+hypotheses of `match_ty_i_nf'` to generalize the inductive hypothesis,
+and removes now unnecessary tactics
+`intros v t; generalize dependent v;`. 
+The user does this after a partial proof attempt of
+
+### 7.56 (start time: 2019-08-16 07:54:21.07, relevant changes: 1)
+
+1. In [7.56.2.1](https://github.com/uwplse/analytics-data/commit/0d4b226a2a11935a36779daa4f128c3eaea9c4b3#diff-908172b925240877d071b6897dc1d5ee),
+the user swaps hypotheses of `match_ty_value_type_k` to generalize
+the inducive hypothesis when inducting over `Hv`, whereas the old
+version had inducted over `v` and later inverted `Hv`. 
+
+### 7.93 (start time: 2019-08-19 08:27:15.72, relevant changes: 2)
+
+1. The user swaps hypotheses of `match_ty_i__inv_depth_stable`
+in [7.19.62.1](https://github.com/uwplse/analytics-data/commit/a6d0474a0ceb4ce657e1abde377ad6b307a5690a#diff-c026bd15c3ac7f69c8e584c4c3b4f091) in order to induct over a 
+different argument first, then promptly undoes this change
+in [7.19.63.1](https://github.com/uwplse/analytics-data/commit/90bcd26f93d546d5f167e5b48d76cc42b59058f7#diff-c026bd15c3ac7f69c8e584c4c3b4f091).
+
+### 7.94 (start time: 2019-08-19 08:53:45.28, relevant changes: 1)
+
+1. In [7.94.15.1](https://github.com/uwplse/analytics-data/commit/10f1e50aea2f5c520e428c2112deafd6de211165#diff-0e20eeec6f52eb278a00e9a7ad17ef13),
+the user swaps hypotheses of `match_ty__value_type_l`
+to generalize the inductive hypothesis in order to induct
+over `k` instead of `v`.
+
+### 7.104 (start time: 2019-08-20 12:08:13.82, relevant changes: 3)
+
+1. In [7.104.46.1](https://github.com/uwplse/analytics-data/commit/8ba95b3fc660d3fde24256d7491b9d162ffc41f8#diff-bb1c2571916baaaf3b503f1b3ec5afb9), the user swaps hypotheses
+of `not__ref_t_match_ty_t` to generalize the inductive hypothesis
+in order to induct over `t` instead of `k`.
+In [7.104.50.1](https://github.com/uwplse/analytics-data/commit/f0e2ce949623abceb61b5caec9d4c65cdbe6691e#diff-bb1c2571916baaaf3b503f1b3ec5afb9), the user undoes that change
+and inducts over `k` after all.
+
+2. The user swaps hypotheses of `not_sem_eq__reft_t` in [7.104.93.1](https://github.com/uwplse/analytics-data/commit/1189731ba8808726e5f227425afede72129d07dd#diff-bb1c2571916baaaf3b503f1b3ec5afb9)
+in order to induct over `t`.
+
+### 7.110 (start time: 2019-08-26 07:46:32.45, relevant changes: 1)
+
+1. In [7.110.26.1](https://github.com/uwplse/analytics-data/commit/a08dfb521247d5d2965e8e4df4a8d5b30f3ffeef#diff-4faaf58c6e1ec18364e6fb109b98c0f8),
+the user swaps hypotheses of  `match_ty__transitive_on_value_type`
+after a partial proof attempt to induct over `w`.
+
+### 7.153 (start time: 2019-08-29 08:24:40.06, relevant changes: 1)
+
+1. In [7.153.14.1](https://github.com/uwplse/analytics-data/commit/591b1ec11b44bedccfbed32cf3ed5cd6fcd23505#diff-e027fd9e7dd1c2f5cba51051e505fe01), the user swaps
+hypotheses of `build_v` after a partial proof
+attempt in order to induct over `w` before `t`.
+
+### 7.159 (start time: 2019-08-29 09:19:35.52, relevant changes: 1)
+
+1. In [7.159.31.1](https://github.com/uwplse/analytics-data/commit/05792a8a37ae030e87fa24859be5e95d100973ea#diff-75c4928c5959d3ac23194a6dba0460ef),
+the user swaps hypotheses of `build_v_full` after a partial
+proof attempt in order to generalize
+the inductive hypothesis when inducting over `w` and `t`.
+
+### 7.176 (start time: 2019-08-30 06:41:48.30, relevant changes: 1)
+
+1. In [7.176.27.1](https://github.com/uwplse/analytics-data/commit/13d0b90e77aaf30ff53b48110d3a61c85e54ffcf#diff-065eef9a016a3546d718f49aae1be13d),
+the user swaps hypotheses of `match_ty__subst_neq_permute`
+in order to generalize the inductive hypothesis when inducting over
+`t`.
+
+2. The session ends at 2019-09-02 06:22:30.43.
 
 ## Benchmark 11
 
