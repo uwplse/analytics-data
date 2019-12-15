@@ -524,21 +524,59 @@ The session ends later at 2019-09-09 11:50:34.06.
 
 User [10](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/10), Session [13](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/10/user-10-session-13.v).
 
-* Start time: TODO
-* Finish time: TODO
-* Relevant changes: TODO
+* Start time: 2019-08-27 14:59:29.06
+* Finish time: 2019-08-27 15:10:08.76
+* Relevant changes: 1
 
-### 10.13 (start time: TODO, relevant changes: TODO)
+The early definitions of `fib` and its testing do not register as
+changes in our classification since they are not changes to existing
+terms. We discuss them anyways since they are good context.
 
-WIP.
+### 10.13 (start time: 2019-08-27 14:59:29.06, relevant changes: 1)
+
+1. This session involves testing both a cofixpoint `fib` and a fixpoint
+`fib'`.
+At the beginning of the session (see [this commit](https://github.com/uwplse/analytics-data/commit/98718b452a7002812007f20b5d3bab2025075d4e#diff-69da5da1f0f8dbff0b41ae3e620593e8)), the user defines a cofixpoint `fib`. The user then tests `fib`
+using `Eval compute` (see [this commit](https://github.com/uwplse/analytics-data/commit/90300f1a1223919507bd9057e201c85248737fee#diff-69da5da1f0f8dbff0b41ae3e620593e8),
+[this commit](https://github.com/uwplse/analytics-data/commit/2740205706cde75ba310f700ad8b588d8352a3b1#diff-69da5da1f0f8dbff0b41ae3e620593e8), 
+and [this commit](https://github.com/uwplse/analytics-data/commit/322a43f363d998d9564855ee2b53b662ed4ff76a#diff-69da5da1f0f8dbff0b41ae3e620593e8)).
+Perhaps for comparison, the user defines a regular fixpoint `fib'` and tests it in [this commit](https://github.com/uwplse/analytics-data/compare/322a43f363d998d9564855ee2b53b662ed4ff76a..9343f4697214c99ba190b7a4d067b4efcfd0f0f6).
+However, the definition of `fib'` is wrong the first time around.
+
+2. In [10.13.11.1](https://github.com/uwplse/analytics-data/commit/a9ed1b8e61dba8cdb1ffe512e1bc5fa73835dd7d#diff-69da5da1f0f8dbff0b41ae3e620593e8),
+after testing `fib'`, the user patches the `S fuel` case. Before the
+test, `fib'` had always returned `nil`. After, `fib'` returns the first
+`fuel` numbers of the fibonacci sequence. Testing `fib'` and fixing
+it takes the user about 30 seconds after defining it to begin with.
+
+3. The rest of this session is unrelated to the fix to `fib'`,
+but I include it for context as well. Later
+(see [this commit](https://github.com/uwplse/analytics-data/commit/7d12bd245c469243488644ab01357c8c93fab8fd#diff-69da5da1f0f8dbff0b41ae3e620593e8)),
+the user patches `fib'` again to use `print_id`, an identity
+function with a printing side-effect from a dependency
+(this does register as a change in our analysis, but the benchmark
+focuses on just the first change).
+This all happens in what appears to be a file testing
+`print_id` itself.
+
+4. At the end of the session, the user removes `fib'`.
+The session ends at 2019-08-27 15:10:08.76.
+
+5. In later sessions, the file at different times keeps the tests
+around but for `fib1` and `fib2`.
+See, for example, Sessions
+[16](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/10/user-10-session-16.v) and 
+[17](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/10/user-10-session-17.v).
 
 ## Benchmark 10
 
 User [7](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/7), Session [94](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/7/user-7-session-94.v).
 
-* Start time: TODO
+* Start time: 2019-08-19 8:53:45.280000
 * Finish time: TODO
 * Relevant changes: TODO
+
+WIP there were many more of these.
 
 ### 7.94 (start time: TODO, relevant changes: TODO)
 
