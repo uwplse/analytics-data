@@ -248,13 +248,13 @@ has failed.
 
 2. In [7.93.2-6.1-5](https://github.com/uwplse/analytics-data/compare/80228aa9659f025bd5a270860b6f74a8e6c1b88d..c15f5fd243e37dc4f2a76aed4d96d5b181cf6d4e),
 the user renames the second `ty` to `tY`. Rather than change only `ty`,
-the user also renames `vx` to `vX`, `vy` to `vY`, `vz` to `vZ`, and `tx` to `tX`, all following the same convention. 
+the user also renames `vx` to `vX`, `vy` to `vY`, `vz` to `vZ`, and `tx` to `tX`, all following the same convention.
 
 3. For the change to succeed, in [7.93.2-6.6-7](https://github.com/uwplse/analytics-data/compare/80228aa9659f025bd5a270860b6f74a8e6c1b88d..c15f5fd243e37dc4f2a76aed4d96d5b181cf6d4e),
 the user changes `vx` to `vX` in the body of `tX`, and `vy` to `vY`
 in the body of `tY`. In total, the 7 changes to these 5 terms
 take four tries over less than two minutes (see raw data for timestamps
-for now).
+for now). All of these changes together make up Figure 8.
 
 4. The rest of the development is unrelated to this refactoring.
 The session ends at 2019-08-19 08:53:45.00.
@@ -368,6 +368,7 @@ this time with a completed proof.
 the user makes the same change in three of four places in the lemma
 `proc_rspec_crash_refines_op`. The user then makes the final
 change to that lemma in [3.73.10.1](https://github.com/uwplse/analytics-data/commit/813664b9b8b4b1b93bc8cfcad8f6739536ac17b2#diff-8be9261640776c2891fe5ae0cbb6641e).
+These are the changes from Figure 9.
 The user later aborts this proof.
 
 4. In [3.73.14-16.1-4](https://github.com/uwplse/analytics-data/compare/2f182635153229e75d6cab78c3a85c9274ee9b73..2b33d3941997530e86a7a990aedc2f64143f4a00),
@@ -499,13 +500,25 @@ of repairing them to correct programs and specifications.
 
 User [3](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-with-times/3), Session [11377](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/3/user-3-session-11377.v).
 
-* Start time: TODO
-* Finish time: TODO
-* Relevant changes: TODO
+* Start time: 2019-09-08 10:06:36.87
+* Finish time: 2019-09-09 11:50:34.06
+* Relevant changes: 3
 
-### 3.11377 (start time: TODO, relevant changes: TODO)
+### 3.11377 (start time: 2019-09-08 10:06:36.87, relevant changes: 3)
 
-WIP.
+1. In [3.11377.1.1-2](https://github.com/uwplse/analytics-data/commit/3e1f1be64be8dac8dbc236a7283dafd8aa6f3e54#diff-1cd865b759c4edd9e6ed6ef53b0a2f9c),
+the user moves arguments in the theorem `mult_n_Sm` after a partial
+proof attempt.
+
+2. In [3.11377.4.1](https://github.com/uwplse/analytics-data/commit/98ac3377f6e6acd71c6f227bd91ceec74bd94c2e#diff-1cd865b759c4edd9e6ed6ef53b0a2f9c),
+the user makes the change from Figure 10. The theorem
+before the change is impossible (let m be 3 and n be 1 ). After
+attempting to prove it and reaching the goal of showing
+`0 = m` (we replayed this in Coq), the user steps up and fixes the
+theroem by replacing an argument.
+
+3. The user fixes the proof by 2019-09-08 10:09:20.11 AM.
+The session ends later at 2019-09-09 11:50:34.06.
 
 ## Benchmark 9
 

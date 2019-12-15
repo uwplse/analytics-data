@@ -1309,9 +1309,11 @@ Totals:
 1. [3.5406.1.1](https://github.com/uwplse/analytics-data/commit/77a938b6ec7eb44fbac0b006237388c0fd95ffe5#diff-48cd7000479283a78b3d4fe4dfb30c47)
   * Theorem: `proc_spec_rx`
   * Moved argument: `(forall r state', ...)`
+
 2. [3.11377.1.1](https://github.com/uwplse/analytics-data/commit/3e1f1be64be8dac8dbc236a7283dafd8aa6f3e54#diff-1cd865b759c4edd9e6ed6ef53b0a2f9c)
   * Theorem: `mult_n_Sm`
   * Moved argument: `n` on LHS
+
 3. [3.11377.1.2](https://github.com/uwplse/analytics-data/commit/3e1f1be64be8dac8dbc236a7283dafd8aa6f3e54#diff-1cd865b759c4edd9e6ed6ef53b0a2f9c)
   * Theorem: `mult_n_Sm`
   * Moved argument: `n` on RHS
