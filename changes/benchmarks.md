@@ -393,45 +393,101 @@ User [8](https://github.com/uwplse/analytics-data/tree/master/diffs-annotated-wi
 and
 [160](https://github.com/uwplse/analytics-data/blob/master/diffs-annotated-with-times/8/user-8-session-160.v),
 
-* Start time: TODO
-* Finish time: TODO
-* Relevant changes: TODO
+* Start time: 2019-08-07 18:19:06.54
+* Finish time: 2019-08-16 15:11:42.11
+* Relevant changes: 28
 
-### 8.2 (start time: TODO, relevant changes: TODO)
+### 8.2 (start time: 2019-08-07 18:19:06.54, relevant changes: 1)
 
-WIP.
+1. In [8.2.133.1](https://github.com/uwplse/analytics-data/commit/8819e8ebf0525ee753d281541aff79de8bcc0cd7#diff-e9f1045008034dc1026a6b046b6296c6), the user replaces `=` with `==`
+in the lemma `denote_ctrls_transpose`.
 
-### 8.14 (start time: TODO, relevant changes: TODO)
+### 8.14 (start time: 2019-08-09 13:33:08.07, relevant changes: 2)
 
-WIP.
+1. A day and a half later, in 
+[8.14.60.1](https://github.com/uwplse/analytics-data/commit/e0ac760647efd0531bacf9cf94c2048c7c5e4cd2#diff-4fcd210bdad257c209638124a92768ba),
+the user does the same replacement in the lemma `MOVE_list_aux_id`.
 
-### 8.37 (start time: TODO, relevant changes: TODO)
+2. The user makes the same change to `denote_pat_fresh_id` in
+[8.14.62.1](https://github.com/uwplse/analytics-data/commit/202840d2440bc84b1fc6c215464420e10866cf49#diff-4fcd210bdad257c209638124a92768ba),
+before rewriting by `swap_list_n_id` (which also uses `==`, though
+we do not see the old version in our data if this also changed).
 
-WIP.
+### 8.37 (start time: 2019-08-09 14:21:10.08, relevant changes: 5)
 
-### 8.40 (start time: TODO, relevant changes: TODO)
+1. The user makes the same change to the definition `valid_ancillae`
+in [8.37.10.1](https://github.com/uwplse/analytics-data/commit/0b83a6309d0228ba536354878324ec0cbeca0abc#diff-d4c42697875a99ea9f5fd280836944bb).
 
-WIP.
+2. In [8.37.74.1-2](https://github.com/uwplse/analytics-data/commit/6dd884ce4e8885edd39ed641a567dec166b7707c#diff-d4c42697875a99ea9f5fd280836944bb), the user makes the same change
+twice inside of the statement of the lemma `valid_denote_true`
+before rewriting by a hypothesis (perhaps the one that refers
+to `valid_ancillae_box`, which also uses `==`).
 
-### 8.65 (start time: TODO, relevant changes: TODO)
+3. In [8.37.80.1-2](https://github.com/uwplse/analytics-data/commit/d5980afadfb0c483655051d48ec1d43e45b083ba#diff-d4c42697875a99ea9f5fd280836944bb), the user makes the same change
+twice in `valid_denote_false` in the same two places.
 
-WIP.
+### 8.40 (start time: 2019-08-12 14:23:58.50, relevant changes: 5)
 
-### 8.79 (start time: TODO, relevant changes: TODO)
+1. Three days pass. The user makes the same change again
+in later sessions. In [8.40.25.1](https://github.com/uwplse/analytics-data/commit/d92ce6192ed1c8e97fed5d4d0852dd558b177ddd#diff-b1a40bf8de4db46ef40c4aba4038ef6a), the user makes this change
+in `init0_spec` in between running the tactics `matrix_denote`
+and `Msimpl`. (The user may also make this change in `init1_spec`,
+but we don't see the version from before.)
 
-WIP.
+2. The user makes the change once again in [8.40.38.1](https://github.com/uwplse/analytics-data/commit/1379c49e8446e8cd365259f8a5265af941277a80#diff-b1a40bf8de4db46ef40c4aba4038ef6a) to the lemma `SWAP_spec`.
 
-### 8.108 (start time: TODO, relevant changes: TODO)
+3. The user then makes this change to `SWAP_spec_sep` in [8.40.48.1](https://github.com/uwplse/analytics-data/commit/10f2771bfcf6a36eb6141b71619143cd6a2b9b67#diff-b1a40bf8de4db46ef40c4aba4038ef6a) before rewriting by the changed
+`SWAP_spec`.
 
-WIP.
+4. The user makes this change again, this time to `CNOT_spec` in [8.40.52.1](https://github.com/uwplse/analytics-data/commit/2d77813e648fb5ee70261db16968453b72b2a75b#diff-b1a40bf8de4db46ef40c4aba4038ef6a).
 
-### 8.125 (start time: TODO, relevant changes: TODO)
+5. Finally, the user makes this change to `XOR_spec` in [8.40.56.1](https://github.com/uwplse/analytics-data/commit/ad2d5683d55913af012166bb1baac99824e34c63#diff-b1a40bf8de4db46ef40c4aba4038ef6a) (possibly also `AND_spec`,
+but again, we do not have the version from before).
 
-WIP.
+### 8.65 (start time: 2019-08-13 10:27:58.54, relevant changes: 1)
 
-### 8.160 (start time: TODO, relevant changes: TODO)
+1. The next day, the user makes this change again in [8.65.174.1](https://github.com/uwplse/analytics-data/commit/58d577b44616df4a59b2045124419d7dbc701347#diff-9d7b37e41233d92b620a4d9fc256c0de).
 
-WIP.
+### 8.79 (start time: 2019-08-13 15:42:09.78, relevant changes: 4)
+
+1. The user later makes this change in [8.79.4.1](https://github.com/uwplse/analytics-data/commit/a8205d91fe7e8517e0562401ce4bc1c6edb89bcd#diff-3ae9cc05249c564523bb8a4f63e1e3af)
+to `big_kron_append` before rewriting by `kron_1_l`. 
+
+2. The user makes this change in an anonymous goal in
+[8.79.113.1](https://github.com/uwplse/analytics-data/commit/eafafb803e9bfae17bcee8dd8fdcb97ad9324628#diff-3ae9cc05249c564523bb8a4f63e1e3af).
+
+3. In [8.79.308.1](https://github.com/uwplse/analytics-data/commit/09396c9b700cc69f448ee04bb09c0148624db3ce#diff-3ae9cc05249c564523bb8a4f63e1e3af),
+the user makes this change to the lemma `init_at_spec`.
+
+4. Finally, the user makes this change to the theorem `compile_correct` in [8.79.516.1](https://github.com/uwplse/analytics-data/commit/40025f30d16ae48fed21b4c1ff26e7d74bb9e487#diff-3ae9cc05249c564523bb8a4f63e1e3af).
+
+### 8.108 (start time: 2019-08-15 14:00:51.82, relevant changes: 3)
+
+1. Two days later, the user makes this change some more.
+In [8.108.3.1](https://github.com/uwplse/analytics-data/commit/676f970a638f11bcf2c7f76c9224af37b83058dd#diff-cb3a25559501ca19647e80a240a1bb4c), the user makes this change
+to the lemma `denote_unitary_box_eq`.
+
+2. The user makes this change in [8.108.17.1](https://github.com/uwplse/analytics-data/commit/22510bd4da68f9a767a5c892c0339dd4075ef878#diff-cb3a25559501ca19647e80a240a1bb4c) to `denote_unitary_isometry_box_eq`.
+The user also aborts the proof of `denote_isometry_box_eq`.
+
+3. The user then makes this change to `denote_isometry_box_eq` in [8.108.18.1](https://github.com/uwplse/analytics-data/commit/50587d8222891e0fa13854204d983736eb000ffa#diff-cb3a25559501ca19647e80a240a1bb4c). The user does not yet fix its
+proof.
+
+### 8.125 (start time: 2019-08-15 14:28:03.17, relevant changes: 2)
+
+1. The user makes this change to the definition `uniform` in [8.125.230.1](https://github.com/uwplse/analytics-data/commit/02c87e5c6021217f6a7d5dcb0e4ce402ca247f14#diff-89c2bc4106fc5e917e09249986d454bd).
+
+2. The user makes this change to the lemma `even_bias` in [8.125.233.1](https://github.com/uwplse/analytics-data/commit/023b45d26f2287a6f0e93a9dc0ace7d12ab03934#diff-89c2bc4106fc5e917e09249986d454bd).
+
+### 8.160 (start time: 2019-08-16 15:00:39.44, relevant changes: 5)
+
+1. The next day, in [8.160.0-6.1-5](https://github.com/uwplse/analytics-data/compare/89fe6711883144c014b6948df048815fd0015878..7f2e093f2c5a380849d32ffc7e9791dc59cfda4c),
+the user makes this change in lemmas `bra0_equiv`, `bra1_equiv`,
+`ket0_equiv`, `ket1_equiv`, and `bra0ket0`. (The user may also
+make this change to the lemmas below it, but the earlier versions
+do not show up in diffs.)
+
+2. The session ends at 2019-08-16 15:11:42.11. 
 
 # Interactive Discovery of Programs & Specifications
 
