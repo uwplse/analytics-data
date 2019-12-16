@@ -48,9 +48,6 @@ note below about these)
 from within its directory. You can then look at the Git history
 to see the processed data.
 
-To find out what the name of the module a particular session corresponds to, 
-you can modify the [/scripts/q2/replay.py](replay) script to
-
 The [changes](/changes) directory contains a complete
 [list of all of the changes](/changes/all-changes.md)
 that we found in the manual analysis of this processed data, as well as
