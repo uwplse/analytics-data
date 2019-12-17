@@ -1,4 +1,4 @@
-This public repository hosts the data for the [REPLICA](https://github.com/uwplse/coq-change-analytics) study, the paper for which will be published soon.
+This public repository hosts the data for the REPLICA study ([paper](http://tlringer.github.io/pdf/analytics.pdf), [tool](https://github.com/uwplse/coq-change-analytics)), a user study of Coq proof engineers.
 
 # Data
 
