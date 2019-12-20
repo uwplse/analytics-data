@@ -12,6 +12,11 @@ within the paper.
 
 # Analysis
 
+Before running our scripts, be sure to unzip the raw data:
+
+1. `cd raw`
+2. `tar xzf logs.tar.gz`
+
 Please contact us if you have any issues running our scripts.
 
 ## Q1
@@ -19,13 +24,12 @@ Please contact us if you have any issues running our scripts.
 To reproduce the numbers reported for Q1:
 
 1. `cd raw`
-2. `tar xzf logs.tar.gz`
-3. `python3 ../scripts/q1/cancellation_info.py`
+2. `python3 ../scripts/q1/cancellation_info.py`
 (You'll need to wait a while after this command, while the raw logs are split into sessions.)
-4. Read the output for information about raw cancellation
-5. `python3 ../scripts/q1/proof_graphs.py`
-6. Read the output for information about cancellations and their replacement commands
-7. In the `graphs/` directory, you'll find svgs of proof flow graphs.
+3. Read the output for information about raw cancellation
+4. `python3 ../scripts/q1/proof_graphs.py`
+5. Read the output for information about cancellations and their replacement commands
+6. In the `graphs/` directory, you'll find svgs of proof flow graphs.
 
 ## Q2
 
