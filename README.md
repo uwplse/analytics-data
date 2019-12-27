@@ -5,8 +5,7 @@ This public repository hosts the data for the REPLICA study ([paper](http://tlri
 The raw data is in the [raw](/raw) directory.
 
 Processed data for Q2 is in the [diffs-annotated-fixed-2](/diffs-annotated-fixed-2)
-directory. Processed data for Q2 _including timestamps_ is in the
-[diffs-annotated-with-times](/diffs-annotated-with-times) directory.
+directory.
 You can use the Git history to look back at the sessions referenced 
 within the paper.
 
