@@ -254,7 +254,7 @@ Totals:
       * Ufy: 1
           * Ufy Con: 1
               * Ufy Con Definition: 1
-- User 10: 15
+- User 10: 17
   * Structure: 2
       * Add: 1
           * Add Cas: 1
@@ -262,14 +262,14 @@ Totals:
       * Mov: 1
           * Mov Hyp: 1
               * Mov Hyp Definition: 1
-  * Content: 11
+  * Content: 13
       * Pch: 6
           * Pch Cas: 2
               * Pch Cas Fixpoint: 2
           * Pch Arg: 4
               * Pch Arg Fixpoint: 3
               * Pch Arg Definition: 1
-      * Uch: 1
+      * Uch: 3
           * Uch Cas: 1
               * Uch Cas Fixpoint: 1
           * Uch Bod: 2
