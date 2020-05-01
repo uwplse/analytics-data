@@ -79,6 +79,13 @@ I will run a reanalysis at some point after the camera-ready
 and update the commits to point to the data with the correct
 intermediate timestamps. Sorry for the confusion!
 
+**Intent**: While we know that each change that we found was in fact made
+on one of our users' computers over the course of the month, we do not have any guarantee
+that each user did not lend the computer to someone else, or demonstrate something
+to a student. We think it is likely that _most_ changes we find come directly from
+the user for their own purposes, but some changes may not. It is worth considering
+that when you look at the data if you see anything surprising. 
+
 **Failures for User 5**: As we note in the paper, we could not automatically 
 distinguish failures from user backtracking for User 5.
 So even though processed data is annotated with "success" and "failure," 
